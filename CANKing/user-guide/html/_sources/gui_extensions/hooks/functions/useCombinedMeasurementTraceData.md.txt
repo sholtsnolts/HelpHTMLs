@@ -1,0 +1,40 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [hooks](../README.md) / useCombinedMeasurementTraceData
+
+# Function: useCombinedMeasurementTraceData()
+
+> **useCombinedMeasurementTraceData**(`startUs?`, `options?`): `object`
+
+A hook for combined measurement trace data from both scroll mode and fixed position mode. Will return the latest measurement data, with at most 500 frames from
+scroll mode and one frame for each unique frame id and type from fixed position mode.
+
+## Parameters
+
+### startUs?
+
+`number`
+
+Optional start time (in microseconds) to read from the fixed position data buffer. Any frame with a timestamp less than this will be excluded.
+
+### options?
+
+[`MeasurementTraceDataOptions`](../type-aliases/MeasurementTraceDataOptions.md)
+
+Optional options to customize the measurement trace data retrieval.
+
+## Returns
+
+`object`
+
+The combined measurement trace data.
+
+### fixedPositionModeFrames
+
+> **fixedPositionModeFrames**: [`Frame`](../../models/interfaces/Frame.md)[]
+
+### scrollModeFrames
+
+> **scrollModeFrames**: [`Frame`](../../models/interfaces/Frame.md)[]

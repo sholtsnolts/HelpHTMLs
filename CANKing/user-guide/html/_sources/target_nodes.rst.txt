@@ -1,0 +1,119 @@
+.. _target_nodes:
+
+Target Nodes
+============
+
+Target nodes consume data from the measurement setup, typically writing it to files for later analysis.
+
+.. _message_logger_node:
+
+Message Logger
+--------------
+
+The Message Logger target node records CAN and LIN messages to files in various formats for offline analysis.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **File Name** - Output file path and name
+* **File Format** - Choose from supported log formats (see table below)
+* **Append Index** - Automatically append a number to prevent overwriting existing files
+* **Overwrite** - Overwrite existing files with the same name
+
+Supported Formats
+~~~~~~~~~~~~~~~~~
+
+=============         =========         =================================
+Format                Extension         Description
+=============         =========         =================================
+CSV Frame             csv               CAN frames in CSV format
+KME 2.4               kme               Kvaser binary format (KME 2.4)
+KME 2.5               kme25             Kvaser binary format (KME 2.5)
+KME 4.0               kme40             Kvaser binary format (KME 4.0)
+KME 5.0               kme50             Kvaser binary format (KME 5.0)
+MDF                   log               CAN frames in MDF format
+MDF v4.x              mf4               CAN frames in MDF v4.x format
+Plain text            txt               CAN frames in plain text format
+Vector ASCII          asc               CAN frames in Vector ASCII format
+Vector BLF FD         blf               CAN frames in Vector BLF format
+=============         =========         =================================
+
+Format Selection Guidance
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **CSV/Plain Text** - Human-readable, easy to process with scripts, larger file sizes
+* **KME** - Kvaser native format, compact, efficient, best for replay
+* **MDF** - Industry standard for measurement data, widely supported by analysis tools
+* **Vector formats** - Compatible with Vector tools (CANoe, CANalyzer, etc.)
+
+Use Cases
+~~~~~~~~~
+
+* Recording field test data for offline analysis
+* Creating data sets for regression testing
+* Archiving measurement sessions
+* Sharing data with other team members or tools
+* Compliance documentation and traceability
+
+Tips
+~~~~
+
+* Use append index to prevent accidental data loss from overwrites
+* Choose format based on your analysis tool compatibility requirements
+* Binary formats (KME, BLF, MDF) are more efficient for large data sets
+* CSV format is best for quick inspection and custom script processing
+* Consider disk space for long recordings with high message rates
+
+.. _signal_logger_node:
+
+Signal Logger
+-------------
+
+The Signal Logger target node records decoded signal values to files, requiring database definitions for signal information.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **File Name** - Output file path and name
+* **File Format** - Choose from supported signal formats (see table below)
+* **Append Index** - Automatically append a number to prevent overwriting existing files
+* **Overwrite** - Overwrite existing files with the same name
+* **Signal Selection** - Choose which signals to log (requires databases to be loaded)
+
+Supported Formats
+~~~~~~~~~~~~~~~~~
+
+===============           =========           ======================================
+Format                    Extension           Description
+===============           =========           ======================================
+CSV Signal                csv                 Selected signals in CSV format
+FAMOS                     dat                 Selected signals in FAMOS format
+Matlab                    mat                 Selected signals in Matlab format
+MDF Signal                mdf                 Selected signals in MDF format
+MDF v4.x Signal           mf4                 Selected signals in MDF v4.x format
+===============           =========           ======================================
+
+Requirements
+~~~~~~~~~~~~
+
+* A Databases data processor must be added to the source channel
+* Database files must contain signal definitions for the messages of interest
+
+Use Cases
+~~~~~~~~~
+
+* Recording signal-level data for engineering analysis
+* Creating data sets for MATLAB or other analysis tools
+* Logging specific signals without raw message overhead
+* Time-series data collection for signal processing
+* Exporting data for third-party analysis software
+
+Tips
+~~~~
+
+* Requires database to be loaded; signals cannot be logged without definitions
+* Select specific signals to reduce file size and processing overhead
+* CSV format is human-readable and easy to import into spreadsheet applications
+* MDF formats are industry standard for signal-based analysis
+* FAMOS and MATLAB formats enable direct import into respective tools
+* Signal logging captures engineering values, not raw bytes

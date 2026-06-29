@@ -1,0 +1,126 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Kvaser CanKing GUI Extensions SDK - v7.5.0</title><link rel="icon" href="assets/favicon.png" type="image/png"/><meta name="description" content="Documentation for Kvaser CanKing GUI Extensions SDK"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script><script async src="assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">Kvaser CanKing GUI Extensions SDK - v7.5.0</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"></div><div class="tsd-panel tsd-typography"><h1 id="kvaser-canking-gui-extensions-sdk" class="tsd-anchor-link">Kvaser CanKing GUI Extensions SDK<a href="#kvaser-canking-gui-extensions-sdk" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<h2 id="introduction" class="tsd-anchor-link">Introduction<a href="#introduction" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The purpose with this package is to help developers to create user interface extensions for the Kvaser CanKing bus analysis tool.</p>
+<p>Kvaser CanKing is a free of charge, general-purpose CAN and LIN bus analysis software that is compatible with all Kvaser CAN
+and LIN interfaces and the Kvaser virtual CAN bus. It's available on Windows (x64) and Linux (x64 and ARM).</p>
+<p>There are a lot of functionality already included in the base version of CanKing, but it is also possible to extend the
+functionality and the user interface by creating extensions.</p>
+<p>An extension is developed as a stand-alone <a href="https://react.dev/">React</a> web application. The web application will be hosted
+by an express web server inside CanKing and it will be mounted into the CanKing user interface using a webview element.</p>
+<p>When an extension is mounted into CanKing, then a preload script will run to inject inter-process communication (IPC)
+functions. These functions will make it possible for the extension to communicate with CanKing to get information and to
+interact with the CAN/LIN bus.</p>
+<p>The IPC functions are accessible by importing different modules from the @kvaser/canking-api package.</p>
+<p>To get or subscribe on CanKing data there are different React hooks to be used. All these can be found in the hooks module.</p>
+<pre><code class="tsx"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">useUserSetting</span><span class="hl-1">, </span><span class="hl-2">useMeasurementSetup</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@kvaser/canking-api/hooks&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-1">...</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">userSettings</span><span class="hl-1"> = </span><span class="hl-6">useUserSettings</span><span class="hl-1">();</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">measurementSetup</span><span class="hl-1"> = </span><span class="hl-6">useMeasurementSetup</span><span class="hl-1">();</span>
+</code><button type="button">Copy</button></pre>
+
+<p>To interact with CanKing there are different functions that can be imported from the ipc module.</p>
+<pre><code class="tsx"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">sendCanMessage</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@kvaser/canking-api/ipc&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-1">...</span><br/><br/><span class="hl-6">sendCanMessage</span><span class="hl-1">(</span><span class="hl-2">channelId</span><span class="hl-1">, </span><span class="hl-2">frameId</span><span class="hl-1">, </span><span class="hl-2">data</span><span class="hl-1">, </span><span class="hl-2">flags</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<p>The @kvaser/canking-api package also includes some React components that you can use, e.g. there is a component for selecting
+channel.</p>
+<pre><code class="tsx"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">CanChannelSelectControl</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@kvaser/canking-api/controls&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-1">...</span><br/><br/><span class="hl-4">function</span><span class="hl-1"> </span><span class="hl-6">WorkspaceView</span><span class="hl-1">() {</span><br/><span class="hl-1">  </span><span class="hl-4">const</span><span class="hl-1"> [</span><span class="hl-5">channelId</span><span class="hl-1">, </span><span class="hl-5">setChannelId</span><span class="hl-1">] = </span><span class="hl-6">useState</span><span class="hl-1">(</span><span class="hl-3">&#39;&#39;</span><span class="hl-1">);</span><br/><span class="hl-1">  </span><span class="hl-0">return</span><span class="hl-1"> (</span><br/><span class="hl-1">    </span><span class="hl-7">&lt;</span><span class="hl-8">CanChannelSelectControl</span><br/><span class="hl-1">      </span><span class="hl-9">channelIdentifier</span><span class="hl-1">=</span><span class="hl-4">{</span><span class="hl-2">channelId</span><span class="hl-4">}</span><br/><span class="hl-1">      </span><span class="hl-9">onChannelIdentifierChange</span><span class="hl-1">=</span><span class="hl-4">{</span><span class="hl-2">setChannelId</span><span class="hl-4">}</span><br/><span class="hl-1">      </span><span class="hl-9">hideSectionControl</span><br/><span class="hl-1">    </span><span class="hl-7">/&gt;</span><br/><span class="hl-1">  );</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="sdk-version-changes" class="tsd-anchor-link">SDK version changes<a href="#sdk-version-changes" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Version-specific SDK changes and migration notes are documented in <a href="media/CHANGELOG.md">CHANGELOG.md</a>.</p>
+<h2 id="prerequisites" class="tsd-anchor-link">Prerequisites<a href="#prerequisites" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Before creating a new CanKing Extension the following softwares need to be installed.</p>
+<ul>
+<li>Node.js: <a href="https://nodejs.org/">https://nodejs.org/</a></li>
+<li>Kvaser CanKing: <a href="https://kvaser.com/canking/">https://kvaser.com/canking/</a></li>
+<li>Kvaser Drivers: <a href="https://resources.kvaser.com/7330130980013/latest/kvaser_drivers_setup.exe">https://resources.kvaser.com/7330130980013/latest/kvaser_drivers_setup.exe</a></li>
+</ul>
+<p>You will also need an IDE (Integrated Development Environment) to edit and debug your code. We recommend that you're using
+<a href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+<p>With Visual Studio Code you might also want to install these extensions to help you with code formatting and code analysing:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint (dbaeumer.vscode-eslint)</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - Code formatter (esbenp.prettier-vscode)</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code (editorconfig.editorconfig)</a></li>
+</ul>
+<h2 id="generate-a-new-canking-extension-project" class="tsd-anchor-link">Generate a new CanKing Extension project<a href="#generate-a-new-canking-extension-project" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>The simplest way to create a new CanKing Extension project is to use the script that is included in the
+<a href="https://www.npmjs.com/package/@kvaser/create-canking-extension">@kvaser/create-canking-extension</a> package. The script is
+used like this:</p>
+<pre><code class="bash"><span class="hl-6">npm</span><span class="hl-1"> </span><span class="hl-3">create</span><span class="hl-1"> </span><span class="hl-3">@kvaser/canking-extension@latest</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Then follow the prompts.</p>
+<p>You can also specify a project name via a command line argument.</p>
+<pre><code class="bash"><span class="hl-6">npm</span><span class="hl-1"> </span><span class="hl-3">create</span><span class="hl-1"> </span><span class="hl-3">@kvaser/canking-extension@latest</span><span class="hl-1"> </span><span class="hl-3">my-ck-extension</span>
+</code><button type="button">Copy</button></pre>
+
+<p>This command will create a new project in a new folder with the same name as the specified project name (my-ck-extension).
+You can use <code>.</code> for the project name to scaffold your project in the current directory.</p>
+<p>The command above will create a folder structure like this:</p>
+<pre><code class="text">my-ck-extension
+│   .gitignore
+│   .prettierrc
+│   eslint.config.mjs
+│   index.html
+│   package.json
+│   tsconfig.app.json
+│   tsconfig.json
+│   tsconfig.node.json
+│   vite.config.ts
+│
+├───.vscode
+│       launch.json
+│
+└───src
+    │   App.tsx
+    │   cjk-fonts.css
+    │   global.css
+    │   main.tsx
+    │   vite-env.d.ts
+    │
+    ├───assets
+    │       icon.png
+    │
+    └───WorkspaceView
+            index.tsx
+</code><button type="button">Copy</button></pre>
+
+<p>The project follows a similar file structure as the one that is created for a <a href="https://vite.dev/">Vite</a> project created
+using the react-ts template. There are some extra information added to the package.json file that are needed for CanKing and
+the src files are modified to be used inside CanKing.</p>
+<p>The my-ck-extension/src/WorkspaceView/index.tsx file is the file that includes the React component that will be mounted into
+CanKing, so this is the file you should implement to create your extension.</p>
+<h2 id="develop-a-canking-extension" class="tsd-anchor-link">Develop a CanKing Extension<a href="#develop-a-canking-extension" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>To match the CanKing look and feel, it's recommended to use Material UI components when applicable,
+<a href="https://mui.com/material-ui/all-components/">https://mui.com/material-ui/all-components/</a>.</p>
+<p>The WorkspaceView React component (src/WorkspaceVew/index.tsx) will be displayed when the extension is loaded into CanKing,
+so this is the component that should be implemented to implement the extension.</p>
+<p>To run the extension from command line enter:</p>
+<pre><code class="bash"><span class="hl-6">npm</span><span class="hl-1"> </span><span class="hl-3">run</span><span class="hl-1"> </span><span class="hl-3">start</span>
+</code><button type="button">Copy</button></pre>
+
+<p>To run the extension using Visual Studio Code debugger:</p>
+<ul>
+<li>Select 'Run and Debug' or press Ctrl+Shift+D</li>
+<li>Select the configuration named 'Debug'</li>
+<li>Click on 'Start Debugging' or press F5</li>
+</ul>
+<p>To run a production build of the extension you can enter this command:</p>
+<pre><code class="bash"><span class="hl-6">npm</span><span class="hl-1"> </span><span class="hl-3">run</span><span class="hl-1"> </span><span class="hl-3">startpreview</span>
+</code><button type="button">Copy</button></pre>
+
+<p>If you need more information and help about how to interact with CanKing then you can run this command:</p>
+<pre><code class="bash"><span class="hl-6">npx</span><span class="hl-1"> </span><span class="hl-3">@kvaser/canking-api</span><span class="hl-1"> </span><span class="hl-4">--help</span>
+</code><button type="button">Copy</button></pre>
+
+<p>This will open up a help file in your web browser.</p>
+<h2 id="package-and-install-a-canking-extension" class="tsd-anchor-link">Package and Install a CanKing Extension<a href="#package-and-install-a-canking-extension" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>To package your extension for distribution you should run this command from the command line:</p>
+<pre><code class="bash"><span class="hl-6">npm</span><span class="hl-1"> </span><span class="hl-3">pack</span>
+</code><button type="button">Copy</button></pre>
+
+<p>This command will create a tarball file in the root folder of your project called:</p>
+<pre><code class="text">&lt;project-name&gt;-&lt;version&gt;.tgz
+</code><button type="button">Copy</button></pre>
+
+<p>This tarball can then be installed in CanKing using the head menu 'More'-&gt;'Extensions'-&gt;'Install'.</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#kvaser-canking-gui-extensions-sdk"><span>Kvaser <wbr/>Can<wbr/>King <wbr/>GUI <wbr/>Extensions <wbr/>SDK</span></a><ul><li><a href="#introduction"><span>Introduction</span></a></li><li><a href="#sdk-version-changes"><span>SDK version changes</span></a></li><li><a href="#prerequisites"><span>Prerequisites</span></a></li><li><a href="#generate-a-new-canking-extension-project"><span>Generate a new <wbr/>Can<wbr/>King <wbr/>Extension project</span></a></li><li><a href="#develop-a-canking-extension"><span>Develop a <wbr/>Can<wbr/>King <wbr/>Extension</span></a></li><li><a href="#package-and-install-a-canking-extension"><span>Package and <wbr/>Install a <wbr/>Can<wbr/>King <wbr/>Extension</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">Kvaser CanKing GUI Extensions SDK - v7.5.0</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p>Copyright KVASER AB 2026</p></footer><div class="overlay"></div></body></html>

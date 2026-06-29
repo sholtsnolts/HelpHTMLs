@@ -1,0 +1,253 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [controls](../README.md) / NumberRangeControlProps
+
+# Interface: NumberRangeControlProps
+
+Properties of the NumberRangeControl React component.
+
+## Properties
+
+### lowerLimit?
+
+> `optional` **lowerLimit**: `number`
+
+Lower value limit.
+
+***
+
+### maxDisabled?
+
+> `optional` **maxDisabled**: `boolean`
+
+Set to true to disable the max value field.
+
+***
+
+### maxError?
+
+> `optional` **maxError**: `boolean`
+
+The current max error state.
+
+***
+
+### maxValue
+
+> **maxValue**: `string`
+
+The max value.
+
+***
+
+### minDisabled?
+
+> `optional` **minDisabled**: `boolean`
+
+Set to true to disable the min value field.
+
+***
+
+### minError?
+
+> `optional` **minError**: `boolean`
+
+The current min error state.
+
+***
+
+### minValue
+
+> **minValue**: `string`
+
+The min value.
+
+***
+
+### onBlur()?
+
+> `optional` **onBlur**: (`newMinValue`, `newMaxValue`) => `void`
+
+Callback that is called on a blur event.
+
+#### Parameters
+
+##### newMinValue
+
+`string`
+
+The new min value.
+
+##### newMaxValue
+
+`string`
+
+The new max value.
+
+#### Returns
+
+`void`
+
+***
+
+### onChange()?
+
+> `optional` **onChange**: (`newMinValue`, `newMaxValue`) => `void`
+
+Callback that is called on a change event.
+
+#### Parameters
+
+##### newMinValue
+
+`string`
+
+The new min value.
+
+##### newMaxValue
+
+`string`
+
+The new max value.
+
+#### Returns
+
+`void`
+
+***
+
+### onMaxErrorChange()?
+
+> `optional` **onMaxErrorChange**: (`errors`) => `void`
+
+Callback that is called when the max errors state has changed.
+
+#### Parameters
+
+##### errors
+
+`boolean`
+
+The new max errors state.
+
+#### Returns
+
+`void`
+
+***
+
+### onMaxValidate()?
+
+> `optional` **onMaxValidate**: (`value`, `trigger`) => `object`
+
+Callback that will be called when the value has been changed or the control has lost focus.
+This callback is called before onChange and if the returned err value is true then onChange
+won't be called.
+The implemtation of this callback is allowed to modify the specified value and return
+the modified value in the val property of the returned object.
+
+#### Parameters
+
+##### value
+
+`string`
+
+The new text value.
+
+##### trigger
+
+The trigger of this callback, either on 'change' or on 'blur'.
+
+`"blur"` | `"change"`
+
+#### Returns
+
+`object`
+
+An object with the validated text value (val) and an error state (err).
+
+##### err
+
+> **err**: `boolean`
+
+##### val
+
+> **val**: `string`
+
+***
+
+### onMinErrorChange()?
+
+> `optional` **onMinErrorChange**: (`errors`) => `void`
+
+Callback that is called when the min errors state has changed.
+
+#### Parameters
+
+##### errors
+
+`boolean`
+
+The new min errors state.
+
+#### Returns
+
+`void`
+
+***
+
+### onMinValidate()?
+
+> `optional` **onMinValidate**: (`value`, `trigger`) => `object`
+
+Callback that will be called when the value has been changed or the control has lost focus.
+This callback is called before onChange and if the returned err value is true then onChange
+won't be called.
+The implemtation of this callback is allowed to modify the specified value and return
+the modified value in the val property of the returned object.
+
+#### Parameters
+
+##### value
+
+`string`
+
+The new text value.
+
+##### trigger
+
+The trigger of this callback, either on 'change' or on 'blur'.
+
+`"blur"` | `"change"`
+
+#### Returns
+
+`object`
+
+An object with the validated text value (val) and an error state (err).
+
+##### err
+
+> **err**: `boolean`
+
+##### val
+
+> **val**: `string`
+
+***
+
+### unit?
+
+> `optional` **unit**: `string`
+
+A unit text that will be displayed next to the values.
+
+***
+
+### upperLimit?
+
+> `optional` **upperLimit**: `number`
+
+Upper value limit.

@@ -1,0 +1,363 @@
+.. _can_periodic_send:
+
+CAN Periodic Send
+=================
+
+The CAN Periodic Send pane enables automatic periodic transmission of CAN or CAN FD messages on a selected channel. It provides extensive configuration options for transmission intervals, message generation, burst patterns, and can use database-defined messages with signal values.
+
+Overview
+--------
+
+The CAN Periodic Send pane is ideal for:
+
+* Simulating ECU behavior with periodic message transmission
+* Testing bus load scenarios
+* Generating test patterns
+* Emulating missing network nodes
+* Stress testing CAN networks
+* Creating reproducible test scenarios
+
+.. note::
+   The CAN channel must be online (measurement running) to start periodic transmission.
+
+.. _can_periodic_send_configuration:
+
+Configuration Sections
+----------------------
+
+Channel Selection
+~~~~~~~~~~~~~~~~~
+
+Select the CAN channel on which to transmit messages periodically. The dropdown displays all CAN Channel source nodes configured in the Measurement Setup view.
+
+CAN Identifier
+~~~~~~~~~~~~~~
+
+Configure the message identifier and optional identifier generation:
+
+**Basic Settings**
+  * **Identifier Value** - CAN identifier in hexadecimal or decimal
+  * **Identifier Format** - STD (11-bit) or EXT (29-bit)
+  * **CAN FD Options** - FD flag, BRS (Bit Rate Switch) flag
+  * **RTR** - Remote Transmission Request (standard CAN only)
+
+**Identifier Generation** (Advanced)
+
+  * **Random Identifier** - Generate a random identifier for each message within the specified range
+  * **Scan Identifier** - Systematically scan through identifiers from min to max
+  * **Identifier Range** - Minimum and maximum identifier values for random/scan modes
+
+Identifier generation is useful for:
+  * Testing identifier filtering mechanisms
+  * Bus stress testing with varying identifiers
+  * Simulating multiple message sources
+
+Message Data
+~~~~~~~~~~~~
+
+Configure the message data payload with optional data generation:
+
+**Basic Settings**
+  * **Data Length** - 0 to 8 bytes (CAN) or 0 to 64 bytes (CAN FD)
+  * **Data Bytes** - Individual byte values in hexadecimal
+
+**Data Generation** (Advanced)
+
+  * **Random Data Length** - Randomize the data length for each message (within CAN/CAN FD limits)
+  * **Random Message Data** - Generate random data bytes for each message
+
+Data generation options are useful for:
+  * Simulating dynamic message content
+  * Testing data handling robustness
+  * Creating varying bus load patterns
+
+**Signal-Based Editing** (when database loaded)
+  Enter engineering values for signals, which are automatically encoded into data bytes.
+
+Transmission Interval
+~~~~~~~~~~~~~~~~~~~~~
+
+Configure how frequently messages are transmitted:
+
+**Constant Interval**
+  Messages are sent at a fixed interval.
+
+  * Enter interval in milliseconds (ms)
+  * Common values: 10ms, 100ms, 1000ms
+  * Minimum interval depends on bus speed and message size
+
+**Random Interval**
+  Messages are sent at random intervals within a specified range.
+
+  * Enter minimum interval (ms)
+  * Enter maximum interval (ms)
+  * Each message transmission uses a new random interval
+
+  Useful for:
+    * Simulating jitter
+    * Testing non-periodic scenarios
+    * Creating more realistic traffic patterns
+
+Number of Messages
+~~~~~~~~~~~~~~~~~~
+
+Control how many messages are transmitted:
+
+**Unlimited (0)**
+  Messages are sent continuously until stopped manually. This is the default and most common setting.
+
+**Limited Count (> 0)**
+  Stop automatically after sending a specified number of messages.
+
+  * Enter the desired message count
+  * Transmission stops automatically when the count is reached
+  * Useful for testing specific scenarios with a known number of messages
+
+.. note::
+   This section is collapsed by default. Expand it to set a message limit.
+
+Burst Size
+~~~~~~~~~~
+
+Configure burst transmission patterns:
+
+**Constant Burst Size**
+  Send a fixed number of messages in each burst, then wait for the next interval.
+
+  * Burst size of 1: One message per interval (normal periodic behavior)
+  * Burst size > 1: Multiple messages sent back-to-back per interval
+
+**Random Burst Size**
+  Send a random number of messages (within specified range) in each burst.
+
+  * Enter minimum burst size
+  * Enter maximum burst size
+  * A new random value is selected for each burst
+
+Burst patterns are useful for:
+  * Simulating grouped message transmission
+  * Testing buffer handling
+  * Creating burst traffic scenarios
+  * Emulating event-driven ECU behavior
+
+.. note::
+   This section is collapsed by default. Expand it to configure burst settings.
+
+.. _can_periodic_send_control:
+
+Transmission Control
+--------------------
+
+Start/Stop Button
+~~~~~~~~~~~~~~~~~
+
+**Start Transmission**
+  Click the **Start** button to begin periodic transmission. The button changes to **Stop**.
+
+  Requirements to start:
+    * Measurement must be running (CanKing online)
+    * Valid channel must be selected
+    * Valid identifier and data configuration
+
+**Stop Transmission**
+  Click the **Stop** button to end periodic transmission. The button changes back to **Start**.
+
+Status Indicators
+~~~~~~~~~~~~~~~~~
+
+When transmission is active:
+  * The button shows **Stop** instead of **Start**
+  * Messages are being sent according to the configured interval and settings
+  * Message counters in CAN Bus Statistics will increase
+
+.. _can_periodic_send_database:
+
+Database Message Support
+-------------------------
+
+When a Databases data processor is added to the CAN channel in the Measurement Setup view, you can use database-defined messages.
+
+Selecting a Database Message
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Click **Select Message** button
+2. Browse or search for a message
+3. Select the desired message
+
+The identifier, format, and data length are automatically configured from the database.
+
+Signal Value Editing
+~~~~~~~~~~~~~~~~~~~~
+
+Edit signal values in engineering units:
+  * Values are automatically encoded into message bytes
+  * Range validation is applied
+  * Units are displayed for reference
+  * Changes are reflected in real-time during transmission
+
+When transmission is active, signal values can still be edited, and the changes take effect immediately in subsequently transmitted messages.
+
+.. _can_periodic_send_workflows:
+
+Typical Workflows
+-----------------
+
+Basic Periodic Message
+~~~~~~~~~~~~~~~~~~~~~~
+
+1. Select the CAN channel
+2. Enter the CAN identifier and format
+3. Enter data bytes or select a database message
+4. Set the transmission interval (e.g., 100ms)
+5. Click **Start**
+6. Monitor using Message Trace or CAN Bus Statistics
+7. Click **Stop** when finished
+
+Simulating an ECU
+~~~~~~~~~~~~~~~~~
+
+1. Load the appropriate database with Databases data processor
+2. Select the CAN channel connected to the target bus
+3. Select each message the ECU should send
+4. Configure appropriate intervals for each message (use multiple pane instances)
+5. Start transmission for all messages
+6. The simulated ECU now appears on the network
+
+Bus Load Testing
+~~~~~~~~~~~~~~~~
+
+1. Configure a message with appropriate data length
+2. Set a short transmission interval (e.g., 10ms)
+3. Enable random data if needed
+4. Start transmission
+5. Monitor bus load in CAN Bus Statistics
+6. Adjust interval or add more periodic transmissions to reach target load
+
+Identifier Scanning
+~~~~~~~~~~~~~~~~~~~
+
+1. Enable **Scan Identifier** mode
+2. Set identifier range (e.g., 0x000 to 0x7FF)
+3. Set transmission interval
+4. Start transmission
+5. Identifiers will be scanned sequentially
+6. Use Message Trace filtered by Tx to observe the scan
+
+.. _can_periodic_send_tips:
+
+Tips and Best Practices
+------------------------
+
+Interval Selection
+~~~~~~~~~~~~~~~~~~
+
+* Choose intervals that are multiples of common CAN message periods (10ms, 100ms, etc.)
+* Consider bus load when setting short intervals
+* For high-frequency messages, ensure the bus speed and hardware can handle the load
+* Test with Message Trace to verify actual transmission timing
+
+Message Configuration
+~~~~~~~~~~~~~~~~~~~~~
+
+* Use database messages when available for easier configuration
+* Random data is useful for testing but may not reflect realistic scenarios
+* For realistic simulation, use actual message data or database signals
+* Consider using multiple CAN Periodic Send panes for multiple messages
+
+Performance Considerations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Short intervals (<10ms) require higher system resources
+* Many simultaneous periodic transmissions may affect timing accuracy
+* Monitor CPU usage if experiencing timing issues
+* Use burst size carefully as it can cause momentary bus saturation
+
+Transmission Limits
+~~~~~~~~~~~~~~~~~~~
+
+* Number of messages limit is useful for automated test scenarios
+* Set a limit when testing specific sequences
+* Use unlimited (0) for continuous simulation
+* Remember that the limit applies to each periodic transmission independently
+
+Starting and Stopping
+~~~~~~~~~~~~~~~~~~~~~
+
+* Periodic transmissions continue even if the pane is edited or hidden
+* Stop all transmissions before modifying major configuration changes
+* Transmissions automatically stop when the measurement is stopped
+* Multiple CAN Periodic Send panes can run simultaneously
+
+.. _can_periodic_send_troubleshooting:
+
+Troubleshooting
+---------------
+
+Transmission Won't Start
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Verify measurement is running (CanKing online)
+* Check that channel access mode allows transmission
+* Ensure channel is "On Bus" (check CAN Bus Statistics)
+* Verify identifier and data configuration is valid
+
+Timing Inaccuracies
+~~~~~~~~~~~~~~~~~~~
+
+* Very short intervals (<5ms) may show timing jitter
+* System load affects transmission timing
+* Hardware limitations may prevent very high message rates
+* Consider using dedicated hardware for precise timing requirements
+
+Messages Not Visible
+~~~~~~~~~~~~~~~~~~~~
+
+* Check Message Trace filters (channel, direction)
+* Verify bus termination and wiring
+* Check bus bit rate configuration matches
+* Look for bus-off conditions in CAN Bus Statistics
+
+.. _can_periodic_send_advanced:
+
+Advanced Features
+-----------------
+
+Combining Random Options
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can combine multiple random options:
+  * Random interval + Random data = Unpredictable messages
+  * Random identifier + Random burst = Complex test patterns
+  * Scan identifier + Random data = Systematic coverage with varying data
+
+This creates sophisticated test scenarios for robustness testing.
+
+Multiple Periodic Transmissions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use multiple CAN Periodic Send panes to:
+  * Simulate multiple ECUs
+  * Send multiple messages with different intervals
+  * Create complex traffic patterns
+  * Test message prioritization
+
+Each pane operates independently and can be started/stopped separately.
+
+Integration with Traffic Generator
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Compare the CAN Periodic Send pane with the Traffic Generator source node:
+
+* **CAN Periodic Send** - Workspace pane, interactive, easy to modify during measurement
+* **Traffic Generator** - Measurement Setup node, configured before measurement starts, can generate from message lists
+
+Use CAN Periodic Send for:
+  * Quick testing and experimentation
+  * Manual control during measurement
+  * Few messages with complex patterns
+
+Use Traffic Generator for:
+  * Complex pre-planned scenarios
+  * Many messages defined in files
+  * Automated test sequences
+

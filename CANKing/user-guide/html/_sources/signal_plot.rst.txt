@@ -1,0 +1,262 @@
+.. _signal_plot:
+
+Signal Plot
+===========
+
+The Signal Plot is a customized workspace pane for visualizing CAN and LIN signals in real-time. It provides powerful graphing capabilities with support for multiple graphs, customizable axes, time cursors, and zoom controls.
+
+Overview
+--------
+
+The Signal Plot pane displays signal data from CAN and LIN buses as time-series graphs. It can be added to any workspace in the Workspace view and configured to show multiple signals simultaneously across one or more graphs, each with one or more Y-axes.
+
+.. _signal_plot_toolbar:
+
+Toolbar Controls
+----------------
+
+The Signal Plot toolbar provides various controls for configuring and interacting with the plot:
+
+Play/Pause
+~~~~~~~~~~
+
+The Play/Pause button controls whether the plot displays live data or is paused for analysis.
+
+* **Play** - The plot continuously updates with incoming signal data in real-time.
+* **Pause** - The plot stops updating, allowing you to analyze the current data.
+
+When paused, additional features become available such as time cursors and zoom controls.
+
+.. note::
+   The Play/Pause control is only enabled when a measurement is running (CanKing is online).
+
+Time Window
+~~~~~~~~~~~
+
+The time window setting determines how much historical data is displayed on the X-axis. Available options are:
+
+* 20 seconds
+* 30 seconds
+* 40 seconds
+* 50 seconds
+* 60 seconds
+
+The default time window is 30 seconds. Changing the time window adjusts the visible time range while maintaining the current position in the data stream.
+
+Time Mode
+~~~~~~~~~
+
+The time mode setting controls how time is displayed on the X-axis:
+
+* **Clock** - Shows elapsed time since the start of the measurement as hours:minutes:seconds.
+* **Elapsed** - Shows elapsed time since the start of the measurement as a numeric value in seconds.
+
+Plot Mode
+~~~~~~~~~
+
+The plot mode determines how new data is displayed as it arrives:
+
+* **Scroll** - New data scrolls into view from the right side, continuously moving older data to the left. This provides a smooth, continuous visualization of incoming data.
+* **Scan** - New data is drawn from left to right. When the plot reaches the right edge, it advances and continues drawing from the left, creating a sweeping effect similar to an oscilloscope.
+
+Advance Fraction (Scan Mode)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When using Scan mode, the advance fraction determines how much the plot advances when it reaches the right edge:
+
+* **25%** - Advances by 25% of the time window
+* **50%** - Advances by 50% of the time window
+* **75%** - Advances by 75% of the time window
+* **100%** - Advances by 100% of the time window (full screen advance)
+
+This control is only available when Plot Mode is set to Scan.
+
+Auto-Scale Y Axes
+~~~~~~~~~~~~~~~~~
+
+When enabled, the Y-axes automatically adjust their ranges to fit all visible signal data. This ensures that all signals remain visible regardless of their values.
+
+When disabled, the Y-axes maintain fixed ranges, which can be useful for comparing signal magnitudes or tracking specific value ranges.
+
+Save Y Axes Ranges
+~~~~~~~~~~~~~~~~~~
+
+The Save button captures the current Y-axis ranges for all graphs. This is useful after manually zooming the Y-axes to specific ranges that you want to preserve.
+
+Saved ranges are persisted in the project file and will be restored when the project is reopened.
+
+.. _signal_plot_cursors:
+
+Time Cursors
+~~~~~~~~~~~~
+
+Time cursors are vertical lines that can be positioned at specific time points to measure signal values. Two cursors are available:
+
+* **Cursor 1** - Primary time cursor
+* **Cursor 2** - Secondary time cursor
+
+To use time cursors:
+
+1. Pause the plot
+2. Enable one or both cursors using the cursor buttons in the toolbar
+3. Click and drag the cursor lines to position them at desired time points
+4. View signal values at cursor positions in the legends panel
+
+.. note::
+   Time cursors are only available when the plot is paused.
+
+Zoom Controls
+~~~~~~~~~~~~~
+
+The zoom controls allow you to navigate through zoom history when the plot is paused:
+
+* **Undo Zoom/Pan** - Reverts to the previous zoom or pan state
+* **Redo Zoom/Pan** - Reapplies a zoom or pan state that was undone
+* **Zoom All Data** - Automatically adjusts the X-axis to display all available data
+
+These controls maintain a history of zoom and pan operations, allowing you to navigate backward and forward through your exploration of the data.
+
+.. note::
+   Zoom controls are only available when the plot is paused.
+
+Show/Hide Legends
+~~~~~~~~~~~~~~~~~
+
+The legends button toggles the visibility of the legends panel on the right side of the plot. The legends panel displays:
+
+* Signal names and colors
+* Current signal values (when playing)
+* Signal values at cursor positions (when paused with cursors enabled)
+
+.. _signal_plot_interaction:
+
+Interactive Features
+--------------------
+
+The Signal Plot supports various mouse and keyboard interactions for analyzing data:
+
+Zooming
+~~~~~~~
+
+When the plot is paused, you can zoom in on specific areas:
+
+* **Mouse wheel in plot area** - Zoom in/out on both X and Y axes at the cursor position
+* **Click and drag in plot area** - Select a rectangular area to zoom into both X and Y axes
+* **Mouse wheel in X-axis area** - Zoom in/out on the X-axis
+* **Mouse wheel in Y-axis area** - Zoom in/out on the Y-axis
+
+Panning
+~~~~~~~
+
+When the plot is paused, you can pan to view different parts of the data:
+
+* **Click and drag in X-axis area** - Pan the view horizontally
+* **Click and drag in Y-axis area** - Pan the signal(s) connected to that Y-axis vertically
+
+Moving Cursors
+~~~~~~~~~~~~~~
+
+When time cursors are enabled:
+
+* **Click and drag cursor line** - Move the cursor to a different time position
+
+.. _signal_plot_graphs:
+
+Multiple Graphs
+---------------
+
+The Signal Plot supports multiple independent graphs stacked vertically. Each graph can have:
+
+* Multiple signals plotted on the same graph
+* Multiple Y-axes with different scales
+* Independent Y-axis ranges and zoom levels
+
+Graphs share a common X-axis (time), which ensures that signals across different graphs are time-synchronized.
+
+.. _signal_plot_yaxes:
+
+Y-Axes Configuration
+--------------------
+
+Each graph can have multiple Y-axes, allowing signals with different units or value ranges to be plotted on the same time axis but with different scales:
+
+* Y-axes are displayed on the left or right side of the graph
+* Each Y-axis can be independently zoomed and panned
+* Signals are assigned to specific Y-axes based on their configuration
+* Y-axis colors typically match the signals they represent
+
+Manual Y-Axis Scaling
+~~~~~~~~~~~~~~~~~~~~~~
+
+To manually adjust Y-axis ranges:
+
+1. Pause the plot
+2. Disable "Auto-Scale Y Axes" if enabled
+3. Zoom in/out on the desired Y-axis using mouse wheel
+4. Optionally save the ranges using the "Save Y Axes Ranges" button
+
+.. _signal_plot_legends:
+
+Legends Panel
+-------------
+
+The legends panel on the right side of the plot displays information about all visible signals:
+
+* **Signal name** - The name of the signal as defined in the database
+* **Color** - A color indicator matching the signal's graph line
+* **Current value** - The most recent signal value (when playing)
+* **Cursor values** - Signal values at cursor positions (when paused with cursors)
+* **Unit** - The signal's unit of measurement (if defined)
+
+The legends panel can be hidden to maximize the plot area by clicking the Show/Hide Legends button in the toolbar.
+
+.. _signal_plot_setup:
+
+Setting Up Signal Plot
+----------------------
+
+To add a Signal Plot pane to your workspace:
+
+1. Open the Workspace view from the left toolbar
+2. Create a new workspace or select an existing one
+3. Click "Select View" or "Edit Workspace"
+4. Select "Signal Plot" from the available views
+5. Configure which signals to display
+
+Signal Selection
+~~~~~~~~~~~~~~~~
+
+Signals must be available in the UI stream to be displayed in the Signal Plot. To ensure signals are available:
+
+1. In the Measurement Setup view, add a "Databases" data processor to your CAN or LIN channel
+2. Load a database file (.dbc for CAN, .ldf for LIN) containing your signals
+3. Start a measurement to begin receiving data
+4. Configure the Signal Plot to display the desired signals
+
+.. _signal_plot_tips:
+
+Tips and Best Practices
+------------------------
+
+Performance
+~~~~~~~~~~~
+
+* For optimal performance, limit the number of simultaneously displayed signals, especially at high data rates
+* Use filters in the Measurement Setup to reduce the amount of data reaching the UI stream
+
+Data Analysis
+~~~~~~~~~~~~~
+
+* Use Pause and time cursors to measure exact signal values at specific time points
+* Use the delta between two cursors to calculate signal changes over time
+* Zoom in on areas of interest for detailed analysis
+* Use multiple graphs to separate signals with different scales or purposes
+
+Workspace Organization
+~~~~~~~~~~~~~~~~~~~~~~
+
+* Group related signals on the same graph
+* Use separate graphs for signals with vastly different value ranges
+* Create multiple Signal Plot panes in different workspace panels for different analysis perspectives
+* Save workspace configurations for different testing scenarios
+

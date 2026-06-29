@@ -1,0 +1,195 @@
+.. _source_nodes:
+
+Source Nodes
+============
+
+Source nodes provide data to the measurement system. They represent physical or virtual interfaces, traffic generators, or log file replay capabilities.
+
+.. _can_channel_node:
+
+CAN Channel
+-----------
+
+The CAN Channel source node configures a Kvaser CAN interface or virtual CAN channel for use in measurements.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **Interface** - Select from connected Kvaser CAN interfaces or virtual CAN channels
+* **CAN Mode** - Choose between Classic CAN or CAN FD
+* **Access Mode** - Init Access, No Init Access, or Exclusive mode
+* **Silent Mode** - Enable to prevent the interface from acknowledging CAN messages
+* **Bus Speed** - Configure bit rate for arbitration phase (Classic CAN or CAN FD)
+* **Data Phase Bus Speed** - Configure data phase bit rate (CAN FD only)
+* **Lock to Serial Number** - Lock configuration to a specific interface by serial number
+
+CAN Modes
+~~~~~~~~~
+
+* **Classic CAN** - Standard CAN 2.0A/B with up to 8 data bytes
+* **CAN FD** - CAN with Flexible Data-rate, supporting up to 64 data bytes and higher data phase bit rates
+
+Access Modes
+~~~~~~~~~~~~
+
+* **Init Access** - Normal mode, CanKing will initialize the interface and setup the bus speeds
+* **No Init Access** - CanKing will not initialize the interface, allowing external applications to configure it
+* **Exclusive** - Exclusive access mode for the interface, preventing other applications from using it
+
+Use Cases
+~~~~~~~~~
+
+* Connecting physical Kvaser CAN interfaces to real CAN networks
+* Creating virtual CAN channels for testing without hardware
+* Monitoring CAN networks in listen-only mode
+* Configuring CAN FD interfaces for high-speed data acquisition
+
+Tips
+~~~~
+
+* Use no init access mode when another application is responsible for initializing the interface
+* Lock to serial number when using specific hardware configurations that must be reproducible
+* Verify bus speed settings match your network before starting measurements
+* Silent mode is useful when you want to receive but not acknowledge messages (error passive behavior)
+
+.. _lin_channel_node:
+
+LIN Channel
+-----------
+
+The LIN Channel source node configures a Kvaser LIN interface for Local Interconnect Network communication.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **Interface** - Select from connected Kvaser LIN interfaces
+* **Mode** - Choose between Master or Slave mode
+* **Bus Speed** - Configure LIN bus bit rate (typically 9600, 19200, or other standard rates)
+* **Database** - Optionally load a LIN database file (.ldf)
+* **Schedule Table** - Select a schedule table from the database (master mode only)
+* **Save LIN Message Info** - Enable to save extended LIN information (checksums, bit rates, etc.)
+
+Master vs Slave Mode
+~~~~~~~~~~~~~~~~~~~~~
+
+* **Master** - Sends message headers and controls bus timing using schedule tables
+* **Slave** - Responds to headers sent by the master with configured data
+
+Use Cases
+~~~~~~~~~
+
+* Connecting to LIN networks as master or slave
+* Testing LIN master implementations by acting as a slave
+* Testing LIN slave implementations by acting as a master
+* Replaying LIN schedule tables from databases
+
+Tips
+~~~~
+
+* Master mode requires a schedule table from a LIN database to function properly
+* Slave mode requires configuration of message responses (use LIN Message Update pane)
+* Save LIN message info when detailed analysis of LIN communication is needed
+* Ensure only one master is active on a LIN bus at any time
+
+.. _traffic_generator_node:
+
+Traffic Generator
+-----------------
+
+The Traffic Generator source node creates artificial CAN traffic for testing purposes without requiring external signal sources.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **Channel** - Select which CAN Channel to generate traffic on
+* **CAN Identifier** - Configure message identifier(s)
+* **Identifier Generation** - Random or scan mode for generating multiple identifiers
+* **Frame Definition** - Configure message data length and content
+* **Data Generation** - Random data length, random data, or fixed patterns
+* **Transmission Settings** - Configure transmission intervals and message counts
+
+Generation Modes
+~~~~~~~~~~~~~~~~
+
+* **Fixed Identifier** - Send messages with a single, constant identifier
+* **Random Identifier** - Generate random identifiers within a specified range
+* **Scan Identifier** - Systematically scan through identifier range
+
+Use Cases
+~~~~~~~~~
+
+* Generating test traffic for bus load testing
+* Creating repeatable test scenarios without external hardware
+* Simulating missing ECUs in a development environment
+* Stress testing CAN networks with high message rates
+* Testing message filtering and processing logic
+
+Tips
+~~~~
+
+* Use random data for testing data handling robustness
+* Use scan mode to test identifier filtering implementations
+* Monitor bus load when generating high-rate traffic to avoid saturation
+* Combine with filters on other channels to test filtering performance
+
+.. _log_replay_node:
+
+Log Replay
+----------
+
+The Log Replay source node replays previously recorded CAN or LIN messages from log files, enabling repeatable test scenarios.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **File Name** - Path to the log file to replay
+* **Message Filter** - Select whether to replay Tx, Rx, or both message types
+* **Include Error Frames** - Option to replay error frames found in the log
+* **Iterations** - Number of times to replay the file (0 = infinite loop)
+* **Replay Rate** - Time between messages (0 = use original timestamps from file)
+* **Channel Mapping** - Map channels from the log file to physical or virtual channels
+
+Supported Log Formats
+~~~~~~~~~~~~~~~~~~~~~~
+
+* KME (Kvaser Memory Format) - All versions
+* Vector BLF and ASC formats
+* MDF formats
+* CSV and plain text formats
+
+Use Cases
+~~~~~~~~~
+
+* Reproducing specific scenarios captured during field testing
+* Regression testing with recorded data
+* Simulating real-world traffic patterns in a lab environment
+* Debugging issues that occurred in the field
+
+Tips
+~~~~
+
+* Set replay rate to 0 to maintain original timing from the capture
+* Use channel mapping to replay multi-channel logs on different hardware
+* Disable error frame replay if only interested in valid message traffic
+* Use iterations for endurance testing with the same data set
+
+.. _all_connected_can_channels:
+
+All Connected CAN Channels
+---------------------------
+
+A convenience option that automatically adds all detected CAN interfaces at once as separate CAN Channel source nodes.
+
+Use Cases
+~~~~~~~~~
+
+* Quickly setting up measurements with multiple interfaces
+* Monitoring all available CAN channels simultaneously
+* Initial exploration of available hardware
+
+Tips
+~~~~
+
+* Review and configure individual channel settings after bulk addition
+* Some interfaces may require specific configuration for your use case
+* Consider removing unused channels to simplify the measurement setup view

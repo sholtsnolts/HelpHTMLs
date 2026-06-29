@@ -1,0 +1,39 @@
+# ck send lin-wakeup
+
+Sends out a LIN wakeup message.
+
+## Synopsis
+
+```text
+ck send lin-wakeup
+    <OUTPUT_CHANNEL_NAME_OR_ID>
+    [--language <en|zh|ja>]
+    [-c|--count <WAKEUP_FRAME_COUNT>]
+    [-i|--interval <WAKEUP_FRAME_INTERVAL>]
+
+ck send lin-wakeup -h|--help
+```
+
+## Arguments
+
+- ```OUTPUT_CHANNEL_NAME_OR_ID```  
+The identifier/name of the output channel to be used.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-c|--count```  
+The number of wakeup frames to send. Maximum value of count is 255 (0xFF).
+
+- ```-i|--interval```  
+The time, in bit times, between the wakeup frames. Maximum value of interval is either 255 (0xFF) or 65535 (0xFFFF) depending on device.
+
+## Examples
+
+```bash
+ck send lin-wakeup "LIN 1" -c 10 -i 100
+ck send lin-wakeup "LIN 1" --count 5 --interval 200
+```
+

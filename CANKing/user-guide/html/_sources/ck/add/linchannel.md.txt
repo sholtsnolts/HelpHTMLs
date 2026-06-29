@@ -1,0 +1,63 @@
+# ck add linchannel
+
+Adds a LIN Channel to the current measurement setup.
+
+## Synopsis
+
+```text
+ck add linchannel
+    [--language <en|zh|ja>]
+    [-n|--number <CHANNEL_NUMBER>]
+    [--name <NODE_NAME>]
+    [-a|--all-connected]
+    [-r|--bit-rate <BIT_RATE>]
+    [-v|--protocol-version <1.3|2.0|2.1|2.2>]
+    [-m|--master]
+    [-d|--database <LDF_FILE>]
+    [-t|--schedule-table <SCHEDULE_TABLE_NAME>]
+    [--lin-message-info]
+
+ck add linchannel -h|--help
+```
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-n|--number```  
+The canlib channel number.
+
+- ```--name```  
+Name of the node. Default value is 'LIN {X}' where X is a number
+
+- ```-a|--all-connected```  
+Add all connected channels. Use this option or the --number option.
+
+- ```-r|--bit-rate```  
+The bit rate in bits per second, 1000-20000.
+
+- ```-v|--protocol-version```  
+The LIN protocol version, 1.3, 2.0, 2.1 or 2.2.
+
+- ```-m|--master```  
+Connect to the bus as master.
+
+- ```-d|--database```  
+The LDF database file to get schedule table definition from.
+
+- ```-t|--schedule-table```  
+Name of the schedule table to be used if this channel is master.
+
+- ```--lin-message-info```  
+Record LIN Message Info
+
+## Examples
+
+```bash
+ck add linchannel --number 0
+ck add linchannel --all-connected
+ck add linchannel --number 1 --bit-rate 9600 --protocol-version 1.3
+ck add linchannel --number 1 --master --database path/to/file.ldf --schedule-table "Schedule1"
+```
+

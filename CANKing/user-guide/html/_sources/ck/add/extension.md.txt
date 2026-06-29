@@ -1,0 +1,49 @@
+# ck add extension
+
+Adds a Service Extension node to the current measurement setup.
+To add a DataProcessor you need to specify either previous node or next node, otherwise a Target will be added.
+
+## Synopsis
+
+```text
+ck add extension
+    <EXTENSION_NAME>
+    [--language <en|zh|ja>]
+    [-c|--config <EXTENSION_CONFIGURATION_JSON>]
+    [-n|--name <NODE_NAME>]
+    [-p|--previous-node <PREVIOUS_NODE_ID_OR_NAME>]
+    [--next-node <NEXT_NODE_ID_OR_NAME>]
+
+ck add extension -h|--help
+```
+
+## Arguments
+
+- ```EXTENSION_NAME```  
+The service extension name.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-c|--config```  
+The extension configuration. A valid JSON formatted string to configuring the extension node.
+
+- ```-n|--name```  
+Name of the node. Default value is the extension name.
+
+- ```-p|--previous-node```  
+Identifier/Name of the previous node when adding a new node to the measurement setup. If the extension is a DataProcessor, then you need to set either previous node or next node, but not both.
+
+- ```--next-node```  
+Identifier/Name of the next node when adding a new node to the measurement setup. If the extension is a DataProcessor, then you need to set either previous node or next node, but not both.
+
+## Examples
+
+```bash
+ck add extension my-extension-name
+ck add extension my-extension-name --name "Ext1" --previous-node "CAN 1"
+ck add extension my-extension-name --config '{"key":"value"}' --next-node "Message Logger"
+```
+

@@ -1,0 +1,43 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [models](../README.md) / WriteFrame
+
+# Interface: WriteFrame
+
+A message describing a frame that will be used for writing message to a bus.
+
+## Properties
+
+### canFrameFlags?
+
+> `optional` **canFrameFlags**: [`CanFrameFlags`](CanFrameFlags.md)
+
+Special CAN flags
+
+***
+
+### data
+
+> **data**: `number`[]
+
+Frame data. Uses repeated uint32 rather than bytes because the proto bytes type
+does not support individual byte access efficiently in the ts-proto generated TypeScript
+bindings; repeated uint32 provides direct indexed access to each data byte.
+
+***
+
+### id
+
+> **id**: `number`
+
+Frame identifier
+
+***
+
+### linFrameFlags?
+
+> `optional` **linFrameFlags**: [`LinFrameFlags`](LinFrameFlags.md)
+
+Special LIN flags

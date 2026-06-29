@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorials &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Message Trace" href="message_trace.html" />
+    <link rel="prev" title="Tools panel" href="tools_panel.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-time-setup-example">First time setup example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-management">Project management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#open-a-project">Open a project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-a-project">Save a project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-project">Delete a project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-a-measurement">Handling a measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connect-a-kvaser-interface-add-a-node">Connect a Kvaser interface (add a node)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-a-node">Update a node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-or-disable-a-node">Enable or disable a node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-node">Delete a node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-or-stop-a-measurement">Start or stop a measurement</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#handling-a-workspace">Handling a workspace</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-workspace">Create a workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-a-workspace">Update a workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-the-workspace-name">Change the workspace name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-workspace">Delete a workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-and-logging-data">Viewing and logging data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#view-can-messages">View CAN messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view-lin-messages">View LIN messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualize-signals-in-signal-plot">Visualize signals in Signal Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-can-messages">Log CAN messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-can-signals">Log CAN signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-lin-signals">Log LIN signals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replay-logged-can-messages">Replay logged CAN messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-processing">Data processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filter-can-messages">Filter CAN messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-a-can-or-lin-database">Connect a CAN or LIN database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-an-interpreter">Use an Interpreter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-for-errors">Check for errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#re-start-the-kvaser-canking-service">Re-start the Kvaser CanKing service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorials</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorials">
+<span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading"></a></h1>
+<p>All examples and tutorials assumes that Kvaser CanKing and its dependencies have been installed according to <a class="reference internal" href="setup.html#setup"><span class="std std-ref">Setup</span></a>.</p>
+<section id="first-time-setup-example">
+<span id="id2"></span><h2>First time setup example<a class="headerlink" href="#first-time-setup-example" title="Link to this heading"></a></h2>
+<p>This example explains how to use Kvaser CanKing to generate data on a Kvaser virtual CAN channel, filtering and finally logging the data. It also describes how to view the data transmitted on the CAN bus.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘CAN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select ‘Channel 1’ for a ‘Kvaser Virtual CAN Driver’.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-4, but select ‘Channel 2’ for a ‘Kvaser Virtual CAN Driver’ in the ‘Interface’ dropdown menu.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘Traffic Generator’.</p></li>
+<li><p>In the pop-up window, select ‘CAN 1’ in the Channel section.</p></li>
+<li><p>In the CAN Identifier section, select ‘Random identifier’ and specify 1 and 7 in the ‘From’ and ‘To’ fields respectively.</p></li>
+<li><p>Check the ‘Random data length’ and ‘Random message data’ options in the Frame Definition section.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Click on the button marked with a plus sign next to the ‘CAN 2’ source node, i.e. not the one which the Traffic Generator will provide with data, and select ‘CAN Message Filter’.</p></li>
+<li><p>In the pop-up window, make sure that ‘Pass filter’ is selected.</p></li>
+<li><p>Type ‘1,2,4-6’ in the ‘Standard CAN Identifiers’ field.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Click on the ‘Target’ button and select ‘Message Logger’.</p></li>
+<li><p>In the pop-up window, write a valid file path in the ‘File Name’ field, for example <em>C:\Users\&lt;YOUR USERNAME&gt;\Documents\Kvaser_canking_first_time_setup_log.txt</em> on Windows or <em>/home/&lt;YOUR USERNAME&gt;/Kvaser_canking_first_time_setup_log.txt</em> on Linux, replacing &lt;YOUR USERNAME&gt; with your actual username.</p></li>
+<li><p>Make sure that ‘Append next available index to file name’ is selected.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>Continue with preparing a workspace which will show the message trace:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar.</p></li>
+<li><p>A new, empty workspace is already open. Click on the ‘Select View’ button in the middle of the screen and select ‘Message Trace’.</p></li>
+</ol>
+<p>Now everything has been prepared!</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>Note that lots of messages with identifier 1-7 is transmitted, but only the selected identifiers (1, 2 and 4 to 6) are received by CAN 2.</p></li>
+<li><p>Open the file you selected in the ‘Message Logger’ target node. Remark that it will end with underscore followed by a number due to the selected settings.</p></li>
+<li><p>Note that only messages with the selected identifiers have been logged.</p></li>
+</ol>
+</section>
+<section id="project-management">
+<span id="id3"></span><h2>Project management<a class="headerlink" href="#project-management" title="Link to this heading"></a></h2>
+<section id="open-a-project">
+<span id="id4"></span><h3>Open a project<a class="headerlink" href="#open-a-project" title="Link to this heading"></a></h3>
+<p>To open a new project in the Kvaser CanKing application follow the steps below.</p>
+<ol class="arabic simple">
+<li><p>Click on the button with a document icon on it in the tool bar at the top of the application, or press Ctrl + N, see <a class="reference internal" href="introduction.html#shortcuts"><span class="std std-ref">Shortcuts</span></a> for more information about available shortcuts.</p></li>
+</ol>
+<p>It is also possible to open a new project from the window that opens when starting the program. To open a new project when starting the program follow the procedure below.</p>
+<ol class="arabic simple">
+<li><p>Select if the most recently used project should be used as a template or not using the checkbox with name ‘Keep measurement setup’.</p></li>
+<li><p>Click on the ‘New Project’ button.</p></li>
+</ol>
+<p>To open an existing project in the Kvaser CanKing application follow the steps below.</p>
+<ol class="arabic simple">
+<li><p>Click on the button with a folder on it in the tool bar at the top of the application, or press Ctrl + O, see <a class="reference internal" href="introduction.html#shortcuts"><span class="std std-ref">Shortcuts</span></a> for more information about available shortcuts.</p></li>
+<li><p>Select a project in the pop-up window.</p></li>
+</ol>
+<p>It is also possible to open an existing project from the window that opens when starting the program. To open an existing project when starting the program follow the procedure below.</p>
+<ol class="arabic simple">
+<li><p>Click on the ‘Open Project’ button, or click on one of the projects listed under ‘Recent projects’.</p></li>
+<li><p>If the ‘Open Project’ button was pressed in the previous step, select a project in the pop-up window.</p></li>
+</ol>
+</section>
+<section id="save-a-project">
+<span id="id5"></span><h3>Save a project<a class="headerlink" href="#save-a-project" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Click on the button with a save icon on it in the tool bar at the top of the application, or press Ctrl + S, see <a class="reference internal" href="introduction.html#shortcuts"><span class="std std-ref">Shortcuts</span></a> for more information about available shortcuts.</p></li>
+</ol>
+</section>
+<section id="delete-a-project">
+<span id="id6"></span><h3>Delete a project<a class="headerlink" href="#delete-a-project" title="Link to this heading"></a></h3>
+<p>A Kvaser CanKing project cannot be deleted from within the program, it must be deleted manually from the disk by deleting the project file (.ckproj).</p>
+<p>In the window that opens when launching the program recent projects are listed, but using the buttons with cross marks on it is only possible to remove the files from that list. The projects will remain on disk.</p>
+</section>
+</section>
+<section id="handling-a-measurement">
+<span id="id7"></span><h2>Handling a measurement<a class="headerlink" href="#handling-a-measurement" title="Link to this heading"></a></h2>
+<section id="connect-a-kvaser-interface-add-a-node">
+<span id="add-a-node"></span><h3>Connect a Kvaser interface (add a node)<a class="headerlink" href="#connect-a-kvaser-interface-add-a-node" title="Link to this heading"></a></h3>
+<p>Kvaser interfaces connect to Kvaser CanKing as ‘source nodes’ in a measurement setup. See also <a class="reference internal" href="#first-time-setup-example"><span class="std std-ref">First time setup example</span></a> for more information.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘CAN Channel’ or ‘LIN Channel’ depending on your interface.</p></li>
+<li><p>Update the settings as needed.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+</section>
+<section id="update-a-node">
+<span id="id8"></span><h3>Update a node<a class="headerlink" href="#update-a-node" title="Link to this heading"></a></h3>
+<p>The settings or configuration of a node can always be updated, as long as there is no measurement running.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the button marked wih a pen icon on the node (source, data processor or target) to update.</p></li>
+<li><p>Update the settings or configuration as needed.</p></li>
+<li><p>Press the ‘Save’ button.</p></li>
+</ol>
+</section>
+<section id="enable-or-disable-a-node">
+<span id="id9"></span><h3>Enable or disable a node<a class="headerlink" href="#enable-or-disable-a-node" title="Link to this heading"></a></h3>
+<p>A node used in a measurement setup can be disabled to prevent it from being used when the measurement has started without having to delete it and possibly add it again before a later run of the measurement.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the button marked wih a block icon on the node (source, data processor or target) to enable or disable it. A disabled node will appear grayed out.</p></li>
+</ol>
+</section>
+<section id="delete-a-node">
+<span id="id10"></span><h3>Delete a node<a class="headerlink" href="#delete-a-node" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the button marked wih a bin icon on the node (source, data processor or target) to delete it.</p></li>
+<li><p>Select ‘Yes’ in the confirmation window.</p></li>
+</ol>
+</section>
+<section id="start-or-stop-a-measurement">
+<span id="id11"></span><h3>Start or stop a measurement<a class="headerlink" href="#start-or-stop-a-measurement" title="Link to this heading"></a></h3>
+<p>A measurement can be started from either the Measurement Setup view or the Workspace view.</p>
+<ol class="arabic simple">
+<li><p>Click on the button marked with a play symbol in the tool bar at the top of the application to start the measurement configured in the Measurement Setup view.</p></li>
+<li><p>To stop a running measurement, press the same button again (now marked with a stop playing symbol).</p></li>
+</ol>
+</section>
+</section>
+<section id="handling-a-workspace">
+<span id="id12"></span><h2>Handling a workspace<a class="headerlink" href="#handling-a-workspace" title="Link to this heading"></a></h2>
+<section id="create-a-workspace">
+<span id="id13"></span><h3>Create a workspace<a class="headerlink" href="#create-a-workspace" title="Link to this heading"></a></h3>
+<p>Workspaces can be used for following what is transmitted on the CAN or LIN bus, but also to for example send single messages.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar to the left of the application.</p></li>
+<li><p>A first workspace is created by default when creating a new project, but another one can be created by pressing the button marked with a plus sign next to the name of the first workspace (just below the tool bar at the top of the application).</p></li>
+<li><p>Add new panes as needed by using the arrow buttons, see <a class="reference internal" href="workspace_view.html#standard-panes"><span class="std std-ref">Standard Panes</span></a> for more information about available panes. The size of each pane can be changed by dragging their edges. It is also possible to make panes switch place by dragging and dropping them.</p></li>
+<li><p>Select a pane by using the ‘Select View’ button in the middle of each pane area.</p></li>
+</ol>
+</section>
+<section id="update-a-workspace">
+<span id="id14"></span><h3>Update a workspace<a class="headerlink" href="#update-a-workspace" title="Link to this heading"></a></h3>
+<p>A workspace can be updated at any time, including when a measurement is running.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Select the workspace to update.</p></li>
+<li><p>Click on the button marked with a pen icon to the far right of the horizontal list of created workspaces to enter edit mode.</p></li>
+<li><p>Adjust the panes as needed.</p></li>
+<li><p>Press the button marked with a pen icon again to save the changes.</p></li>
+</ol>
+</section>
+<section id="change-the-workspace-name">
+<span id="id15"></span><h3>Change the workspace name<a class="headerlink" href="#change-the-workspace-name" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Select the workspace to change the name of.</p></li>
+<li><p>Click on the button marked with a pen icon to the far right of the horizontal list of created workspaces to enter edit mode.</p></li>
+<li><p>The name of the workspace is now selected and can be changed.</p></li>
+<li><p>Press the button marked with a pen icon again to save the changes.</p></li>
+</ol>
+</section>
+<section id="delete-a-workspace">
+<span id="id16"></span><h3>Delete a workspace<a class="headerlink" href="#delete-a-workspace" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Hover over the workspace to delete.</p></li>
+<li><p>Click on the button marked with a cross next to the workspace name to delete the workspace.</p></li>
+</ol>
+</section>
+</section>
+<section id="viewing-and-logging-data">
+<span id="id17"></span><h2>Viewing and logging data<a class="headerlink" href="#viewing-and-logging-data" title="Link to this heading"></a></h2>
+<p>This section describes how CAN and LIN messages transmitted on the respective bus can be viewed and logged. The described procedures use generated data, but similar steps are of course applicable to real data as well. See also the <a class="reference internal" href="#first-time-setup-example"><span class="std std-ref">First time setup example</span></a>.</p>
+<section id="view-can-messages">
+<span id="id18"></span><h3>View CAN messages<a class="headerlink" href="#view-can-messages" title="Link to this heading"></a></h3>
+<p>To view CAN messages in a trace, follow the procedure below.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘CAN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-4 as needed for the other channels to connect.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘Traffic Generator’.</p></li>
+<li><p>In the pop-up window, select one of the previously connected channels in the Channel section.</p></li>
+<li><p>Update the remaining settings according to your preferences.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>Continue with preparing a workspace which will show the message trace:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar.</p></li>
+<li><p>A new, empty workspace is already open. Click on the ‘Select View’ button in the middle of the screen and select ‘Message Trace’.</p></li>
+</ol>
+<p>Now everything has been prepared!</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>Note that messages are received.</p></li>
+</ol>
+</section>
+<section id="view-lin-messages">
+<span id="id19"></span><h3>View LIN messages<a class="headerlink" href="#view-lin-messages" title="Link to this heading"></a></h3>
+<p>To view LIN messages in a trace, follow the procedure below.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘LIN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Select if the channel should be master or slave.</p></li>
+<li><p>Optionally, check the ‘Save LIN message info’ checkbox to be able to view additional information such as bit rate and checksum.</p></li>
+<li><p>Optionally, add a LIN database (.ldf file). Also select a schedule table if a master channel is being configured. This step is mandatory if you want to send a specific response from a slave channel when a certain message header is received and do not intend to use the CLI command ‘ck send lin-request’, see <a class="reference internal" href="tools_panel.html#terminal-view"><span class="std std-ref">Terminal view</span></a> for more information on how to use CLI commands.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-7 as needed for the other channels to connect. Note: one of the connected channels must be a master channel.</p></li>
+</ol>
+<p>Continue with preparing a workspace which will show the message trace and generate messages:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar.</p></li>
+<li><p>A new, empty workspace is already open. Click on the arrow buttons to add a second and optionally a third pane area. One will contain the message trace and one will handle sending LIN messages. The third one is used if certain responses should be sent when a specific message header is received.</p></li>
+<li><p>Use the ‘Select View’ button in the middle of each pane area to select the panes. Select ‘Message Trace’, ‘LIN Send’ and optionally ‘LIN Message Update’.</p></li>
+<li><p>In the pane with the ‘LIN Send’ view, select the master channel to generate data to.</p></li>
+<li><p>Select the LIN identifier to use and configure the message data to be sent. If a LIN database is used and the selected identifier has signals configured, signals can be configured and the message data be automatically updated accordingly.</p></li>
+<li><p>If a ‘LIN Message Update’ view was added to a pane, select a slave channel which will reply to a certain message header.</p></li>
+<li><p>Select the LIN identifier to use and configure the message data to be sent as response. If a LIN database is used and the selected identifier has signals configured, signals can be configured and the message data be automatically updated accordingly.</p></li>
+</ol>
+<p>Now everything has been prepared!</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>If a ‘LIN Message Update’ view was added to a pane, click on the ‘Start’ button in that pane to start listening for a certain message header and be able to reply with the configured response.</p></li>
+<li><p>Send a LIN message using the ‘Send’ button in the pane with the ‘LIN Send’ view.</p></li>
+<li><p>Note that the message was received and the expected reply was sent (if such was configured and set to respond to the message to be sent) in the pane with the ‘Message Trace’ view.</p></li>
+</ol>
+</section>
+<section id="visualize-signals-in-signal-plot">
+<span id="id20"></span><h3>Visualize signals in Signal Plot<a class="headerlink" href="#visualize-signals-in-signal-plot" title="Link to this heading"></a></h3>
+<p>The Signal Plot pane provides real-time graphical visualization of CAN and LIN signals. This tutorial shows how to set up and use the Signal Plot to monitor signal values over time.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘CAN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-4 as needed for other channels to connect.</p></li>
+<li><p>Click on the button marked with a plus sign next to one of the channel source nodes and select ‘Databases’.</p></li>
+<li><p>In the pop-up window, click on the ‘Add’ button next to the ‘Database Files’ label and select a CAN database file (.dbc file) containing signal definitions.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘Traffic Generator’ (or connect to a real CAN bus with active traffic).</p></li>
+<li><p>In the pop-up window, select one of the previously connected channels in the Channel section.</p></li>
+<li><p>Configure the Traffic Generator to send messages that contain the signals you want to visualize.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>Continue with preparing a workspace with Signal Plot:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar.</p></li>
+<li><p>A new, empty workspace is already open. Click on the ‘Select View’ button in the middle of the screen and select ‘Signal Plot’.</p></li>
+<li><p>The Signal Plot pane opens with an empty graph ready for configuration.</p></li>
+</ol>
+<p>Add signals to the plot:</p>
+<ol class="arabic simple">
+<li><p>In the Signal Plot pane, look for the legends panel on the right side (if not visible, click the Show Legends button in the toolbar).</p></li>
+<li><p>Click the ‘Add Signal’ button (plus icon) in the legends panel.</p></li>
+<li><p>In the signal selection dialog, browse or search for signals from the loaded database.</p></li>
+<li><p>Select one or more signals to add to the graph.</p></li>
+<li><p>Click ‘OK’ to add the signals.</p></li>
+<li><p>The signals now appear in the legends panel with colored lines indicating their plot colors.</p></li>
+</ol>
+<p>Start visualizing data:</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>The Signal Plot begins displaying real-time signal values as graphs.</p></li>
+<li><p>Signal values are updated continuously, and the plot scrolls from right to left showing the most recent data.</p></li>
+<li><p>Current signal values are displayed in the legends panel on the right.</p></li>
+</ol>
+<p>Using Signal Plot controls:</p>
+<p><strong>Adjusting the time window:</strong></p>
+<ol class="arabic simple">
+<li><p>In the Signal Plot toolbar, click the time window dropdown (default is 30 seconds).</p></li>
+<li><p>Select a different time window (20, 30, 40, 50, or 60 seconds) to change how much historical data is visible.</p></li>
+</ol>
+<p><strong>Pausing for analysis:</strong></p>
+<ol class="arabic simple">
+<li><p>Click the ‘Pause’ button in the toolbar to freeze the display.</p></li>
+<li><p>When paused, you can use additional analysis features:</p>
+<ul class="simple">
+<li><p>Zoom in/out using the mouse wheel</p></li>
+<li><p>Click and drag to zoom into a specific area</p></li>
+<li><p>Pan by clicking and dragging an axis</p></li>
+<li><p>Use the Undo/Redo buttons to navigate zoom history</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Using time cursors:</strong></p>
+<ol class="arabic simple">
+<li><p>With the plot paused, click one or both cursor buttons in the toolbar to enable cursors.</p></li>
+<li><p>Drag the vertical cursor lines to different time positions.</p></li>
+<li><p>The legends panel displays the signal values at each cursor position.</p></li>
+<li><p>This is useful for measuring exact values at specific time points or calculating the difference between two time points.</p></li>
+</ol>
+<p><strong>Comparing signals with different scales:</strong></p>
+<ol class="arabic simple">
+<li><p>Click the ‘Add Signal’ button again to add more signals.</p></li>
+<li><p>Signals with different value ranges will automatically be displayed with appropriate Y-axis scales.</p></li>
+<li><p>Each signal’s Y-axis can be individually zoomed using mouse wheel when paused.</p></li>
+</ol>
+<p><strong>Customizing the display:</strong></p>
+<ol class="arabic simple">
+<li><p>In the legends panel, you can customize each signal:</p>
+<ul class="simple">
+<li><p>Change the signal color by clicking the color box</p></li>
+<li><p>Toggle signal visibility with the eye icon</p></li>
+<li><p>Adjust line thickness or marker style</p></li>
+<li><p>Remove signals using the delete button</p></li>
+</ul>
+</li>
+<li><p>Toggle Auto-Scale Y Axes to automatically fit all signal values in the visible area.</p></li>
+<li><p>When Auto-Scale is off, manually zoom Y-axes and click ‘Save Y Axes Ranges’ to preserve your preferred scales.</p></li>
+</ol>
+<p><strong>Using different plot modes:</strong></p>
+<ol class="arabic simple">
+<li><p>In the toolbar, find the Mode dropdown.</p></li>
+<li><p>Select ‘Scroll’ mode (default) for continuous scrolling visualization.</p></li>
+<li><p>Select ‘Scan’ mode for an oscilloscope-like sweeping effect where the plot advances in chunks.</p></li>
+<li><p>When using Scan mode, adjust the ‘Advance’ percentage to control how much the plot moves when it reaches the right edge.</p></li>
+</ol>
+<p>Tips for effective signal visualization:</p>
+<ul class="simple">
+<li><p>Use multiple Signal Plot panes in different workspace areas to monitor different signal groups simultaneously.</p></li>
+<li><p>Combine Signal Plot with Message Trace to correlate signal values with specific messages.</p></li>
+<li><p>Pause and zoom in to investigate signal anomalies or transitions in detail.</p></li>
+<li><p>Use time cursors to measure signal rise times, settling times, or calculate rates of change.</p></li>
+<li><p>Save your workspace configuration with configured Signal Plot panes for reuse in future measurement sessions.</p></li>
+</ul>
+</section>
+<section id="log-can-messages">
+<span id="id21"></span><h3>Log CAN messages<a class="headerlink" href="#log-can-messages" title="Link to this heading"></a></h3>
+<p>To log CAN messages to a file, follow the procedure below.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘CAN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-4 as needed for the other channels to connect.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘Traffic Generator’.</p></li>
+<li><p>In the pop-up window, select one of the previously connected channels in the Channel section.</p></li>
+<li><p>Update the remaining settings according to your preferences.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Click on the ‘Target’ button and select ‘Message Logger’.</p></li>
+<li><p>In the pop-up window, write a valid file path in the ‘File Name’ field, for example <em>C:\Users\&lt;YOUR USERNAME&gt;\Documents\Kvaser_canking_can_messages_log.txt</em> on Windows or <em>/home/&lt;YOUR USERNAME&gt;/Kvaser_canking_can_messages_log.txt</em> on Linux, replacing &lt;YOUR USERNAME&gt; with your actual username.</p></li>
+<li><p>Make sure that ‘Append next available index to file name’ is selected.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>Now everything has been prepared!</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>Note that the description of ‘Message Logger’ target node changes from the name of the file to write to and instead becomes ‘Status: started’.</p></li>
+<li><p>Open the file you selected in the ‘Message Logger’ target node. Remark that it will end with underscore followed by a number due to the selected settings.</p></li>
+</ol>
+</section>
+<section id="log-can-signals">
+<span id="id22"></span><h3>Log CAN signals<a class="headerlink" href="#log-can-signals" title="Link to this heading"></a></h3>
+<p>To log CAN signals to a file, follow the procedure below.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘CAN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-4 as needed for the other channels to connect.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘Traffic Generator’.</p></li>
+<li><p>In the pop-up window, select one of the previously connected channels in the Channel section.</p></li>
+<li><p>Update the remaining settings according to your preferences.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Click on the button marked with a plus sign next to one of the channel source nodes that are not connected to the Traffic Generator and select ‘Databases’.</p></li>
+<li><p>In the pop-up window, click on the ‘Add’ button next to the ‘Database Files’ label and select a CAN database file (.dbc file). Repeat to add more databases.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Click on the ‘Target’ button and select ‘Signal Logger’.</p></li>
+<li><p>In the pop-up window, write a valid file path in the ‘File Name’ field, for example <em>C:\Users\&lt;YOUR USERNAME&gt;\Documents\Kvaser_canking_can_signals_log.csv</em> on Windows or <em>/home/&lt;YOUR USERNAME&gt;/Kvaser_canking_can_signals_log.csv</em> on Linux, replacing &lt;YOUR USERNAME&gt; with your actual username.</p></li>
+<li><p>Make sure that ‘Append next available index to file name’ is selected.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>Now everything has been prepared!</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>Note that the description of ‘Signal Logger’ target node changes from the name of the file to write to and instead becomes ‘Status: started’.</p></li>
+<li><p>Stop the measurement using the button marked with a stop symbol in the tool bar at the top of the application.</p></li>
+<li><p>Open the file you selected in the ‘Signal Logger’ target node. Remark that it will end with underscore followed by a number due to the selected settings.</p></li>
+</ol>
+</section>
+<section id="log-lin-signals">
+<span id="id23"></span><h3>Log LIN signals<a class="headerlink" href="#log-lin-signals" title="Link to this heading"></a></h3>
+<p>To log LIN signals to a file, follow the procedure below.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘LIN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Select if the channel should be master or slave.</p></li>
+<li><p>Optionally, check the ‘Save LIN message info’ checkbox to be able to view additional information such as bit rate and checksum.</p></li>
+<li><p>Add a LIN database (.ldf file). Also select a schedule table if a master channel is being configured.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-7 as needed for the other channels to connect. Note: one of the connected channels must be a master channel.</p></li>
+<li><p>Click on the ‘Target’ button and select ‘Signal Logger’.</p></li>
+<li><p>In the pop-up window, write a valid file path in the ‘File Name’ field, for example <em>C:\Users\&lt;YOUR USERNAME&gt;\Documents\Kvaser_canking_lin_signals_log.csv</em> on Windows or <em>/home/&lt;YOUR USERNAME&gt;/Kvaser_canking_lin_signals_log.csv</em> on Linux, replacing &lt;YOUR USERNAME&gt; with your actual username.</p></li>
+<li><p>Make sure that ‘Append next available index to file name’ is selected.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>Continue with preparing a workspace which will generate messages:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar.</p></li>
+<li><p>A new, empty workspace is already open. Optionally, click on one of the arrow buttons to add a second pane area. One will handle sending LIN messages and the other is used if certain responses should be sent when a specific message header is received.</p></li>
+<li><p>Use the ‘Select View’ button in the middle of each pane area to select the panes. Select ‘LIN Send’ and optionally ‘LIN Message Update’.</p></li>
+<li><p>In the pane with the ‘LIN Send’ view, select the master channel to generate data to.</p></li>
+<li><p>Select the LIN identifier to use and configure the message data to be sent. If the selected identifier has signals configured, signals can be configured and the message data be automatically updated accordingly.</p></li>
+<li><p>If a ‘LIN Message Update’ view was added to a pane, select a slave channel which will reply to a certain message header.</p></li>
+<li><p>Select the LIN identifier to use and configure the message data to be sent as response. If the selected identifier has signals configured, signals can be configured and the message data be automatically updated accordingly.</p></li>
+</ol>
+<p>Now everything has been prepared!</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>If a ‘LIN Message Update’ view was added to a pane, click on the ‘Start’ button in that pane to start listening for a certain message header and be able to reply with the configured response.</p></li>
+<li><p>Send a LIN message using the ‘Send’ button in the pane with the ‘LIN Send’ view.</p></li>
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar.</p></li>
+<li><p>Note that the description of ‘Signal Logger’ target node has changed from the name of the file to write to and instead has become ‘Status: started’.</p></li>
+<li><p>Stop the measurement using the button marked with a stop symbol in the tool bar at the top of the application.</p></li>
+<li><p>Open the file you selected in the ‘Signal Logger’ target node. Remark that it will end with underscore followed by a number due to the selected settings.</p></li>
+</ol>
+</section>
+<section id="replay-logged-can-messages">
+<span id="id24"></span><h3>Replay logged CAN messages<a class="headerlink" href="#replay-logged-can-messages" title="Link to this heading"></a></h3>
+<p>To replay the CAN messages that were saved to a file during an earlier measurement, see <a class="reference internal" href="#log-can-messages"><span class="std std-ref">Log CAN messages</span></a>, follow the procedure below.</p>
+<p>Start by preparing the measurement setup:</p>
+<ol class="arabic simple">
+<li><p>Open a new project by pressing the button with a document icon on it in the tool bar at the top of the application.</p></li>
+<li><p>In the Measurement Setup view, click on the ‘Source’ button and select ‘CAN Channel’.</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+<li><p>Repeat step 2-4 as needed for the other channels to connect.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘Log Replay’.</p></li>
+<li><p>In the pop-up window, enter the name of a previously created CAN message log file in the ‘File Name’ field.</p></li>
+<li><p>Select if only Rx and/ or Tx messages found in the file should be replayed.</p></li>
+<li><p>Check the ‘Include error frames’ checkbox if any error frames found in the log file should be replayed.</p></li>
+<li><p>Specify number of file iterations.</p></li>
+<li><p>Specify at which rate (in ms) to send each found message. Set to zero (0) to use the difference between the timestamps found in the log file. For example, if the difference in time between message 1 and 2 is 0.4 seconds and the difference between message 2 and 3 is 0.5 seconds, the second message will be sent 0.4 seconds after the first one and the third message will be sent 0.5 seconds after the second one.</p></li>
+<li><p>In the Channels section, select which channels found in the log file to replay messages from. Specify which of the currently connected channels to replay their messages on.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>Continue with preparing a workspace which will show the message trace:</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar.</p></li>
+<li><p>A new, empty workspace is already open. Click on the ‘Select View’ button in the middle of the screen and select ‘Message Trace’.</p></li>
+</ol>
+<p>Now everything has been prepared!</p>
+<ol class="arabic simple">
+<li><p>Start the measurement by pressing the button marked with a play symbol in the tool bar at the top of the application.</p></li>
+<li><p>Note that the messages found in the log file are transmitted on the bus.</p></li>
+</ol>
+</section>
+</section>
+<section id="data-processing">
+<span id="id25"></span><h2>Data processing<a class="headerlink" href="#data-processing" title="Link to this heading"></a></h2>
+<section id="filter-can-messages">
+<span id="id26"></span><h3>Filter CAN messages<a class="headerlink" href="#filter-can-messages" title="Link to this heading"></a></h3>
+<p>This tutorial assumes that you have already added a CAN channel (source node) to your measurement setup, see <a class="reference internal" href="#add-a-node"><span class="std std-ref">Connect a Kvaser interface (add a node)</span></a>.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the button marked with a plus sign next to the channel source node to apply a filter to and select ‘CAN Message Filter’. Note: a filter cannot be applied to a source node that is connected to a Traffic Generator.</p></li>
+<li><p>In the pop-up window, select ‘Pass filter’ or ‘Block filter’.</p></li>
+<li><p>Type the CAN identifiers to be filtered in the ‘Standard CAN Identifiers’ or ‘Extended CAN Identifiers’ field.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+</section>
+<section id="connect-a-can-or-lin-database">
+<span id="connect-a-can-database"></span><h3>Connect a CAN or LIN database<a class="headerlink" href="#connect-a-can-or-lin-database" title="Link to this heading"></a></h3>
+<p>For LIN channels there are two ways to connect a database, whilst for CAN channels there is only one. The first procedure described below is applicable to both CAN and LIN channels, but assumes that you have already added a CAN or LIN channel (source node) to your measurement setup, see <a class="reference internal" href="#add-a-node"><span class="std std-ref">Connect a Kvaser interface (add a node)</span></a>. The second procedure is only applicable to LIN channels, but it is not required to have added such source node beforehand.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the button marked with a plus sign next to the channel source node to connect a CAN or LIN database to and select ‘Databases’.</p></li>
+<li><p>In the pop-up window, click on the ‘Add’ button next to the ‘Database Files’ label and select a CAN database file (.dbc file) or LIN database file (.ldf). Repeat to add more databases.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+<p>A LIN database can also be added directly to the ‘LIN Channel’ source node. This is required if a schedule table shall be set. Adding it to a ‘Databases’ node is on the other hand needed if multiple database files should be added to the same LIN channel. It might also be preferred if using a Kvaser Hybrid interface and would like to connect both CAN and LIN databases.</p>
+<p>To add a LIN database file directly to a ‘LIN Channel’ source node, follow the steps below.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the ‘Source’ button and select ‘LIN Channel’ (or click on the button marked with a pen icon on an already added LIN node).</p></li>
+<li><p>In the pop-up window, open the ‘Interface’ dropdown menu and select one of the channels of your Kvaser interface(s).</p></li>
+<li><p>Select if the channel should be master or slave.</p></li>
+<li><p>Add a LIN database (.ldf file). Also select a schedule table if a master channel is being configured.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+</section>
+<section id="use-an-interpreter">
+<span id="id27"></span><h3>Use an Interpreter<a class="headerlink" href="#use-an-interpreter" title="Link to this heading"></a></h3>
+<p>This tutorial describes how to use an interpreter, such as J1939. It assumes that you have already added a channel (source node) to your measurement setup, see <a class="reference internal" href="#add-a-node"><span class="std std-ref">Connect a Kvaser interface (add a node)</span></a>.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Measurement Setup view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Click on the button marked with a plus sign next to the channel source node to connect an interpreter to and select ‘Interpreter’.</p></li>
+<li><p>In the pop-up window, select the interpreter to use.</p></li>
+<li><p>Press the ‘Create’ button.</p></li>
+</ol>
+</section>
+</section>
+<section id="debugging">
+<span id="id28"></span><h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading"></a></h2>
+<section id="check-for-errors">
+<span id="id29"></span><h3>Check for errors<a class="headerlink" href="#check-for-errors" title="Link to this heading"></a></h3>
+<p>There are several ways in which Kvaser CanKing can inform about any errors (error frames, or errors or warnings in the application itself).</p>
+<p>To check for error frames during a measurement, follow the procedure below.</p>
+<ol class="arabic simple">
+<li><p>Navigate to the Workspace view using the vertical tool bar to the left of the application.</p></li>
+<li><p>Add a ‘Message Trace’ view to a pane in a workspace, see <a class="reference internal" href="#create-a-workspace"><span class="std std-ref">Create a workspace</span></a>.</p></li>
+<li><p>Start the measurement if it is not already running, see <a class="reference internal" href="#start-or-stop-a-measurement"><span class="std std-ref">Start or stop a measurement</span></a>.</p></li>
+<li><p>Look for any error frames.</p></li>
+<li><p>Alternatively, the color of the button for stopping the measurement can indicate that error frames are being sent. It will then turn from green to red.</p></li>
+<li><p>As a third option, at the bottom of the application there is a progress bar for each connected channel that shows their bus load. The color of the progress bar will change from green to red if error frames are received.</p></li>
+</ol>
+<p>To check for errors or warnings in general, follow the steps below.</p>
+<ol class="arabic simple">
+<li><p>Open the <a class="reference internal" href="tools_panel.html#tools-panel"><span class="std std-ref">Tools panel</span></a>.</p></li>
+<li><p>Select the ‘Log’ tab.</p></li>
+<li><p>Make sure that a log level which includes the wanted type of application messages has been selected, see <a class="reference internal" href="tools_panel.html#log-view"><span class="std std-ref">Log view</span></a> for a list of all log levels and what they contain.</p></li>
+<li><p>Look for any errors or warnings.</p></li>
+</ol>
+</section>
+<section id="re-start-the-kvaser-canking-service">
+<span id="restart-the-kvaser-canking-service"></span><h3>Re-start the Kvaser CanKing service<a class="headerlink" href="#re-start-the-kvaser-canking-service" title="Link to this heading"></a></h3>
+<p>If the Kvaser CanKing service for some reasone crashes, it will automatically try to re-start. If this is not possible, the service can be manually started by following the procedure below.</p>
+<ol class="arabic simple">
+<li><p>Start by checking the status of the Kvaser CanKing service. If the service is unavailable, the computer symbol in the tool bar at the top of the application will turn red instead of green and get a restart symbol on it instead of a check mark. In addition, any error messages will appear in the log, see <a class="reference internal" href="#check-for-errors"><span class="std std-ref">Check for errors</span></a>.</p></li>
+<li><p>Click on the button marked with a computer symbol in the tool bar at the top of the application.</p></li>
+<li><p>In the pop-up window, the service’s connection status will be displayed.</p></li>
+<li><p>If the service is disconnected, press the ‘Connect’ button which then will have appeared at the bottom of the window.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tools_panel.html" class="btn btn-neutral float-left" title="Tools panel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="message_trace.html" class="btn btn-neutral float-right" title="Message Trace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

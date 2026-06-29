@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Measurement Setup view &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Source Nodes" href="source_nodes.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Measurement Setup view</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nodes">Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-nodes">Standard Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="source_nodes.html">Source Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor_nodes.html">Data Processor Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="target_nodes.html">Target Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#customized-nodes">Customized Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#node-management">Node Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-nodes">Adding Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-nodes">Configuring Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-and-disabling-nodes">Enabling and Disabling Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-nodes">Deleting Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-controls-source-nodes">Node Controls (Source Nodes)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#measurement-setup-design">Measurement Setup Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-configuration">Channel Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-management">Database Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-strategy">Filtering Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logging-strategy">Logging Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-and-validation">Testing and Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Measurement Setup view</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="measurement-setup-view">
+<span id="id1"></span><h1>Measurement Setup view<a class="headerlink" href="#measurement-setup-view" title="Link to this heading"></a></h1>
+<p>The Measurement Setup view shows the current configuration, i.e. which Kvaser interfaces that are currently configured to be used and how to handle the data they receive. The configuration is illustrated as a node graph that is orientated from left to right, where a node corresponds to a specific Kvaser interface or a feature such as logging messages. The Measurement Setup view opens automatically after creating a new or selecting a saved project, but can also be opened from the vertical tool bar to the left of the application.</p>
+<p>An example of a measurement setup is provided below. It contains two Kvaser virtual CAN channels, a Traffic Generator node for generating data on CAN 2 and a pass-through filter on CAN 1. The data is transmitted to a stream.</p>
+<a class="reference internal image-reference" href="_images/Example_measurement_setup.png"><img alt="An example of a measurement setup using Kvaser virtual CAN channels." height="382" src="_images/Example_measurement_setup.png" width="874" />
+</a>
+<p>A measurement can optionally be kept running in the background even if the Kvaser CanKing application is closed. This can be configured in the <a class="reference internal" href="introduction.html#settings"><span class="std std-ref">user settings</span></a>.</p>
+<section id="nodes">
+<span id="id2"></span><h2>Nodes<a class="headerlink" href="#nodes" title="Link to this heading"></a></h2>
+<p>A node has one of three types:</p>
+<ul class="simple">
+<li><p>Source</p></li>
+<li><p>Data processor</p></li>
+<li><p>Target</p></li>
+</ul>
+<p>All Kvaser interfaces are source nodes, but there is also a source node for replaying log files and generating CAN traffic. A data processor parses the data transmitted from a source node and may for example consist of a database (.dbc file) or a filter. A target node, on the other hand, could be a Message Logger or Signal Logger. All data is also transmitted to a stream (denoted as ‘UI Streams’ in the Measurement Setup view). For a list of all available nodes, sorted according to type, see <a class="reference internal" href="#standard-nodes"><span class="std std-ref">Standard Nodes</span></a>.</p>
+<p>A node may be enabled or disabled in a measurement setup.</p>
+<section id="standard-nodes">
+<span id="id3"></span><h3>Standard Nodes<a class="headerlink" href="#standard-nodes" title="Link to this heading"></a></h3>
+<p>This section describes all available standard nodes in detail, including their configuration options, use cases, and best practices.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="source_nodes.html">Source Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source_nodes.html#can-channel">CAN Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_nodes.html#lin-channel">LIN Channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_nodes.html#traffic-generator">Traffic Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_nodes.html#log-replay">Log Replay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_nodes.html#all-connected-can-channels">All Connected CAN Channels</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_processor_nodes.html">Data Processor Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_processor_nodes.html#can-message-filter">CAN Message Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor_nodes.html#databases">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor_nodes.html#j1939-interpreter">J1939 Interpreter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor_nodes.html#j1939-annotator">J1939 Annotator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor_nodes.html#iso-tp-annotator">ISO-TP Annotator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="target_nodes.html">Target Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="target_nodes.html#message-logger">Message Logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="target_nodes.html#signal-logger">Signal Logger</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="customized-nodes">
+<span id="id4"></span><h3>Customized Nodes<a class="headerlink" href="#customized-nodes" title="Link to this heading"></a></h3>
+<p>A user may create customized nodes to be able to get additional functionality, like for example a gateway or a cloud connector. Such extension is developed as a Web Assembly component which will be hosted by the Kvaser CanKing service. Once installed, the extension will be available as a node in the Measurement Setup view and able to interact with the CAN and LIN bus.</p>
+<p>Available customized nodes are:</p>
+<ul class="simple">
+<li><p><strong>J1939 Annotator</strong> - Decodes and annotates J1939 Transport Protocol (TP) traffic. See <a class="reference internal" href="data_processor_nodes.html#j1939-annotator-node"><span class="std std-ref">J1939 Annotator</span></a> for detailed information.</p></li>
+<li><p><strong>ISO-TP Annotator</strong> - Decodes and annotates ISO-TP (ISO 15765-2) traffic on CAN and CAN-FD buses. See <a class="reference internal" href="data_processor_nodes.html#isotp-annotator-node"><span class="std std-ref">ISO-TP Annotator</span></a> for detailed information.</p></li>
+</ul>
+<p>To make a customized node available in the Measurement Setup view, its service extension must first be installed. Once installed, it can be added to the measurement setup like any standard node. A service extension is installed by selecting <em>More</em> followed by <em>Extensions</em> and <em>Install…</em> from the tool bar menu of the Kvaser CanKing application.</p>
+<p>For more information about service extensions, including examples and how to install them, see the separate guide found in the tool bar in the Kvaser CanKing application by selecting <em>Help</em> followed by <em>CanKing Service Extensions SDK Help…</em>.</p>
+</section>
+</section>
+<section id="node-management">
+<span id="id5"></span><h2>Node Management<a class="headerlink" href="#node-management" title="Link to this heading"></a></h2>
+<p>This section describes how to add, configure, and manage nodes in the Measurement Setup view.</p>
+<section id="adding-nodes">
+<h3>Adding Nodes<a class="headerlink" href="#adding-nodes" title="Link to this heading"></a></h3>
+<p><strong>Adding Source Nodes:</strong></p>
+<ol class="arabic simple">
+<li><p>In the Measurement Setup view, click the <strong>Source</strong> button</p></li>
+<li><p>Select the desired source node type from the menu</p></li>
+<li><p>Configure the node settings in the dialog</p></li>
+<li><p>Click <strong>Create</strong> to add the node</p></li>
+</ol>
+<p><strong>Adding Data Processor Nodes:</strong></p>
+<ol class="arabic simple">
+<li><p>Click the <strong>+</strong> button on an existing source node</p></li>
+<li><p>Select the desired data processor type</p></li>
+<li><p>Configure the processor settings</p></li>
+<li><p>Click <strong>Create</strong> to insert the processor</p></li>
+</ol>
+<p>Data processors are inserted between the source node and the UI stream, processing all data flowing through that path.</p>
+<p><strong>Adding Target Nodes:</strong></p>
+<ol class="arabic simple">
+<li><p>Click the <strong>Target</strong> button</p></li>
+<li><p>Select the desired target node type</p></li>
+<li><p>Configure the target settings (file paths, formats, etc.)</p></li>
+<li><p>Click <strong>Create</strong> to add the target</p></li>
+</ol>
+<p>Target nodes receive data from all sources after processing.</p>
+</section>
+<section id="configuring-nodes">
+<h3>Configuring Nodes<a class="headerlink" href="#configuring-nodes" title="Link to this heading"></a></h3>
+<p>To edit an existing node:</p>
+<ol class="arabic simple">
+<li><p>Click the <strong>Edit</strong> button (pen icon) on the node</p></li>
+<li><p>Modify the settings as needed</p></li>
+<li><p>Click <strong>Save</strong> to apply changes</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nodes cannot be edited while a measurement is running. Stop the measurement first.</p>
+</div>
+</section>
+<section id="enabling-and-disabling-nodes">
+<h3>Enabling and Disabling Nodes<a class="headerlink" href="#enabling-and-disabling-nodes" title="Link to this heading"></a></h3>
+<p>Nodes can be temporarily disabled without removing them:</p>
+<ol class="arabic simple">
+<li><p>Click the <strong>Enable/Disable</strong> button on the node</p></li>
+<li><p>Disabled nodes appear grayed out</p></li>
+<li><p>Click again to re-enable</p></li>
+</ol>
+<dl class="simple">
+<dt>Disabled nodes:</dt><dd><ul class="simple">
+<li><p>Do not participate in measurements</p></li>
+<li><p>Retain their configuration</p></li>
+<li><p>Can be quickly re-enabled when needed</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Use Cases:</strong></p>
+<ul class="simple">
+<li><p>Temporarily exclude a channel without removing configuration</p></li>
+<li><p>Test different measurement configurations quickly</p></li>
+<li><p>Disable expensive data processing during initial testing</p></li>
+</ul>
+</section>
+<section id="deleting-nodes">
+<h3>Deleting Nodes<a class="headerlink" href="#deleting-nodes" title="Link to this heading"></a></h3>
+<p>To remove a node:</p>
+<ol class="arabic simple">
+<li><p>Click the <strong>Delete</strong> button (trash icon) on the node</p></li>
+<li><p>Confirm the deletion when prompted</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Deleting a node removes its configuration permanently. Consider disabling instead if you may need it later.</p>
+</div>
+</section>
+<section id="node-controls-source-nodes">
+<h3>Node Controls (Source Nodes)<a class="headerlink" href="#node-controls-source-nodes" title="Link to this heading"></a></h3>
+<p>Some source nodes have additional runtime controls:</p>
+<dl class="simple">
+<dt><strong>Bus On/Off (CAN Channel):</strong></dt><dd><ul class="simple">
+<li><p>Toggle whether the CAN controller is active on the bus</p></li>
+<li><p>Useful for temporarily disconnecting from the bus without stopping the measurement</p></li>
+<li><p>Green indicator shows “on bus” state</p></li>
+</ul>
+</dd>
+<dt><strong>Start/Stop (Traffic Generator, Log Replay):</strong></dt><dd><ul class="simple">
+<li><p>Control traffic generation independently of the measurement</p></li>
+<li><p>Allows starting/stopping data generation while monitoring continues</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="best-practices">
+<span id="measurement-setup-best-practices"></span><h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="measurement-setup-design">
+<h3>Measurement Setup Design<a class="headerlink" href="#measurement-setup-design" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Keep It Simple:</strong></dt><dd><ul class="simple">
+<li><p>Start with minimal configuration and add complexity as needed</p></li>
+<li><p>Use descriptive names for channels when multiple interfaces are connected</p></li>
+<li><p>Disable unused nodes rather than creating separate projects</p></li>
+</ul>
+</dd>
+<dt><strong>Logical Data Flow:</strong></dt><dd><ul class="simple">
+<li><p>Organize nodes left-to-right following the data flow</p></li>
+<li><p>Use consistent configurations across similar channels</p></li>
+</ul>
+</dd>
+<dt><strong>Performance Considerations:</strong></dt><dd><ul class="simple">
+<li><p>Apply filters early (close to source) to reduce downstream processing</p></li>
+<li><p>Load only necessary databases to minimize decoding overhead</p></li>
+<li><p>Use binary log formats (KME, MDF) for better performance than text formats</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="channel-configuration">
+<h3>Channel Configuration<a class="headerlink" href="#channel-configuration" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>CAN Channel Best Practices:</strong></dt><dd><ul class="simple">
+<li><p>Verify bit rate matches your network before connecting</p></li>
+<li><p>Consider silent mode for error injection testing</p></li>
+<li><p>Lock to serial number for reproducible hardware configurations</p></li>
+</ul>
+</dd>
+<dt><strong>LIN Channel Best Practices:</strong></dt><dd><ul class="simple">
+<li><p>Ensure only one master is active on the network</p></li>
+<li><p>Load databases with schedule tables for master channels</p></li>
+<li><p>Configure slave responses before starting measurements</p></li>
+<li><p>Enable “Save LIN message info” for detailed protocol analysis</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="database-management">
+<h3>Database Management<a class="headerlink" href="#database-management" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Load databases early in your setup (before other processors)</p></li>
+<li><p>Use descriptive database file names for easy identification</p></li>
+<li><p>Keep database files with your project for portability</p></li>
+<li><p>Update databases when ECU software changes</p></li>
+<li><p>Verify database versions match your hardware/software configuration</p></li>
+</ul>
+</section>
+<section id="filtering-strategy">
+<h3>Filtering Strategy<a class="headerlink" href="#filtering-strategy" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use pass filters for focused analysis on known messages</p></li>
+<li><p>Use block filters to remove known noise sources</p></li>
+<li><p>Combine multiple filters for complex scenarios</p></li>
+<li><p>Remember: filters affect data to UI and targets, not the physical bus</p></li>
+<li><p>Test filter configurations before long measurements</p></li>
+</ul>
+</section>
+<section id="logging-strategy">
+<h3>Logging Strategy<a class="headerlink" href="#logging-strategy" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>File Format Selection:</strong></dt><dd><ul class="simple">
+<li><p>Use KME for best performance and replay capability</p></li>
+<li><p>Use MDF for compatibility with industry tools</p></li>
+<li><p>Use CSV for human-readable output and custom processing</p></li>
+<li><p>Use Vector formats when integrating with CANoe/CANalyzer</p></li>
+</ul>
+</dd>
+<dt><strong>File Management:</strong></dt><dd><ul class="simple">
+<li><p>Enable “Append index” to prevent accidental overwrites</p></li>
+<li><p>Use descriptive file names with date/time or test identifiers</p></li>
+<li><p>Store log files in a consistent directory structure</p></li>
+<li><p>Consider disk space for long-running measurements</p></li>
+<li><p>Archive important logs regularly</p></li>
+</ul>
+</dd>
+<dt><strong>What to Log:</strong></dt><dd><ul class="simple">
+<li><p>Log messages when you need raw data or timestamps</p></li>
+<li><p>Log signals when you need processed, engineering values</p></li>
+<li><p>Consider logging both for comprehensive analysis</p></li>
+<li><p>Select specific signals in Signal Logger to reduce file size</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="testing-and-validation">
+<h3>Testing and Validation<a class="headerlink" href="#testing-and-validation" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Before Starting Measurements:</strong></dt><dd><ul class="simple">
+<li><p>Verify all hardware connections</p></li>
+<li><p>Check bit rate configurations match bus speeds</p></li>
+<li><p>Test with short measurements before long captures</p></li>
+<li><p>Verify log file paths are valid and have sufficient disk space</p></li>
+<li><p>Confirm databases are loaded correctly</p></li>
+</ul>
+</dd>
+<dt><strong>During Measurements:</strong></dt><dd><ul class="simple">
+<li><p>Monitor bus load indicators at the bottom of the window</p></li>
+<li><p>Watch for errors in the Log view (Tools Panel)</p></li>
+<li><p>Check that logger status shows “Started”</p></li>
+<li><p>Verify UI stream is receiving expected data</p></li>
+</ul>
+</dd>
+<dt><strong>After Measurements:</strong></dt><dd><ul class="simple">
+<li><p>Confirm log files were created and contain data</p></li>
+<li><p>Check file sizes are reasonable</p></li>
+<li><p>Verify timestamps and data integrity</p></li>
+<li><p>Archive important measurements with project files</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
+<p><strong>Common Issues:</strong></p>
+<ul class="simple">
+<li><p><strong>Interface not appearing</strong> - Check hardware connections, drivers</p></li>
+<li><p><strong>Bus errors</strong> - Verify bit rate, termination, cable quality</p></li>
+<li><p><strong>No data received</strong> - Check filters, disabled nodes, bus connectivity</p></li>
+<li><p><strong>Logger not writing</strong> - Verify file path, disk space, permissions</p></li>
+<li><p><strong>Performance issues</strong> - Reduce filters, limit databases, lower bus traffic</p></li>
+</ul>
+<p><strong>Diagnostic Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Check Tools Panel &gt; Log for error messages</p></li>
+<li><p>Verify measurement status indicator (green = running)</p></li>
+<li><p>Review node states (enabled/disabled, on bus/off bus)</p></li>
+<li><p>Test with simplified configuration (minimal nodes)</p></li>
+<li><p>Consult documentation for specific error codes</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="source_nodes.html" class="btn btn-neutral float-right" title="Source Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

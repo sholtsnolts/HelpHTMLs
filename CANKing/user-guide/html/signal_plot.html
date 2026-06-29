@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal Plot &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CAN Bus Statistics" href="can_bus_statistics.html" />
+    <link rel="prev" title="Message Trace" href="message_trace.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signal Plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#toolbar-controls">Toolbar Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#play-pause">Play/Pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-window">Time Window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-mode">Time Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-mode">Plot Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advance-fraction-scan-mode">Advance Fraction (Scan Mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto-scale-y-axes">Auto-Scale Y Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-y-axes-ranges">Save Y Axes Ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-cursors">Time Cursors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zoom-controls">Zoom Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#show-hide-legends">Show/Hide Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-features">Interactive Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#zooming">Zooming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#panning">Panning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#moving-cursors">Moving Cursors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-graphs">Multiple Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#y-axes-configuration">Y-Axes Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-y-axis-scaling">Manual Y-Axis Scaling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#legends-panel">Legends Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-signal-plot">Setting Up Signal Plot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signal-selection">Signal Selection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-best-practices">Tips and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-analysis">Data Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workspace-organization">Workspace Organization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Signal Plot</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signal-plot">
+<span id="id1"></span><h1>Signal Plot<a class="headerlink" href="#signal-plot" title="Link to this heading"></a></h1>
+<p>The Signal Plot is a customized workspace pane for visualizing CAN and LIN signals in real-time. It provides powerful graphing capabilities with support for multiple graphs, customizable axes, time cursors, and zoom controls.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Signal Plot pane displays signal data from CAN and LIN buses as time-series graphs. It can be added to any workspace in the Workspace view and configured to show multiple signals simultaneously across one or more graphs, each with one or more Y-axes.</p>
+</section>
+<section id="toolbar-controls">
+<span id="signal-plot-toolbar"></span><h2>Toolbar Controls<a class="headerlink" href="#toolbar-controls" title="Link to this heading"></a></h2>
+<p>The Signal Plot toolbar provides various controls for configuring and interacting with the plot:</p>
+<section id="play-pause">
+<h3>Play/Pause<a class="headerlink" href="#play-pause" title="Link to this heading"></a></h3>
+<p>The Play/Pause button controls whether the plot displays live data or is paused for analysis.</p>
+<ul class="simple">
+<li><p><strong>Play</strong> - The plot continuously updates with incoming signal data in real-time.</p></li>
+<li><p><strong>Pause</strong> - The plot stops updating, allowing you to analyze the current data.</p></li>
+</ul>
+<p>When paused, additional features become available such as time cursors and zoom controls.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Play/Pause control is only enabled when a measurement is running (CanKing is online).</p>
+</div>
+</section>
+<section id="time-window">
+<h3>Time Window<a class="headerlink" href="#time-window" title="Link to this heading"></a></h3>
+<p>The time window setting determines how much historical data is displayed on the X-axis. Available options are:</p>
+<ul class="simple">
+<li><p>20 seconds</p></li>
+<li><p>30 seconds</p></li>
+<li><p>40 seconds</p></li>
+<li><p>50 seconds</p></li>
+<li><p>60 seconds</p></li>
+</ul>
+<p>The default time window is 30 seconds. Changing the time window adjusts the visible time range while maintaining the current position in the data stream.</p>
+</section>
+<section id="time-mode">
+<h3>Time Mode<a class="headerlink" href="#time-mode" title="Link to this heading"></a></h3>
+<p>The time mode setting controls how time is displayed on the X-axis:</p>
+<ul class="simple">
+<li><p><strong>Clock</strong> - Shows elapsed time since the start of the measurement as hours:minutes:seconds.</p></li>
+<li><p><strong>Elapsed</strong> - Shows elapsed time since the start of the measurement as a numeric value in seconds.</p></li>
+</ul>
+</section>
+<section id="plot-mode">
+<h3>Plot Mode<a class="headerlink" href="#plot-mode" title="Link to this heading"></a></h3>
+<p>The plot mode determines how new data is displayed as it arrives:</p>
+<ul class="simple">
+<li><p><strong>Scroll</strong> - New data scrolls into view from the right side, continuously moving older data to the left. This provides a smooth, continuous visualization of incoming data.</p></li>
+<li><p><strong>Scan</strong> - New data is drawn from left to right. When the plot reaches the right edge, it advances and continues drawing from the left, creating a sweeping effect similar to an oscilloscope.</p></li>
+</ul>
+</section>
+<section id="advance-fraction-scan-mode">
+<h3>Advance Fraction (Scan Mode)<a class="headerlink" href="#advance-fraction-scan-mode" title="Link to this heading"></a></h3>
+<p>When using Scan mode, the advance fraction determines how much the plot advances when it reaches the right edge:</p>
+<ul class="simple">
+<li><p><strong>25%</strong> - Advances by 25% of the time window</p></li>
+<li><p><strong>50%</strong> - Advances by 50% of the time window</p></li>
+<li><p><strong>75%</strong> - Advances by 75% of the time window</p></li>
+<li><p><strong>100%</strong> - Advances by 100% of the time window (full screen advance)</p></li>
+</ul>
+<p>This control is only available when Plot Mode is set to Scan.</p>
+</section>
+<section id="auto-scale-y-axes">
+<h3>Auto-Scale Y Axes<a class="headerlink" href="#auto-scale-y-axes" title="Link to this heading"></a></h3>
+<p>When enabled, the Y-axes automatically adjust their ranges to fit all visible signal data. This ensures that all signals remain visible regardless of their values.</p>
+<p>When disabled, the Y-axes maintain fixed ranges, which can be useful for comparing signal magnitudes or tracking specific value ranges.</p>
+</section>
+<section id="save-y-axes-ranges">
+<h3>Save Y Axes Ranges<a class="headerlink" href="#save-y-axes-ranges" title="Link to this heading"></a></h3>
+<p>The Save button captures the current Y-axis ranges for all graphs. This is useful after manually zooming the Y-axes to specific ranges that you want to preserve.</p>
+<p>Saved ranges are persisted in the project file and will be restored when the project is reopened.</p>
+</section>
+<section id="time-cursors">
+<span id="signal-plot-cursors"></span><h3>Time Cursors<a class="headerlink" href="#time-cursors" title="Link to this heading"></a></h3>
+<p>Time cursors are vertical lines that can be positioned at specific time points to measure signal values. Two cursors are available:</p>
+<ul class="simple">
+<li><p><strong>Cursor 1</strong> - Primary time cursor</p></li>
+<li><p><strong>Cursor 2</strong> - Secondary time cursor</p></li>
+</ul>
+<p>To use time cursors:</p>
+<ol class="arabic simple">
+<li><p>Pause the plot</p></li>
+<li><p>Enable one or both cursors using the cursor buttons in the toolbar</p></li>
+<li><p>Click and drag the cursor lines to position them at desired time points</p></li>
+<li><p>View signal values at cursor positions in the legends panel</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Time cursors are only available when the plot is paused.</p>
+</div>
+</section>
+<section id="zoom-controls">
+<h3>Zoom Controls<a class="headerlink" href="#zoom-controls" title="Link to this heading"></a></h3>
+<p>The zoom controls allow you to navigate through zoom history when the plot is paused:</p>
+<ul class="simple">
+<li><p><strong>Undo Zoom/Pan</strong> - Reverts to the previous zoom or pan state</p></li>
+<li><p><strong>Redo Zoom/Pan</strong> - Reapplies a zoom or pan state that was undone</p></li>
+<li><p><strong>Zoom All Data</strong> - Automatically adjusts the X-axis to display all available data</p></li>
+</ul>
+<p>These controls maintain a history of zoom and pan operations, allowing you to navigate backward and forward through your exploration of the data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Zoom controls are only available when the plot is paused.</p>
+</div>
+</section>
+<section id="show-hide-legends">
+<h3>Show/Hide Legends<a class="headerlink" href="#show-hide-legends" title="Link to this heading"></a></h3>
+<p>The legends button toggles the visibility of the legends panel on the right side of the plot. The legends panel displays:</p>
+<ul class="simple">
+<li><p>Signal names and colors</p></li>
+<li><p>Current signal values (when playing)</p></li>
+<li><p>Signal values at cursor positions (when paused with cursors enabled)</p></li>
+</ul>
+</section>
+</section>
+<section id="interactive-features">
+<span id="signal-plot-interaction"></span><h2>Interactive Features<a class="headerlink" href="#interactive-features" title="Link to this heading"></a></h2>
+<p>The Signal Plot supports various mouse and keyboard interactions for analyzing data:</p>
+<section id="zooming">
+<h3>Zooming<a class="headerlink" href="#zooming" title="Link to this heading"></a></h3>
+<p>When the plot is paused, you can zoom in on specific areas:</p>
+<ul class="simple">
+<li><p><strong>Mouse wheel in plot area</strong> - Zoom in/out on both X and Y axes at the cursor position</p></li>
+<li><p><strong>Click and drag in plot area</strong> - Select a rectangular area to zoom into both X and Y axes</p></li>
+<li><p><strong>Mouse wheel in X-axis area</strong> - Zoom in/out on the X-axis</p></li>
+<li><p><strong>Mouse wheel in Y-axis area</strong> - Zoom in/out on the Y-axis</p></li>
+</ul>
+</section>
+<section id="panning">
+<h3>Panning<a class="headerlink" href="#panning" title="Link to this heading"></a></h3>
+<p>When the plot is paused, you can pan to view different parts of the data:</p>
+<ul class="simple">
+<li><p><strong>Click and drag in X-axis area</strong> - Pan the view horizontally</p></li>
+<li><p><strong>Click and drag in Y-axis area</strong> - Pan the signal(s) connected to that Y-axis vertically</p></li>
+</ul>
+</section>
+<section id="moving-cursors">
+<h3>Moving Cursors<a class="headerlink" href="#moving-cursors" title="Link to this heading"></a></h3>
+<p>When time cursors are enabled:</p>
+<ul class="simple">
+<li><p><strong>Click and drag cursor line</strong> - Move the cursor to a different time position</p></li>
+</ul>
+</section>
+</section>
+<section id="multiple-graphs">
+<span id="signal-plot-graphs"></span><h2>Multiple Graphs<a class="headerlink" href="#multiple-graphs" title="Link to this heading"></a></h2>
+<p>The Signal Plot supports multiple independent graphs stacked vertically. Each graph can have:</p>
+<ul class="simple">
+<li><p>Multiple signals plotted on the same graph</p></li>
+<li><p>Multiple Y-axes with different scales</p></li>
+<li><p>Independent Y-axis ranges and zoom levels</p></li>
+</ul>
+<p>Graphs share a common X-axis (time), which ensures that signals across different graphs are time-synchronized.</p>
+</section>
+<section id="y-axes-configuration">
+<span id="signal-plot-yaxes"></span><h2>Y-Axes Configuration<a class="headerlink" href="#y-axes-configuration" title="Link to this heading"></a></h2>
+<p>Each graph can have multiple Y-axes, allowing signals with different units or value ranges to be plotted on the same time axis but with different scales:</p>
+<ul class="simple">
+<li><p>Y-axes are displayed on the left or right side of the graph</p></li>
+<li><p>Each Y-axis can be independently zoomed and panned</p></li>
+<li><p>Signals are assigned to specific Y-axes based on their configuration</p></li>
+<li><p>Y-axis colors typically match the signals they represent</p></li>
+</ul>
+<section id="manual-y-axis-scaling">
+<h3>Manual Y-Axis Scaling<a class="headerlink" href="#manual-y-axis-scaling" title="Link to this heading"></a></h3>
+<p>To manually adjust Y-axis ranges:</p>
+<ol class="arabic simple">
+<li><p>Pause the plot</p></li>
+<li><p>Disable “Auto-Scale Y Axes” if enabled</p></li>
+<li><p>Zoom in/out on the desired Y-axis using mouse wheel</p></li>
+<li><p>Optionally save the ranges using the “Save Y Axes Ranges” button</p></li>
+</ol>
+</section>
+</section>
+<section id="legends-panel">
+<span id="signal-plot-legends"></span><h2>Legends Panel<a class="headerlink" href="#legends-panel" title="Link to this heading"></a></h2>
+<p>The legends panel on the right side of the plot displays information about all visible signals:</p>
+<ul class="simple">
+<li><p><strong>Signal name</strong> - The name of the signal as defined in the database</p></li>
+<li><p><strong>Color</strong> - A color indicator matching the signal’s graph line</p></li>
+<li><p><strong>Current value</strong> - The most recent signal value (when playing)</p></li>
+<li><p><strong>Cursor values</strong> - Signal values at cursor positions (when paused with cursors)</p></li>
+<li><p><strong>Unit</strong> - The signal’s unit of measurement (if defined)</p></li>
+</ul>
+<p>The legends panel can be hidden to maximize the plot area by clicking the Show/Hide Legends button in the toolbar.</p>
+</section>
+<section id="setting-up-signal-plot">
+<span id="signal-plot-setup"></span><h2>Setting Up Signal Plot<a class="headerlink" href="#setting-up-signal-plot" title="Link to this heading"></a></h2>
+<p>To add a Signal Plot pane to your workspace:</p>
+<ol class="arabic simple">
+<li><p>Open the Workspace view from the left toolbar</p></li>
+<li><p>Create a new workspace or select an existing one</p></li>
+<li><p>Click “Select View” or “Edit Workspace”</p></li>
+<li><p>Select “Signal Plot” from the available views</p></li>
+<li><p>Configure which signals to display</p></li>
+</ol>
+<section id="signal-selection">
+<h3>Signal Selection<a class="headerlink" href="#signal-selection" title="Link to this heading"></a></h3>
+<p>Signals must be available in the UI stream to be displayed in the Signal Plot. To ensure signals are available:</p>
+<ol class="arabic simple">
+<li><p>In the Measurement Setup view, add a “Databases” data processor to your CAN or LIN channel</p></li>
+<li><p>Load a database file (.dbc for CAN, .ldf for LIN) containing your signals</p></li>
+<li><p>Start a measurement to begin receiving data</p></li>
+<li><p>Configure the Signal Plot to display the desired signals</p></li>
+</ol>
+</section>
+</section>
+<section id="tips-and-best-practices">
+<span id="signal-plot-tips"></span><h2>Tips and Best Practices<a class="headerlink" href="#tips-and-best-practices" title="Link to this heading"></a></h2>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>For optimal performance, limit the number of simultaneously displayed signals, especially at high data rates</p></li>
+<li><p>Use filters in the Measurement Setup to reduce the amount of data reaching the UI stream</p></li>
+</ul>
+</section>
+<section id="data-analysis">
+<h3>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use Pause and time cursors to measure exact signal values at specific time points</p></li>
+<li><p>Use the delta between two cursors to calculate signal changes over time</p></li>
+<li><p>Zoom in on areas of interest for detailed analysis</p></li>
+<li><p>Use multiple graphs to separate signals with different scales or purposes</p></li>
+</ul>
+</section>
+<section id="workspace-organization">
+<h3>Workspace Organization<a class="headerlink" href="#workspace-organization" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Group related signals on the same graph</p></li>
+<li><p>Use separate graphs for signals with vastly different value ranges</p></li>
+<li><p>Create multiple Signal Plot panes in different workspace panels for different analysis perspectives</p></li>
+<li><p>Save workspace configurations for different testing scenarios</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="message_trace.html" class="btn btn-neutral float-left" title="Message Trace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="can_bus_statistics.html" class="btn btn-neutral float-right" title="CAN Bus Statistics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

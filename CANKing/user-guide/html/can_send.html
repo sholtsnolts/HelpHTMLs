@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAN Send &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CAN Periodic Send" href="can_periodic_send.html" />
+    <link rel="prev" title="CAN Bus Statistics" href="can_bus_statistics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CAN Send</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-sections">Configuration Sections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#channel-selection">Channel Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-identifier">CAN Identifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-data">Message Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#database-message-support">Database Message Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-a-database-message">Selecting a Database Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-value-editing">Signal Value Editing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sending-messages">Sending Messages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#send-button">Send Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-feedback">Send Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#typical-workflows">Typical Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-byte-entry">Manual Byte Entry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-message-entry">Database Message Entry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-ecu-responses">Testing ECU Responses</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-best-practices">Tips and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#identifier-entry">Identifier Entry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-entry">Data Entry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-fd-usage">CAN FD Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-with-other-panes">Integration with Other Panes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparing-can-send-vs-can-periodic-send">Comparing CAN Send vs CAN Periodic Send</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CAN Send</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="can-send">
+<span id="id1"></span><h1>CAN Send<a class="headerlink" href="#can-send" title="Link to this heading"></a></h1>
+<p>The CAN Send pane allows you to manually send individual CAN or CAN FD messages on a selected CAN channel during an active measurement. It provides full control over message identifiers, flags, and data bytes, with optional signal-based editing when databases are loaded.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The CAN Send pane is useful for:</p>
+<ul class="simple">
+<li><p>Testing ECU responses to specific messages</p></li>
+<li><p>Injecting test data into a CAN network</p></li>
+<li><p>Simulating missing network nodes</p></li>
+<li><p>Manually triggering specific behaviors</p></li>
+<li><p>Validating message handling in other nodes</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The CAN channel must be online (measurement running) to send messages.</p>
+</div>
+</section>
+<section id="configuration-sections">
+<span id="can-send-configuration"></span><h2>Configuration Sections<a class="headerlink" href="#configuration-sections" title="Link to this heading"></a></h2>
+<section id="channel-selection">
+<h3>Channel Selection<a class="headerlink" href="#channel-selection" title="Link to this heading"></a></h3>
+<p>Select the CAN channel on which to transmit messages. The dropdown displays all CAN Channel source nodes configured in the Measurement Setup view.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only channels that are online and in a transmit-capable access mode can send messages.</p>
+</div>
+</section>
+<section id="can-identifier">
+<h3>CAN Identifier<a class="headerlink" href="#can-identifier" title="Link to this heading"></a></h3>
+<p>Configure the message identifier and format:</p>
+<dl class="simple">
+<dt><strong>Identifier Value</strong></dt><dd><p>Enter the CAN identifier in hexadecimal (without 0x prefix) or decimal format.</p>
+<ul class="simple">
+<li><p><strong>Standard (11-bit)</strong>: 0x000 to 0x7FF (0 to 2047)</p></li>
+<li><p><strong>Extended (29-bit)</strong>: 0x00000000 to 0x1FFFFFFF (0 to 536870911)</p></li>
+</ul>
+</dd>
+<dt><strong>Identifier Format</strong></dt><dd><p>Select the CAN identifier type:</p>
+<ul class="simple">
+<li><p><strong>STD</strong> - Standard 11-bit identifier</p></li>
+<li><p><strong>EXT</strong> - Extended 29-bit identifier</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>CAN FD Options</strong> (when available):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>FD</strong> - CAN FD format flag</p></li>
+<li><p><strong>BRS</strong> - Bit Rate Switch flag (allows higher data phase bit rate in CAN FD)</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Remote Frame</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>RTR</strong> - Remote Transmission Request flag (standard CAN only)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="message-data">
+<h3>Message Data<a class="headerlink" href="#message-data" title="Link to this heading"></a></h3>
+<p>Configure the message data payload:</p>
+<dl class="simple">
+<dt><strong>Data Length</strong></dt><dd><ul class="simple">
+<li><p>For CAN: 0 to 8 bytes</p></li>
+<li><p>For CAN FD: 0 to 64 bytes</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Data Entry Methods:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Byte-by-byte entry</strong> - Enter each data byte in hexadecimal (00-FF)</p></li>
+<li><p><strong>Signal-based entry</strong> (when database loaded) - Enter engineering values for each signal</p></li>
+</ol>
+<dl class="simple">
+<dt><strong>Byte Layout</strong></dt><dd><p>Data bytes are displayed in order (Byte 0, Byte 1, Byte 2, etc.) with hexadecimal input fields.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="database-message-support">
+<span id="can-send-database-support"></span><h2>Database Message Support<a class="headerlink" href="#database-message-support" title="Link to this heading"></a></h2>
+<p>When a Databases data processor is added to the CAN channel in the Measurement Setup view, the CAN Send pane can work with database-defined messages and signals.</p>
+<section id="selecting-a-database-message">
+<h3>Selecting a Database Message<a class="headerlink" href="#selecting-a-database-message" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Click the <strong>Select Message</strong> button</p></li>
+<li><p>Browse or search for a message in the loaded databases</p></li>
+<li><p>Select the desired message</p></li>
+</ol>
+<dl class="simple">
+<dt>When a message is selected:</dt><dd><ul class="simple">
+<li><p>The identifier is automatically set to the message’s ID</p></li>
+<li><p>The identifier format (STD/EXT) is set correctly</p></li>
+<li><p>The data length is set to the message’s defined length</p></li>
+<li><p>Signal value editors appear</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="signal-value-editing">
+<h3>Signal Value Editing<a class="headerlink" href="#signal-value-editing" title="Link to this heading"></a></h3>
+<p>When a database message is selected, you can edit signal values using:</p>
+<ul class="simple">
+<li><p><strong>Engineering values</strong> - Enter values in the signal’s defined unit (e.g., km/h, °C, rpm)</p></li>
+<li><p><strong>Automatic encoding</strong> - Signal values are automatically encoded into the message data bytes</p></li>
+<li><p><strong>Range validation</strong> - Values are validated against signal min/max ranges</p></li>
+</ul>
+<p>The raw data bytes are automatically updated as you change signal values.</p>
+<dl class="simple">
+<dt>Benefits of Signal-based Editing:</dt><dd><ul class="simple">
+<li><p>More intuitive than raw byte manipulation</p></li>
+<li><p>Automatic handling of bit packing and byte order</p></li>
+<li><p>Validation of value ranges</p></li>
+<li><p>Display of units</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="sending-messages">
+<span id="can-send-sending"></span><h2>Sending Messages<a class="headerlink" href="#sending-messages" title="Link to this heading"></a></h2>
+<section id="send-button">
+<h3>Send Button<a class="headerlink" href="#send-button" title="Link to this heading"></a></h3>
+<p>Click the <strong>Send</strong> button to transmit the configured message immediately. The message is sent once on the selected channel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Send button is only enabled when:</p>
+<ul class="simple">
+<li><p>A measurement is running (CanKing is online)</p></li>
+<li><p>A valid channel is selected</p></li>
+<li><p>The identifier is valid</p></li>
+<li><p>The data length is valid</p></li>
+</ul>
+</div>
+</section>
+<section id="send-feedback">
+<h3>Send Feedback<a class="headerlink" href="#send-feedback" title="Link to this heading"></a></h3>
+<p>There is no explicit confirmation when a message is sent. To verify transmission:</p>
+<ul class="simple">
+<li><p>Use a Message Trace pane filtered to show Tx messages</p></li>
+<li><p>Monitor the CAN Bus Statistics pane for Tx message count increases</p></li>
+<li><p>Use external monitoring equipment</p></li>
+</ul>
+</section>
+</section>
+<section id="typical-workflows">
+<span id="can-send-workflow"></span><h2>Typical Workflows<a class="headerlink" href="#typical-workflows" title="Link to this heading"></a></h2>
+<section id="manual-byte-entry">
+<h3>Manual Byte Entry<a class="headerlink" href="#manual-byte-entry" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Select the target CAN channel</p></li>
+<li><p>Enter the CAN identifier</p></li>
+<li><p>Set the identifier format (STD or EXT)</p></li>
+<li><p>Enter the data length</p></li>
+<li><p>Enter data bytes in hexadecimal</p></li>
+<li><p>Click <strong>Send</strong></p></li>
+</ol>
+</section>
+<section id="database-message-entry">
+<h3>Database Message Entry<a class="headerlink" href="#database-message-entry" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Ensure a Databases data processor is configured for the channel</p></li>
+<li><p>Select the target CAN channel</p></li>
+<li><p>Click <strong>Select Message</strong> and choose a database message</p></li>
+<li><p>The identifier and format are set automatically</p></li>
+<li><p>Enter signal values in their engineering units</p></li>
+<li><p>Click <strong>Send</strong></p></li>
+</ol>
+</section>
+<section id="testing-ecu-responses">
+<h3>Testing ECU Responses<a class="headerlink" href="#testing-ecu-responses" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Configure a message that triggers an ECU behavior</p></li>
+<li><p>Open a Message Trace pane to monitor responses</p></li>
+<li><p>Click <strong>Send</strong> in the CAN Send pane</p></li>
+<li><p>Observe the ECU’s response in the Message Trace</p></li>
+</ol>
+</section>
+</section>
+<section id="tips-and-best-practices">
+<span id="can-send-tips"></span><h2>Tips and Best Practices<a class="headerlink" href="#tips-and-best-practices" title="Link to this heading"></a></h2>
+<section id="identifier-entry">
+<h3>Identifier Entry<a class="headerlink" href="#identifier-entry" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The identifier format (STD/EXT) affects the valid range of identifier values</p></li>
+<li><p>Standard identifiers are more common in automotive applications</p></li>
+<li><p>Extended identifiers are often used in industrial applications</p></li>
+<li><p>Remember to set the correct format before entering the identifier</p></li>
+</ul>
+</section>
+<section id="data-entry">
+<h3>Data Entry<a class="headerlink" href="#data-entry" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use uppercase or lowercase for hexadecimal values (both work)</p></li>
+<li><p>Leading zeros can be omitted (F is the same as 0F)</p></li>
+<li><p>For multi-byte values, remember to consider byte order (endianness) based on your database</p></li>
+<li><p>When using database signals, the byte order is handled automatically</p></li>
+</ul>
+</section>
+<section id="can-fd-usage">
+<h3>CAN FD Usage<a class="headerlink" href="#can-fd-usage" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>FD flag must be set for messages longer than 8 bytes</p></li>
+<li><p>BRS flag enables higher data phase bit rates (if supported by hardware and bus configuration)</p></li>
+<li><p>Ensure all nodes on the bus support CAN FD when using FD messages</p></li>
+<li><p>Check that the CAN channel is configured for CAN FD mode in Measurement Setup</p></li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Send button is disabled:</strong></dt><dd><ul class="simple">
+<li><p>Check that a measurement is running</p></li>
+<li><p>Verify the channel is online</p></li>
+<li><p>Ensure the channel access mode allows transmission</p></li>
+<li><p>Confirm the identifier and data length are valid</p></li>
+</ul>
+</dd>
+<dt><strong>Message doesn’t appear on bus:</strong></dt><dd><ul class="simple">
+<li><p>Check that the channel is “On Bus” in CAN Bus Statistics</p></li>
+<li><p>Verify bus termination and wiring</p></li>
+<li><p>Check for bus-off condition</p></li>
+<li><p>Ensure bit rate configuration matches the bus</p></li>
+</ul>
+</dd>
+<dt><strong>Database signals not available:</strong></dt><dd><ul class="simple">
+<li><p>Add a Databases data processor to the channel in Measurement Setup</p></li>
+<li><p>Load a database file (.dbc) containing the desired messages</p></li>
+<li><p>Restart the measurement after adding the database</p></li>
+<li><p>Check that the database contains the message ID you’re using</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="integration-with-other-panes">
+<h3>Integration with Other Panes<a class="headerlink" href="#integration-with-other-panes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Message Trace</strong> - Monitor sent messages to verify transmission</p></li>
+<li><p><strong>CAN Bus Statistics</strong> - Check Tx message counts, error counters, and bus status</p></li>
+<li><p><strong>CAN Periodic Send</strong> - For repeated transmission instead of manual single sends</p></li>
+<li><p><strong>Signal Plot</strong> - Monitor signal responses after sending test messages</p></li>
+</ul>
+</section>
+<section id="comparing-can-send-vs-can-periodic-send">
+<h3>Comparing CAN Send vs CAN Periodic Send<a class="headerlink" href="#comparing-can-send-vs-can-periodic-send" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Use <strong>CAN Send</strong> when:</dt><dd><ul class="simple">
+<li><p>You need manual control over when messages are sent</p></li>
+<li><p>Testing specific scenarios that require precise timing control</p></li>
+<li><p>Sending one-time or infrequent messages</p></li>
+<li><p>Triggering specific events</p></li>
+</ul>
+</dd>
+<dt>Use <strong>CAN Periodic Send</strong> when:</dt><dd><ul class="simple">
+<li><p>You need continuous message transmission</p></li>
+<li><p>Simulating a real ECU that sends periodic messages</p></li>
+<li><p>Testing bus load scenarios</p></li>
+<li><p>Maintaining node presence on the network</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="can_bus_statistics.html" class="btn btn-neutral float-left" title="CAN Bus Statistics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="can_periodic_send.html" class="btn btn-neutral float-right" title="CAN Periodic Send" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

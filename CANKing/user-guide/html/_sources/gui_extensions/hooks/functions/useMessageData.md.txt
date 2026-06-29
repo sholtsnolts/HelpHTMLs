@@ -1,0 +1,42 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [hooks](../README.md) / useMessageData
+
+# Function: useMessageData()
+
+> **useMessageData**(`id`, `subscriptionName`, `identifiers`): [`Frame`](../../models/interfaces/Frame.md)[]
+
+A hook for extracting message data from the measurement context.
+
+## Parameters
+
+### id
+
+`number`
+
+The unique id of the view. This is passed to the view component as the `id` prop.
+
+### subscriptionName
+
+`string`
+
+The subscription name for the data. Must be unique per view.
+
+### identifiers
+
+[`FixedPosFrameIdentifier`](../../models/interfaces/FixedPosFrameIdentifier.md)[]
+
+The fixed position frame identifiers to get data for. To avoid unnecessary re-renders, make sure to memoize this object.
+
+## Returns
+
+[`Frame`](../../models/interfaces/Frame.md)[]
+
+The measurement data for the specified identifiers. If an empty array is returned, then all previously received data is invalid and should be discarded.
+
+## Remarks
+
+This hook buffers incoming frame data during initialization (before historical data is ready)
+and merges it with historical data once available. This ensures no data is lost during the startup phase.

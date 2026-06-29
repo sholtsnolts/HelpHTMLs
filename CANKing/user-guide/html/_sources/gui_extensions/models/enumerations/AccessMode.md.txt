@@ -1,0 +1,52 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [models](../README.md) / AccessMode
+
+# Enumeration: AccessMode
+
+Possible access modes.
+
+## Enumeration Members
+
+### ACCESS\_MODE\_EXCLUSIVE\_ACCESS
+
+> **ACCESS\_MODE\_EXCLUSIVE\_ACCESS**: `3`
+
+ACCESS_MODE_EXCLUSIVE_ACCESS - Don't allow sharing of this CANlib channel.
+Two or more threads or applications can share the same CAN channel by opening multiple handles
+to the same CANlib channel. If this is not desired you can open a single exclusive handle to a
+channel which is done by using passing the canOPEN_EXCLUSIVE flag in the flags argument to canOpenChannel().
+If a handle to the CANlib channel is already open, the call to canOpenChannel() will fail.
+
+***
+
+### ACCESS\_MODE\_INIT\_ACCESS
+
+> **ACCESS\_MODE\_INIT\_ACCESS**: `1`
+
+ACCESS_MODE_INIT_ACCESS - Open the handle with init access.
+A handle opened with init access will set the bitrate when the handle is opened.
+
+***
+
+### ACCESS\_MODE\_NO\_INIT\_ACCESS
+
+> **ACCESS\_MODE\_NO\_INIT\_ACCESS**: `2`
+
+ACCESS_MODE_NO_INIT_ACCESS - Don't open the handle with init access.
+A handle opened without init access will still set default bitrate when going on bus,
+if no other handle has opened the channel with init access at the time of the bus on.
+
+***
+
+### ACCESS\_MODE\_UNSPECIFIED
+
+> **ACCESS\_MODE\_UNSPECIFIED**: `0`
+
+***
+
+### UNRECOGNIZED
+
+> **UNRECOGNIZED**: `-1`

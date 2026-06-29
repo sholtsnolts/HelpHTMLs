@@ -1,0 +1,44 @@
+# ck add db
+
+Adds a Databases node to the current measurement setup.
+
+## Synopsis
+
+```text
+ck add db
+    <DATABASE_FILE>...
+    [--language <en|zh|ja>]
+    [-n|--name <NODE_NAME>]
+    [-p|--previous-node <PREVIOUS_NODE_ID_OR_NAME>]
+    [--next-node <NEXT_NODE_ID_OR_NAME>]
+
+ck add db -h|--help
+```
+
+## Arguments
+
+- ```DATABASE_FILE```  
+The database files. Both DBC files and LDF files are supported.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-n|--name```  
+Name of the node. Default value is 'CAN Databases'
+
+- ```-p|--previous-node```  
+Identifier/Name of the previous node when adding a new node to the measurement setup. Set either previous node or next node, not both.
+
+- ```--next-node```  
+Identifier/Name of the next node when adding a new node to the measurement setup. Set either previous node or next node, not both.
+
+## Examples
+
+```bash
+ck add db database1.dbc
+ck add db database1.dbc database2.ldf
+ck add db database1.dbc --name "My Databases" --previous-node "CAN 1"
+```
+

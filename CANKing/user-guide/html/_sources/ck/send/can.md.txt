@@ -1,0 +1,52 @@
+# ck send can
+
+Sends out a CAN message.
+
+## Synopsis
+
+```text
+ck send can
+    <OUTPUT_CHANNEL_NAME_OR_ID>
+    [--language <en|zh|ja>]
+    -i|--id <MESSAGE_ID>
+    -d|--data <MESSAGE_DATA>
+    [--rtr]
+    [--fdf]
+    [--brs]
+
+ck send can -h|--help
+```
+
+## Arguments
+
+- ```OUTPUT_CHANNEL_NAME_OR_ID```  
+The identifier/name of the output channel to be used.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-i|--id``` (required)  
+The message id. Prefix with 0x to indicate hex format. Suffix with x to indicate extended identifier.
+
+- ```-d|--data``` (required)  
+The message data, a byte array (hex format) passed as a string, e.g. 0001020304.
+
+- ```--rtr```  
+Send message as remote request frame.
+
+- ```--fdf```  
+Send message as flexible data frame (CAN FD frame).
+
+- ```--brs```  
+Send flexible data frame with bit rate switch.
+
+## Examples
+
+```bash
+ck send can "CAN 1" --id 0xAB -d 0001020304
+ck send can "CAN 1" --id 0xABx -d 0001020304 --fdf --brs
+ck send can "CAN 1" --id 0x123 -d 00 --rtr
+```
+

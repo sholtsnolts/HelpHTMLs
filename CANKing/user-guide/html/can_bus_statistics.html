@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAN Bus Statistics &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CAN Send" href="can_send.html" />
+    <link rel="prev" title="Signal Plot" href="signal_plot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CAN Bus Statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sections">Sections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#channel-selection">Channel Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bus-statistics">Bus Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bus-status">Bus Status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#controls">Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clear-statistics">Clear Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collapse-expand-sections">Collapse/Expand Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-the-metrics">Understanding the Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bus-load">Bus Load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-counters">Error Counters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overrun-status">Overrun Status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-best-practices">Tips and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring-bus-health">Monitoring Bus Health</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnosing-problems">Diagnosing Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-with-other-panes">Using with Other Panes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CAN Bus Statistics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="can-bus-statistics">
+<span id="id1"></span><h1>CAN Bus Statistics<a class="headerlink" href="#can-bus-statistics" title="Link to this heading"></a></h1>
+<p>The CAN Bus Statistics pane provides real-time monitoring of CAN bus performance metrics and health indicators for a selected CAN channel. It displays message counters, bus load, error statistics, and bus status information.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The CAN Bus Statistics pane is useful for monitoring the health and performance of CAN channels during measurements. It provides comprehensive statistics that help diagnose bus problems, monitor traffic levels, and track error conditions.</p>
+</section>
+<section id="sections">
+<span id="can-bus-statistics-sections"></span><h2>Sections<a class="headerlink" href="#sections" title="Link to this heading"></a></h2>
+<p>The pane is organized into three collapsible sections:</p>
+<section id="channel-selection">
+<h3>Channel Selection<a class="headerlink" href="#channel-selection" title="Link to this heading"></a></h3>
+<p>Select which CAN channel to monitor from the available CAN channels configured in the Measurement Setup view. The dropdown displays all configured CAN Channel source nodes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The channel must be configured in the Measurement Setup view and online (measurement running) for statistics to be collected.</p>
+</div>
+</section>
+<section id="bus-statistics">
+<h3>Bus Statistics<a class="headerlink" href="#bus-statistics" title="Link to this heading"></a></h3>
+<p>The Bus Statistics section displays real-time traffic metrics:</p>
+<dl class="simple">
+<dt><strong>Bus Load</strong></dt><dd><p>Visual indicator showing the current bus utilization as a percentage (0-100%). High bus load (approaching 100%) may indicate bus saturation.</p>
+</dd>
+<dt><strong>Message Counters</strong></dt><dd><ul class="simple">
+<li><p><strong>Rx Messages</strong> - Total number of received messages and average messages per second</p></li>
+<li><p><strong>Tx Messages</strong> - Total number of transmitted messages and average messages per second</p></li>
+<li><p><strong>Error Frames</strong> - Total number of error frames detected and average error frames per second</p></li>
+</ul>
+</dd>
+<dt><strong>Error Counters</strong></dt><dd><ul class="simple">
+<li><p><strong>Rx</strong> - Receive error counter</p></li>
+<li><p><strong>Tx</strong> - Transmit error counter</p></li>
+<li><p><strong>Ovr</strong> - Overrun error counter</p></li>
+</ul>
+</dd>
+</dl>
+<p>The counters show accumulated values since the last clear operation or since the measurement started.</p>
+</section>
+<section id="bus-status">
+<h3>Bus Status<a class="headerlink" href="#bus-status" title="Link to this heading"></a></h3>
+<p>The Bus Status section displays three status indicators:</p>
+<ul class="simple">
+<li><p><strong>On Bus</strong> - Indicates whether the CAN controller is on the bus (actively participating in bus communication)</p></li>
+<li><p><strong>Error Passive</strong> - Indicates whether the CAN controller has entered error passive state</p></li>
+<li><p><strong>Overrun</strong> - Indicates whether the receive buffer has overflowed</p></li>
+</ul>
+<dl class="simple">
+<dt>Each indicator uses color coding:</dt><dd><ul class="simple">
+<li><p><strong>Green</strong> - Normal operation</p></li>
+<li><p><strong>Yellow</strong> - Warning state</p></li>
+<li><p><strong>Red</strong> - Error state</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="controls">
+<span id="can-bus-statistics-controls"></span><h2>Controls<a class="headerlink" href="#controls" title="Link to this heading"></a></h2>
+<section id="clear-statistics">
+<h3>Clear Statistics<a class="headerlink" href="#clear-statistics" title="Link to this heading"></a></h3>
+<p>Click the <strong>Clear</strong> button at the bottom of the Bus Statistics section to reset all counters to zero. This is useful for:</p>
+<ul class="simple">
+<li><p>Measuring statistics over a specific time period</p></li>
+<li><p>Resetting counters after making configuration changes</p></li>
+<li><p>Starting fresh measurements</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clearing statistics only resets the displayed counters. It does not affect the underlying bus or measurement.</p>
+</div>
+</section>
+<section id="collapse-expand-sections">
+<h3>Collapse/Expand Sections<a class="headerlink" href="#collapse-expand-sections" title="Link to this heading"></a></h3>
+<p>Each section can be collapsed or expanded by clicking on its header. When collapsed, sections show a summary of key metrics:</p>
+<ul class="simple">
+<li><p><strong>Channel</strong> - Shows the selected channel name</p></li>
+<li><p><strong>Bus Statistics</strong> - Shows current bus load percentage</p></li>
+<li><p><strong>Bus Status</strong> - Shows overall status</p></li>
+</ul>
+</section>
+</section>
+<section id="understanding-the-metrics">
+<span id="can-bus-statistics-understanding"></span><h2>Understanding the Metrics<a class="headerlink" href="#understanding-the-metrics" title="Link to this heading"></a></h2>
+<section id="bus-load">
+<h3>Bus Load<a class="headerlink" href="#bus-load" title="Link to this heading"></a></h3>
+<p>Bus load represents the percentage of time the bus is actively transmitting data. Factors affecting bus load:</p>
+<ul class="simple">
+<li><p>Number of messages per second</p></li>
+<li><p>Message data length</p></li>
+<li><p>Bus bit rate</p></li>
+<li><p>Message arbitration overhead</p></li>
+</ul>
+<dl class="simple">
+<dt>High bus load (&gt;80%) may lead to:</dt><dd><ul class="simple">
+<li><p>Increased message latency</p></li>
+<li><p>Higher risk of message loss</p></li>
+<li><p>Reduced ability to handle burst traffic</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="error-counters">
+<h3>Error Counters<a class="headerlink" href="#error-counters" title="Link to this heading"></a></h3>
+<p>CAN controllers maintain error counters according to the CAN specification:</p>
+<ul class="simple">
+<li><p><strong>Error Active</strong> - Both Tx and Rx error counters are below 128</p></li>
+<li><p><strong>Error Passive</strong> - Either counter is between 128 and 255</p></li>
+<li><p><strong>Bus Off</strong> - Tx error counter exceeds 255</p></li>
+</ul>
+<dl class="simple">
+<dt>Error counters increase when:</dt><dd><ul class="simple">
+<li><p>Bit errors are detected</p></li>
+<li><p>Acknowledgment errors occur</p></li>
+<li><p>Form or stuffing errors are detected</p></li>
+<li><p>CRC errors are detected</p></li>
+</ul>
+</dd>
+</dl>
+<p>Error counters decrease when messages are successfully transmitted or received.</p>
+</section>
+<section id="overrun-status">
+<h3>Overrun Status<a class="headerlink" href="#overrun-status" title="Link to this heading"></a></h3>
+<p>An overrun occurs when the receive buffer fills up faster than software can process messages. Common causes:</p>
+<ul class="simple">
+<li><p>Very high bus traffic</p></li>
+<li><p>System resource constraints</p></li>
+<li><p>Other applications consuming CPU time</p></li>
+</ul>
+<dl class="simple">
+<dt>When overrun is detected:</dt><dd><ol class="arabic simple">
+<li><p>Some messages may be lost</p></li>
+<li><p>The overrun indicator turns red</p></li>
+<li><p>The overrun counter increments</p></li>
+</ol>
+</dd>
+</dl>
+</section>
+</section>
+<section id="tips-and-best-practices">
+<span id="can-bus-statistics-tips"></span><h2>Tips and Best Practices<a class="headerlink" href="#tips-and-best-practices" title="Link to this heading"></a></h2>
+<section id="monitoring-bus-health">
+<h3>Monitoring Bus Health<a class="headerlink" href="#monitoring-bus-health" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Monitor bus load during peak traffic periods to ensure sufficient headroom</p></li>
+<li><p>Watch for increasing error counters which may indicate wiring issues or noise</p></li>
+<li><p>Check for overruns which may indicate the need for hardware with higher throughput</p></li>
+</ul>
+</section>
+<section id="diagnosing-problems">
+<h3>Diagnosing Problems<a class="headerlink" href="#diagnosing-problems" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>If error counters increase steadily, check:</dt><dd><ul>
+<li><p>Bus termination</p></li>
+<li><p>Cable quality and length</p></li>
+<li><p>EMI/RFI environment</p></li>
+<li><p>Bit rate configuration</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>If overruns occur, consider:</dt><dd><ul>
+<li><p>Reducing bus traffic</p></li>
+<li><p>Using hardware with better performance</p></li>
+<li><p>Applying filters to reduce message load to the application</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="using-with-other-panes">
+<h3>Using with Other Panes<a class="headerlink" href="#using-with-other-panes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use CAN Bus Statistics alongside Message Trace to correlate traffic patterns with statistics</p></li>
+<li><p>Monitor statistics while testing CAN Send or CAN Periodic Send panes</p></li>
+<li><p>Compare statistics across multiple channels in separate panes</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="signal_plot.html" class="btn btn-neutral float-left" title="Signal Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="can_send.html" class="btn btn-neutral float-right" title="CAN Send" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

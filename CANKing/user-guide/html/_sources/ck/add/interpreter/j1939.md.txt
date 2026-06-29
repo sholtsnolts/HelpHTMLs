@@ -1,0 +1,38 @@
+# ck add interpreter j1939
+
+Adds a J1939 Interpreter to the current measurement setup.
+
+## Synopsis
+
+```text
+ck add interpreter j1939
+    [--language <en|zh|ja>]
+    [-n|--name <NODE_NAME>]
+    [-p|--previous-node <PREVIOUS_NODE_ID_OR_NAME>]
+    [--next-node <NEXT_NODE_ID_OR_NAME>]
+
+ck add interpreter j1939 -h|--help
+```
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-n|--name```  
+Name of the node. Default value is 'J1939 Interpreter'
+
+- ```-p|--previous-node```  
+Identifier/Name of the previous node when adding a new node to the measurement setup. Set either previous node or next node, not both.
+
+- ```--next-node```  
+Identifier/Name of the next node when adding a new node to the measurement setup. Set either previous node or next node, not both.
+
+## Examples
+
+```bash
+ck add interpreter j1939
+ck add interpreter j1939 --name "J1939" --previous-node "CAN 1"
+ck add interpreter j1939 --name "My J1939" --next-node "Message Logger"
+```
+

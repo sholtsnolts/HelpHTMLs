@@ -1,0 +1,299 @@
+.. _message_trace:
+
+Message Trace
+=============
+
+The Message Trace pane displays CAN and LIN messages in real-time as they are received on the bus. It provides a detailed view of each message with support for filtering, column customization, signal expansion, and protocol interpretation.
+
+Overview
+--------
+
+The Message Trace pane is essential for monitoring and analyzing bus traffic. It can display messages in two modes: scrolling mode for continuous monitoring of live data, or fixed position mode for detailed analysis of individual messages with signal values.
+
+.. _message_trace_modes:
+
+Display Modes
+-------------
+
+Scrolling Mode
+~~~~~~~~~~~~~~
+
+In scrolling mode (Fixed Position toggle **off**), messages continuously scroll through the table as they arrive. This mode is ideal for:
+
+* Monitoring live traffic
+* Observing message patterns
+* Identifying message presence
+* Watching for specific message IDs
+
+Features in scrolling mode:
+  * New messages appear at the bottom
+  * Automatic scrolling as messages arrive
+  * Compact display showing one line per message
+  * Can be paused to freeze the display
+
+Fixed Position Mode
+~~~~~~~~~~~~~~~~~~~
+
+In fixed position mode (Fixed Position toggle **on**), each unique message occupies a fixed row in the table. This mode is ideal for:
+
+* Monitoring current message values
+* Expanding messages to view signal values
+* Comparing multiple message states simultaneously
+* Dashboard-style monitoring
+
+Features in fixed position mode:
+  * Each message ID has a persistent row
+  * Most recent value displayed
+  * Expandable rows showing signal values (when database is loaded)
+  * No scrolling - messages update in place
+
+.. note::
+   Signal values can only be displayed when a Databases data processor node has been added to the CAN or LIN channel in the Measurement Setup view.
+
+.. _message_trace_toolbar:
+
+Toolbar Controls
+----------------
+
+Play/Pause
+~~~~~~~~~~
+
+Toggle between live updates and paused state:
+
+* **Play** (running) - Messages are actively received and displayed
+* **Pause** - Display freezes, no new messages are processed
+
+When paused, you can:
+  * Select and copy message data
+  * Examine specific messages
+
+.. note::
+   The pause control only affects the display. Messages continue to be processed by the system.
+
+Fixed Position Toggle
+~~~~~~~~~~~~~~~~~~~~~
+
+Toggle between scrolling mode and fixed position mode:
+
+* **Off** - Scrolling mode (historical trace)
+* **On** - Fixed position mode (dashboard view)
+
+Clear Trace
+~~~~~~~~~~~
+
+Click the **Clear** (X) button to remove all messages from the display. In scrolling mode, this clears the history. In fixed position mode, this clears all rows.
+
+Use cases:
+  * Starting fresh for a new test scenario
+  * Removing old data before a specific event
+  * Resetting the display after filtering changes
+
+Channel Filter
+~~~~~~~~~~~~~~
+
+Filter messages by CAN or LIN channel:
+
+* **All** - Show messages from all channels
+* **Specific channel** - Show only messages from the selected channel
+
+Available channels are populated from the CAN and LIN channels configured in the Measurement Setup view.
+
+Direction Filter
+~~~~~~~~~~~~~~~~
+
+Filter messages by direction:
+
+* **All** - Show both transmitted and received messages
+* **Tx** - Show only transmitted messages (messages sent by this interface)
+* **Rx** - Show only received messages
+
+Protocol Filter
+~~~~~~~~~~~~~~~
+
+Filter messages by protocol type:
+
+* **All** - Show messages from all protocols
+* **CAN** - Show only CAN messages
+* **CAN FD** - Show only CAN FD messages
+* **LIN** - Show only LIN messages
+
+Interpreter Selection
+~~~~~~~~~~~~~~~~~~~~~
+
+Select a protocol interpreter to decode additional protocol-specific information:
+
+* **None** - No protocol interpretation (default)
+* **J1939** - Interpret J1939 protocol messages, a J1939 interpreter need to be configured in the Measurement Setup view for it to be available
+* **LIN Message Info** - Interpret LIN messages with additional information, the 'Save LIN Message Info' option need to be enabled in the LIN Channel configuration in the Measurement Setup view for it to be available
+
+When an interpreter is selected, additional columns and information are displayed for interpreted messages.
+
+Max Data Bytes
+~~~~~~~~~~~~~~
+
+Configure the maximum number of data bytes displayed per row:
+
+* **8** - Show up to 8 bytes (default for CAN)
+* **16, 32, 64** - Options for CAN FD messages
+
+If a message contains more bytes than the selected maximum, the data is wrapped into multiple rows.
+
+Column Settings
+~~~~~~~~~~~~~~~
+
+Click the column settings button to customize which columns are displayed and their order. Available columns include:
+
+* Message Name
+* Source Name (channel)
+* ID (identifier)
+* Flags
+* Data Length
+* DLC (Data Length Code)
+* Data
+* Time
+* Direction
+* Protocol
+* Delta Time
+* Protocol-specific columns (when interpreter is enabled)
+
+You can:
+  * Show/hide columns
+  * Reorder columns by dragging
+  * Reset to default column configuration
+
+.. _message_trace_table:
+
+Table Features
+--------------
+
+Column Headers
+~~~~~~~~~~~~~~
+
+Click on column headers to:
+
+* Resize columns by dragging the column divider
+* View full column names in tooltips
+
+Column widths are automatically saved and restored when reopening the project.
+
+Message Rows
+~~~~~~~~~~~~
+
+Each row displays information about a single message. The data shown depends on the display mode and column configuration.
+
+**Common fields:**
+  * **ID** - CAN or LIN identifier (hexadecimal)
+  * **Data** - Message data bytes (hexadecimal)
+  * **Time** - Timestamp (relative start of measurement)
+  * **Dir** - Direction (Tx/Rx)
+  * **DLC** - Data Length Code
+  * **Flags** - CAN-specific flags (X=Extended, R=Remote, F=FD, B=BRS)
+
+Signal Expansion (Fixed Position Mode)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In fixed position mode, when a database is loaded, click the expand icon (▶) on a message row to view signal values:
+
+* Signal names
+* Current engineering values
+* Units
+
+This provides an at-a-glance view of all signal values within a message.
+
+Selection and Copy
+~~~~~~~~~~~~~~~~~~
+
+When paused, you can:
+
+* Click on rows to select them
+* Shift+click to select a range
+* Ctrl+click to select multiple rows
+* Right-click for context menu options
+* Copy selected data to clipboard
+
+.. _message_trace_interpretation:
+
+Protocol Interpretation
+-----------------------
+
+When a protocol interpreter is selected (e.g., J1939), the Message Trace can decode and display protocol-specific information:
+
+**J1939 Interpreter**
+  * PGN (Parameter Group Number)
+  * SA (Source Address)
+  * DA (Destination Address)
+  * Priority
+
+Additional columns are automatically added to display interpreted information.
+
+.. _message_trace_filtering:
+
+Filtering Strategy
+------------------
+
+Combine Multiple Filters
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Filters can be combined for precise message selection:
+
+* Channel + Direction: View only Tx messages from a specific channel
+* Channel + Protocol: View only LIN messages from a specific channel
+* Protocol + Interpreter: View only interpreted J1939 messages
+
+Filter at Different Levels
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For optimal performance, consider filtering at multiple levels:
+
+1. **Measurement Setup** - Use CAN Message Filter node to reduce messages reaching the UI
+2. **Message Trace** - Use pane filters for display-level filtering
+
+.. _message_trace_performance:
+
+Performance Considerations
+--------------------------
+
+High Traffic Scenarios
+~~~~~~~~~~~~~~~~~~~~~~
+
+When monitoring high-traffic buses:
+
+* Use filters to reduce displayed message count
+* Consider fixed position mode which updates existing rows rather than adding new ones
+* Pause periodically to analyze data
+* Use CAN Message Filter in Measurement Setup to pre-filter messages
+
+.. _message_trace_tips:
+
+Tips and Best Practices
+------------------------
+
+General Usage
+~~~~~~~~~~~~~
+
+* Use **scrolling mode** for debugging message timing and patterns
+* Use **fixed position mode** for monitoring current signal values
+* **Pause** before selecting and copying message data
+
+Debugging Strategies
+~~~~~~~~~~~~~~~~~~~~
+
+* Filter by channel to isolate traffic from a specific interface
+* Filter by direction to see only Tx or Rx messages
+* Use delta time column to measure message intervals
+* Expand messages in fixed position mode to verify signal values
+
+Working with Databases
+~~~~~~~~~~~~~~~~~~~~~~
+
+* Ensure the Databases data processor is added to the channel in Measurement Setup
+* Message names and signal values automatically appear when databases match message IDs
+* Use fixed position mode with expansion for the best database visualization experience
+
+Integration with Other Panes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Use alongside CAN Bus Statistics to correlate message counts with statistics
+* Compare trace data with Signal Plot graphs for different perspectives
+* Use CAN Send pane to inject test messages and verify they appear in the trace
+

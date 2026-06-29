@@ -1,0 +1,107 @@
+# ck add canchannel
+
+Adds a CAN Channel to the current measurement setup.
+  - When using CAN FD, then bus speeds for both arbitration phase and data phase must be specified.
+  - Specify either only bit rate, or both bit rate and sample point, or only bus timing parameters for each phase.
+  - If bus timing parameters are specified, then bit rate and sample point values are ignored (will be calculated automatically).
+  - If only bit rate is specified, then sample point will be set to a default value of 75% for classic CAN and 80% for CAN FD.
+
+## Synopsis
+
+```text
+ck add canchannel
+    [--language <en|zh|ja>]
+    [-n|--number <CHANNEL_NUMBER>]
+    [--name <NODE_NAME>]
+    [-a|--all-connected]
+    [-r|--bit-rate <BIT_RATE>]
+    [--sample-point <SAMPLE_POINT>]
+    [--bit-rate-fd <BIT_RATE_FD>]
+    [--sample-point-fd <SAMPLE_POINT_FD>]
+    [--access-mode <InitAccess|NoInitAccess|ExclusiveAccess>]
+    [--silent-mode]
+    [--prop <PROP_SEGMENT_LENGTH>]
+    [--phase1 <PHASE_SEGMENT_1_LENGTH>]
+    [--phase2 <PHASE_SEGMENT_2_LENGTH>]
+    [--sjw <SYNC_JUMP_WIDTH>]
+    [--prescaler <PRESCALER>]
+    [--prop-fd <PROP_SEGMENT_LENGTH_FD>]
+    [--phase1-fd <PHASE_SEGMENT_1_LENGTH_FD>]
+    [--phase2-fd <PHASE_SEGMENT_2_LENGTH_FD>]
+    [--sjw-fd <SYNC_JUMP_WIDTH_FD>]
+    [--prescaler-fd <PRESCALER_FD>]
+
+ck add canchannel -h|--help
+```
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-n|--number```  
+The canlib channel number.
+
+- ```--name```  
+Name of the node. Default value is 'CAN {X}' where X is a number
+
+- ```-a|--all-connected```  
+Add all connected channels. Use this option or the --number option.
+
+- ```-r|--bit-rate```  
+The bit rate in bits per second.
+
+- ```--sample-point```  
+The sample point in percentage.
+
+- ```--bit-rate-fd```  
+The CAN FD data phase bit rate in bits per second. Specify this option to indicate that CAN FD will be used.
+
+- ```--sample-point-fd```  
+The CAN FD data phase sample point in percentage.
+
+- ```--access-mode```  
+The access mode to be used. InitAccess, NoInitAccess or ExclusiveAccess. Default value is InitAccess.
+
+- ```--silent-mode```  
+Specifies if Silent Mode should be used.
+
+- ```--prop```  
+Specifies the Propagation Segment length. The tq (1 + prop + phase1 + phase2) needs to be greater than or equal to 3.
+
+- ```--phase1```  
+Specifies the Phase Segment 1 length. The tq (1 + prop + phase1 + phase2) needs to be greater than or equal to 3.
+
+- ```--phase2```  
+Specifies the Phase Segment 2 length. The tq (1 + prop + phase1 + phase2) needs to be greater than or equal to 3.
+
+- ```--sjw```  
+Specifies the Sync Jump Width value. The sjw needs to be less than or equal to the smallest of phase1 and phase2.
+
+- ```--prescaler```  
+Specifies the Prescaler value. The prescaler needs to greater or equal to 1.
+
+- ```--prop-fd```  
+Specifies the Propagation Segment length for the CAN FD data phase. The tq_fd (1 + prop_fd + phase1_fd + phase2_fd) needs to be greater than or equal to 3. Defaults to 0.
+
+- ```--phase1-fd```  
+Specifies the Phase Segment 1 length for the CAN FD data phase. The tq_fd (1 + prop_fd + phase1_fd + phase2_fd) needs to be greater than or equal to 3.
+
+- ```--phase2-fd```  
+Specifies the Phase Segment 2 length for the CAN FD data phase. The tq_fd (1 + prop_fd + phase1_fd + phase2_fd) needs to be greater than or equal to 3.
+
+- ```--sjw-fd```  
+Specifies the Sync Jump Width value for the CAN FD data phase. The sjw_fd needs to be less than or equal to the smallest of phase1_fd and phase2_fd.
+
+- ```--prescaler-fd```  
+Specifies the Prescaler value for the CAN FD data phase. The prescaler_fd must be equal to the prescaler of the arbitration phase.
+
+## Examples
+
+```bash
+ck add canchannel --number 0
+ck add canchannel --all-connected
+ck add canchannel --number 0 --bit-rate 250000 --sample-point 80
+ck add canchannel --number 0 --bit-rate 250000 --bit-rate-fd 2000000
+```
+

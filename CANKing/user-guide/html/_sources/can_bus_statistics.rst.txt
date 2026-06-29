@@ -1,0 +1,170 @@
+.. _can_bus_statistics:
+
+CAN Bus Statistics
+==================
+
+The CAN Bus Statistics pane provides real-time monitoring of CAN bus performance metrics and health indicators for a selected CAN channel. It displays message counters, bus load, error statistics, and bus status information.
+
+Overview
+--------
+
+The CAN Bus Statistics pane is useful for monitoring the health and performance of CAN channels during measurements. It provides comprehensive statistics that help diagnose bus problems, monitor traffic levels, and track error conditions.
+
+.. _can_bus_statistics_sections:
+
+Sections
+--------
+
+The pane is organized into three collapsible sections:
+
+Channel Selection
+~~~~~~~~~~~~~~~~~
+
+Select which CAN channel to monitor from the available CAN channels configured in the Measurement Setup view. The dropdown displays all configured CAN Channel source nodes.
+
+.. note::
+   The channel must be configured in the Measurement Setup view and online (measurement running) for statistics to be collected.
+
+Bus Statistics
+~~~~~~~~~~~~~~
+
+The Bus Statistics section displays real-time traffic metrics:
+
+**Bus Load**
+  Visual indicator showing the current bus utilization as a percentage (0-100%). High bus load (approaching 100%) may indicate bus saturation.
+
+**Message Counters**
+  * **Rx Messages** - Total number of received messages and average messages per second
+  * **Tx Messages** - Total number of transmitted messages and average messages per second
+  * **Error Frames** - Total number of error frames detected and average error frames per second
+
+**Error Counters**
+  * **Rx** - Receive error counter
+  * **Tx** - Transmit error counter
+  * **Ovr** - Overrun error counter
+
+The counters show accumulated values since the last clear operation or since the measurement started.
+
+Bus Status
+~~~~~~~~~~
+
+The Bus Status section displays three status indicators:
+
+* **On Bus** - Indicates whether the CAN controller is on the bus (actively participating in bus communication)
+* **Error Passive** - Indicates whether the CAN controller has entered error passive state
+* **Overrun** - Indicates whether the receive buffer has overflowed
+
+Each indicator uses color coding:
+  * **Green** - Normal operation
+  * **Yellow** - Warning state
+  * **Red** - Error state
+
+.. _can_bus_statistics_controls:
+
+Controls
+--------
+
+Clear Statistics
+~~~~~~~~~~~~~~~~
+
+Click the **Clear** button at the bottom of the Bus Statistics section to reset all counters to zero. This is useful for:
+
+* Measuring statistics over a specific time period
+* Resetting counters after making configuration changes
+* Starting fresh measurements
+
+.. note::
+   Clearing statistics only resets the displayed counters. It does not affect the underlying bus or measurement.
+
+Collapse/Expand Sections
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each section can be collapsed or expanded by clicking on its header. When collapsed, sections show a summary of key metrics:
+
+* **Channel** - Shows the selected channel name
+* **Bus Statistics** - Shows current bus load percentage
+* **Bus Status** - Shows overall status
+
+.. _can_bus_statistics_understanding:
+
+Understanding the Metrics
+--------------------------
+
+Bus Load
+~~~~~~~~
+
+Bus load represents the percentage of time the bus is actively transmitting data. Factors affecting bus load:
+
+* Number of messages per second
+* Message data length
+* Bus bit rate
+* Message arbitration overhead
+
+High bus load (>80%) may lead to:
+  * Increased message latency
+  * Higher risk of message loss
+  * Reduced ability to handle burst traffic
+
+Error Counters
+~~~~~~~~~~~~~~
+
+CAN controllers maintain error counters according to the CAN specification:
+
+* **Error Active** - Both Tx and Rx error counters are below 128
+* **Error Passive** - Either counter is between 128 and 255
+* **Bus Off** - Tx error counter exceeds 255
+
+Error counters increase when:
+  * Bit errors are detected
+  * Acknowledgment errors occur
+  * Form or stuffing errors are detected
+  * CRC errors are detected
+
+Error counters decrease when messages are successfully transmitted or received.
+
+Overrun Status
+~~~~~~~~~~~~~~
+
+An overrun occurs when the receive buffer fills up faster than software can process messages. Common causes:
+
+* Very high bus traffic
+* System resource constraints
+* Other applications consuming CPU time
+
+When overrun is detected:
+  1. Some messages may be lost
+  2. The overrun indicator turns red
+  3. The overrun counter increments
+
+.. _can_bus_statistics_tips:
+
+Tips and Best Practices
+------------------------
+
+Monitoring Bus Health
+~~~~~~~~~~~~~~~~~~~~~
+
+* Monitor bus load during peak traffic periods to ensure sufficient headroom
+* Watch for increasing error counters which may indicate wiring issues or noise
+* Check for overruns which may indicate the need for hardware with higher throughput
+
+Diagnosing Problems
+~~~~~~~~~~~~~~~~~~~
+
+* If error counters increase steadily, check:
+    * Bus termination
+    * Cable quality and length
+    * EMI/RFI environment
+    * Bit rate configuration
+* If overruns occur, consider:
+    * Reducing bus traffic
+    * Using hardware with better performance
+    * Applying filters to reduce message load to the application
+
+Using with Other Panes
+~~~~~~~~~~~~~~~~~~~~~~
+
+* Use CAN Bus Statistics alongside Message Trace to correlate traffic patterns with statistics
+* Monitor statistics while testing CAN Send or CAN Periodic Send panes
+* Compare statistics across multiple channels in separate panes
+

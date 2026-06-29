@@ -1,0 +1,35 @@
+# ck send lin-request
+
+Writes a LIN message header to the LIN bus. A slave in the system is then expected to fill in the header with data. Only available in master mode.
+
+## Synopsis
+
+```text
+ck send lin-request
+    <OUTPUT_CHANNEL_NAME_OR_ID>
+    [--language <en|zh|ja>]
+    -i|--id <MESSAGE_ID>
+
+ck send lin-request -h|--help
+```
+
+## Arguments
+
+- ```OUTPUT_CHANNEL_NAME_OR_ID```  
+The identifier/name of the output channel to be used.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-i|--id``` (required)  
+The message id. Prefix with 0x to indicate hex format. Valid identifiers are 0-63.
+
+## Examples
+
+```bash
+ck send lin-request "LIN 1" -i 1
+ck send lin-request "LIN 1" --id 0x3F
+```
+

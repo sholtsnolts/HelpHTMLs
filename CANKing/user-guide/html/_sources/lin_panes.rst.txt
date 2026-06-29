@@ -1,0 +1,352 @@
+.. _lin_panes:
+
+LIN Panes
+=========
+
+The LIN panes provide functionality for interacting with LIN (Local Interconnect Network) buses. Three panes are available for different LIN operations: LIN Send, LIN Message Request, and LIN Message Update.
+
+Overview
+--------
+
+LIN is a low-cost serial communication protocol used primarily in automotive applications for non-critical functions. Unlike CAN, LIN uses a master-slave architecture where:
+
+* The **master** sends message headers (requests)
+* **Slaves** respond with data based on the message ID
+* Messages are scheduled and deterministic
+
+The LIN panes in CanKing allow you to:
+
+* Send complete LIN messages with headers and data (master behavior)
+* Request messages by sending headers (master requests slave response)
+* Update message data tables (slave behavior)
+
+.. note::
+   A LIN Channel source node must be configured in the Measurement Setup view and the measurement must be online to use LIN panes.
+
+.. _lin_send:
+
+LIN Send
+--------
+
+The LIN Send pane allows manual transmission of complete LIN messages (header + data) on a selected LIN channel. This simulates a LIN master sending both the header and providing the response data.
+
+Use Cases
+~~~~~~~~~
+
+* Testing LIN slave responses
+* Simulating a LIN master
+* Injecting test messages into a LIN network
+* Validating LIN slave implementations
+
+Configuration
+~~~~~~~~~~~~~
+
+**Channel Selection**
+  Select the LIN channel on which to transmit. The dropdown shows all LIN Channel source nodes from the Measurement Setup.
+
+**LIN Identifier**
+  * Enter the LIN message identifier (0-63 for LIN 2.x)
+  * 6-bit identifier space
+  * No extended identifiers like CAN
+
+**Message Data**
+  * Enter up to 8 bytes of data (LIN messages are limited to 8 bytes)
+  * Data bytes are entered in hexadecimal (00-FF)
+  * Unused bytes can be left as 00
+
+**Database Message Selection** (when available)
+  1. Click **Select Message** to browse loaded LIN databases (.ldf files)
+  2. Select a message from the database
+  3. Identifier and data length are set automatically
+  4. Signal value editors appear for signal-based data entry
+
+**Send Button**
+  Click **Send** to transmit the complete message immediately.
+
+Signal-Based Editing
+~~~~~~~~~~~~~~~~~~~~~
+
+When a LIN database is loaded via the Databases data processor or LIN Channel configuration:
+
+* Select database-defined messages
+* Edit signal values in engineering units
+* Automatic encoding into message bytes
+* Value range validation
+* Unit display for reference
+
+Typical Workflow
+~~~~~~~~~~~~~~~~
+
+1. Select the LIN channel
+2. Either:
+
+   * Enter identifier and data bytes manually, OR
+   * Select a database message and edit signal values
+
+3. Click **Send**
+4. Monitor the Message Trace to verify transmission
+
+.. _lin_message_request:
+
+LIN Message Request
+-------------------
+
+The LIN Message Request pane sends a LIN message header without providing data. This simulates a LIN master requesting a message, where a slave is expected to provide the response data.
+
+Use Cases
+~~~~~~~~~
+
+* Testing LIN slave responses in their actual role
+* Requesting diagnostic messages
+* Triggering slave-provided data
+* Simulating normal LIN master behavior
+
+Configuration
+~~~~~~~~~~~~~
+
+**Channel Selection**
+  Select the LIN channel for the request.
+
+**LIN Identifier**
+  * Enter the LIN message identifier to request (0-63)
+  * This is the message ID for which a slave should provide data
+
+**Database Message Selection** (when available)
+  Select from database-defined messages to automatically set the identifier.
+
+**Send Button**
+  Click **Send** to transmit the message request (header only).
+
+How It Works
+~~~~~~~~~~~~
+
+1. CanKing sends the LIN message header with the specified ID
+2. A LIN slave node on the bus provides the data response
+3. The complete message (header + response) appears in Message Trace
+4. The response data comes from the slave, not from CanKing
+
+Difference from LIN Send
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+=============================  ================================  ==================================
+Feature                        LIN Send                          LIN Message Request
+=============================  ================================  ==================================
+Master/Slave Simulation        Master providing data             Master requesting data
+Data Source                    Provided by CanKing               Provided by slaves on the bus
+Configuration Required         Full message (ID + data)          Header only (ID)
+Typical Use                    Simulating master responses       Requesting slave responses
+=============================  ================================  ==================================
+
+Typical Workflow
+~~~~~~~~~~~~~~~~
+
+1. Ensure LIN slaves are present on the bus
+2. Select the LIN channel
+3. Enter the message identifier to request
+4. Click **Send**
+5. Monitor Message Trace to see the slave's response data
+
+.. _lin_message_update:
+
+LIN Message Update
+------------------
+
+The LIN Message Update pane configures the message data table for messages where the CanKing acts as a LIN slave. When the master requests these message IDs, CanKing provides the configured data.
+
+Use Cases
+~~~~~~~~~
+
+* Simulating LIN slaves
+* Providing responses to LIN master requests
+* Testing LIN master implementations
+* Emulating missing slave nodes
+
+Configuration
+~~~~~~~~~~~~~
+
+**Channel Selection**
+  Select the LIN channel on which to act as a slave.
+
+**LIN Identifier**
+  * Enter the LIN message identifier (0-63)
+  * This is the ID that CanKing will respond to as a slave
+
+**Message Data**
+  * Configure the data bytes that will be provided when the master requests this ID
+  * Enter up to 8 bytes in hexadecimal
+
+**Database Message Selection** (when available)
+  * Select database-defined messages
+  * Edit signal values to configure response data
+  * Changes are reflected in the message data table
+
+**Start Button**
+  Click **Start** to apply the configuration to the LIN message data table.
+
+How It Works
+~~~~~~~~~~~~
+
+1. Configure the message ID and data
+2. Click **Start**, the button changes to **Stop**
+3. The LIN interface stores this configuration
+4. When a LIN master sends a header for this ID, the configured data is automatically transmitted
+5. This happens for every header request
+6. Changes to the configured data are applied immediately
+7. The configuration remains active until the measurement is stopped or the **Stop** button is clicked
+
+Persistent Behavior
+~~~~~~~~~~~~~~~~~~~
+
+Unlike LIN Send (single transmission) or LIN Message Request (single request):
+
+* LIN Message Update sets up persistent slave behavior
+* The configured response is used for ALL subsequent requests for that ID
+* Remains active until:
+
+  * The measurement is stopped
+  * The configuration is cleared by clicking **Stop**
+
+Typical Workflow
+~~~~~~~~~~~~~~~~
+
+1. Select the LIN channel
+2. Configure message ID and response data:
+
+   * Manual byte entry, OR
+   * Database message with signal values
+
+3. Click **Start** to activate slave response
+4. The LIN interface now responds to master requests for this ID
+5. Update as needed to change response data
+
+.. _lin_panes_comparison:
+
+Choosing the Right LIN Pane
+----------------------------
+
+Use LIN Send when:
+  * You need complete control over the entire message
+  * Simulating a master that provides data
+  * Single message transmission is sufficient
+  * Testing with no other LIN nodes present
+
+Use LIN Message Request when:
+  * You want to test actual LIN slave behavior
+  * Slaves are present on the bus
+  * You need to trigger slave responses
+  * Simulating normal LIN master operation
+
+Use LIN Message Update when:
+  * Configuring CanKing as a LIN slave
+  * Providing persistent responses to master requests
+  * Simulating a slave node
+  * Testing LIN master implementations
+
+.. _lin_panes_database:
+
+Working with LIN Databases
+---------------------------
+
+LIN databases (.ldf files) provide message and signal definitions. To use databases with LIN panes:
+
+**Option 1: Databases Data Processor**
+  1. In Measurement Setup, add a Databases data processor
+  2. Connect it to the LIN channel
+  3. Load the .ldf file
+  4. Databases are available in all panes
+
+**Option 2: LIN Channel Configuration**
+  1. In Measurement Setup, configure the LIN Channel node
+  2. Load the .ldf file directly in channel settings
+  3. Database is available for that channel
+
+Benefits of using databases:
+  * Message names for easier identification
+  * Signal-based value editing
+  * Automatic encoding/decoding
+  * Value range validation
+  * Unit display
+
+.. _lin_panes_tips:
+
+Tips and Best Practices
+------------------------
+
+LIN Master/Slave Roles
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* Understand the master-slave architecture before using LIN panes
+* LIN Send = Master with data
+* LIN Message Request = Master without data (expecting slave response)
+* LIN Message Update = Slave configuration
+* Only one master should be active at a time on a LIN bus
+
+Message Identifiers
+~~~~~~~~~~~~~~~~~~~
+
+* LIN uses 6-bit identifiers (0-63)
+* Some IDs are reserved for diagnostic purposes (60-63)
+* Consult your LIN database or specification for correct IDs
+* Invalid IDs may be rejected or cause errors
+
+Data Length
+~~~~~~~~~~~
+
+* LIN messages support up to 8 bytes
+* Data length is typically fixed for each message ID
+* Check your database or specification for correct lengths
+* Padding with zeros is common for shorter messages
+
+Verification
+~~~~~~~~~~~~
+
+* Always use Message Trace to verify LIN transmissions
+* Filter by LIN protocol for clearer viewing
+* Check both Tx (sent) and Rx (received) messages
+* Verify checksums are correct
+
+Integration with Other Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Use Message Trace to monitor all LIN traffic
+* LIN messages appear alongside CAN messages when both protocols are active
+* Filters can separate LIN from CAN messages
+* Signal Plot can display LIN signals when databases are loaded
+
+.. _lin_panes_troubleshooting:
+
+Troubleshooting
+---------------
+
+Send/Start Button Disabled
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Ensure measurement is running (CanKing online)
+* Verify LIN channel is configured and online
+* Check that identifier is valid (0-63)
+* Confirm data length is valid (0-8 bytes)
+
+Messages Not Appearing
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* Check Message Trace filters (protocol, channel, direction)
+* Verify LIN bus wiring and termination
+* Check that LIN bus speed matches all nodes
+* Ensure LIN master is present and active
+
+Slave Responses Not Working
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* For LIN Message Request: Verify slaves are present and configured
+* For LIN Message Update: Ensure Start button was clicked to apply configuration
+* Check that message ID matches what master is requesting
+* Verify LIN interface is in correct mode (master or slave)
+
+Database Messages Not Available
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Add Databases data processor or configure database in LIN Channel settings
+* Ensure .ldf file is loaded correctly
+* Restart measurement after adding database
+* Check that database contains the required message definitions
+

@@ -1,0 +1,170 @@
+# ck add signallogger
+
+Adds a Signal Logger to the current measurement setup.
+Only one type of trigger can be used at a time for start and stop separately.
+The available triggers are: Timeout, Signal and Identifier.
+
+## Synopsis
+
+```text
+ck add signallogger
+    <SIGNAL_QUALIFIED_NAME>...
+    [--language <en|zh|ja>]
+    -p|--path <LOG_FILE_PATH>
+    [-f|--format <LOG_FILE_FORMAT>]
+    [-n|--name <NODE_NAME>]
+    [--start-timeout <START_TIMEOUT_MS>]
+    [--start-id <START_MESSAGE_ID>]
+    [--start-source <START_MESSAGE_SOURCE>]
+    [--stop-timeout <STOP_TIMEOUT_MS>]
+    [--stop-id <STOP_MESSAGE_ID>]
+    [--stop-source <STOP_MESSAGE_SOURCE>]
+    [--auto-restart]
+    [--skip-file-header]
+    [--write-data-in-dec]
+    [--write-id-in-dec]
+    [--decimal-separator <DecDot|DecComma>]
+    [--col-separator <Comma|Semicolon>]
+    [--data-bytes-converter-limit <DATA_BYTES_CONVERTER_LIMIT>]
+    [--size-limit <SIZE_LIMIT_MB>]
+    [--data-decimals <NUMBER_OF_DATA_DECIMALS>]
+    [--time-limit <TIME_LIMIT_S>]
+    [--time-decimals <NUMBER_OF_TIME_DECIMALS>]
+    [--use-calendar-time]
+    [--use-local-time]
+    [--time-reference <FirstTrigger|StartOfMeasurement>]
+    [--start-signal-value <START_SIGNAL_VALUE>]
+    [--stop-signal-value <STOP_SIGNAL_VALUE>]
+    [--start-signal-qualified-name <START_SIGNAL_QUALIFIED_NAME>]
+    [--stop-signal-qualified-name <STOP_SIGNAL_QUALIFIED_NAME>]
+    [--start-operator <EqualTo|NotEqualTo|LessThan|LessThanOrEqual|GreaterThanOrEqual|GreaterThan|ChangeTo|ChangeFrom|OnChange>]
+    [--stop-operator <EqualTo|NotEqualTo|LessThan|LessThanOrEqual|GreaterThanOrEqual|GreaterThan|ChangeTo|ChangeFrom|OnChange>]
+    [--use-enum-values]
+    [--write-fully-qualified-names]
+    [--write-counter]
+    [--write-units-on-own-row]
+    [--write-data-frames]
+
+ck add signallogger -h|--help
+```
+
+## Arguments
+
+- ```SIGNAL_QUALIFIED_NAME```  
+Qualified names of the signals to log. Specify any source channel identifier or name if needed. Source channel is specified by preceding the signal name with the channel identifier or name followed by a slash (/).
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-p|--path``` (required)  
+Name of the file to log messages to, including full path.
+
+- ```-f|--format```  
+Format of the file to log messages to. If not given the format will be extracted from the path.
+
+- ```-n|--name```  
+Name of the node. Default value is 'Signal Logger'
+
+- ```--start-timeout```  
+A timeout in milliseconds, to be used as start trigger.
+
+- ```--start-id```  
+The Message ID to use as start trigger. Prefix with 0x to indicate hex format.
+
+- ```--start-source```  
+The Message Source to use as start trigger, that is the identifier or name of the channel that sends/receives the trigger message.
+
+- ```--stop-timeout```  
+A timeout in milliseconds, to be used as stop trigger.
+
+- ```--stop-id```  
+The Message ID to use as stop trigger. Prefix with 0x to indicate hex format.
+
+- ```--stop-source```  
+The Message Source to use as stop trigger, that is the identifier or name of the channel that sends/receives the trigger message.
+
+- ```--auto-restart```  
+Automatically restart after stop.
+
+- ```--skip-file-header```  
+Skip writing file header
+
+- ```--write-data-in-dec```  
+Write data in decimal format.
+
+- ```--write-id-in-dec```  
+Write ID in decimal format.
+
+- ```--decimal-separator```  
+Use either a dot (DecDot) or comma (DecComma) as the decimal separator. Default value is a dot.
+
+- ```--col-separator```  
+Use either a comma or semicolon as the column separator. Default value is a comma.
+
+- ```--data-bytes-converter-limit```  
+Number of data bytes a converter will max write to the log file (1-64). Default value is 64.
+
+- ```--size-limit```  
+Max file size in megabytes before writing to a new file.
+
+- ```--data-decimals```  
+Number of data decimals (0-9). Default value is 4.
+
+- ```--time-limit```  
+Max number of seconds between first and last event before writing to a new file.
+
+- ```--time-decimals```  
+Number of time decimals (0-9). Default value is 9.
+
+- ```--use-calendar-time```  
+Write timestamps in calendar time instead of seconds.
+
+- ```--use-local-time```  
+Use local time instead of UTC for absolute timestamps.
+
+- ```--time-reference```  
+Use either first trigger or start of measurement as time reference. Default value is first trigger.
+
+- ```--start-signal-value```  
+The Signal Value to use as start trigger. Prefix with 0x to indicate hex format.
+
+- ```--stop-signal-value```  
+The Signal Value to use as stop trigger. Prefix with 0x to indicate hex format.
+
+- ```--start-signal-qualified-name```  
+The Signal Qualified Name to use as start.
+
+- ```--stop-signal-qualified-name```  
+The Signal Qualified Name to use as stop.
+
+- ```--start-operator```  
+The operator to use as start trigger. Default is 1 (EqualTo).
+
+- ```--stop-operator```  
+The operator to use as stop trigger. Default is 1 (EqualTo).
+
+- ```--use-enum-values```  
+Use strings from database instead of integer values.
+
+- ```--write-fully-qualified-names```  
+Write fully qualified names.
+
+- ```--write-counter```  
+Write counter.
+
+- ```--write-units-on-own-row```  
+Write units on an own row.
+
+- ```--write-data-frames```  
+Write both signals and data frames.
+
+## Examples
+
+```bash
+ck add signallogger dbcfile.engine.speed dbcfile.engine.gear --path path/to/logfile.csv --format csvsignal
+ck add signallogger dbcfile.engine.speed dbcfile.engine.gear --path path/to/logfile.csv --format csvsignal --start-timeout 500 --stop-timeout 13000
+ck add signallogger dbcfile.engine.speed dbcfile.engine.gear --path path/to/logfile.csv --format csvsignal --start-id 0x3F --stop-id 0x0F
+```
+

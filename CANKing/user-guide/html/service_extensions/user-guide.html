@@ -1,0 +1,1582 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kvaser CanKing Service Extensions SDK - User Guide &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon-16x16.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8214db13"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release notes" href="../release_notes.html" />
+    <link rel="prev" title="Kvaser CanKing GUI Extensions SDK v7.5.0" href="../gui_extensions/modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="../_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kvaser CanKing Service Extensions SDK - User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-canking-service-extension">What is a CanKing Service Extension?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background-webassembly-components">Background: WebAssembly Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#webassembly-component-model">WebAssembly Component Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webassembly-interface-type-wit">WebAssembly Interface Type (WIT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webassembly-system-interface-wasi">WebAssembly System Interface (WASI)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#available-wasi-capabilities">Available WASI Capabilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-considerations">Security Considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sdk-overview">SDK Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#directory-structure">Directory Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-wit-contract">The WIT Contract</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#extension-types">Extension Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-processor-extensions">Data Processor Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-target-extensions">Data Target Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wit-interface-reference">WIT Interface Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extension-base-interface">Extension Base Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canking-interface">CanKing Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types-interface">Types Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#extension-info">Extension Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log-severity">Log Severity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frame-data">Frame Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frame-reception-info">Frame Reception Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#process-frame">Process Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#out-frame">Out Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-subscription">Data Subscription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frames-subscription">Frames Subscription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frame-id-filter">Frame ID Filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-extensions">Creating Extensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#javascript-extensions">JavaScript Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-types-optional">Generate Types (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-implementation-my-extension-js">Example Implementation (my-extension.js)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build">Build</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-extensions">Python Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-bindings-optional">Generate Bindings (Optional)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-implementation-my-extension-py">Example Implementation (my_extension.py)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Build</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rust-extensions">Rust Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cargo-toml">Cargo.toml</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-implementation">Example Implementation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Build</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#c-extensions">C++ Extensions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-bindings">Generate Bindings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-implementation-my-extension-cpp">Example Implementation (my-extension.cpp)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Build</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-and-setup">Configuration and Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-configuration-structure">Example Configuration Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-configuration">Handling Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-in-canking">Usage in CanKing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-an-extension">Installing an Extension</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cli-example-data-target">CLI Example (Data Target)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cli-example-data-processor">CLI Example (Data Processor)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-extensions">Connecting Extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-best-practices">Tips and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#threading-and-callback-safety">Threading and Callback Safety</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-threading-guidance">General Threading Guidance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imported-host-calls-canking-interface">Imported Host Calls (<code class="docutils literal notranslate"><span class="pre">canking</span></code> Interface)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#language-specific">Language-Specific</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rust">Rust</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#javascript">JavaScript</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c">C++</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#signals">Signals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#useful-resources">Useful Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#official-documentation">Official Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#language-specific-tools">Language-Specific Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utilities">Utilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Kvaser CanKing Service Extensions SDK - User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="kvaser-canking-service-extensions-sdk-user-guide">
+<h1>Kvaser CanKing Service Extensions SDK - User Guide<a class="headerlink" href="#kvaser-canking-service-extensions-sdk-user-guide" title="Link to this heading"></a></h1>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../introduction.html#introduction"><span class="std std-ref">Introduction</span></a></p></li>
+<li><p><a class="reference internal" href="#what-is-a-canking-service-extension"><span class="xref myst">What is a CanKing Service Extension?</span></a></p></li>
+<li><p><a class="reference internal" href="#use-cases"><span class="xref myst">Use Cases</span></a></p></li>
+<li><p><a class="reference internal" href="#background-webassembly-components"><span class="xref myst">Background: WebAssembly Components</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#webassembly-component-model"><span class="xref myst">WebAssembly Component Model</span></a></p></li>
+<li><p><a class="reference internal" href="#webassembly-interface-type-wit"><span class="xref myst">WebAssembly Interface Type (WIT)</span></a></p></li>
+<li><p><a class="reference internal" href="#webassembly-system-interface-wasi"><span class="xref myst">WebAssembly System Interface (WASI)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sdk-overview"><span class="xref myst">SDK Overview</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#directory-structure"><span class="xref myst">Directory Structure</span></a></p></li>
+<li><p><a class="reference internal" href="#the-wit-contract"><span class="xref myst">The WIT Contract</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#extension-types"><span class="xref myst">Extension Types</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#data-processor-extensions"><span class="xref myst">Data Processor Extensions</span></a></p></li>
+<li><p><a class="reference internal" href="#data-target-extensions"><span class="xref myst">Data Target Extensions</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#wit-interface-reference"><span class="xref myst">WIT Interface Reference</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#extension-base-interface"><span class="xref myst">Extension Base Interface</span></a></p></li>
+<li><p><a class="reference internal" href="#canking-interface"><span class="xref myst">CanKing Interface</span></a></p></li>
+<li><p><a class="reference internal" href="#types-interface"><span class="xref myst">Types Interface</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#creating-extensions"><span class="xref myst">Creating Extensions</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#javascript-extensions"><span class="xref myst">JavaScript</span></a></p></li>
+<li><p><a class="reference internal" href="#python-extensions"><span class="xref myst">Python</span></a></p></li>
+<li><p><a class="reference internal" href="#rust-extensions"><span class="xref myst">Rust</span></a></p></li>
+<li><p><a class="reference internal" href="#c-extensions"><span class="xref myst">C++</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configuration-and-setup"><span class="xref myst">Configuration and Setup</span></a></p></li>
+<li><p><a class="reference internal" href="#usage-in-canking"><span class="xref myst">Usage in CanKing</span></a></p></li>
+<li><p><a class="reference internal" href="#tips-and-best-practices"><span class="xref myst">Tips and Best Practices</span></a></p></li>
+<li><p><a class="reference internal" href="#useful-resources"><span class="xref myst">Useful Resources</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>The Kvaser CanKing Service Extensions SDK enables developers to create custom service extensions for the Kvaser CanKing
+bus analysis tool. This guide provides comprehensive information on what CanKing service extensions are, how they work,
+and how third-party developers can create their own extensions.</p>
+<p><strong>Kvaser CanKing</strong> is a free, general-purpose CAN and LIN bus analysis software compatible with all Kvaser CAN/LIN
+interfaces and the Kvaser virtual CAN bus. It’s available on Windows (x64) and Linux (x64 and ARM).</p>
+<p>While CanKing includes extensive built-in functionality, the extension system allows you to extend its capabilities to
+meet specific requirements.</p>
+</section>
+<hr class="docutils" />
+<section id="what-is-a-canking-service-extension">
+<h2>What is a CanKing Service Extension?<a class="headerlink" href="#what-is-a-canking-service-extension" title="Link to this heading"></a></h2>
+<p>A CanKing service extension is a <strong>WebAssembly (WASM) component</strong> that integrates with the CanKing application to extend
+its functionality. Extensions can be written in <strong>any programming language</strong> that can compile to WASM components, including:</p>
+<ul class="simple">
+<li><p>JavaScript</p></li>
+<li><p>Python</p></li>
+<li><p>Rust</p></li>
+<li><p>C++</p></li>
+<li><p>C# (.NET)</p></li>
+<li><p>Go</p></li>
+<li><p>And more…</p></li>
+</ul>
+<p>Extensions operate in a <strong>sandboxed environment</strong>, meaning they have limited access to external resources. The resources
+available to them, and the functions they export, are defined in a <strong>WIT (WebAssembly Interface Type)</strong> file which
+serves as the contract between CanKing and the extension.</p>
+</section>
+<hr class="docutils" />
+<section id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h2>
+<p>With CanKing service extensions, you can dynamically handle CAN/LIN traffic in various ways:</p>
+<ul class="simple">
+<li><p><strong>Cloud Upload</strong>: Upload and inspect live traffic data to external tools such as Grafana for visualization using
+graphs, maps, gauges, or charts</p></li>
+<li><p><strong>Data Filtering</strong>: Filter out specific CAN/LIN data to focus on certain frames or signals</p></li>
+<li><p><strong>Data Processing</strong>: Transform, annotate, or enrich CAN/LIN data as it flows through the system</p></li>
+<li><p><strong>Custom Logging</strong>: Implement custom logging strategies with batching, sampling, or specific file formats</p></li>
+<li><p><strong>Protocol Conversion</strong>: Convert between different data formats or protocols</p></li>
+<li><p><strong>Real-time Analysis</strong>: Perform real-time analysis on the data stream</p></li>
+<li><p><strong>Integration</strong>: Connect CanKing to external systems, databases, or cloud services</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="background-webassembly-components">
+<h2>Background: WebAssembly Components<a class="headerlink" href="#background-webassembly-components" title="Link to this heading"></a></h2>
+<section id="webassembly-component-model">
+<h3>WebAssembly Component Model<a class="headerlink" href="#webassembly-component-model" title="Link to this heading"></a></h3>
+<p>The WebAssembly Component Model offers interoperability, modularity, and performance while maintaining security and
+cross-platform compatibility. Components are built and run in a sandboxed environment with limited access to external resources.</p>
+<p>Key characteristics of WASM components:</p>
+<ul class="simple">
+<li><p><strong>Logically</strong>: Components are containers for modules (or other components) that express their interfaces and
+dependencies via WIT</p></li>
+<li><p><strong>Conceptually</strong>: Components are self-describing units of code that interact only through interfaces instead of shared
+memory</p></li>
+<li><p><strong>Physically</strong>: A component is a specially-formatted WebAssembly file that may internally include multiple traditional
+(“core”) WebAssembly modules and sub-components</p></li>
+</ul>
+<p>The agreement of an interface adds a new dimension to WebAssembly portability. Not only are components portable across
+architectures and operating systems, but they are also <strong>portable across languages</strong>. A JavaScript component can
+communicate directly and safely with a Rust component without knowing which language the other was written in.</p>
+</section>
+<section id="webassembly-interface-type-wit">
+<h3>WebAssembly Interface Type (WIT)<a class="headerlink" href="#webassembly-interface-type-wit" title="Link to this heading"></a></h3>
+<p>WIT is an Interface Definition Language (IDL) for the Component Model. It defines <strong>worlds</strong> and <strong>interfaces</strong> for
+WASM components:</p>
+<ul class="simple">
+<li><p>A <strong>world</strong> defines the external interface of a component—its imports and exports</p></li>
+<li><p><strong>Exported functions</strong> are what a host (or another component) expects the component to implement</p></li>
+<li><p><strong>Imported interfaces</strong> are external implementations the component can depend on</p></li>
+</ul>
+<p>This format provides strong sandboxing—the component can <strong>only</strong> interact with a runtime or other components through
+its exports and imports.</p>
+<blockquote>
+<div><p><strong>Note</strong>: You do not need to write a WIT file to build CanKing service extensions. The WIT contract is provided in
+the SDK at <code class="docutils literal notranslate"><span class="pre">/wit/</span></code>.</p>
+</div></blockquote>
+</section>
+<section id="webassembly-system-interface-wasi">
+<h3>WebAssembly System Interface (WASI)<a class="headerlink" href="#webassembly-system-interface-wasi" title="Link to this heading"></a></h3>
+<p>WASI is a set of standardized APIs that allow WASM components to interact securely with their host environment.
+CanKing extensions have access to <strong>WASI Preview 2</strong> capabilities, which provide OS-like functionality while maintaining
+the security guarantees of the WebAssembly sandbox.</p>
+<section id="available-wasi-capabilities">
+<h4>Available WASI Capabilities<a class="headerlink" href="#available-wasi-capabilities" title="Link to this heading"></a></h4>
+<p>CanKing provides the following WASI capabilities to extension components:</p>
+<section id="logging-and-standard-i-o">
+<h5>1. Logging and Standard I/O<a class="headerlink" href="#logging-and-standard-i-o" title="Link to this heading"></a></h5>
+<p>Extensions have multiple ways to output log messages:</p>
+<p><strong>Recommended: CanKing Log Function</strong></p>
+<p>The primary way to log messages is through the <code class="docutils literal notranslate"><span class="pre">log</span></code> function provided by the CanKing interface:</p>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>log: func(message: string, severity: log-severity);
+</pre></div>
+</div>
+<p>This function allows you to control the severity level of your messages:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> - Detailed debugging information (only shown at Debug log level)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INFORMATION</span></code> - General flow and informational messages</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WARNING</span></code> - Abnormal or unexpected events that don’t stop execution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ERROR</span></code> - Execution failures and error conditions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code> - Catastrophic failures (shows a dialog in CanKing)</p></li>
+</ul>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">log</span></code> function ensures your messages are properly categorized and filtered according to CanKing’s log level settings.</p>
+<p><strong>Standard I/O Streams (stdout/stderr)</strong></p>
+<p>Extensions can also write to standard streams:</p>
+<ul class="simple">
+<li><p><strong>stdout</strong> - Output is automatically redirected to the CanKing log with <code class="docutils literal notranslate"><span class="pre">INFORMATION</span></code> severity</p></li>
+<li><p><strong>stderr</strong> - Output is automatically redirected to the CanKing log with <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> severity</p></li>
+</ul>
+<p>This provides compatibility with standard library logging in most programming languages (e.g., <code class="docutils literal notranslate"><span class="pre">console.log()</span></code> in
+JavaScript, <code class="docutils literal notranslate"><span class="pre">print()</span></code> in Python, <code class="docutils literal notranslate"><span class="pre">println!()</span></code> in Rust) and allows existing code to work without modification. However,
+using the dedicated <code class="docutils literal notranslate"><span class="pre">log</span></code> function is recommended when you need fine-grained control over message severity.</p>
+</section>
+<section id="file-system-access">
+<h5>2. File System Access<a class="headerlink" href="#file-system-access" title="Link to this heading"></a></h5>
+<p>Extensions receive access to a <strong>temporary working directory</strong> with full read and write permissions:</p>
+<ul class="simple">
+<li><p><strong>Location</strong>: Each extension instance gets its own isolated temporary directory</p></li>
+<li><p><strong>Permissions</strong>: Full read and write access within this directory</p></li>
+<li><p><strong>Use Cases</strong>:</p>
+<ul>
+<li><p>Cache data between measurement sessions</p></li>
+<li><p>Store temporary processing results</p></li>
+<li><p>Save configuration files</p></li>
+<li><p>Buffer data before uploading</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Security Model</strong>: Extensions use a <strong>capability-based security model</strong> and can <strong>only</strong> access the temporary
+directory explicitly granted to them. They cannot:</p>
+<ul class="simple">
+<li><p>Access parent directories (e.g., <code class="docutils literal notranslate"><span class="pre">../</span></code> paths are blocked)</p></li>
+<li><p>Read or write arbitrary host filesystem paths</p></li>
+<li><p>Access system directories or user files outside the granted directory</p></li>
+</ul>
+<p>This sandboxing ensures that extensions cannot compromise host system security while still providing useful file operations.</p>
+</section>
+<section id="wasi-preview-2-standard-apis">
+<h5>3. WASI Preview 2 Standard APIs<a class="headerlink" href="#wasi-preview-2-standard-apis" title="Link to this heading"></a></h5>
+<p>Extensions have access to the complete WASI Preview 2 API surface, which includes:</p>
+<ul class="simple">
+<li><p><strong>File Operations</strong>: <code class="docutils literal notranslate"><span class="pre">open</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code>, <code class="docutils literal notranslate"><span class="pre">seek</span></code>, <code class="docutils literal notranslate"><span class="pre">stat</span></code>, <code class="docutils literal notranslate"><span class="pre">close</span></code> - POSIX-like file handling within the granted directory</p></li>
+<li><p><strong>Directory Operations</strong>: <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>, <code class="docutils literal notranslate"><span class="pre">readdir</span></code>, <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> - Create and manage directories</p></li>
+<li><p><strong>Time and Clocks</strong>: Get current time, timestamps, and monotonic clocks for measurements</p></li>
+<li><p><strong>Random Numbers</strong>: Cryptographically secure random number generation</p></li>
+<li><p><strong>Environment Variables</strong>: Read environment variables passed to the component</p></li>
+</ul>
+<p><strong>POSIX-like Interface</strong>: The WASI APIs follow familiar POSIX system call patterns, making it easy to work with
+files and I/O if you’re familiar with Linux, macOS, or other Unix-like systems. Most programming languages provide
+high-level wrappers around these APIs (e.g., Python’s <code class="docutils literal notranslate"><span class="pre">open()</span></code>, Rust’s <code class="docutils literal notranslate"><span class="pre">std::fs</span></code>, JavaScript’s <code class="docutils literal notranslate"><span class="pre">fs</span></code> module in Node.js).</p>
+</section>
+<section id="http-https-client">
+<h5>4. HTTP/HTTPS Client<a class="headerlink" href="#http-https-client" title="Link to this heading"></a></h5>
+<p>Extensions can make outbound HTTP and HTTPS requests:</p>
+<ul class="simple">
+<li><p><strong>HTTP Support</strong>: Plain HTTP requests to any endpoint</p></li>
+<li><p><strong>HTTPS Support</strong>: Secure HTTPS with TLS/SSL, certificate validation, and modern cipher suites</p></li>
+<li><p><strong>Use Cases</strong>:</p>
+<ul>
+<li><p>Upload data to cloud services and REST APIs</p></li>
+<li><p>Fetch configuration from remote servers</p></li>
+<li><p>Send telemetry and analytics</p></li>
+<li><p>Integrate with web services and databases</p></li>
+<li><p>Authenticate with OAuth or API keys</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note</strong>: This is <strong>client-only</strong> functionality. Extensions cannot act as HTTP servers or accept incoming connections.</p>
+</section>
+</section>
+<section id="security-considerations">
+<h4>Security Considerations<a class="headerlink" href="#security-considerations" title="Link to this heading"></a></h4>
+<p>All WASI capabilities operate within WebAssembly’s security sandbox:</p>
+<ul class="simple">
+<li><p>Extensions cannot execute arbitrary system commands</p></li>
+<li><p>Network access is outbound-only (no listening on ports)</p></li>
+<li><p>File system access is strictly limited to the granted directory</p></li>
+<li><p>No access to privileged system resources</p></li>
+<li><p>Cross-platform compatibility is maintained</p></li>
+</ul>
+<p>This design allows you to create powerful, feature-rich extensions while ensuring they remain safe to distribute and
+run on any system where CanKing is installed.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sdk-overview">
+<h2>SDK Overview<a class="headerlink" href="#sdk-overview" title="Link to this heading"></a></h2>
+<section id="directory-structure">
+<h3>Directory Structure<a class="headerlink" href="#directory-structure" title="Link to this heading"></a></h3>
+<p>The SDK contains the following key directories:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#../docs/"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">docs/</span></code></span></a></p></td>
+<td><p>Kvaser CanKing Service Extensions SDK documentation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#../examples/"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">examples/</span></code></span></a></p></td>
+<td><p>Example extensions in different programming languages (JavaScript, Python, Rust)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#../wit/"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">wit/</span></code></span></a></p></td>
+<td><p>WIT interface definitions that define the contract between CanKing and extensions</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-wit-contract">
+<h3>The WIT Contract<a class="headerlink" href="#the-wit-contract" title="Link to this heading"></a></h3>
+<p>The CanKing WIT files define the <strong>extension world</strong>, which establishes the boundaries of the component. The main
+interfaces are:</p>
+<ul class="simple">
+<li><p><strong>canking interface</strong>: Functions that extensions can call to interact with CanKing</p></li>
+<li><p><strong>types interface</strong>: Type definitions (records, enums, variants) used by extensions</p></li>
+<li><p><strong>extension-base interface</strong>: Base functions that all extensions must implement</p></li>
+<li><p><strong>data-processor world</strong>: The world for data processor extensions</p></li>
+<li><p><strong>data-target world</strong>: The world for data target extensions</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="extension-types">
+<h2>Extension Types<a class="headerlink" href="#extension-types" title="Link to this heading"></a></h2>
+<section id="data-processor-extensions">
+<h3>Data Processor Extensions<a class="headerlink" href="#data-processor-extensions" title="Link to this heading"></a></h3>
+<p>A <strong>data-processor</strong> extension processes and forwards CAN/LIN data to the next node in the measurement setup. Examples include:</p>
+<ul class="simple">
+<li><p>Filter extensions that selectively block certain frames or signals</p></li>
+<li><p>Gateway extensions that receives frames from one network and resends them on another network</p></li>
+<li><p>Annotation extensions that add metadata to frames</p></li>
+</ul>
+<p>Data processors sit in the middle of the data flow and can modify or filter data before it reaches the next node.</p>
+</section>
+<section id="data-target-extensions">
+<h3>Data Target Extensions<a class="headerlink" href="#data-target-extensions" title="Link to this heading"></a></h3>
+<p>A <strong>data-target</strong> extension serves as the final destination for processed data. It receives CAN/LIN data from connected
+channels and handles it according to its implementation. Examples include:</p>
+<ul class="simple">
+<li><p>Cloud upload extensions that send data to external services</p></li>
+<li><p>Logging extensions that write data to files</p></li>
+</ul>
+<p>Data targets can be placed after data-processors or directly after source channels.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="wit-interface-reference">
+<h2>WIT Interface Reference<a class="headerlink" href="#wit-interface-reference" title="Link to this heading"></a></h2>
+<section id="extension-base-interface">
+<h3>Extension Base Interface<a class="headerlink" href="#extension-base-interface" title="Link to this heading"></a></h3>
+<p>All extensions must implement the <code class="docutils literal notranslate"><span class="pre">extension-base</span></code> interface:</p>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>interface extension-base {
+  /// Gets the extension&#39;s information
+  get-extension-info: func() -&gt; extension-info;
+
+  /// Called when the configuration changes (only when no measurement is running)
+  on-config-change: func(new-config: string);
+
+  /// Called when the CanKing setup changes (channels/signals added/removed)
+  on-setup-change: func(new-setup: canking-setup-info);
+
+  /// Called when a measurement starts
+  on-start-measurement: func();
+
+  /// Called when a measurement stops
+  on-stop-measurement: func();
+}
+</pre></div>
+</div>
+<p>Additionally, both data-processor and data-target extensions must implement:</p>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>/// Get the data subscription for frames and signals
+get-subscription: func() -&gt; option&lt;data-subscription&gt;;
+
+/// Called when new frames are received
+on-frames: func(frames: list&lt;process-frame&gt;);
+
+/// Called when new signal values are received
+on-signals: func(signals: list&lt;signal-value&gt;);
+</pre></div>
+</div>
+<p>The data-processor also need to implement:</p>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>/// Called by CanKing before a measurement starts to get all frame property names
+/// that this extension may add when processing frames.
+/// This is needed for CanKing to be able to display the frame properties in the UI, e.g. in the Message Trace view.
+/// If the extension doesn&#39;t add any frame properties, then this function can return an empty list.
+///
+/// Returns: A list of frame property names.
+get-frame-property-names: func() -&gt; list&lt;string&gt;;
+</pre></div>
+</div>
+</section>
+<section id="canking-interface">
+<h3>CanKing Interface<a class="headerlink" href="#canking-interface" title="Link to this heading"></a></h3>
+<p>Extensions can call these functions to interact with CanKing:</p>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>interface canking {
+  /// Set an error message (disables extension until measurement stops)
+  set-error: func(error: string);
+
+  /// Log a message to CanKing&#39;s log
+  log: func(message: string, severity: log-severity);
+
+  /// Block a frame from being passed to the next node
+  block-frame: func(frame-handle: s32);
+
+  /// Add a text property to a frame
+  set-frame-txt-property: func(frame-handle: s32, name: string, value: string);
+
+  /// Add a numeric property to a frame
+  set-frame-num-property: func(frame-handle: s32, name: string, value: f64);
+
+  /// Send a frame to a CanKing output channel
+  send-frame: func(channel-number: s32, frame: out-frame);
+}
+</pre></div>
+</div>
+</section>
+<section id="types-interface">
+<h3>Types Interface<a class="headerlink" href="#types-interface" title="Link to this heading"></a></h3>
+<p>Key types defined in the interface:</p>
+<section id="extension-info">
+<h4>Extension Info<a class="headerlink" href="#extension-info" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>record extension-info {
+  display-name: string,
+  description: string,
+  version: string,
+  author: string,
+  default-config: string,  // JSON formatted string
+}
+</pre></div>
+</div>
+</section>
+<section id="log-severity">
+<h4>Log Severity<a class="headerlink" href="#log-severity" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>enum log-severity {
+  DEBUG,       // For debugging, shown only at Debug log level
+  INFORMATION, // General flow information
+  WARNING,     // Abnormal/unexpected events
+  ERROR,       // Execution stopped due to failure
+  CRITICAL,    // Catastrophic failure, shows dialog in CanKing
+}
+</pre></div>
+</div>
+</section>
+<section id="frame-data">
+<h4>Frame Data<a class="headerlink" href="#frame-data" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>record frame-data {
+  id: u32,           // Frame identifier
+  data-len: u16,     // Length of data payload
+  data: list&lt;u8&gt;,    // Data payload
+}
+</pre></div>
+</div>
+</section>
+<section id="frame-reception-info">
+<h4>Frame Reception Info<a class="headerlink" href="#frame-reception-info" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record frame-reception-info {
+    /// The frame timestamp in microseconds.
+    time-us: u64,
+    /// The CANlib channel number of the channel that received the frame.
+    /// This can be used to correlate the frame to a specific channel using the channel
+    /// information provided by CanKing.
+    channel-number: s32,
+    /// The direction of the frame.
+    direction: direction,
+  }
+</pre></div>
+</div>
+</section>
+<section id="process-frame">
+<h4>Process Frame<a class="headerlink" href="#process-frame" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record can-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN information about the frame.
+    can-info: can-frame-info,
+  }
+</pre></div>
+</div>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record can-fd-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN FD information about the frame.
+    can-fd-info: can-fd-frame-info,
+  }
+</pre></div>
+</div>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record lin-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special LIN information about the frame.
+    lin-info: lin-frame-info,
+  }
+</pre></div>
+</div>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record error-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Special error frame information.
+    error-info: error-frame-type,
+  }
+</pre></div>
+</div>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  /// A frame to process, which can be a regular frame with protocol specific information,
+  /// an error frame, or an unknown frame.
+  variant process-frame {
+    unknown-frame(unknown-process-frame),
+    can-frame(can-process-frame),
+    can-fd-frame(can-fd-process-frame),
+    lin-frame(lin-process-frame),
+    error-frame(error-process-frame),
+  }
+</pre></div>
+</div>
+</section>
+<section id="out-frame">
+<h4>Out Frame<a class="headerlink" href="#out-frame" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record can-out-frame {
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN information about the frame.
+    can-info: can-frame-info,
+  }
+</pre></div>
+</div>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record can-fd-out-frame {
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN FD information about the frame.
+    can-fd-info: can-fd-frame-info,
+  }
+</pre></div>
+</div>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  record lin-out-frame {
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special LIN information about the frame.
+    lin-info: lin-frame-info,
+  }
+</pre></div>
+</div>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>  variant out-frame {
+    can-frame(can-out-frame),
+    can-fd-frame(can-fd-out-frame),
+    lin-frame(lin-out-frame),
+  }
+</pre></div>
+</div>
+</section>
+<section id="data-subscription">
+<h4>Data Subscription<a class="headerlink" href="#data-subscription" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>record data-subscription {
+  frames: option&lt;frames-subscription&gt;,
+  signals: option&lt;list&lt;s32&gt;&gt;,  // Signal handles to subscribe to
+}
+</pre></div>
+</div>
+</section>
+<section id="frames-subscription">
+<h4>Frames Subscription<a class="headerlink" href="#frames-subscription" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>record frames-subscription {
+  /// True to include error frames in the subscription.
+  include-error-frames: bool,
+  /// A list of frame ID filters.
+  id-filters: list&lt;frame-id-filter&gt;,
+}
+</pre></div>
+</div>
+</section>
+<section id="frame-id-filter">
+<h4>Frame ID Filter<a class="headerlink" href="#frame-id-filter" title="Link to this heading"></a></h4>
+<div class="highlight-wit notranslate"><div class="highlight"><pre><span></span>record code-mask-filter {
+  code: u32,  // Acceptance code
+  mask: u32,  // Acceptance mask
+}
+
+record frame-id-filter {
+  protocol: option&lt;protocol&gt;,                 // CAN, CAN-FD, LIN, or UNKNOWN
+  is-extended-id: option&lt;bool&gt;,               // Extended IDs (CAN/CAN FD only)
+  direction: option&lt;direction&gt;,               // RX or TX
+  code-mask-filter: option&lt;code-mask-filter&gt;, // ID filter
+}
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Filter Logic</strong>: A frame is accepted if <code class="docutils literal notranslate"><span class="pre">((code</span> <span class="pre">XOR</span> <span class="pre">id)</span> <span class="pre">AND</span> <span class="pre">mask)</span> <span class="pre">==</span> <span class="pre">0</span></code>. If no <code class="docutils literal notranslate"><span class="pre">code-mask-filter</span></code> is specified, then
+all frame IDs are accepted.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="creating-extensions">
+<h2>Creating Extensions<a class="headerlink" href="#creating-extensions" title="Link to this heading"></a></h2>
+<section id="javascript-extensions">
+<h3>JavaScript Extensions<a class="headerlink" href="#javascript-extensions" title="Link to this heading"></a></h3>
+<section id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Node.js</p></li>
+<li><p>npm</p></li>
+</ul>
+</section>
+<section id="setup">
+<h4>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>@bytecodealliance/componentize-js
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@bytecodealliance/jco<span class="w"> </span>@bytecodealliance/componentize-js<span class="w"> </span>@bytecodealliance/preview2-shim
+</pre></div>
+</div>
+</section>
+<section id="generate-types-optional">
+<h4>Generate Types (Optional)<a class="headerlink" href="#generate-types-optional" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jco<span class="w"> </span>types<span class="w"> </span><span class="s1">&#39;&lt;path-to-canking&gt;/service_extensions/wit/canking-data-processor@1.1.0.wit&#39;</span><span class="w"> </span>-o<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="example-implementation-my-extension-js">
+<h4>Example Implementation (my-extension.js)<a class="headerlink" href="#example-implementation-my-extension-js" title="Link to this heading"></a></h4>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">log</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;canking:data-processor/canking@1.1.0&quot;</span><span class="p">;</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">extensionBase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">getExtensionInfo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">displayName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;My Extension&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;A custom CanKing service extension&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">author</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">defaultConfig</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nx">onConfigChange</span><span class="p">(</span><span class="nx">newConfig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Configuration changed&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">newConfig</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Invalid JSON: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;WARNING&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nx">onSetupChange</span><span class="p">(</span><span class="nx">newSetup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Setup changed&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nx">onStartMeasurement</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Measurement started&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+
+<span class="w">  </span><span class="nx">onStopMeasurement</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Measurement stopped&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">};</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getSubscription</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">frames</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">includeErrorFrames</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">idFilters</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">direction</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;RX&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">getFramePropertyNames</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Get frame property names&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// For this example, we will not add any frame properties, so we return an empty list.</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">onFrames</span><span class="p">(</span><span class="nx">frames</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Received frames&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">frame</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">frames</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Process frames here</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">onSignals</span><span class="p">(</span><span class="nx">signals</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Received signals&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="build">
+<h4>Build<a class="headerlink" href="#build" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jco<span class="w"> </span>componentize<span class="w"> </span>my-extension.js<span class="w"> </span>--wit<span class="w"> </span><span class="s1">&#39;&lt;path-to-canking&gt;/service_extensions/wit/canking-data-processor@1.1.0.wit&#39;</span><span class="w"> </span>--world-name<span class="w"> </span>data-processor<span class="w"> </span>-o<span class="w"> </span>my-extension.wasm
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="python-extensions">
+<h3>Python Extensions<a class="headerlink" href="#python-extensions" title="Link to this heading"></a></h3>
+<section id="id1">
+<h4>Prerequisites<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Python 3.10 or later</p></li>
+<li><p>pip</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>Setup<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create virtual environment</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+
+<span class="c1"># Activate (Windows)</span>
+./venv/Scripts/activate
+<span class="c1"># Activate (Linux/macOS)</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+<span class="c1"># Install componentize-py</span>
+pip<span class="w"> </span>install<span class="w"> </span>componentize-py
+</pre></div>
+</div>
+</section>
+<section id="generate-bindings-optional">
+<h4>Generate Bindings (Optional)<a class="headerlink" href="#generate-bindings-optional" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>componentize-py<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;&lt;path-to-canking&gt;/service_extensions/wit/canking-data-processor@1.1.0.wit&#39;</span><span class="w"> </span>-w<span class="w"> </span>data-processor<span class="w"> </span>bindings<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="example-implementation-my-extension-py">
+<h4>Example Implementation (my_extension.py)<a class="headerlink" href="#example-implementation-my-extension-py" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wit_world.imports.types</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DataSubscription</span><span class="p">,</span> <span class="n">ExtensionInfo</span><span class="p">,</span> <span class="n">ProcessFrame</span><span class="p">,</span> 
+    <span class="n">FramesSubscription</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="p">,</span> <span class="n">CankingSetupInfo</span><span class="p">,</span> 
+    <span class="n">SignalValue</span><span class="p">,</span> <span class="n">FrameIdFilter</span><span class="p">,</span> <span class="n">Protocol</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wit_world.imports.canking</span><span class="w"> </span><span class="kn">import</span> <span class="n">log</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wit_world.exports</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtensionBase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wit_world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WitWorld</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ExtensionBase</span><span class="p">(</span><span class="n">ExtensionBase</span><span class="p">):</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_extension_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">ExtensionInfo</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ExtensionInfo</span><span class="p">(</span>
+            <span class="n">display_name</span><span class="o">=</span><span class="s2">&quot;My Extension&quot;</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A custom CanKing service extension&quot;</span><span class="p">,</span>
+            <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+            <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
+            <span class="n">default_config</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_config_change</span><span class="p">(</span><span class="n">new_config</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;Configuration changed&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_setup_change</span><span class="p">(</span><span class="n">new_setup</span><span class="p">:</span> <span class="n">CankingSetupInfo</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;Setup changed&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_start_measurement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;Measurement started&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_stop_measurement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;Measurement stopped&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">WitWorld</span><span class="p">(</span><span class="n">WitWorld</span><span class="p">):</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_subscription</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DataSubscription</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">DataSubscription</span><span class="p">(</span>
+            <span class="n">frames</span><span class="o">=</span><span class="n">FramesSubscription</span><span class="p">(</span>
+                <span class="n">include_error_frames</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">id_filters</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">FrameIdFilter</span><span class="p">(</span>
+                        <span class="n">protocol</span><span class="o">=</span><span class="n">Protocol</span><span class="o">.</span><span class="n">CAN</span><span class="p">,</span>
+                        <span class="n">is_extended_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">direction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">code_mask_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="p">),</span>
+                <span class="p">]</span>
+            <span class="p">),</span>
+            <span class="n">signals</span><span class="o">=</span><span class="kc">None</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_frame_property_names</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;Get frame property names&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_frames</span><span class="p">(</span><span class="n">frames</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ProcessFrame</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;Received frames&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">:</span>
+            <span class="k">match</span> <span class="n">frame</span><span class="p">:</span>
+                <span class="k">case</span> <span class="n">ProcessFrame_CanFrame</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+                    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing CAN frame with id: </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">frame_data</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+                <span class="k">case</span> <span class="n">ProcessFrame_CanFdFrame</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+                    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing CAN FD frame with id: </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">frame_data</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+                <span class="k">case</span> <span class="n">ProcessFrame_LinFrame</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+                    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing LIN frame with id: </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">frame_data</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+                <span class="k">case</span> <span class="n">ProcessFrame_ErrorFrame</span><span class="p">():</span>
+                    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing Error frame&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+                <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+                    <span class="c1"># If the frame type is unknown, skip it.</span>
+                    <span class="k">continue</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_signals</span><span class="p">(</span><span class="n">signals</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SignalValue</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">log</span><span class="p">(</span><span class="s2">&quot;Received signals&quot;</span><span class="p">,</span> <span class="n">LogSeverity</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h4>Build<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>componentize-py<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;&lt;path-to-canking&gt;/service_extensions/wit/canking-data-processor@1.1.0.wit&#39;</span><span class="w"> </span>-w<span class="w"> </span>data-processor<span class="w"> </span>componentize<span class="w"> </span>my_extension<span class="w"> </span>-o<span class="w"> </span>my_extension.wasm
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="rust-extensions">
+<h3>Rust Extensions<a class="headerlink" href="#rust-extensions" title="Link to this heading"></a></h3>
+<section id="id4">
+<h4>Prerequisites<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Rust (install via <a class="reference external" href="https://rustup.rs/">rustup</a>)</p></li>
+<li><p>wasm32-wasip2 target</p></li>
+</ul>
+</section>
+<section id="id5">
+<h4>Setup<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install wasm32-wasip2 target</span>
+rustup<span class="w"> </span>target<span class="w"> </span>add<span class="w"> </span>wasm32-wasip2
+</pre></div>
+</div>
+</section>
+<section id="cargo-toml">
+<h4>Cargo.toml<a class="headerlink" href="#cargo-toml" title="Link to this heading"></a></h4>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[package]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-extension&quot;</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+<span class="n">edition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2021&quot;</span>
+
+<span class="k">[dependencies]</span>
+<span class="n">wit-bindgen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.52.0&quot;</span>
+
+<span class="k">[lib]</span>
+<span class="n">crate-type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;cdylib&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="example-implementation">
+<h4>Example Implementation<a class="headerlink" href="#example-implementation" title="Link to this heading"></a></h4>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">mod</span><span class="w"> </span><span class="nn">bindings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">wit_bindgen</span><span class="p">::</span><span class="n">generate</span><span class="o">!</span><span class="p">({</span>
+<span class="w">        </span><span class="n">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;path-to-canking&gt;/service_extensions/wit/canking-data-processor@1.1.0.wit&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">use</span><span class="w"> </span><span class="k">super</span><span class="p">::</span><span class="n">DataProcessorComponent</span><span class="p">;</span>
+<span class="w">    </span><span class="n">export</span><span class="o">!</span><span class="p">(</span><span class="n">DataProcessorComponent</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">use</span><span class="w"> </span><span class="k">crate</span><span class="p">::</span><span class="n">bindings</span><span class="p">::{</span>
+<span class="w">    </span><span class="n">canking</span><span class="p">::</span><span class="n">data_processor</span><span class="p">::{</span>
+<span class="w">        </span><span class="n">canking</span><span class="p">::</span><span class="n">log</span><span class="p">,</span>
+<span class="w">        </span><span class="n">types</span><span class="p">::{</span>
+<span class="w">            </span><span class="n">CankingSetupInfo</span><span class="p">,</span><span class="w"> </span><span class="n">DataSubscription</span><span class="p">,</span><span class="w"> </span><span class="n">FrameIdFilter</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">FramesSubscription</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">,</span><span class="w"> </span><span class="n">ProcessFrame</span><span class="p">,</span><span class="w"> </span><span class="n">SignalValue</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">exports</span><span class="p">::</span><span class="n">canking</span><span class="p">::</span><span class="n">data_processor</span><span class="p">::</span><span class="n">extension_base</span><span class="p">::</span><span class="n">ExtensionInfo</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">DataProcessorComponent</span><span class="p">;</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">bindings</span><span class="p">::</span><span class="n">exports</span><span class="p">::</span><span class="n">canking</span><span class="p">::</span><span class="n">data_processor</span><span class="p">::</span><span class="n">extension_base</span><span class="p">::</span><span class="n">Guest</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">DataProcessorComponent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">get_extension_info</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">ExtensionInfo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ExtensionInfo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">display_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;My Extension&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;A custom CanKing service extension&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">author</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Your Name&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">default_config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{}&quot;</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">on_config_change</span><span class="p">(</span><span class="n">_new_config</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Configuration changed&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">on_setup_change</span><span class="p">(</span><span class="n">_new_setup</span><span class="p">:</span><span class="w"> </span><span class="nc">CankingSetupInfo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Setup changed&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">on_start_measurement</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Measurement started&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">on_stop_measurement</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Measurement stopped&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="w"> </span><span class="n">bindings</span><span class="p">::</span><span class="n">Guest</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">DataProcessorComponent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">get_subscription</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">DataSubscription</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">Some</span><span class="p">(</span><span class="n">DataSubscription</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">frames</span><span class="p">:</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">FramesSubscription</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">include_error_frames</span><span class="p">:</span><span class="w"> </span><span class="nc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="n">id_filters</span><span class="p">:</span><span class="w"> </span><span class="nc">vec</span><span class="o">!</span><span class="p">[</span><span class="n">FrameIdFilter</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">protocol</span><span class="p">:</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">is_extended_id</span><span class="p">:</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">direction</span><span class="p">:</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">code_mask_filter</span><span class="p">:</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">                </span><span class="p">}],</span>
+<span class="w">            </span><span class="p">}),</span>
+<span class="w">            </span><span class="n">signals</span><span class="p">:</span><span class="w"> </span><span class="nb">None</span><span class="p">,</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">get_frame_property_names</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// This extension doesn&#39;t add any frame properties, so we return an empty list.</span>
+<span class="w">        </span><span class="fm">vec!</span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">on_frames</span><span class="p">(</span><span class="n">frames</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">ProcessFrame</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received frames&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">frames</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">match</span><span class="w"> </span><span class="n">frame</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">ProcessFrame</span><span class="p">::</span><span class="n">CanFrame</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">log</span><span class="p">(</span><span class="o">&amp;</span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;CAN frame ID: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">frame_data</span><span class="p">.</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">ProcessFrame</span><span class="p">::</span><span class="n">CanFdFrame</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">log</span><span class="p">(</span><span class="o">&amp;</span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;CAN FD frame ID: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">frame_data</span><span class="p">.</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">ProcessFrame</span><span class="p">::</span><span class="n">LinFrame</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">log</span><span class="p">(</span><span class="o">&amp;</span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;LIN frame ID: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">frame_data</span><span class="p">.</span><span class="n">id</span><span class="p">),</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">ProcessFrame</span><span class="p">::</span><span class="n">ErrorFrame</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Error frame received&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">ProcessFrame</span><span class="p">::</span><span class="n">UnknownFrame</span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Unknown frame received&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">fn</span><span class="w"> </span><span class="nf">on_signals</span><span class="p">(</span><span class="n">_signals</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">SignalValue</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received signals&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">LogSeverity</span><span class="p">::</span><span class="n">Debug</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h4>Build<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cargo<span class="w"> </span>build<span class="w"> </span>--target<span class="o">=</span>wasm32-wasip2<span class="w"> </span>--release
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note</strong>: Rust has the best WASI support. If your extension needs full network and filesystem capabilities, Rust is recommended.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="c-extensions">
+<h3>C++ Extensions<a class="headerlink" href="#c-extensions" title="Link to this heading"></a></h3>
+<section id="id7">
+<h4>Prerequisites<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/WebAssembly/wasi-sdk">WASI SDK</a> (v24 or later) — provides clang++ with a WASI sysroot</p></li>
+<li><p><a class="reference external" href="https://github.com/bytecodealliance/wit-bindgen">wit-bindgen CLI</a> — generates C bindings from the WIT contract</p></li>
+<li><p><a class="reference external" href="https://github.com/bytecodealliance/wasm-tools">wasm-tools</a> — wraps the compiled core module as a WebAssembly component</p></li>
+</ul>
+<p>See <a class="reference internal" href="#../examples/cpp/README.md"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">examples/cpp/README.md</span></code></span></a> for installation instructions for each tool.</p>
+</section>
+<section id="id8">
+<h4>Setup<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download WASI SDK</span>
+curl<span class="w"> </span>-sL<span class="w"> </span>https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-32/wasi-sdk-32.0-x86_64-linux.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xz<span class="w"> </span>-C<span class="w"> </span>/opt
+mv<span class="w"> </span>/opt/wasi-sdk-32.0-x86_64-linux<span class="w"> </span>/opt/wasi-sdk
+
+<span class="c1"># Install wit-bindgen CLI and wasm-tools via cargo</span>
+cargo<span class="w"> </span>install<span class="w"> </span>wit-bindgen-cli<span class="w"> </span>wasm-tools
+</pre></div>
+</div>
+</section>
+<section id="generate-bindings">
+<h4>Generate Bindings<a class="headerlink" href="#generate-bindings" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate from WIT</span>
+wit-bindgen<span class="w"> </span>c<span class="w"> </span><span class="s1">&#39;&lt;path-to-canking&gt;/service_extensions/wit/canking-data-processor@1.1.0.wit&#39;</span><span class="w"> </span>--out-dir<span class="w"> </span>bindings
+
+<span class="c1"># Pre-compile with clang</span>
+/opt/wasi-sdk/bin/wasm32-wasip2-clang<span class="w"> </span>-c<span class="w"> </span>bindings/data_processor.c<span class="w"> </span>-o<span class="w"> </span>bindings/data_processor.o
+</pre></div>
+</div>
+</section>
+<section id="example-implementation-my-extension-cpp">
+<h4>Example Implementation (my-extension.cpp)<a class="headerlink" href="#example-implementation-my-extension-cpp" title="Link to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;bindings/data_processor.h&quot;</span><span class="c1"> // generated by wit-bindgen</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">,</span>
+<span class="w">                </span><span class="n">canking_data_processor_types_log_severity_t</span><span class="w"> </span><span class="n">severity</span><span class="w"> </span><span class="o">=</span>
+<span class="w">                    </span><span class="n">CANKING_DATA_PROCESSOR_TYPES_LOG_SEVERITY_DEBUG</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">data_processor_string_t</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">  </span><span class="n">data_processor_string_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
+<span class="w">  </span><span class="n">canking_data_processor_canking_log</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">severity</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_canking_data_processor_extension_base_get_extension_info</span><span class="p">(</span>
+<span class="w">    </span><span class="n">exports_canking_data_processor_extension_base_extension_info_t</span><span class="w"> </span><span class="o">*</span><span class="n">ret</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Return owned strings since the generated post-return will free them.</span>
+<span class="w">  </span><span class="n">data_processor_string_dup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">display_name</span><span class="p">,</span><span class="w">   </span><span class="s">&quot;My Extension&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">data_processor_string_dup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">description</span><span class="p">,</span><span class="w">    </span><span class="s">&quot;A custom CanKing service extension&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">data_processor_string_dup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">version</span><span class="p">,</span><span class="w">        </span><span class="s">&quot;1.0.0&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">data_processor_string_dup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">author</span><span class="p">,</span><span class="w">         </span><span class="s">&quot;Your Name&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">data_processor_string_dup</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">default_config</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{}&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_canking_data_processor_extension_base_on_config_change</span><span class="p">(</span>
+<span class="w">    </span><span class="n">data_processor_string_t</span><span class="w"> </span><span class="o">*</span><span class="n">new_config</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received config change in C++ basic component&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// We own the memory of the input string, so we need to free it after processing.</span>
+<span class="w">  </span><span class="n">data_processor_string_free</span><span class="p">(</span><span class="n">new_config</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_canking_data_processor_extension_base_on_setup_change</span><span class="p">(</span>
+<span class="w">    </span><span class="n">exports_canking_data_processor_extension_base_canking_setup_info_t</span><span class="w"> </span><span class="o">*</span><span class="n">new_setup</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received setup change in C++ basic component&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// We own the memory of the input setup, so we need to free it after processing.</span>
+<span class="w">  </span><span class="n">exports_canking_data_processor_extension_base_canking_setup_info_free</span><span class="p">(</span><span class="n">new_setup</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_canking_data_processor_extension_base_on_start_measurement</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received start measurement in C++ basic component&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_canking_data_processor_extension_base_on_stop_measurement</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received stop measurement in C++ basic component&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">exports_data_processor_get_subscription</span><span class="p">(</span>
+<span class="w">    </span><span class="n">data_processor_data_subscription_t</span><span class="w"> </span><span class="o">*</span><span class="n">ret</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// Subscribe only to CAN RX frames (standard and extended IDs).</span>
+<span class="w">  </span><span class="c1">// The generated post-return frees id_filters.ptr, so this must be heap allocated.</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="o">*</span><span class="n">filters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">canking_data_processor_types_frame_id_filter_t</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">canking_data_processor_types_frame_id_filter_t</span><span class="p">)));</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">filters</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Failed to allocate subscription filters&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">CANKING_DATA_PROCESSOR_TYPES_LOG_SEVERITY_ERROR</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">filters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="cm">/* protocol        */</span><span class="w"> </span><span class="p">{</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">CANKING_DATA_PROCESSOR_TYPES_PROTOCOL_CAN</span><span class="p">},</span>
+<span class="w">      </span><span class="cm">/* is_extended_id  */</span><span class="w"> </span><span class="p">{</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">},</span>
+<span class="w">      </span><span class="cm">/* direction       */</span><span class="w"> </span><span class="p">{</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">CANKING_DATA_PROCESSOR_TYPES_DIRECTION_RX</span><span class="p">},</span>
+<span class="w">      </span><span class="cm">/* code_mask_filter*/</span><span class="w"> </span><span class="p">{</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}},</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">frames</span><span class="p">.</span><span class="n">is_some</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">frames</span><span class="p">.</span><span class="n">val</span><span class="p">.</span><span class="n">include_error_frames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">frames</span><span class="p">.</span><span class="n">val</span><span class="p">.</span><span class="n">id_filters</span><span class="p">.</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filters</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">frames</span><span class="p">.</span><span class="n">val</span><span class="p">.</span><span class="n">id_filters</span><span class="p">.</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">signals</span><span class="p">.</span><span class="n">is_some</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Called by CanKing before a measurement starts to get all frame property names</span>
+<span class="cm"> * that this extension may add when processing frames.</span>
+<span class="cm"> * This is needed for CanKing to be able to display the frame properties in the UI, e.g. in the Message Trace view.</span>
+<span class="cm"> * If the extension doesn&#39;t add any frame properties, then it can return an empty list.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @return A list of frame property names.</span>
+<span class="cm"> */</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_data_processor_get_frame_property_names</span><span class="p">(</span>
+<span class="w">    </span><span class="n">data_processor_list_string_t</span><span class="w"> </span><span class="o">*</span><span class="n">ret</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// This extension doesn&#39;t add any frame properties, so we return an empty list.</span>
+<span class="w">  </span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">;</span>
+<span class="w">  </span><span class="n">ret</span><span class="o">-&gt;</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_data_processor_on_frames</span><span class="p">(</span>
+<span class="w">    </span><span class="n">data_processor_list_process_frame_t</span><span class="w"> </span><span class="o">*</span><span class="n">frames</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received frames&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">frames</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Process frames here</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// We own the memory of the input frames, so we need to free it after processing.</span>
+<span class="w">  </span><span class="n">data_processor_list_process_frame_free</span><span class="p">(</span><span class="n">frames</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">exports_data_processor_on_signals</span><span class="p">(</span>
+<span class="w">    </span><span class="n">data_processor_list_signal_value_t</span><span class="w"> </span><span class="o">*</span><span class="n">signals</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">log</span><span class="p">(</span><span class="s">&quot;Received signals&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// We own the memory of the input signals, so we need to free it after processing.</span>
+<span class="w">  </span><span class="n">data_processor_list_signal_value_free</span><span class="p">(</span><span class="n">signals</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h4>Build<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/wasi-sdk/bin/wasm32-wasip2-clang++<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-fno-exceptions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-o<span class="w"> </span>my-extension.wasm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-mexec-model<span class="o">=</span>reactor<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>my-extension.cpp<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>bindings/data_processor.o<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>bindings/data_processor_component_type.o
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="configuration-and-setup">
+<h2>Configuration and Setup<a class="headerlink" href="#configuration-and-setup" title="Link to this heading"></a></h2>
+<p>Extensions receive configuration as a JSON-formatted string through the <code class="docutils literal notranslate"><span class="pre">on_config_change</span></code> callback. This allows users
+to configure extension behavior through CanKing’s UI.</p>
+<section id="example-configuration-structure">
+<h3>Example Configuration Structure<a class="headerlink" href="#example-configuration-structure" title="Link to this heading"></a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;FilterType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;block&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;Server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.example.com/upload&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;BatchStrategy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;FileSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;TimeInterval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="handling-configuration">
+<h3>Handling Configuration<a class="headerlink" href="#handling-configuration" title="Link to this heading"></a></h3>
+<p>Parse and validate the configuration in your <code class="docutils literal notranslate"><span class="pre">on_config_change</span></code> implementation:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">onConfigChange</span><span class="p">(</span><span class="nx">newConfig</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">newConfig</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Validate and store configuration</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">filterType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">FilterType</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;block&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">filterIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">config</span><span class="p">.</span><span class="nx">Ids</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Invalid configuration: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;WARNING&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="usage-in-canking">
+<h2>Usage in CanKing<a class="headerlink" href="#usage-in-canking" title="Link to this heading"></a></h2>
+<section id="installing-an-extension">
+<h3>Installing an Extension<a class="headerlink" href="#installing-an-extension" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Install the extension <code class="docutils literal notranslate"><span class="pre">.wasm</span></code> file in the CanKing service</p></li>
+<li><p>Use the CLI or GUI to add the extension to your measurement setup</p></li>
+</ol>
+<section id="cli-example-data-target">
+<h4>CLI Example (Data Target)<a class="headerlink" href="#cli-example-data-target" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck<span class="w"> </span>install<span class="w"> </span>extension<span class="w"> </span>path/to/extension.wasm
+ck<span class="w"> </span>add<span class="w"> </span>extension<span class="w"> </span>extension-name<span class="w"> </span>-n<span class="w"> </span>instance-name
+</pre></div>
+</div>
+</section>
+<section id="cli-example-data-processor">
+<h4>CLI Example (Data Processor)<a class="headerlink" href="#cli-example-data-processor" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck<span class="w"> </span>install<span class="w"> </span>extension<span class="w"> </span>path/to/filter.wasm
+ck<span class="w"> </span>add<span class="w"> </span>extension<span class="w"> </span>filter<span class="w"> </span>-n<span class="w"> </span>my-filter<span class="w"> </span>--previous-node<span class="w"> </span>channel-1
+</pre></div>
+</div>
+</section>
+</section>
+<section id="connecting-extensions">
+<h3>Connecting Extensions<a class="headerlink" href="#connecting-extensions" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Data Processors</strong>: Connect to a source or target node using the <code class="docutils literal notranslate"><span class="pre">+</span></code> sign in the GUI, or use <code class="docutils literal notranslate"><span class="pre">--previous-node</span></code> or
+<code class="docutils literal notranslate"><span class="pre">--next-node</span></code> flags in the CLI</p></li>
+<li><p><strong>Data Targets</strong>: Automatically added to all previous data sources/processors</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tips-and-best-practices">
+<h2>Tips and Best Practices<a class="headerlink" href="#tips-and-best-practices" title="Link to this heading"></a></h2>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Start Simple</strong>: Begin with the basic example and gradually add functionality</p></li>
+<li><p><strong>Use Logging</strong>: Extensively use the <code class="docutils literal notranslate"><span class="pre">log</span></code> function during development to understand the flow</p></li>
+<li><p><strong>Validate Configuration</strong>: Always validate incoming configuration and handle errors gracefully</p></li>
+<li><p><strong>Test Thoroughly</strong>: Test your extension with various frame types and edge cases</p></li>
+</ol>
+</section>
+<section id="threading-and-callback-safety">
+<h3>Threading and Callback Safety<a class="headerlink" href="#threading-and-callback-safety" title="Link to this heading"></a></h3>
+<p>The host callback contract is strict and applies to all extension languages:</p>
+<ul class="simple">
+<li><p>Callbacks are <strong>synchronous</strong></p></li>
+<li><p>Callback input pointers/strings are <strong>borrowed, read-only, and only valid during the callback</strong></p></li>
+<li><p>Callback implementations must be <strong>thread-safe</strong></p></li>
+<li><p>Callbacks must <strong>not call back into host internals unless explicitly documented</strong></p></li>
+</ul>
+<section id="general-threading-guidance">
+<h4>General Threading Guidance<a class="headerlink" href="#general-threading-guidance" title="Link to this heading"></a></h4>
+<p>What you can do:</p>
+<ul class="simple">
+<li><p>Use thread-safe state (<code class="docutils literal notranslate"><span class="pre">Mutex</span></code>, <code class="docutils literal notranslate"><span class="pre">RwLock</span></code>, atomics, synchronized collections) when sharing data</p></li>
+<li><p>Copy callback data you need to keep after the callback returns</p></li>
+<li><p>Offload expensive work to worker threads/tasks if your language/runtime supports it</p></li>
+<li><p>Use queues/channels to hand work from callbacks to background workers</p></li>
+<li><p>Keep callback handlers short and deterministic to avoid data-path stalls</p></li>
+</ul>
+<p>What you should not do:</p>
+<ul class="simple">
+<li><p>Do not store raw callback pointers or borrowed strings for later use</p></li>
+<li><p>Do not mutate callback input buffers</p></li>
+<li><p>Do not assume callbacks are always invoked on the same OS thread</p></li>
+<li><p>Do not block callbacks for long periods with heavy CPU work, long locks, or slow I/O</p></li>
+<li><p>Do not perform re-entrant host calls that are not explicitly documented as safe</p></li>
+</ul>
+<p>Recommended pattern:</p>
+<ol class="arabic simple">
+<li><p>Validate and minimally transform data in <code class="docutils literal notranslate"><span class="pre">on-frames</span></code> / <code class="docutils literal notranslate"><span class="pre">on-signals</span></code></p></li>
+<li><p>Copy required fields into owned data structures</p></li>
+<li><p>Push owned data to a worker queue</p></li>
+<li><p>Return quickly from the callback</p></li>
+</ol>
+</section>
+<section id="imported-host-calls-canking-interface">
+<h4>Imported Host Calls (<code class="docutils literal notranslate"><span class="pre">canking</span></code> Interface)<a class="headerlink" href="#imported-host-calls-canking-interface" title="Link to this heading"></a></h4>
+<p>For imported CanKing host calls (<code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">set-error</span></code>, <code class="docutils literal notranslate"><span class="pre">block-frame</span></code>, <code class="docutils literal notranslate"><span class="pre">set-frame-*-property</span></code>, <code class="docutils literal notranslate"><span class="pre">send-frame</span></code>), treat them as
+<strong>callback-context only</strong> operations.</p>
+<p>Safe:</p>
+<ul class="simple">
+<li><p>Call imported CanKing host functions from exported extension callbacks such as <code class="docutils literal notranslate"><span class="pre">on-frames</span></code>, <code class="docutils literal notranslate"><span class="pre">on-signals</span></code>,
+<code class="docutils literal notranslate"><span class="pre">on-start-measurement</span></code>, and <code class="docutils literal notranslate"><span class="pre">on-stop-measurement</span></code></p></li>
+</ul>
+<p>Not safe / not supported:</p>
+<ul class="simple">
+<li><p>Calling imported CanKing host functions from worker/background threads started by the component</p></li>
+<li><p>Saving callback context and using it later outside the callback</p></li>
+<li><p>Any re-entrant host call pattern not explicitly documented as safe</p></li>
+</ul>
+<p>Practical rule: perform host interactions inside exported callbacks; use worker threads only for pure internal work.
+When workers need host interaction, send results back to callback-owned state and perform the host call in the next
+exported callback invocation.</p>
+</section>
+</section>
+<section id="language-specific">
+<h3>Language-Specific<a class="headerlink" href="#language-specific" title="Link to this heading"></a></h3>
+<section id="rust">
+<h4>Rust<a class="headerlink" href="#rust" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>For full WASI support (networking, filesystem), use Rust with the <a class="reference external" href="https://docs.rs/wasi/latest/wasi/">WASI crate</a></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">once_cell::sync::Lazy</span></code> for global state management</p></li>
+<li><p>Consider using <code class="docutils literal notranslate"><span class="pre">serde</span></code> for JSON parsing</p></li>
+</ul>
+</section>
+<section id="javascript">
+<h4>JavaScript<a class="headerlink" href="#javascript" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Use destructuring for cleaner frame handling</p></li>
+<li><p>Handle all frame types in <code class="docutils literal notranslate"><span class="pre">onFrames</span></code> (CAN, CAN FD, LIN, error)</p></li>
+</ul>
+</section>
+<section id="python">
+<h4>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Use type hints for better code clarity</p></li>
+<li><p>Use pattern matching (<code class="docutils literal notranslate"><span class="pre">match</span></code>/<code class="docutils literal notranslate"><span class="pre">case</span></code>) for frame type handling (Python 3.10+)</p></li>
+</ul>
+</section>
+<section id="c">
+<h4>C++<a class="headerlink" href="#c" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>All exported functions must be declared <code class="docutils literal notranslate"><span class="pre">extern</span> <span class="pre">&quot;C&quot;</span></code> to prevent C++ name mangling</p></li>
+<li><p>Use static local variables for subscription structs that must outlive the function call</p></li>
+<li><p>Use <a class="reference external" href="https://github.com/nlohmann/json">nlohmann/json</a> (header-only) for JSON config parsing — it integrates cleanly
+with CMake <code class="docutils literal notranslate"><span class="pre">FetchContent</span></code></p></li>
+<li><p>Prefer <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> and <code class="docutils literal notranslate"><span class="pre">std::string</span></code> for internal state; convert to <code class="docutils literal notranslate"><span class="pre">data_processor_string_t</span></code> only at the
+boundary when calling canking functions</p></li>
+<li><p>Check the generated <code class="docutils literal notranslate"><span class="pre">build/bindings/*.h</span></code> header for exact type names and enum constants after running <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span></code></p></li>
+<li><p>See <a class="reference external" href="https://github.com/bytecodealliance/wit-bindgen/blob/main/crates/c/README.md">wit-bindgen c</a> for memory ownership.</p></li>
+</ul>
+</section>
+</section>
+<section id="signals">
+<h3>Signals<a class="headerlink" href="#signals" title="Link to this heading"></a></h3>
+<p>To receive signals in your extension:</p>
+<ol class="arabic simple">
+<li><p>Add a database data-processor in your CanKing setup and connect it to your extension</p></li>
+<li><p>Return the signal handles to subscribe to in the <code class="docutils literal notranslate"><span class="pre">signals</span></code> list in <code class="docutils literal notranslate"><span class="pre">data-subscription</span></code></p></li>
+<li><p>Valid signal handles are received in the <code class="docutils literal notranslate"><span class="pre">on-setup-change</span></code>call</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Tip</strong>: Add a signals-filter field in your extension’s configuration to add signal names dynamically, then use the
+<code class="docutils literal notranslate"><span class="pre">canking-setup-info</span></code> to decode the signal handles.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="useful-resources">
+<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Link to this heading"></a></h2>
+<section id="official-documentation">
+<h3>Official Documentation<a class="headerlink" href="#official-documentation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://component-model.bytecodealliance.org/design/why-component-model.html">WebAssembly Component Model</a></p></li>
+<li><p><a class="reference external" href="https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md">WIT Specification</a></p></li>
+<li><p><a class="reference external" href="https://wasi.dev/interfaces">WASI Interfaces</a></p></li>
+</ul>
+</section>
+<section id="language-specific-tools">
+<h3>Language-Specific Tools<a class="headerlink" href="#language-specific-tools" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>JavaScript</strong>: <a class="reference external" href="https://github.com/bytecodealliance/ComponentizeJS">ComponentizeJS</a></p></li>
+<li><p><strong>Python</strong>: <a class="reference external" href="https://github.com/bytecodealliance/componentize-py">componentize-py</a></p></li>
+<li><p><strong>Rust</strong>: <a class="reference external" href="https://component-model.bytecodealliance.org/language-support/building-a-simple-component/rust.html">wasm32-wasip2</a></p></li>
+<li><p><strong>C++</strong>: <a class="reference external" href="https://github.com/WebAssembly/wasi-sdk">WASI SDK</a>,
+<a class="reference external" href="https://github.com/bytecodealliance/wit-bindgen">wit-bindgen CLI</a>, <a class="reference external" href="https://github.com/bytecodealliance/wasm-tools">wasm-tools</a></p></li>
+</ul>
+</section>
+<section id="utilities">
+<h3>Utilities<a class="headerlink" href="#utilities" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wa2.dev/">WASM Analyzer</a> - Analyze your component’s imports and exports</p></li>
+<li><p><a class="reference external" href="https://github.com/bytecodealliance/wasm-tools">wasm-tools</a> - Composing and inspecting modules and components</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>This document is part of the Kvaser CanKing Service Extensions SDK.</em></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../gui_extensions/modules.html" class="btn btn-neutral float-left" title="Kvaser CanKing GUI Extensions SDK v7.5.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../release_notes.html" class="btn btn-neutral float-right" title="Release notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

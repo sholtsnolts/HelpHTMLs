@@ -1,0 +1,48 @@
+.. _workspace_view:
+
+Workspace view
+==============
+
+The Workspace view can be opened from the vertical tool bar to the left of the Kvaser CanKing application. In it, different workspaces consisting of panes for displaying or sending data may be added. Multiple panes can be added to the same workspace by splitting the window into parts with customizable sizes.
+
+A name may be provided to each workspace.
+
+.. _panes:
+
+Panes
+-----
+
+There are multiple panes available with one purpose each, like displaying data from the the CAN or LIN bus, or sending single CAN messages. When editing a workspace, it is possible to switch order of the current panes and adding, removing and replacing them.
+
+.. _standard_panes:
+
+Standard Panes
+~~~~~~~~~~~~~~
+
+Available standard panes are:
+
+* **CAN Bus Statistics** - Monitor bus performance and health metrics. See :ref:`can_bus_statistics` for detailed information.
+* **CAN Periodic Send** - Automatically transmit CAN messages at regular intervals. See :ref:`can_periodic_send` for detailed information.
+* **CAN Send** - Manually send individual CAN messages. See :ref:`can_send` for detailed information.
+* **LIN Message Request** - Request LIN messages by sending headers. See :ref:`lin_message_request` for detailed information.
+* **LIN Message Update** - Configure LIN slave response data. See :ref:`lin_message_update` for detailed information.
+* **LIN Send** - Send complete LIN messages with headers and data. See :ref:`lin_send` for detailed information.
+* **Message Trace** - Display and analyze CAN and LIN messages in real-time. See :ref:`message_trace` for detailed information.
+
+For detailed documentation on each pane, including features, configuration options, and usage examples, refer to the linked sections above.
+
+.. _customized_panes:
+
+Customized Panes
+~~~~~~~~~~~~~~~~
+
+A user may create customized panes to be able to get additional functionality, like for example showing additional statistics. Such extension is developed as a stand-alone React web application which will be hosted by an express web server inside Kvaser CanKing and mounted into the Kvaser CanKing user interface using a webview element. Once mounted, the extension will be able to interact with the CAN and LIN bus.
+
+Available customized panes are:
+
+* **Signal Plot** - Visualize CAN and LIN signals as time-series graphs. See :ref:`signal_plot` for detailed information.
+
+To make a customized pane available in the Workspace view, its GUI extension must first be installed. Once installed, it can be added to any workspace like a standard pane. A GUI extension is installed by selecting *More* followed by *Extensions* and *Install...* from the tool bar menu of the Kvaser CanKing application.
+
+For more information about GUI extensions, see the separate guide found in the tool bar menu in the Kvaser CanKing application by selecting *More* followed by *Help* and *CanKing GUI Extensions SDK Help...*.
+

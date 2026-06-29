@@ -1,0 +1,51 @@
+# ck start stream
+
+Starts streaming data to the console. Use q to quit the stream.
+
+## Synopsis
+
+```text
+ck start stream
+    [--language <en|zh|ja>]
+    [-i|--id <MESSAGE_ID>]
+    [--can]
+    [--canfd]
+    [--lin]
+    [--brs]
+    [--signal <SIGNAL_QUALIFIED_NAME>...]
+
+ck start stream -h|--help
+```
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-i|--id```  
+An optional message id to subscribe for data from. Prefix with 0x to indicate hex format. Suffix with x to indicate extended identifier.
+
+- ```--can```  
+Set to true if the message id belongs to a classical CAN frame.
+
+- ```--canfd```  
+Set to true if the message id belongs to a CAN FD frame.
+
+- ```--lin```  
+Set to true if the message id belongs to a LIN frame.
+
+- ```--brs```  
+Set to true if the message id belongs to a CAN FD frame that is sent using bit rate switching.
+
+- ```--signal```  
+Optional signals to subscribe for data. Use qualified signal names (db.message.signal). Needs a database to be present in the measurement setup. Specify multiple signals by repeating the option.
+
+## Examples
+
+```bash
+ck start stream
+ck start stream --id 0x123 --can
+ck start stream --id 0x123x --canfd --brs
+ck start stream --signal db.message.signal1 --signal db.message.signal2
+```
+

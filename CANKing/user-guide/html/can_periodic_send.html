@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAN Periodic Send &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LIN Panes" href="lin_panes.html" />
+    <link rel="prev" title="CAN Send" href="can_send.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CAN Periodic Send</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-sections">Configuration Sections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#channel-selection">Channel Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-identifier">CAN Identifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-data">Message Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transmission-interval">Transmission Interval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#number-of-messages">Number of Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#burst-size">Burst Size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transmission-control">Transmission Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-stop-button">Start/Stop Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status-indicators">Status Indicators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#database-message-support">Database Message Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-a-database-message">Selecting a Database Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-value-editing">Signal Value Editing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#typical-workflows">Typical Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-periodic-message">Basic Periodic Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulating-an-ecu">Simulating an ECU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bus-load-testing">Bus Load Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#identifier-scanning">Identifier Scanning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-best-practices">Tips and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interval-selection">Interval Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-configuration">Message Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-considerations">Performance Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transmission-limits">Transmission Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-and-stopping">Starting and Stopping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transmission-won-t-start">Transmission Won’t Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timing-inaccuracies">Timing Inaccuracies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messages-not-visible">Messages Not Visible</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-features">Advanced Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combining-random-options">Combining Random Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-periodic-transmissions">Multiple Periodic Transmissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-with-traffic-generator">Integration with Traffic Generator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CAN Periodic Send</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="can-periodic-send">
+<span id="id1"></span><h1>CAN Periodic Send<a class="headerlink" href="#can-periodic-send" title="Link to this heading"></a></h1>
+<p>The CAN Periodic Send pane enables automatic periodic transmission of CAN or CAN FD messages on a selected channel. It provides extensive configuration options for transmission intervals, message generation, burst patterns, and can use database-defined messages with signal values.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The CAN Periodic Send pane is ideal for:</p>
+<ul class="simple">
+<li><p>Simulating ECU behavior with periodic message transmission</p></li>
+<li><p>Testing bus load scenarios</p></li>
+<li><p>Generating test patterns</p></li>
+<li><p>Emulating missing network nodes</p></li>
+<li><p>Stress testing CAN networks</p></li>
+<li><p>Creating reproducible test scenarios</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The CAN channel must be online (measurement running) to start periodic transmission.</p>
+</div>
+</section>
+<section id="configuration-sections">
+<span id="can-periodic-send-configuration"></span><h2>Configuration Sections<a class="headerlink" href="#configuration-sections" title="Link to this heading"></a></h2>
+<section id="channel-selection">
+<h3>Channel Selection<a class="headerlink" href="#channel-selection" title="Link to this heading"></a></h3>
+<p>Select the CAN channel on which to transmit messages periodically. The dropdown displays all CAN Channel source nodes configured in the Measurement Setup view.</p>
+</section>
+<section id="can-identifier">
+<h3>CAN Identifier<a class="headerlink" href="#can-identifier" title="Link to this heading"></a></h3>
+<p>Configure the message identifier and optional identifier generation:</p>
+<dl class="simple">
+<dt><strong>Basic Settings</strong></dt><dd><ul class="simple">
+<li><p><strong>Identifier Value</strong> - CAN identifier in hexadecimal or decimal</p></li>
+<li><p><strong>Identifier Format</strong> - STD (11-bit) or EXT (29-bit)</p></li>
+<li><p><strong>CAN FD Options</strong> - FD flag, BRS (Bit Rate Switch) flag</p></li>
+<li><p><strong>RTR</strong> - Remote Transmission Request (standard CAN only)</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Identifier Generation</strong> (Advanced)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Random Identifier</strong> - Generate a random identifier for each message within the specified range</p></li>
+<li><p><strong>Scan Identifier</strong> - Systematically scan through identifiers from min to max</p></li>
+<li><p><strong>Identifier Range</strong> - Minimum and maximum identifier values for random/scan modes</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>Identifier generation is useful for:</dt><dd><ul class="simple">
+<li><p>Testing identifier filtering mechanisms</p></li>
+<li><p>Bus stress testing with varying identifiers</p></li>
+<li><p>Simulating multiple message sources</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="message-data">
+<h3>Message Data<a class="headerlink" href="#message-data" title="Link to this heading"></a></h3>
+<p>Configure the message data payload with optional data generation:</p>
+<dl class="simple">
+<dt><strong>Basic Settings</strong></dt><dd><ul class="simple">
+<li><p><strong>Data Length</strong> - 0 to 8 bytes (CAN) or 0 to 64 bytes (CAN FD)</p></li>
+<li><p><strong>Data Bytes</strong> - Individual byte values in hexadecimal</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Data Generation</strong> (Advanced)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Random Data Length</strong> - Randomize the data length for each message (within CAN/CAN FD limits)</p></li>
+<li><p><strong>Random Message Data</strong> - Generate random data bytes for each message</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>Data generation options are useful for:</dt><dd><ul class="simple">
+<li><p>Simulating dynamic message content</p></li>
+<li><p>Testing data handling robustness</p></li>
+<li><p>Creating varying bus load patterns</p></li>
+</ul>
+</dd>
+<dt><strong>Signal-Based Editing</strong> (when database loaded)</dt><dd><p>Enter engineering values for signals, which are automatically encoded into data bytes.</p>
+</dd>
+</dl>
+</section>
+<section id="transmission-interval">
+<h3>Transmission Interval<a class="headerlink" href="#transmission-interval" title="Link to this heading"></a></h3>
+<p>Configure how frequently messages are transmitted:</p>
+<dl>
+<dt><strong>Constant Interval</strong></dt><dd><p>Messages are sent at a fixed interval.</p>
+<ul class="simple">
+<li><p>Enter interval in milliseconds (ms)</p></li>
+<li><p>Common values: 10ms, 100ms, 1000ms</p></li>
+<li><p>Minimum interval depends on bus speed and message size</p></li>
+</ul>
+</dd>
+<dt><strong>Random Interval</strong></dt><dd><p>Messages are sent at random intervals within a specified range.</p>
+<ul class="simple">
+<li><p>Enter minimum interval (ms)</p></li>
+<li><p>Enter maximum interval (ms)</p></li>
+<li><p>Each message transmission uses a new random interval</p></li>
+</ul>
+<dl class="simple">
+<dt>Useful for:</dt><dd><ul class="simple">
+<li><p>Simulating jitter</p></li>
+<li><p>Testing non-periodic scenarios</p></li>
+<li><p>Creating more realistic traffic patterns</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="number-of-messages">
+<h3>Number of Messages<a class="headerlink" href="#number-of-messages" title="Link to this heading"></a></h3>
+<p>Control how many messages are transmitted:</p>
+<dl class="simple">
+<dt><strong>Unlimited (0)</strong></dt><dd><p>Messages are sent continuously until stopped manually. This is the default and most common setting.</p>
+</dd>
+<dt><strong>Limited Count (&gt; 0)</strong></dt><dd><p>Stop automatically after sending a specified number of messages.</p>
+<ul class="simple">
+<li><p>Enter the desired message count</p></li>
+<li><p>Transmission stops automatically when the count is reached</p></li>
+<li><p>Useful for testing specific scenarios with a known number of messages</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is collapsed by default. Expand it to set a message limit.</p>
+</div>
+</section>
+<section id="burst-size">
+<h3>Burst Size<a class="headerlink" href="#burst-size" title="Link to this heading"></a></h3>
+<p>Configure burst transmission patterns:</p>
+<dl class="simple">
+<dt><strong>Constant Burst Size</strong></dt><dd><p>Send a fixed number of messages in each burst, then wait for the next interval.</p>
+<ul class="simple">
+<li><p>Burst size of 1: One message per interval (normal periodic behavior)</p></li>
+<li><p>Burst size &gt; 1: Multiple messages sent back-to-back per interval</p></li>
+</ul>
+</dd>
+<dt><strong>Random Burst Size</strong></dt><dd><p>Send a random number of messages (within specified range) in each burst.</p>
+<ul class="simple">
+<li><p>Enter minimum burst size</p></li>
+<li><p>Enter maximum burst size</p></li>
+<li><p>A new random value is selected for each burst</p></li>
+</ul>
+</dd>
+<dt>Burst patterns are useful for:</dt><dd><ul class="simple">
+<li><p>Simulating grouped message transmission</p></li>
+<li><p>Testing buffer handling</p></li>
+<li><p>Creating burst traffic scenarios</p></li>
+<li><p>Emulating event-driven ECU behavior</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is collapsed by default. Expand it to configure burst settings.</p>
+</div>
+</section>
+</section>
+<section id="transmission-control">
+<span id="can-periodic-send-control"></span><h2>Transmission Control<a class="headerlink" href="#transmission-control" title="Link to this heading"></a></h2>
+<section id="start-stop-button">
+<h3>Start/Stop Button<a class="headerlink" href="#start-stop-button" title="Link to this heading"></a></h3>
+<dl>
+<dt><strong>Start Transmission</strong></dt><dd><p>Click the <strong>Start</strong> button to begin periodic transmission. The button changes to <strong>Stop</strong>.</p>
+<dl class="simple">
+<dt>Requirements to start:</dt><dd><ul class="simple">
+<li><p>Measurement must be running (CanKing online)</p></li>
+<li><p>Valid channel must be selected</p></li>
+<li><p>Valid identifier and data configuration</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt><strong>Stop Transmission</strong></dt><dd><p>Click the <strong>Stop</strong> button to end periodic transmission. The button changes back to <strong>Start</strong>.</p>
+</dd>
+</dl>
+</section>
+<section id="status-indicators">
+<h3>Status Indicators<a class="headerlink" href="#status-indicators" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>When transmission is active:</dt><dd><ul class="simple">
+<li><p>The button shows <strong>Stop</strong> instead of <strong>Start</strong></p></li>
+<li><p>Messages are being sent according to the configured interval and settings</p></li>
+<li><p>Message counters in CAN Bus Statistics will increase</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="database-message-support">
+<span id="can-periodic-send-database"></span><h2>Database Message Support<a class="headerlink" href="#database-message-support" title="Link to this heading"></a></h2>
+<p>When a Databases data processor is added to the CAN channel in the Measurement Setup view, you can use database-defined messages.</p>
+<section id="selecting-a-database-message">
+<h3>Selecting a Database Message<a class="headerlink" href="#selecting-a-database-message" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Click <strong>Select Message</strong> button</p></li>
+<li><p>Browse or search for a message</p></li>
+<li><p>Select the desired message</p></li>
+</ol>
+<p>The identifier, format, and data length are automatically configured from the database.</p>
+</section>
+<section id="signal-value-editing">
+<h3>Signal Value Editing<a class="headerlink" href="#signal-value-editing" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Edit signal values in engineering units:</dt><dd><ul class="simple">
+<li><p>Values are automatically encoded into message bytes</p></li>
+<li><p>Range validation is applied</p></li>
+<li><p>Units are displayed for reference</p></li>
+<li><p>Changes are reflected in real-time during transmission</p></li>
+</ul>
+</dd>
+</dl>
+<p>When transmission is active, signal values can still be edited, and the changes take effect immediately in subsequently transmitted messages.</p>
+</section>
+</section>
+<section id="typical-workflows">
+<span id="can-periodic-send-workflows"></span><h2>Typical Workflows<a class="headerlink" href="#typical-workflows" title="Link to this heading"></a></h2>
+<section id="basic-periodic-message">
+<h3>Basic Periodic Message<a class="headerlink" href="#basic-periodic-message" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Select the CAN channel</p></li>
+<li><p>Enter the CAN identifier and format</p></li>
+<li><p>Enter data bytes or select a database message</p></li>
+<li><p>Set the transmission interval (e.g., 100ms)</p></li>
+<li><p>Click <strong>Start</strong></p></li>
+<li><p>Monitor using Message Trace or CAN Bus Statistics</p></li>
+<li><p>Click <strong>Stop</strong> when finished</p></li>
+</ol>
+</section>
+<section id="simulating-an-ecu">
+<h3>Simulating an ECU<a class="headerlink" href="#simulating-an-ecu" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Load the appropriate database with Databases data processor</p></li>
+<li><p>Select the CAN channel connected to the target bus</p></li>
+<li><p>Select each message the ECU should send</p></li>
+<li><p>Configure appropriate intervals for each message (use multiple pane instances)</p></li>
+<li><p>Start transmission for all messages</p></li>
+<li><p>The simulated ECU now appears on the network</p></li>
+</ol>
+</section>
+<section id="bus-load-testing">
+<h3>Bus Load Testing<a class="headerlink" href="#bus-load-testing" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Configure a message with appropriate data length</p></li>
+<li><p>Set a short transmission interval (e.g., 10ms)</p></li>
+<li><p>Enable random data if needed</p></li>
+<li><p>Start transmission</p></li>
+<li><p>Monitor bus load in CAN Bus Statistics</p></li>
+<li><p>Adjust interval or add more periodic transmissions to reach target load</p></li>
+</ol>
+</section>
+<section id="identifier-scanning">
+<h3>Identifier Scanning<a class="headerlink" href="#identifier-scanning" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Enable <strong>Scan Identifier</strong> mode</p></li>
+<li><p>Set identifier range (e.g., 0x000 to 0x7FF)</p></li>
+<li><p>Set transmission interval</p></li>
+<li><p>Start transmission</p></li>
+<li><p>Identifiers will be scanned sequentially</p></li>
+<li><p>Use Message Trace filtered by Tx to observe the scan</p></li>
+</ol>
+</section>
+</section>
+<section id="tips-and-best-practices">
+<span id="can-periodic-send-tips"></span><h2>Tips and Best Practices<a class="headerlink" href="#tips-and-best-practices" title="Link to this heading"></a></h2>
+<section id="interval-selection">
+<h3>Interval Selection<a class="headerlink" href="#interval-selection" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Choose intervals that are multiples of common CAN message periods (10ms, 100ms, etc.)</p></li>
+<li><p>Consider bus load when setting short intervals</p></li>
+<li><p>For high-frequency messages, ensure the bus speed and hardware can handle the load</p></li>
+<li><p>Test with Message Trace to verify actual transmission timing</p></li>
+</ul>
+</section>
+<section id="message-configuration">
+<h3>Message Configuration<a class="headerlink" href="#message-configuration" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use database messages when available for easier configuration</p></li>
+<li><p>Random data is useful for testing but may not reflect realistic scenarios</p></li>
+<li><p>For realistic simulation, use actual message data or database signals</p></li>
+<li><p>Consider using multiple CAN Periodic Send panes for multiple messages</p></li>
+</ul>
+</section>
+<section id="performance-considerations">
+<h3>Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Short intervals (&lt;10ms) require higher system resources</p></li>
+<li><p>Many simultaneous periodic transmissions may affect timing accuracy</p></li>
+<li><p>Monitor CPU usage if experiencing timing issues</p></li>
+<li><p>Use burst size carefully as it can cause momentary bus saturation</p></li>
+</ul>
+</section>
+<section id="transmission-limits">
+<h3>Transmission Limits<a class="headerlink" href="#transmission-limits" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Number of messages limit is useful for automated test scenarios</p></li>
+<li><p>Set a limit when testing specific sequences</p></li>
+<li><p>Use unlimited (0) for continuous simulation</p></li>
+<li><p>Remember that the limit applies to each periodic transmission independently</p></li>
+</ul>
+</section>
+<section id="starting-and-stopping">
+<h3>Starting and Stopping<a class="headerlink" href="#starting-and-stopping" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Periodic transmissions continue even if the pane is edited or hidden</p></li>
+<li><p>Stop all transmissions before modifying major configuration changes</p></li>
+<li><p>Transmissions automatically stop when the measurement is stopped</p></li>
+<li><p>Multiple CAN Periodic Send panes can run simultaneously</p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<span id="can-periodic-send-troubleshooting"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="transmission-won-t-start">
+<h3>Transmission Won’t Start<a class="headerlink" href="#transmission-won-t-start" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Verify measurement is running (CanKing online)</p></li>
+<li><p>Check that channel access mode allows transmission</p></li>
+<li><p>Ensure channel is “On Bus” (check CAN Bus Statistics)</p></li>
+<li><p>Verify identifier and data configuration is valid</p></li>
+</ul>
+</section>
+<section id="timing-inaccuracies">
+<h3>Timing Inaccuracies<a class="headerlink" href="#timing-inaccuracies" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Very short intervals (&lt;5ms) may show timing jitter</p></li>
+<li><p>System load affects transmission timing</p></li>
+<li><p>Hardware limitations may prevent very high message rates</p></li>
+<li><p>Consider using dedicated hardware for precise timing requirements</p></li>
+</ul>
+</section>
+<section id="messages-not-visible">
+<h3>Messages Not Visible<a class="headerlink" href="#messages-not-visible" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Check Message Trace filters (channel, direction)</p></li>
+<li><p>Verify bus termination and wiring</p></li>
+<li><p>Check bus bit rate configuration matches</p></li>
+<li><p>Look for bus-off conditions in CAN Bus Statistics</p></li>
+</ul>
+</section>
+</section>
+<section id="advanced-features">
+<span id="can-periodic-send-advanced"></span><h2>Advanced Features<a class="headerlink" href="#advanced-features" title="Link to this heading"></a></h2>
+<section id="combining-random-options">
+<h3>Combining Random Options<a class="headerlink" href="#combining-random-options" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>You can combine multiple random options:</dt><dd><ul class="simple">
+<li><p>Random interval + Random data = Unpredictable messages</p></li>
+<li><p>Random identifier + Random burst = Complex test patterns</p></li>
+<li><p>Scan identifier + Random data = Systematic coverage with varying data</p></li>
+</ul>
+</dd>
+</dl>
+<p>This creates sophisticated test scenarios for robustness testing.</p>
+</section>
+<section id="multiple-periodic-transmissions">
+<h3>Multiple Periodic Transmissions<a class="headerlink" href="#multiple-periodic-transmissions" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Use multiple CAN Periodic Send panes to:</dt><dd><ul class="simple">
+<li><p>Simulate multiple ECUs</p></li>
+<li><p>Send multiple messages with different intervals</p></li>
+<li><p>Create complex traffic patterns</p></li>
+<li><p>Test message prioritization</p></li>
+</ul>
+</dd>
+</dl>
+<p>Each pane operates independently and can be started/stopped separately.</p>
+</section>
+<section id="integration-with-traffic-generator">
+<h3>Integration with Traffic Generator<a class="headerlink" href="#integration-with-traffic-generator" title="Link to this heading"></a></h3>
+<p>Compare the CAN Periodic Send pane with the Traffic Generator source node:</p>
+<ul class="simple">
+<li><p><strong>CAN Periodic Send</strong> - Workspace pane, interactive, easy to modify during measurement</p></li>
+<li><p><strong>Traffic Generator</strong> - Measurement Setup node, configured before measurement starts, can generate from message lists</p></li>
+</ul>
+<dl class="simple">
+<dt>Use CAN Periodic Send for:</dt><dd><ul class="simple">
+<li><p>Quick testing and experimentation</p></li>
+<li><p>Manual control during measurement</p></li>
+<li><p>Few messages with complex patterns</p></li>
+</ul>
+</dd>
+<dt>Use Traffic Generator for:</dt><dd><ul class="simple">
+<li><p>Complex pre-planned scenarios</p></li>
+<li><p>Many messages defined in files</p></li>
+<li><p>Automated test sequences</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="can_send.html" class="btn btn-neutral float-left" title="CAN Send" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lin_panes.html" class="btn btn-neutral float-right" title="LIN Panes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

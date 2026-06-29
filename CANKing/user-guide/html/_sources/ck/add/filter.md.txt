@@ -1,0 +1,50 @@
+# ck add filter
+
+Adds a CAN Message Filter to the current measurement setup.
+
+## Synopsis
+
+```text
+ck add filter
+    [--language <en|zh|ja>]
+    [-n|--name <NODE_NAME>]
+    [-s|--std-ids <STANDARD_CAN_IDS>]
+    [-x|--ext-ids <EXTENDED_CAN_IDS>]
+    [-f|--filter-type <pass|block>]
+    [-p|--previous-node <PREVIOUS_NODE_ID_OR_NAME>]
+    [--next-node <NEXT_NODE_ID_OR_NAME>]
+
+ck add filter -h|--help
+```
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-n|--name```  
+Name of the node. Default value is 'CAN message filter'
+
+- ```-s|--std-ids```  
+The standard CAN IDs to be filtered. Example: "1,2,3,5-10" in order to filter IDs 1,2,3 and 5 to 10. Prefix IDs with 0x to indicate hex format.
+
+- ```-x|--ext-ids```  
+The extended CAN IDs to be filtered. Example: "1,2,3,5-10" in order to filter IDs 1,2,3 and 5 to 10. Prefix IDs with 0x to indicate hex format.
+
+- ```-f|--filter-type```  
+The filter type. Either block or pass CAN IDs through filter. Default: pass
+
+- ```-p|--previous-node```  
+Identifier/Name of the previous node when adding a new node to the measurement setup. Set either previous node or next node, not both.
+
+- ```--next-node```  
+Identifier/Name of the next node when adding a new node to the measurement setup. Set either previous node or next node, not both.
+
+## Examples
+
+```bash
+ck add filter --std-ids "1,2,3"
+ck add filter --ext-ids "0x100-0x200" --filter-type block
+ck add filter --name "My Filter" --std-ids "1-10" --previous-node "CAN 1"
+```
+

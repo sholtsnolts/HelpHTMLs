@@ -1,0 +1,96 @@
+# ck add traffic
+
+Adds a Traffic Generator to the current measurement setup.
+
+## Synopsis
+
+```text
+ck add traffic
+    <OUTPUT_CHANNEL_ID_OR_NAME>
+    [--language <en|zh|ja>]
+    [-i|--id <MESSAGE_ID>]
+    [-d|--data <MESSAGE_DATA>]
+    [--rtr]
+    [--fdf]
+    [--brs]
+    [-r|--interval <INTERVAL_MS>]
+    [-n|--number-of-messages <NUMBER_OF_MESSAGES>]
+    [--random-length]
+    [--random-data]
+    [--random-data-w-length <DATA_LENGTH>]
+    [--random-interval <MIN_MS-MAX_MS>]
+    [--random-id <MIN_ID-MAX_ID>]
+    [--scan-id <MIN_ID-MAX_ID>]
+    [-b|--burst-size <BURST_SIZE>]
+    [--random-bs <MIN_SIZE-MAX_SIZE>]
+    [--name <NODE_NAME>]
+
+ck add traffic -h|--help
+```
+
+## Arguments
+
+- ```OUTPUT_CHANNEL_ID_OR_NAME```  
+The identifier/name of the output channel to be used.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-i|--id```  
+The message id. Prefix with 0x to indicate hex format. Suffix with x to indicate extended identifier.
+
+- ```-d|--data```  
+The message data, a byte array (hex format) passed as a string, e.g. 0001020304.
+
+- ```--rtr```  
+Send message as remote request frame.
+
+- ```--fdf```  
+Send message as flexible data frame (CAN FD frame).
+
+- ```--brs```  
+Send flexible data frame with bit rate switch.
+
+- ```-r|--interval```  
+The transmission interval (sample rate) in milliseconds. This option is ignored if --random-interval is set. Default value is 50 ms.
+
+- ```-n|--number-of-messages```  
+The number of messages that will be sent out. Set to zero to keep sending indefinitely. Default value is 0, indefinitely.
+
+- ```--random-length```  
+Set this option to randomized the message data length.
+
+- ```--random-data```  
+Set this option to randomized the message data.
+
+- ```--random-data-w-length```  
+Set this option to randomized the message data, but keep a fixed data length.
+
+- ```--random-interval```  
+Set this option to send out the message with a randomized interval. The value should be set using format <min>-<max>, e.g. 100-2000.
+
+- ```--random-id```  
+Set this option to send out the message with a randomized identifiers. The value should be set using format <min-id>-<max-id>, e.g. 0x10-0x1F or 0x10x-0x1Fx.
+
+- ```--scan-id```  
+Set this option to send out the message with identifiers going from min-id to max-id. The value should be set using format <min-id>-<max-id>, e.g. 0x10-0x1F or 0x10x-0x1Fx.
+
+- ```-b|--burst-size```  
+The burst size, number of messages sent out at every sample. This option is ignored if --random-bs is set. Default value is 1.
+
+- ```--random-bs```  
+Set this option to send out the messages with a randomized burst size. The value should be set using format <min-size>-<max-size>, e.g. 1-5.
+
+- ```--name```  
+Name of the node. Default value is 'Traffic Generator'
+
+## Examples
+
+```bash
+ck add traffic "CAN 1" --id 0xAB -d 0001020304 --interval 500
+ck add traffic "CAN 1" --id 0xABx -d 0001020304 --interval 500 --name "C1 traffic generator"
+ck add traffic "CAN 1" --random-id 0x10-0x1F --random-data --random-interval 100-2000
+```
+

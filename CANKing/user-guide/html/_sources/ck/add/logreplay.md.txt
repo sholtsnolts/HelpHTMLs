@@ -1,0 +1,81 @@
+# ck add logreplay
+
+Adds a Log Replay node to the current measurement setup.
+The supported file formats are: .csv, .log, .mf4, .txt, .asc, .blf, .kme, .kme25, .kme40, .kme50
+
+## Synopsis
+
+```text
+ck add logreplay
+    <CHANNEL_MAPPINGS_JSON>
+    [--language <en|zh|ja>]
+    [-n|--name <NODE_NAME>]
+    -p|--path <LOG_FILE_PATH>
+    [-i|--iterations <NUMBER_OF_ITERATIONS>]
+    [-s|--samplerate <SAMPLE_RATE_MS>]
+    [-t|--transceiver-mode <Rx|Tx|RxAndTx>]
+    [--include-error-frames]
+    [-m|--send-first-message-mode <Directly|AtTimestamp|AfterOffset>]
+    [-o|--time-offset <TIME_OFFSET_MS>]
+    [--time-factor <TIME_FACTOR>]
+    [--lower-variance <LOWER_VARIANCE>]
+    [--higher-variance <HIGHER_VARIANCE>]
+    [--decrease-speed]
+
+ck add logreplay -h|--help
+```
+
+## Arguments
+
+- ```CHANNEL_MAPPINGS_JSON```  
+JSON string mapping a channel found in the log file to the channel identifier to be used when replaying the file. Example: '{"1":"abc1-def2-ghi3-4567j"}'
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-n|--name```  
+Name of the node. Default value is 'Log replay'
+
+- ```-p|--path``` (required)  
+Full path to the log file to read CAN frames from.
+
+- ```-i|--iterations```  
+Number of iterations to loop the log file. Set to -1 to keep looping indefinitely. Default value is 1.
+
+- ```-s|--samplerate```  
+Static sample rate in milliseconds to send the CAN frames at. If zero, timestamps from the log file will be used. Default value is 0.
+
+- ```-t|--transceiver-mode```  
+If only Rx, Tx, or both Rx and Tx messages shall be replayed. Default value is Rx.
+
+- ```--include-error-frames```  
+Replay error frames as well. Default value is false.
+
+- ```-m|--send-first-message-mode```  
+Send the first message straight away, at the timestamp specified in the log file or after an offset. Default value is Directly.
+
+- ```-o|--time-offset```  
+Time offset in milliseconds until sending the first message. Default value is 0. This parameter shall be used together with the mode for sending the first message after an offset (3).
+
+- ```--time-factor```  
+Factor in percentage for speeding up or down the waiting time until sending the next message.
+
+- ```--lower-variance```  
+Minimum waiting time variance (0-1) for how long to wait before sending the next message. The resulting range will be between the time factor and the time factor minus the lower variance.
+
+- ```--higher-variance```  
+Maximum waiting time variance (0-1) for how long to wait before sending the next message. The resulting range will be between the time factor and the time factor plus the higher variance.
+
+- ```--decrease-speed```  
+Decrease the speed by the time factor. By default, the speed will be increased.
+
+## Examples
+
+```bash
+ck add logreplay '{"1":"abc1-def2-ghi3-4567j"}' --path full/path/to/file.log
+ck add logreplay '{"1":"abc1-def2-ghi3-4567j"}' --path full/path/to/file.log --iterations 3
+ck add logreplay '{"1":"abc1-def2-ghi3-4567j"}' --path full/path/to/file.log --samplerate 100 --time-factor 1.5
+```
+

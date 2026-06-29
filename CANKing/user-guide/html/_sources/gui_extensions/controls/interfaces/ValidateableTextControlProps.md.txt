@@ -1,0 +1,269 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [controls](../README.md) / ValidateableTextControlProps
+
+# Interface: ValidateableTextControlProps
+
+Properties of the ValidateableTextControl React component.
+
+## Properties
+
+### disabled?
+
+> `optional` **disabled**: `boolean`
+
+Set to true to disable this control.
+
+***
+
+### endAdornment?
+
+> `optional` **endAdornment**: `string`
+
+A text to be displayed after the value.
+
+***
+
+### error?
+
+> `optional` **error**: `boolean`
+
+The current error state.
+
+***
+
+### fullWidth?
+
+> `optional` **fullWidth**: `boolean`
+
+Set to true to expand this control to use the full widht of its parent.
+
+***
+
+### helperText?
+
+> `optional` **helperText**: `string`
+
+Any helper text that should be displayed.
+
+***
+
+### id?
+
+> `optional` **id**: `string`
+
+The component id.
+
+***
+
+### inputMode?
+
+> `optional` **inputMode**: `"search"` \| `"text"` \| `"none"` \| `"tel"` \| `"url"` \| `"email"` \| `"numeric"` \| `"decimal"`
+
+Input mode.
+
+***
+
+### label?
+
+> `optional` **label**: `string`
+
+The label of this input control.
+
+***
+
+### margin?
+
+> `optional` **margin**: `"none"` \| `"normal"` \| `"dense"`
+
+Margins between controls inside this control.
+
+***
+
+### maxValue?
+
+> `optional` **maxValue**: `number`
+
+The max value if numberType is set.
+
+***
+
+### minValue?
+
+> `optional` **minValue**: `number`
+
+The min value if numberType is set.
+
+***
+
+### numberType?
+
+> `optional` **numberType**: `"float"` \| `"int"`
+
+Number type if the expected value is a number, if left undefined then the value is expected to be a string.
+
+***
+
+### onBlur()?
+
+> `optional` **onBlur**: (`value`) => `void`
+
+Callback that will be called when the control has lost focus.
+
+#### Parameters
+
+##### value
+
+`string`
+
+The new value.
+
+#### Returns
+
+`void`
+
+***
+
+### onChange()?
+
+> `optional` **onChange**: (`value`) => `void`
+
+Callback that will be called when the value has been changed.
+
+#### Parameters
+
+##### value
+
+`string`
+
+The new value.
+
+#### Returns
+
+`void`
+
+***
+
+### onErrorChange()?
+
+> `optional` **onErrorChange**: (`error`) => `void`
+
+Callback that is called when the error state has changed.
+
+#### Parameters
+
+##### error
+
+`boolean`
+
+The new error state.
+
+#### Returns
+
+`void`
+
+***
+
+### onValidate()?
+
+> `optional` **onValidate**: (`text`, `trigger`) => `object`
+
+Callback that will be called when the value has been changed or the control has lost focus.
+This callback is called before onChange and if the returned err value is true then onChange
+won't be called.
+The implemtation of this callback is allowed to modify the specified text value and return
+the modified value in the val property of the returned object.
+
+#### Parameters
+
+##### text
+
+`string`
+
+The new text value.
+
+##### trigger
+
+The trigger of this callback, either on 'change' or on 'blur'.
+
+`"blur"` | `"change"`
+
+#### Returns
+
+`object`
+
+An object with the validated value (val) and an error state (err).
+
+##### err
+
+> **err**: `boolean`
+
+##### val
+
+> **val**: `string`
+
+***
+
+### pattern?
+
+> `optional` **pattern**: `string`
+
+Regex pattern of the value in this control.
+
+***
+
+### required?
+
+> `optional` **required**: `boolean`
+
+Set to true if this control's value is required.
+
+***
+
+### size?
+
+> `optional` **size**: `"small"` \| `"medium"`
+
+The component size.
+
+***
+
+### startAdornment?
+
+> `optional` **startAdornment**: `string`
+
+A text to be displayed in front of the value.
+
+***
+
+### sx?
+
+> `optional` **sx**: `SxProps`\<`Theme`\>
+
+Optional sx properties.
+
+***
+
+### sxEndAdornment?
+
+> `optional` **sxEndAdornment**: `SxProps`\<`Theme`\>
+
+Optional sx properties for the end adornment.
+
+***
+
+### sxStartAdornment?
+
+> `optional` **sxStartAdornment**: `SxProps`\<`Theme`\>
+
+Optional sx properties for the start adornment.
+
+***
+
+### value
+
+> **value**: `string`
+
+The current value.

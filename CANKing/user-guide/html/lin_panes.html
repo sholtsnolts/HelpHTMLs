@@ -1,0 +1,577 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIN Panes &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview" href="ck/overview.html" />
+    <link rel="prev" title="CAN Periodic Send" href="can_periodic_send.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LIN Panes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lin-send">LIN Send</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#use-cases">Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-based-editing">Signal-Based Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#typical-workflow">Typical Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lin-message-request">LIN Message Request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-it-works">How It Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#difference-from-lin-send">Difference from LIN Send</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Typical Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lin-message-update">LIN Message Update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Use Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">How It Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#persistent-behavior">Persistent Behavior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Typical Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#choosing-the-right-lin-pane">Choosing the Right LIN Pane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-lin-databases">Working with LIN Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-best-practices">Tips and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lin-master-slave-roles">LIN Master/Slave Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-identifiers">Message Identifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-length">Data Length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verification">Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-with-other-features">Integration with Other Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#send-start-button-disabled">Send/Start Button Disabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messages-not-appearing">Messages Not Appearing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slave-responses-not-working">Slave Responses Not Working</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-messages-not-available">Database Messages Not Available</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LIN Panes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lin-panes">
+<span id="id1"></span><h1>LIN Panes<a class="headerlink" href="#lin-panes" title="Link to this heading"></a></h1>
+<p>The LIN panes provide functionality for interacting with LIN (Local Interconnect Network) buses. Three panes are available for different LIN operations: LIN Send, LIN Message Request, and LIN Message Update.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>LIN is a low-cost serial communication protocol used primarily in automotive applications for non-critical functions. Unlike CAN, LIN uses a master-slave architecture where:</p>
+<ul class="simple">
+<li><p>The <strong>master</strong> sends message headers (requests)</p></li>
+<li><p><strong>Slaves</strong> respond with data based on the message ID</p></li>
+<li><p>Messages are scheduled and deterministic</p></li>
+</ul>
+<p>The LIN panes in CanKing allow you to:</p>
+<ul class="simple">
+<li><p>Send complete LIN messages with headers and data (master behavior)</p></li>
+<li><p>Request messages by sending headers (master requests slave response)</p></li>
+<li><p>Update message data tables (slave behavior)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A LIN Channel source node must be configured in the Measurement Setup view and the measurement must be online to use LIN panes.</p>
+</div>
+</section>
+<section id="lin-send">
+<span id="id2"></span><h2>LIN Send<a class="headerlink" href="#lin-send" title="Link to this heading"></a></h2>
+<p>The LIN Send pane allows manual transmission of complete LIN messages (header + data) on a selected LIN channel. This simulates a LIN master sending both the header and providing the response data.</p>
+<section id="use-cases">
+<h3>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Testing LIN slave responses</p></li>
+<li><p>Simulating a LIN master</p></li>
+<li><p>Injecting test messages into a LIN network</p></li>
+<li><p>Validating LIN slave implementations</p></li>
+</ul>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Channel Selection</strong></dt><dd><p>Select the LIN channel on which to transmit. The dropdown shows all LIN Channel source nodes from the Measurement Setup.</p>
+</dd>
+<dt><strong>LIN Identifier</strong></dt><dd><ul class="simple">
+<li><p>Enter the LIN message identifier (0-63 for LIN 2.x)</p></li>
+<li><p>6-bit identifier space</p></li>
+<li><p>No extended identifiers like CAN</p></li>
+</ul>
+</dd>
+<dt><strong>Message Data</strong></dt><dd><ul class="simple">
+<li><p>Enter up to 8 bytes of data (LIN messages are limited to 8 bytes)</p></li>
+<li><p>Data bytes are entered in hexadecimal (00-FF)</p></li>
+<li><p>Unused bytes can be left as 00</p></li>
+</ul>
+</dd>
+<dt><strong>Database Message Selection</strong> (when available)</dt><dd><ol class="arabic simple">
+<li><p>Click <strong>Select Message</strong> to browse loaded LIN databases (.ldf files)</p></li>
+<li><p>Select a message from the database</p></li>
+<li><p>Identifier and data length are set automatically</p></li>
+<li><p>Signal value editors appear for signal-based data entry</p></li>
+</ol>
+</dd>
+<dt><strong>Send Button</strong></dt><dd><p>Click <strong>Send</strong> to transmit the complete message immediately.</p>
+</dd>
+</dl>
+</section>
+<section id="signal-based-editing">
+<h3>Signal-Based Editing<a class="headerlink" href="#signal-based-editing" title="Link to this heading"></a></h3>
+<p>When a LIN database is loaded via the Databases data processor or LIN Channel configuration:</p>
+<ul class="simple">
+<li><p>Select database-defined messages</p></li>
+<li><p>Edit signal values in engineering units</p></li>
+<li><p>Automatic encoding into message bytes</p></li>
+<li><p>Value range validation</p></li>
+<li><p>Unit display for reference</p></li>
+</ul>
+</section>
+<section id="typical-workflow">
+<h3>Typical Workflow<a class="headerlink" href="#typical-workflow" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Select the LIN channel</p></li>
+<li><p>Either:</p>
+<ul class="simple">
+<li><p>Enter identifier and data bytes manually, OR</p></li>
+<li><p>Select a database message and edit signal values</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Send</strong></p></li>
+<li><p>Monitor the Message Trace to verify transmission</p></li>
+</ol>
+</section>
+</section>
+<section id="lin-message-request">
+<span id="id3"></span><h2>LIN Message Request<a class="headerlink" href="#lin-message-request" title="Link to this heading"></a></h2>
+<p>The LIN Message Request pane sends a LIN message header without providing data. This simulates a LIN master requesting a message, where a slave is expected to provide the response data.</p>
+<section id="id4">
+<h3>Use Cases<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Testing LIN slave responses in their actual role</p></li>
+<li><p>Requesting diagnostic messages</p></li>
+<li><p>Triggering slave-provided data</p></li>
+<li><p>Simulating normal LIN master behavior</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Configuration<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Channel Selection</strong></dt><dd><p>Select the LIN channel for the request.</p>
+</dd>
+<dt><strong>LIN Identifier</strong></dt><dd><ul class="simple">
+<li><p>Enter the LIN message identifier to request (0-63)</p></li>
+<li><p>This is the message ID for which a slave should provide data</p></li>
+</ul>
+</dd>
+<dt><strong>Database Message Selection</strong> (when available)</dt><dd><p>Select from database-defined messages to automatically set the identifier.</p>
+</dd>
+<dt><strong>Send Button</strong></dt><dd><p>Click <strong>Send</strong> to transmit the message request (header only).</p>
+</dd>
+</dl>
+</section>
+<section id="how-it-works">
+<h3>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>CanKing sends the LIN message header with the specified ID</p></li>
+<li><p>A LIN slave node on the bus provides the data response</p></li>
+<li><p>The complete message (header + response) appears in Message Trace</p></li>
+<li><p>The response data comes from the slave, not from CanKing</p></li>
+</ol>
+</section>
+<section id="difference-from-lin-send">
+<h3>Difference from LIN Send<a class="headerlink" href="#difference-from-lin-send" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>LIN Send</p></th>
+<th class="head"><p>LIN Message Request</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Master/Slave Simulation</p></td>
+<td><p>Master providing data</p></td>
+<td><p>Master requesting data</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data Source</p></td>
+<td><p>Provided by CanKing</p></td>
+<td><p>Provided by slaves on the bus</p></td>
+</tr>
+<tr class="row-even"><td><p>Configuration Required</p></td>
+<td><p>Full message (ID + data)</p></td>
+<td><p>Header only (ID)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Typical Use</p></td>
+<td><p>Simulating master responses</p></td>
+<td><p>Requesting slave responses</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Typical Workflow<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Ensure LIN slaves are present on the bus</p></li>
+<li><p>Select the LIN channel</p></li>
+<li><p>Enter the message identifier to request</p></li>
+<li><p>Click <strong>Send</strong></p></li>
+<li><p>Monitor Message Trace to see the slave’s response data</p></li>
+</ol>
+</section>
+</section>
+<section id="lin-message-update">
+<span id="id7"></span><h2>LIN Message Update<a class="headerlink" href="#lin-message-update" title="Link to this heading"></a></h2>
+<p>The LIN Message Update pane configures the message data table for messages where the CanKing acts as a LIN slave. When the master requests these message IDs, CanKing provides the configured data.</p>
+<section id="id8">
+<h3>Use Cases<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Simulating LIN slaves</p></li>
+<li><p>Providing responses to LIN master requests</p></li>
+<li><p>Testing LIN master implementations</p></li>
+<li><p>Emulating missing slave nodes</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Configuration<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Channel Selection</strong></dt><dd><p>Select the LIN channel on which to act as a slave.</p>
+</dd>
+<dt><strong>LIN Identifier</strong></dt><dd><ul class="simple">
+<li><p>Enter the LIN message identifier (0-63)</p></li>
+<li><p>This is the ID that CanKing will respond to as a slave</p></li>
+</ul>
+</dd>
+<dt><strong>Message Data</strong></dt><dd><ul class="simple">
+<li><p>Configure the data bytes that will be provided when the master requests this ID</p></li>
+<li><p>Enter up to 8 bytes in hexadecimal</p></li>
+</ul>
+</dd>
+<dt><strong>Database Message Selection</strong> (when available)</dt><dd><ul class="simple">
+<li><p>Select database-defined messages</p></li>
+<li><p>Edit signal values to configure response data</p></li>
+<li><p>Changes are reflected in the message data table</p></li>
+</ul>
+</dd>
+<dt><strong>Start Button</strong></dt><dd><p>Click <strong>Start</strong> to apply the configuration to the LIN message data table.</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h3>How It Works<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Configure the message ID and data</p></li>
+<li><p>Click <strong>Start</strong>, the button changes to <strong>Stop</strong></p></li>
+<li><p>The LIN interface stores this configuration</p></li>
+<li><p>When a LIN master sends a header for this ID, the configured data is automatically transmitted</p></li>
+<li><p>This happens for every header request</p></li>
+<li><p>Changes to the configured data are applied immediately</p></li>
+<li><p>The configuration remains active until the measurement is stopped or the <strong>Stop</strong> button is clicked</p></li>
+</ol>
+</section>
+<section id="persistent-behavior">
+<h3>Persistent Behavior<a class="headerlink" href="#persistent-behavior" title="Link to this heading"></a></h3>
+<p>Unlike LIN Send (single transmission) or LIN Message Request (single request):</p>
+<ul class="simple">
+<li><p>LIN Message Update sets up persistent slave behavior</p></li>
+<li><p>The configured response is used for ALL subsequent requests for that ID</p></li>
+<li><p>Remains active until:</p>
+<ul>
+<li><p>The measurement is stopped</p></li>
+<li><p>The configuration is cleared by clicking <strong>Stop</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id11">
+<h3>Typical Workflow<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Select the LIN channel</p></li>
+<li><p>Configure message ID and response data:</p>
+<ul class="simple">
+<li><p>Manual byte entry, OR</p></li>
+<li><p>Database message with signal values</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Start</strong> to activate slave response</p></li>
+<li><p>The LIN interface now responds to master requests for this ID</p></li>
+<li><p>Update as needed to change response data</p></li>
+</ol>
+</section>
+</section>
+<section id="choosing-the-right-lin-pane">
+<span id="lin-panes-comparison"></span><h2>Choosing the Right LIN Pane<a class="headerlink" href="#choosing-the-right-lin-pane" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Use LIN Send when:</dt><dd><ul class="simple">
+<li><p>You need complete control over the entire message</p></li>
+<li><p>Simulating a master that provides data</p></li>
+<li><p>Single message transmission is sufficient</p></li>
+<li><p>Testing with no other LIN nodes present</p></li>
+</ul>
+</dd>
+<dt>Use LIN Message Request when:</dt><dd><ul class="simple">
+<li><p>You want to test actual LIN slave behavior</p></li>
+<li><p>Slaves are present on the bus</p></li>
+<li><p>You need to trigger slave responses</p></li>
+<li><p>Simulating normal LIN master operation</p></li>
+</ul>
+</dd>
+<dt>Use LIN Message Update when:</dt><dd><ul class="simple">
+<li><p>Configuring CanKing as a LIN slave</p></li>
+<li><p>Providing persistent responses to master requests</p></li>
+<li><p>Simulating a slave node</p></li>
+<li><p>Testing LIN master implementations</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="working-with-lin-databases">
+<span id="lin-panes-database"></span><h2>Working with LIN Databases<a class="headerlink" href="#working-with-lin-databases" title="Link to this heading"></a></h2>
+<p>LIN databases (.ldf files) provide message and signal definitions. To use databases with LIN panes:</p>
+<dl class="simple">
+<dt><strong>Option 1: Databases Data Processor</strong></dt><dd><ol class="arabic simple">
+<li><p>In Measurement Setup, add a Databases data processor</p></li>
+<li><p>Connect it to the LIN channel</p></li>
+<li><p>Load the .ldf file</p></li>
+<li><p>Databases are available in all panes</p></li>
+</ol>
+</dd>
+<dt><strong>Option 2: LIN Channel Configuration</strong></dt><dd><ol class="arabic simple">
+<li><p>In Measurement Setup, configure the LIN Channel node</p></li>
+<li><p>Load the .ldf file directly in channel settings</p></li>
+<li><p>Database is available for that channel</p></li>
+</ol>
+</dd>
+<dt>Benefits of using databases:</dt><dd><ul class="simple">
+<li><p>Message names for easier identification</p></li>
+<li><p>Signal-based value editing</p></li>
+<li><p>Automatic encoding/decoding</p></li>
+<li><p>Value range validation</p></li>
+<li><p>Unit display</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="tips-and-best-practices">
+<span id="lin-panes-tips"></span><h2>Tips and Best Practices<a class="headerlink" href="#tips-and-best-practices" title="Link to this heading"></a></h2>
+<section id="lin-master-slave-roles">
+<h3>LIN Master/Slave Roles<a class="headerlink" href="#lin-master-slave-roles" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Understand the master-slave architecture before using LIN panes</p></li>
+<li><p>LIN Send = Master with data</p></li>
+<li><p>LIN Message Request = Master without data (expecting slave response)</p></li>
+<li><p>LIN Message Update = Slave configuration</p></li>
+<li><p>Only one master should be active at a time on a LIN bus</p></li>
+</ul>
+</section>
+<section id="message-identifiers">
+<h3>Message Identifiers<a class="headerlink" href="#message-identifiers" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>LIN uses 6-bit identifiers (0-63)</p></li>
+<li><p>Some IDs are reserved for diagnostic purposes (60-63)</p></li>
+<li><p>Consult your LIN database or specification for correct IDs</p></li>
+<li><p>Invalid IDs may be rejected or cause errors</p></li>
+</ul>
+</section>
+<section id="data-length">
+<h3>Data Length<a class="headerlink" href="#data-length" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>LIN messages support up to 8 bytes</p></li>
+<li><p>Data length is typically fixed for each message ID</p></li>
+<li><p>Check your database or specification for correct lengths</p></li>
+<li><p>Padding with zeros is common for shorter messages</p></li>
+</ul>
+</section>
+<section id="verification">
+<h3>Verification<a class="headerlink" href="#verification" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Always use Message Trace to verify LIN transmissions</p></li>
+<li><p>Filter by LIN protocol for clearer viewing</p></li>
+<li><p>Check both Tx (sent) and Rx (received) messages</p></li>
+<li><p>Verify checksums are correct</p></li>
+</ul>
+</section>
+<section id="integration-with-other-features">
+<h3>Integration with Other Features<a class="headerlink" href="#integration-with-other-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use Message Trace to monitor all LIN traffic</p></li>
+<li><p>LIN messages appear alongside CAN messages when both protocols are active</p></li>
+<li><p>Filters can separate LIN from CAN messages</p></li>
+<li><p>Signal Plot can display LIN signals when databases are loaded</p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<span id="lin-panes-troubleshooting"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="send-start-button-disabled">
+<h3>Send/Start Button Disabled<a class="headerlink" href="#send-start-button-disabled" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ensure measurement is running (CanKing online)</p></li>
+<li><p>Verify LIN channel is configured and online</p></li>
+<li><p>Check that identifier is valid (0-63)</p></li>
+<li><p>Confirm data length is valid (0-8 bytes)</p></li>
+</ul>
+</section>
+<section id="messages-not-appearing">
+<h3>Messages Not Appearing<a class="headerlink" href="#messages-not-appearing" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Check Message Trace filters (protocol, channel, direction)</p></li>
+<li><p>Verify LIN bus wiring and termination</p></li>
+<li><p>Check that LIN bus speed matches all nodes</p></li>
+<li><p>Ensure LIN master is present and active</p></li>
+</ul>
+</section>
+<section id="slave-responses-not-working">
+<h3>Slave Responses Not Working<a class="headerlink" href="#slave-responses-not-working" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>For LIN Message Request: Verify slaves are present and configured</p></li>
+<li><p>For LIN Message Update: Ensure Start button was clicked to apply configuration</p></li>
+<li><p>Check that message ID matches what master is requesting</p></li>
+<li><p>Verify LIN interface is in correct mode (master or slave)</p></li>
+</ul>
+</section>
+<section id="database-messages-not-available">
+<h3>Database Messages Not Available<a class="headerlink" href="#database-messages-not-available" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add Databases data processor or configure database in LIN Channel settings</p></li>
+<li><p>Ensure .ldf file is loaded correctly</p></li>
+<li><p>Restart measurement after adding database</p></li>
+<li><p>Check that database contains the required message definitions</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="can_periodic_send.html" class="btn btn-neutral float-left" title="CAN Periodic Send" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ck/overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

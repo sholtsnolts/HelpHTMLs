@@ -1,0 +1,413 @@
+.. _data_processor_nodes:
+
+Data Processor Nodes
+====================
+
+Data processor nodes modify, filter, or enhance data flowing from source nodes before it reaches target nodes or the UI.
+
+.. _can_message_filter_node:
+
+CAN Message Filter
+------------------
+
+The CAN Message Filter processes CAN messages based on their identifiers, either passing or blocking specified IDs.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **Filter Mode** - Pass filter or Block filter
+* **Standard CAN Identifiers** - List of 11-bit identifiers to filter (0x000-0x7FF)
+* **Extended CAN Identifiers** - List of 29-bit identifiers to filter (0x00000000-0x1FFFFFFF)
+
+Filter Modes
+~~~~~~~~~~~~
+
+* **Pass Filter** - Only allow specified identifiers through; block all others
+* **Block Filter** - Block specified identifiers; allow all others through
+
+Identifier Specification Format
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Individual IDs: ``1,2,3``
+* Ranges: ``100-200`` (includes all IDs from 100 to 200)
+* Combined: ``1,5,10-20,100`` (IDs 1, 5, 10 through 20, and 100)
+
+Use Cases
+~~~~~~~~~
+
+* Reducing bus traffic to the UI for better performance
+* Isolating specific messages for focused analysis
+* Excluding noisy or high-frequency messages from logging
+* Pre-filtering data for specific test scenarios
+
+Tips
+~~~~
+
+* Use pass filters when monitoring a small set of known messages
+* Use block filters when you want to exclude a few known noisy messages
+* Filters affect what reaches the UI and targets, but not the physical bus
+* Consider filter performance with very large identifier ranges
+* Multiple filters can be applied in series for complex filtering logic
+
+.. _databases_node:
+
+Databases
+---------
+
+The Databases data processor adds CAN or LIN database files to enable signal decoding and message naming throughout the application.
+
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
+
+* **Database Files** - List of .dbc (CAN) or .ldf (LIN) files to load
+* **Multiple Files** - Can load multiple databases simultaneously
+
+Database Types
+~~~~~~~~~~~~~~
+
+* **CAN Databases (.dbc)** - DBC files containing CAN message and signal definitions
+* **LIN Databases (.ldf)** - LDF files containing LIN frame and signal definitions
+
+What Databases Enable
+~~~~~~~~~~~~~~~~~~~~~~
+
+* Message names in Message Trace and other panes
+* Signal names and values in expandable message rows
+* Signal-based editing in send panes (CAN Send, LIN Send, etc.)
+* Signal visualization in Signal Plot pane
+* Signal logging in Signal Logger target node
+* Unit and range information for signals
+
+Use Cases
+~~~~~~~~~
+
+* Decoding messages in Message Trace with human-readable names
+* Enabling signal-level logging instead of raw message logging
+* Providing signal definitions for graphical visualization
+* Simplifying message configuration with signal-based editing
+
+Tips
+~~~~
+
+* Load databases early in your measurement setup configuration
+* Multiple databases can be loaded for networks with multiple ECUs
+* Database content is cached for performance with large files
+* Signal decoding occurs in real-time during measurements
+* Databases are required for meaningful signal logging and visualization
+
+.. _j1939_interpreter_node:
+
+J1939 Interpreter
+-----------------
+
+The J1939 Interpreter data processor decodes the CAN ID according to the J1939 protocol to PGN, priority, source address, and destination address.
+
+.. note::
+   The J1939 Interpreter is deprecated. For decoding J1939 messages, use the J1939 Annotator extension node instead.
+
+.. _j1939_annotator_node:
+
+J1939 Annotator
+---------------
+
+The J1939 Annotator is a CanKing service extension that decodes and annotates J1939 Transport Protocol (TP) traffic.
+
+This extension listens to incoming J1939 frames (29-bit CAN IDs) and enriches them with base J1939 identifier metadata. For TP Connection Management (TP.CM, PGN ``0xEC00``) and Data Transfer (TP.DT, PGN ``0xEB00``) frames it also adds TP-specific decode and reassembly state.
+
+It can also be configured to actively participate in CMDT (connection mode) transfers by transmitting CTS and EndAck control frames.
+
+What It Does
+~~~~~~~~~~~~
+
+* Subscribes to received CAN frames with 29-bit IDs (J1939 format).
+* Tracks TP sessions for both BAM (Broadcast Announce Message) and CMDT (RTS/CTS connection mode).
+* Reassembles TP payload data from TP.DT packets.
+* Annotates all J1939 frames with base properties (priority, PGN, source address, destination address).
+* Adds TP-specific properties on TP.CM / TP.DT frames (control type, transported PGN, progress, payload on completion).
+* Logs lifecycle events such as measurement start/stop, parse warnings, completed reassemblies, and session expiry.
+* Optionally participates as an active CMDT receiver by sending CTS windows and EndAck.
+
+Passive Observer Scope
+~~~~~~~~~~~~~~~~~~~~~~
+
+This extension is Rx-only and passive by design.
+
+* It observes existing traffic and annotates frames in CanKing.
+* Out-of-order BAM packets cause session drop.
+* Out-of-order CMDT packets are tolerated by keeping session state and waiting for expected sequence.
+
+When ``active_listening`` is enabled, the extension sends TP.CM CTS and EndAck frames for CMDT transfers.
+
+.. note::
+   This extension never sends segmented messages of its own. It can only receive segmented messages, not transmit.
+
+Frame Properties Added
+~~~~~~~~~~~~~~~~~~~~~~
+
+Depending on frame type and decode state, the extension sets these frame properties:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 30 40
+
+   * - Property
+     - Set on
+     - Value
+   * - ``J1939.PGN``
+     - All J1939 frames
+     - Numeric PGN
+   * - ``J1939.Source``
+     - All J1939 frames
+     - Source address (0-253)
+   * - ``J1939.Destination``
+     - All J1939 frames
+     - Destination address (0-255)
+   * - ``J1939.Priority``
+     - All J1939 frames
+     - Priority (0-7)
+   * - ``J1939.TpControlType``
+     - TP.CM frames (PGN ``0xEC00``)
+     - ``"BAM"``, ``"RTS"``, ``"CTS"``, ``"EndAck"``, ``"Abort"``, or ``"Unknown"``
+   * - ``J1939.TpPGN``
+     - All TP.CM and TP.DT frames
+     - Transported-message PGN
+   * - ``J1939.TpTotalBytes``
+     - TP.CM BAM, RTS, EndAck frames
+     - Total payload bytes declared in the frame
+   * - ``J1939.TpNumPackets``
+     - TP.CM BAM, RTS, EndAck frames
+     - Total TP.DT packet count declared in the frame
+   * - ``J1939.TpMaxPacketsPerCts``
+     - TP.CM RTS frames
+     - Maximum packets per CTS window the sender will accept
+   * - ``J1939.TpCtsNumPackets``
+     - TP.CM CTS frames
+     - Number of DT packets the sender may transmit in this window
+   * - ``J1939.TpCtsNextPacket``
+     - TP.CM CTS frames
+     - Sequence number of the first DT packet expected in this window
+   * - ``J1939.TpAbortReason``
+     - TP.CM Abort frames
+     - Abort reason code
+   * - ``J1939.TpSeqNo``
+     - TP.DT frames (PGN ``0xEB00``)
+     - Sequence number byte (1-255)
+   * - ``J1939.TpSessionProgress``
+     - TP.DT frames with an active session
+     - ``"received/total"`` byte count
+   * - ``J1939.TpReassemblyComplete``
+     - Last TP.DT of a complete message
+     - ``"true"``
+   * - ``J1939.TpPayloadHex``
+     - Last TP.DT of a complete message
+     - Uppercase hex of reassembled payload
+   * - ``J1939.TpActiveAction``
+     - TP.CM RTS (active mode); TP.DT at window boundary or final packet
+     - ``"CTS sent"`` or ``"EndAck sent"``
+
+Configuration
+~~~~~~~~~~~~~
+
+Configuration is JSON and can be changed at runtime via the CanKing extension config.
+
+Default configuration:
+
+.. code-block:: json
+
+   {
+     "session_timeout_ms": 750,
+     "filter_pgns": [],
+     "filter_source_addresses": [],
+     "active_listening": false,
+     "active_receiver_addresses": [],
+     "active_cts_window_size": 255
+   }
+
+Configuration fields:
+
+* **session_timeout_ms** - T1-style inactivity timeout in milliseconds used for new sessions.
+* **filter_pgns** - Allow-list of transported PGNs to annotate. An empty list means all PGNs are annotated.
+* **filter_source_addresses** - Allow-list of source addresses to annotate. An empty list means all source addresses are annotated.
+* **active_listening** - Enable active CMDT participation (sends CTS and EndAck). Default ``false``.
+* **active_receiver_addresses** - Local destination addresses this extension may act as receiver for in CMDT. Active mode only sends CTS/EndAck when the RTS destination matches one of these addresses.
+* **active_cts_window_size** - Maximum packets requested per CTS. The effective value is clamped against the sender RTS byte 4 and remaining packets.
+
+.. _isotp_annotator_node:
+
+ISO-TP Annotator
+----------------
+
+The ISO-TP Annotator is a CanKing service extension that decodes and annotates ISO-TP (ISO 15765-2) traffic on CAN and CAN-FD buses.
+
+The extension observes incoming frames, recognizes the four ISO-TP frame types (Single Frame, First Frame, Consecutive Frame, Flow Control), reassembles multi-frame messages from their constituent Consecutive Frames, and enriches every matching frame with protocol metadata as CanKing frame properties.
+
+It can also be configured to actively participate in transfers by sending Flow Control (FC) frames — both the initial CTS after a First Frame and subsequent CTS frames at block boundaries when ``fc_block_size > 0``.
+
+What It Does
+~~~~~~~~~~~~
+
+* Subscribes to CAN and CAN-FD frames and applies configurable direction and ID-type filters.
+* Recognizes all four ISO-TP PCI types: SF (Single Frame), FF (First Frame), CF (Consecutive Frame), FC (Flow Control).
+* Reassembles multi-frame payloads from FF + CF sequences, with strict SN validation (wrong SN drops the session).
+* Annotates every recognized frame with ISO-TP metadata as named frame properties visible in CanKing.
+* Supports classic CAN (DLC ≤ 8) and CAN-FD long-length encoding (DLC > 8 SF/FF) per ISO 15765-2.
+* Supports ISO-TP extended addressing (N_TA byte before PCI byte).
+* Logs lifecycle events: session start/stop, session expiry, and completed reassemblies.
+* Optionally participates as an active receiver: sends FC(CTS) after a First Frame and at every block boundary when ``fc_block_size > 0``.
+
+Passive Observer Scope
+~~~~~~~~~~~~~~~~~~~~~~
+
+Remove all ``active_addresses`` entries to turn the extension into a passive observer.
+
+* It does not transmit any frames when ``active_addresses`` is empty.
+* It observes existing ISO-TP traffic and annotates frames in CanKing.
+* A wrong Consecutive Frame SN causes the session to be dropped.
+* Sessions that receive no Consecutive Frame within ``session_timeout_ms`` are expired and logged.
+
+When ``active_addresses`` is configured, the extension sends FC(ContinueToSend) frames so the sender proceeds with data transfer.
+
+.. note::
+   This extension never sends segmented messages of its own. It can only receive segmented messages, not transmit.
+
+Frame Properties Added
+~~~~~~~~~~~~~~~~~~~~~~
+
+Depending on frame type and decode state, the extension sets these frame properties:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 30 40
+
+   * - Property
+     - Set on
+     - Value
+   * - ``ISOTP.FrameType``
+     - All recognised frames
+     - ``"SF"``, ``"FF"``, ``"CF"``, or ``"FC"``
+   * - ``ISOTP.TpTotalBytes``
+     - SF; FF
+     - Payload/Total message length in bytes
+   * - ``ISOTP.TpFirstDataHex``
+     - FF
+     - Hex of data bytes carried in the FF itself
+   * - ``ISOTP.TpSeqNo``
+     - CF
+     - Sequence number nibble (0-15)
+   * - ``ISOTP.TpSessionProgress``
+     - CF
+     - ``"received/total"`` byte count
+   * - ``ISOTP.TpFlowStatus``
+     - FC
+     - ``"CTS"``, ``"Wait"``, ``"Overflow"``, or ``"Reserved"``
+   * - ``ISOTP.TpBlockSize``
+     - FC
+     - Block size byte value
+   * - ``ISOTP.TpSeparationTimeUs``
+     - FC
+     - STmin decoded to microseconds
+   * - ``ISOTP.TpReassemblyComplete``
+     - Last CF of a complete message
+     - ``"true"``
+   * - ``ISOTP.TpPayloadHex``
+     - SF; last CF of a complete message
+     - Uppercase hex string of payload / reassembled data
+   * - ``ISOTP.TpActiveAction``
+     - FF (on active FC send); CF at block boundary
+     - ``"FC sent"``
+
+Configuration
+~~~~~~~~~~~~~
+
+Configuration is JSON and can be changed at runtime via the CanKing extension config panel.
+
+Default configuration:
+
+.. code-block:: json
+
+   {
+     "session_timeout_ms": 1000,
+     "extended_addressing": false,
+     "extended_id": false,
+     "active_addresses": [
+       {
+         "rx_can_id": 2024,
+         "tx_can_id": 2016,
+         "rx_address_extension": null,
+         "tx_address_extension": null
+       }
+     ],
+     "broadcast_id": 2015,
+     "fc_block_size": 0,
+     "fc_stmin": 0,
+     "fc_padding": 204,
+     "fc_use_brs": false
+   }
+
+The default ``active_addresses``, ``fc_padding``, and ``broadcast_id`` values correspond to the standard OBD-II engine ECU scenario:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 15 15 70
+
+   * - Hex
+     - Decimal
+     - Role
+   * - ``0x7E8``
+     - 2024
+     - Engine ECU response address (``rx_can_id``)
+   * - ``0x7E0``
+     - 2016
+     - Tester physical request address (``tx_can_id``)
+   * - ``0x7DF``
+     - 2015
+     - OBD-II functional broadcast address (``broadcast_id``)
+   * - ``0xCC``
+     - 204
+     - ISO 15765-2 recommended padding byte (``fc_padding``)
+
+Configuration fields:
+
+* **session_timeout_ms** - Inactivity timeout for multi-frame sessions. A session is discarded if no Consecutive Frame arrives within this window.
+* **extended_addressing** - When ``true``, the first byte of each CAN data field is the N_TA address extension and the PCI byte is at offset 1. Default ``false``.
+* **extended_id** - Restrict to extended (29-bit) CAN IDs when ``true``; standard (11-bit) IDs when ``false``. Default ``false``.
+* **active_addresses** - Each entry has the following fields:
+
+  * **rx_can_id** - CAN ID on which the remote node sends First Frames to us.
+  * **tx_can_id** - CAN ID used when sending FC frames back.
+  * **rx_address_extension** *(optional)* - Expected N_TA byte (``data[0]``) in received frames when ``extended_addressing`` is ``true``. When ``null``, any extension byte is accepted. Ignored when ``extended_addressing`` is ``false``.
+  * **tx_address_extension** *(optional)* - N_TA byte prepended to outgoing FC frames when ``extended_addressing`` is ``true``. When ``null``, no extension byte is added. Ignored when ``extended_addressing`` is ``false``.
+
+  When a First Frame arrives on ``rx_can_id`` (with matching ``rx_address_extension`` if applicable), an FC(CTS) is sent on ``tx_can_id`` with ``tx_address_extension`` prepended. Empty list = fully passive. Default: OBD-II engine ECU pair (0x7E8 / 0x7E0).
+
+* **broadcast_id** - Passive-mode CAN ID filter. When set, non-active frames are only annotated if their CAN ID equals this value. Set to ``null`` to annotate all non-active frames. Default ``2015`` (0x7DF).
+* **fc_block_size** - Block size (BS) byte sent in all outgoing FC frames. ``0`` means unlimited — the sender may transmit all remaining frames without further FC. Default ``0``.
+* **fc_stmin** - Separation time minimum byte sent in all outgoing FC frames, ISO 15765-2 encoded. ``0x00``-``0x7F`` = 0-127 ms; ``0xF1``-``0xF9`` = 100-900 µs; other values = 127 ms fallback. Default ``0``.
+* **fc_padding** - Padding byte used to fill outgoing FC frames to 8 bytes. Set to ``null`` to send only the mandatory 3 bytes (PCI + BS + STmin) with no padding. Default ``204`` (0xCC).
+* **fc_use_brs** - Enable Bit Rate Switch (BRS) in outgoing FC frames when CAN-FD is used. Has no effect on classic CAN frames.
+
+Active Receiver Flow
+~~~~~~~~~~~~~~~~~~~~
+
+When ``fc_block_size = 0`` (unlimited):
+
+.. code-block:: text
+
+   ECU → FF (on rx_can_id)    → extension sends FC(BS=0) on tx_can_id
+   ECU → CF sn=1
+   ECU → CF sn=2
+   …
+   ECU → CF last              → message reassembled, ISOTP.TpPayloadHex annotated
+
+When ``fc_block_size = 2``:
+
+.. code-block:: text
+
+   ECU → FF (on rx_can_id)    → extension sends FC(BS=2)
+   ECU → CF sn=1
+   ECU → CF sn=2              → extension sends FC(BS=2)   ← block boundary
+   ECU → CF sn=3
+   ECU → CF sn=4              → extension sends FC(BS=2)   ← block boundary
+   …
+   ECU → CF last              → message reassembled
+

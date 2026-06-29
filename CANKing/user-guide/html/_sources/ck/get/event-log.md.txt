@@ -1,0 +1,35 @@
+# ck get event-log
+
+Gets the CanKingService event log entries from windows event logs and gets the CanKing log file.
+
+## Synopsis
+
+```text
+ck get event-log
+    [--language <en|zh|ja>]
+    [-o|--out <OUTPUT_DIRECTORY>]
+    [-s|--start <START_DATETIME>]
+
+ck get event-log -h|--help
+```
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-o|--out```  
+The output directory where the extracted log files will be stored.
+
+- ```-s|--start```  
+The start date and time for the event log entries to be retrieved. Format: yyyy-MM-ddTHH:mm:ss. Default is 48 hours ago.
+
+## Examples
+
+```bash
+ck get event-log
+ck get event-log --out C:\Logs
+ck get event-log --start 2025-10-01T00:00:00
+ck get event-log --out C:\Logs --start 2025-10-01T00:00:00
+```
+

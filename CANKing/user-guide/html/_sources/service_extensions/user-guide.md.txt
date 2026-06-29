@@ -1,0 +1,1274 @@
+# Kvaser CanKing Service Extensions SDK - User Guide
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [What is a CanKing Service Extension?](#what-is-a-canking-service-extension)
+3. [Use Cases](#use-cases)
+4. [Background: WebAssembly Components](#background-webassembly-components)
+   - [WebAssembly Component Model](#webassembly-component-model)
+   - [WebAssembly Interface Type (WIT)](#webassembly-interface-type-wit)
+   - [WebAssembly System Interface (WASI)](#webassembly-system-interface-wasi)
+5. [SDK Overview](#sdk-overview)
+   - [Directory Structure](#directory-structure)
+   - [The WIT Contract](#the-wit-contract)
+6. [Extension Types](#extension-types)
+   - [Data Processor Extensions](#data-processor-extensions)
+   - [Data Target Extensions](#data-target-extensions)
+7. [WIT Interface Reference](#wit-interface-reference)
+   - [Extension Base Interface](#extension-base-interface)
+   - [CanKing Interface](#canking-interface)
+   - [Types Interface](#types-interface)
+8. [Creating Extensions](#creating-extensions)
+   - [JavaScript](#javascript-extensions)
+   - [Python](#python-extensions)
+   - [Rust](#rust-extensions)
+   - [C++](#c-extensions)
+9. [Configuration and Setup](#configuration-and-setup)
+10. [Usage in CanKing](#usage-in-canking)
+11. [Tips and Best Practices](#tips-and-best-practices)
+12. [Useful Resources](#useful-resources)
+
+---
+
+## Introduction
+
+The Kvaser CanKing Service Extensions SDK enables developers to create custom service extensions for the Kvaser CanKing
+bus analysis tool. This guide provides comprehensive information on what CanKing service extensions are, how they work,
+and how third-party developers can create their own extensions.
+
+**Kvaser CanKing** is a free, general-purpose CAN and LIN bus analysis software compatible with all Kvaser CAN/LIN
+interfaces and the Kvaser virtual CAN bus. It's available on Windows (x64) and Linux (x64 and ARM).
+
+While CanKing includes extensive built-in functionality, the extension system allows you to extend its capabilities to
+meet specific requirements.
+
+---
+
+## What is a CanKing Service Extension?
+
+A CanKing service extension is a **WebAssembly (WASM) component** that integrates with the CanKing application to extend
+its functionality. Extensions can be written in **any programming language** that can compile to WASM components, including:
+
+- JavaScript
+- Python
+- Rust
+- C++
+- C# (.NET)
+- Go
+- And more...
+
+Extensions operate in a **sandboxed environment**, meaning they have limited access to external resources. The resources
+available to them, and the functions they export, are defined in a **WIT (WebAssembly Interface Type)** file which
+serves as the contract between CanKing and the extension.
+
+---
+
+## Use Cases
+
+With CanKing service extensions, you can dynamically handle CAN/LIN traffic in various ways:
+
+- **Cloud Upload**: Upload and inspect live traffic data to external tools such as Grafana for visualization using
+                    graphs, maps, gauges, or charts
+- **Data Filtering**: Filter out specific CAN/LIN data to focus on certain frames or signals
+- **Data Processing**: Transform, annotate, or enrich CAN/LIN data as it flows through the system
+- **Custom Logging**: Implement custom logging strategies with batching, sampling, or specific file formats
+- **Protocol Conversion**: Convert between different data formats or protocols
+- **Real-time Analysis**: Perform real-time analysis on the data stream
+- **Integration**: Connect CanKing to external systems, databases, or cloud services
+
+---
+
+## Background: WebAssembly Components
+
+### WebAssembly Component Model
+
+The WebAssembly Component Model offers interoperability, modularity, and performance while maintaining security and
+cross-platform compatibility. Components are built and run in a sandboxed environment with limited access to external resources.
+
+Key characteristics of WASM components:
+
+- **Logically**: Components are containers for modules (or other components) that express their interfaces and
+                 dependencies via WIT
+- **Conceptually**: Components are self-describing units of code that interact only through interfaces instead of shared
+                    memory
+- **Physically**: A component is a specially-formatted WebAssembly file that may internally include multiple traditional
+                  ("core") WebAssembly modules and sub-components
+
+The agreement of an interface adds a new dimension to WebAssembly portability. Not only are components portable across
+architectures and operating systems, but they are also **portable across languages**. A JavaScript component can
+communicate directly and safely with a Rust component without knowing which language the other was written in.
+
+### WebAssembly Interface Type (WIT)
+
+WIT is an Interface Definition Language (IDL) for the Component Model. It defines **worlds** and **interfaces** for
+WASM components:
+
+- A **world** defines the external interface of a component—its imports and exports
+- **Exported functions** are what a host (or another component) expects the component to implement
+- **Imported interfaces** are external implementations the component can depend on
+
+This format provides strong sandboxing—the component can **only** interact with a runtime or other components through
+its exports and imports.
+
+> **Note**: You do not need to write a WIT file to build CanKing service extensions. The WIT contract is provided in
+            the SDK at `/wit/`.
+
+### WebAssembly System Interface (WASI)
+
+WASI is a set of standardized APIs that allow WASM components to interact securely with their host environment.
+CanKing extensions have access to **WASI Preview 2** capabilities, which provide OS-like functionality while maintaining
+the security guarantees of the WebAssembly sandbox.
+
+#### Available WASI Capabilities
+
+CanKing provides the following WASI capabilities to extension components:
+
+##### 1. Logging and Standard I/O
+
+Extensions have multiple ways to output log messages:
+
+**Recommended: CanKing Log Function**
+
+The primary way to log messages is through the `log` function provided by the CanKing interface:
+
+```wit
+log: func(message: string, severity: log-severity);
+```
+
+This function allows you to control the severity level of your messages:
+
+- `DEBUG` - Detailed debugging information (only shown at Debug log level)
+- `INFORMATION` - General flow and informational messages
+- `WARNING` - Abnormal or unexpected events that don't stop execution
+- `ERROR` - Execution failures and error conditions
+- `CRITICAL` - Catastrophic failures (shows a dialog in CanKing)
+
+Using the `log` function ensures your messages are properly categorized and filtered according to CanKing's log level settings.
+
+**Standard I/O Streams (stdout/stderr)**
+
+Extensions can also write to standard streams:
+
+- **stdout** - Output is automatically redirected to the CanKing log with `INFORMATION` severity
+- **stderr** - Output is automatically redirected to the CanKing log with `ERROR` severity
+
+This provides compatibility with standard library logging in most programming languages (e.g., `console.log()` in
+JavaScript, `print()` in Python, `println!()` in Rust) and allows existing code to work without modification. However,
+using the dedicated `log` function is recommended when you need fine-grained control over message severity.
+
+##### 2. File System Access
+
+Extensions receive access to a **temporary working directory** with full read and write permissions:
+
+- **Location**: Each extension instance gets its own isolated temporary directory
+- **Permissions**: Full read and write access within this directory
+- **Use Cases**:
+  - Cache data between measurement sessions
+  - Store temporary processing results
+  - Save configuration files
+  - Buffer data before uploading
+
+**Security Model**: Extensions use a **capability-based security model** and can **only** access the temporary
+directory explicitly granted to them. They cannot:
+
+- Access parent directories (e.g., `../` paths are blocked)
+- Read or write arbitrary host filesystem paths
+- Access system directories or user files outside the granted directory
+
+This sandboxing ensures that extensions cannot compromise host system security while still providing useful file operations.
+
+##### 3. WASI Preview 2 Standard APIs
+
+Extensions have access to the complete WASI Preview 2 API surface, which includes:
+
+- **File Operations**: `open`, `read`, `write`, `seek`, `stat`, `close` - POSIX-like file handling within the granted directory
+- **Directory Operations**: `mkdir`, `readdir`, `rmdir` - Create and manage directories
+- **Time and Clocks**: Get current time, timestamps, and monotonic clocks for measurements
+- **Random Numbers**: Cryptographically secure random number generation
+- **Environment Variables**: Read environment variables passed to the component
+
+**POSIX-like Interface**: The WASI APIs follow familiar POSIX system call patterns, making it easy to work with
+files and I/O if you're familiar with Linux, macOS, or other Unix-like systems. Most programming languages provide
+high-level wrappers around these APIs (e.g., Python's `open()`, Rust's `std::fs`, JavaScript's `fs` module in Node.js).
+
+##### 4. HTTP/HTTPS Client
+
+Extensions can make outbound HTTP and HTTPS requests:
+
+- **HTTP Support**: Plain HTTP requests to any endpoint
+- **HTTPS Support**: Secure HTTPS with TLS/SSL, certificate validation, and modern cipher suites
+- **Use Cases**:
+  - Upload data to cloud services and REST APIs
+  - Fetch configuration from remote servers
+  - Send telemetry and analytics
+  - Integrate with web services and databases
+  - Authenticate with OAuth or API keys
+
+**Note**: This is **client-only** functionality. Extensions cannot act as HTTP servers or accept incoming connections.
+
+#### Security Considerations
+
+All WASI capabilities operate within WebAssembly's security sandbox:
+
+- Extensions cannot execute arbitrary system commands
+- Network access is outbound-only (no listening on ports)
+- File system access is strictly limited to the granted directory
+- No access to privileged system resources
+- Cross-platform compatibility is maintained
+
+This design allows you to create powerful, feature-rich extensions while ensuring they remain safe to distribute and
+run on any system where CanKing is installed.
+
+---
+
+## SDK Overview
+
+### Directory Structure
+
+The SDK contains the following key directories:
+
+| Directory                   | Description                                                                          |
+|-----------------------------|--------------------------------------------------------------------------------------|
+| [`docs/`](../docs/)         | Kvaser CanKing Service Extensions SDK documentation                                  |
+| [`examples/`](../examples/) | Example extensions in different programming languages (JavaScript, Python, Rust)     |
+| [`wit/`](../wit/)           | WIT interface definitions that define the contract between CanKing and extensions    |
+
+### The WIT Contract
+
+The CanKing WIT files define the **extension world**, which establishes the boundaries of the component. The main
+interfaces are:
+
+- **canking interface**: Functions that extensions can call to interact with CanKing
+- **types interface**: Type definitions (records, enums, variants) used by extensions
+- **extension-base interface**: Base functions that all extensions must implement
+- **data-processor world**: The world for data processor extensions
+- **data-target world**: The world for data target extensions
+
+---
+
+## Extension Types
+
+### Data Processor Extensions
+
+A **data-processor** extension processes and forwards CAN/LIN data to the next node in the measurement setup. Examples include:
+
+- Filter extensions that selectively block certain frames or signals
+- Gateway extensions that receives frames from one network and resends them on another network
+- Annotation extensions that add metadata to frames
+
+Data processors sit in the middle of the data flow and can modify or filter data before it reaches the next node.
+
+### Data Target Extensions
+
+A **data-target** extension serves as the final destination for processed data. It receives CAN/LIN data from connected
+channels and handles it according to its implementation. Examples include:
+
+- Cloud upload extensions that send data to external services
+- Logging extensions that write data to files
+
+Data targets can be placed after data-processors or directly after source channels.
+
+---
+
+## WIT Interface Reference
+
+### Extension Base Interface
+
+All extensions must implement the `extension-base` interface:
+
+```wit
+interface extension-base {
+  /// Gets the extension's information
+  get-extension-info: func() -> extension-info;
+
+  /// Called when the configuration changes (only when no measurement is running)
+  on-config-change: func(new-config: string);
+
+  /// Called when the CanKing setup changes (channels/signals added/removed)
+  on-setup-change: func(new-setup: canking-setup-info);
+
+  /// Called when a measurement starts
+  on-start-measurement: func();
+
+  /// Called when a measurement stops
+  on-stop-measurement: func();
+}
+```
+
+Additionally, both data-processor and data-target extensions must implement:
+
+```wit
+/// Get the data subscription for frames and signals
+get-subscription: func() -> option<data-subscription>;
+
+/// Called when new frames are received
+on-frames: func(frames: list<process-frame>);
+
+/// Called when new signal values are received
+on-signals: func(signals: list<signal-value>);
+```
+
+The data-processor also need to implement:
+
+```wit
+/// Called by CanKing before a measurement starts to get all frame property names
+/// that this extension may add when processing frames.
+/// This is needed for CanKing to be able to display the frame properties in the UI, e.g. in the Message Trace view.
+/// If the extension doesn't add any frame properties, then this function can return an empty list.
+///
+/// Returns: A list of frame property names.
+get-frame-property-names: func() -> list<string>;
+```
+
+### CanKing Interface
+
+Extensions can call these functions to interact with CanKing:
+
+```wit
+interface canking {
+  /// Set an error message (disables extension until measurement stops)
+  set-error: func(error: string);
+
+  /// Log a message to CanKing's log
+  log: func(message: string, severity: log-severity);
+
+  /// Block a frame from being passed to the next node
+  block-frame: func(frame-handle: s32);
+
+  /// Add a text property to a frame
+  set-frame-txt-property: func(frame-handle: s32, name: string, value: string);
+
+  /// Add a numeric property to a frame
+  set-frame-num-property: func(frame-handle: s32, name: string, value: f64);
+
+  /// Send a frame to a CanKing output channel
+  send-frame: func(channel-number: s32, frame: out-frame);
+}
+```
+
+### Types Interface
+
+Key types defined in the interface:
+
+#### Extension Info
+
+```wit
+record extension-info {
+  display-name: string,
+  description: string,
+  version: string,
+  author: string,
+  default-config: string,  // JSON formatted string
+}
+```
+
+#### Log Severity
+
+```wit
+enum log-severity {
+  DEBUG,       // For debugging, shown only at Debug log level
+  INFORMATION, // General flow information
+  WARNING,     // Abnormal/unexpected events
+  ERROR,       // Execution stopped due to failure
+  CRITICAL,    // Catastrophic failure, shows dialog in CanKing
+}
+```
+
+#### Frame Data
+
+```wit
+record frame-data {
+  id: u32,           // Frame identifier
+  data-len: u16,     // Length of data payload
+  data: list<u8>,    // Data payload
+}
+```
+
+#### Frame Reception Info
+
+```wit
+  record frame-reception-info {
+    /// The frame timestamp in microseconds.
+    time-us: u64,
+    /// The CANlib channel number of the channel that received the frame.
+    /// This can be used to correlate the frame to a specific channel using the channel
+    /// information provided by CanKing.
+    channel-number: s32,
+    /// The direction of the frame.
+    direction: direction,
+  }
+```
+
+#### Process Frame
+
+```wit
+  record can-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN information about the frame.
+    can-info: can-frame-info,
+  }
+```
+
+```wit
+  record can-fd-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN FD information about the frame.
+    can-fd-info: can-fd-frame-info,
+  }
+```
+
+```wit
+  record lin-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special LIN information about the frame.
+    lin-info: lin-frame-info,
+  }
+```
+
+```wit
+  record error-process-frame {
+    /// Frame handle assigned by CanKing.
+    frame-handle: s32,
+    /// Frame reception information, for example timestamp, channel ID, and direction.
+    reception-info: frame-reception-info,
+    /// Special error frame information.
+    error-info: error-frame-type,
+  }
+```
+
+```wit
+  /// A frame to process, which can be a regular frame with protocol specific information,
+  /// an error frame, or an unknown frame.
+  variant process-frame {
+    unknown-frame(unknown-process-frame),
+    can-frame(can-process-frame),
+    can-fd-frame(can-fd-process-frame),
+    lin-frame(lin-process-frame),
+    error-frame(error-process-frame),
+  }
+```
+
+#### Out Frame
+
+```wit
+  record can-out-frame {
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN information about the frame.
+    can-info: can-frame-info,
+  }
+```
+
+```wit
+  record can-fd-out-frame {
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special CAN FD information about the frame.
+    can-fd-info: can-fd-frame-info,
+  }
+```
+
+```wit
+  record lin-out-frame {
+    /// Frame data and ID.
+    frame-data: frame-data,
+    /// Special LIN information about the frame.
+    lin-info: lin-frame-info,
+  }
+```
+
+```wit
+  variant out-frame {
+    can-frame(can-out-frame),
+    can-fd-frame(can-fd-out-frame),
+    lin-frame(lin-out-frame),
+  }
+```
+
+#### Data Subscription
+
+```wit
+record data-subscription {
+  frames: option<frames-subscription>,
+  signals: option<list<s32>>,  // Signal handles to subscribe to
+}
+```
+
+#### Frames Subscription
+
+```wit
+record frames-subscription {
+  /// True to include error frames in the subscription.
+  include-error-frames: bool,
+  /// A list of frame ID filters.
+  id-filters: list<frame-id-filter>,
+}
+```
+
+#### Frame ID Filter
+
+```wit
+record code-mask-filter {
+  code: u32,  // Acceptance code
+  mask: u32,  // Acceptance mask
+}
+
+record frame-id-filter {
+  protocol: option<protocol>,                 // CAN, CAN-FD, LIN, or UNKNOWN
+  is-extended-id: option<bool>,               // Extended IDs (CAN/CAN FD only)
+  direction: option<direction>,               // RX or TX
+  code-mask-filter: option<code-mask-filter>, // ID filter
+}
+```
+
+> **Filter Logic**: A frame is accepted if `((code XOR id) AND mask) == 0`. If no `code-mask-filter` is specified, then
+                    all frame IDs are accepted.
+
+---
+
+## Creating Extensions
+
+### JavaScript Extensions
+
+#### Prerequisites
+
+- Node.js
+- npm
+
+#### Setup
+
+```bash
+npm install @bytecodealliance/componentize-js
+npm install -g @bytecodealliance/jco @bytecodealliance/componentize-js @bytecodealliance/preview2-shim
+```
+
+#### Generate Types (Optional)
+
+```bash
+jco types '<path-to-canking>/service_extensions/wit/canking-data-processor@1.1.0.wit' -o .
+```
+
+#### Example Implementation (my-extension.js)
+
+```javascript
+import { log } from "canking:data-processor/canking@1.1.0";
+
+let configuration = {};
+
+export const extensionBase = {
+  getExtensionInfo() {
+    return {
+      displayName: "My Extension",
+      description: "A custom CanKing service extension",
+      version: "1.0.0",
+      author: "Your Name",
+      defaultConfig: "{}",
+    }
+  },
+  
+  onConfigChange(newConfig) {
+    log("Configuration changed", "DEBUG");
+    try {
+      configuration = JSON.parse(newConfig);
+    } catch (error) {
+      log("Invalid JSON: " + error, "WARNING");
+    }
+  },
+
+  onSetupChange(newSetup) {
+    log("Setup changed", "DEBUG");
+  },
+
+  onStartMeasurement() {
+    log("Measurement started", "DEBUG");
+  },
+
+  onStopMeasurement() {
+    log("Measurement stopped", "DEBUG");
+  },
+};
+
+export function getSubscription() {
+  return {
+    frames: {
+      includeErrorFrames: false,
+      idFilters: [
+        {
+          direction: "RX",
+        }
+      ]
+    }
+  };
+}
+
+export function getFramePropertyNames() {
+  log("Get frame property names", "DEBUG");
+  // For this example, we will not add any frame properties, so we return an empty list.
+  return [];
+}
+
+export function onFrames(frames) {
+  log("Received frames", "DEBUG");
+  for (const frame of frames) {
+    // Process frames here
+  }
+}
+
+export function onSignals(signals) {
+  log("Received signals", "DEBUG");
+}
+```
+
+#### Build
+
+```bash
+jco componentize my-extension.js --wit '<path-to-canking>/service_extensions/wit/canking-data-processor@1.1.0.wit' --world-name data-processor -o my-extension.wasm
+```
+
+---
+
+### Python Extensions
+
+#### Prerequisites
+
+- Python 3.10 or later
+- pip
+
+#### Setup
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate (Windows)
+./venv/Scripts/activate
+# Activate (Linux/macOS)
+source venv/bin/activate
+
+# Install componentize-py
+pip install componentize-py
+```
+
+#### Generate Bindings (Optional)
+
+```bash
+componentize-py -d '<path-to-canking>/service_extensions/wit/canking-data-processor@1.1.0.wit' -w data-processor bindings .
+```
+
+#### Example Implementation (my_extension.py)
+
+```python
+from typing import List, Optional
+from wit_world.imports.types import (
+    DataSubscription, ExtensionInfo, ProcessFrame, 
+    FramesSubscription, LogSeverity, CankingSetupInfo, 
+    SignalValue, FrameIdFilter, Protocol
+)
+from wit_world.imports.canking import log
+from wit_world.exports import ExtensionBase
+from wit_world import WitWorld
+
+class ExtensionBase(ExtensionBase):
+
+    @staticmethod
+    def get_extension_info() -> ExtensionInfo:
+        return ExtensionInfo(
+            display_name="My Extension",
+            description="A custom CanKing service extension",
+            version="1.0.0",
+            author="Your Name",
+            default_config="{}"
+        )
+
+    @staticmethod
+    def on_config_change(new_config: str) -> None:
+        log("Configuration changed", LogSeverity.DEBUG)
+
+    @staticmethod
+    def on_setup_change(new_setup: CankingSetupInfo) -> None:
+        log("Setup changed", LogSeverity.DEBUG)
+
+    @staticmethod
+    def on_start_measurement() -> None:
+        log("Measurement started", LogSeverity.DEBUG)
+
+    @staticmethod
+    def on_stop_measurement() -> None:
+        log("Measurement stopped", LogSeverity.DEBUG)
+
+class WitWorld(WitWorld):
+
+    @staticmethod
+    def get_subscription() -> Optional[DataSubscription]:
+        return DataSubscription(
+            frames=FramesSubscription(
+                include_error_frames=False,
+                id_filters=[
+                    FrameIdFilter(
+                        protocol=Protocol.CAN,
+                        is_extended_id=None,
+                        direction=None,
+                        code_mask_filter=None,
+                    ),
+                ]
+            ),
+            signals=None
+        )
+
+    @staticmethod
+    def get_frame_property_names() -> List[str]:
+        log("Get frame property names", LogSeverity.DEBUG)
+        return []
+
+    @staticmethod
+    def on_frames(frames: List[ProcessFrame]) -> None:
+        log("Received frames", LogSeverity.DEBUG)
+        for frame in frames:
+            match frame:
+                case ProcessFrame_CanFrame(f):
+                    log(f"Processing CAN frame with id: {f.frame_data.id}", LogSeverity.DEBUG)
+                case ProcessFrame_CanFdFrame(f):
+                    log(f"Processing CAN FD frame with id: {f.frame_data.id}", LogSeverity.DEBUG)
+                case ProcessFrame_LinFrame(f):
+                    log(f"Processing LIN frame with id: {f.frame_data.id}", LogSeverity.DEBUG)
+                case ProcessFrame_ErrorFrame():
+                    log(f"Processing Error frame", LogSeverity.DEBUG)
+                case _:
+                    # If the frame type is unknown, skip it.
+                    continue
+
+    @staticmethod
+    def on_signals(signals: List[SignalValue]) -> None:
+        log("Received signals", LogSeverity.DEBUG)
+```
+
+#### Build
+
+```bash
+componentize-py -d '<path-to-canking>/service_extensions/wit/canking-data-processor@1.1.0.wit' -w data-processor componentize my_extension -o my_extension.wasm
+```
+
+---
+
+### Rust Extensions
+
+#### Prerequisites
+
+- Rust (install via [rustup](https://rustup.rs/))
+- wasm32-wasip2 target
+
+#### Setup
+
+```bash
+# Install wasm32-wasip2 target
+rustup target add wasm32-wasip2
+```
+
+#### Cargo.toml
+
+```toml
+[package]
+name = "my-extension"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wit-bindgen = "0.52.0"
+
+[lib]
+crate-type = ["cdylib"]
+```
+
+#### Example Implementation
+
+```rust
+mod bindings {
+    wit_bindgen::generate!({
+        path: "<path-to-canking>/service_extensions/wit/canking-data-processor@1.1.0.wit",
+    });
+
+    use super::DataProcessorComponent;
+    export!(DataProcessorComponent);
+}
+
+use crate::bindings::{
+    canking::data_processor::{
+        canking::log,
+        types::{
+            CankingSetupInfo, DataSubscription, FrameIdFilter, 
+            FramesSubscription, LogSeverity, ProcessFrame, SignalValue,
+        },
+    },
+    exports::canking::data_processor::extension_base::ExtensionInfo,
+};
+
+struct DataProcessorComponent;
+
+impl bindings::exports::canking::data_processor::extension_base::Guest for DataProcessorComponent {
+    fn get_extension_info() -> ExtensionInfo {
+        ExtensionInfo {
+            display_name: "My Extension".to_string(),
+            description: "A custom CanKing service extension".to_string(),
+            version: "1.0.0".to_string(),
+            author: "Your Name".to_string(),
+            default_config: "{}".to_string(),
+        }
+    }
+
+    fn on_config_change(_new_config: String) {
+        log("Configuration changed", LogSeverity::Debug);
+    }
+
+    fn on_setup_change(_new_setup: CankingSetupInfo) {
+        log("Setup changed", LogSeverity::Debug);
+    }
+
+    fn on_start_measurement() {
+        log("Measurement started", LogSeverity::Debug);
+    }
+
+    fn on_stop_measurement() {
+        log("Measurement stopped", LogSeverity::Debug);
+    }
+}
+
+impl bindings::Guest for DataProcessorComponent {
+    fn get_subscription() -> Option<DataSubscription> {
+        Some(DataSubscription {
+            frames: Some(FramesSubscription {
+                include_error_frames: false,
+                id_filters: vec![FrameIdFilter {
+                    protocol: None,
+                    is_extended_id: None,
+                    direction: None,
+                    code_mask_filter: None,
+                }],
+            }),
+            signals: None,
+        })
+    }
+
+    fn get_frame_property_names() -> Vec<String> {
+        // This extension doesn't add any frame properties, so we return an empty list.
+        vec![]
+    }
+
+    fn on_frames(frames: Vec<ProcessFrame>) {
+        log("Received frames", LogSeverity::Debug);
+        for frame in frames {
+            match frame {
+                ProcessFrame::CanFrame(f) => {
+                    log(&format!("CAN frame ID: {}", f.frame_data.id), LogSeverity::Debug);
+                }
+                ProcessFrame::CanFdFrame(f) => {
+                    log(&format!("CAN FD frame ID: {}", f.frame_data.id), LogSeverity::Debug);
+                }
+                ProcessFrame::LinFrame(f) => {
+                    log(&format!("LIN frame ID: {}", f.frame_data.id), LogSeverity::Debug);
+                }
+                ProcessFrame::ErrorFrame(_) => {
+                    log("Error frame received", LogSeverity::Debug);
+                }
+                ProcessFrame::UnknownFrame(_) => {
+                    log("Unknown frame received", LogSeverity::Debug);
+                }
+            }
+        }
+    }
+
+    fn on_signals(_signals: Vec<SignalValue>) {
+        log("Received signals", LogSeverity::Debug);
+    }
+}
+```
+
+#### Build
+
+```bash
+cargo build --target=wasm32-wasip2 --release
+```
+
+> **Note**: Rust has the best WASI support. If your extension needs full network and filesystem capabilities, Rust is recommended.
+
+---
+
+### C++ Extensions
+
+#### Prerequisites
+
+- [WASI SDK](https://github.com/WebAssembly/wasi-sdk) (v24 or later) — provides clang++ with a WASI sysroot
+- [wit-bindgen CLI](https://github.com/bytecodealliance/wit-bindgen) — generates C bindings from the WIT contract
+- [wasm-tools](https://github.com/bytecodealliance/wasm-tools) — wraps the compiled core module as a WebAssembly component
+
+See [`examples/cpp/README.md`](../examples/cpp/README.md) for installation instructions for each tool.
+
+#### Setup
+
+```bash
+# Download WASI SDK
+curl -sL https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-32/wasi-sdk-32.0-x86_64-linux.tar.gz \
+    | tar -xz -C /opt
+mv /opt/wasi-sdk-32.0-x86_64-linux /opt/wasi-sdk
+
+# Install wit-bindgen CLI and wasm-tools via cargo
+cargo install wit-bindgen-cli wasm-tools
+```
+
+#### Generate Bindings
+
+```bash
+# Generate from WIT
+wit-bindgen c '<path-to-canking>/service_extensions/wit/canking-data-processor@1.1.0.wit' --out-dir bindings
+
+# Pre-compile with clang
+/opt/wasi-sdk/bin/wasm32-wasip2-clang -c bindings/data_processor.c -o bindings/data_processor.o
+```
+
+#### Example Implementation (my-extension.cpp)
+
+```cpp
+#include <cstdio>
+#include <cstring>
+#include "bindings/data_processor.h" // generated by wit-bindgen
+
+static void log(const char *msg,
+                canking_data_processor_types_log_severity_t severity =
+                    CANKING_DATA_PROCESSOR_TYPES_LOG_SEVERITY_DEBUG)
+{
+  data_processor_string_t s;
+  data_processor_string_set(&s, msg);
+  canking_data_processor_canking_log(&s, severity);
+}
+
+extern "C" void exports_canking_data_processor_extension_base_get_extension_info(
+    exports_canking_data_processor_extension_base_extension_info_t *ret)
+{
+  // Return owned strings since the generated post-return will free them.
+  data_processor_string_dup(&ret->display_name,   "My Extension");
+  data_processor_string_dup(&ret->description,    "A custom CanKing service extension");
+  data_processor_string_dup(&ret->version,        "1.0.0");
+  data_processor_string_dup(&ret->author,         "Your Name");
+  data_processor_string_dup(&ret->default_config, "{}");
+}
+
+extern "C" void exports_canking_data_processor_extension_base_on_config_change(
+    data_processor_string_t *new_config)
+{
+  log("Received config change in C++ basic component");
+  // We own the memory of the input string, so we need to free it after processing.
+  data_processor_string_free(new_config);
+}
+
+extern "C" void exports_canking_data_processor_extension_base_on_setup_change(
+    exports_canking_data_processor_extension_base_canking_setup_info_t *new_setup)
+{
+  log("Received setup change in C++ basic component");
+  // We own the memory of the input setup, so we need to free it after processing.
+  exports_canking_data_processor_extension_base_canking_setup_info_free(new_setup);
+}
+
+extern "C" void exports_canking_data_processor_extension_base_on_start_measurement(void)
+{
+  log("Received start measurement in C++ basic component");
+}
+
+extern "C" void exports_canking_data_processor_extension_base_on_stop_measurement(void)
+{
+  log("Received stop measurement in C++ basic component");
+}
+
+extern "C" bool exports_data_processor_get_subscription(
+    data_processor_data_subscription_t *ret)
+{
+  // Subscribe only to CAN RX frames (standard and extended IDs).
+  // The generated post-return frees id_filters.ptr, so this must be heap allocated.
+  auto *filters = static_cast<canking_data_processor_types_frame_id_filter_t *>(
+      std::malloc(sizeof(canking_data_processor_types_frame_id_filter_t)));
+  if (filters == nullptr)
+  {
+    log("Failed to allocate subscription filters",
+        CANKING_DATA_PROCESSOR_TYPES_LOG_SEVERITY_ERROR);
+    return false;
+  }
+
+  filters[0] = {
+      /* protocol        */ {true, CANKING_DATA_PROCESSOR_TYPES_PROTOCOL_CAN},
+      /* is_extended_id  */ {false, false},
+      /* direction       */ {true, CANKING_DATA_PROCESSOR_TYPES_DIRECTION_RX},
+      /* code_mask_filter*/ {false, {0, 0}},
+  };
+
+  ret->frames.is_some = true;
+  ret->frames.val.include_error_frames = false;
+  ret->frames.val.id_filters.ptr = filters;
+  ret->frames.val.id_filters.len = 1;
+  ret->signals.is_some = false;
+
+  return true;
+}
+
+/**
+ * Called by CanKing before a measurement starts to get all frame property names
+ * that this extension may add when processing frames.
+ * This is needed for CanKing to be able to display the frame properties in the UI, e.g. in the Message Trace view.
+ * If the extension doesn't add any frame properties, then it can return an empty list.
+ *
+ * @return A list of frame property names.
+ */
+extern "C" void exports_data_processor_get_frame_property_names(
+    data_processor_list_string_t *ret)
+{
+  // This extension doesn't add any frame properties, so we return an empty list.
+  ret->ptr = nullptr;
+  ret->len = 0;
+}
+
+extern "C" void exports_data_processor_on_frames(
+    data_processor_list_process_frame_t *frames)
+{
+  log("Received frames");
+
+  for (size_t i = 0; i < frames->len; i++)
+  {
+    // Process frames here
+  }
+
+  // We own the memory of the input frames, so we need to free it after processing.
+  data_processor_list_process_frame_free(frames);
+}
+
+extern "C" void exports_data_processor_on_signals(
+    data_processor_list_signal_value_t *signals)
+{
+    log("Received signals");
+  // We own the memory of the input signals, so we need to free it after processing.
+  data_processor_list_signal_value_free(signals);
+}
+```
+
+#### Build
+
+```bash
+/opt/wasi-sdk/bin/wasm32-wasip2-clang++ \
+    -fno-exceptions \
+    -o my-extension.wasm \
+    -mexec-model=reactor \
+    my-extension.cpp \
+    bindings/data_processor.o \
+    bindings/data_processor_component_type.o
+```
+
+---
+
+## Configuration and Setup
+
+Extensions receive configuration as a JSON-formatted string through the `on_config_change` callback. This allows users
+to configure extension behavior through CanKing's UI.
+
+### Example Configuration Structure
+
+```json
+{
+  "FilterType": "block",
+  "Ids": [100, 200, 300],
+  "Server": "https://api.example.com/upload",
+  "BatchStrategy": {
+    "FileSize": 100000,
+    "TimeInterval": 5000
+  }
+}
+```
+
+### Handling Configuration
+
+Parse and validate the configuration in your `on_config_change` implementation:
+
+```javascript
+onConfigChange(newConfig) {
+  try {
+    const config = JSON.parse(newConfig);
+    // Validate and store configuration
+    this.filterType = config.FilterType || "block";
+    this.filterIds = config.Ids || [];
+  } catch (error) {
+    log("Invalid configuration: " + error, "WARNING");
+  }
+}
+```
+
+---
+
+## Usage in CanKing
+
+### Installing an Extension
+
+1. Install the extension `.wasm` file in the CanKing service
+2. Use the CLI or GUI to add the extension to your measurement setup
+
+#### CLI Example (Data Target)
+
+```bash
+ck install extension path/to/extension.wasm
+ck add extension extension-name -n instance-name
+```
+
+#### CLI Example (Data Processor)
+
+```bash
+ck install extension path/to/filter.wasm
+ck add extension filter -n my-filter --previous-node channel-1
+```
+
+### Connecting Extensions
+
+- **Data Processors**: Connect to a source or target node using the `+` sign in the GUI, or use `--previous-node` or
+                       `--next-node` flags in the CLI
+- **Data Targets**: Automatically added to all previous data sources/processors
+
+---
+
+## Tips and Best Practices
+
+### General
+
+1. **Start Simple**: Begin with the basic example and gradually add functionality
+2. **Use Logging**: Extensively use the `log` function during development to understand the flow
+3. **Validate Configuration**: Always validate incoming configuration and handle errors gracefully
+4. **Test Thoroughly**: Test your extension with various frame types and edge cases
+
+### Threading and Callback Safety
+
+The host callback contract is strict and applies to all extension languages:
+
+- Callbacks are **synchronous**
+- Callback input pointers/strings are **borrowed, read-only, and only valid during the callback**
+- Callback implementations must be **thread-safe**
+- Callbacks must **not call back into host internals unless explicitly documented**
+
+#### General Threading Guidance
+
+What you can do:
+
+- Use thread-safe state (`Mutex`, `RwLock`, atomics, synchronized collections) when sharing data
+- Copy callback data you need to keep after the callback returns
+- Offload expensive work to worker threads/tasks if your language/runtime supports it
+- Use queues/channels to hand work from callbacks to background workers
+- Keep callback handlers short and deterministic to avoid data-path stalls
+
+What you should not do:
+
+- Do not store raw callback pointers or borrowed strings for later use
+- Do not mutate callback input buffers
+- Do not assume callbacks are always invoked on the same OS thread
+- Do not block callbacks for long periods with heavy CPU work, long locks, or slow I/O
+- Do not perform re-entrant host calls that are not explicitly documented as safe
+
+Recommended pattern:
+
+1. Validate and minimally transform data in `on-frames` / `on-signals`
+2. Copy required fields into owned data structures
+3. Push owned data to a worker queue
+4. Return quickly from the callback
+
+#### Imported Host Calls (`canking` Interface)
+
+For imported CanKing host calls (`log`, `set-error`, `block-frame`, `set-frame-*-property`, `send-frame`), treat them as
+**callback-context only** operations.
+
+Safe:
+
+- Call imported CanKing host functions from exported extension callbacks such as `on-frames`, `on-signals`,
+  `on-start-measurement`, and `on-stop-measurement`
+
+Not safe / not supported:
+
+- Calling imported CanKing host functions from worker/background threads started by the component
+- Saving callback context and using it later outside the callback
+- Any re-entrant host call pattern not explicitly documented as safe
+
+Practical rule: perform host interactions inside exported callbacks; use worker threads only for pure internal work.
+When workers need host interaction, send results back to callback-owned state and perform the host call in the next
+exported callback invocation.
+
+### Language-Specific
+
+#### Rust
+
+- For full WASI support (networking, filesystem), use Rust with the [WASI crate](https://docs.rs/wasi/latest/wasi/)
+- Use `once_cell::sync::Lazy` for global state management
+- Consider using `serde` for JSON parsing
+
+#### JavaScript
+
+- Use destructuring for cleaner frame handling
+- Handle all frame types in `onFrames` (CAN, CAN FD, LIN, error)
+
+#### Python
+
+- Use type hints for better code clarity
+- Use pattern matching (`match`/`case`) for frame type handling (Python 3.10+)
+
+#### C++
+
+- All exported functions must be declared `extern "C"` to prevent C++ name mangling
+- Use static local variables for subscription structs that must outlive the function call
+- Use [nlohmann/json](https://github.com/nlohmann/json) (header-only) for JSON config parsing — it integrates cleanly
+  with CMake `FetchContent`
+- Prefer `std::vector` and `std::string` for internal state; convert to `data_processor_string_t` only at the
+  boundary when calling canking functions
+- Check the generated `build/bindings/*.h` header for exact type names and enum constants after running `cmake ..`
+- See [wit-bindgen c](https://github.com/bytecodealliance/wit-bindgen/blob/main/crates/c/README.md) for memory ownership.
+
+### Signals
+
+To receive signals in your extension:
+
+1. Add a database data-processor in your CanKing setup and connect it to your extension
+2. Return the signal handles to subscribe to in the `signals` list in `data-subscription`
+3. Valid signal handles are received in the `on-setup-change`call
+
+> **Tip**: Add a signals-filter field in your extension's configuration to add signal names dynamically, then use the
+           `canking-setup-info` to decode the signal handles.
+
+---
+
+## Useful Resources
+
+### Official Documentation
+
+- [WebAssembly Component Model](https://component-model.bytecodealliance.org/design/why-component-model.html)
+- [WIT Specification](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)
+- [WASI Interfaces](https://wasi.dev/interfaces)
+
+### Language-Specific Tools
+
+- **JavaScript**: [ComponentizeJS](https://github.com/bytecodealliance/ComponentizeJS)
+- **Python**: [componentize-py](https://github.com/bytecodealliance/componentize-py)
+- **Rust**: [wasm32-wasip2](https://component-model.bytecodealliance.org/language-support/building-a-simple-component/rust.html)
+- **C++**: [WASI SDK](https://github.com/WebAssembly/wasi-sdk),
+           [wit-bindgen CLI](https://github.com/bytecodealliance/wit-bindgen), [wasm-tools](https://github.com/bytecodealliance/wasm-tools)
+
+### Utilities
+
+- [WASM Analyzer](https://wa2.dev/) - Analyze your component's imports and exports
+- [wasm-tools](https://github.com/bytecodealliance/wasm-tools) - Composing and inspecting modules and components
+
+---
+
+*This document is part of the Kvaser CanKing Service Extensions SDK.*

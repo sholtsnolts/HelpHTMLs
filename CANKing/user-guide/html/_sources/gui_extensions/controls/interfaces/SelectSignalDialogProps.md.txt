@@ -1,0 +1,232 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [controls](../README.md) / SelectSignalDialogProps
+
+# Interface: SelectSignalDialogProps
+
+Properties of the SelectSignalDialog React component.
+
+## Properties
+
+### checkboxSelection?
+
+> `optional` **checkboxSelection**: `boolean`
+
+If true, checkboxes are shown for multi selection.
+Only used if multiSelect is true.
+Default is false.
+
+***
+
+### modal?
+
+> `optional` **modal**: `boolean`
+
+If true, the dialog is shown as a modal dialog.
+If false, the dialog is shown as a full screen dialog.
+Default is false.
+
+***
+
+### multiSelect?
+
+> `optional` **multiSelect**: `boolean`
+
+If true, multiple signals can be selected.
+If false, only a single signal can be selected.
+Default is false.
+
+***
+
+### nodeIdentifier?
+
+> `optional` **nodeIdentifier**: `string`
+
+Optional node identifier to limit the databases to those available on the specified node.
+If not specified, all databases available in the system will be shown.
+
+***
+
+### onClose()
+
+> **onClose**: () => `void`
+
+Callback function that is called when the dialog should be closed.
+Set the open property to false to close the dialog.
+
+#### Returns
+
+`void`
+
+***
+
+### ~~onMultiSelect()?~~
+
+> `optional` **onMultiSelect**: (`messages`, `signals`) => `void`
+
+Callback function that is called when signals are selected and the Save button is clicked.
+Only used if multiSelect is true.
+The function receives the selected messages and signals as parameters.
+If not specified, nothing happens when the Save button is clicked.
+After calling the onMultiSelect callback, the onClose callback is called.
+
+#### Parameters
+
+##### messages
+
+[`FrameDefinition`](../../models/interfaces/FrameDefinition.md)[]
+
+##### signals
+
+[`SignalDefinition`](../../models/interfaces/SignalDefinition.md)[]
+
+#### Returns
+
+`void`
+
+#### Deprecated
+
+Use onMultiSelectSignalInfos instead.
+
+***
+
+### onMultiSelectSignalInfos()?
+
+> `optional` **onMultiSelectSignalInfos**: (`args`) => `void`
+
+Callback function that is called when multiple signals are selected and the Save button is clicked.
+Only used if multiSelect is true.
+The function receives an array of selected signal informations as parameter.
+If not specified, nothing happens when the Save button is clicked.
+After calling the onMultiSelectSignalInfos callback, the onClose callback is called.
+
+#### Parameters
+
+##### args
+
+[`SelectedSignalInfoChangeArgs`](SelectedSignalInfoChangeArgs.md)[]
+
+#### Returns
+
+`void`
+
+***
+
+### ~~onSelect()?~~
+
+> `optional` **onSelect**: (`message`, `signal`) => `void`
+
+Callback function that is called when a signal is selected.
+Only used if multiSelect is false.
+The function receives the selected message and signal as parameters.
+If not specified, nothing happens when a signal is selected.
+After calling the onSelect callback, the onClose callback is called.
+
+#### Parameters
+
+##### message
+
+[`FrameDefinition`](../../models/interfaces/FrameDefinition.md)
+
+##### signal
+
+[`SignalDefinition`](../../models/interfaces/SignalDefinition.md)
+
+#### Returns
+
+`void`
+
+#### Deprecated
+
+Use onSelectSignalInfo instead.
+
+***
+
+### onSelectSignalInfo()?
+
+> `optional` **onSelectSignalInfo**: (`args`) => `void`
+
+Callback function that is called when a signal is selected.
+The function receives the selected signal information as parameter.
+Only used if multiSelect is false.
+If not specified, nothing happens when a signal is selected.
+After calling the onSelectSignalInfo callback, the onClose callback is called.
+
+#### Parameters
+
+##### args
+
+[`SelectedSignalInfoChangeArgs`](SelectedSignalInfoChangeArgs.md)
+
+#### Returns
+
+`void`
+
+***
+
+### open
+
+> **open**: `boolean`
+
+Whether the dialog is open.
+
+***
+
+### parentDialogTitle?
+
+> `optional` **parentDialogTitle**: `string`
+
+Optional title of the parent dialog to be shown in the title bar as a breadcrumb.
+
+***
+
+### ~~selectedMessages?~~
+
+> `optional` **selectedMessages**: `string`[]
+
+Optional array of initially selected message qualified names.
+Only used if multiSelect is true.
+If not specified, no messages are initially selected.
+If specified, the messages with the specified qualified names will be initially selected.
+Signals of the selected messages will also be selected.
+
+#### Deprecated
+
+Use selectedSignalInfos instead.
+
+***
+
+### selectedSignalInfos?
+
+> `optional` **selectedSignalInfos**: [`SelectedSignalInfo`](SelectedSignalInfo.md)[]
+
+Optional array of initially selected signal informations.
+Only used if multiSelect is true.
+If not specified, no signals are initially selected.
+If specified, the signals with the specified informations will be initially selected.
+
+***
+
+### ~~selectedSignals?~~
+
+> `optional` **selectedSignals**: `string`[]
+
+Optional array of initially selected signal qualified names.
+Only used if multiSelect is true.
+If not specified, no signals are initially selected.
+If specified, the signals with the specified qualified names will be initially selected.
+
+#### Deprecated
+
+Use selectedSignalInfos instead.
+
+***
+
+### sourceIdFilter?
+
+> `optional` **sourceIdFilter**: `string`
+
+The source identifier that will be used to filter messages in the select dialog.
+Leave undefined if no filtering should be done.

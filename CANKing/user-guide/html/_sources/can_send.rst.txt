@@ -1,0 +1,247 @@
+.. _can_send:
+
+CAN Send
+========
+
+The CAN Send pane allows you to manually send individual CAN or CAN FD messages on a selected CAN channel during an active measurement. It provides full control over message identifiers, flags, and data bytes, with optional signal-based editing when databases are loaded.
+
+Overview
+--------
+
+The CAN Send pane is useful for:
+
+* Testing ECU responses to specific messages
+* Injecting test data into a CAN network
+* Simulating missing network nodes
+* Manually triggering specific behaviors
+* Validating message handling in other nodes
+
+.. note::
+   The CAN channel must be online (measurement running) to send messages.
+
+.. _can_send_configuration:
+
+Configuration Sections
+----------------------
+
+Channel Selection
+~~~~~~~~~~~~~~~~~
+
+Select the CAN channel on which to transmit messages. The dropdown displays all CAN Channel source nodes configured in the Measurement Setup view.
+
+.. note::
+   Only channels that are online and in a transmit-capable access mode can send messages.
+
+CAN Identifier
+~~~~~~~~~~~~~~
+
+Configure the message identifier and format:
+
+**Identifier Value**
+  Enter the CAN identifier in hexadecimal (without 0x prefix) or decimal format.
+
+  * **Standard (11-bit)**: 0x000 to 0x7FF (0 to 2047)
+  * **Extended (29-bit)**: 0x00000000 to 0x1FFFFFFF (0 to 536870911)
+
+**Identifier Format**
+  Select the CAN identifier type:
+
+  * **STD** - Standard 11-bit identifier
+  * **EXT** - Extended 29-bit identifier
+
+**CAN FD Options** (when available):
+
+  * **FD** - CAN FD format flag
+  * **BRS** - Bit Rate Switch flag (allows higher data phase bit rate in CAN FD)
+
+**Remote Frame**
+
+  * **RTR** - Remote Transmission Request flag (standard CAN only)
+
+Message Data
+~~~~~~~~~~~~
+
+Configure the message data payload:
+
+**Data Length**
+  * For CAN: 0 to 8 bytes
+  * For CAN FD: 0 to 64 bytes
+
+**Data Entry Methods:**
+
+1. **Byte-by-byte entry** - Enter each data byte in hexadecimal (00-FF)
+2. **Signal-based entry** (when database loaded) - Enter engineering values for each signal
+
+**Byte Layout**
+  Data bytes are displayed in order (Byte 0, Byte 1, Byte 2, etc.) with hexadecimal input fields.
+
+.. _can_send_database_support:
+
+Database Message Support
+-------------------------
+
+When a Databases data processor is added to the CAN channel in the Measurement Setup view, the CAN Send pane can work with database-defined messages and signals.
+
+Selecting a Database Message
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Click the **Select Message** button
+2. Browse or search for a message in the loaded databases
+3. Select the desired message
+
+When a message is selected:
+  * The identifier is automatically set to the message's ID
+  * The identifier format (STD/EXT) is set correctly
+  * The data length is set to the message's defined length
+  * Signal value editors appear
+
+Signal Value Editing
+~~~~~~~~~~~~~~~~~~~~
+
+When a database message is selected, you can edit signal values using:
+
+* **Engineering values** - Enter values in the signal's defined unit (e.g., km/h, °C, rpm)
+* **Automatic encoding** - Signal values are automatically encoded into the message data bytes
+* **Range validation** - Values are validated against signal min/max ranges
+
+The raw data bytes are automatically updated as you change signal values.
+
+Benefits of Signal-based Editing:
+  * More intuitive than raw byte manipulation
+  * Automatic handling of bit packing and byte order
+  * Validation of value ranges
+  * Display of units
+
+.. _can_send_sending:
+
+Sending Messages
+----------------
+
+Send Button
+~~~~~~~~~~~
+
+Click the **Send** button to transmit the configured message immediately. The message is sent once on the selected channel.
+
+.. note::
+   The Send button is only enabled when:
+
+   * A measurement is running (CanKing is online)
+   * A valid channel is selected
+   * The identifier is valid
+   * The data length is valid
+
+Send Feedback
+~~~~~~~~~~~~~
+
+There is no explicit confirmation when a message is sent. To verify transmission:
+
+* Use a Message Trace pane filtered to show Tx messages
+* Monitor the CAN Bus Statistics pane for Tx message count increases
+* Use external monitoring equipment
+
+.. _can_send_workflow:
+
+Typical Workflows
+-----------------
+
+Manual Byte Entry
+~~~~~~~~~~~~~~~~~
+
+1. Select the target CAN channel
+2. Enter the CAN identifier
+3. Set the identifier format (STD or EXT)
+4. Enter the data length
+5. Enter data bytes in hexadecimal
+6. Click **Send**
+
+Database Message Entry
+~~~~~~~~~~~~~~~~~~~~~~
+
+1. Ensure a Databases data processor is configured for the channel
+2. Select the target CAN channel
+3. Click **Select Message** and choose a database message
+4. The identifier and format are set automatically
+5. Enter signal values in their engineering units
+6. Click **Send**
+
+Testing ECU Responses
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Configure a message that triggers an ECU behavior
+2. Open a Message Trace pane to monitor responses
+3. Click **Send** in the CAN Send pane
+4. Observe the ECU's response in the Message Trace
+
+.. _can_send_tips:
+
+Tips and Best Practices
+------------------------
+
+Identifier Entry
+~~~~~~~~~~~~~~~~
+
+* The identifier format (STD/EXT) affects the valid range of identifier values
+* Standard identifiers are more common in automotive applications
+* Extended identifiers are often used in industrial applications
+* Remember to set the correct format before entering the identifier
+
+Data Entry
+~~~~~~~~~~
+
+* Use uppercase or lowercase for hexadecimal values (both work)
+* Leading zeros can be omitted (F is the same as 0F)
+* For multi-byte values, remember to consider byte order (endianness) based on your database
+* When using database signals, the byte order is handled automatically
+
+CAN FD Usage
+~~~~~~~~~~~~
+
+* FD flag must be set for messages longer than 8 bytes
+* BRS flag enables higher data phase bit rates (if supported by hardware and bus configuration)
+* Ensure all nodes on the bus support CAN FD when using FD messages
+* Check that the CAN channel is configured for CAN FD mode in Measurement Setup
+
+Troubleshooting
+~~~~~~~~~~~~~~~
+
+**Send button is disabled:**
+  * Check that a measurement is running
+  * Verify the channel is online
+  * Ensure the channel access mode allows transmission
+  * Confirm the identifier and data length are valid
+
+**Message doesn't appear on bus:**
+  * Check that the channel is "On Bus" in CAN Bus Statistics
+  * Verify bus termination and wiring
+  * Check for bus-off condition
+  * Ensure bit rate configuration matches the bus
+
+**Database signals not available:**
+  * Add a Databases data processor to the channel in Measurement Setup
+  * Load a database file (.dbc) containing the desired messages
+  * Restart the measurement after adding the database
+  * Check that the database contains the message ID you're using
+
+Integration with Other Panes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* **Message Trace** - Monitor sent messages to verify transmission
+* **CAN Bus Statistics** - Check Tx message counts, error counters, and bus status
+* **CAN Periodic Send** - For repeated transmission instead of manual single sends
+* **Signal Plot** - Monitor signal responses after sending test messages
+
+Comparing CAN Send vs CAN Periodic Send
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use **CAN Send** when:
+  * You need manual control over when messages are sent
+  * Testing specific scenarios that require precise timing control
+  * Sending one-time or infrequent messages
+  * Triggering specific events
+
+Use **CAN Periodic Send** when:
+  * You need continuous message transmission
+  * Simulating a real ECU that sends periodic messages
+  * Testing bus load scenarios
+  * Maintaining node presence on the network
+

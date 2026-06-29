@@ -1,0 +1,57 @@
+.. _tools_panel:
+
+Tools panel
+===========
+
+The tools panel is found at the bottom of the Kvaser CanKing application. It consists of two tabs, a terminal where it is possible to send commands for controlling Kvaser CanKing, like for example starting a measurement, and a log view for displaying information and any error messages that have occurred.
+
+Just below the tools panel there is a progress bar for each connected channel which shows their bus load.
+
+The visibility of the tools panel can be toggled from the tool bar at the top of the application by clicking on the dotted menu button, followed by *View* and finally *Toggle Tools Panel*.
+
+.. _terminal_view:
+
+Terminal view
+-------------
+
+From the integrated terminal it is possible to control and handle Kvaser CanKing and measurements using commands. For example, there are commands for starting and stopping a measurement and sending CAN messages. All commands begin with 'ck'.
+
+There is a help menu showing all available commands. Type the following in the terminal to show all options:
+
+.. code-block:: console
+
+  ck --help
+
+There is also a separate section describing the CLI and its commands, see :ref:`cli_overview`.
+
+.. _log_view:
+
+Log view
+--------
+
+The Log view is mainly used for debugging and shows application related information and any received error messages. Which types of messages to display can be filtered using the 'Log level' dropdown menu. The selected option sets the minimum log level to show.
+
+.. table:: *Table 1: Which other log levels that are included within each log level*
+
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+  |  Selected log level/ Included log level  |  Trace  |  Debug  |  Information  |  Warning  |  Error  |  Critical  |
+  +==========================================+=========+=========+===============+===========+=========+============+
+  |  Trace                                   | |check| | |check| |    |check|    |  |check|  | |check| |  |check|   |
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+  |  Debug                                   |         | |check| |    |check|    |  |check|  | |check| |  |check|   |
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+  |  Information                             |         |         |    |check|    |  |check|  | |check| |  |check|   |
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+  |  Warning                                 |         |         |               |  |check|  | |check| |  |check|   |
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+  |  Error                                   |         |         |               |           | |check| |  |check|   |
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+  |  Critical                                |         |         |               |           |         |  |check|   |
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+  |  None                                    |         |         |               |           |         |            |
+  +------------------------------------------+---------+---------+---------------+-----------+---------+------------+
+
+The table above shows which other log levels that are included within each supported log level. For example, if selecting 'Trace', log messages of any log level will be visible in the Log view of Kvaser CanKing, whilst 'Error' will only make error and critical messages viewable. By default, log level 'Information' is selected.
+
+The log may be opened in an external text editor by using the leftmost button. It is also possible to clear and pause the log. When pausing the log new log messages will still arrive, but the view will not automatically scroll down to the latest message.
+

@@ -1,0 +1,607 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Processor Nodes &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Target Nodes" href="target_nodes.html" />
+    <link rel="prev" title="Source Nodes" href="source_nodes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="measurement_setup_view.html#nodes">Nodes</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="measurement_setup_view.html#standard-nodes">Standard Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="source_nodes.html">Source Nodes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Data Processor Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="target_nodes.html">Target Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="measurement_setup_view.html#customized-nodes">Customized Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="measurement_setup_view.html#node-management">Node Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="measurement_setup_view.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="message_trace.html">Message Trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="measurement_setup_view.html">Measurement Setup view</a></li>
+      <li class="breadcrumb-item active">Data Processor Nodes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-processor-nodes">
+<span id="id1"></span><h1>Data Processor Nodes<a class="headerlink" href="#data-processor-nodes" title="Link to this heading"></a></h1>
+<p>Data processor nodes modify, filter, or enhance data flowing from source nodes before it reaches target nodes or the UI.</p>
+<section id="can-message-filter">
+<span id="can-message-filter-node"></span><h2>CAN Message Filter<a class="headerlink" href="#can-message-filter" title="Link to this heading"></a></h2>
+<p>The CAN Message Filter processes CAN messages based on their identifiers, either passing or blocking specified IDs.</p>
+<section id="configuration-options">
+<h3>Configuration Options<a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Filter Mode</strong> - Pass filter or Block filter</p></li>
+<li><p><strong>Standard CAN Identifiers</strong> - List of 11-bit identifiers to filter (0x000-0x7FF)</p></li>
+<li><p><strong>Extended CAN Identifiers</strong> - List of 29-bit identifiers to filter (0x00000000-0x1FFFFFFF)</p></li>
+</ul>
+</section>
+<section id="filter-modes">
+<h3>Filter Modes<a class="headerlink" href="#filter-modes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Pass Filter</strong> - Only allow specified identifiers through; block all others</p></li>
+<li><p><strong>Block Filter</strong> - Block specified identifiers; allow all others through</p></li>
+</ul>
+</section>
+<section id="identifier-specification-format">
+<h3>Identifier Specification Format<a class="headerlink" href="#identifier-specification-format" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Individual IDs: <code class="docutils literal notranslate"><span class="pre">1,2,3</span></code></p></li>
+<li><p>Ranges: <code class="docutils literal notranslate"><span class="pre">100-200</span></code> (includes all IDs from 100 to 200)</p></li>
+<li><p>Combined: <code class="docutils literal notranslate"><span class="pre">1,5,10-20,100</span></code> (IDs 1, 5, 10 through 20, and 100)</p></li>
+</ul>
+</section>
+<section id="use-cases">
+<h3>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Reducing bus traffic to the UI for better performance</p></li>
+<li><p>Isolating specific messages for focused analysis</p></li>
+<li><p>Excluding noisy or high-frequency messages from logging</p></li>
+<li><p>Pre-filtering data for specific test scenarios</p></li>
+</ul>
+</section>
+<section id="tips">
+<h3>Tips<a class="headerlink" href="#tips" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use pass filters when monitoring a small set of known messages</p></li>
+<li><p>Use block filters when you want to exclude a few known noisy messages</p></li>
+<li><p>Filters affect what reaches the UI and targets, but not the physical bus</p></li>
+<li><p>Consider filter performance with very large identifier ranges</p></li>
+<li><p>Multiple filters can be applied in series for complex filtering logic</p></li>
+</ul>
+</section>
+</section>
+<section id="databases">
+<span id="databases-node"></span><h2>Databases<a class="headerlink" href="#databases" title="Link to this heading"></a></h2>
+<p>The Databases data processor adds CAN or LIN database files to enable signal decoding and message naming throughout the application.</p>
+<section id="id2">
+<h3>Configuration Options<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Database Files</strong> - List of .dbc (CAN) or .ldf (LIN) files to load</p></li>
+<li><p><strong>Multiple Files</strong> - Can load multiple databases simultaneously</p></li>
+</ul>
+</section>
+<section id="database-types">
+<h3>Database Types<a class="headerlink" href="#database-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>CAN Databases (.dbc)</strong> - DBC files containing CAN message and signal definitions</p></li>
+<li><p><strong>LIN Databases (.ldf)</strong> - LDF files containing LIN frame and signal definitions</p></li>
+</ul>
+</section>
+<section id="what-databases-enable">
+<h3>What Databases Enable<a class="headerlink" href="#what-databases-enable" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Message names in Message Trace and other panes</p></li>
+<li><p>Signal names and values in expandable message rows</p></li>
+<li><p>Signal-based editing in send panes (CAN Send, LIN Send, etc.)</p></li>
+<li><p>Signal visualization in Signal Plot pane</p></li>
+<li><p>Signal logging in Signal Logger target node</p></li>
+<li><p>Unit and range information for signals</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Use Cases<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Decoding messages in Message Trace with human-readable names</p></li>
+<li><p>Enabling signal-level logging instead of raw message logging</p></li>
+<li><p>Providing signal definitions for graphical visualization</p></li>
+<li><p>Simplifying message configuration with signal-based editing</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Tips<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Load databases early in your measurement setup configuration</p></li>
+<li><p>Multiple databases can be loaded for networks with multiple ECUs</p></li>
+<li><p>Database content is cached for performance with large files</p></li>
+<li><p>Signal decoding occurs in real-time during measurements</p></li>
+<li><p>Databases are required for meaningful signal logging and visualization</p></li>
+</ul>
+</section>
+</section>
+<section id="j1939-interpreter">
+<span id="j1939-interpreter-node"></span><h2>J1939 Interpreter<a class="headerlink" href="#j1939-interpreter" title="Link to this heading"></a></h2>
+<p>The J1939 Interpreter data processor decodes the CAN ID according to the J1939 protocol to PGN, priority, source address, and destination address.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The J1939 Interpreter is deprecated. For decoding J1939 messages, use the J1939 Annotator extension node instead.</p>
+</div>
+</section>
+<section id="j1939-annotator">
+<span id="j1939-annotator-node"></span><h2>J1939 Annotator<a class="headerlink" href="#j1939-annotator" title="Link to this heading"></a></h2>
+<p>The J1939 Annotator is a CanKing service extension that decodes and annotates J1939 Transport Protocol (TP) traffic.</p>
+<p>This extension listens to incoming J1939 frames (29-bit CAN IDs) and enriches them with base J1939 identifier metadata. For TP Connection Management (TP.CM, PGN <code class="docutils literal notranslate"><span class="pre">0xEC00</span></code>) and Data Transfer (TP.DT, PGN <code class="docutils literal notranslate"><span class="pre">0xEB00</span></code>) frames it also adds TP-specific decode and reassembly state.</p>
+<p>It can also be configured to actively participate in CMDT (connection mode) transfers by transmitting CTS and EndAck control frames.</p>
+<section id="what-it-does">
+<h3>What It Does<a class="headerlink" href="#what-it-does" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Subscribes to received CAN frames with 29-bit IDs (J1939 format).</p></li>
+<li><p>Tracks TP sessions for both BAM (Broadcast Announce Message) and CMDT (RTS/CTS connection mode).</p></li>
+<li><p>Reassembles TP payload data from TP.DT packets.</p></li>
+<li><p>Annotates all J1939 frames with base properties (priority, PGN, source address, destination address).</p></li>
+<li><p>Adds TP-specific properties on TP.CM / TP.DT frames (control type, transported PGN, progress, payload on completion).</p></li>
+<li><p>Logs lifecycle events such as measurement start/stop, parse warnings, completed reassemblies, and session expiry.</p></li>
+<li><p>Optionally participates as an active CMDT receiver by sending CTS windows and EndAck.</p></li>
+</ul>
+</section>
+<section id="passive-observer-scope">
+<h3>Passive Observer Scope<a class="headerlink" href="#passive-observer-scope" title="Link to this heading"></a></h3>
+<p>This extension is Rx-only and passive by design.</p>
+<ul class="simple">
+<li><p>It observes existing traffic and annotates frames in CanKing.</p></li>
+<li><p>Out-of-order BAM packets cause session drop.</p></li>
+<li><p>Out-of-order CMDT packets are tolerated by keeping session state and waiting for expected sequence.</p></li>
+</ul>
+<p>When <code class="docutils literal notranslate"><span class="pre">active_listening</span></code> is enabled, the extension sends TP.CM CTS and EndAck frames for CMDT transfers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This extension never sends segmented messages of its own. It can only receive segmented messages, not transmit.</p>
+</div>
+</section>
+<section id="frame-properties-added">
+<h3>Frame Properties Added<a class="headerlink" href="#frame-properties-added" title="Link to this heading"></a></h3>
+<p>Depending on frame type and decode state, the extension sets these frame properties:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Set on</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.PGN</span></code></p></td>
+<td><p>All J1939 frames</p></td>
+<td><p>Numeric PGN</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.Source</span></code></p></td>
+<td><p>All J1939 frames</p></td>
+<td><p>Source address (0-253)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.Destination</span></code></p></td>
+<td><p>All J1939 frames</p></td>
+<td><p>Destination address (0-255)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.Priority</span></code></p></td>
+<td><p>All J1939 frames</p></td>
+<td><p>Priority (0-7)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpControlType</span></code></p></td>
+<td><p>TP.CM frames (PGN <code class="docutils literal notranslate"><span class="pre">0xEC00</span></code>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;BAM&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;RTS&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;CTS&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;EndAck&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Abort&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;Unknown&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpPGN</span></code></p></td>
+<td><p>All TP.CM and TP.DT frames</p></td>
+<td><p>Transported-message PGN</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpTotalBytes</span></code></p></td>
+<td><p>TP.CM BAM, RTS, EndAck frames</p></td>
+<td><p>Total payload bytes declared in the frame</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpNumPackets</span></code></p></td>
+<td><p>TP.CM BAM, RTS, EndAck frames</p></td>
+<td><p>Total TP.DT packet count declared in the frame</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpMaxPacketsPerCts</span></code></p></td>
+<td><p>TP.CM RTS frames</p></td>
+<td><p>Maximum packets per CTS window the sender will accept</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpCtsNumPackets</span></code></p></td>
+<td><p>TP.CM CTS frames</p></td>
+<td><p>Number of DT packets the sender may transmit in this window</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpCtsNextPacket</span></code></p></td>
+<td><p>TP.CM CTS frames</p></td>
+<td><p>Sequence number of the first DT packet expected in this window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpAbortReason</span></code></p></td>
+<td><p>TP.CM Abort frames</p></td>
+<td><p>Abort reason code</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpSeqNo</span></code></p></td>
+<td><p>TP.DT frames (PGN <code class="docutils literal notranslate"><span class="pre">0xEB00</span></code>)</p></td>
+<td><p>Sequence number byte (1-255)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpSessionProgress</span></code></p></td>
+<td><p>TP.DT frames with an active session</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;received/total&quot;</span></code> byte count</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpReassemblyComplete</span></code></p></td>
+<td><p>Last TP.DT of a complete message</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;true&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpPayloadHex</span></code></p></td>
+<td><p>Last TP.DT of a complete message</p></td>
+<td><p>Uppercase hex of reassembled payload</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">J1939.TpActiveAction</span></code></p></td>
+<td><p>TP.CM RTS (active mode); TP.DT at window boundary or final packet</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;CTS</span> <span class="pre">sent&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;EndAck</span> <span class="pre">sent&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
+<p>Configuration is JSON and can be changed at runtime via the CanKing extension config.</p>
+<p>Default configuration:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;session_timeout_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">750</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;filter_pgns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;filter_source_addresses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;active_listening&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;active_receiver_addresses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;active_cts_window_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Configuration fields:</p>
+<ul class="simple">
+<li><p><strong>session_timeout_ms</strong> - T1-style inactivity timeout in milliseconds used for new sessions.</p></li>
+<li><p><strong>filter_pgns</strong> - Allow-list of transported PGNs to annotate. An empty list means all PGNs are annotated.</p></li>
+<li><p><strong>filter_source_addresses</strong> - Allow-list of source addresses to annotate. An empty list means all source addresses are annotated.</p></li>
+<li><p><strong>active_listening</strong> - Enable active CMDT participation (sends CTS and EndAck). Default <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>active_receiver_addresses</strong> - Local destination addresses this extension may act as receiver for in CMDT. Active mode only sends CTS/EndAck when the RTS destination matches one of these addresses.</p></li>
+<li><p><strong>active_cts_window_size</strong> - Maximum packets requested per CTS. The effective value is clamped against the sender RTS byte 4 and remaining packets.</p></li>
+</ul>
+</section>
+</section>
+<section id="iso-tp-annotator">
+<span id="isotp-annotator-node"></span><h2>ISO-TP Annotator<a class="headerlink" href="#iso-tp-annotator" title="Link to this heading"></a></h2>
+<p>The ISO-TP Annotator is a CanKing service extension that decodes and annotates ISO-TP (ISO 15765-2) traffic on CAN and CAN-FD buses.</p>
+<p>The extension observes incoming frames, recognizes the four ISO-TP frame types (Single Frame, First Frame, Consecutive Frame, Flow Control), reassembles multi-frame messages from their constituent Consecutive Frames, and enriches every matching frame with protocol metadata as CanKing frame properties.</p>
+<p>It can also be configured to actively participate in transfers by sending Flow Control (FC) frames — both the initial CTS after a First Frame and subsequent CTS frames at block boundaries when <code class="docutils literal notranslate"><span class="pre">fc_block_size</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p>
+<section id="id5">
+<h3>What It Does<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Subscribes to CAN and CAN-FD frames and applies configurable direction and ID-type filters.</p></li>
+<li><p>Recognizes all four ISO-TP PCI types: SF (Single Frame), FF (First Frame), CF (Consecutive Frame), FC (Flow Control).</p></li>
+<li><p>Reassembles multi-frame payloads from FF + CF sequences, with strict SN validation (wrong SN drops the session).</p></li>
+<li><p>Annotates every recognized frame with ISO-TP metadata as named frame properties visible in CanKing.</p></li>
+<li><p>Supports classic CAN (DLC ≤ 8) and CAN-FD long-length encoding (DLC &gt; 8 SF/FF) per ISO 15765-2.</p></li>
+<li><p>Supports ISO-TP extended addressing (N_TA byte before PCI byte).</p></li>
+<li><p>Logs lifecycle events: session start/stop, session expiry, and completed reassemblies.</p></li>
+<li><p>Optionally participates as an active receiver: sends FC(CTS) after a First Frame and at every block boundary when <code class="docutils literal notranslate"><span class="pre">fc_block_size</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Passive Observer Scope<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>Remove all <code class="docutils literal notranslate"><span class="pre">active_addresses</span></code> entries to turn the extension into a passive observer.</p>
+<ul class="simple">
+<li><p>It does not transmit any frames when <code class="docutils literal notranslate"><span class="pre">active_addresses</span></code> is empty.</p></li>
+<li><p>It observes existing ISO-TP traffic and annotates frames in CanKing.</p></li>
+<li><p>A wrong Consecutive Frame SN causes the session to be dropped.</p></li>
+<li><p>Sessions that receive no Consecutive Frame within <code class="docutils literal notranslate"><span class="pre">session_timeout_ms</span></code> are expired and logged.</p></li>
+</ul>
+<p>When <code class="docutils literal notranslate"><span class="pre">active_addresses</span></code> is configured, the extension sends FC(ContinueToSend) frames so the sender proceeds with data transfer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This extension never sends segmented messages of its own. It can only receive segmented messages, not transmit.</p>
+</div>
+</section>
+<section id="id7">
+<h3>Frame Properties Added<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<p>Depending on frame type and decode state, the extension sets these frame properties:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Set on</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.FrameType</span></code></p></td>
+<td><p>All recognised frames</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;SF&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;FF&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;CF&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;FC&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpTotalBytes</span></code></p></td>
+<td><p>SF; FF</p></td>
+<td><p>Payload/Total message length in bytes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpFirstDataHex</span></code></p></td>
+<td><p>FF</p></td>
+<td><p>Hex of data bytes carried in the FF itself</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpSeqNo</span></code></p></td>
+<td><p>CF</p></td>
+<td><p>Sequence number nibble (0-15)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpSessionProgress</span></code></p></td>
+<td><p>CF</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;received/total&quot;</span></code> byte count</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpFlowStatus</span></code></p></td>
+<td><p>FC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;CTS&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Wait&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Overflow&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;Reserved&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpBlockSize</span></code></p></td>
+<td><p>FC</p></td>
+<td><p>Block size byte value</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpSeparationTimeUs</span></code></p></td>
+<td><p>FC</p></td>
+<td><p>STmin decoded to microseconds</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpReassemblyComplete</span></code></p></td>
+<td><p>Last CF of a complete message</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;true&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpPayloadHex</span></code></p></td>
+<td><p>SF; last CF of a complete message</p></td>
+<td><p>Uppercase hex string of payload / reassembled data</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ISOTP.TpActiveAction</span></code></p></td>
+<td><p>FF (on active FC send); CF at block boundary</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;FC</span> <span class="pre">sent&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>Configuration<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<p>Configuration is JSON and can be changed at runtime via the CanKing extension config panel.</p>
+<p>Default configuration:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;session_timeout_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;extended_addressing&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;extended_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;active_addresses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;rx_can_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2024</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tx_can_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;rx_address_extension&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tx_address_extension&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;broadcast_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2015</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fc_block_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fc_stmin&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fc_padding&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">204</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;fc_use_brs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The default <code class="docutils literal notranslate"><span class="pre">active_addresses</span></code>, <code class="docutils literal notranslate"><span class="pre">fc_padding</span></code>, and <code class="docutils literal notranslate"><span class="pre">broadcast_id</span></code> values correspond to the standard OBD-II engine ECU scenario:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Hex</p></th>
+<th class="head"><p>Decimal</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0x7E8</span></code></p></td>
+<td><p>2024</p></td>
+<td><p>Engine ECU response address (<code class="docutils literal notranslate"><span class="pre">rx_can_id</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">0x7E0</span></code></p></td>
+<td><p>2016</p></td>
+<td><p>Tester physical request address (<code class="docutils literal notranslate"><span class="pre">tx_can_id</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0x7DF</span></code></p></td>
+<td><p>2015</p></td>
+<td><p>OBD-II functional broadcast address (<code class="docutils literal notranslate"><span class="pre">broadcast_id</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">0xCC</span></code></p></td>
+<td><p>204</p></td>
+<td><p>ISO 15765-2 recommended padding byte (<code class="docutils literal notranslate"><span class="pre">fc_padding</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Configuration fields:</p>
+<ul>
+<li><p><strong>session_timeout_ms</strong> - Inactivity timeout for multi-frame sessions. A session is discarded if no Consecutive Frame arrives within this window.</p></li>
+<li><p><strong>extended_addressing</strong> - When <code class="docutils literal notranslate"><span class="pre">true</span></code>, the first byte of each CAN data field is the N_TA address extension and the PCI byte is at offset 1. Default <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>extended_id</strong> - Restrict to extended (29-bit) CAN IDs when <code class="docutils literal notranslate"><span class="pre">true</span></code>; standard (11-bit) IDs when <code class="docutils literal notranslate"><span class="pre">false</span></code>. Default <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>active_addresses</strong> - Each entry has the following fields:</p>
+<ul class="simple">
+<li><p><strong>rx_can_id</strong> - CAN ID on which the remote node sends First Frames to us.</p></li>
+<li><p><strong>tx_can_id</strong> - CAN ID used when sending FC frames back.</p></li>
+<li><p><strong>rx_address_extension</strong> <em>(optional)</em> - Expected N_TA byte (<code class="docutils literal notranslate"><span class="pre">data[0]</span></code>) in received frames when <code class="docutils literal notranslate"><span class="pre">extended_addressing</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>. When <code class="docutils literal notranslate"><span class="pre">null</span></code>, any extension byte is accepted. Ignored when <code class="docutils literal notranslate"><span class="pre">extended_addressing</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>tx_address_extension</strong> <em>(optional)</em> - N_TA byte prepended to outgoing FC frames when <code class="docutils literal notranslate"><span class="pre">extended_addressing</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>. When <code class="docutils literal notranslate"><span class="pre">null</span></code>, no extension byte is added. Ignored when <code class="docutils literal notranslate"><span class="pre">extended_addressing</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+</ul>
+<p>When a First Frame arrives on <code class="docutils literal notranslate"><span class="pre">rx_can_id</span></code> (with matching <code class="docutils literal notranslate"><span class="pre">rx_address_extension</span></code> if applicable), an FC(CTS) is sent on <code class="docutils literal notranslate"><span class="pre">tx_can_id</span></code> with <code class="docutils literal notranslate"><span class="pre">tx_address_extension</span></code> prepended. Empty list = fully passive. Default: OBD-II engine ECU pair (0x7E8 / 0x7E0).</p>
+</li>
+<li><p><strong>broadcast_id</strong> - Passive-mode CAN ID filter. When set, non-active frames are only annotated if their CAN ID equals this value. Set to <code class="docutils literal notranslate"><span class="pre">null</span></code> to annotate all non-active frames. Default <code class="docutils literal notranslate"><span class="pre">2015</span></code> (0x7DF).</p></li>
+<li><p><strong>fc_block_size</strong> - Block size (BS) byte sent in all outgoing FC frames. <code class="docutils literal notranslate"><span class="pre">0</span></code> means unlimited — the sender may transmit all remaining frames without further FC. Default <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><strong>fc_stmin</strong> - Separation time minimum byte sent in all outgoing FC frames, ISO 15765-2 encoded. <code class="docutils literal notranslate"><span class="pre">0x00</span></code>-<code class="docutils literal notranslate"><span class="pre">0x7F</span></code> = 0-127 ms; <code class="docutils literal notranslate"><span class="pre">0xF1</span></code>-<code class="docutils literal notranslate"><span class="pre">0xF9</span></code> = 100-900 µs; other values = 127 ms fallback. Default <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><strong>fc_padding</strong> - Padding byte used to fill outgoing FC frames to 8 bytes. Set to <code class="docutils literal notranslate"><span class="pre">null</span></code> to send only the mandatory 3 bytes (PCI + BS + STmin) with no padding. Default <code class="docutils literal notranslate"><span class="pre">204</span></code> (0xCC).</p></li>
+<li><p><strong>fc_use_brs</strong> - Enable Bit Rate Switch (BRS) in outgoing FC frames when CAN-FD is used. Has no effect on classic CAN frames.</p></li>
+</ul>
+</section>
+<section id="active-receiver-flow">
+<h3>Active Receiver Flow<a class="headerlink" href="#active-receiver-flow" title="Link to this heading"></a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">fc_block_size</span> <span class="pre">=</span> <span class="pre">0</span></code> (unlimited):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ECU → FF (on rx_can_id)    → extension sends FC(BS=0) on tx_can_id
+ECU → CF sn=1
+ECU → CF sn=2
+…
+ECU → CF last              → message reassembled, ISOTP.TpPayloadHex annotated
+</pre></div>
+</div>
+<p>When <code class="docutils literal notranslate"><span class="pre">fc_block_size</span> <span class="pre">=</span> <span class="pre">2</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ECU → FF (on rx_can_id)    → extension sends FC(BS=2)
+ECU → CF sn=1
+ECU → CF sn=2              → extension sends FC(BS=2)   ← block boundary
+ECU → CF sn=3
+ECU → CF sn=4              → extension sends FC(BS=2)   ← block boundary
+…
+ECU → CF last              → message reassembled
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="source_nodes.html" class="btn btn-neutral float-left" title="Source Nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="target_nodes.html" class="btn btn-neutral float-right" title="Target Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

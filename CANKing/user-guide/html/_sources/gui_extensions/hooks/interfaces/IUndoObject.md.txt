@@ -1,0 +1,155 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [hooks](../README.md) / IUndoObject
+
+# Interface: IUndoObject\<T\>
+
+The undo/redo object. Includes the current state and methods to manipulate it.
+
+## Type Parameters
+
+### T
+
+`T`
+
+The type of the undo/redo data.
+
+## Properties
+
+### canRedo()
+
+> **canRedo**: () => `boolean`
+
+Check if redo is possible
+
+#### Returns
+
+`boolean`
+
+true if there are states to redo to
+
+***
+
+### canUndo()
+
+> **canUndo**: () => `boolean`
+
+Check if undo is possible
+
+#### Returns
+
+`boolean`
+
+true if there are states to undo to
+
+***
+
+### redo()
+
+> **redo**: () => `void`
+
+Redo to the next state
+
+#### Returns
+
+`void`
+
+***
+
+### reset()
+
+> **reset**: (`current?`, `previous?`, `next?`) => `void`
+
+Reset the undo/redo history with a new initial value
+
+#### Parameters
+
+##### current?
+
+`T`
+
+The new initial value. If undefined, current will be unset.
+
+##### previous?
+
+`T`[]
+
+The previous values (optional)
+
+##### next?
+
+`T`[]
+
+The next values (optional)
+
+#### Returns
+
+`void`
+
+***
+
+### set()
+
+> **set**: (`updater`) => `void`
+
+Set a new current state
+
+#### Parameters
+
+##### updater
+
+The new value or a function that receives the current value and returns the new value
+
+`T` | (`curr?`) => `T`
+
+#### Returns
+
+`void`
+
+***
+
+### state
+
+> **state**: [`IUndoState`](IUndoState.md)\<`T`\>
+
+The current undo/redo state
+
+***
+
+### subscribe()?
+
+> `optional` **subscribe**: (`listener`) => () => `void`
+
+Subscribe to state changes (optional, for triggering re-renders)
+
+#### Parameters
+
+##### listener
+
+() => `void`
+
+Callback function that will be called whenever state changes
+
+#### Returns
+
+Unsubscribe function
+
+> (): `void`
+
+##### Returns
+
+`void`
+
+***
+
+### undo()
+
+> **undo**: () => `void`
+
+Undo to the previous state
+
+#### Returns
+
+`void`

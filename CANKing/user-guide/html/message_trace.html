@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Trace &mdash; Kvaser CanKing User&#39;s Guide 7.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d96f997d" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon-16x16.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8214db13"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Signal Plot" href="signal_plot.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Kvaser CanKing User's Guide
+              <img src="_static/Kvaser_logo_negative_RGB.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CanKing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="measurement_setup_view.html">Measurement Setup view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace_view.html">Workspace view</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools_panel.html">Tools panel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Workspace Panes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Message Trace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-modes">Display Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scrolling-mode">Scrolling Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed-position-mode">Fixed Position Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#toolbar-controls">Toolbar Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#play-pause">Play/Pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed-position-toggle">Fixed Position Toggle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clear-trace">Clear Trace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel-filter">Channel Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#direction-filter">Direction Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocol-filter">Protocol Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpreter-selection">Interpreter Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-data-bytes">Max Data Bytes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#column-settings">Column Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#table-features">Table Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#column-headers">Column Headers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-rows">Message Rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal-expansion-fixed-position-mode">Signal Expansion (Fixed Position Mode)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection-and-copy">Selection and Copy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#protocol-interpretation">Protocol Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtering-strategy">Filtering Strategy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combine-multiple-filters">Combine Multiple Filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-at-different-levels">Filter at Different Levels</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-considerations">Performance Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#high-traffic-scenarios">High Traffic Scenarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips-and-best-practices">Tips and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-usage">General Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging-strategies">Debugging Strategies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-databases">Working with Databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-with-other-panes">Integration with Other Panes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signal_plot.html">Signal Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_bus_statistics.html">CAN Bus Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_send.html">CAN Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="can_periodic_send.html">CAN Periodic Send</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin_panes.html">LIN Panes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CLI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ck/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GUI Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gui_extensions/modules.html">Kvaser CanKing GUI Extensions SDK v7.5.0</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Service Extensions SDK</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="service_extensions/user-guide.html">Kvaser CanKing Service Extensions SDK - User Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Kvaser CanKing User's Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Message Trace</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="message-trace">
+<span id="id1"></span><h1>Message Trace<a class="headerlink" href="#message-trace" title="Link to this heading"></a></h1>
+<p>The Message Trace pane displays CAN and LIN messages in real-time as they are received on the bus. It provides a detailed view of each message with support for filtering, column customization, signal expansion, and protocol interpretation.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Message Trace pane is essential for monitoring and analyzing bus traffic. It can display messages in two modes: scrolling mode for continuous monitoring of live data, or fixed position mode for detailed analysis of individual messages with signal values.</p>
+</section>
+<section id="display-modes">
+<span id="message-trace-modes"></span><h2>Display Modes<a class="headerlink" href="#display-modes" title="Link to this heading"></a></h2>
+<section id="scrolling-mode">
+<h3>Scrolling Mode<a class="headerlink" href="#scrolling-mode" title="Link to this heading"></a></h3>
+<p>In scrolling mode (Fixed Position toggle <strong>off</strong>), messages continuously scroll through the table as they arrive. This mode is ideal for:</p>
+<ul class="simple">
+<li><p>Monitoring live traffic</p></li>
+<li><p>Observing message patterns</p></li>
+<li><p>Identifying message presence</p></li>
+<li><p>Watching for specific message IDs</p></li>
+</ul>
+<dl class="simple">
+<dt>Features in scrolling mode:</dt><dd><ul class="simple">
+<li><p>New messages appear at the bottom</p></li>
+<li><p>Automatic scrolling as messages arrive</p></li>
+<li><p>Compact display showing one line per message</p></li>
+<li><p>Can be paused to freeze the display</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="fixed-position-mode">
+<h3>Fixed Position Mode<a class="headerlink" href="#fixed-position-mode" title="Link to this heading"></a></h3>
+<p>In fixed position mode (Fixed Position toggle <strong>on</strong>), each unique message occupies a fixed row in the table. This mode is ideal for:</p>
+<ul class="simple">
+<li><p>Monitoring current message values</p></li>
+<li><p>Expanding messages to view signal values</p></li>
+<li><p>Comparing multiple message states simultaneously</p></li>
+<li><p>Dashboard-style monitoring</p></li>
+</ul>
+<dl class="simple">
+<dt>Features in fixed position mode:</dt><dd><ul class="simple">
+<li><p>Each message ID has a persistent row</p></li>
+<li><p>Most recent value displayed</p></li>
+<li><p>Expandable rows showing signal values (when database is loaded)</p></li>
+<li><p>No scrolling - messages update in place</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Signal values can only be displayed when a Databases data processor node has been added to the CAN or LIN channel in the Measurement Setup view.</p>
+</div>
+</section>
+</section>
+<section id="toolbar-controls">
+<span id="message-trace-toolbar"></span><h2>Toolbar Controls<a class="headerlink" href="#toolbar-controls" title="Link to this heading"></a></h2>
+<section id="play-pause">
+<h3>Play/Pause<a class="headerlink" href="#play-pause" title="Link to this heading"></a></h3>
+<p>Toggle between live updates and paused state:</p>
+<ul class="simple">
+<li><p><strong>Play</strong> (running) - Messages are actively received and displayed</p></li>
+<li><p><strong>Pause</strong> - Display freezes, no new messages are processed</p></li>
+</ul>
+<dl class="simple">
+<dt>When paused, you can:</dt><dd><ul class="simple">
+<li><p>Select and copy message data</p></li>
+<li><p>Examine specific messages</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pause control only affects the display. Messages continue to be processed by the system.</p>
+</div>
+</section>
+<section id="fixed-position-toggle">
+<h3>Fixed Position Toggle<a class="headerlink" href="#fixed-position-toggle" title="Link to this heading"></a></h3>
+<p>Toggle between scrolling mode and fixed position mode:</p>
+<ul class="simple">
+<li><p><strong>Off</strong> - Scrolling mode (historical trace)</p></li>
+<li><p><strong>On</strong> - Fixed position mode (dashboard view)</p></li>
+</ul>
+</section>
+<section id="clear-trace">
+<h3>Clear Trace<a class="headerlink" href="#clear-trace" title="Link to this heading"></a></h3>
+<p>Click the <strong>Clear</strong> (X) button to remove all messages from the display. In scrolling mode, this clears the history. In fixed position mode, this clears all rows.</p>
+<dl class="simple">
+<dt>Use cases:</dt><dd><ul class="simple">
+<li><p>Starting fresh for a new test scenario</p></li>
+<li><p>Removing old data before a specific event</p></li>
+<li><p>Resetting the display after filtering changes</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="channel-filter">
+<h3>Channel Filter<a class="headerlink" href="#channel-filter" title="Link to this heading"></a></h3>
+<p>Filter messages by CAN or LIN channel:</p>
+<ul class="simple">
+<li><p><strong>All</strong> - Show messages from all channels</p></li>
+<li><p><strong>Specific channel</strong> - Show only messages from the selected channel</p></li>
+</ul>
+<p>Available channels are populated from the CAN and LIN channels configured in the Measurement Setup view.</p>
+</section>
+<section id="direction-filter">
+<h3>Direction Filter<a class="headerlink" href="#direction-filter" title="Link to this heading"></a></h3>
+<p>Filter messages by direction:</p>
+<ul class="simple">
+<li><p><strong>All</strong> - Show both transmitted and received messages</p></li>
+<li><p><strong>Tx</strong> - Show only transmitted messages (messages sent by this interface)</p></li>
+<li><p><strong>Rx</strong> - Show only received messages</p></li>
+</ul>
+</section>
+<section id="protocol-filter">
+<h3>Protocol Filter<a class="headerlink" href="#protocol-filter" title="Link to this heading"></a></h3>
+<p>Filter messages by protocol type:</p>
+<ul class="simple">
+<li><p><strong>All</strong> - Show messages from all protocols</p></li>
+<li><p><strong>CAN</strong> - Show only CAN messages</p></li>
+<li><p><strong>CAN FD</strong> - Show only CAN FD messages</p></li>
+<li><p><strong>LIN</strong> - Show only LIN messages</p></li>
+</ul>
+</section>
+<section id="interpreter-selection">
+<h3>Interpreter Selection<a class="headerlink" href="#interpreter-selection" title="Link to this heading"></a></h3>
+<p>Select a protocol interpreter to decode additional protocol-specific information:</p>
+<ul class="simple">
+<li><p><strong>None</strong> - No protocol interpretation (default)</p></li>
+<li><p><strong>J1939</strong> - Interpret J1939 protocol messages, a J1939 interpreter need to be configured in the Measurement Setup view for it to be available</p></li>
+<li><p><strong>LIN Message Info</strong> - Interpret LIN messages with additional information, the ‘Save LIN Message Info’ option need to be enabled in the LIN Channel configuration in the Measurement Setup view for it to be available</p></li>
+</ul>
+<p>When an interpreter is selected, additional columns and information are displayed for interpreted messages.</p>
+</section>
+<section id="max-data-bytes">
+<h3>Max Data Bytes<a class="headerlink" href="#max-data-bytes" title="Link to this heading"></a></h3>
+<p>Configure the maximum number of data bytes displayed per row:</p>
+<ul class="simple">
+<li><p><strong>8</strong> - Show up to 8 bytes (default for CAN)</p></li>
+<li><p><strong>16, 32, 64</strong> - Options for CAN FD messages</p></li>
+</ul>
+<p>If a message contains more bytes than the selected maximum, the data is wrapped into multiple rows.</p>
+</section>
+<section id="column-settings">
+<h3>Column Settings<a class="headerlink" href="#column-settings" title="Link to this heading"></a></h3>
+<p>Click the column settings button to customize which columns are displayed and their order. Available columns include:</p>
+<ul class="simple">
+<li><p>Message Name</p></li>
+<li><p>Source Name (channel)</p></li>
+<li><p>ID (identifier)</p></li>
+<li><p>Flags</p></li>
+<li><p>Data Length</p></li>
+<li><p>DLC (Data Length Code)</p></li>
+<li><p>Data</p></li>
+<li><p>Time</p></li>
+<li><p>Direction</p></li>
+<li><p>Protocol</p></li>
+<li><p>Delta Time</p></li>
+<li><p>Protocol-specific columns (when interpreter is enabled)</p></li>
+</ul>
+<dl class="simple">
+<dt>You can:</dt><dd><ul class="simple">
+<li><p>Show/hide columns</p></li>
+<li><p>Reorder columns by dragging</p></li>
+<li><p>Reset to default column configuration</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="table-features">
+<span id="message-trace-table"></span><h2>Table Features<a class="headerlink" href="#table-features" title="Link to this heading"></a></h2>
+<section id="column-headers">
+<h3>Column Headers<a class="headerlink" href="#column-headers" title="Link to this heading"></a></h3>
+<p>Click on column headers to:</p>
+<ul class="simple">
+<li><p>Resize columns by dragging the column divider</p></li>
+<li><p>View full column names in tooltips</p></li>
+</ul>
+<p>Column widths are automatically saved and restored when reopening the project.</p>
+</section>
+<section id="message-rows">
+<h3>Message Rows<a class="headerlink" href="#message-rows" title="Link to this heading"></a></h3>
+<p>Each row displays information about a single message. The data shown depends on the display mode and column configuration.</p>
+<dl class="simple">
+<dt><strong>Common fields:</strong></dt><dd><ul class="simple">
+<li><p><strong>ID</strong> - CAN or LIN identifier (hexadecimal)</p></li>
+<li><p><strong>Data</strong> - Message data bytes (hexadecimal)</p></li>
+<li><p><strong>Time</strong> - Timestamp (relative start of measurement)</p></li>
+<li><p><strong>Dir</strong> - Direction (Tx/Rx)</p></li>
+<li><p><strong>DLC</strong> - Data Length Code</p></li>
+<li><p><strong>Flags</strong> - CAN-specific flags (X=Extended, R=Remote, F=FD, B=BRS)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="signal-expansion-fixed-position-mode">
+<h3>Signal Expansion (Fixed Position Mode)<a class="headerlink" href="#signal-expansion-fixed-position-mode" title="Link to this heading"></a></h3>
+<p>In fixed position mode, when a database is loaded, click the expand icon (▶) on a message row to view signal values:</p>
+<ul class="simple">
+<li><p>Signal names</p></li>
+<li><p>Current engineering values</p></li>
+<li><p>Units</p></li>
+</ul>
+<p>This provides an at-a-glance view of all signal values within a message.</p>
+</section>
+<section id="selection-and-copy">
+<h3>Selection and Copy<a class="headerlink" href="#selection-and-copy" title="Link to this heading"></a></h3>
+<p>When paused, you can:</p>
+<ul class="simple">
+<li><p>Click on rows to select them</p></li>
+<li><p>Shift+click to select a range</p></li>
+<li><p>Ctrl+click to select multiple rows</p></li>
+<li><p>Right-click for context menu options</p></li>
+<li><p>Copy selected data to clipboard</p></li>
+</ul>
+</section>
+</section>
+<section id="protocol-interpretation">
+<span id="message-trace-interpretation"></span><h2>Protocol Interpretation<a class="headerlink" href="#protocol-interpretation" title="Link to this heading"></a></h2>
+<p>When a protocol interpreter is selected (e.g., J1939), the Message Trace can decode and display protocol-specific information:</p>
+<dl class="simple">
+<dt><strong>J1939 Interpreter</strong></dt><dd><ul class="simple">
+<li><p>PGN (Parameter Group Number)</p></li>
+<li><p>SA (Source Address)</p></li>
+<li><p>DA (Destination Address)</p></li>
+<li><p>Priority</p></li>
+</ul>
+</dd>
+</dl>
+<p>Additional columns are automatically added to display interpreted information.</p>
+</section>
+<section id="filtering-strategy">
+<span id="message-trace-filtering"></span><h2>Filtering Strategy<a class="headerlink" href="#filtering-strategy" title="Link to this heading"></a></h2>
+<section id="combine-multiple-filters">
+<h3>Combine Multiple Filters<a class="headerlink" href="#combine-multiple-filters" title="Link to this heading"></a></h3>
+<p>Filters can be combined for precise message selection:</p>
+<ul class="simple">
+<li><p>Channel + Direction: View only Tx messages from a specific channel</p></li>
+<li><p>Channel + Protocol: View only LIN messages from a specific channel</p></li>
+<li><p>Protocol + Interpreter: View only interpreted J1939 messages</p></li>
+</ul>
+</section>
+<section id="filter-at-different-levels">
+<h3>Filter at Different Levels<a class="headerlink" href="#filter-at-different-levels" title="Link to this heading"></a></h3>
+<p>For optimal performance, consider filtering at multiple levels:</p>
+<ol class="arabic simple">
+<li><p><strong>Measurement Setup</strong> - Use CAN Message Filter node to reduce messages reaching the UI</p></li>
+<li><p><strong>Message Trace</strong> - Use pane filters for display-level filtering</p></li>
+</ol>
+</section>
+</section>
+<section id="performance-considerations">
+<span id="message-trace-performance"></span><h2>Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading"></a></h2>
+<section id="high-traffic-scenarios">
+<h3>High Traffic Scenarios<a class="headerlink" href="#high-traffic-scenarios" title="Link to this heading"></a></h3>
+<p>When monitoring high-traffic buses:</p>
+<ul class="simple">
+<li><p>Use filters to reduce displayed message count</p></li>
+<li><p>Consider fixed position mode which updates existing rows rather than adding new ones</p></li>
+<li><p>Pause periodically to analyze data</p></li>
+<li><p>Use CAN Message Filter in Measurement Setup to pre-filter messages</p></li>
+</ul>
+</section>
+</section>
+<section id="tips-and-best-practices">
+<span id="message-trace-tips"></span><h2>Tips and Best Practices<a class="headerlink" href="#tips-and-best-practices" title="Link to this heading"></a></h2>
+<section id="general-usage">
+<h3>General Usage<a class="headerlink" href="#general-usage" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use <strong>scrolling mode</strong> for debugging message timing and patterns</p></li>
+<li><p>Use <strong>fixed position mode</strong> for monitoring current signal values</p></li>
+<li><p><strong>Pause</strong> before selecting and copying message data</p></li>
+</ul>
+</section>
+<section id="debugging-strategies">
+<h3>Debugging Strategies<a class="headerlink" href="#debugging-strategies" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Filter by channel to isolate traffic from a specific interface</p></li>
+<li><p>Filter by direction to see only Tx or Rx messages</p></li>
+<li><p>Use delta time column to measure message intervals</p></li>
+<li><p>Expand messages in fixed position mode to verify signal values</p></li>
+</ul>
+</section>
+<section id="working-with-databases">
+<h3>Working with Databases<a class="headerlink" href="#working-with-databases" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ensure the Databases data processor is added to the channel in Measurement Setup</p></li>
+<li><p>Message names and signal values automatically appear when databases match message IDs</p></li>
+<li><p>Use fixed position mode with expansion for the best database visualization experience</p></li>
+</ul>
+</section>
+<section id="integration-with-other-panes">
+<h3>Integration with Other Panes<a class="headerlink" href="#integration-with-other-panes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use alongside CAN Bus Statistics to correlate message counts with statistics</p></li>
+<li><p>Compare trace data with Signal Plot graphs for different perspectives</p></li>
+<li><p>Use CAN Send pane to inject test messages and verify they appear in the trace</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="signal_plot.html" class="btn btn-neutral float-right" title="Signal Plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2026 Kvaser AB, Mölndal, Sweden.
+      <span class="lastupdated">Last updated on Wed, 20 May 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

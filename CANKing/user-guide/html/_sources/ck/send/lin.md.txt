@@ -1,0 +1,39 @@
+# ck send lin
+
+Sends out a LIN message. Only available in master mode.
+
+## Synopsis
+
+```text
+ck send lin
+    <OUTPUT_CHANNEL_NAME_OR_ID>
+    [--language <en|zh|ja>]
+    -i|--id <MESSAGE_ID>
+    -d|--data <MESSAGE_DATA>
+
+ck send lin -h|--help
+```
+
+## Arguments
+
+- ```OUTPUT_CHANNEL_NAME_OR_ID```  
+The identifier/name of the output channel to be used.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-i|--id``` (required)  
+The message id. Prefix with 0x to indicate hex format. Valid identifiers are 0-63.
+
+- ```-d|--data``` (required)  
+The message data, a byte array (hex format) passed as a string, e.g. 0001020304. Max 8 bytes are allowed.
+
+## Examples
+
+```bash
+ck send lin "LIN 1" --id 1 --data 0102030405060708
+ck send lin "LIN 1" --id 0x3F --data AABBCCDD
+```
+

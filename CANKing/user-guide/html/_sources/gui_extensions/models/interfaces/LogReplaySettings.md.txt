@@ -1,0 +1,109 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [models](../README.md) / LogReplaySettings
+
+# Interface: LogReplaySettings
+
+A message for defining a log replay's settings.
+
+## Properties
+
+### channelIdentifiers
+
+> **channelIdentifiers**: `object`
+
+A dictionary consisting of the channels found in the log file mapped to the channel identifiers to be used when replaying the file.
+
+#### Index Signature
+
+\[`key`: `string`\]: `string`
+
+***
+
+### higherVariance?
+
+> `optional` **higherVariance**: `number`
+
+Maximum waiting time variance (0-1) for how long to wait before sending the next message. The resulting range will be between the time factor and the time factor plus the higher variance.
+
+***
+
+### includeErrorFrames
+
+> **includeErrorFrames**: `boolean`
+
+Replay error frames as well. Default value is false.
+
+***
+
+### increaseSpeed?
+
+> `optional` **increaseSpeed**: `boolean`
+
+Increase the speed by the time factor. Default value is true.
+
+***
+
+### iterations
+
+> **iterations**: `number`
+
+Number of iterations to loop the log file. Set to -1 to iterate forever. Default value is 1.
+
+***
+
+### logFile
+
+> **logFile**: `string`
+
+Full path to the log file to read CAN frames from.
+
+***
+
+### lowerVariance?
+
+> `optional` **lowerVariance**: `number`
+
+Minimum waiting time variance (0-1) for how long to wait before sending the next message. The resulting range will be between the time factor and the time factor minus the lower variance.
+
+***
+
+### sampleRateMs
+
+> **sampleRateMs**: `number`
+
+Static sample rate in milliseconds to send the CAN frames at. If zero, timestamps from the log file will be used. Default value is 0.
+
+***
+
+### sendFirstMessageMode
+
+> **sendFirstMessageMode**: `number`
+
+Send the first message straight away (1), after the time specified in the log file (2) or after an offset (3). Default value is 1 (send directly).
+
+***
+
+### timeFactor?
+
+> `optional` **timeFactor**: `number`
+
+Factor in percentage for speeding up or down the waiting time until sending the next message.
+
+***
+
+### timeOffsetMs?
+
+> `optional` **timeOffsetMs**: `number`
+
+Time offset in milliseconds until sending the first message. Default value is 0. This parameter shall be used together with the mode for sending the first message after an offset (3).
+
+***
+
+### transceiverMode
+
+> **transceiverMode**: `number`
+
+If only Rx (1), Tx (2), or both (3) messages shall be replayed. Default value is 1 (Rx).

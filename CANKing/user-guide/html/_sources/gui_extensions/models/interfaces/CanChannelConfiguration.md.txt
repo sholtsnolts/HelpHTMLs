@@ -1,0 +1,164 @@
+[**Kvaser CanKing GUI Extensions SDK v7.5.0**](../../README.md)
+
+***
+
+[Kvaser CanKing GUI Extensions SDK](../../modules.md) / [models](../README.md) / CanChannelConfiguration
+
+# Interface: CanChannelConfiguration
+
+A message for defining a CAN channel's configuration.
+
+## Remarks
+
+When using CAN FD or CAN XL, both arbitration and data phase bus parameters
+must be specified. For CAN XL, both CAN FD and CAN XL data phase parameters
+must be specified.
+Specify either only the bit rate or both the bit rate and the sample point
+or only the bus parameters for each phase. If the bus parameters are specified,
+the bit rate and sample point values are ignored (will be calculated automatically).
+If only the bit rate is specified, the sample point will be set to a default
+value of 75% for classic CAN and 80% for CAN FD and CAN XL
+
+## Properties
+
+### accessMode
+
+> **accessMode**: [`AccessMode`](../enumerations/AccessMode.md)
+
+The access mode to use.
+
+***
+
+### busParams
+
+> **busParams**: [`CanBusParams`](CanBusParams.md) \| `undefined`
+
+The selected bus params for classic CAN or the selected bus params for the arbitration phase in CAN FD/CAN XL.
+
+***
+
+### busParamsBitRate
+
+> **busParamsBitRate**: `number`
+
+Bit rate of the selected bus params for classic CAN or the selected bus params for the arbitration phase in CAN FD/CAN XL.
+
+***
+
+### busParamsBitRateFd?
+
+> `optional` **busParamsBitRateFd**: `number`
+
+Bit rate of the selected bus params for the data phase in CAN FD.
+
+***
+
+### busParamsBitRateXl?
+
+> `optional` **busParamsBitRateXl**: `number`
+
+Bit rate of the selected bus params for the data phase in CAN XL.
+
+***
+
+### busParamsFd?
+
+> `optional` **busParamsFd**: [`CanBusParams`](CanBusParams.md)
+
+The selected bus params for the data phase in CAN FD.
+
+***
+
+### busParamsSamplePoint?
+
+> `optional` **busParamsSamplePoint**: `number`
+
+Sample point in percentage of the selected bus params for classic CAN or the selected bus params for the arbitration phase in CAN FD/CAN XL.
+
+***
+
+### busParamsSamplePointFd?
+
+> `optional` **busParamsSamplePointFd**: `number`
+
+Sample point in percentage of the selected bus params for the data phase in CAN FD.
+
+***
+
+### busParamsSamplePointXl?
+
+> `optional` **busParamsSamplePointXl**: `number`
+
+Sample point in percentage of the selected bus params for the data phase in CAN XL.
+
+***
+
+### busParamsXl?
+
+> `optional` **busParamsXl**: [`CanBusParams`](CanBusParams.md)
+
+The selected bus params for the data phase in CAN XL.
+
+***
+
+### canConfigModes
+
+> **canConfigModes**: [`CanConfigMode`](../enumerations/CanConfigMode.md)[]
+
+The CAN configuration mode to use.
+
+***
+
+### canMode
+
+> **canMode**: [`CanMode`](../enumerations/CanMode.md)
+
+The CAN mode to use.
+
+***
+
+### fdTdc?
+
+> `optional` **fdTdc**: [`TdcConfiguration`](TdcConfiguration.md)
+
+CAN FD Transmitter-Delay Compensation (TDC).
+
+***
+
+### pwml?
+
+> `optional` **pwml**: `number`
+
+PWM long phase (mtq).
+
+***
+
+### pwmo?
+
+> `optional` **pwmo**: `number`
+
+PWM time offset (mtq).
+
+***
+
+### pwms?
+
+> `optional` **pwms**: `number`
+
+PWM short phase (mtq).
+
+***
+
+### silentMode
+
+> **silentMode**: `boolean`
+
+Set to true to enable silent mode, otherwise the channel will be setup as normal.
+
+***
+
+### xlTdc?
+
+> `optional` **xlTdc**: [`TdcConfiguration`](TdcConfiguration.md)
+
+CAN XL Transmitter-Delay Compensation (TDC).

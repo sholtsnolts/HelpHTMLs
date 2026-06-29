@@ -1,0 +1,63 @@
+# ck pack extension
+
+Installs a CanKing service extension.
+
+## Synopsis
+
+```text
+ck pack extension
+    <EXTENSION_FILE>
+    [--language <en|zh|ja>]
+    [-o|--out <OUTPUT_DIR>]
+    [-n|--name <EXTENSION_NAME>]
+    [-d|--display-name <EXTENSION_DISPLAY_NAME>]
+    [-desc|--description <EXTENSION_DESCRIPTION>]
+    [-v|--version <EXTENSION_VERSION>]
+    [-a|--author <EXTENSION_AUTHOR>]
+    [-t|--type <WorkspaceView|DataProcessor|DataTarget>]
+    [-c|--default-config <EXTENSION_DEFAULT_CONFIG>]
+
+ck pack extension -h|--help
+```
+
+## Arguments
+
+- ```EXTENSION_FILE```  
+The absolute path to a WebAssembly file, .wasm-file, containing a service extension, or a Node package file, .tgz-file, containing a GUI extension.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-o|--out```  
+The output directory for the packaged extension.
+
+- ```-n|--name```  
+The name of the extension to be packed. If not given, the name will be extracted from the extension file.
+
+- ```-d|--display-name```  
+The display name of the extension to be packed. If not given, the display name will be extracted from the extension file.
+
+- ```-desc|--description```  
+The description of the extension to be packed. If not given, the description will be extracted from the extension file.
+
+- ```-v|--version```  
+The version of the extension to be packed. If not given, the version will be extracted from the extension file.
+
+- ```-a|--author```  
+The author of the extension to be packed. If not given, the author will be extracted from the extension file.
+
+- ```-t|--type```  
+The type of the extension to be packed. If not given, it will be extracted from the extension file.
+
+- ```-c|--default-config```  
+The default configuration for the extension to be packed, in JSON format. If not given, the default configuration will be extracted from the extension file.
+
+## Examples
+
+```bash
+ck pack extension path/to/extensionfile.wasm
+ck pack extension path/to/extensionfile.wasm --out path/to/extensionpackage.ckext
+```
+

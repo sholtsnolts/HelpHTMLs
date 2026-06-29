@@ -1,0 +1,35 @@
+# ck send lin-clear
+
+Clears a message buffer for a LIN slave. The slave will not answer next time it is polled.
+
+## Synopsis
+
+```text
+ck send lin-clear
+    <OUTPUT_CHANNEL_NAME_OR_ID>
+    [--language <en|zh|ja>]
+    -i|--id <MESSAGE_ID>
+
+ck send lin-clear -h|--help
+```
+
+## Arguments
+
+- ```OUTPUT_CHANNEL_NAME_OR_ID```  
+The identifier/name of the output channel to be used.
+
+## Options
+
+- ```--language```  
+Specify the preferred language to be used in all output strings. Default value is English (en). Supported languages are English (en), Chinese (zh), and Japanese (ja).
+
+- ```-i|--id``` (required)  
+The message id. Prefix with 0x to indicate hex format. Valid identifiers are 0-63.
+
+## Examples
+
+```bash
+ck send lin-clear "LIN 1" --id 1
+ck send lin-clear "LIN 1" -i 0x3F
+```
+
