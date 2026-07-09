@@ -1,0 +1,454 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating and publishing Virtual Components</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating and publishing Virtual Components"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="virtualcomp1a">
+                     <h1 class="topic-title">Creating and publishing Virtual Components</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you start a new design project, you may want to define the overall product structure
+                     for the project before creating new Solid Edge documents, or before positioning 3D
+                     geometry for existing Solid Edge documents in the top-level assembly. In effect, you
+                     use a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/topdowndesign" rel="topdowndesign">top-down design</a> approach to define the assembly structure using virtual components as place holders
+                     until real components are defined.</p>
+                  <p>You can use the Virtual Component functionality in Solid Edge or in Teamcenter to
+                     define the assembly structure for a new design project.</p>
+                  <p>When you have finished defining the assembly structure, you can publish the assembly.
+                     Publishing the assembly creates the new Solid Edge documents required, copies assembly
+                     sketch geometry to the new documents, and adds the 3D geometry for existing Solid
+                     Edge documents to the assembly.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/virtual_component/virtcomp3.gif"></p>
+                  <h4 class="division-title">Virtual components in Solid Edge </h4>
+                  <div>
+                     <p>The basic workflow for creating and publishing a virtual assembly in the unmanaged
+                        Solid Edge environment is:</p>
+                     <ul>
+                        <li>
+                           <p>Define the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/virtual_component" rel="virtual_component">virtual components</a> you need.</p>
+                        </li>
+                        <li>
+                           <p>Add existing documents to the virtual assembly structure.</p>
+                        </li>
+                        <li>
+                           <p>Assign 2D geometry to individual virtual components.</p>
+                        </li>
+                        <li>
+                           <p>Position virtual components.</p>
+                        </li>
+                        <li>
+                           <p>Publish virtual components.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Virtual components in a Teamcenter-managed Solid Edge environment</h4>
+                  <div>
+                     <p>While you can use the virtual component functionality in Solid Edge to develop unmanaged
+                        assembly structures, most often in a managed environment, your product structure is
+                        created and modified in another Teamcenter PDM client such as Teamcenter Structure
+                        Manager. Then the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/empty_items" rel="empty_items">empty items</a> that are created in the PDM client are opened for further development along with
+                        the remaining structure in either Solid Edge or Structure Editor.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>As a best practice, you should choose between using Solid Edge Virtual Components
+                           and a workflow where Teamcenter empty items are created in a PDM client. Using both
+                           in the same structure is not recommended.</p>
+                     </div>
+                     <p>After you finish defining the assembly structure, you can <em>publish</em> the virtual components, converting non-modeled objects into physical documents containing
+                        Solid Edge 3D datasets. Publishing the components assigns the Solid Edge template
+                        (part, assembly, sheet metal or weldment), and Teamcenter attributes to the real document.</p>
+                     <p>The basic workflow for working with Teamcenter-managed virtual assembly is:</p>
+                     <ul>
+                        <li>
+                           <p>Create the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/virtual_component" rel="virtual_component">virtual components</a> you need, using a Teamcenter PDM client.</p>
+                        </li>
+                        <li>
+                           <p>Open the structure in Solid Edge where you can view the structure in PathFinder.</p>
+                        </li>
+                        <li>
+                           <p>Add existing documents to the virtual assembly structure.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>If you are working in Solid Edge in the Teamcenter mode, you cannot place unmanaged
+                                 parts into a Teamcenter-managed virtual component structure.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Publish virtual components.</p>
+                        </li>
+                        <li>
+                           <p>Upload the real document into the Teamcenter database.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Defining the assembly structure</h4>
+                  <div>
+                     <p>The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1c" rel="virtualcomp1c">Virtual Component Structure Editor command</a> defines the assembly structure for a new design project in an unmanaged environment.
+                        When you click the Virtual Component Structure Editor command, the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1d" rel="virtualcomp1d">Virtual Component Structure Editor dialog box</a> is displayed.</p>
+                     <p>The Virtual Component Structure Editor defines the name and document type for new
+                        virtual components, and allows you to drag any existing Solid Edge documents into
+                        the virtual assembly structure.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Defining new virtual components</h5>
+                           <p>You use the right pane on the Virtual Component Structure Editor to define virtual
+                              components and organize the assembly structure. The Component Type options on the
+                              right pane of the Virtual Component Structure Editor define the document type for
+                              new virtual components:</p>
+                           <ul>
+                              <li>
+                                 <p>Assembly components</p>
+                              </li>
+                              <li>
+                                 <p>Part components</p>
+                              </li>
+                              <li>
+                                 <p>Sheet metal components</p>
+                              </li>
+                           </ul>
+                           <p>The Name option assigns a name to the virtual component you are creating. You can
+                              select a default name from the list, or type the name you want in the Name box.</p>
+                           <p>You can customize the Names list by editing <b>VCNames.txt</b> in the Solid Edge Preferences folder. Separate sections in <b>VCNames.txt</b> define unique virtual component names for part, sheet metal, and assembly components.</p>
+                           <p>After you define the component type and name, you can click the Add Virtual Component
+                              button on the Virtual Component Structure Editor dialog box to add the virtual component
+                              to the tree structure list. You can also add a virtual component to the tree structure
+                              list by pressing Enter after typing the virtual component name.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When you create a virtual component, it has no physical position and no associated
+                                 graphics. Later, you can position the virtual component and/or assign graphics to
+                                 it.</p>
+                           </div>
+                           <p>You can use the Promote Component and Demote Component buttons to further define the
+                              assembly structure. For example, if you want to move a component from a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/virtual_assembly" rel="virtual_assembly">virtual subassembly</a> into the next higher level assembly, you can select the component and click the Promote
+                              Component button.</p>
+                           <p>You can also drag virtual components within the Virtual Component Structure Editor
+                              dialog box to rearrange the assembly structure. For example, you can drag a virtual
+                              part from one virtual subassembly to another virtual subassembly.</p>
+                        </li>
+                        <li>
+                           <h5>Adding existing documents to the virtual structure</h5>
+                           <p>You can also place existing Solid Edge documents into the assembly structure using
+                              the Virtual Component Structure Editor dialog box.</p>
+                           <p>The left pane on the Virtual Component Structure Editor dialog box browses to and
+                              selects existing documents on your computer or another computer on your network. If
+                              you are working in Teamcenter mode, you can select existing documents from your Teamcenter
+                              database.</p>
+                           <p>You can place an existing document into the virtual assembly structure in one of two
+                              ways: as a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/predefined_component" rel="predefined_component">predefined component</a> or as a real component.</p>
+                           <ul style="list-style: none">
+                              <li>
+                                 <h5>Predefined components</h5>
+                                 <p>Predefined components are virtual components that are based on an existing document.
+                                    You cannot place 3D geometry using a predefined component, but you can create 2D geometry
+                                    in the parent document (A), then position the 2D geometry in the assembly sketch (B).
+                                    You can reuse existing documents in new design projects without the overhead of 3D
+                                    geometry.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/virtual_component/virtcomp4.gif"></p>
+                                 <p>When you clear the Add As Real Component option on the Virtual Component Structure
+                                    Editor, then drag an existing component into the right pane of the structure editor,
+                                    the component is placed as a predefined component. If you want to add the document
+                                    to a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/virtual_assembly" rel="virtual_assembly">virtual subassembly</a>, position the cursor over the virtual subassembly when dropping the predefined component.</p>
+                                 <p>Predefined components are typically purchased or released parts that are not subject
+                                    to significant changes.</p>
+                              </li>
+                              <li>
+                                 <h5>Adding real components</h5>
+                                 <p>When you set the Add As Real Component option on the Virtual Component Structure Editor
+                                    before you drag an existing document into the virtual assembly structure, the 3D geometry
+                                    associated with the component is added to the assembly. When this option is set you
+                                    can only place the component in the top-level assembly.</p>
+                                 <p>The component is placed in the assembly hidden, with no relationships applied, and
+                                    is oriented in the assembly by aligning the base reference planes of the component
+                                    with the base reference planes in the assembly.</p>
+                                 <p>You can position the real component within the assembly sketch using assembly relationships
+                                    such as mate and align, or 2D relationships and dimensions such as Connect and Distance
+                                    Between.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <h5>Copying virtual and predefined components</h5>
+                           <p>You can specify that the same part or subassembly occurs more than once using the
+                              Virtual Component Structure Editor dialog box. To specify that a component occurs
+                              more than once, you can select an existing virtual component or predefined component,
+                              then click the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp9c" rel="virtualcomp9c">Copy Definition command</a> on the shortcut menu.</p>
+                           <p>This copies the component name and component type to the Name box and Component Type
+                              list. You can then press Enter or click Add Virtual Component to add the component
+                              to the tree structure list. You can also add the same component multiple times by
+                              pressing Enter repeatedly.</p>
+                        </li>
+                        <li>
+                           <h5>Saving the tree structure</h5>
+                           <p>When you click the OK button on the <b>Virtual Component Structure Editor</b> dialog box, the virtual assembly structure you defined is added to the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/pthfnd3d" rel="pthfnd3d">PathFinder tab</a>. You can make changes to the virtual assembly structure later using the Virtual Component
+                              Structure Editor dialog box.</p>
+                           <p>You can dismiss the <b>Virtual Component Structure Editor</b> dialog box without saving changes by clicking the Cancel button.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Assigning sketch geometry to Virtual Components</h4>
+                  <div>
+                     <p>You can assign 2D sketch geometry from the assembly <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/layout" rel="layout">layout</a> to a virtual component. You can create the 2D geometry before or after you define
+                        the assembly structure.</p>
+                     <p>Assigning geometry to a virtual component defines its size and position in the assembly
+                        sketch. You can only assign geometry to one occurrence of a particular virtual component.</p>
+                     <p>When you assign 2D geometry to a virtual component, it becomes the primary, or <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/source_component" rel="source_component">source component</a>. You can edit the sketch geometry associated with the source component directly.
+                        If there are additional occurrences of a particular virtual component, they become
+                        secondary or <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/instance_component" rel="instance_component">instance components</a>.</p>
+                     <p>The sketch geometry for an instance component is an associative copy of the sketch
+                        geometry of the source component. When you update the sketch geometry for a source
+                        component, the sketch geometry for the instance components updates automatically.
+                        You cannot modify the sketch graphics for an instance component directly.</p>
+                     <p>You assign geometry to a virtual component using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp3c" rel="virtualcomp3c">Edit Definition command</a> on the Assembly PathFinder shortcut menu. This command is available only when an
+                        assembly sketch window is open.</p>
+                     <p>When you click the <b>Edit Definition</b> command, a command bar is displayed so you can select the geometry and define an
+                        origin. You can select the 2D sketch geometry using the cursor or by dragging a fence.
+                        When you finish selecting geometry, click Accept or right-click to proceed to the
+                        Orientation Step.</p>
+                     <p>The Orientation Step defines the origin location for the virtual component and the
+                        reference plane that the 2D sketch graphics are placed on when you publish the virtual
+                        component. You can specify that the graphics are placed on one of the three base reference
+                        planes.</p>
+                     <p>When defining the origin you can specify that the origin is based on a keypoint or
+                        a free space point. With either method you must also define the x-axis direction.
+                        When you click the Finish button, a symbol is displayed that represents the origin
+                        (A) and x-axis direction (B) for the virtual component geometry.</p>
+                     <p>You can constrain to the origin point on a virtual component to position it within
+                        the assembly.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/virtual_component/virtual2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Creating sketch geometry for predefined Virtual Components</h4>
+                  <div>
+                     <p>You create the sketch geometry for a predefined virtual component by opening the parent
+                        document, then using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp11c" rel="virtualcomp11c">Component Sketch command</a> to create a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/component_sketch" rel="component_sketch">component sketch</a>.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/virtual_component/virtcomp5.gif"></p>
+                     <p>There are two types of graphics you can create in a component sketch: component image
+                        graphics, and wireframe graphics. Component image graphics are created using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp12c" rel="virtualcomp12c">Component Image command</a>. This command creates a 2D representation of the visible edges on a part.</p>
+                     <p>Component image graphics are not individually selectable in the assembly sketch, but
+                        provide a reference envelope.</p>
+                     <p>You supplement the component image graphics with wireframe graphics you create using
+                        the <b>Project to Sketch</b> command or drawing wireframe graphics manually. The wireframe graphics can be selected
+                        and used for constraining the component sketch in the assembly sketch.</p>
+                     <p>You typically would create both types of graphics for a component sketch. In some
+                        cases, you may only create component image graphics, then use the virtual component
+                        symbol origin to constrain the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/predefined_component" rel="predefined_component">predefined component</a> in the assembly sketch.</p>
+                     <p>Using too many wireframe graphic elements can impact performance when placing the
+                        component sketch in the assembly sketch.</p>
+                  </div>
+                  <h4 class="division-title">Updating sketch geometry for predefined Virtual Components</h4>
+                  <div>
+                     <p>As discussed earlier, predefined components are typically purchased or released parts.
+                        If the parent 3D geometry for a predefined component sketch changes, you must delete
+                        the component image graphics and create new graphics using the <b>Component Image</b> command.</p>
+                     <p>You can then open the assembly sketch and select the predefined component within <b>PathFinder</b>. Click the <b>Update Component</b> command on the shortcut menu to update the predefined component graphics in the assembly.</p>
+                  </div>
+                  <h4 class="division-title">Replacing predefined components</h4>
+                  <div>
+                     <p>You can use the <b>Replace</b> command on the shortcut menu when a sketch is active to replace a predefined component
+                        with another Solid Edge document you specify. You can select the predefined component
+                        in <b>Assembly PathFinder</b> or the sketch window.</p>
+                  </div>
+                  <h4 class="division-title">Displaying Virtual Component sketch geometry</h4>
+                  <div>
+                     <p>Before you assign assembly sketch graphics to a virtual component, you use the Show
+                        and Hide commands on the Layers tab shortcut menu to display and hide the assembly
+                        sketch graphics. An effective layer management scheme can make working with complex
+                        assembly sketches more productive.</p>
+                     <p>After you assign assembly sketch graphics to a virtual component, you can use the
+                        Show and Hide commands on the PathFinder shortcut menu to display and hide the virtual
+                        component sketch graphics. For example, you can select the virtual component in PathFinder,
+                        or in the graphics widow, then click the Show and Hide commands on the shortcut menu.</p>
+                     <p>You control the display of dimensions you apply to the sketch geometry by showing
+                        and hiding the layers on which the dimensions were created, both before and after
+                        you assign graphics to a virtual component.</p>
+                     <p>Because geometric relationship handles do not reside on a layer, you always control
+                        their display using the Relationship Handles command on the Tools menu when in the
+                        assembly sketch.</p>
+                  </div>
+                  <h4 class="division-title">Positioning Virtual Components</h4>
+                  <div>
+                     <p>You use the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp4c" rel="virtualcomp4c">Position Virtual Component command</a> on the PathFinder shortcut menu to position virtual components. This command is only
+                        available when you are editing an assembly sketch. You can position an empty virtual
+                        component (a virtual component that has no geometry assigned), an instance virtual
+                        component, or a predefined component.</p>
+                     <p>You can position a virtual component by dragging it from the PathFinder tab and dropping
+                        it into the sketch window.</p>
+                     <p>As discussed earlier, source virtual components are positioned as part of the process
+                        of assigning geometry.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Positioning empty Virtual Components</h5>
+                           <p>If you have not assigned geometry to any occurrences of a particular virtual component,
+                              you can select the virtual component in PathFinder, then click the <b>Position Virtual Component</b> command on the shortcut menu. The virtual component symbol is attached to the cursor
+                              so you can position the virtual component on the assembly sketch.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/virtual_component/virtual3.gif"></p>
+                           <p>The symbol represents the approximate position for the empty virtual component in
+                              the assembly. Later, you can select the empty virtual component entry in PathFinder
+                              and use the <b>Edit Definition</b> command to assign geometry to one occurrence of the empty virtual component. This
+                              instance of the virtual component becomes the source virtual component. </p>
+                           <p>The other occurrences of the virtual component update with the graphics you assigned
+                              to the source component, and they become instance components.</p>
+                           <p>You can then add relationships and dimensions to the sketch geometry to precisely
+                              locate the virtual component in the assembly sketch.</p>
+                        </li>
+                        <li>
+                           <h5>Positioning instance Virtual Components</h5>
+                           <p>After you assign sketch geometry to a virtual component, it becomes the source component
+                              for additional occurrences of that virtual component. You can select another occurrence
+                              of the virtual component in PathFinder and use the <b>Position Virtual Component</b> command on the shortcut menu to position the virtual component on the active assembly
+                              sketch.</p>
+                           <p>A copy of the sketch graphics that were assigned to the source component is attached
+                              to the cursor. As discussed earlier, the sketch geometry for an instance component
+                              is an associative copy of the sketch geometry of the source component. You can apply
+                              relationships and dimensions to the sketch graphics or to the virtual component symbol
+                              to precisely position the instance component on the assembly sketch.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Determining the status of a Virtual Component</h4>
+                  <div>
+                     <p>The symbols in PathFinder and the <b>Virtual Component Structure Editor</b> dialog box reflect the current status of the virtual components in the assembly.</p>
+                     <p>Teamcenter-managed non-modeled nodes can either be assembly or leaf nodes. Assembly
+                        nodes contain references or children, while leaf nodes do not contain references or
+                        children. The symbols in PathFinder, Assembly Reports, and the <b>Property Manager</b> dialog box reflect the state of the virtual components in the assembly. The following
+                        table explains the symbols used:</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/virtual_component/virtualcomp_legend.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The Teamcenter Status and Checked Out By information displayed in PathFinder is not
+                           available for an object until it is published.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Publishing Virtual Components</h4>
+                  <div>
+                     <p>When you are ready to create the document set for the new design project, you can
+                        click the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp2c" rel="virtualcomp2c">Publish Virtual Components command</a>. You can then use the <b>Publish Virtual Components</b> dialog box to specify the target folder and template you want to use to create the
+                        document set.</p>
+                     <p>In an unmanaged Solid Edge environment, when you click Publish, all virtual components
+                        are published at one time. The unmanaged Solid Edge documents are created using the
+                        names, folder path, and templates you specified.</p>
+                     <p>If you have associated 2D assembly sketch graphics with source virtual components,
+                        the sketch graphics, including dimensions and relationships, are copied to the proper
+                        document as sketches. The sketch graphics are positioned in the new document using
+                        the Publish On option you specified on the Edit Definition command bar when you assigned
+                        the sketch geometry to the source component.</p>
+                     <p>There is no associative link between the sketch graphics in the original assembly
+                        and the sketch graphics copied to the new documents.</p>
+                     <p>The sketch graphics associated with instance virtual components are deleted from the
+                        source assembly.</p>
+                     <p>You cannot publish a virtual component to the same folder as a real component of the
+                        same name. For example, if you add both a predefined component named <b>bolt.par</b> and a virtual component named <b>bolt</b> to the virtual component structure, they are not allowed to reside in the same folder
+                        when you publish the virtual components.</p>
+                     <p>Conflicts such as these are indicated in the <b>Publish Virtual Components</b> dialog box using red text and an exclamation mark (!). In this example, you can resolve
+                        the conflict by renaming the virtual component or by specifying a different folder
+                        for the virtual component.</p>
+                     <p>If you do not rename the virtual component or specify a different folder, the existing
+                        document will be used and the new document for the virtual component will not be created.
+                        The existing part is positioned as defined by the virtual component sketch, but the
+                        sketch geometry is not added to the existing document.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Publishing predefined components using the simplified representation</h5>
+                           <p>If a simplified representation of a part or subassembly exists, you can specify that
+                              the simplified representation is used for predefined components. When you set the
+                              Publish predefined Components Using Simplified Representations option on the <b>Publish Virtual Components</b> dialog box, the simplified representation is used.</p>
+                           <p>This can improve processing time and reduce document size. When you publish a simplified
+                              representation of a subassembly, the subassembly is published as a single unit and
+                              the assembly structure is not loaded into memory. The assembly structure is also not
+                              displayed within PathFinder.</p>
+                           <p>You can use commands on the PathFinder shortcut menu to specify whether the simplified
+                              or as designed version of the parts and subassemblies are displayed. For more information
+                              on working with simplified parts and assemblies, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt1a" rel="smpprt1a">Simplifying Parts</a> and <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyasm1a" rel="smpsimplifyasm1a">Simplifying Assemblies</a> Help topics.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Publishing documents in the Teamcenter-managed environment</h4>
+                  <div>
+                     <p>When you are ready to create the document set for the new design project, you have
+                        three options. You can perform an ad hoc publish on a single object by selecting the
+                        virtual component in PathFinder and dragging it into the Solid Edge graphic window.
+                        You are then prompted to choose the template for the object to give it a Solid Edge
+                        dataset, and then the New Document dialog box displays so you can check in the real
+                        document.</p>
+                     <p>Another option is to use the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp2c" rel="virtualcomp2c">Publish Virtual Components command</a>. You can then use the <b>Publish Virtual Components</b> dialog box to select components for either a partial or full publish, and to determine
+                        the template you want to use to create the document.</p>
+                     <p>During a partial publish, you select a component of an assembly for publishing by
+                        selecting the associated check box. Then you are given the opportunity to assign a
+                        template. The New Document common property dialog box assigns Teamcenter attributes,
+                        and the physical document is created with a Solid Edge dataset.</p>
+                     <p>A full publish involves selecting all components of a structure. The entire virtual
+                        structure is published at the same time. You use the New Document common property
+                        dialog box to assign Teamcenter attributes, and the documents are created with Solid
+                        Edge datasets.</p>
+                     <p>In all three cases, if a virtual component is denoted as an assembly, only Solid Edge
+                        assembly templates are displayed during template selection. If the virtual component
+                        is a leaf node (one that has no references or children), then you can choose from
+                        the 3D Solid Edge templates during template selection.</p>
+                  </div>
+                  <h4 class="division-title">Virtual Components and assembly reports</h4>
+                  <div>
+                     <p>If the assembly for which you are creating a report contains virtual components, you
+                        should always use the Reports command in the Assembly environment.</p>
+                     <p>When you run the <b>Reports</b> command from Windows Explorer on an assembly that has virtual components, the virtual
+                        components will not be contained in the report. If the assembly contains only virtual
+                        components, a message may be displayed that states that no parts are in the file.</p>
+                     <p>When you run the <b>Reports</b> command from Windows Explorer on an assembly that has virtual components, the Assembly
+                        Report shows Teamcenter virtual components and uses the same symbols for identification
+                        that you see in PathFinder.</p>
+                  </div>
+                  <h4 class="division-title">Assigning properties to Virtual Components</h4>
+                  <div>
+                     <p>When an active document contains a virtual component, you can use the <b>Property Manager</b> command to modify existing properties or create new properties for the virtual component
+                        in Solid Edge.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Virtual components created in Teamcenter are shown, but are read-only and cannot be
+                           edited.</p>
+                     </div>
+                     <p>When you select the <b>Property Manager</b> command, the <b>Property Manager</b> dialog box is displayed for editing property values. Any properties that you cannot
+                        edit are disabled and appear in gray.</p>
+                     <p>To edit a value, click the appropriate property cell and type in the new value. When
+                        you edit a property, if the document containing the property is a managed document,
+                        it is checked out to prevent others from making changes. After you edit a property
+                        value, the property cell is underlined to indicate that it has been changed. &nbsp;The
+                        cell remains underlined until you click the Save button to save the changes or click
+                        the Restore button to set the value back to the previous value. &nbsp;You can use the Copy,
+                        Cut, and Paste buttons to edit information between cells. When you click OK, the property
+                        changes are written back to the document in memory. The changes are not written until
+                        you save the document.</p>
+                     <p>When you publish the virtual components, the properties you assigned to the virtual
+                        components are added to the new documents.</p>
+                     <p>For more information on editing document properties, see <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/prop1a" rel="prop1a">Document Properties</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp11h" rel="virtualcomp11h">Create a virtual component sketch for a document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1h" rel="virtualcomp1h">Create virtual components</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp12h" rel="virtualcomp12h">Create a component image</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp3h" rel="virtualcomp3h">Assign geometry to a virtual component</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp4h" rel="virtualcomp4h">Position a Virtual Component on a Sketch</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compselect1h" rel="compselect1h">Specify whether a component is driven or driving</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp8h" rel="virtualcomp8h">Change the component type of a virtual component</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp2h" rel="virtualcomp2h">Publish virtual components</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1c" rel="virtualcomp1c">Virtual Components Structure Editor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1d" rel="virtualcomp1d">Virtual Component Structure Editor dialog box</a><br><br></div>
+            <div class="footer-content">Creating and publishing Virtual Components, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

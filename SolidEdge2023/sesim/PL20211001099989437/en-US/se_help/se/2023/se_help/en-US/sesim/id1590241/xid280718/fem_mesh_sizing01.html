@@ -1,0 +1,153 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Use subjective mesh sizing</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Use subjective mesh sizing"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_mesh_sizing01">
+                     <h1 class="topic-title">Activity: Use subjective mesh sizing</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>For information about meshes, mesh quality, and how you can refine the mesh to improve
+                     results, see the following help topics:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a>.</p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_bearing.par</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Study</b> group→<b>Material List</b>→<b>Stainless Steel</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz02.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Create Study</b> dialog box, choose the following:</p>
+                              <ul>
+                                 <li>
+                                    <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Study type</a> = <b>Linear Static</b> </p>
+                                    <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_type.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Mesh type</a> = <b>Tetrahedral</b> </p>
+                                    <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_mesh.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p>Click <b>OK</b>. </p>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the bearing:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Mesh</b> button. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <ul>
+                                    <li>
+                                       <p>You can use the <b>Mesh</b> command without defining loads and constraints. </p>
+                                    </li>
+                                    <li>
+                                       <p>In the absence of loads and constraints, you cannot solve the study.</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <p>The NX Nastran mesh processing starts and displays a progress meter. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_progress_dialog.png"></p>
+                           </li>
+                           <p>After a short period of time, the part will display with a tetrahedral mesh. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz03.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Change the subjective mesh size:</p>
+                        <p>For your previous mesh, you used the default mesh size, a value of 3 on a scale of
+                           1 to 10.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_subj_size.gif"></p>
+                        <ol type="a">
+                           <li>
+                              <p>Change the <b>Subjective mesh</b> by moving the slider to a value of <b>4</b>.</p>
+                           </li>
+                           <li>
+                              <p>Mesh the bearing again and see the increase in the number of elements. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz05.gif"></p>
+                           </li>
+                           <li>
+                              <p>Change this to a value of <b>7</b> using the slider. </p>
+                           </li>
+                           <li>
+                              <p>Mesh the bearing again and see the increase in the number of elements. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz07.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <ul>
+                                    <li>
+                                       <p>Note that each increase in the number of elements requires an increase in time to
+                                          mesh the part.</p>
+                                    </li>
+                                    <li>
+                                       <p>An increase in the number of elements results in increased accuracy of the analysis;
+                                          however, you must decide whether this improvement in accuracy is worth the additional
+                                          processing time. </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file:</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Activity: Use subjective mesh sizing, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

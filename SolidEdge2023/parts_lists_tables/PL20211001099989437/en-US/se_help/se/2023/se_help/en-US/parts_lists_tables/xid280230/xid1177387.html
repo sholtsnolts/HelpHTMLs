@@ -1,0 +1,270 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<html class="main-html scroll-area">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+  <title>Example: Show custom occurrence properties in a parts list</title>
+ </head>
+ <body>
+  <div class="main content-container"><contenttitle title="Example: Show custom occurrence properties in a parts list"></contenttitle>
+   <div class="container-fluid content-start">
+    <div class="row justify-content-center topic-header">
+     <div class="col-12 content-pad">
+      <div class="topic-header-content" id="xid1177387">
+       <h1 class="topic-title">Example: Show custom occurrence properties in a parts list</h1>
+      </div>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-12 content-pad">
+      <p>This workflow consists of three parts; which are covered in this topic.</p>
+      <ol type="1" start="1">
+       <li><p><a class="xref" href="#xid1177387_assy">Make custom occurrence properties available in an assembly</a>.</p></li>
+       <li><p><a class="xref" href="#xid1177387_draft">Reference custom occurrence properties in the parts list</a>.</p></li>
+       <li><p><a class="xref" href="#xid1177387_callout">Add callouts to identify parts with custom requirements</a>.</p></li>
+      </ol>
+      <p>Learn how to show custom occurrence properties in a parts list by watching the following video.</p>
+      <div id="videoContainer" style="max-width: 750px;">
+       <div id="video">
+        <div id="videoPlayer" class="video-player m-b-md"><iframe id="player" src="https://video.sw.siemens.com/embed/45504a0b-a094-44db-8ed6-be6a8a081786" allowfullscreen scrolling="no" frameborder="0"></iframe>
+        </div>
+       </div>
+      </div>
+      <h4 class="division-title" id="xid1177387_assy">Make custom occurrence properties available in an assembly</h4>
+      <div>
+       <p>Before you can show custom occurrence properties in a parts list, they must be added to the assembly model.</p>
+       <ol type="1">
+        <li><p>In the assembly document, at the top of <b>Assembly PathFinder</b>, right-click the assembly name and choose the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1c" rel="prtprp1c">Occurrence Properties command</a> <img class="img-fluid" src="../../../common/nonLocalized/se/icons/buttons/ocrncprops.gif">.</p></li>
+        <li><p>In the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1d" rel="prtprp1d">Occurrence Properties dialog box</a>, click the <b>Add Custom Occurrence Properties</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/occurrence_properties/add_custom_occurrence_properties_button.png">.</p> <p>This reads the predefined custom occurrence property columns and value definitions from <b>CustomOccurrenceProperty.xml</b> into the assembly model. While the property names are predefined in the .xml file and cannot be changed in the assembly, you can assign the values for the custom properties for each occurrence of a part or subassembly where they apply. For more information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assembly</a>.</p>
+         <div class="attention" type="example">
+          <div class="attention-label">
+           Example:
+          </div>
+          <p>This top-level assembly (<b>two_conveyors.asm</b>) contains two conveyor belt roller assemblies, without the belts.&nbsp;The yellow boxes are lubrication reservoirs (<b>greasebox.par</b>).The same part is used in multiple locations on each conveyor belt. The lubrication reservoirs need to be refilled on different maintenance schedules, because they dispense lubricant at different rates.</p>
+          <ul>
+           <li><p>The reservoirs on the red rollers need to be refilled weekly.</p></li>
+           <li><p>The reservoirs on the green rollers need to be refilled monthly.</p></li>
+          </ul>
+          <p><img class="img-fluid" src="../../../common/nonLocalized/se/assembly/occurrence_properties/two_conveyors_assy.png"></p>
+          <p>You can document and propagate these unique maintenance schedule requirements using the custom occurrence property, Maintenance, in the <b>Occurrence Properties</b> dialog box.</p>
+         </div></li>
+        <li><p>Assign custom occurrence property values:</p>
+         <ol type="a">
+          <li><p>In the Placement Name column, right-click the top-level assembly and choose <b>Expand All</b>.</p> <p>This expands the list of all parts and subassemblies, making it easier to locate the occurrences to which you want to assign custom properties and values.</p></li>
+          <li><p>For each of these parts or components:</p>
+           <ol type="A" start="1">
+            <li><p>Click in the cell for the corresponding property column, and then select or type a value.</p></li>
+            <li><p>If you are changing an existing value in a lower-level part or subassembly, then also right-click the cell and choose the <b>Add Override</b> command.</p></li>
+           </ol>
+           <div class="attention" type="note">
+            <div class="attention-label">
+             Note:
+            </div>
+            <p>For the Maintenance custom occurrence property that is provided in the default <b>CustomOccurrenceProperty.xml</b> file, you can choose from the list of predefined values (Daily, Weekly, Bi-Weekly, Monthly, Quarterly, or Yearly).</p>
+           </div>
+           <div class="attention" type="example">
+            <div class="attention-label">
+             Example:
+            </div>
+            <p>Locate all six occurrences of <b>greasebox.par</b>, and then assign the appropriate maintenance value according to whether it is used in the conveyor belt on the red rollers (<b>Maintenance=Weekly</b>) or the conveyor belt on the green rollers (<b>Maintenance=Monthly</b>).</p>
+           </div></li>
+         </ol></li>
+        <li><p>When you are finished assigning custom occurrence property values, click <b>Apply</b> and then <b>OK</b> to close the dialog box.</p></li>
+        <li><p>Save and close the assembly document.</p></li>
+       </ol>
+      </div>
+      <h4 class="division-title" id="xid1177387_draft">Reference custom occurrence properties in the parts list</h4>
+      <div>
+       <p>In the Draft environment, you can define a column to show the values of custom occurrence properties, which are defined in the <b>Occurrence Properties</b> dialog box in an assembly. Using custom occurrence properties in a parts list lets you show all of the different values for a part property that was used multiple times in an assembly, instead of the same value for all of the occurrences of the same part.</p>
+       <div class="attention" type="example">
+        <div class="attention-label">
+         Example:
+        </div>
+        <p>You should show custom occurrence properties in your parts list when you have:</p>
+        <ul>
+         <li><p>Different maintenance or lubrication schedules for the same part, based on its location and use.</p></li>
+         <li><p>Assembly instructions or technical requirements notes that vary slightly.</p></li>
+         <li><p>Different location designators or IDs or room numbers for the same part.</p></li>
+        </ul>
+       </div>
+       <ol type="1">
+        <li><p>Use the <b>Parts List</b> command to place a parts list for the assembly drawing view.</p></li>
+        <li><p>Right-click the parts list and choose <b>Properties</b>.</p></li>
+        <li><p>In the <b>Parts List Properties</b> dialog box, click the <b>Columns</b> tab.</p></li>
+        <li><p>Add the custom column to the table:</p>
+         <ol type="a">
+          <li><p>From the <b>Properties</b> list, select the name of the custom occurrence property that you want to add to the table. Look for a property name with <b>(Occurrence Property)</b> appended to it.</p>
+           <div class="attention" type="example">
+            <div class="attention-label">
+             Example:
+            </div>
+            <p>For this example, select <b>Maintenance (Occurrence Property)</b>.</p>
+           </div></li>
+          <li><p>Click the <b>Add Column</b> button.</p> <p>The name of the property that you selected in the <b>Properties</b> list is added to the <b>Columns</b> list.</p></li>
+         </ol></li>
+        <li><p>Define the custom column content by doing the following:</p>
+         <ol type="a">
+          <li><p>In the <b>Columns</b> list, click the column name that you added in the previous step.</p> <p>Its property text string is displayed in the <b>Property text </b> box.</p>
+           <div class="attention" type="example">
+            <div class="attention-label">
+             Example:
+            </div>
+            <p>%{Maintenance/OP|G}</p>
+           </div> <p>Its title, Maintenance, is displayed in the <b>Column Header</b> box.</p></li>
+          <li><p>Specify the formatting to be applied to the evaluated property text:</p>
+           <ol type="A">
+            <li><p>In the <b>Property text</b> box, click within the property text string.</p> <p>The property text string turns red to indicate it can be formatted.</p></li>
+            <li><p>Click the <b>Format</b> button located to the right of the <b>Property text</b> box.</p></li>
+            <li><p>In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid994105" rel="xid994105">Format Values dialog box</a>, select the type of formatting you want to apply.</p> <p>The options that are available depend on the type of value the property text returns.</p>
+             <div class="attention" type="example">
+              <div class="attention-label">
+               Example:
+              </div>
+              <p>For textual information, you can click the <b>Text case</b> check box, and then select <b>UPPERCASE</b>, <b>lowercase</b>, <b>Sentence case</b>, or <b>Title Case</b>.</p>
+             </div></li>
+           </ol></li>
+          <li><p>Click <b>OK</b> to close the <b>Format Values</b> dialog box.</p></li>
+         </ol></li>
+        <li><p>In the <b>Parts List Properties</b> dialog box, click the <b>List Control</b> tab, and then in the <b>Global</b> section, select <b>Atomic list (all parts) </b>.</p> <p>Selecting this option creates a parts list that shows each unique part and subassembly on a different row. It also shows the union of all property values for the same column in a single cell.</p>
+         <div class="attention" type="example">
+          <div class="attention-label">
+           Example:
+          </div>
+          <p>This means that all of the Maintenance custom occurrence property values in <b>greasebox.par</b> are shown in the same cell in the Maintenance column in the parts list.</p>
+         </div></li>
+        <li><p>Click the <b>Options</b> tab, and then use the <b>Item number separator </b> box to specify the characters and spaces to be inserted between each custom occurrence value in the table cell.</p> <p>The default character is a comma (,). Adding extra spaces improves legibility.</p></li>
+        <li><p>Click <b>OK</b> to update the parts list and close the <b>Parts List Properties</b> dialog box.</p></li>
+        <div class="attention" type="example">
+         <div class="attention-label">
+          Example:
+         </div>
+         <p>In the conveyor example, the Maintenance and Paint columns that were defined in the <b>Occurrence Properties</b> dialog box in the assembly, <b>two_conveyors.asm</b>, are shown in the parts list.</p>
+         <table cellspacing="5" border="1" bgcolor="#FFFFFF" cellpadding="5" width="100%" frame="box">
+          <colgroup span="1">
+           <col span="1" width="12%">
+           <col span="1" width="27%">
+           <col span="1" width="14%">
+           <col span="1" width="25%">
+           <col span="1" width="22%">
+          </colgroup>
+          <thead>
+           <tr>
+            <th rowspan="1" colspan="1"><p>Item Number</p></th>
+            <th rowspan="1" colspan="1"><p>File Name (no extension)</p></th>
+            <th rowspan="1" colspan="1"><p>Quantity</p></th>
+            <th rowspan="1" colspan="1"><p>Maintenance</p></th>
+            <th rowspan="1" colspan="1"><p>Paint</p></th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td rowspan="1" colspan="1"><p>1</p></td>
+            <td rowspan="1" colspan="1"><p>ramp</p></td>
+            <td rowspan="1" colspan="1"><p>42</p></td>
+            <td rowspan="1" colspan="1"></td>
+            <td rowspan="1" colspan="1"></td>
+           </tr>
+           <tr>
+            <td rowspan="1" colspan="1"><p>2</p></td>
+            <td rowspan="1" colspan="1"><p>mounting_roller_bracket</p></td>
+            <td rowspan="1" colspan="1"><p>42</p></td>
+            <td rowspan="1" colspan="1"></td>
+            <td rowspan="1" colspan="1"></td>
+           </tr>
+           <tr>
+            <td rowspan="1" colspan="1"><p>3</p></td>
+            <td rowspan="1" colspan="1"><p>roller</p></td>
+            <td rowspan="1" colspan="1"><p>63</p></td>
+            <td rowspan="1" colspan="1"></td>
+            <td rowspan="1" colspan="1"><p>Red</p></td>
+           </tr>
+           <tr>
+            <td rowspan="1" colspan="1"><p>4</p></td>
+            <td rowspan="1" colspan="1"><p>pin</p></td>
+            <td rowspan="1" colspan="1"><p>126</p></td>
+            <td rowspan="1" colspan="1"></td>
+            <td rowspan="1" colspan="1"></td>
+           </tr>
+           <tr>
+            <td rowspan="1" colspan="1"><p>5</p></td>
+            <td rowspan="1" colspan="1"><p>greasebox</p></td>
+            <td rowspan="1" colspan="1"><p>6</p></td>
+            <td rowspan="1" colspan="1"><p>Monthly, Weekly</p></td>
+            <td rowspan="1" colspan="1"><p>Yellow</p></td>
+           </tr>
+           <tr>
+            <td rowspan="1" colspan="1"><p>6</p></td>
+            <td rowspan="1" colspan="1"><p>roller_g</p></td>
+            <td rowspan="1" colspan="1"><p>63</p></td>
+            <td rowspan="1" colspan="1"></td>
+            <td rowspan="1" colspan="1"><p>Green</p></td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </ol>
+      </div>
+      <h4 class="division-title" id="xid1177387_callout">Add callouts to identify parts with custom requirements</h4>
+      <div>
+       <p>Item balloons on a parts list only show the item number of a part and how many times it is used. To show the unique custom property values of each occurrence of the part in the drawing view, you can add associative callouts.</p>
+       <ol type="1">
+        <li><p>Choose the <b>Home</b> tab→<b>Annotations</b> group→<b>Callout</b> command.</p></li>
+        <li><p>In the <b>Callout Properties</b> dialog box, on the <b>General</b> tab, click in the <b>Callout text</b> box, and then click the <b>Property Text</b> button.</p></li>
+        <li><p>In the <b>Select Property Text</b> dialog box, from the <b>Source</b> list at top-right, select <b>From graphic connection</b>.</p> <p>The <b>Properties</b> list updates to show all of the custom occurrence properties at the top of the list, with the property name followed by <b>(Occurrence Property)</b>.</p></li>
+        <li><p>In the <b>Properties</b> list, click the custom occurrence property that you want to reference in the callout, and then click the <b>Select</b> button.</p>
+         <div class="attention" type="example">
+          <div class="attention-label">
+           Example:
+          </div>
+          <p>You also can double-click the property name, <b>Maintenance (Occurrence Property)</b>, to select it.</p>
+         </div></li>
+        <li><p>Click <b>OK</b> to close the <b>Select Property Text</b> dialog box.</p></li>
+        <li><p>Click <b>OK</b> to close the <b>Callout Properties</b> dialog box.</p></li>
+        <li><p>In the drawing view of the assembly, locate an occurrence of the part and click to place the callout.</p> <p>Continue clicking the other occurrences of the part that you want to document with the custom occurrence property values.</p>
+         <div class="attention" type="example">
+          <div class="attention-label">
+           Example:
+          </div>
+          <ul>
+           <li><p>Locate and click all three occurrences of <b>Greasebox.par</b> on the red conveyor belt. The callout text on each should display the value, Weekly.</p></li>
+           <li><p>Locate all three occurrences of <b>Greasebox.par</b> on the green conveyor belt and add callouts to them. The callout text should show the value, Monthly.</p></li>
+          </ul>
+          <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/occurrence_properties/two_conveyors_draft.png"></p>
+         </div></li>
+       </ol>
+      </div>
+     </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+     <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview2h" rel="dview2h">Create a parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid969395" rel="xid969395">Create a subassembly parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst6h" rel="prtlst6h">Create an exploded parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst5h" rel="prtlst5h">Create a total length parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1472881" rel="xid1472881">Create a parts list for flexible hoses and tubing</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1926173" rel="xid1926173">Create a family of assemblies parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid725042" rel="xid725042">Exclude parts from an exploded parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid732539" rel="xid732539">Open a model from a parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/varpro3h" rel="varpro3h">Example: Show custom properties and materials in a parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/varpro2h" rel="varpro2h">Example: Show sheet metal material thickness in a parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1h" rel="prtlst1h">Renumber a parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst4h" rel="prtlst4h">Change the active parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview5h" rel="dview5h">Display assembly occurrences in a drawing view or parts list</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst2h" rel="prtlst2h">Convert a parts list to a table</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3h" rel="prtlst3h">Copy a parts list to the clipboard</a> <br> <br>
+     <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1a" rel="prtlst1a">Parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1926828" rel="xid1926828">Family of Assemblies (FOA) parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid973634" rel="xid973634">Assembly part views and parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid984917" rel="xid984917">Subassembly drawing views and parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3a" rel="prtlst3a">Exploded parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1178759" rel="xid1178759">Custom occurrence properties in parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1206783" rel="xid1206783">Occurrence quantity overrides in parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid726732" rel="xid726732">Item numbers in parts lists</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid969567" rel="xid969567">Saving and reusing the parts list format</a> <br> <br>
+     <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1c" rel="prtlst1c">Parts List command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst4d" rel="prtlst4d">Parts List command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3d" rel="prtlst3d">Parts List Properties dialog box</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3c" rel="prtlst3c">Copy Contents command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst2c" rel="prtlst2c">Convert To Table command</a> <br> <br>
+    </div>
+    <div class="footer-content">
+     Example: Show custom occurrence properties in a parts list, Solid Edge 2023 <br>© 2022 Siemens
+    </div>
+   </div>
+  </div>
+  <script>window.mainLanguage="en_US"</script>
+  <script>window.delivId=""</script>
+  <script>window.projectId=""</script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script>
+ </body>
+</html>

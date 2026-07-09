@@ -1,0 +1,98 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using the Document Name Formula</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using the Document Name Formula"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="docnameformula1a">
+                     <h1 class="topic-title">Using the Document Name Formula</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Document Name Formula, defined on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/helpers1d" rel="helpers1d">Helpers page of the Solid Edge Options dialog box</a>, displays a value you compose by selecting various document properties. You can use
+                     the formula in place of the file name throughout Solid Edge. The Document Name Formula
+                     is used in both unmanaged and managed Solid Edge environments.</p>
+                  <h4 class="division-title">Replacing the file name with the document name formula value</h4>
+                  <div>
+                     <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/replacefilename1d" rel="replacefilename1d">Document Name Formula dialog box</a> to replace the file name displayed in PathFinder with a value composed of document
+                        properties. Combining document properties with additional characters to replace the
+                        file name makes identifying your documents even easier. For example, you can separate
+                        two properties with a dash, such as Document Number–Revision Number.</p>
+                     <p>If a document property does not exist or does not have an assigned value, the property
+                        name is displayed in place of the property value, and the file name is displayed in
+                        parentheses after the value.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/prop2a" rel="prop2a">Standard and Custom properties list</a> displays the properties that you can use to replace the file name. The properties
+                           available to you depend on your document type. You can add a property that is not
+                           in the active document by typing [property name] in the Document Name Formula.</p>
+                     </div>
+                     <p>Refer to the Help topic <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/replacefilename1h" rel="replacefilename1h">Replace a file name with a property value</a> for more information.</p>
+                  </div>
+                  <h4 class="division-title">Using the Document Name Formula in Alternate Assemblies</h4>
+                  <div>
+                     <p>Family of Assemblies and Alternate Position Assemblies take advantage of the capability
+                        to use the Document Name Formula to make the names you display easily identifiable.
+                        You can customize the formula so that the names you display conform to your standards.
+                        In both Family of Assemblies and Alternate Position Assemblies, the formula is presented
+                        in the format <b>Formula!&lt;Member Name&gt;</b> to help you differentiate Family of Assemblies or an Alternate Position Assemblies
+                        from any other assembly.</p>
+                     <p>In the following examples, B12340–001 is the document number, A is the revision, steel
+                        is the material, Member is the member name, and <b>ap.asm</b> is the file name.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Formula = [Document Number]_[Revision Number]([Material])<br>Display = B1234–001_A(Steel)!Member</p>
+                     </div>
+                     <p>When a property used in the formula is not defined, the formula is presented in the
+                        format <b>Formula&lt;!Member Name&gt;:1&lt;(File Name)&gt;</b>.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Formula = [Document Number]_[Revision Number]([Material])<br>Display = B1234–001_A(Steel)!Member:1(ap.asm) </p>
+                     </div>
+                     <p>A special case exists when the formula includes the file name and a property in the
+                        formula is not defined. In this case, the file name is not appended to the end of
+                        the string. </p>
+                  </div>
+                  <h4 class="division-title">Using the Document Name Formula in Solid Edge document translation</h4>
+                  <div>
+                     <p>You can use the <b>Export using DocnameFormula</b> parameter to specify whether to use the file name or the document name formula when
+                        exporting a Solid Edge document to JT format. Setting the value to 0 specifies that
+                        you want to use the file name and setting it to 1 specifies that you want to use the
+                        document name formula.</p>
+                     <p>The parameter is available in the SePvTrn.ini file.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Enable the parameter through the .ini file if you want to use the functionality when
+                           exporting to JT.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/replacefilename1h" rel="replacefilename1h">Replace the file name with a property value</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/prop2a" rel="prop2a">Properties used by document name formula</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/replacefilename1d" rel="replacefilename1d">Document Name Formula dialog box</a><br><br></div>
+            <div class="footer-content">Using the Document Name Formula, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,440 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Using the jog and break corner command in sheet metal design</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Using the jog and break corner command in sheet metal design"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="id1604736">
+                     <h1 class="topic-title">Activity: Using the jog and break corner command in sheet metal design</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <div class="row justify-content-center">
+                     <div class="col-11"> 
+                        <p><a download="jog.zip" target="_blank" href="../../../common/nonLocalized/courseware_datasets/spse01546/jog.zip"> <b>Click here to download the activity file.</b> </a></p> 
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_012.jpg"></p>
+                        <h4 class="division-title">Objectives</h4>
+                        <div>
+                           <p>This activity demonstrates how to create a jog in a sheet metal tab, and place flanges
+                              and trim away unwanted material from the part. In this activity you will:</p>
+                           <ul>
+                              <li>
+                                 <p>Create a tab based on reference geometry.</p>
+                              </li>
+                              <li>
+                                 <p>Create the sketches needed by the jog command.</p>
+                              </li>
+                              <li>
+                                 <p>Set the parameters for the jog.</p>
+                              </li>
+                              <li>
+                                 <p>Modify the bend radius when and where appropriate.</p>
+                              </li>
+                              <li>
+                                 <p>Use the break corner command to get rid of sharp corners.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".jog_activity">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">1: Open a sheet metal file</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse jog_activity" data-parent=".id1604736" id="jog_activity">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_0_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_0_0" class="step-label">
+                                    <p>Start Solid Edge 2023.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_1_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_1_0" class="step-label">
+                                    <p>Open <b>jog_activity.psm</b>.</p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>This sheet metal file was created in the context of an assembly. An interpart-copy
+                                       contains geometry from a part file that will be used to define the extents of the
+                                       sheet metal part being created. The geometry has rounded edges with a 2.0 mm radius.
+                                       Knowing this, the proper bend radius can be established.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".jog_activity_01">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">2: Draw the sketch and create the base feature</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse jog_activity_01" data-parent=".id1604736" id="jog_activity_01">
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>This sheet metal file was created in the context of an assembly and inter-part geometry
+                              from a part file was imported into the file. This geometry will be used to define
+                              the extents of the sheet metal that will cover the part. It is visible in PathFinder
+                              and the display of the geometry can be toggled on or off there.</p>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_2_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_2_0" class="step-label">
+                                    <p>Select the <b>Project to Sketch</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_include.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_3_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_3_0" class="step-label">
+                                    <p>Lock the sketch plane to the top most face on the part.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_002.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_4_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_4_0" class="step-label">
+                                    <p>If the <b>Project to Sketch Options</b> dialog box appears, click <b>Cancel</b> to dismiss it.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_5_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_5_0" class="step-label">
+                                    <p>Use the command to include the following geometry in the sketch:</p>
+                                    <ul>
+                                       <li>
+                                          <p>The outer edges around the base. Only the straight edges need to be included.</p>
+                                          <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_003.jpg"></p>
+                                       </li>
+                                       <li>
+                                          <p>The 5 holes.</p>
+                                       </li>
+                                    </ul></span></div>
+                              <div class="step-result">
+                                 <p>The sketch appears as shown.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_004.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_6_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_6_0" class="step-label">
+                                    <p>Click the <b>Trim Corner</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_trim_corner.jpg"> and trim the outer lines so that they intersect and form a closed region.</p></span></div>
+                              <div class="step-result">
+                                 <p>The sketch appears as shown.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_005.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_7_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_7_0" class="step-label">
+                                    <p>Select the region shown.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_006.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_8_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_8_0" class="step-label">
+                                    <p>Click the top arrow to create the base feature above the part geometry as shown.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_007.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".jog_activity_02">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">3: Create a jog</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse jog_activity_02" data-parent=".id1604736" id="jog_activity_02">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_9_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_9_0" class="step-label">
+                                    <p>Click the <b>Jog</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_command.jpg"> and select the line shown.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_008.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_10_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_10_0" class="step-label">
+                                    <p>Select the direction arrow as shown.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_009.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_11_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_11_0" class="step-label">
+                                    <p>On the command bar, select the <b>Material Outside</b> option.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_010.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_12_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_12_0" class="step-label">
+                                    <p>Select the <b>Dimension to Die</b> <img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/dimension_to_die.jpg"> option on command bar.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_011.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_13_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_13_0" class="step-label">
+                                    <p>Drag the jog down by clicking on a keypoint on the lower face of the part.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_012.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <p>The jog is created.</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".jog_activity_03">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">4: Modifying the bend radius</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse jog_activity_03" data-parent=".id1604736" id="jog_activity_03">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_14_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_14_0" class="step-label">
+                                    <p>Observe the following about the jog just created:</p>
+                                    <ul>
+                                       <li>
+                                          <p>Press Ctrl+T to rotate the view to a top view. Observe that the holes are in the part
+                                             are still aligned with the holes in the sheet metal.</p>
+                                          <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_013.jpg"></p>
+                                       </li>
+                                       <li>
+                                          <p>Press Ctrl+F to rotate the view to a front view.</p>
+                                          <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_014.jpg"></p>
+                                          <p>At (A) in the figure above, the sheet metal fits exactly over the 2.0 mm round on
+                                             the part because the bend radius is 2.0 mm. The material thickness is 1.0 mm. The
+                                             outer radius is the sum of these two values and is 3.0 mm. On the bottom bend, (B)
+                                             the sheet metal does not fit exactly because of this. In the next step the bend radius
+                                             will be modified so that the sheet metal part is correctly positioned at (B).</p>
+                                       </li>
+                                    </ul></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_15_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_15_0" class="step-label">
+                                    <p>Press Ctrl+J to rotate the view. Select the bend shown, then click the text. This
+                                       will allow edits to the bend radius for that bend.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_015.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_16_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_16_0" class="step-label">
+                                    <p>Change the Bend Radius to 1.0 mm.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_17_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_17_0" class="step-label">
+                                    <p>Press Ctrl+F to rotate the view to a front view. Observe the bend.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_016.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_18_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_18_0" class="step-label">
+                                    <p>Use the same steps to place a jog on the opposite side of the part and modify the
+                                       bend radius on the lower bend. The result is as shown below.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_017.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_19_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_19_0" class="step-label">
+                                    <p>Place the last jog using the remaining line in the sketch. Modify the bend radius
+                                       on the lower bend. The result is as shown below.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_018.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".jog_activity_04">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">5: Using the Cut command to trim unwanted edges</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse jog_activity_04" data-parent=".id1604736" id="jog_activity_04">
+                        <p>In this step the <b>Cut </b>command is used to trim away unwanted parts of the vertical flanges.</p>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_20_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_20_0" class="step-label">
+                                    <p>Select the <b>Project to Sketch</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_include.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_21_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_21_0" class="step-label">
+                                    <p>Lock the sketch plane to the outer face of the vertical flange and include the following
+                                       geometry in the sketch:</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_019.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_22_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_22_0" class="step-label">
+                                    <p>Click the <b>Fillet</b> command and place a 1 mm fillet between the two lines.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_020.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_23_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_23_0" class="step-label">
+                                    <p>Select the region shown.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_021.jpg"></p> 
+                                    <p>Selecting the region initiates the <b>Cut</b> command. </p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_24_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_24_0" class="step-label">
+                                    <p>Set the <b>Face Normal Cut Types</b> option to <b>Mid-Plane Cut</b> and the <b>Extent</b> option to <b>Through All</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_022.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_25_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_25_0" class="step-label">
+                                    <p>Click the left arrow.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_023.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <p>The flanges are trimmed.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_024.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_26_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_26_0" class="step-label">
+                                    <p>Right-click to finish the trim.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".jog_activity_05">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">6: Using the Break Corner command to trim unwanted edges</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse jog_activity_05" data-parent=".id1604736" id="jog_activity_05">
+                        <p>In this step the Break Corner command is used to round the sheet metal corners.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The <b>Break Corner</b> command can be used to either round or chamfer a corner. In this activity a 2.0 mm
+                              round will be placed on each sheet metal corner.</p>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_27_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_27_0" class="step-label">
+                                    <p>Click the Break Corner command <img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_break_corner.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_28_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_28_0" class="step-label">
+                                    <p>On the command bar, set the Corner Type to <b>Radius</b> and the Selection Type to <b>Face</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_29_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_29_0" class="step-label">
+                                    <p>Select the 5 faces shown and enter a radius of 2.0 mm.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_026.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <p>The results are shown. This completes the activity.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/training/bj_sync_sheet_metal_jog_027.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".jog_activity_06">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">7: Activity summary</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse jog_activity_06" data-parent=".id1604736" id="jog_activity_06">
+                        <p>In this activity you created a sheet metal base feature and used the <b>Jog</b> command to form the sheet metal around and existing part. You modified the bend radius
+                           where needed and then used the <b>Cutout</b> command and the <b>Break Corner</b> command to finish the model.</p>
+                        <ul>
+                           <li>
+                              <p>Click the Close button in the upper - right corner of this activity window.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".spse01546_jog_review">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">8: Test your knowledge - Creating jogs</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse spse01546_jog_review" data-parent=".id1604736" id="spse01546_jog_review">
+                        <p>Answer the following questions:</p>
+                        <ol type="1" start="1">
+                           <li>
+                              <p>What does the jog command do in a sheet metal document?</p>
+                           </li>
+                           <li>
+                              <p>Explain the material side options when placing a jog?</p>
+                           </li>
+                        </ol>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Activity: Using the jog and break corner command in sheet metal design, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

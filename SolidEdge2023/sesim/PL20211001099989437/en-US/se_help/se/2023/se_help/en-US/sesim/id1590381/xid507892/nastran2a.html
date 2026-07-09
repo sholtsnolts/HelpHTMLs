@@ -1,0 +1,175 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>NX Nastran processing errors </title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="NX Nastran processing errors "></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="nastran2a">
+                     <h1 class="topic-title">NX Nastran processing errors </h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2d" rel="nastran2d">NX Nastran Solve Error dialog box</a> is displayed when the <b>Solve</b> command <img class="img-fluid" style="max-height: 4.375rem;" src="../../../../common/graphicLibrary/se/simulation/processing/sesim_solve_button.gif"> generates errors that must be corrected before analysis processing can be completed.
+                     Here are some interpretations of common solution processing errors and how to correct
+                     them.</p>
+                  <h4 class="division-title">Study definition errors and warnings</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>Error Message: Incomplete Material definition.</p>
+                           <p>Correction: Static analysis requires material definition to contain <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/youngs_modulus" rel="youngs_modulus">Young's Modulus</a>, Shear Modulus, and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/poissons_ratio" rel="poissons_ratio">Poisson's Ratio</a>. Use the <b>Edit Material</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/processing/materialtbl.gif"> to add the information. </p>
+                           <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editmaterial1h" rel="editmaterial1h">Change the study material or thickness</a>. </p>
+                        </li>
+                        <li>
+                           <p>Error Message: Incomplete Material definition. Density property is required for body
+                              loads.</p>
+                           <p>Correction: Add density to material definition. Use the <b>Edit Material</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/processing/materialtbl.gif"> to add the information.</p>
+                           <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editmaterial1h" rel="editmaterial1h">Change the study material or thickness</a>. </p>
+                        </li>
+                        <li>
+                           <p>Error Message: Incomplete Material definition. Thermal expansion property is required
+                              for stress due to temperature loads.</p>
+                           <p>Correction: Add the coefficient of thermal expansion to the material definition. Use
+                              the <b>Edit Material </b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/processing/materialtbl.gif"> to add the information.</p>
+                           <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editmaterial1h" rel="editmaterial1h">Change the study material or thickness</a>. </p>
+                        </li>
+                        <li>
+                           <p>Error Message: Solution processing completed without fatal errors, but no results
+                              were generated. </p>
+                           <p>Correction: In the <b>Modify Study</b> dialog box, under <b>Advanced Options</b>, set the <b>Geometry check</b> option to <b>Warning only</b>, and then solve the study again. </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="assyconn3a_pivot">Under-constrained model errors</h4>
+                  <div>
+                     <p>When NX Nastran displays error 9137, Run Terminated Due To Excessive Pivot Ratios,
+                        this means the model is under-constrained. Here are some ways to correct the problem
+                        without changing the model geometry:</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <ul>
+                           <li>
+                              <p>To prevent lateral movement, you can add a Fixed or Sliding Along Surface constraint.
+                                 </p>
+                           </li>
+                           <li>
+                              <p>To prevent rotation, you can add a Pinned or No Rotation constraint.</p>
+                           </li>
+                           <li>
+                              <p>For sheet metal surfaces, the constraint needs to be normal to the surface. </p>
+                           </li>
+                           <li>
+                              <p>For an assembly, change the connector type. For example, use a Glue connector rather
+                                 than a No Penetration Contact connector. However, if a No Penetration Contact connector
+                                 is appropriate because you need to allow pivot, then add one or more constraints to
+                                 the model. </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Solver errors</h4>
+                  <div>
+                     <p>If NX Nastran displays an error that the solution cannot process with the iterative
+                        solver, then you can clear the <b>Iterative Solver</b> check box under <b>Advanced Options</b> in the <b>Modify Study</b> dialog box.</p>
+                     <p>In most cases, the <b>Iterative Solver</b> option is set or cleared as appropriate by Solid Edge Simulation.</p>
+                  </div>
+                  <h4 class="division-title">Geometry complexity errors</h4>
+                  <div>
+                     <p>Sometimes NX Nastran displays an error related to complex geometry, such as the following:
+                        </p>
+                     <div class="message-text">Solve failed due to Mesh size and/or geometry complexity. Change the Mesh size or
+                        modify the Study by setting the "Geometry check" option to "Warning only" and then
+                        solve again. </div>
+                     <p>You can:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editparams1h" rel="editparams1h">Edit the study processing parameters</a> to set the <b>Geometry check</b> option to <b>Warning only</b>, and then solve the study again. </p>
+                        </li>
+                        <li>
+                           <p>Verify that the <b>Use advanced meshing</b> check box is selected on the <b>Mesh Size</b> page in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a>. This removes sliver geometry during meshing to ensure mesh processing completes
+                              in most cases.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Before—Sliver geometry is visible.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_slivers_before.gif"></p>
+                              <p>After—Geometry is simplified.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_slivers_after.gif"></p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="assyconn3a_distance">Assembly connector distance warnings</h4>
+                  <div>
+                     <p>Connector distance warnings are displayed when the target and source faces you selected
+                        are farther apart than the distance you specified. </p>
+                     <ul>
+                        <li>
+                           <p>You can correct this by changing the search distance. </p>
+                        </li>
+                        <li>
+                           <p>You can edit the target-source connection by sizing the mesh to make it smaller and
+                              denser on the source side than on the target side. </p>
+                        </li>
+                        <li>
+                           <p>You can use the Swap Target-Source button on the Assembly Connector command bar to
+                              swap the geometry assigned to the target-source face pair. </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="nastran2a_closegap">Mesh interference: closing nominal gaps in bearings and bolted parts</h4>
+                  <div>
+                     <p>It is possible to get mesh interference even with parts that do not interfere due
+                        to the mesh not being an exact duplicate of the geometry. If the interference occurs
+                        at the location of a no penetration connector, you can get incorrect stresses and
+                        displacements. </p>
+                     <p>Refer to the following example of a bolt or pin in a hole. Even though the two parts
+                        may have the same nominal size at mating surfaces, the resulting mesh overlaps the
+                        two contact segments, resulting in differing mesh sizes or nonalignment of angles.
+                        </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/processing/sesim_assyconn_linear3.gif"> </p>
+                     </div>
+                     <p>You can correct for this using the Initial Penetration option in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a>. The default for this option, Calculated (0 or 1), does not account for the inexact
+                        fit interference condition described above. Instead, choose the Zero Gap/Penetration
+                        (3) option.</p>
+                     <p>You also may be able to avoid problems by making adjustments in the model:</p>
+                     <ul>
+                        <li>
+                           <p>Set the bolt diameter equal to the hole diameter. </p>
+                        </li>
+                        <li>
+                           <p>Move the parts so that they are physically aligned. </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran3a" rel="nastran3a">NX Nastran basic keywords</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2d" rel="nastran2d">NX Nastran Solve Error dialog box</a><br><br></div>
+            <div class="footer-content">NX Nastran processing errors , Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

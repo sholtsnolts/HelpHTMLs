@@ -1,0 +1,171 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Thermal connectors</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Thermal connectors"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1661818">
+                     <h1 class="topic-title">Thermal connectors</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Thermal connectors conduct heat between faces and surfaces where there is no physical
+                     mechanism in the assembly model to do so. You can use thermal connectors to:</p>
+                  <ul>
+                     <li>
+                        <p>Identify a path through which heat may flow.</p>
+                     </li>
+                     <li>
+                        <p>Define thermal resistance between insulated faces and surfaces.</p>
+                     </li>
+                     <li>
+                        <p>Specify conductance between elements that are not connected or aligned. </p>
+                     </li>
+                     <li>
+                        <p>Model conductance between parallel surfaces or edges, without explicitly modeling
+                           the heat transfer medium between them (for example, bolted joints, welds, and pins).</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">When to use thermal connectors</h4>
+                  <div>
+                     <p>When your model contains connections that are geometrically complex, but thermally
+                        simple, you can model the connections using thermal connectors. For example, you can
+                        use thermal connectors:</p>
+                     <ul>
+                        <li>
+                           <p>For bolted connections and chips placed on a circuit board.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/thermal_coupling_ex_circuitboard_femap.png"></p>
+                        </li>
+                        <li>
+                           <p>For portions of your model for which you do not want to simulate 3D heat conduction.</p>
+                        </li>
+                        <li>
+                           <p>To model thermal resistance of materials in sandwich constructions, for example, in
+                              heated glass, panels, and windshields with deicing and defogging capabilities.</p>
+                        </li>
+                        <li>
+                           <p>To model heat absorption by rivets or bolted connections.</p>
+                        </li>
+                        <li>
+                           <p>To model thermal conduction through solar panels and thermal resistance of multilayer
+                              insulation.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Eligible thermal studies</h4>
+                  <div>
+                     <p>Thermal connectors are available for the following types of thermal studies. For the
+                        <a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">coupled studies</a> listed below, you can apply a thermal connector to the thermal analysis, and a glue
+                        or no penetration connector to the linear static analysis.</p>
+                     <ul>
+                        <li>
+                           <p><b>Steady State Heat Transfer</b></p>
+                        </li>
+                        <li>
+                           <p><b>Transient Heat Transfer</b></p>
+                        </li>
+                        <li>
+                           <p><b>Steady State Heat Transfer + Linear Static</b></p>
+                        </li>
+                        <li>
+                           <p><b>Steady State Heat Transfer + Linear Buckling</b></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Adding thermal connectors</h4>
+                  <div>
+                     <p>You can add thermal connectors to an assembly model:</p>
+                     <ul>
+                        <li>
+                           <p>When defining a new thermal study, create thermal connectors automatically using the
+                              <b>Connector Options</b> section in the <b>Create Study</b> dialog box: </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/create_study_connector_options_thermal.png"></p>
+                        </li>
+                        <li>
+                           <p>After the initial study creation, when using the following commands in the <b>Connectors</b> group:</p>
+                           <ul>
+                              <li>
+                                 <p><b>Auto</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_auto_cmd.png"></p>
+                              </li>
+                              <li>
+                                 <p><b>Manual</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/manual_connector_cmd.png"></p>
+                              </li>
+                           </ul>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/manual_connector_thermal_cmdbar.png"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Selecting a thermal connector type</h4>
+                  <div>
+                     <p>You can choose either of the following thermal connector types for thermal studies:</p>
+                     <ul>
+                        <li>
+                           <p><b>Thermal</b>—Use a <b>Thermal</b> connector to conduct heat between faces and surfaces. For example, you can simulate
+                              thermal resistance in thermal insulation applications. With this type of connector,
+                              you can define a <b>Thermal conductance value</b> in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>The <b>Thermal conductance value</b> is based on the contact resistance between the faces (such as steel to copper) and
+                                 the surface finish (for example, shiny or dull). The lower the value, the higher the
+                                 resistance.</p>
+                              <ul>
+                                 <li>
+                                    <p>Good conductor materials include copper, silver, iron, and steel.</p>
+                                 </li>
+                                 <li>
+                                    <p>Poor conductor materials (insulators) include wood, paper, Styrofoam, and air. </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li>
+                           <p><b>Thermal Glue</b>—Use a <b>Thermal Glue</b> connector to conduct heat between two bodies. A thermal glue connector provides a
+                              stiff connection like a glue connector.</p>
+                        </li>
+                     </ul>
+                     <p>A thermal coupled study requires a thermal connector and one of these structural connectors:</p>
+                     <ul>
+                        <li>
+                           <p><b>Glue</b></p>
+                        </li>
+                        <li>
+                           <p><b>No Penetration</b></p>
+                        </li>
+                     </ul>
+                     <p>Both types of connectors are available in the <b>Connector Type</b> list on the command bar when you use the <b>Auto</b> command or the <b>Manual</b> command. You can apply a thermal connector followed by a structural connector, or
+                        use the opposite order. </p>
+                     <p>If you use the <b>Auto</b> command to define connectors for a thermal coupled study, you must select the command
+                        twice. Select it once to define thermal connectors for the thermal analysis, and select
+                        it again to define structural connectors for the linear static analysis. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/auto_connector_coupled_cmdbar.png"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><br></div>
+            <div class="footer-content">Thermal connectors, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

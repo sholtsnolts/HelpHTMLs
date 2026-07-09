@@ -1,0 +1,103 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Pinned constraint</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Pinned constraint"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1389708">
+                     <h1 class="topic-title">Pinned constraint</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"> 
+                  <p>Defining degrees of freedom as a boundary condition on selected faces of the design
+                     space model in a generative design study is part of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a>.</p>
+                  <p>Use the <b>Generative Design</b> tab→<b>Constraints</b> group→<b>Pinned</b> command <img class="img-fluid" style="max-height: 1.6875rem;" src="../../../../common/nonLocalized/se/topology_optimization/pinned_constraint_command_gd.png"> when you want to allow rotation around the axis of a cylindrical or conical face,
+                     and to prevent movement in the X, Y, and Z planes.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/pin_axis_constraint.png"></p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>Functionally, any part that is rotated without it moving in any other direction can
+                        be defined by a pinned axis constraint, such as:</p>
+                     <ul>
+                        <li>
+                           <p>Axles and tires. </p>
+                        </li>
+                        <li>
+                           <p>A centrifuge to separate out liquids of varying specific gravity, where the axis of
+                              revolution is locked during rotation. </p>
+                        </li>
+                        <li>
+                           <p>A door knob. You can define this case using a pinned constraint along with a torque
+                              load. The pinned constraint defines the axis of rotation, and the torque magnitude
+                              defines when the knob is expected to break. </p>
+                           <p>Alternatively, you can use a pinned constraint with a downward force load to define
+                              the point at which the knob breaks.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Applying a pinned constraint</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>Geometry—The cylindrical or conical face on which to apply the constraint.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>The axis of the selected geometry is the rotation axis. </p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Offset—Defines a volume on the selected geometry to maintain during optimization.
+                              The <b>Offset</b> value that is displayed as a default is the recommended value based on the volume
+                              of the design space and the study quality.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/pinned_constraint_inputs.png"></p>
+                  </div>
+                  <h4 class="division-title">Editing pinned constraints</h4>
+                  <div>
+                     <p>The pinned constraint symbols are added to the selected geometry in the design space,
+                        and an edit definition handle is shown on the design space body, with a label such
+                        as <b>Pinned 1</b> and the value you assigned to it. You can use this handle to edit the inputs that
+                        created the constraint. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/gd_pinned_handle.png"></p>
+                     <p>A corresponding entry is added to the <b>Generative Design</b> pane, under the <b>Constraints</b> node, as <b>Pinned 1</b>. </p>
+                     <ul>
+                        <li>
+                           <p>To review the values assigned to the constraint, hover over the label name in the
+                              <b>Generative Design</b> pane, or click the label to display the handle on the body.</p>
+                        </li>
+                        <li>
+                           <p>To edit the constraint, double-click the label in the <b>Generative Design</b> pane, or click a displayed handle on the body.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340170" rel="xid1340170">Generative Design example</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404603" rel="xid1404603">Define a physical load condition</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404737" rel="xid1404737">Define an operational constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404299" rel="xid1404299">Set a maximum displacement</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid2056777" rel="xid2056777">Planar Symmetry</a><br><br><h5>Learn more</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405933" rel="xid1405933">Using load cases</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340178" rel="xid1340178">Fixed constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389141" rel="xid1389141">Graphic Symbol Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389140" rel="xid1389140">Color dialog box</a><br><br></div>
+            <div class="footer-content">Pinned constraint, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

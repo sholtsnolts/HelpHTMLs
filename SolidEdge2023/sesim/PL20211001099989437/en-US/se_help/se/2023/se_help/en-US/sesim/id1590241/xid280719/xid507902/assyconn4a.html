@@ -1,0 +1,132 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title> Bolt connectors</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title=" Bolt connectors"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconn4a">
+                     <h1 class="topic-title"> Bolt connectors</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>For practice using bolt connectors, try the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy03" rel="fem_assy03">Tutorial: Using bolted connections</a>. </p>
+                  <h4 class="division-title">When to use Bolt connectors</h4>
+                  <div>
+                     <p>Bolt connectors transfer tensile, bending, and thermal loads from one part to another.
+                        You can use the <b>Simulation</b> tab→<b>Connectors</b> group→<b>Bolt</b> command <img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_bolt_cmd.gif"> to simulate bolted connections between two part faces, without having to model the
+                        fastener itself. </p>
+                     <p>You can use the <b>Bolt</b> command to simulate:</p>
+                     <ul>
+                        <li>
+                           <p>Bolts with and without nuts. </p>
+                        </li>
+                        <li>
+                           <p>Bolts of a different material than the bolted material.</p>
+                        </li>
+                        <li>
+                           <p>Prestressed bolts.</p>
+                        </li>
+                        <li>
+                           <p>Holes that penetrate and holes that do not penetrate. </p>
+                        </li>
+                        <li>
+                           <p>Holes of all shapes—simple, tapered, flat bottom, V bottom, threaded—as well as cylindrical
+                              cutouts.</p>
+                        </li>
+                        <li>
+                           <p>When the model contains two parts with holes but no bolt hardware, you can combine
+                              bolt simulations with no penetration contact connectors. </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Use the <b>Bolt</b> command to create bolt connectors (A). </p>
+                              <p>Use the <b>No Penetration Contact</b> connector (B) to prevent two plates from penetrating. </p>
+                           </div>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_mixed.gif"></p>
+                        </li>
+                     </ul>
+                     <p>You can use the <b>Bolt</b> command with both 2D and 3D meshes. </p>
+                  </div>
+                  <h4 class="division-title">Using the Bolt connector command</h4>
+                  <div>
+                     <p>Most of the information required to create a bolt connector is inferred from the elements
+                        you select. If your 3D model contains bolts and other fasteners, you can hide them
+                        in <b>PathFinder</b> and just use the part holes to generate the bolt connectors in the FEA model. Selecting
+                        holes rather than modeled bolt components yields a much faster processing time for
+                        meshing and solving.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>If you select a hole, the software determines the connected parts by finding cylindrical
+                           holes along a shared axis in other parts. The top and bottom faces are determined
+                           from the connected face(s) at either end of the hole. The type of bolt defaults to
+                           no-press fit. The diameter of the head and nut are calculated from the diameter of
+                           the selected hole.</p>
+                        <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_bolt_thrunext.gif"></p>
+                     </div>
+                     <p>The <b>Bolt</b> connector command uses the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4d" rel="assyconn4d">Bolt command bar</a> to specify bolt connector creation options. </p>
+                     <ul>
+                        <li>
+                           <p>You can use the <b>Plane</b> option <img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_bolt_plane.gif"> on the <b>Bolt Type</b> list to specify that you want to select one hole, yet create bolted connections for
+                              all eligible holes on the same plane. </p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_bolt_1.gif"><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_bolt_2.gif"></p>
+                        </li>
+                        <li>
+                           <p>You can use the <b>Multiple Bolts</b> option <img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_bolt_multiple.gif"> to control how the <b>Bolt Connector</b> nodes are created in the <b>Simulation</b> pane. If your part has many holes of the same size, you can select this option to
+                              generate a single node, <b>Bolt Connection 1</b>, that represents all of the holes. This makes it easy to edit all of the bolt connectors
+                              at once. </p>
+                        </li>
+                        <li>
+                           <p>To create a rigid element at the location where two holes meet, use the <b>Spider</b> option <img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_spider_button.gif">. </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Bolt simulation elements</h4>
+                  <div>
+                     <p>The bolt connector simulation substitutes rigid line elements for the head, nut, and
+                        stud of a fastener. The bolt simulation elements that are generated during meshing
+                        are the following:</p>
+                     <ul>
+                        <li>
+                           <p>Beam—A single rigid element that uses a cylindrical cross section to represent the
+                              bolt or stud. </p>
+                        </li>
+                        <li>
+                           <p>Spider—A series of rigid line elements that represent the head and nut in a web-like
+                              fashion. </p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_spider_1hole.gif"> </p>
+                           <p>The spider connects the ends of the beam to the elements in your model.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_spider_3holes_tight.gif"></p>
+                        </li>
+                     </ul>
+                     <p>The spider transfers the loads to the stud. The head and nut bending and stiffness
+                        are simulated by the line elements. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4h" rel="assyconn4h">Create bolted connections</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6h" rel="assyconn6h">Edit a bolt connector</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/boltconn1a" rel="boltconn1a">Bolt connector simulation results</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4d" rel="assyconn4d">Bolt command bar</a><br><br></div>
+            <div class="footer-content"> Bolt connectors, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

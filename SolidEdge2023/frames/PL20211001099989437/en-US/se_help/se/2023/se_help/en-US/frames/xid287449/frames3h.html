@@ -1,0 +1,72 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating a custom structural frame component: best practices</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating a custom structural frame component: best practices"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="frames3h">
+                     <h1 class="topic-title">Creating a custom structural frame component: best practices</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When creating a custom frame component model, follow these guidelines to ensure it
+                     works properly before applying frame attributes using the <b>Frame Origin</b> command.</p>
+                  <ul>
+                     <li>
+                        <p>In a new part file, the complete cross section of the component must reside in either
+                           the first feature or first sketch.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The frame component does not have to contain a solid body of the feature. A sketch
+                              is enough to successfully create a frame. However, you should create the solid, so
+                              that a preview is available when you select the frame component.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>If a sketch keypoint cannot be used as the handle point, add a point element at the
+                           desired location. The cross section handle point definition is the first step in the
+                           <b>Frame Origin</b> command. The handle point of the cross section is where the frame connects to the
+                           frame path.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If a handle point does not exist in the frame component file, the <b>Frame</b> command defaults to the centroid of the 2D cross section.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>The second step of the <b>Frame Origin</b> command defines the relative orientation line or edge for the frame section. This
+                           is used to automatically position the frame component relative to the specified frame
+                           path. The frame cross section automatically rotates so the orientation line is positioned
+                           horizontal to the X axis of the reference plane normal to the path segment and the
+                           computed centroid of the cross section is below the orientation line.</p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames4h" rel="frames4h">Add a custom frame component</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/framewizard1h" rel="framewizard1h">Create a structural frame</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames5h" rel="frames5h">Save a structural frame component</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames1h" rel="frames1h">Edit frame end conditions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames2h" rel="frames2h">Edit a frame cross section</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1853405" rel="xid1853405">Create a frame end cap</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1856998" rel="xid1856998">Edit a frame end cap</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1978349" rel="xid1978349">Trim or extend a frame</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1761532" rel="xid1761532">Create frames with weld gaps</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames1a" rel="frames1a">Structural frame design workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/custom_components" rel="custom_components">Saving frame components</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames5a" rel="frames5a">Saving structural frame components</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/framewizard1c" rel="framewizard1c">Frame command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/framewizard2d" rel="framewizard2d">Frame command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frameoptions1d" rel="frameoptions1d">Frame Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames2a" rel="frames2a">Creating a structural frame</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames4a" rel="frames4a">Adding members to a frame</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/editendcondition1c" rel="editendcondition1c">Edit End Conditions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/editcross1c" rel="editcross1c">Edit Cross Sections command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames8a" rel="frames8a">Frame snap points</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1850868" rel="xid1850868">Frame End Cap command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1850869" rel="xid1850869">End Cap Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid667562" rel="xid667562">Frame Origin command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1978347" rel="xid1978347">Trim/Extend command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid1978348" rel="xid1978348">Trim/Extend command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames6a" rel="frames6a">Adding custom frame components to a local library</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/frames7a" rel="frames7a">Defining hole locations in a frame</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.frames/html/xid293192" rel="xid293192">Drafting</a><br><br></div>
+            <div class="footer-content">Creating a custom structural frame component: best practices, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

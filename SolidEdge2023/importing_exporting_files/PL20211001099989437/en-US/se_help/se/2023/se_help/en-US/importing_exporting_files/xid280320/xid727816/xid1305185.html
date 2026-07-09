@@ -1,0 +1,183 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Saving Solid Edge documents to STL format</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Saving Solid Edge documents to STL format"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1305185">
+                     <h1 class="topic-title">Saving Solid Edge documents to STL format</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can save Solid Edge assembly, part, and sheet metal documents in Stereo Lithography
+                     (.stl) format. You can use the <b>Export Options for STL (.stl)</b> dialog box to control how the Solid Edge document is saved in .stl format.</p>
+                  <h4 class="division-title">Exporting meshed bodies to STL</h4>
+                  <div>
+                     <p>You can export part, sheet metal, and assembly files that contain meshed bodies to
+                        STL format. Use the options on the <b>Export Options for STL (.stl)</b> dialog box to define how you want to save the file.</p>
+                  </div>
+                  <h4 class="division-title">Exporting assembly components</h4>
+                  <div>
+                     <p>You can use the <b>STL Document Structure</b> options to export assembly components as:</p>
+                     <ul>
+                        <li>
+                           <p><b>Single STL document</b></p>
+                        </li>
+                        <li>
+                           <p><b>STL document for each component</b></p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can also use the <b>StructureOption</b> parameter <b>SESTL.ini</b> file to specify the STL document structure. Set the option to <b>Monolithic</b> to save the assembly components to a single STL file or to <b>Shattered</b> to save each assembly component to individual STL files.</p>
+                     </div>
+                     <p>When you set the option to <b>STL document for each component</b>, Solid Edge creates a folder with assembly name and an STL file for each component
+                        in the assembly. For example, suppose you set the option to <b>STL document for each component</b> and save <b>assembly_a</b> that contains <b>part_1</b>, <b>part_2</b>, and <b>part_3</b>. Solid Edge creates a folder named <b>assembly_a</b> that contains <b>part_1.stl</b>, <b>part_2.stl</b>, and <b>part_3.stl</b>.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Only design bodies are exported to STL format. Construction bodies and simplified
+                           data is not exported to STL format.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">SESTL.ini file</h4>
+                  <div>
+                     <p>The <b>SESTL.ini</b> file, found in the <b>Solid Edge 2023\Preferences\Translators</b> folder, is used to store the settings defined on the <b>STL Import Options</b> and <b>STL Export Options</b> dialog boxes. When you make a change to a parameter in the dialog box, a new value
+                        is saved to the SESTL.ini file. You can use a text editor, such as notepad, to set
+                        these parameters. However, if you edit this file, use extreme caution in setting these
+                        parameters. Errors made to this file can adversely affect the quality of the translation.
+                        The following is a list of parameters found in the <b>SESTL.ini</b> file.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="20%">
+                           <col span="1" align="left" width="80%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Parameter</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Description</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Units</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the import units. The unit value can be Inch, Millimeter, or Meter.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Make Base Feature</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Turns on or off the creation of a base feature. The default is on.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Units</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the export unit value. The unit value can be Inch or Millimeter.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Tolerance Type</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the tolerance type. The type value can be Custom, Fine, or Coarse</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Tolerance Value</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the tolerance value. You must use a '.' as the delimiter. You can change the
+                                 name by editing the value to the right of the equal (=) sign.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Surface Plane Angle Value</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the surface plane angle value in radians. You must use a '.' as the delimiter.
+                                 You can change the name by editing the value to the right of the equal (=) sign.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Output File Format</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the output file format. The available values for the format are: 0=Binary,
+                                 1=ASCII. You can change the name by editing the value to the right of the equal (=)
+                                 sign.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>StructureOption</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies the structure of the exported STL document. The available values are Monolithic
+                                 and Shattered.</p>
+                              <p>Setting the value to Monolithic creates a single STL for all assembly components,
+                                 such as part files, weld files, and assembly features found in the assembly.</p>
+                              <p>Setting the value to Shattered creates a STL document for each component in the assembly,
+                                 included any sub-assemblies.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Displayed Parts</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of displayed parts in the exported file. </p>
+                              <p>The available values are Off and On.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Enable Logging</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Turns on or off the creation of the log file. The default is on.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/stlexp1d" rel="stlexp1d">Export Options for STL (.stl) dialog box</a><br><br></div>
+            <div class="footer-content">Saving Solid Edge documents to STL format, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

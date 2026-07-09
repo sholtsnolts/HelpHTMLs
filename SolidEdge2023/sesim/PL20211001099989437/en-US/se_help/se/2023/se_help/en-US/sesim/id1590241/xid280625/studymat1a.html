@@ -1,0 +1,164 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using materials in studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using materials in studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="studymat1a">
+                     <h1 class="topic-title">Using materials in studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title" id="studymat1a_assign">Assigning a material</h4>
+                  <div>
+                     <p>Because material is a file property in a part or sheet metal document, there can be
+                        just one material assigned to the model at any time. In part and sheet metal models,
+                        the material assigned to the model is assigned automatically to a new study.</p>
+                     <p>Assembly models store the default material in the registry. You can assign different
+                        materials to different parts in the assembly, but you cannot assign different materials
+                        to the same part.</p>
+                     <p>When you are using a beam mesh on a frame, you can assign a different material to
+                        each beam member.</p>
+                     <ul>
+                        <li>
+                           <p>You can assign a material to the model using the <b>Materials</b> list in the <b>Study</b> group. </p>
+                        </li>
+                        <li>
+                           <p>You also can open the <b>Material Table</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/materialtbl.gif">, and then choose a new material or edit an existing material using the <b>Material Table</b> dialog box.</p>
+                        </li>
+                        <li>
+                           <p>If you open the <b>Material Table</b>, you can select the <b>Highlight Simulation Properties</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/hilite_sesim_props_icon.png"> to identify the material properties that are required for the active study. Verify
+                              that appropriate values are defined for each of the properties that are highlighted.
+                              For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a>.</p>
+                        </li>
+                        <li>
+                           <p>You can assign a material reference temperature on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/analysisopt1d" rel="analysisopt1d">Simulation page (Solid Edge Options dialog box)</a>. </p>
+                        </li>
+                     </ul>
+                     <p>If you change material or material properties in a study that has been solved, the
+                        study results go out of date. To learn how, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editmaterial1h" rel="editmaterial1h">Change the study material or thickness</a>.</p>
+                  </div>
+                  <h4 class="division-title">Materials in studies</h4>
+                  <div>
+                     <p>Choosing the right material is key to producing good results. You also can create
+                        studies that simulate the differences in materials.</p>
+                     <ul>
+                        <li>
+                           <h5>Material type</h5>
+                           <p>Material type is required for a study to be solved. A material can be predefined in
+                              a part or sheet metal model, or selected from the <b>Materials</b> list on the ribbon when the study is created. The material specified in part and
+                              sheet metal models is applied automatically in the assembly model.</p>
+                        </li>
+                        <li>
+                           <h5>Material thickness</h5>
+                           <p>If the material thickness (or gage) is defined in a sheet metal model or assembly
+                              model, that thickness is applied automatically to the simulation study. Alternatively,
+                              you can <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editmaterial1h" rel="editmaterial1h">change the study material or thickness</a>.</p>
+                        </li>
+                        <li>
+                           <h5>Assembly connector material</h5>
+                           <p>Materials cannot be selected or modified from the assembly model. However, when you
+                              simulate bolt and fastener connections in the FEA model using the <b>Bolt</b> command, you can specify a different material for the fastener than is used by the
+                              part bodies.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="studymat1a_reftemp">Using a material reference temperature</h4>
+                  <div>
+                     <p>A material reference temperature is required to determine the amount of stress and
+                        displacement due to the expansion and contraction of the materials used in a part,
+                        sheet metal, or assembly model. In a model with mixed materials, the same reference
+                        temperature is applied to all materials.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>You may want to simulate the effects of ambient temperature on a plastic lawn chair.
+                           In frigid weather, a weight placed on the chair may crack or snap the plastic. Subject
+                           to hot summer sun, the same weight placed on the chair may warp the plastic, but it
+                           is not likely to crack or break it. You can evaluate the effect of extreme temperatures
+                           on the plastic material by doing all of the following:</p>
+                        <ul>
+                           <li>
+                              <p>Create a Linear Static study.</p>
+                           </li>
+                           <li>
+                              <p>Define the minimum and maximum temperature extremes using a temperature load value
+                                 for one and the material reference temperature value for the other.</p>
+                           </li>
+                           <li>
+                              <p>Create a force load or pressure load to model the weight of the person the chair must
+                                 hold. </p>
+                           </li>
+                           <li>
+                              <p>After meshing and solving the study, use a contour plot to observe the plot results.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>You can set the reference temperature property using the <b>Material Reference Temp</b> option on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/analysisopt1d" rel="analysisopt1d">Simulation page (Solid Edge Options dialog box)</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="studymat1a_modify">Modifying a material</h4>
+                  <div>
+                     <p>You can select a different material or change material thickness:</p>
+                     <ul>
+                        <li>
+                           <p>Using the <b>Material Table</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/materialtbl.gif"> command on the ribbon.</p>
+                        </li>
+                        <li>
+                           <p>Using the <b>Edit Material</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/materialtbl.gif"> on the shortcut menu in the <b>Simulation</b> pane. </p>
+                        </li>
+                        <li>
+                           <p>Using the <b>Override Properties</b> command on the ribbon.</p>
+                        </li>
+                     </ul>
+                     <p>To learn how you can use these commands, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1a" rel="meshprops1a">Mesh material properties</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="studymat1a_compare">Using studies to compare materials</h4>
+                  <div>
+                     <p>You can use studies to compare the finite element analysis results of different materials
+                        applied to the model.</p>
+                     <ul>
+                        <li>
+                           <p>If you want a side-by-side comparison of simulation results using different materials,
+                              use the <b>Save As</b> command to save the model document under a different name, and then modify the study
+                              by changing the material.</p>
+                        </li>
+                        <li>
+                           <p>You also can create multiple studies with different materials in the same document,
+                              but changing material in one study changes the material in all studies. This causes
+                              all previously defined studies to go out of date for the results process. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_indicator_change.gif"></p>
+                           <p>If you want to go back and review the results of a previous study using different
+                              materials, you need to solve it again, after you reset the material.</p>
+                           <p>To learn how, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editmaterial1h" rel="editmaterial1h">Change the study material or thickness</a>.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Using materials in studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

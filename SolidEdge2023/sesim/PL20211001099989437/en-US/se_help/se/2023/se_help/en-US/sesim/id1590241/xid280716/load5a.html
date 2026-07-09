@@ -1,0 +1,85 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>External loads (imported loads)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="External loads (imported loads)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="load5a">
+                     <h1 class="topic-title">External loads (imported loads)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>For an assembly model, you can use the commands on the <b>Simulation</b> tab→<b>External Loads</b> group to import the results file from an external program, for example Simcenter
+                     FLOEFD for Solid Edge, and apply them as boundary conditions to your Solid Edge Simulation
+                     study. These external loads can be used in linear static and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">thermal studies</a>, in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">coupled studies</a>, and in harmonic response studies. External loads are only available when the study
+                     <b>Mesh type</b> is set to <b>Tetrahedral</b>.</p>
+                  <ul>
+                     <li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/external_load_import_fluid_pressure.png"> <b>Import Fluid Pressure</b>—Transfers the fluid flow mesh and pressure conditions from a solved flow analysis
+                           to your active study.</p>
+                     </li>
+                     <li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/external_load_import_fluid_temp.png"> <b>Import Fluid Temperature</b>—Applies the fluid flow mesh and temperature results from a solved flow analysis to
+                           your active study.</p>
+                     </li>
+                  </ul>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/floefd_external_fluid_pressure.png"></p>
+                  <p>To learn how to use these commands, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1801603" rel="xid1801603">Use fluid flow results in a linear static or thermal study</a>.</p>
+                  <h4 class="division-title">Special considerations when using FLOEFD imported loads</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>If you open an assembly containing lid parts (LID*.par) added by Simcenter FLOEFD
+                              for Solid Edge, we recommend that you exclude the lids from the Solid Edge Simulation
+                              study geometry selection set. Lids do not play a role in the analysis, and they generate
+                              a Nastran error message while solving. </p>
+                           <p>To exclude the lids, do either of the following:</p>
+                           <ul>
+                              <li>
+                                 <p>When the <b>Simulation</b> tab→<b>Geometry</b> group→<b>Define</b> command is active and you are selecting the study geometry to analyze, omit the lid
+                                    geometry from the selection set.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/define_cmd_omit_floefd_lids.png"></p>
+                              </li>
+                              <li>
+                                 <p>Alternatively, you can suppress the lid parts from being considered in the study using
+                                    the <b>Suppress</b> command on the shortcut menu in the study navigator pane. </p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/external_load_lid_geometry.png"></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>If your assembly document contains a family of assemblies, you must generate the FLD
+                              files in Simcenter FLOEFD for Solid Edge using the <b>Export Results to Simulation</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/seflow/export_results_to_sesim_cmd.png"> on the<b> Flow Analysis</b> tab, as explained in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1801603" rel="xid1801603">Use fluid flow results in a linear static or thermal study</a>. This is because a FOA has special file naming conventions, which must be accommodated
+                              in the flow analysis output (*.fld) file names that are imported into Solid Edge Simulation.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">External loads (imported loads), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

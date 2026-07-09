@@ -1,0 +1,130 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Modifying assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Modifying assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid950510">
+                     <h1 class="topic-title">Modifying assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Modeling is as much about changing existing parts and assemblies as it is creating
+                     the initial parts and assemblies (for more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/assem4a" rel="assem4a">Building assemblies</a>). Modifying assemblies is a major activity of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid928326" rel="xid928326">Assembly environment</a>. </p>
+                  <h4 class="division-title">Activities associated with modifying an assembly</h4>
+                  <div>
+                     <p>The following activities are associated with modifying assemblies:</p>
+                     <ul>
+                        <li>
+                           <p>Sometimes simply establishing assembly relationships one by one is not efficient or
+                              effective (for more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/const1a" rel="const1a">Understanding Assembly relationships</a>). When building assemblies, there is often a need to place parts and subassemblies
+                              multiple times in a pattern or mirror arrangement. For example, nuts, bolts, and other
+                              fasteners are placed in a rectangular or circular pattern on the parts they are fastening
+                              together. To assist the user to more efficiently place multiple parts or subassemblies
+                              Solid Edge provides the tools to Pattern parts, Mirror Parts, copy and paste multiple
+                              assembly components, and Duplicate assembly components (for more information, see
+                              <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1a" rel="ptnprt1a">Patterning, mirroring, and copying and pasting components in assemblies</a>).</p>
+                        </li>
+                        <li>
+                           <p>Replacing a part or subassembly in an assembly with a new part or subassembly is common.
+                              Different replacement activities require different strategies. For example, Solid
+                              Edge has features to replace a part, replace a part with a standard part, replace
+                              a part with a new part, or replace a part with a copy (see a part may be placed in
+                              multiple assemblies, and at a later time the part needs to be redesigned for only
+                              one assembly. After creating a new version of the part, existing part can be replaced
+                              using the Replace command (for more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/rplcpt1a" rel="rplcpt1a">Replacing parts in assemblies</a>).</p>
+                        </li>
+                        <li>
+                           <p>There are two basic project approaches to creating a new design project; <em>bottom-up</em> or <em>top-down</em>. </p>
+                           <dl>
+                              <dt><b>bottom-up approach</b></dt>
+                              <dd class="ml-3">
+                                 <p>A bottom-up approach is <em>part-centric</em> modeling method where the assembly design is started with a principal structural
+                                    or functional element, and individual parts are designed in relative isolation from
+                                    the overall assembly. Component parts and subassemblies are defined as the process
+                                    moves up towards the top-level assembly. With this approach, as the design of a key
+                                    component is completed, its geometry may or may not be used to assist in the design
+                                    of related mating components. </p>
+                              </dd>
+                              <dt><b>top-down approach</b></dt>
+                              <dd class="ml-3">
+                                 <p>The top-down approach is <em>assembly-centric</em> modeling method where the assembly design is started at the highest level possible,
+                                    and the individual parts and subassemblies are defined within the context of the overall
+                                    assembly. With this approach, an assembly layout is typically created first, and this
+                                    assembly layout is used to define individual part geometry and position. </p>
+                              </dd>
+                           </dl>
+                           <p>To support a top-down design approach, virtual components are used in the assembly
+                              structure as place holders until real components are defined. Solid Edge and Teamcenter
+                              provide support for Virtual Component functionality to define the assembly structure
+                              and associated documents for a new design project. After the assembly structure is
+                              complete, the assembly can be published. Publishing the assembly creates the new Solid
+                              Edge documents required, copies assembly sketch geometry to the new documents, and
+                              adds the 3D geometry for existing Solid Edge documents to the assembly (for more information,
+                              see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1a" rel="virtualcomp1a">Creating and publishing Virtual Components</a>).</p>
+                        </li>
+                        <li>
+                           <p>In some designs, there are parts that must react to changing conditions in the assembly.
+                              For example, a spring that is compressed or uncompressed based on the position of
+                              other parts in the assembly. To support the design of these types of parts Solid Edge
+                              provides Adjustable Parts functionality that is used to define parameters in a part
+                              model that will adjust with respect to corresponding parameters within the assembly
+                              (for more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt1a" rel="adjprt1a">Adjustable parts in assemblies</a>).</p>
+                        </li>
+                        <li>
+                           <p>To change the structure of an existing assembly, Solid Edge has functionality that
+                              can be used to transfers parts and subassemblies from one assembly to another, create
+                              a new subassembly of files being transferred, and disperse the parts in a subassembly
+                              to the next highest subassembly (for more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/restructure1a" rel="restructure1a">Restructuring assemblies</a>). </p>
+                        </li>
+                        <li>
+                           <p>Some products require multiple variations of a single assembly. These variations can
+                              be categorized into two types:</p>
+                           <ul>
+                              <li>
+                                 <p>Assembly variations where ALL parts are identical, but some part positions change
+                                    during the physical operation of the assembly. These types of assemblies contain mechanisms,
+                                    linkages, actuators, and other similar features. In Solid Edge, these types of assemblies
+                                    are considered <em>Alternate Position Assemblies</em>.</p>
+                              </li>
+                              <li>
+                                 <p>Assembly variations where MOST parts are identical, but some parts and subassemblies
+                                    are different between the individual assemblies. These types of assemblies may have
+                                    different components, fastener types, trim, accessories, and other similar features.
+                                    In Solid Edge, these types of assemblies constitute a <em>Family of Assemblies</em>.</p>
+                              </li>
+                           </ul>
+                           <p>The Alternate Assemblies functionality provided within Solid Edge makes it easier
+                              to create and use variations of an assembly because it requires fewer assembly files
+                              to manage. Alternate assemblies in Solid Edge include both Alternate Position Assemblies
+                              and Family of Assemblies (for more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm1a" rel="famasm1a">Alternate Assemblies</a>).</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Modifying assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

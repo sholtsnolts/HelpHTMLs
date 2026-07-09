@@ -1,0 +1,136 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Size the mesh on an edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Size the mesh on an edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_mesh_sizing02">
+                     <h1 class="topic-title">Activity: Size the mesh on an edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>For information about meshes, mesh quality, and how you can refine the mesh to improve
+                     results, see the following help topics:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a>.</p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_bearing_edge_size.par</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Notice that <b>Static Study 1</b> was created and is the active study.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz22.gif"></p>
+                     </li>
+                     <li>
+                        <p>Mesh the bearing.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Tetrahedral Mesh</b> dialog box, click the <b>Mesh</b> button. </p>
+                              <p>The NX Nastran mesh processing starts and displays a progress meter.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>In the absence of loads and constraints, you cannot solve the study, but you can mesh
+                                    the model.</p>
+                              </div>
+                              <p> After a short period of time, the bearing displays with a tetrahedral mesh.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz03.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Rotate the part so you can view the rear, and zoom in on the main bore.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz09.gif"></p>
+                     </li>
+                     <li>
+                        <p>Change (refine) edge sizing.</p>
+                        <ol type="a">
+                           <li>
+                              <p> Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Edge Size</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_ribbon_size.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the circular edge of the bore.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz10.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a>, type <b>50</b> in the <b>Number of elements</b> box, and then click <b>Accept</b> </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_size_edge_commandbar.png"></p>
+                           </li>
+                           <li>
+                              <p>Mesh the part again. </p>
+                              <p>Note the increased number of elements in the region around the selected edge. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz12.gif"></p>
+                           </li>
+                           <p>Observe that the edge sizing you applied is shown in the <b>Simulation</b> pane as <b>Edge Size 1</b>. </p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Change the number of edge sizing elements.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Double-click the <b>Edge Size 1</b> entry. </p>
+                              <p>The <b>Edge Size</b> dialog box appears, showing the current sizing value for the number of elements applied
+                                 to the edge.</p>
+                           </li>
+                           <li>
+                              <p>Change the <b>Number of elements</b> to <b>75</b> and click <b>Accept</b>.</p>
+                           </li>
+                           <li>
+                              <p>Mesh the part again. In the <b>Simulation</b> pane, right-click the <b>Mesh</b> node and choose the <b>Mesh</b> command from the shortcut menu.</p>
+                              <p>Now, you see a significant change around that edge. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz16.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Increasing the number of elements in a single, highly-stressed region of a part can
+                                    improve the accuracy of the analysis without greatly impacting the processing time
+                                    within NX Nastran.</p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file. </p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Activity: Size the mesh on an edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

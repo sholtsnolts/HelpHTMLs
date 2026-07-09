@@ -1,0 +1,116 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Moving and mirroring rules for assembly bodies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Moving and mirroring rules for assembly bodies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mvmr_restrict1a">
+                     <h1 class="topic-title">Moving and mirroring rules for assembly bodies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>With ST5, new functionality has made most of the information on this page obsolete.
+                        Mirroring components in assembly now involves associative components and used Insert
+                        Assembly Copy and Inter-part copy functionality to achieve the associative mirroring.
+                        The ST4 and prior behavior is still available through the API interface. Therefore
+                        this topic is still worthwhile.</p>
+                  </div>
+                  <p>When using the Move Components and Mirror Components commands to copy, rotate/copy,
+                     or mirror/copy <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/assembly_body" rel="assembly_body">assembly bodies</a>, certain rules apply. The following table outlines these rules.</p>
+                  <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                     <colgroup span="1">
+                        <col span="1" width="20%">
+                        <col span="1" width="40%">
+                        <col span="1" width="40%">
+                     </colgroup>
+                     <tr>
+                        <td rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Body Type</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Asymmetric mirror/Copy Behavior</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Copy and Copy/Rotate Behavior</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Adjustable parts</p>
+                           <p>Components with Assembly removal features</p>
+                           <p>Frames</p>
+                           <p>Pipe segments</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>A new unique document name is created and added to the assembly. </p>
+                           <p>The override body on the new component is not associative to the original component.</p>
+                        </td>
+                        <td rowspan="1" align="left" valign="top" colspan="1">
+                           <p>A new occurrence of the existing document is added to the assembly. </p>
+                           <p>The override body on the new component is not associative to the original component.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Assembly material addition features</p>
+                           <p>Weld beads</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>A new assembly feature is added to the Assembly Features section in Assembly PathFinder
+                              as an assembly body. </p>
+                           <p>The new assembly feature is not associative to the original assembly feature.</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>A new assembly feature is added to the Assembly Features section in Assembly PathFinder
+                              as an assembly body.</p>
+                           <p>The new assembly feature is not associative to the original assembly feature.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Wire Harness body</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Not supported</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Not supported</p>
+                        </td>
+                     </tr>
+                  </table>
+                  <p>Because copied, rotated/copied, and mirrored/copied assembly bodies are not associative
+                     to the original components, if the original components change, you must delete the
+                     copied components and use the Move Components or Mirror Components command to repeat
+                     the copy, rotate/copy, or mirror/copy operation.</p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mvgrd1h" rel="mvgrd1h">Move a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movmprt1h" rel="movmprt1h">Move multiple parts in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intfer1h" rel="intfer1h">Check for interference between parts in an assembly</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movprt1a" rel="movprt1a">Analyzing movement and detecting collisions in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intfer1a" rel="intfer1a">Checking interference on parts</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movmprt1c" rel="movmprt1c">Move Components command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movmprt1d" rel="movmprt1d">Move Components command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movmprt2d" rel="movmprt2d">Move Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movprt1c" rel="movprt1c">Drag Component command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid841225" rel="xid841225">Steering Wheel</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intfer1c" rel="intfer1c">Check Interference command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movprt1d" rel="movprt1d">Drag Component command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movprt2d" rel="movprt2d">Analysis Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intfer2d" rel="intfer2d">Check Interference command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intfer4d" rel="intfer4d">Report page (Interference Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intfer1d" rel="intfer1d">Interference Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intfer3d" rel="intfer3d">Options page (Interference Options dialog box)</a><br><br></div>
+            <div class="footer-content">Moving and mirroring rules for assembly bodies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

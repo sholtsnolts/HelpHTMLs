@@ -1,0 +1,199 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Solid Edge to JT Translation Options dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Solid Edge to JT Translation Options dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="stpexp1d">
+                     <h1 class="topic-title">Solid Edge to JT Translation Options dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <dl>
+                     <dt>Save</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>All Documents</dt>
+                           <dd class="ml-3">
+                              <p>Saves all open documents to the JT file.</p>
+                           </dd>
+                           <dt>Part Documents Only</dt>
+                           <dd class="ml-3">
+                              <p>Saves only the part documents to the JT file.</p>
+                           </dd>
+                           <dt>Assembly Documents Only</dt>
+                           <dd class="ml-3">
+                              <p>Saves the assembly documents as a bill of materials to the JT document. The document
+                                 contains a tree structure of the assembly documents, but does not contain a graphical
+                                 representation of the documents.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>JT Document Structure</dt>
+                     <dd class="ml-3">
+                        <p>Specifies how the JT information is stored on disk.</p>
+                        <dl>
+                           <dt>Single JT Document</dt>
+                           <dd class="ml-3">
+                              <p>Creates a single or monolithic JT document. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This option must be selected to use the Solid Edge <b>Publish to 3D PDF</b> command to generate JT attachments for machining applications (CAM/CMM), such as
+                                    Solid Edge CAM Pro. </p>
+                              </div>
+                           </dd>
+                           <dt>JT Assembly and Part Documents</dt>
+                           <dd class="ml-3">
+                              <p>Creates a JT document containing the assembly structure and a folder containing the
+                                 JT part documents.</p>
+                           </dd>
+                           <dt>JT Assembly, Sub-Assembly, and Part Documents</dt>
+                           <dd class="ml-3">
+                              <p>Creates a JT document for each document in the assembly. This option is useful if
+                                 you want to view data at the subassembly level.</p>
+                           </dd>
+                           <dt>Only Update Modified Parts</dt>
+                           <dd class="ml-3">
+                              <p>Creates JT documents only for the parts that have changed.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Part and Assembly Simplification</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that, when available, a simplified body, instead of the design body, is
+                           used when creating the JT document.</p>
+                        <dl>
+                           <dt>Part simplification</dt>
+                           <dd class="ml-3">
+                              <dl>
+                                 <dt>Use Current Configuration</dt>
+                                 <dd class="ml-3">
+                                    <p>Uses the current configuration to create the JT document.</p>
+                                 </dd>
+                                 <dt>All Simplified</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each part and uses the simplified body, if available, to create the JT document.</p>
+                                 </dd>
+                                 <dt>All Designed</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each part and uses the design body, if available, to create the JT file. </p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt>Assembly simplification</dt>
+                           <dd class="ml-3">
+                              <dl>
+                                 <dt>Use Current Configuration</dt>
+                                 <dd class="ml-3">
+                                    <p>Uses the current assembly configuration to create the JT document.</p>
+                                 </dd>
+                                 <dt>Top Level Simplification</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks the top level of the assembly and uses the simplified body, if available, to
+                                       create the JT document.</p>
+                                 </dd>
+                                 <dt>All Simplified</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each subassembly found in the assembly and uses the simplified body, if available,
+                                       to create the JT document.</p>
+                                 </dd>
+                                 <dt>All Designed</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each part found in the assembly and uses the design body, if available, to
+                                       create the JT file. </p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Include Precise Geometry</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to include B-spline data in addition to the other data stored
+                           in the document.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>When the <b>Save PMI Data</b> option is selected, precise geometry is always sent even if this option is not set.</p>
+                        </div>
+                     </dd>
+                     <dt>Remove Unsafe Characters From JT Document Name</dt>
+                     <dd class="ml-3">
+                        <p>Replaces the following characters found in a JT file name with an underscore (_).</p>
+                        <p>\n \r \t ` ~ ! @ # $ % ^ &amp; * ( ) - + = \" ' : ; , . / ? { } [ ]</p>
+                     </dd>
+                     <dt>Translate Visible Parts Only</dt>
+                     <dd class="ml-3">
+                        <p>Exports to the JT document only parts that are currently displayed. Parts that are
+                           hidden are not exported.</p>
+                     </dd>
+                     <dt>Translate Visible Constructions</dt>
+                     <dd class="ml-3">
+                        <p>Exports to the JT document only construction bodies that are currently displayed.
+                           Construction bodies that are hidden are not exported.</p>
+                     </dd>
+                     <dt>Translate Inter-part Copies as Constructions</dt>
+                     <dd class="ml-3">
+                        <p>Exports inter-part copies as constructions. If this option is not selected, inter-part
+                           copies are not exported.</p>
+                     </dd>
+                     <dt>Translate Solid Edge Document Properties</dt>
+                     <dd class="ml-3">
+                        <p>Exports the Solid Edge file properties to the JT document.</p>
+                     </dd>
+                     <dt>Delete Unused JT Part Documents</dt>
+                     <dd class="ml-3">
+                        <p>Deletes any JT part files that no longer used are removed from the JT assembly document.</p>
+                     </dd>
+                     <dt>Save PMI Data</dt>
+                     <dd class="ml-3">
+                        <p>Saves all product manufacturing information (PMI) data and all model views to the
+                           JT file being created. This option must be selected to use the Solid Edge <b>Publish to 3D PDF</b> command to generate JT attachments for machining applications (CAM/CMM), such as
+                           Solid Edge CAM Pro. </p>
+                     </dd>
+                     <dt>Save Coordinate System</dt>
+                     <dd class="ml-3">
+                        <p>Saves the coordinate system to the JT file being created.</p>
+                     </dd>
+                     <dt>JT Version</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the version of JT to which you want to export the file.</p>
+                     </dd>
+                     <dt>Units</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the output units of measurement for the document.</p>
+                     </dd>
+                     <dt>Sheet Metal</dt>
+                     <dd class="ml-3">
+                        <p>Specifies how sheet metal models are translated. You can translate the design model,
+                           flatten sheet metal model, or both.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1964524" rel="xid1964524">Save surface PMI to JT format</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727828" rel="xid727828">Saving to JT</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid457751" rel="xid457751">Solid Edge to JT Translator dialog box</a><br><br></div>
+            <div class="footer-content">Solid Edge to JT Translation Options dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Exporting Solid Edge motion kinematics to NX MCD and Process Simulate</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Exporting Solid Edge motion kinematics to NX MCD and Process Simulate"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid2091640">
+                     <h1 class="topic-title">Exporting Solid Edge motion kinematics to NX MCD and Process Simulate</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">   
+                  <p>You can export an assembly with motion kinematics from Solid Edge via PLM XML and
+                     JT that can be imported in NX Mechatronics Concept Designer (MCD) or Tecnomatix Process
+                     Simulate for further simulation.</p> 
+                  <p>The following kinematics data is exported via kinematics XML document:</p> 
+                  <table cellpadding="5" rules="all" width="50%" frame="box"> 
+                     <colgroup span="1"> 
+                        <col span="1"> 
+                        <col span="2" valign="top"> </colgroup> 
+                     <thead> 
+                        <tr> 
+                           <td rowspan="1" colspan="2"> 
+                              <p>Kinematics element</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>Supported to import in</p> </td> </tr> </thead> 
+                     <tbody> 
+                        <tr valign="top"> 
+                           <td rowspan="7" colspan="1"> 
+                              <p>Joints</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>Fixed</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD and Process Simulate</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Translational</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>NX MCD</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>Revolute</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD and Process Simulate</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>Cylindrical</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>Planar</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>Spherical</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>Screw</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="2"> 
+                              <p>Gear coupler</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="2"> 
+                              <p>Couplers</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="2"> 
+                              <p>Links</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD and Process Simulate</p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" colspan="2"> 
+                              <p>Rigid body</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>NX MCD and Process Simulate</p> </td> </tr> </tbody> </table> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>The workflow of exporting Solid Edge motion kinematics to NX MCD or Process Simulate
+                        is unidirectional.</p> 
+                     <p>While exporting kinematics data, make sure you use the active mechanism data.</p> 
+                     <p>Suppressed and deleted kinematic elements, and associated constraints data, will not
+                        be exported.</p> 
+                     <p>Grounded part constraints will not be exported. We recommend that you create fixed
+                        joints for grounded parts after importing the kinematics XML documents to NX MCD or
+                        Process Simulate.</p> 
+                     <p>NX MCD and Process Simulate do not support import of the mass and gravity data. This
+                        can impact the simulation.</p> </div> 
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div> 
+                     <p>Both automatically and manually created kinematic mechanisms can be exported.</p> </div> 
+                  <p>For more information, see <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2091638" rel="xid2091638">Saving to kinematics XML documents (.plmxml)</a>.</p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.simply_motion/html/motion1h" rel="motion1h">Solid Edge Motion simulation workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.simply_motion/html/xid1677805" rel="xid1677805">Learn to use Solid Edge Motion</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.simply_motion/html/motion1a" rel="motion1a">Overview of Solid Edge Motion</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.simply_motion/html/motion1c" rel="motion1c">Solid Edge Motion environment</a><br><br></div>
+            <div class="footer-content">Exporting Solid Edge motion kinematics to NX MCD and Process Simulate, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

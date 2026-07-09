@@ -1,0 +1,106 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>SolidWorks data migration</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="SolidWorks data migration"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid597457">
+                     <h1 class="topic-title">SolidWorks data migration</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">   
+                  <p>The <b>SolidWorks Data Migration</b> command migrates SolidWorks part, assembly, sheet metal and drawing files to Solid
+                     Edge. </p> 
+                  <p>The command requires that SolidWorks version 2012 or later&nbsp;and Solid Edge are installed on the same machine.</p> 
+                  <p>The imported data is placed as either synchronous or ordered, depending on the settings
+                     on the <b>Open in</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432"><b>SolidWorks Data Migration Start Page</b></a>.</p> 
+                  <h4 class="division-title">Hole feature recognition</h4>
+                  <div>  
+                     <p>To create hole feature during migration, select the <b>Create hole features on Migration</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432"><b>SolidWorks Data Migration Start Page</b></a>.</p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>Threaded shaft features are not supported.</p> </div> 
+                     <p>Holes are not recognized in the following cases:</p> 
+                     <ul> 
+                        <li> 
+                           <p>The <b>Template</b> used has an <b>Ordered Mode</b> set.</p> </li> 
+                        <li> 
+                           <p>Database is not migrated.</p> </li> 
+                        <li> 
+                           <p>Mapping is not correct.</p> </li> 
+                        <li> 
+                           <p>Remove thread option is selected while creating threaded hole in SolidWorks.</p> </li> 
+                        <li> 
+                           <p>Slots are not recognized.</p> </li> 
+                        <li> 
+                           <p>Advanced holes are not recognized.</p> </li> 
+                        <li> 
+                           <p>Threads created from <b>Thread</b> command are not migrated.</p> </li> 
+                        <li> 
+                           <p><b>Holes inside pattern</b> are not recognized.</p> 
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>If a pattern has six holes, only one hole will be recognized and the remaining holes
+                                 will not be recognized.</p>
+                           </div>
+                        </li> </ul> </div> 
+                  <h4 class="division-title">Migrating SolidWorks drawing views</h4>
+                  <div>  
+                     <p>When you update the migrated Solid Edge part and assembly files, drawing views also
+                        get updated in the Solid Edge draft file. During the migration process a link is established
+                        between the resulting Solid Edge parts and assembly files and the migrated Solid Edge
+                        drawing file. The Solid Edge drawing views are created based on the SolidWorks drawing
+                        view location, type, and scale. </p> 
+                     <p>To create drawing views during migration, select the <b>Create drawing views on Migration</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432"><b>SolidWorks Data Migration Start Page</b></a>.</p> 
+                     <p>The following applies when migrating SolidWork files:</p> 
+                     <ul> 
+                        <li> 
+                           <p>All drawing view types created in SolidWorks are supported except relative view.</p> </li> 
+                        <li> 
+                           <p>Cutting plane lines, auxiliary view plane lines, and detail envelopes are supported.</p> </li> 
+                        <li> 
+                           <p>Dimensions migrated from SolidWorks are bound to Solid Edge drawing view geometry.
+                              </p> </li> 
+                        <li> 
+                           <p>Center marks and center lines are associative to the Solid Edge drawing views.</p> </li> 
+                        <li> 
+                           <p>Hatch and solid fills are migrated maintaining their associativity to the Solid Edge
+                              drawing view. </p> </li> 
+                        <li> 
+                           <p>View shading is maintained as part of this drawing view creation process. </p> </li> 
+                        <li> 
+                           <p>Multi-sheet drawings are supported through this migration process. </p> </li> </ul> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>Annotations, such as balloons and callouts, do not migrate as Solid Edge annotations,
+                           but migrate as blocks. </p> </div> </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid608758" rel="xid608758">Migrate SolidWorks documents to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022555" rel="xid2022555">Migrate SolidWorks material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022556" rel="xid2022556">Migrate SolidWorks hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022574" rel="xid2022574">Specify the templates to use during SolidWorks data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022573" rel="xid2022573">Specify the location of SolidWorks and Solid Edge folders</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727776" rel="xid727776">Migrate SolidWorks material definitions to Solid Edge using the DOS window</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727778" rel="xid727778">Migrate SolidWorks hole definitions to Solid Edge using the DOS window</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727775" rel="xid727775">Migrating SolidWorks material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2055819" rel="xid2055819">Migrating SolidWorks hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2055818" rel="xid2055818">Logging for SolidWorks data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727781" rel="xid727781">SolidWorks assemblies in Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432">SolidWorks Data Migration Start Page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021182" rel="xid2021182">SolidWorks Hole Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021231" rel="xid2021231">Hole Mapping dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021183" rel="xid2021183">SolidWorks Material Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021370" rel="xid2021370">Templates dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021854" rel="xid2021854">Folder Selection dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597455" rel="xid597455">Preview Selection page</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597454" rel="xid597454">SolidWorks File Selection page</a><br><br></div>
+            <div class="footer-content">SolidWorks data migration, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

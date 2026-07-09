@@ -1,0 +1,125 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Create and solve a study using an STL model</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Create and solve a study using an STL model"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid2082033">
+                     <h1 class="topic-title">Create and solve a study using an STL model</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>This example shows how you can create and solve a linear static study for an open
+                     STL model. It demonstrates how to open or create a file, clean up the geometry, identify
+                     geometric regions, create mesh, apply loads &amp; constraints, and solve the simulation.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/stl_model01.gif"></p>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>To create a new document from an existing STL file, choose <b>File</b> → <b>Open</b> → <b>Browse</b> and select the <b>STL documents (*.stl)</b> file type filter to identify a valid file type.</p> 
+                        <p>When prompted, choose one of the <b>Standard Templates</b> for the selected file.</p> </li> 
+                     <li>
+                        <p>Right-click a part and choose <b>Move to Synchronous</b> to move a part to the synchronous modeling environment.</p> 
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The <b>Reverse Engineering</b> tab is available in the synchronous modeling environment.</p>
+                        </div> </li>
+                     <li>
+                        <p>On the <b>Reverse Engineering</b> tab, under the <b>Cleanup Mesh</b> group, select the <a class="xref" data-handle="reverse_engineering" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fill_holes" rel="re_fill_holes">Fill Holes</a> command to fill the holes and voids in the model.</p> 
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>An open STL geometry model cannot define a Solid Edge Simulation. You must convert
+                              the model to a closed geometry STL model.</p>
+                        </div>
+                     </li> 
+                     <li>
+                        <p>On the <b>Reverse Engineering</b> tab, under the <b>Identify Regions</b> group, select the <a class="xref" data-handle="reverse_engineering" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions">Manual</a> command to create the geometric regions. In this example, the geometric regions are
+                           created on the top (1) and bottom (2) faces of the part.</p> 
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/stl_model02.gif"></p> 
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>You can use the <a class="xref" data-handle="reverse_engineering" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions">Automatic</a> command to create the regions automatically by adjusting the accuracy.</p>
+                        </div> 
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>An STL model has only a single face. You must create the geometric regions to apply
+                              the loads and constraints.</p>
+                        </div>
+                     </li> 
+                     <li>
+                        <p>Create a simulation study.</p> 
+                        <ol type="a" start="1"> 
+                           <li>
+                              <p>On the <b>Simulation</b> tab → <b>Study</b> group, select the material from the <b>Material List</b>.</p>
+                           </li> 
+                           <li>
+                              <p>Choose <b>Simulation</b> → <b>Study</b> → <b>New Study</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif">.</p>
+                           </li> 
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Tetrahedral</b> mesh type, and then click <b>OK</b>.</p>
+                           </li>
+                        </ol> 
+                        <p>The new study is listed in the <b>Simulation</b> pane.</p> 
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/stl_model04.gif"></p>
+                     </li> 
+                     <li>
+                        <p>Select an STL geometry to include in the study.</p> 
+                        <p>When creating a new study for a solid part model with a <b>Mixed</b> or <b>Tetrahedral</b> mesh type, the <b>Simulation</b> tab → <b>Geometry</b> group → <b>Define</b> command runs automatically. On the <b>Define</b> command bar, select the design body and click <b>Accept</b>.</p>
+                     </li> 
+                     <li>
+                        <p>Define the load condition.</p> 
+                        <p>The force load is applied to the geometric region created on the top face using the
+                           <b>Force</b> command in the <b>Structural Loads</b> group.</p> 
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/stl_model05.gif"></p>
+                     </li> 
+                     <li>
+                        <p>Apply a fixed constraint.</p> 
+                        <p>A fixed constraint is applied to the geometric region created on the bottom face using
+                           the <b>Fixed</b> command in the <b>Constraints</b> group.</p> 
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/stl_model07.gif"></p> </li> 
+                     <li>
+                        <p>Mesh and solve the study.</p> 
+                        <ol type="a" start="1"> 
+                           <li>
+                              <p>Choose <b>Simulation</b> → <b>Mesh</b> → <b>Mesh</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif">.</p>
+                           </li> 
+                           <li>
+                              <p>In the <b>Tetrahedral Mesh</b> dialog box, select the <b>Body Mesh</b> option and then click <b>Mesh &amp; Solve</b>.</p>
+                           </li>
+                        </ol> 
+                        <p>The part is meshed and solved. The solution is displayed in the <b>Simulation Results</b> environment.</p> 
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/stl_model06.gif"></p> 
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>To improve the mesh for a complex part, we recommend that; you select the <b>Body Mesh</b> option in the <b>Mesh</b> dialog box.</p>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Create and solve a study using an STL model, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

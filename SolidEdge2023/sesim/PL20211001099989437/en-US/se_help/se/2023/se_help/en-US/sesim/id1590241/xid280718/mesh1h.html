@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Mesh the model</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Mesh the model"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mesh1h">
+                     <h1 class="topic-title">Mesh the model</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_mesh_button.gif">. </p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <ul>
+                              <li>
+                                 <p>The <b>Mesh</b> command is available when the study definition is complete. It uses the mesh type
+                                    specified by the active study. Mesh type, in turn, is based on your model geometry.
+                                    </p>
+                              </li>
+                              <li>
+                                 <p>You can mesh the model without loads or constraints, but you must assign a material.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <p>In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a>:</p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>(Optional) Click the <b>Options</b> button, and then make adjustments to the default meshing options in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a>. </p>
+                           </li>
+                           <li>
+                              <p>(Optional) In an assembly, you can use the <b>Same Component Mesh Size</b> check box to control whether all assembly components are meshed using the same mesh
+                                 size, or the mesh size is adjusted automatically with the size of individual components.
+                                 </p>
+                           </li>
+                           <li>
+                              <p>Click one of the following buttons to start the process:</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Mesh</b>—Choose this option to generate the mesh only. This enables you to review the mesh
+                                       and adjust mesh sizing before solving the analysis. </p>
+                                 </li>
+                                 <li>
+                                    <p><b>Mesh &amp; Solve</b>—Choose this option if you do not need to refine the mesh by sizing it. When processing
+                                       is finished, the analysis data will be displayed automatically in the Simulation Results
+                                       environment.</p>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ol>
+                        <p>A progress meter is displayed for you to monitor the duration and status of the process.</p>
+                        <ul>
+                           <li>
+                              <p>If the mesh is small enough, the meshed geometry is displayed in the graphics window.
+                                 The number of nodes and number of elements in the mesh are shown in PromptBar. This
+                                 is the current mesh size.</p>
+                           </li>
+                           <li>
+                              <p>You can make the mesh smaller or larger by selecting the <b>Mesh</b> command again, and then adjusting the <b>Subjective Mesh Size</b> using the slider.</p>
+                           </li>
+                           <li>
+                              <p>If you chose the <b>Mesh</b> button and meshing fails, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a#mesh1a_errors" rel="mesh1a">Resolving meshing errors</a>.</p>
+                           </li>
+                           <li>
+                              <p>If you chose the <b>Mesh &amp; Solve</b> option and processing stops due to a solve error, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2d" rel="nastran2d">NX Nastran Solve Error dialog box</a> is displayed.</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <ul>
+                        <li>
+                           <p>With the mesh displayed, you can identify areas that may need to be improved. For
+                              more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor quality</a>.</p>
+                        </li>
+                        <li>
+                           <p>If you already generated the initial mesh using the <b>Mesh</b> command, you can use one of the mesh sizing commands to fine-tune its density, shape,
+                              boundary, and other properties. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a>.</p>
+                        </li>
+                        <li>
+                           <p>If you want to delete the mesh and start over instead of updating the mesh, you can
+                              use the following commands on the context menu of the <b>Simulation</b> pane→<b>Mesh</b> node:</p>
+                           <ul>
+                              <li>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/delete_mesh_icon.png"><b>Delete Mesh</b>—Deletes the mesh for a part or sheet metal model, or a selected body mesh in an assembly.</p>
+                              </li>
+                              <li>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/delete_all_mesh_icon.png"><b>Delete All Mesh</b>—Deletes the meshes on all the bodies in the assembly.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/delete_all_mesh_ex.png"></p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2d" rel="nastran2d">NX Nastran Solve Error dialog box</a><br><br></div>
+            <div class="footer-content">Mesh the model, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

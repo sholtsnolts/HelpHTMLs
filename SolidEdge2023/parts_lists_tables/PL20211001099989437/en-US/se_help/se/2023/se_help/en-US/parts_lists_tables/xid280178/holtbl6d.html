@@ -1,0 +1,140 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Hole Table command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Hole Table command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="holtbl6d">
+                     <h1 class="topic-title">Hole Table command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <dl>
+                     <dt><b>Table Style</b></dt>
+                     <dd class="ml-3">
+                        <p>Lists and applies the available table styles.</p>
+                        <p>See the Help topic, <a class="xref" data-handle="styles" href="/en-US/product/246738425/doc/PL20211001099989437.styles/html/table7a" rel="table7a">Table styles</a>.</p>
+                     </dd>
+                     <dt><b>Hole Selection Method</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the method used to select holes to include in the table.</p>
+                        <dl>
+                           <dt><b>By Drawing View</b></dt>
+                           <dd class="ml-3">
+                              <p>Creates a table from all of the holes in the selected drawing view of the model. All
+                                 hole features in the view are selected; they do not have to be visible. </p>
+                              <p>Use the this method when a model contains hole features created with the <b>Hole</b> command. This method does not recognize cutouts or 2D circular geometry. </p>
+                           </dd>
+                           <dt><b>By User Selection</b></dt>
+                           <dd class="ml-3">
+                              <p>Creates a table from the holes you manually select on the active sheet.</p>
+                              <p>Select this option for any of the following conditions:</p>
+                              <ul>
+                                 <li>
+                                    <p>You want to create a table from a subset of holes in a drawing view. </p>
+                                 </li>
+                                 <li>
+                                    <p>You are using different origins to define hole locations.</p>
+                                 </li>
+                                 <li>
+                                    <p>The drawing view that contains holes created as cutouts rather than hole features.
+                                       </p>
+                                 </li>
+                                 <li>
+                                    <p>The drawing view contains 2D circle and arc geometry.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Define Origin Step</b> <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_type/table_type_ui/hole_table_origin_step.gif"></dt>
+                     <dd class="ml-3">
+                        <p>Defines the zero X and Y coordinates for the origin of the hole table. You can define
+                           multiple origins for the hole table. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_type/table_type_howto/list_holes_by_origin_ex.png"></p>
+                        </div>
+                     </dd>
+                     <dt><b>Origin List</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays a list of hole table origins used in the selected table.</p>
+                        <p>When creating a hole table using multiple origins, specifies the origin to use to
+                           locate the <em>next</em> set of holes that you select.</p>
+                     </dd>
+                     <dt><b>Select Features</b> <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_format/table_format_ui/select_features_containing_holes.png"></dt>
+                     <dd class="ml-3">
+                        <p>Specifies that only 3D hole feature geometry can be located for selection, not sketch
+                           geometry. </p>
+                        <p>This includes hole features created with the <b>Hole</b> command, and hole patterns created with the <b>Pattern</b> commands.</p>
+                     </dd>
+                     <dt><b>Select Geometry</b> <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_format/table_format_ui/select_holes.png"></dt>
+                     <dd class="ml-3">
+                        <p>Specifies that 2D geometry consisting of circles and arcs can be located for selection.</p>
+                        <p>The following options aid in selecting geometry when using fence selection:</p>
+                        <dl>
+                           <dt><b>Arc Locate</b> <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_format/table_format_ui/locate_arcs.png"></dt>
+                           <dd class="ml-3">
+                              <p>Locates arc geometry when you drag a box to select geometry. </p>
+                           </dd>
+                           <dt><b>Concentric Locate</b> <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_format/table_format_ui/locate_counterbore_holes.png"></dt>
+                           <dd class="ml-3">
+                              <p>Locates all of the concentric circles that represent counterbore, countersink, and
+                                 threaded holes when you drag a box to select geometry. It also locates multiple concentric
+                                 sketch circles.</p>
+                              <p>When this option is deselected, only the smallest (innermost) circle in a set of concentric
+                                 circles is located.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Add or Remove Holes Step</b> <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_type/table_type_ui/block_add_remove_button.gif"></dt>
+                     <dd class="ml-3">
+                        <p>When this step is active, you can select the hole geometry you want to include in
+                           the hole table. </p>
+                        <p>You also can use this option to add or remove holes from an existing table. When the
+                           <b>Hole Table Selection Method</b> used to create the table initially was <b>By User Selection</b>, you can add or remove individual holes from the selection set using Shift+click.</p>
+                     </dd>
+                     <dt><b>Properties</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl1d" rel="holtbl1d">Hole Table Properties dialog box</a> where you can set hole table options for the content and appearance of the hole table.
+                           You can also save hole table settings for reuse.</p>
+                     </dd>
+                     <dt><b>Saved Settings</b></dt>
+                     <dd class="ml-3">
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_type/table_type_ui/savesettings_button.gif"> Lists and applies the names of table formats you have saved.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>You can define new table formats on the <b>General</b> page of the <b>Hole Table Properties</b> dialog box.</p>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl1h" rel="holtbl1h">Create a hole table</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl3h" rel="holtbl3h">Change hole table labels</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl2h" rel="holtbl2h">Define a smart hole table callout column</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl5h" rel="holtbl5h">Hide the hole table origin</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl4h" rel="holtbl4h">Show hole size tolerance</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl1a" rel="holtbl1a">Hole tables</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl2a" rel="holtbl2a">Adding hole table columns</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl1c" rel="holtbl1c">Hole Table command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl1d" rel="holtbl1d">Hole Table Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl12d" rel="holtbl12d">Options tab (Hole Table Properties dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtbl14d" rel="holtbl14d">Hole Number tab (Hole Table Properties dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtb10d" rel="holtb10d">Callout tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/holtb11d" rel="holtb11d">Smart Depth tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1303303" rel="xid1303303">Units tab (Hole Table Properties dialog box)</a><br><br></div>
+            <div class="footer-content">Hole Table command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

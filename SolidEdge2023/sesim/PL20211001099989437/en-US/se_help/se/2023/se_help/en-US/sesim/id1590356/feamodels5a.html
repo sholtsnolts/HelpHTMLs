@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Offsetting edges around holes, openings, and fasteners</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Offsetting edges around holes, openings, and fasteners"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feamodels5a">
+                     <h1 class="topic-title">Offsetting edges around holes, openings, and fasteners</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Before meshing a model that contains openings, holes, or fasteners such as bolted
+                     connections, you can use the <b>Surfacing</b> tab→<b>Surfacing</b> group→Split list→<b>Offset Edge</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/optimize/offsetedge_cmd.gif"> in the part and sheet metal models to produce better meshing results. </p>
+                  <p>For openings created by cutouts, the <b>Offset Edge</b> command can produce a better mesh around an edge or over an area by dividing the
+                     face or surface. As shown in the following table, the default mesh around the cutout
+                     improves as you split faces by offsetting the edges around the cutout. </p>
+                  <table cellspacing="1" border="1" cellpadding="2" width="100%" frame="box">
+                     <colgroup span="1">
+                        <col span="1">
+                        <col span="1">
+                        <col span="1">
+                        <col span="1">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Offset edges?</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Opening in face or surface</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Default mesh (tetrahedral)</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Default mesh (surface)</p>
+                           </td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>No</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offset_0.gif"></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offset_0a.gif"></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offset_0b.gif"></p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Yes</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offset_1.gif"></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offset_1a.gif"></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offset_1b.gif"></p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <p>For bolted connections, the <b>Offset Edge</b> command generates offset faces to represent where each bolt, nut, and washer come
+                     in contact with a hole. This produces more nodes for the spider mesh to connect to
+                     and a better representation of the bolt.</p>
+                  <table cellspacing="1" border="1" cellpadding="2" width="100%" frame="box">
+                     <colgroup span="1">
+                        <col span="1">
+                        <col span="1">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Bolt without offset edge imprint</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Bolt with offset edge imprint </p>
+                           </td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offsetboltmesh_no.gif"></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/optimize/sesim_offsetboltmesh_yes.gif"></p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1h" rel="meshprops1h">Override mesh properties</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels4a" rel="feamodels4a">Using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels6a" rel="feamodels6a">Specifying material properties accurately</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels3a" rel="feamodels3a">Removing geometry flaws and small entities</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610944" rel="xid610944">Optimizing study results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feaprops1a" rel="feaprops1a">Simulation materials and properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1a" rel="meshprops1a">Mesh material properties</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshpropsqb1d" rel="meshpropsqb1d">Override Property command bar</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a><br><br></div>
+            <div class="footer-content">Offsetting edges around holes, openings, and fasteners, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

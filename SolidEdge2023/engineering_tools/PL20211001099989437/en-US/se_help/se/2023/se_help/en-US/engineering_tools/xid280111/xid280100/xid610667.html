@@ -1,0 +1,110 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Reduce the weight of a part by goal seeking</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Reduce the weight of a part by goal seeking"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid610667">
+                     <h1 class="topic-title">Reduce the weight of a part by goal seeking</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can apply the <b>Goal Seek</b> command to a model to solve an engineering problem involving mass, volume, or surface
+                     area. For example, you may need to design a part that is below a specific target weight
+                     or reduce the weight of an existing part by an additional amount. </p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>The current weight of this part is 7.632 lbm. The goal is to reduce the weight (mass)
+                        by at least 1 lbm. To achieve that goal, you want to allow the height or the angle
+                        of the cutouts to change to reduce the surface area (and therefore the mass) of the
+                        part. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_wheel_mass_ex.gif"></p>
+                     <p>Mass is a variable driven by the physical properties of the part. The Height and Angle
+                        variables are based on driving dimensions in the profile sketch of the base part.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_mass_profile_sketch_ex.gif"></p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Choose <b>Inspect</b> tab→<b>Evaluate</b> group→<b>Goal Seek</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/goalseek.gif">.</p>
+                     </li>
+                     <li>
+                        <p>On the <b>Goal Seek</b> command bar, do the following to find the first solution:</p>
+                        <ol type="a">
+                           <li>
+                              <p>From the <b>Goal</b> list, select <b>Mass</b> as the variable that you want to calculate.</p>
+                              <p>The current mass value, as defined in the <b>Physical Properties</b> dialog box for the part, is displayed on the command bar.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Target</b> box, type the value (but not the units) that you want the Goal to attain and press
+                                 the Tab key.</p>
+                              <p>The units of the Target value must match the units of the selected Goal variable.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>For the first solution, enter 6.5 as the target weight. The units (lbm) are entered
+                                    automatically when you press the Tab key.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>From the <b>Variable</b> list, select the first variable that you want to change. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>For the first solution, select <b>Height</b>. </p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Click the green check mark to begin.</p>
+                              <p>As goal seeking evaluates the solution, changes to the geometry are shown in the graphics
+                                 window. When it finds the best solution, the model is updated and the process duration
+                                 and number of iterations are displayed on the status bar.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_wheel_mass_solutions.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Find another solution for the goal by changing the <b>Target</b> value and <b>Variable</b> options on the command bar, and then selecting Accept to reprocess the solution.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Change the <b>Target weight</b> value, for example, to 6.000.</p>
+                           <p>Select Angle as the variable to change.</p>
+                        </div>
+                        <p>The Variable Table updates with the new value for the variable you selected to change.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <ul>
+                              <li>
+                                 <p>If you do not like the calculated solution, you can use the <b>Undo</b> command to undo it.</p>
+                              </li>
+                              <li>
+                                 <p>To change the process duration or number of iterations, click the <b>Options</b> button on the command bar and then modify the settings in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/calc2d" rel="calc2d">Goal Seek Options dialog box</a>.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Reduce the weight of a part by goal seeking, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

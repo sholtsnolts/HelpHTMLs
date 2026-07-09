@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Advanced Edge Display Options dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Advanced Edge Display Options dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dvprop12d">
+                     <h1 class="topic-title">Advanced Edge Display Options dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Defines advanced edge display options for drawing views.&nbsp;The Advanced Edge Display
+                     Options dialog box is available using the Advanced button on the first page of the
+                     Drawing View Creation Wizard.</p>
+                  <p>You can override these options for individual views on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop11d" rel="dvprop11d">Advanced page (Drawing View Properties dialog box)</a>.</p>
+                  <dl>
+                     <dt>Limit Edge Creation</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Only generate edges inside and overlapping cropped boundaries</dt>
+                           <dd class="ml-3">
+                              <p>Minimizes VHL drawing view processing time by limiting edge creation for any cropped
+                                 views or independent detail views. When this check box is selected, only edges completely
+                                 inside or overlapping the view cropping boundary are generated. When this check box
+                                 is cleared, all edges inside, outside, and overlapping the view cropping boundary
+                                 are generated.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Geometry created with the Draw In View command is not affected by this setting.</p>
+                              </div>
+                           </dd>
+                           <dt>Show edges created by cutting plane line vertices</dt>
+                           <dd class="ml-3">
+                              <p>When you create a section view using a cutting plane that is defined by multiple line
+                                 segments, you can use this option to show or hide the resulting edges in a drawing
+                                 view.</p>
+                              <p>When this option is cleared, edges created by cutting plane line vertices are hidden
+                                 when the drawing view is created. When this option is set, these edges are visible.
+                                 The default setting is cleared.</p>
+                              <p>This option applies to 2D section and revolved section views. It does not apply to
+                                 2D broken-out section views. The default setting is cleared.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Not all edge cases are handled by this processing rule. For those edges that are not,
+                                    you can use the Hide Edges command to hide them.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Simplify B-spline Edges</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Always</dt>
+                           <dd class="ml-3">
+                              <p>B-spline geometry from part edges is always converted to simple geometry.</p>
+                           </dd>
+                           <dt>Only edges outside of the plane of the drawing view</dt>
+                           <dd class="ml-3">
+                              <p>Only B-spline geometry from part edges non-parallel to the plane of the drawing view
+                                 are converted to simple geometry. &nbsp;This is the default for newly placed views.</p>
+                           </dd>
+                           <dt>Never</dt>
+                           <dd class="ml-3">
+                              <p>B-spline geometry from part edges is never converted to simple geometry.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Part Intersections</dt>
+                     <dd class="ml-3">
+                        <p>Processing part intersections can yield better drawing view results in cases such
+                           as press fits, where parts slightly intersect.</p>
+                        <dl>
+                           <dt>Do not process intersections</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that part intersections are not processed. &nbsp;This is the fastest option,
+                                 and the default for newly placed views.</p>
+                           </dd>
+                           <dt>Process intersections</dt>
+                           <dd class="ml-3">
+                              <dl>
+                                 <dt>Without creating face intersections (fast)</dt>
+                                 <dd class="ml-3">
+                                    <p>Creates part edges within the intersections of overlapping bodies. The edges formed
+                                       between intersecting faces of overlapping bodies are not created.</p>
+                                 </dd>
+                                 <dt>Create face intersections of threaded parts (slow)</dt>
+                                 <dd class="ml-3">
+                                    <p>Creates face intersections of overlapping bodies for threaded parts on which outer
+                                       diameter and inner diameter threads overlap.</p>
+                                 </dd>
+                                 <dt>Create all face intersections (slowest)</dt>
+                                 <dd class="ml-3">
+                                    <p>Creates face intersections for all overlapping bodies. This is the slowest option.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid1161626" rel="xid1161626">Change drawing view orientation</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw3d" rel="prtvw3d">Select Model dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw6d" rel="prtvw6d">Drawing View Creation Wizard (Drawing View Options)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw5d" rel="prtvw5d">Drawing View Layout dialog box (Create or Modify)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw2d" rel="prtvw2d">Custom Orientation dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid506161" rel="xid506161">Drawing View Creation Wizard (Saved Settings)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw11d" rel="prtvw11d">Drawing View Creation Wizard (Select Family of Assembly Member)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid385344" rel="xid385344">Drawing View Creation Wizard (Alternate Position Assembly)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw4d" rel="prtvw4d">Select Attachment dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/getstarteddwg1p" rel="getstarteddwg1p">Drawing production workflows</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/sheetscale1a" rel="sheetscale1a">Sheet scale and drawing view scale</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvscale1h" rel="dvscale1h">Add custom drawing view scales to Solid Edge</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid487376" rel="xid487376">Modifying captions</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/stndrd1a" rel="stndrd1a">Drawing view properties</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop4d" rel="dvprop4d">Drawing View Properties dialog box</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvman1a" rel="dvman1a">Drawing view manipulation</a><br><a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid608261" rel="xid608261">Drawing View Wizard tab (Solid Edge Options dialog box)</a><br><br></div>
+            <div class="footer-content">Advanced Edge Display Options dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

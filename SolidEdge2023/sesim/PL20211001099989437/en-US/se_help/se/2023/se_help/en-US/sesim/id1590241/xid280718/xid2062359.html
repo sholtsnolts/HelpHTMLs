@@ -1,0 +1,253 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Check Element Quality</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Check Element Quality"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid2062359">
+                     <h1 class="topic-title">Check Element Quality</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>To view and report the poor-quality elements created on a mesh body, use the <b>Check Element Quality</b> dialog box (<b>Simulation</b> tab→<b>Mesh</b> group→<b>Check Element Quality</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_check_elem_qual_button.gif">). The <b>Check Element Quality</b> command is also available from the shortcut menu of the <b>Mesh</b> node in the Simulation tree-view pane.</p> 
+                  <p>The element quality checks are available based on element topology. For 2D mesh, the
+                     <b>Quadrilateral</b> and <b>Triangular</b> mesh options will be available. Similarly, for tetrahedral mesh, the <b>Tetrahedral</b> mesh options will be available. If there is a mixed mesh, then all the mesh options
+                     will be available.</p> 
+                  <p>The <b>Limit Check</b> group includes the options:</p> 
+                  <ul> 
+                     <li> 
+                        <p><b>Warning and Error</b>—Shows the number of warning and error element(s) in the model.</p> </li> 
+                     <li> 
+                        <p><b>Error</b>—Shows the number of error element(s) in the model by using set error values for each
+                           element check. The error values cannot be modified.</p> </li> </ul> 
+                  <p><b>Quadrilateral mesh options</b></p> 
+                  <ul> 
+                     <li>
+                        <p><b>Skew</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Warping</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Aspect Ratio</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Taper</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Minimum Internal Angle</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Maximum Internal Angle</b></p>
+                     </li> </ul> 
+                  <p><b>Triangular mesh options</b></p> 
+                  <ul> 
+                     <li>
+                        <p><b>Skew</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Aspect Ratio</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Maximum Internal Angle</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Edge Point Length Ratio</b></p>
+                     </li> </ul> 
+                  <p><b>Tetrahedral mesh options</b></p> 
+                  <ul> 
+                     <li>
+                        <p><b>Aspect Ratio</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Jacobian</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Edge Point Length Ratio</b></p>
+                     </li> 
+                     <li>
+                        <p><b>Edge Point Included Angle</b></p>
+                     </li> </ul> 
+                  <h4 class="division-title">Skew</h4>
+                  <div>  
+                     <p>The skew measures the internal angular deviation of a face using the edge bisector
+                        method. For triangular elements and element faces, skew measures internal angle and
+                        reports the minimum for all angles of 2-D (a1, a2, and a3) and all angles of all faces
+                        of supported 3D elements. For quadrilateral elements, a skew test for quadrilateral
+                        faces reports the minimum angle between face edge bisectors (a1 and a2). The minimum
+                        for all faces is reported for supported 3D elements.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1a.png"></p> 
+                     <dl> 
+                        <dt><b>Quadrilateral shell elements</b></dt> 
+                        <dd class="ml-3">
+                           <p>The default warning and error value of skew for quadrilateral elements is 50 and 30
+                              respectively. The valid range of warning values is 31 to 360.</p>
+                        </dd> 
+                        <dt><b>Triangular shell elements</b></dt> 
+                        <dd class="ml-3">
+                           <p>The default warning and error value of skew for triangular elements is 20 and 10 respectively.
+                              The valid range of warning values is 11 to 360.</p>
+                        </dd> </dl> </div> 
+                  <h4 class="division-title">Warping</h4>
+                  <div>  
+                     <p>The warping check evaluates the planarity of element faces. All the other checks evaluate
+                        parameters within the plane of the element faces, but this check evaluates the out-of-plane
+                        parameters. It only looks at the quadrilateral faces. Internally, it divides the quadrilateral
+                        face into triangles. If the face is planar, all the triangles should be coplanar.
+                        That is, their normals will all point in the same direction. If the face is warped,
+                        the normals will not be in the same direction. This check evaluates the maximum angle
+                        between the normals and identifies any elements where the angle exceeds the limit
+                        you specify.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1b.png"></p> 
+                     <p>The default warning and error value of warping for quadrilateral elements is 0.03
+                        and 0.05 respectively. The valid range of warning values is 0.00 to 0.049.</p> </div> 
+                  <h4 class="division-title">Aspect Ratio</h4>
+                  <div>  
+                     <p>The aspect ratio check is based on the ratio of the length of the longest element
+                        edge, to the length of the shortest edge. This check looks at all element edges to
+                        find the maximum and minimum lengths. For solid elements, edges along all faces are
+                        considered. Only element corners are used. Mid-side nodes of parabolic elements are
+                        ignored.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1d.png"></p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1c.png"></p> 
+                     <p>This check identifies elements that have both the longest and the shortest sides.</p> 
+                     <p>The default warning and error value of aspect ratio for quadrilateral, triangular,
+                        and tetrahedral elements is 50 and 100 respectively. The valid range of warning values
+                        is 1 to 99.</p> </div> 
+                  <h4 class="division-title">Taper</h4>
+                  <div>  
+                     <p>The taper check is similar to the aspect ratio check. It formulates a ratio of the
+                        length of the longest edge to the shortest edge. Taper checking only considers ratios
+                        of edges that are opposite to each other on a face, whereas aspect ratio checking
+                        looks at all edge combinations. For solid elements, all faces are considered but mid-side
+                        nodes are ignored.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1e.png"></p> 
+                     <p>The default warning and error value of warping for quadrilateral elements is 0.3 and
+                        0.5 respectively. The valid range of warning values is 0 to 0.49.</p> </div> 
+                  <h4 class="division-title">Internal Angles</h4>
+                  <div>  
+                     <p>The internal angles check evaluates whether the included angles at the corners of
+                        an element face deviate from an optimal condition. For quadrilateral faces, the deviation
+                        is based on a 90 degree angle. For triangular faces, the deviation is based on a 60
+                        degree angle.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1f.png"></p> 
+                     <p>This check identifies elements that are skewed from a square or equilateral triangle.
+                        Although similar, taper checking identifies trapezoidal faces, but ignores a face
+                        that is a rhombus. The internal angles check finds both variations.</p> 
+                     <dl> 
+                        <dt><b>Quadrilateral shell elements</b></dt> 
+                        <dd class="ml-3">
+                           <p>The default warning and error value of IAMin for quadrilateral elements is 50 and
+                              30 respectively. The valid range of warning values is 31 to 360.</p> 
+                           <p>The default warning and error value of IAMax for quadrilateral elements is 120 and
+                              150 respectively. The valid range of warning values is 0 to 149.</p>
+                        </dd> 
+                        <dt><b>Triangular shell elements</b></dt> 
+                        <dd class="ml-3">
+                           <p>The default warning and error value of IAMax for triangular elements is 120 and 160
+                              respectively. The valid range of warning values is 0 to 159.</p>
+                        </dd> </dl> </div> 
+                  <h4 class="division-title">Jacobian</h4>
+                  <div>  
+                     <p>The Jacobian check compares the shape of an element to an ideally shaped element of
+                        the same topology. Valid elements produce Jacobian quality values between 0.0 and
+                        1.0, where 0.0 represents the ideally shaped element. Severely distorted elements
+                        whose Jacobian determinants are locally discontinuous or undefined are assigned a
+                        quality value of 2. If any of the elements have a Jacobian value of 2, the element
+                        is not valid (that is, the element is inside out, twisted, and so on) and should be
+                        fixed before analysis.</p> 
+                     <p>The default warning and error value of Jacobian for tetrahedral elements is 0 and
+                        0 respectively. The valid range of warning values is 0 to 9.99e+30.</p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>The default values of warning and error criteria for Jacobian are same. The warning
+                           default value can be changed in the range of 0.0 to 9.9e30. Changing the default value
+                           can lead to performance impacts due to an increase in the number of warned elements.</p> </div> </div> 
+                  <h4 class="division-title">Edge Point Length Ratio (EPLR)</h4>
+                  <div>  
+                     <p>The EPLR check evaluates the location of the mid-side nodes in the mesh. The node
+                        should be located approximately at the center on the line connecting two adjacent
+                        corner grid points. This determination is made in two ways. First, the distance of
+                        the mid-side node from the two corner nodes is measured and checked if the ratio of
+                        the distance from one node to the other exceeds the tolerance. Next, the angles between
+                        the lines connecting the mid-side node to its two adjacent corner nodes, and the line
+                        connecting the corner nodes themselves, are evaluated.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1g.png"></p> 
+                     <p>The default warning and error value of EPLR for triangular and tetrahedral elements
+                        is 0.8 and 0.5 respectively. The valid range of warning values is 0.51 to 9.99e+30.</p>
+                  </div> 
+                  <h4 class="division-title">Edge Point Included Angle (EPIA)</h4>
+                  <div>  
+                     <p>The EPIA check applies to tetrahedral elements.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_check_elem_qual_1h.png"></p> 
+                     <p>The check returns an error if ϴ<sub>1</sub>+ϴ<sub>2</sub>&gt;30 degree.</p> 
+                     <p>The default warning and error value of EPIA is 20 and 30 degree respectively. The
+                        valid range of warning values is 0 to 29.0 degree.</p> </div> 
+                  <h4 class="division-title">Warning Color</h4>
+                  <div>  
+                     <p>The default color for warning elements is yellow. You can change the color from the
+                        color Scheme list on the dialog box or the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/analysisopt1d" rel="analysisopt1d">Simulation page (Solid Edge Options dialog box)</a></p> </div> 
+                  <h4 class="division-title">Error Color</h4>
+                  <div>  
+                     <p>The default color for error elements is red. You can change the color from the color
+                        Scheme list on the dialog box or the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/analysisopt1d" rel="analysisopt1d">Simulation page (Solid Edge Options dialog box)</a></p> </div> 
+                  <h4 class="division-title">Results</h4>
+                  <div>  
+                     <p>Solid Edge displays the number of warning and error elements in the model when you
+                        click <b>Show Elements</b>.</p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <ul> 
+                           <li> 
+                              <p>Mesh quality can be improved using the body mesh option or creating a finer mesh or
+                                 by applying edge, surface, or body size controls.</p> </li> 
+                           <li> 
+                              <p>The internal warning or failed elements may not be displayed if the <b>Generate only Surface results</b> study option is enabled.</p> </li> </ul>
+                     </div>
+                  </div> 
+                  <h4 class="division-title">Show Elements</h4>
+                  <div>  
+                     <p>Selecting this option highlights and displays the warning and error elements in the
+                        model. It also automatically generates the report file containing a summary of error
+                        elements under each element check. The default location is <b>C:\Users\&lt;userlogin&gt;\AppData\Local\Temp\</b>.</p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <ul> 
+                           <li> 
+                              <p>To view the geometry, mesh, and poor-quality elements, we recommend that; you select
+                                 the <b>Shaded with Visible Edges</b> view style.</p> </li> 
+                           <li> 
+                              <p>To view the poor-quality elements only, select the <b>Shaded</b> view style which sets the display to shaded in active window.</p> </li> </ul> </div> </div> 
+                  <h4 class="division-title">Restore Defaults</h4>
+                  <div>  
+                     <p>Resets the values in the <b>Check Element Quality</b> dialog box to their default values.</p> </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><br></div>
+            <div class="footer-content">Check Element Quality, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

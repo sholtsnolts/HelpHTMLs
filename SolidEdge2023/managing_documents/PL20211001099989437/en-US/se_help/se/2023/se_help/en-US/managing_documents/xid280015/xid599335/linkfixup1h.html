@@ -1,0 +1,184 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Fix links in Solid Edge files</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Fix links in Solid Edge files"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="linkfixup1h">
+                     <h1 class="topic-title">Fix links in Solid Edge files</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use this procedure to analyze your unmanaged Solid Edge files, and then fix broken
+                     links in the files before you import them into the managed environment.</p>
+                  <div class="attention" type="warning">
+                     <div class="attention-label">Warning: </div>
+                     <p>Failure to repair broken links before proceeding with the data preparation and import
+                        process can result in an improperly populated database.</p>
+                  </div>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Choose <b>Start→Siemens Solid Edge 2023→Choose PDM Integration</b>.</p>
+                     </li>
+                     <li>
+                        <p>On the ribbon, click <b>Utility</b>.</p>
+                     </li>
+                     <li>
+                        <p>Select the document management application for which you are preparing your data:</p>
+                        <ul>
+                           <li>
+                              <p><b>Teamcenter</b></p>
+                           </li>
+                           <li>
+                              <p><b>Unmanaged</b></p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>(Optional) To change the default location for the log files generated as output of
+                           the analysis, click <b>Set Working Folder</b>.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>By default, the utility saves log files in <b> \Users\&lt;username&gt;\AppData\Roaming\Siemens\Solid Edge\Version 223\Log Files\Data Preparation</b>.</p>
+                        </div>
+                        <p>To view the contents of the working folder click, <b>Open Working Folder</b>.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Generate Import List</b> tab, click <b>Select Files/Folders</b>.</p>
+                     </li>
+                     <li>
+                        <p>Select whether the files to be analyzed are located in a file or in a system folder.</p>
+                        <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                           <colgroup span="1">
+                              <col span="1" width="20%">
+                              <col span="1" width="80%">
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Use this option</p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>To do this</p>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><b>Add Files</b></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Identify individual files for analysis or define the location of either the ordered
+                                       or unordered CSV file containing the list of files for analysis.</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><b>Add Folders</b></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Identify the location of the system folders containing the files for analysis.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </li>
+                     <li>
+                        <p>Browse for the files or folders specified in the previous step.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <ul>
+                              <li>
+                                 <p>When you choose to <b>Add Folders</b>, you can select the <b>Include Subfolders</b> check box so that any subfolders are included for you.</p>
+                              </li>
+                              <li>
+                                 <p>You can click <b>Types</b> to filter your selection by file types (.dft, .asm, .par, .psm, .pwd or All documents
+                                    including non-Solid Edge documents).</p>
+                              </li>
+                              <li>
+                                 <p>You can click <b>Remove</b> or <b>Remove All</b> to modify the list of files or folders.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <p>To start the analysis, click <b>Generate Import List</b>. </p>
+                        <p>The length of time required for processing depends on the number of files analyzed.
+                           When broken links are found, a message is displayed. You have the option to:</p>
+                        <ul>
+                           <li>
+                              <p><b>View Broken Links</b></p>
+                              <p>Provides details about the broken links along with alternate paths for the link.</p>
+                           </li>
+                           <li>
+                              <p><b>Continue</b></p>
+                              <p>Proceeds with the analysis.</p>
+                           </li>
+                           <li>
+                              <p><b>Cancel</b></p>
+                              <p>Stops the analysis.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Click <b>View Broken Links</b>.</p>
+                        <p>You are provided details about the broken link and alternate paths.</p>
+                     </li>
+                     <li>
+                        <p>Choose the <b>View Properties</b> tab.</p>
+                        <p>The path to the broken links file, <b>BrokenLinkLog_&lt;timestamp&gt;.xml</b>, is provided for you.</p>
+                     </li>
+                     <li>
+                        <p>Verify the path to your <b>Unordered_&lt;timestamp&gt;.CSV</b> file is correct.</p>
+                        <p>Both the <b>BrokenLinkLog_&lt;timestamp&gt;.xml</b> and the <b>Unordered_&lt;timestamp&gt;.CSV</b> were generated by the file analysis.</p>
+                     </li>
+                     <li>
+                        <p>Click <b>Analyze</b>.</p>
+                     </li>
+                     <li>
+                        <p>Your analysis information can be spread across multiple datasheets in <b>PropertyList_&lt;timestamp&gt;.xlsm</b>. Select the datasheet that contains the link replacement information.</p>
+                     </li>
+                     <li>
+                        <p>For each broken link, provide both the broken link path and broken link file name
+                           as well as the replacement path and replacement file name. </p>
+                     </li>
+                     <li>
+                        <p>Save the spreadsheet and click <b>Fix Broken Links</b>.</p>
+                        <p>After the status indicates <b>Finished processing</b>, you can continue modifying properties or use Design Manager to verify that the broken
+                           links are fixed.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Data Preparation Utility</b>, select the <b>Modify Properties</b> tab and click <b>Modify Properties</b>. </p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze1h" rel="analyze1h">Perform a Solid Edge file analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/modify1h" rel="modify1h">Modify Solid Edge files using the Data Preparation Utility</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186978" rel="xid1186978">Generate a list of custom properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186986" rel="xid1186986">Generate a list of reverse links</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/renametc1h" rel="renametc1h">Rename files using the Data Preparation Utility</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seectools1a" rel="seectools1a">Solid Edge Data Preparation Utility</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1192540" rel="xid1192540">Considerations before using the Data Preparation Utility</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1195748" rel="xid1195748">Analyze Solid Edge files using command line options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1195749" rel="xid1195749">Fix broken links using command line options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1195750" rel="xid1195750">Modify Solid Edge files using command line options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186430" rel="xid1186430">Data Preparation dialog box</a><br><br></div>
+            <div class="footer-content">Fix links in Solid Edge files, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

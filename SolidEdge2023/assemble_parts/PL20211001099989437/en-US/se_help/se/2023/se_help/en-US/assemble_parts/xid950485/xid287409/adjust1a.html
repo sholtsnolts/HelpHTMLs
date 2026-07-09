@@ -1,0 +1,182 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Adjustable and rigid assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Adjustable and rigid assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="adjust1a">
+                     <h1 class="topic-title">Adjustable and rigid assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When working with assemblies, it is sometimes necessary to allow movement within a
+                     subassembly while working in a higher-level assembly. In other instances, it can be
+                     necessary to show identical subassemblies in different positions. For example, you
+                     can have two identical hydraulic cylinder subassemblies in an assembly, but need to
+                     show the hydraulic cylinders in different positions. </p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/assembly/adjustasm1.gif"></p>
+                  <p>The Adjustable Assembly functionality allows you to address both of these issues.</p>
+                  <h4 class="division-title">Comparing rigid and adjustable subassemblies</h4>
+                  <div>
+                     <p>Specifying that a subassembly is adjustable allows you to place positioning relationships
+                        between parts in the subassembly while in the higher-level assembly. This is not possible
+                        with a rigid subassembly.</p>
+                     <p>When you specify that a subassembly is adjustable, you are prevented from in-place
+                        activating the subassembly. For example, when you try to in-place activate the subassembly
+                        using the Edit command, a dialog box is displayed that informs you that the subassembly
+                        is adjustable and to use the Open command to open the subassembly.</p>
+                  </div>
+                  <h4 class="division-title">Displaying identical subassemblies in different positions</h4>
+                  <div>
+                     <p>There are several approaches to solving this problem:</p>
+                     <p>You can create uniquely-named subassemblies for each of the otherwise identical subassemblies.
+                        This allows you to assign unique offset values to the affected relationships, but
+                        creates extra files and complicates data management.</p>
+                     <p>You can create a single-level assembly where the subassembly components are placed
+                        as discrete parts, instead of as a subassembly. This also allows you to assign unique
+                        offset values to the affected relationships, but makes it more difficult to reuse
+                        the hydraulic cylinder components later in another assembly. Another disadvantage
+                        of this method is that the parts are listed individually, rather than as a subassembly.</p>
+                     <p>Alternately, you can use the <em>Adjustable Assembly</em> functionality within Solid Edge. This approach eliminates the need to create multiple
+                        copies of the hydraulic cylinder subassembly data set or to create single-level assemblies.</p>
+                  </div>
+                  <h4 class="division-title">Preparing the subassembly</h4>
+                  <div>
+                     <p>To use the <em>Adjustable Assembly</em> functionality, the subassembly can be left under-constrained in the range of motion
+                        in which you want to adjust. This allows you to apply the relationship(s) that you
+                        want to adjust in the higher level assembly, not in the subassembly. </p>
+                  </div>
+                  <h4 class="division-title">Placing the subassembly into the higher-level assembly</h4>
+                  <div>
+                     <p>You place the subassembly into the higher-level assembly in the same manner as you
+                        would any subassembly. There are several methods available to specify that you want
+                        the subassembly to be considered an adjustable assembly.</p>
+                     <p>To specify that the subassembly is considered adjustable while you are placing the
+                        subassembly, set the <b>Place As Adjustable</b> option on the <b>Options</b> dialog box on the<b> Assemble</b> command bar.</p>
+                     <p>To specify that the subassembly is considered adjustable after you have completed
+                        positioning the subassembly, select the subassembly in <b>PathFinder</b>, then click the <b>Adjustable Assembly</b> command on the shortcut menu.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Only subassemblies that contain parts that are not fully positioned can be marked
+                           as adjustable.</p>
+                     </div>
+                     <p>You can also specify that a subassembly is adjustable by setting the <b>Place as Adjustable when this Assembly is Placed into Another Assembly</b> option on the <b>Assembly </b>tab on the <b>Options</b> dialog box.</p>
+                     <p>Regardless of the method used, a special symbol is used in <b>PathFinder </b>(A) to indicate the subassembly is adjustable.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/adjustable/assembly/adjustasm2.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If an adjustable part is formula driven, the movement of the other parts linked by
+                           constraints is not followed. Variables that control geometry changes in the adjustable
+                           part. are promoted to top level assembly but variables that drive formulas are not
+                           promoted. Only the numeric value of the variable in the subassembly is supported.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Working with adjustable assemblies</h4>
+                  <div>
+                     <p>When a subassembly is set to adjustable, all assembly relationships existing within
+                        the subassembly are solved at the level of the active assembly. In other words, the
+                        relationships in the subassembly are promoted to the higher-level assembly for solve
+                        purposes. </p>
+                     <p>The relationships used to position the parts within the subassembly can be viewed
+                        in the bottom pane of PathFinder when you select a part in the subassembly. These
+                        relationships are read-only and the text label is gray to indicate that the relationship
+                        cannot be edited. Displaying the read-only relationships makes it easier to evaluate
+                        the existing relationships and apply the remaining relationships.</p>
+                     <p>For example, when you select <b>cylinder.par</b>:1 in the adjustable assembly named Actuator.asm:1, three relationships are displayed.
+                        The axial align relationship to <b>base.par</b> (A) was placed in the current assembly. It was used to position the subassembly in
+                        the current assembly, and is editable.</p>
+                     <p>The Mate relationship to <b>piston.par</b>:1 (B) was placed in the current assembly after the subassembly was made adjustable.
+                        Its purpose is to adjust the length of the hydraulic cylinder subassembly and the
+                        relationship is editable.</p>
+                     <p>Notice that no visual distinction is made between relationships (A) and (B), although
+                        one of the relationships was used to position the subassembly in the current assembly
+                        (A), and the other was used to position the two parts in the subassembly.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/adjustable/assembly/adjustasm3.gif"></p>
+                     <p>The remaining axial align relationship to <b>piston.par</b>:1 (C) was placed in the subassembly, is read-only and not editable within the current
+                        assembly. Notice that the text label is gray, indicating that the relationship is
+                        read-only.</p>
+                     <p>If you specify that a subassembly is flexible, add positioning relationships, and
+                        then specify that the subassembly is rigid, conflicting relationships can occur. You
+                        can delete or suppress relationships to correct this situation.</p>
+                     <p>Relationships in adjustable assemblies can also be overridden. This promotes the relationship
+                        up to the current assemby and is useful for making assemblies that are fully constrained
+                        adjust without having to provide and under constrained part in the subassembly. This
+                        is described in more detail below.</p>
+                  </div>
+                  <h4 class="division-title">Overriding relationships in constrained assemblies</h4>
+                  <div>
+                     <p>A fully constrained assembly can be placed as an adjustable subassembly. To do this,
+                        the relationship that needs to be free in&nbsp; the assembly to make it adjust can be overridden
+                        in the assembly where the subassembly has been placed. Make the subassembly adjustable
+                        using by right-clicking the occurrence in <b>PathFinder</b> and setting the assembly to adjustable. Then find the relationship within the subassembly
+                        that will be used to postion adjusting parts within the subassembly. In the lower
+                        pane of <b>PathFinder</b>, right-click on the relationship and then click the <b>Override Relationship</b> command. This will promote that relationship into the higher level assembly and it
+                        can be used to adjust the subassembly.</p>
+                     <p>The overridden relationship appears in <b>PathFinder</b> as shown below.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/adjustable/assembly/override_relationship_pathfinder.png"></p>
+                     <p>The relationship can the be used as if the relationship exists in the current assembly.
+                        To remove the override, delete it in the lower pane of <b>PathFinder</b>.</p>
+                  </div>
+                  <h4 class="division-title">Adjustable assemblies and adjustable parts</h4>
+                  <div>
+                     <p>You can create assemblies that contain adjustable parts within an adjustable subassembly.
+                        For example, you may need to place two instances of a cylinder subassembly, with each
+                        subassembly in different positions.</p>
+                     <p>Each cylinder assembly contains a spring that is an adjustable part, which allows
+                        the spring to change length as the cylinder subassemblies change positions.</p><img class="img-fluid d-block mx-auto" src="../../../../common/nonLocalized/se/adjustable/assembly/adjprtinsub1.gif"><p>When you make a subassembly adjustable that contains adjustable parts, the adjustable
+                        part variables are promoted to the current assembly.</p>
+                     <p>If you define an assembly variable in the variable table for a subassembly that controls
+                        a part variable, the subassembly variable is promoted to the current assembly. The
+                        promoted variable is a linked variable.</p>
+                     <p>For more information on creating and using adjustable parts in assemblies, see the
+                        <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt1a" rel="adjprt1a">Adjustable parts in assemblies</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title">Adjustable assemblies and the Drag Part command</h4>
+                  <div>
+                     <p>If you specify that a subassembly is adjustable, and the combination of relationships
+                        at the active level and the promoted relationships allow movement, you can use the
+                        <b>Drag Part</b> command to reposition the parts. Adjustable assemblies work with all modes of the
+                        <b>Drag Part</b> command.</p>
+                     <p>Because an adjustable subassembly is typically used to drive movement in an assembly,
+                        you may need to provide for that movement by suppressing or deleting relationships
+                        in the related parts and subassemblies.</p>
+                  </div>
+                  <h4 class="division-title">Forming Assembly Relationships for Adjustable Assemblies</h4>
+                  <div>
+                     <p>To get predictable results when creating an Adjustable Assembly do not form relationships
+                        between parts and assembly-level coordinate systems, base or reference planes, or
+                        sketches. The first part in the assembly should be grounded. All subsequent assembly
+                        relationships should be formed between other parts in the assembly or the grounded
+                        part, and not to assembly-level coordinate systems, base or reference planes, or sketches.
+                        </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt1h" rel="adjprt1h">Define an adjustable part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1h" rel="adjust1h">Set the adjustable/rigid status of a subassembly</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt1a" rel="adjprt1a">Adjustable parts in assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1c" rel="adjust1c">Adjustable Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt4c" rel="adjprt4c">Adjustable Part command (Part or Sheet Metal environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust2c" rel="adjust2c">Rigid Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid376812" rel="xid376812">Rigid Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt3c" rel="adjprt3c">Edit Adjustable Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt1d" rel="adjprt1d">Adjustable Part dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid376796" rel="xid376796">Adjustable Part command (Assembly environment)</a><br><br></div>
+            <div class="footer-content">Adjustable and rigid assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

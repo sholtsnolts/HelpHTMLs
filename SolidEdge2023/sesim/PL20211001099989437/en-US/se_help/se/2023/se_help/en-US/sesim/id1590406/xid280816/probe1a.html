@@ -1,0 +1,197 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Probing analysis results</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Probing analysis results"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="probe1a">
+                     <h1 class="topic-title">Probing analysis results</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Probe</b> command in the <b>Simulation Results</b> environment to display the analysis values, location, and relative displacement for
+                     each result node in the model.</p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/sesim_probe_button.gif"> </p>
+                  <p> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_probe_nodedata_temp.gif"></p>
+                  <h4 class="division-title">Displaying node analysis results</h4>
+                  <div>
+                     <p>When you select the <b>Probe</b> command, an empty <b>Probe Table</b> is displayed. Use the table to interact with the results data on the model by selecting
+                        nodes, faces, or edges. </p>
+                     <ul>
+                        <li>
+                           <p>Select the <b>Node</b> option when you want to click individual geometry nodes at the intersections of mesh
+                              elements on the model. As you click each node, its values are added to the <b>Probe Table</b> and shown as a temporary label on the model. </p>
+                        </li>
+                        <li>
+                           <p>Select the <b>Face</b> option to populate the <b>Probe Table</b> with all the node data at once for a selected face or surface. As you select each
+                              face, it is added to the <b>Selected Faces</b> list in the <b>Probe Table</b>. You can remove unwanted entities from this list using the <b>Delete</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/probe_table_delete_entity_button.png">. Then use the <b>Update</b> button to load the stress values into the table for the selected faces.</p>
+                        </li>
+                        <li>
+                           <p>Select the <b>Edge</b> option when you want to examine all the node data at once for an edge. Use the <b>Update</b> button to load the stress values into the table for the selected edge.</p>
+                        </li>
+                        <li>
+                           <p>The probe labels and data points are removed when you change the node selection method
+                              or when you close the <b>Probe Table</b>. To preserve the information, you can copy (Ctrl+C) and paste (Ctrl+V) the data into
+                              another document, such as a CSV file.</p>
+                        </li>
+                     </ul>
+                     <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe1h" rel="probe1h">Display node analysis data</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="probe1a_anno">Node data labels and format</h4>
+                  <div>
+                     <p>The node data label shows the numerical analysis results in a box-shaped callout with
+                        a white background. This makes the data easy to read, especially when superimposed
+                        on a dark model background or a window with gradient shading. You can change the default
+                        display color of node points on the model by changing the <b>Node</b> color setting on the <b>Simulation</b> tab (<b>Solid Edge Options</b> dialog box).</p>
+                     <p>The basic information displayed in the node data label consists of node location and
+                        stress value, in this format:</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Node=(X, Y, Z) Units</p>
+                           <p>Value=Value Units</p>
+                        </li>
+                     </ul>
+                     <p>If applicable to the study type, you can use the <b>Show displacement</b> check box in the <b>Probe Table</b> to control the display of relative displacement values in the node data label.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Node=(X,Y,Z) Units</p>
+                           <p>Value=Value Units</p>
+                           <p>Deformation=Δ(DX,DY,DZ) Units </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Displaying node data for plates</h4>
+                  <div>
+                     <p>You can use the <b>Plate Thickness</b> option on the <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> menu to add and remove thickness on a plate surface. This also changes how node values
+                        are displayed in the probe callout.</p>
+                     <p>When the <b>Plate Thickness</b> check box is selected, plots are displayed on all of the surfaces of the thickened
+                        plate. You can select nodes on both sides of the plate, and you can clearly see which
+                        side of the thickened plate the probed node is located on. This node value is displayed
+                        in the callout.</p>
+                     <p>If you clear the check box to remove the thickness and then select a node on the 2D
+                        surface, two node values are displayed in the callout, even though one node is highlighted
+                        by the probe. </p>
+                     <ul>
+                        <li>
+                           <p>The callout shows three values: </p>
+                           <ul style="list-style: none">
+                              <li>
+                                 <p>(1) The location of the selected node.</p>
+                              </li>
+                              <li>
+                                 <p>(2) A value for the top side of the plate (Top).</p>
+                              </li>
+                              <li>
+                                 <p>(3) A value for the bottom side of the plate (Bot).</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>An asterisk (*) identifies the value that is visible in the current view orientation.
+                              </p>
+                        </li>
+                     </ul>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="2">
+                           <col span="1">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Probe callout data</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Displayed as</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Example</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>(1)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Node (X,Y,Z location)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Node=(-2.6, 1, 1.5) in</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>(2*)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Value (Top Plate)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Value (Top)*=18.1 ksi</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>(3)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Value (Bottom Plate)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Value (Bot)=18.2 ksi</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_howto/sesim_probe_top_bottom_.gif"></p>
+                  </div>
+                  <h4 class="division-title">Graphing nodal results for a study</h4>
+                  <div>
+                     <p>When probing the results of a transient heat transfer study, you can graph the stress
+                        data at each time step for nodes selected in the <b>Probe Table</b>. For a harmonic response study, you can graph the displacement (translation) data
+                        at each frequency selected in the table. Use the <b>Show Graph</b> button to show the stress data in graphical form. Probe labels matching each of the
+                        selected nodes are displayed in the simulation results, color-coded to match the data
+                        in the graph.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>This graph shows the selected node data for a transient heat study.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/probe_table_graph.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/probe_table_graph_labels.png"></p>
+                     </div>
+                     <p>For more information, see the following help topics:</p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe3h" rel="probe3h">Graph nodal analysis results</a> </p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a></p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic response study</a></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe1h" rel="probe1h">Display node analysis data</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe3h" rel="probe3h">Graph nodal analysis results</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1668045" rel="xid1668045">Verify linear static stress results are at equilibrium</a><br><br></div>
+            <div class="footer-content">Probing analysis results, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

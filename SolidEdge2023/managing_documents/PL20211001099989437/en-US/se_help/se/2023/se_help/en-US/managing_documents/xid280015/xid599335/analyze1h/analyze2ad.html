@@ -1,0 +1,245 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Analysis report</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Analysis report"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="analyze2ad">
+                     <h1 class="topic-title">Analysis report</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The analysis report displays the results of data analysis in a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze2d" rel="analyze2d">spreadsheet</a>, <b>PropertyList_&lt;timestamp&gt;.xlsm</b>. The analysis report utilizes the commands at the top of the spreadsheet for correcting
+                     or confirming data prior to importing into a managed environment.</p>
+                  <p>You can use the analysis report to:</p>
+                  <ul>
+                     <li>
+                        <p>Define or correct property data prior to importing into the managed environment.</p>
+                     </li>
+                     <li>
+                        <p>Rename unmanaged files.</p>
+                     </li>
+                     <li>
+                        <p>Separate the file name and revision number in an existing file name.</p>
+                     </li>
+                     <li>
+                        <p>Mark documents to delete from disk.</p>
+                     </li>
+                  </ul>
+                  <p>The commands for manipulating your Solid Edge files are dependent on macros being
+                     enabled. If you notice the warning, <img class="img-fluid" src="../../../../../common/graphicLibrary/se/doc_mgt/manage_tc/manage_tc_ui/macros.gif"> macros may be disabled due to your Microsoft Office security settings.</p>
+                  <div class="attention" type="caution">
+                     <div class="attention-label">Caution: </div>
+                     <p>Discuss your security policy with your system administrator before making changes
+                        to your security settings.</p>
+                  </div>
+                  <p>The analysis report user interface has a horizontal, tabbed command ribbon making
+                     all commands visible and accessible. On each tab, functions are organized by group
+                     to help you locate them.</p>
+                  <h4 class="division-title">Using tabs in the spreadsheet</h4>
+                  <div>
+                     <p>The tabs containing functions you will use most frequently to define or correct property
+                        data before importing your documents into the managed environment are:</p>
+                     <dl id="sedataprep">
+                        <dt><b>SE Data Prep</b></dt>
+                        <dd class="ml-3">
+                           <dl>
+                              <dt><b>Mark Previous Revisions</b></dt>
+                              <dd class="ml-3">
+                                 <p>Searches the files listed as a result of the analysis and finds the latest revision
+                                    of the files based on the document number. All revisions preceding the latest revision
+                                    are marked for deletion with an X in the Delete column.</p>
+                              </dd>
+                              <dt><b>Remove Custom Properties</b></dt>
+                              <dd class="ml-3">
+                                 <p>Removes the specified custom properties from the documents listed in the spreadsheet.</p>
+                              </dd>
+                              <dt><b>Delete Marked</b></dt>
+                              <dd class="ml-3">
+                                 <p>Scans the Delete column of the spreadsheet for those marked with an X. When processed,
+                                    these files are immediately deleted from disk.</p>
+                                 <div class="attention" type="caution">
+                                    <div class="attention-label">Caution: </div>
+                                    <p>Deleting files from disk can create broken links. Use care when marking files for
+                                       deletion.</p>
+                                 </div>
+                              </dd>
+                              <dt><b>Remove Timestamp</b></dt>
+                              <dd class="ml-3">
+                                 <p>Deletes the timestamp from each listed file so the same data can be imported more
+                                    than once into the database.</p>
+                              </dd>
+                              <dt><b>Set File Status</b></dt>
+                              <dd class="ml-3">
+                                 <p>Immediately resets the Solid Edge status property of selected files to Available.</p>
+                              </dd>
+                              <dt><b>Get SE Version</b></dt>
+                              <dd class="ml-3">
+                                 <p>Searches the files listed and locates the latest saved version.</p>
+                              </dd>
+                              <dt><b>Set Write Access</b></dt>
+                              <dd class="ml-3">
+                                 <p>Sets the files with Write access.</p>
+                              </dd>
+                              <dt><b>Set Read Only Access</b></dt>
+                              <dd class="ml-3">
+                                 <p>Sets the files with Read Only access.</p>
+                              </dd>
+                              <dt><b>Split Filename</b></dt>
+                              <dd class="ml-3">
+                                 <p>Searches for a delimiter defined in the ribbon and divides the file name into two
+                                    portions. Data to the left of the delimiter is used in the Document Number property
+                                    definition. Data to the right of the delimiter is used in the Revision property definition.</p>
+                              </dd>
+                              <dt><b>Copy Filename to Doc Num</b></dt>
+                              <dd class="ml-3">
+                                 <p>Copies the existing file name of a document without its extension to the Document
+                                    Number property. As a result, once the data is imported into Teamcenter, the file
+                                    name is used for the Item ID.</p>
+                              </dd>
+                              <dt><b>Copy Filename to Project</b></dt>
+                              <dd class="ml-3">
+                                 <p>Copies the existing file name of a document without its extension to the Project name
+                                    property. As a result, once the data is imported into Teamcenter, the file name is
+                                    used for the Item Name.</p>
+                              </dd>
+                              <dt><b>Copy Doc Num to Filename</b></dt>
+                              <dd class="ml-3">
+                                 <p>Copies existing document numbers to new file names. Existing data is not modified.</p>
+                              </dd>
+                              <dt><b>Append DFT to Doc Num</b></dt>
+                              <dd class="ml-3">
+                                 <p>Appends -DFT to the existing document number for draft files only.</p>
+                              </dd>
+                              <dt><b>Increment Doc Num</b></dt>
+                              <dd class="ml-3">
+                                 <p>Increments the existing document number with the prefix and starting value you specify.</p>
+                              </dd>
+                              <dt><b>Parse Filename</b></dt>
+                              <dd class="ml-3">
+                                 <p>Sorts the data by the value you specify. You supply the Start and To information along
+                                    with the Column where you want the results displayed.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>The value for the column is the numerical value as counted left to right on the spreadsheet.</p>
+                                 </div>
+                              </dd>
+                              <dt><b>Append Doc Num</b></dt>
+                              <dd class="ml-3">
+                                 <p>Adds the string you specify to either the beginning or end of the document number.</p>
+                              </dd>
+                              <dt><b>String in Filename</b></dt>
+                              <dd class="ml-3">
+                                 <p>Finds files with the string you specify, and then places another string you specify
+                                    in the column you specify.</p>
+                                 <div class="attention" type="tip">
+                                    <div class="attention-label">Tip: </div>
+                                    <p>Standard parts usually have something unique in the file name. This function can be
+                                       used to add the word <em>Standard</em> in the Teamcenter Item Type column for that file.</p>
+                                 </div>
+                              </dd>
+                              <dt><b>Multiple 3D</b></dt>
+                              <dd class="ml-3">
+                                 <p>Finds Draft (.dft) documents with links to multiple 3D Solid Edge documents.</p>
+                              </dd>
+                              <dt><b>From Linked 3D</b></dt>
+                              <dd class="ml-3">
+                                 <p>Populates Draft (.dft) document numbers from the linked 3D Solid Edge document.</p>
+                              </dd>
+                              <dt><b>From Linked Draft</b></dt>
+                              <dd class="ml-3">
+                                 <p>Populates 3D document numbers from the Draft (.dft) document with the same file name.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                     <dl id="sefinalcheck">
+                        <dt><b>SE Final Check</b></dt>
+                        <dd class="ml-3">
+                           <dl>
+                              <dt><b>Remove Cell Background Color</b></dt>
+                              <dd class="ml-3">
+                                 <p>Removes the color coding of cells in the spreadsheet. This command should be performed
+                                    before rechecking for duplicates in the document number and file name.</p>
+                              </dd>
+                              <dt><b>Compute Longest</b></dt>
+                              <dd class="ml-3">
+                                 <p>Calculates the total character length of each column and reports it for evaluation.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>There is no logic applied to compare the values reported to the maximum character
+                                       limit of fields within Teamcenter. You must manually verify the maximum character
+                                       limit which varies depending on the version of Teamcenter you are running.</p>
+                                 </div>
+                              </dd>
+                              <dt><b>Duplicates</b></dt>
+                              <dd class="ml-3">
+                                 <p>Evaluates modified data to ensure the property information is correct and contains
+                                    no duplicate data before importing into Teamcenter. Duplicate file names are shown
+                                    in red, and duplicate document numbers are shown in yellow.</p>
+                                 <p>If duplicates are found, the cell is colored red and a message indicates Duplicate
+                                    Filename or Duplicate Document Number.</p>
+                              </dd>
+                              <dt><b>Check Revision</b></dt>
+                              <dd class="ml-3">
+                                 <p>Determines the linked 3D file for each draft file found, then marks the files where
+                                    there is a mismatch between the revision of the draft and 3D files. This command is
+                                    helpful for identifying situations where the draft and 3D files will be imported into
+                                    separate Teamcenter Item Revisions when the intention is to import them into the same
+                                    item revision.</p>
+                              </dd>
+                              <dt><b>Remove String</b></dt>
+                              <dd class="ml-3">
+                                 <p>Deletes the defined string from each of the cells in the spreadsheet.</p>
+                              </dd>
+                              <dt><b>All</b></dt>
+                              <dd class="ml-3">
+                                 <p>Creates a text file for exporting. The file contains all documents in the list.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                     <dl id="semisc">
+                        <dt><b>SE Misc</b></dt>
+                        <dd class="ml-3">
+                           <dl>
+                              <dt><b>Synchronize</b></dt>
+                              <dd class="ml-3">
+                                 <p>Synchronizes legacy standard parts with generated Teamcenter standard parts. You have
+                                    the option to indicate if you have CAD partner standard parts installed.</p>
+                              </dd>
+                              <dt><b>Help About</b></dt>
+                              <dd class="ml-3">
+                                 <p>Displays Solid Edge help.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Analysis report, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

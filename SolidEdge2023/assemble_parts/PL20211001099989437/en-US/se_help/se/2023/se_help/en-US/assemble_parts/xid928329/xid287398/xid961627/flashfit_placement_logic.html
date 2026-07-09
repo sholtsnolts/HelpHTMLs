@@ -1,0 +1,164 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>FlashFit Placement Logic</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="FlashFit Placement Logic"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="flashfit_placement_logic">
+                     <h1 class="topic-title">FlashFit Placement Logic</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <table cellspacing="4" cellpadding="4" rules="all" width="100%" frame="box">
+                     <colgroup>
+                        <col span="1" width="12%">
+                     </colgroup>
+                     <colgroup>
+                        <col span="1" width="12%">
+                     </colgroup>
+                     <colgroup>
+                        <col span="1" width="18%">
+                     </colgroup>
+                     <colgroup>
+                        <col span="1" width="29%">
+                     </colgroup>
+                     <colgroup>
+                        <col span="1" width="29%">
+                     </colgroup>
+                     <tr align="left">
+                        <th rowspan="1" align="left" valign="middle" colspan="1">
+                           <p>Placement Part</p>
+                        </th>
+                        <th rowspan="1" align="left" valign="middle" colspan="1">
+                           <p>Target Part</p>
+                        </th>
+                        <th rowspan="1" align="left" valign="middle" colspan="1">
+                           <p>Relationships</p>
+                        </th>
+                        <th rowspan="1" align="left" valign="middle" colspan="1">
+                           <p>Primary Solution</p>
+                        </th>
+                        <th rowspan="1" align="left" valign="middle" colspan="1">
+                           <p>Secondary Solution</p>
+                        </th>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Planar face</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Planar face</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Mate or Planar Align</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Best Solution Based on Face Normal Comparison (see Note)</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>None, use Flip button or F key to apply other relationship</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Cylindrical face</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Cylindrical face</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Axial Align</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Axial</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>None</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Circular edge</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Circular edge</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Axial Align and Mate or Planar Align</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Axial Align and Best Solution Based on Face Normal Comparison </p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>None</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Linear edge</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Linear edge</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Axial Align</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Closest</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Opposite</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Keypoint</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Keypoint</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Connect</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Connect</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>none</p>
+                        </td>
+                     </tr>
+                  </table>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>To determine if a <b>Mate</b> or <b>Planar Align</b> relationship is applied, the orientation of the two faces is compared, and if the
+                        faces are closer to a mate solution, a mate relationship is applied. If the two faces
+                        are closer to a planar align solution, a planar align relationship is applied. Use
+                        the <b>Flip</b> button or F key to apply the other relationship.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">FlashFit Placement Logic, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

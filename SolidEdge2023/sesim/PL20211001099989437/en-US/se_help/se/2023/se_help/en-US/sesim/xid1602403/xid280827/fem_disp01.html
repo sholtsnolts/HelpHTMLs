@@ -1,0 +1,212 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Compare displacement load results for different  materials</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Compare displacement load results for different  materials"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_disp01">
+                     <h1 class="topic-title">Tutorial: Compare displacement load results for different materials</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this activity, you will use the <b>Duplicate Study</b> command to create two studies within a single document to compare the stress results
+                     of two different materials when a displacement load is applied. You will use the <b>Create Report</b> command to preserve the results in two separate report files. </p>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_Displacement.par</b>. </p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a linear static study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>From the <b>Material</b> list on the <b>Simulation</b> tab→<b>Study</b> group, select <b>Aluminum, 1060</b>.</p>
+                           </li>
+                           <li>
+                              <p>Select the <b>New Study</b> command.</p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Tetrahedral</b> mesh type. Select <b>OK</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a displacement load.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Displacement</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_Displacement_icon.gif">.</p>
+                              <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a> is displayed.</p>
+                           </li>
+                           <li>
+                              <p>Select the circular face shown.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Type <b>5 mm</b> for the displacement value. </p>
+                           </li>
+                           <li>
+                              <p>Ensure the directional vector points away from the part.</p><img class="img-fluid d-block" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_disp04.gif"></li>
+                           <li>
+                              <p>On the command bar, ensure the pinned constraint button is selected <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_pinned_button_on.gif">.</p>
+                              <p>This creates a pinned constraint for the face.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>NX Nastran requires that a displacement load has a matching constraint on the part.
+                                    In Solid Edge Simulation, the <b>Displacement</b> command automatically generates the required constraint if you also select the <b>Pinned</b> option on the command bar.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Press Enter to accept, and then click in space to finish.</p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp05.gif"></p>
+                           <p>The <b>Displacement 1</b> load is displayed in the <b>Simulation</b> pane.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_disp06.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a fixed constraint on two faces.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>. <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the two end faces as shown.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp07.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept, and then click to finish. </p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp08.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> pane, turn off constraints and loads.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_disp09.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Mesh</b> command. Choose <b>Mesh &amp; Solve</b>.</p>
+                              <p>After a few moments, the part is meshed and solved. The results are displayed in the
+                                 Simulation Results environment.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_disp10.gif"></p>
+                           </li>
+                           <li>
+                              <p>Rotate the part to view the areas of highest stress.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp11.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp12.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Home</b> tab→<b>Output Results</b> group→<b>Create Report</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_howto/sesim_create_report_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Create Report</b> dialog box:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p>Change the default title in the <b>Report title</b> box to <b>Simulation Report - Static Study 1</b></p>
+                                 </li>
+                                 <li>
+                                    <p>In the <b>Author</b> box, type your name or initials.</p>
+                                 </li>
+                                 <li>
+                                    <p>In the <b>Introduction</b> box, type <b>Simulation results using Aluminum 1060</b>. </p>
+                                 </li>
+                                 <li>
+                                    <p>Browse to and select the folder location where you want to save the report.</p>
+                                 </li>
+                                 <li>
+                                    <p>Click <b>Create Report</b>. </p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <li>
+                              <p>On the ribbon, click <b>Close Simulation Results</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Create a second study with a different material and repeat the analysis.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>For this activity, you will simply create a second study in the same document and
+                              change the material. Changing the material in a second study causes the first study
+                              to go out of date. Alternatively, if you want to compare and contrast the physical
+                              behavior of different materials under identical load and constraint conditions, you
+                              can <em>copy the part to a separate file</em> and then change the material there. </p>
+                        </div>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> pane, right-click <b>Static Study 1</b> and choose <b>Dupicate Study</b>.</p>
+                              <p>The duplicated study is added at the bottom of the <b>Simulation</b> study navigator pane and named <b>Static Study 2</b>. The displacement load and fixed constraint are copied with it.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_disp08.gif"></p>
+                           </li>
+                           <li>
+                              <p>Change the material for <b>Static Study 2</b> to <b>Nylon, general purpose</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_disp13.gif"></p>
+                              <p>If the material is not shown in the <b>Material List</b>, then select it from the <b>Material Table</b> by doing the following:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p>On the <b>Simulation</b> tab→<b>Study</b> group, click <b>Material Table</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/materialtbl.gif">.</p>
+                                 </li>
+                                 <li>
+                                    <p>In the <b>Material Table</b>, on the <b>Material Properties</b> tab, expand the <b>Non-metals</b> folder, and then expand the <b>Plastics</b> folder.</p>
+                                 </li>
+                                 <li>
+                                    <p>In the <b>Plastics</b> folder, click <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/materialtbl_selection.gif"> <b>Nylon, General purpose</b>, and then click the <b>Apply to Model</b> button.</p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <li>
+                              <p>Solve the part as you did for <b>Static Study 1</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_disp14.gif"></p>
+                           </li>
+                           <li>
+                              <p>To save the second set of results, create another report, and type <b>Simulation results using Nylon, general purpose</b> in the <b>Introduction</b> box. You also can type information in the <b>Conclusion</b> box, based on the results.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Open both report files to compare the difference in stress value between the part
+                           made from aluminum versus the part made from nylon.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The use of nylon for the material would be more appropriate for this application.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Close this file. </p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_force02" rel="fem_force02">Tutorial: Create multiple studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_copy01" rel="fem_copy01">Tutorial: Copy and paste simulation items across part files</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study3a" rel="study3a">Using the Simulation pane</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/status1a" rel="status1a">Reviewing the study status</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/modify1p" rel="modify1p">Modify and reuse analysis studies</a><br><br></div>
+            <div class="footer-content">Tutorial: Compare displacement load results for different  materials, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

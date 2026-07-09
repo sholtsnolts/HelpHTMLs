@@ -1,0 +1,184 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using goal seeking in calculations</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using goal seeking in calculations"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid609562">
+                     <h1 class="topic-title">Using goal seeking in calculations</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Overview of goal seeking</h4>
+                  <div>
+                     <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/calc1c" rel="calc1c">Goal Seek command</a> automates engineering calculations to achieve a specific design goal. It operates
+                        on driven and driving formulas, variables, and dimensions attached to 2D and 3D geometry.
+                        Goal seeking finds a specific value for a dependent variable (dependent by formula,
+                        for example) by adjusting the value of another variable until it returns the result
+                        you want. It shows you the effect on the geometry, and it updates the Variable Table
+                        with the new value.</p>
+                     <p>You can use goal seeking to find the best solution to a what-if problem and use it
+                        to update: </p>
+                     <ul>
+                        <li>
+                           <p>A variable or dimension that controls 2D geometry on a drawing. </p>
+                        </li>
+                        <li>
+                           <p>A variable or dimension on a profile sketch that controls changes to an ordered body
+                              in a part, sheet metal, or assembly model.</p>
+                        </li>
+                        <li>
+                           <p>A physical property or PMI dimension that controls changes to a synchronous body in
+                              a part, sheet metal, or assembly model.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>From a drawing or ordered sketch, you can:</p>
+                        <ul>
+                           <li>
+                              <p>Use the Goal Seek command along with the Area command to find the appropriate dimensions
+                                 for geometry given a desired maximum area.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/evaluate/calculate/goal_seek/calc_area_anno.gif"></p>
+                              <p>For more information, see <em>Basic goal seeking workflow for 2D geometry</em> section in the Goal Seek command topic.</p>
+                           </li>
+                           <li>
+                              <p>Use the Goal Seek command to calculate the amount of force being applied at a point,
+                                 given the lengths, weights, and dimensions of other elements in the design.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_weight_2d_ex.gif"></p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>From an assembly model or a synchronous part or sheet metal model displayed in the
+                           graphics window, you can use the Goal Seek command to:</p>
+                        <ul>
+                           <li>
+                              <p>Find the center of mass on a bicycle to determine the required angle for the kick
+                                 stand.</p>
+                           </li>
+                           <li>
+                              <p>Reduce the weight of a part by changing the size of the holes cut into it.</p>
+                              <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/xid610667" rel="xid610667">Reduce the weight of a part with goal seeking</a>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_wheel_mass_ex.gif"></p>
+                           </li>
+                           <li>
+                              <p>Find a volume by changing the size of the container.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_volume_assembly_ex2.gif"></p>
+                              <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/xid610720" rel="xid610720">Find a volume with goal seeking</a>.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>If you are using web help, you can try a hands-on application of the goal seeking
+                           workflow. In the Solid Edge help window, you can select the site map icon <img class="img-fluid" src="../../../../common/nonLocalized/learning_portal/toc_tdocEXT.gif"> to list all of the contents. Under Tutorials, look for Using Engineering Calculation
+                           Tools.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Goal seeking versus optimization</h4>
+                  <div>
+                     <p>The Goal Seek command in Solid Edge and the Optimize command in Solid Edge Simulation
+                        are useful for solving different types of what-if problems.</p>
+                     <p>Optimization refines the results of a structural analysis. For example, you can solve
+                        a linear static study and then optimize the geometry for stress, displacement, or
+                        factor of safety.</p>
+                     <p>Optimization does not solve for a specific value. Instead, you choose a general quality
+                        that you want to optimize for, such as to minimize the weight of a part. You then
+                        choose a limit to maintain, for example, to maintain a stress level that is less than
+                        yield stress. The optimization process can adjust multiple variables to minimize the
+                        weight.</p>
+                     <p>Goal seeking is more limited in scope. It is used primarily in what-if scenarios to
+                        adjust the design to match a specific value. Goal seeking changes the value of a single
+                        variable until the target value for the dependent goal variable is found. </p>
+                  </div>
+                  <h4 class="division-title">Interaction with the Variable Table</h4>
+                  <div>
+                     <p>System-generated variables, user-defined variables, and values are maintained in the
+                        Variable Table. The Variable Table defines functional relationships between the variables
+                        and dimensions of a design. When you create an area object with the Area command,
+                        a corresponding set of variables and current values are generated automatically in
+                        the Variable Table. Similarly, when you place a driving dimension on a sketch or profile
+                        element, a dimension variable and value are generated.</p>
+                     <p>The Variable Table also contains all of the variables, values, and dimensions associated
+                        with the design of a model. This includes the sketches used to design parts, PMI dimensions
+                        used to control the size of parts, and all of the physical properties associated with
+                        the 3D model. </p>
+                     <ul>
+                        <li>
+                           <p>Dimensions that you add to the 2D and 3D geometry are also added automatically to
+                              the Variable Table.</p>
+                        </li>
+                        <li>
+                           <p>When you add a dimension, you can choose the type of dimension you add—driving or
+                              driven—determines what you can solve for.</p>
+                        </li>
+                        <li>
+                           <p>Area objects that you add to 2D geometry are added automatically to the Variable Table.
+                              All area object variables for area, perimeter, and coordinate systems are driven (dependent)
+                              variables.</p>
+                        </li>
+                        <li>
+                           <p>Physical properties associated with a model are added automatically to the Variable
+                              Table.</p>
+                        </li>
+                        <li>
+                           <p>You can type formulas directly in the Variable Table to reference any object variables
+                              and values.</p>
+                        </li>
+                     </ul>
+                     <p>You can open and review the Variable Table contents using the Tools tab→Variables
+                        command.</p>
+                     <p>When reviewing or editing variable names and values through the Variable Table, you
+                        may need to know which variable name is associated with which dimension in the design.
+                        This is true especially when you are editing a design you are not familiar with, or
+                        if geometry and dimensions are placed on many different layers. With the Variable
+                        Table open, you can select a cell labeled Dim in the Type column, and then look in
+                        the graphics window for the highlighted dimension.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/se/calccranevar.gif"></p>
+                     <p>As you add dimensions to your design, you can change each system-generated variable
+                        name to a more logical name. When you rename variables, the variable name must begin
+                        with a letter, and it should contain only letters, numbers, and the underscore character.
+                        Do not use punctuation characters.</p>
+                  </div>
+                  <h4 class="division-title">Displaying Variable Table data in callouts</h4>
+                  <div>
+                     <p>You can show variables and values in your 2D design using annotations that reference
+                        the Variable Table through property text. In this example, property text in callouts
+                        reference weight and force values calculated for the crane, crate, and force.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/se/calccrane.gif"></p>
+                     <p>You can extract property text from the Variable Table into a callout annotation using
+                        the <a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1d" rel="prptxt1d">Select Property Text dialog box</a> and selecting Variables From Active Document as the property text source. For more
+                        information, see <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/prptxt5h" rel="prptxt5h">Extract Variable Table data using property text</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Quick links</h5><a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1a" rel="equat1a">Using variables</a><br><a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/prptxt5h" rel="prptxt5h">Extract Variable Table data using property text</a><br><a class="xref" data-handle="engineering_tools" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/xid609560" rel="xid609560">Area in calculations</a><br><a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1d" rel="prptxt1d">Select Property Text dialog box</a><br><br></div>
+            <div class="footer-content">Using goal seeking in calculations, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,163 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Mesh sizing</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Mesh sizing"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mesh2a">
+                     <h1 class="topic-title">Mesh sizing</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>The <b>Mesh</b> command automatically produces a mesh using default meshing options. </p>
+                  <ul>
+                     <li>
+                        <p>The mesh is displayed as points on the body to give you an indication of pattern and
+                           distribution. </p>
+                     </li>
+                     <li>
+                        <p>The mesh size is displayed in PromptBar. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><b>Current mesh has 3057 nodes and 985 elements.</b></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>You can use the <b>Show Poor Quality</b> command to identify areas where the mesh needs to be improved on individual parts
+                           and bodies. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh quality</a>.</p>
+                     </li>
+                     <li>
+                        <p>You can use this information to fine-tune the mesh density, shape, and boundary using
+                           one or more of the mesh sizing commands. </p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Sizing overview</h4>
+                  <div>
+                     <p>Mesh sizing provides controls that refine the density of the mesh in areas of the
+                        model that require more intense study. For example, any area where model faces change
+                        shape rather abruptly is a good candidate for sizing. Curves and holes also represent
+                        areas where stresses may be higher. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>On this flat part with two different hole diameters, you can use mesh sizing to accommodate
+                           holes of different sizes:</p>
+                        <ul>
+                           <li>
+                              <p>Surface mesh size=5 applied to the main body.</p>
+                           </li>
+                           <li>
+                              <p>Edge mesh size=12 applied to the edges of the small holes.</p>
+                           </li>
+                           <li>
+                              <p>Edge mesh size=24 applied to the edge of the large hole.</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_size_edges_ex.gif"></p>
+                     </div>
+                     <p>Mesh sizing provides more accuracy and results in fewer design problems. In some cases,
+                        it may produce faster solutions. </p>
+                  </div>
+                  <h4 class="division-title">Refining the mesh</h4>
+                  <div>
+                     <p>There are several ways you can refine the mesh. Each method provides a different level
+                        of control.</p>
+                     <ul>
+                        <li>
+                           <p>You can use the <b>Subjective mesh size</b> slider in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a> to adjust the mesh sizing visually. This applies sizing evenly across the entire
+                              model. </p>
+                        </li>
+                        <li>
+                           <p>You can use the <b>Edge Size</b>, <b>Surface Size</b>, and <b>Body Size</b> commands on the ribbon to apply the mesh sizing to specific areas of geometry. These
+                              commands are available after the initial mesh is generated. </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_mesh_ribbon_size.gif"></p>
+                        </li>
+                     </ul>
+                     <p>With the sizing commands, you can set a default mesh size or default number of elements,
+                        which is used for all geometry where a specific size or number of elements is not
+                        defined. You also can define a specific mesh size or number of elements along a line
+                        or on a surface.</p>
+                     <p>There can be only one mesh sizing per element. However, a surface sizing on a face
+                        may have an edge with its own sizing. Similarly, faces may have common edges. </p>
+                  </div>
+                  <h4 class="division-title" id="mesh2a_body">Body mesh sizing</h4>
+                  <div>
+                     <p>You can use the <b>Body Size</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_body_size_button.gif"> to refine the mesh on solid bodies and surfaces. When you select this command, if
+                        you have only one object in your model, it is selected automatically. If you have
+                        multiple bodies or surfaces, you are prompted to select the ones you want to size.
+                        </p>
+                     <p>There are several different methods available on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a> to specify a different value for the mesh. You can use the Tetrahedral Mesh Control
+                        options to change the size of the mesh elements inside a part (Tet Growth Ratio).</p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>The mesh size on a solid body should be at least two elements thick. </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="mesh2a_face">Surface mesh sizing</h4>
+                  <div>
+                     <p>Surface mesh sizing allows specific faces and surfaces to receive different sizing
+                        than the default for the model. If a mesh sizing already exists on one of the face
+                        edges, you have the option to override the sizing or leave the existing sizing. </p>
+                     <p>For a model face or surface, you can use the <b>Surface Size</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_surf_size_button.gif"> to override mesh sizing on curves associated with that surface, or to define a mesh
+                        on all curves that do not currently have a mesh size. You specify a nominal Element
+                        Size, which is adjusted to fit evenly into each curve. You can do this on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a>. </p>
+                  </div>
+                  <h4 class="division-title" id="mesh2a_edge">Edge mesh sizing</h4>
+                  <div>
+                     <p>For a model edge, you can use the <b>Edge Size</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_edge_size_button.gif"> to adjust sizing on one or more edges.</p>
+                     <p>Edge mesh sizing can either be defined by the number of elements on the edge or by
+                        the element size. Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a> to fine-tune the edge mesh. </p>
+                     <p>For example, the default mesh on the part with holes shown at the top of this page
+                        will produce a mesh that is finer and coarser around different geometric features.
+                        You can use edge mesh sizing to increase the mesh size around large holes and decrease
+                        the mesh size around small holes, reducing stress concentrations. </p>
+                     <p>Another method is to model the part using split faces and curves in Solid Edge. Split
+                        surfaces distribute loads and constraints more realistically.</p>
+                  </div>
+                  <h4 class="division-title">Sizing application order</h4>
+                  <div>
+                     <p>Mesh sizing is applied to the model in this order: body sizing, surface sizing, and
+                        edge sizing. For each body, surface, or edge that gets a special mesh control, a mesh
+                        sizing entry is created or updated in the <b>Simulation</b> pane. For example, <b>Surface Size 1</b>, <b>Edge Size 1</b>, <b>Body Size 1</b>. </p>
+                     <p>Using the <b>Simulation</b> pane, you can: </p>
+                     <ul>
+                        <li>
+                           <p>Highlight or select a mesh size entry and review the associated model geometry.</p>
+                        </li>
+                        <li>
+                           <p>Edit the mesh sizing control using the <b>Edit Definition</b> command on the mesh size shortcut menu. </p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can change the colors used to highlight and select the geometry using the <b>Highlight</b> and <b>Selected</b> options on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/color2d" rel="color2d">Colors tab (Solid Edge Options dialog box)</a>.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Mesh sizing, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,135 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating and using constraints</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating and using constraints"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="constraint2a">
+                     <h1 class="topic-title">Creating and using constraints</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Using constraints</h4>
+                  <div>
+                     <p>An analysis study requires that at least one constraint be defined to restrict translational
+                        and rotational motion of the model at specific locations. For example, you might select
+                        geometric entities which are bolted or fastened to other components in an assembly,
+                        such as faces (A) and (B). You can place a constraint on the same face where you have
+                        defined a load (C), but the loads applied to that face are ignored during solution
+                        processing. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_Constraints_eligiblefaces.gif"></p>
+                     <p>Solid Edge Simulation provides a variety of <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a#constraint1a_types" rel="constraint1a">geometry-based types of constraints</a>.</p>
+                     <p>Constraints are set-based, making it possible to categorize them into different cases
+                        for different analyses or to combine them into a single analysis of a model. For example,
+                        a linear static study of a wall-mounted pressurized container with nozzle connections
+                        to other pipes might include the following constraints:</p>
+                     <ul>
+                        <li>
+                           <p>Fixed wall mounts</p>
+                        </li>
+                        <li>
+                           <p>No rotation between the nozzle connections and external pipes</p>
+                        </li>
+                     </ul>
+                     <p>These constraints can be solved at the same time.</p>
+                  </div>
+                  <h4 class="division-title">Defining constraints</h4>
+                  <div>
+                     <p>You apply constraints to geometry—points, edges, surfaces—using the commands in the
+                        <b>Constraints</b> group on the <b>Simulation</b> tab. You also can define constraints from the shortcut menu in the Simulation tree-view
+                        pane. These commands are available when a study is active and you have selected geometry.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/constraint/sesim_constraint_group.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The <b>Constraints</b> group for the beam mesh type does not include the <b>Sliding Along Surface</b>constraint command or the <b>Cylindrical</b> constraint command.</p>
+                     </div>
+                     <p>A constraint degree of freedom (DOF) symbol is displayed on the selected geometric
+                        entities to mark them as constrained. You also have the option of displaying a degrees
+                        of freedom label with the constraint.</p>
+                  </div>
+                  <h4 class="division-title" id="constraint2a_dof">Constraint degrees of freedom (DOF)</h4>
+                  <div>
+                     <p>A freestanding physical body can move in three directions (X, Y, and Z) and rotate
+                        in three planes (XY, YZ, and XZ). In a model with a rectangular coordinate system,
+                        these motions are called <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/degrees_of_freedom" rel="degrees_of_freedom">degrees of freedom</a>. If you are working in a cylindrical coordinate system, these are called cylindrical
+                        degrees of freedom (DOF).</p>
+                     <ul>
+                        <li>
+                           <p>Constraint degrees of freedom are labeled with respect to the coordinate system. Refer
+                              to these tables and examples to learn how to interpret the labels:</p>
+                           <ul>
+                              <li>
+                                 <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint4a#rect_dof" rel="constraint4a">Rectangular coordinate system DOF labels</a></p>
+                              </li>
+                              <li>
+                                 <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint4a#cyl_dof" rel="constraint4a">Cylindrical coordinate system DOF labels</a> </p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Constraint DOF symbols</h4>
+                  <div>
+                     <p>Constraint symbols are displayed on the model when you define a constraint. </p>
+                     <ul>
+                        <li>
+                           <p>Constraint symbols indicate the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/degrees_of_freedom" rel="degrees_of_freedom">degrees of freedom (DOF)</a>.</p>
+                        </li>
+                        <li>
+                           <p>The constraint symbol arrows point in the directions that are free.</p>
+                        </li>
+                     </ul>
+                     <p>Most constraints apply predefined degrees of freedom. However, two types of constraints—cylindrical
+                        and user-defined—let you choose the degrees of freedom you want to allow or restrict.
+                        The constraint symbols displayed on the model update according to the degrees of freedom
+                        you assign. </p>
+                     <p>To learn more: <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint3a" rel="constraint3a">Constraint symbols</a>. </p>
+                  </div>
+                  <h4 class="division-title">Selecting existing constraints</h4>
+                  <div>
+                     <p>You can double-click a constraint name in the <b>Simulation</b> pane to edit it directly.</p>
+                     <p>You also can select an existing constraint by first selecting the constraint symbol
+                        in the graphics window, and then selecting its edit definition handle.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/constraint/sesim_training_act_force57.gif"> </p>
+                     </div>
+                     <p>This displays the <b>Constraints</b> command bar with edit options for the selected constraint.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_training_act_force56.gif"> </p>
+                     </div>
+                     <p>If the constraint symbols are not visible or if there are multiple constraints, you
+                        can first expand the <b>Constraints</b> group in the <b>Simulation</b> pane, and then select the constraint by name. This highlights the symbols associated
+                        with that constraint in the graphics window. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1h" rel="constraint1h">Define a constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint01" rel="fem_constraint01">Activity: Apply a fixed constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sheetmetal01" rel="fem_sheetmetal01">Activity: Apply pinned and no rotation constraints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint02" rel="fem_constraint02">Activity: Apply a sliding along surface constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint04" rel="fem_constraint04">Activity: Apply a user defined constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint2h" rel="constraint2h">Edit a constraint</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a" rel="constraint1a">Constraints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint3a" rel="constraint3a">Constraint symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint4a" rel="constraint4a">Constraint labels</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraintqb1d" rel="constraintqb1d">Constraints command bar</a><br><br></div>
+            <div class="footer-content">Creating and using constraints, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,119 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Simplified assemblies best practices</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Simplified assemblies best practices"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="smpsimplifyasm2a">
+                     <h1 class="topic-title">Simplified assemblies best practices</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When considering whether to simplify an assembly, there are several factors that can
+                     determine whether you receive the maximum benefit from assembly simplification. This
+                     Help topic discusses these factors.</p>
+                  <h4 class="division-title">Simplify both parts and assemblies</h4>
+                  <div>
+                     <p>Using simplified parts in conjunction with a simplified assembly improves simplified
+                        assembly performance in the following ways:</p>
+                     <ul>
+                        <li>
+                           <p>Faster creation of the simplified assembly representation because there are fewer
+                              total surfaces to evaluate.</p>
+                        </li>
+                        <li>
+                           <p>Reduced assembly document size, which reduces memory demand.</p>
+                        </li>
+                     </ul>
+                     <p>When you simplify parts before simplifying the assembly, you are reducing the total
+                        number of surfaces which must be evaluated during assembly simplification. This allows
+                        the assembly simplification process to complete faster.</p>
+                     <p>The wide range of commands available for part simplification also allow you better
+                        control over which part surfaces are removed before assembly simplification. For example,
+                        there may be holes and cutouts on an exterior part that are not necessary in the simplified
+                        assembly. If these holes and cutouts expose interior faces, the interior faces will
+                        be included in the simplified assembly.</p>
+                     <p>By simplifying the exterior part to remove the holes and cutouts, the simplified assembly
+                        representation will contain fewer surfaces, which reduces file size and memory demands.</p>
+                  </div>
+                  <h4 class="division-title">Simplify assemblies that contain interior components</h4>
+                  <div>
+                     <p>Some assemblies are better suited to assembly simplification than others. In general,
+                        assemblies that have many interior components are better candidates for assembly simplification.
+                        This is because assembly simplification processes the assembly to show only the exterior
+                        envelope of faces and by excluding small parts.</p>
+                     <p>For example, assembly (A) is an ideal candidate for assembly simplification because
+                        there are many complex components enclosed by the exterior housing. The exterior housing
+                        itself also contains many interior surfaces that would be excluded by assembly simplification.</p>
+                     <p>Assembly (B) is a poor candidate for assembly simplification because there are few
+                        interior surfaces and no interior components to exclude. If assembly (B) is also used
+                        in a higher level assembly, where assembly (B) is enclosed, that higher level assembly
+                        may be a better candidate for simplification.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/large/config_zone_simplify/smpbest1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Open assemblies with simplified subassemblies</h4>
+                  <div>
+                     <p>When you open an assembly that contains simplified subassemblies, you can specify
+                        whether the assembly is opened with the subassemblies simplified or as designed. When
+                        you open an assembly with the subassemblies simplified, file open times are improved.</p>
+                  </div>
+                  <h4 class="division-title">Simplify deeply nested assemblies</h4>
+                  <div>
+                     <p>The more subassemblies and parts an assembly has, the more likely the assembly is
+                        a good candidate for simplification. When you open a large assembly with many subassemblies
+                        that have been simplified, file open performance is improved.</p>
+                  </div>
+                  <h4 class="division-title">Inactivate simplified subassemblies</h4>
+                  <div>
+                     <p>When working with large, nested assemblies that contain simplified subassemblies,
+                        you should work with the simplified subassemblies inactive whenever possible. This
+                        can significantly reduce memory requirements.</p>
+                  </div>
+                  <h4 class="division-title">Avoid simplifying top-level assemblies</h4>
+                  <div>
+                     <p>The simplified assembly representation is stored in the assembly document in which
+                        it was created, which increases the file size. An assembly that has been simplified
+                        will open slower than an identical assembly which has not been simplified.</p>
+                     <p>This means that the top-level assembly itself does not benefit from assembly simplification.</p>
+                     <p>Although performance is improved when creating drawing views of a top-level assembly
+                        that has been simplified, in most cases this performance improvement does not offset
+                        the performance impact when opening the top-level assembly.</p>
+                  </div>
+                  <h4 class="division-title">Configure Teamcenter structure expansion</h4>
+                  <div>
+                     <p>In the Teamcenter-managed environment, the Teamcenter preference SEEC_ExpandStructure
+                        determines how product structures are expanded. When you use simplified subassemblies,
+                        set the preference value to 1 to expand product structures level-by-level. The simplified
+                        subassembly acts as a firewall and structure expansion stops at a subassembly that
+                        is simplified.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1504218" rel="xid1504218">Edit an Auto-Simplify definition</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1497019" rel="xid1497019">Create a single body using Auto-Simplify</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt1h" rel="smpprt1h">Use the simplified version of a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt2h" rel="smpprt2h">Use the designed version of a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1h" rel="smpcreatesimpasm1h">Create a simplified version of an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1h" rel="smpsaveas1h">Save a simplified assembly as a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcontrlsimpasm1h" rel="smpcontrlsimpasm1h">Controlling simplified assemblies</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt1a" rel="smpprt1a">Simplifying parts</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyasm1a" rel="smpsimplifyasm1a">Simplifying assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1496438" rel="xid1496438">Auto-Simplify command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1497024" rel="xid1497024">Auto-Simplify command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1c" rel="smpcreatesimpasm1c">Create Simplified Assembly using the Visible Faces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid609698" rel="xid609698">Create Simplified Assembly using the Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610879" rel="xid610879">Enclosure command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610882" rel="xid610882">Duplicate Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyenv1c" rel="smpsimplifyenv1c">Simplify Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1c" rel="smpsaveas1c">Save Simplified As command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt4c" rel="smpprt4c">Use Simplified Parts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpusesimpasm2c" rel="smpusesimpasm2c">Use Simplified Assemblies command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt3c" rel="smpprt3c">Simplify Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpupdatesimplify1c" rel="smpupdatesimplify1c">Update Simplified Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1d" rel="smpsaveas1d">Save Simplified Assembly As dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm2d" rel="smpcreatesimpasm2d">Simplified Assembly Visible Faces Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpdesignenv1c" rel="smpdesignenv1c">Design Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpusedesignedasm1c" rel="smpusedesignedasm1c">Use Designed Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt2c" rel="smpprt2c">Use Designed Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/design1c" rel="design1c">Design Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1d" rel="smpcreatesimpasm1d">Create Simplified Assembly Visible Faces command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610937" rel="xid610937">Create Simplified Assembly Model command bar</a><br><br></div>
+            <div class="footer-content">Simplified assemblies best practices, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

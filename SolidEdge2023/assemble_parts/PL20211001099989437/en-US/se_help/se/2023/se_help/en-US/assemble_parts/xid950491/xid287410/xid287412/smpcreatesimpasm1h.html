@@ -1,0 +1,164 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Create a simplified version of an assembly</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Create a simplified version of an assembly"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="smpcreatesimpasm1h">
+                     <h1 class="topic-title">Create a simplified version of an assembly</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Simplified assembly geometry can exist as either solid bodies, or visible faces. Before
+                     ST6, simplified assemblies consisted of face geometry. The ability to create simplified
+                     assemblies using face geometry using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1c" rel="smpcreatesimpasm1c">Visible Faces command</a> is still valid, however simplified assemblies can also be created by modeling solid
+                     bodies which represent the simplified assembly geometry. The simplified assembly model
+                     is stored within the assembly file and is created with the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid609698" rel="xid609698">Model command</a>.</p>
+                  <p>When creating a simplified assembly by modeling a solid, access to ordered part modeling
+                     functionality is available as well as the commands Enclosure and Duplicate Body.</p>
+                  <p>The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610879" rel="xid610879">Enclosure command</a> uses an assembly reference plane to orient the enclosure and the enclosure can consist
+                     of a rectangular solid or a cylinder whose size is based on the extend of the parts
+                     in the selection set. The solid can then be modified using ordered features, such
+                     as rounds and cutouts to better represent the desired simplification.</p>
+                  <p>The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610882" rel="xid610882">Duplicate Body command</a> allows duplication of simplified solid geometry representing assembly components
+                     that occur multiple times within an assembly.</p>
+                  <p>The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1496438" rel="xid1496438">Auto-Simplify command</a> fuses all selected components into a single body with the option to remove all internal
+                     voids.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>To access the commands for simplifying an assembly, you must first activate the Simplify
+                        Assembly application.</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Choose Tools tab→Model group→Simplify to activate the Simplify Assembly commands.</p>
+                        <p>The commands in the Simplify group are activated.</p>
+                     </li>
+                     <li>
+                        <p>There are two different methods of simplifying an assembly. They are:</p>
+                        <ul>
+                           <li>
+                              <p>Choose Tools tab→Simplify group→Visible Faces <img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/simplified_assembly_icon/visible_faces_icon.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Choose Tools tab→Simplify group→Model <img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/large/config_zone_simplify/smpasm.gif">.</p>
+                           </li>
+                        </ul>
+                        <p>Before ST6, the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1c" rel="smpcreatesimpasm1c">Visible Faces command</a> was the only method of creating a simplified assembly and is an alternative method
+                           for creating simplified assemblies and is still valid. Faces are created from selected
+                           parts. The faces can be excluded or defined as interior or exterior if needed.</p>
+                        <p>The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid609698" rel="xid609698">Model command</a> is used to create the simplified representation by enclosing the selected parts within
+                           a solid body. The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610879" rel="xid610879">Enclosure command</a> can add a rectangular or cylindrical volume around the volume to simplify, and other
+                           ordered features, such as cutouts and rounds.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>A simplified assembly consisting of solid geometry created with the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid609698" rel="xid609698">Model command</a> cannot exist simultaneously in an assembly containing a face geometry representation
+                              of a simplified assembly created with the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1c" rel="smpcreatesimpasm1c">Visible Faces command</a>.</p>
+                        </div>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>The following applies to the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1c" rel="smpcreatesimpasm1c">Visible Faces command</a> <img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/simplified_assembly_icon/visible_faces_icon.gif"> for simplifying an assembly:</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>To exclude parts from the simplified assembly representation, do one or both of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>You can exclude parts by defining a part exclusion percentage using the <b>Exclude parts</b> field on the command bar. The smallest size part in the current view is 1 and the
+                                 largest is 100. You can enter a size value in the field or use the left and right
+                                 arrows to add or remove the next size of parts from the exclusion set based on their
+                                 size. So as you increase the number, larger parts are excluded. You deselect a part
+                                 by holding the Ctrl key and clicking a selected part. </p>
+                           </li>
+                           <li>
+                              <p>In the graphics window or PathFinder, select the parts you want to exclude.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>On the command bar, click the Preview button.</p>
+                     </li>
+                     <li>
+                        <p>On the command bar, click the Finish button.</p>
+                     </li>
+                     <li>
+                        <p>To return to the main Assembly environment, choose Tools tab→Model group→Design Assembly.</p>
+                     </li>
+                     <li>
+                        <p>You can use the Simplified Assembly Options dialog box to set the colors you want
+                           to use for the Unprocessed Color, the Excluded Parts color, the Exterior Faces color,
+                           and the Interior Faces color. These color settings allow you to visualize how the
+                           final simplified assembly representation is displayed. </p>
+                     </li>
+                     <li>
+                        <p>In some cases, an exterior face you want to include in the simplified representation
+                           is marked as an interior face. This can occur when a large assembly component obstructs
+                           an exterior face on another component. During the Modify Results Step, you can refine
+                           the output using the <a class="xref" data-handle="user_interface" href="/en-US/product/246738425/doc/PL20211001099989437.user_interface/html/rotvw1c" rel="rotvw1c">Rotate command</a> to rotate the view to a new orientation to display the incorrectly marked face more
+                           clearly, and then click the Mark Faces as Exterior button to reprocess the results.</p>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>The following applies to the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid609698" rel="xid609698">Model command</a> <img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/large/config_zone_simplify/smpasm.gif"> for simplifying an assembly:</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>To create a solid representation of the assembly do the following:</p>
+                        <ul>
+                           <li>
+                              <p>Use the <b>Enclosure</b> command to begin modeling the solid body. Options are to create a box, an inside
+                                 cylinder or and an outside cylinder. A reference plane is needed to orient the enclosure.
+                                 After the parts are selected and the reference plane defined, the enclosure is created.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>An inside cylinder will fit within the boundaries of the selected parts. An outside
+                                    cylinder will encompass the geometry of the selected parts.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>The solid can be refined using ordered features such as protrusions, cutouts and rounds.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>The model geometry is non-associative and can be used to position parts in the assembly.</p>
+                     </li>
+                     <li>
+                        <p>The <b>Duplicate</b> command can copy instances of simplified assembly models in cases where repetitive
+                           geometry exists.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1504218" rel="xid1504218">Edit an Auto-Simplify definition</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1497019" rel="xid1497019">Create a single body using Auto-Simplify</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt1h" rel="smpprt1h">Use the simplified version of a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt2h" rel="smpprt2h">Use the designed version of a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1h" rel="smpsaveas1h">Save a simplified assembly as a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcontrlsimpasm1h" rel="smpcontrlsimpasm1h">Controlling simplified assemblies</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt1a" rel="smpprt1a">Simplifying parts</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyasm1a" rel="smpsimplifyasm1a">Simplifying assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyasm2a" rel="smpsimplifyasm2a">Simplified assemblies best practices</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1496438" rel="xid1496438">Auto-Simplify command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1497024" rel="xid1497024">Auto-Simplify command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1c" rel="smpcreatesimpasm1c">Create Simplified Assembly using the Visible Faces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid609698" rel="xid609698">Create Simplified Assembly using the Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610879" rel="xid610879">Enclosure command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610882" rel="xid610882">Duplicate Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyenv1c" rel="smpsimplifyenv1c">Simplify Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1c" rel="smpsaveas1c">Save Simplified As command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt4c" rel="smpprt4c">Use Simplified Parts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpusesimpasm2c" rel="smpusesimpasm2c">Use Simplified Assemblies command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt3c" rel="smpprt3c">Simplify Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpupdatesimplify1c" rel="smpupdatesimplify1c">Update Simplified Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1d" rel="smpsaveas1d">Save Simplified Assembly As dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm2d" rel="smpcreatesimpasm2d">Simplified Assembly Visible Faces Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpdesignenv1c" rel="smpdesignenv1c">Design Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpusedesignedasm1c" rel="smpusedesignedasm1c">Use Designed Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt2c" rel="smpprt2c">Use Designed Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/design1c" rel="design1c">Design Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1d" rel="smpcreatesimpasm1d">Create Simplified Assembly Visible Faces command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610937" rel="xid610937">Create Simplified Assembly Model command bar</a><br><br></div>
+            <div class="footer-content">Create a simplified version of an assembly, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

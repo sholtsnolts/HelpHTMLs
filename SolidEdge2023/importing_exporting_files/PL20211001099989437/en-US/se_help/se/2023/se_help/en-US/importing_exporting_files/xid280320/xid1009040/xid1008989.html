@@ -1,0 +1,184 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Export Options for IFC (.ifc) dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Export Options for IFC (.ifc) dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1008989">
+                     <h1 class="topic-title">Export Options for IFC (.ifc) dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Controls how IFC saves Solid Edge documents. Solid Edge supports IFC2X3 and IFC4 formats.</p>
+                  <p> IFC2X3 file format has been around for several years. This file format supports simple
+                     projected or swept features along with meshed data, but does not support BREP data
+                     or curve data.</p>
+                  <p> IFC4&nbsp;format is the most recent release. The format supports simple projected or swept
+                     features, meshed data, and BREP data. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p> Before exporting the IFC4 format, ensure that it is supported by the target system.
+                        </p>
+                  </div>
+                  <dl>
+                     <dt>Export</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the types of construction geometry you want to export.</p>
+                        <dl>
+                           <dt>Export solids (constructions)</dt>
+                           <dd class="ml-3">
+                              <p>Export any construction geometry that exists as solid bodies.</p>
+                           </dd>
+                           <dt>Export sheets (constructions)</dt>
+                           <dd class="ml-3">
+                              <p>Export any construction geometry that exists as sheet bodies.</p>
+                           </dd>
+                           <dt>Export wires (constructions) and generals</dt>
+                           <dd class="ml-3">
+                              <p>Export any construction geometry that exists as wire bodies.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Because IFC2X3 file format does not support curve data, this option is not available
+                                    if you set the <b>IFC version</b> to IFC2X3.</p>
+                              </div>
+                           </dd>
+                           <dt>Export displayed only</dt>
+                           <dd class="ml-3">
+                              <p>Export only the active model and construction geometry that is visible in the part
+                                 or assembly.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Part and Assembly Simplification</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that, when available, a simplified body, instead of the design body, is
+                           used when creating the IFC document.</p>
+                        <dl>
+                           <dt>Part simplification</dt>
+                           <dd class="ml-3">
+                              <div class="row">
+                                 <div class="col-3"><b>Use Current Configuration</b></div>
+                                 <div class="col-9">
+                                    <p>Uses the current configuration to create the IFC document.</p>
+                                 </div>
+                                 <div class="col-3"><b>All Simplified</b></div>
+                                 <div class="col-9">
+                                    <p>Checks each part and uses the simplified body, if available, to create the IFC document.</p>
+                                 </div>
+                                 <div class="col-3"><b>All Designed</b></div>
+                                 <div class="col-9">
+                                    <p>Checks each part and uses the design body, if available, to create the IFC file. </p>
+                                 </div>
+                              </div>
+                           </dd>
+                           <dt>Assembly simplification</dt>
+                           <dd class="ml-3">
+                              <div class="row">
+                                 <div class="col-3"><b>Use Current Configuration</b></div>
+                                 <div class="col-9">
+                                    <p>Uses the current assembly configuration to create the IFC document.</p>
+                                 </div>
+                                 <div class="col-3"><b>Top Level Simplification</b></div>
+                                 <div class="col-9">
+                                    <p>Checks the top level of the assembly and uses the simplified body, if available, to
+                                       create the IFC document.</p>
+                                 </div>
+                                 <div class="col-3"><b>All Simplified</b></div>
+                                 <div class="col-9">
+                                    <p>Checks each sub-assembly found in the assembly and uses the simplified body, if available,
+                                       to create the JT document.</p>
+                                 </div>
+                                 <div class="col-3"><b>All Designed</b></div>
+                                 <div class="col-9">
+                                    <p>Checks each part found in the assembly and uses the design body, if available, to
+                                       create the IFC file. </p>
+                                 </div>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Translation Options</dt>
+                     <dd class="ml-3">
+                        <p>Specifies options for generating log files during translation.</p>
+                        <dl>
+                           <dt>Export Units</dt>
+                           <dd class="ml-3">
+                              <p>The units of measurement for the part being exported. You can set the units to millimeters,
+                                 centimeters, inches, or meters.</p>
+                           </dd>
+                           <dt>IFC version</dt>
+                           <dd class="ml-3">
+                              <p>The IFC format to which you want to export the Solid Edge document. &nbsp;You can set the
+                                 version to IFC2X3 or IFC4.</p>
+                           </dd>
+                           <dt>Generate log file</dt>
+                           <dd class="ml-3">
+                              <p>Produce a log file that contains warnings and information about the files involved
+                                 in translation. The name of the file is the <b>&lt;filename&gt;.log </b>and it is located in the same folder as the IFC file.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Header Info</dt>
+                     <dd class="ml-3">
+                        <p>General user information that you want to include in the Start section of the IFC
+                           file.</p>
+                        <dl>
+                           <dt>Author</dt>
+                           <dd class="ml-3">
+                              <p>The name of the author of the file you want to export.</p>
+                           </dd>
+                           <dt>Organization</dt>
+                           <dd class="ml-3">
+                              <p>The name of the organization of the file you want to export.</p>
+                           </dd>
+                           <dt>Program</dt>
+                           <dd class="ml-3">
+                              <p>The name of the program for the file you want to export.</p>
+                           </dd>
+                           <dt>Description</dt>
+                           <dd class="ml-3">
+                              <p>A description of the file you want to export.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>IFC property set</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Include IFC Properties</dt>
+                           <dd class="ml-3">
+                              <p>Adds the IFC property sets found in an Excel spreadsheet to the IFC file during export.
+                                 You can use the <b>Browse</b> button to specify the Excel file that contains the property sets. </p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1009045" rel="xid1009045">Saving to Industry Foundation Class (.ifc)</a><br><br></div>
+            <div class="footer-content">Export Options for IFC (.ifc) dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

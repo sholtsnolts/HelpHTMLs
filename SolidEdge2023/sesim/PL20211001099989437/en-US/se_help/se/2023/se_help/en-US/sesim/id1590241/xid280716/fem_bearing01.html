@@ -1,0 +1,159 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Apply a bearing load</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Apply a bearing load"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_bearing01">
+                     <h1 class="topic-title">Activity: Apply a bearing load</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <ol type="1">
+                     <li>
+                        <p>Open the file named <b>Mower_pulley.asm</b>. </p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing01.gif"></p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can analyze a single part while its parent assembly is displayed.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Choose <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                     </li>
+                     <li>
+                        <p>Choose the linear static study type and tetrahedral mesh type. Select <b>OK</b>.</p>
+                     </li>
+                     <li>
+                        <p>To satisfy the <b>Define</b> command, select the wheel as the part to activate. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The <b>Define</b> command allows you to analyze a single part while working within the context of an
+                              assembly.</p>
+                        </div>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing02.gif"></p>
+                     </li>
+                     <li>
+                        <p>Click <b>Accept</b> on the command bar.</p>
+                     </li>
+                     <li>
+                        <p>Hide the display of some fasteners:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Rotate and zoom the view to see the underside of the wheel.</p>
+                           </li>
+                           <li>
+                              <p>Select <em>washer.par</em>. Also select the two occurrences of <em>nut.par</em> within the <em>lever_arm.asm</em>. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click and choose <b>Hide</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing04.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a bearing load:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Bearing Load</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_load_bearing_button.gif"></p>
+                              <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a> is displayed.</p>
+                           </li>
+                           <li>
+                              <p>Select the cylindrical face shown.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing05.gif"></p>
+                           </li>
+                           <li>
+                              <p>Type <b>50</b> for the load value and <b>135</b> for the angle value, and then press Tab. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing06.gif"></p>
+                           </li>
+                           <li>
+                              <p>Rotate the view so you can look straight down into the center of the wheel. Select
+                                 the origin of the directional steering wheel, align it with the center of the bore
+                                 and ensure the primary axis points along the direction of the lever arm.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing07.gif"></p>
+                           </li>
+                           <li>
+                              <p>To learn how to use the steering wheel to change the load direction, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Loads directional steering wheel</a>.</p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept, and then click to finish. </p>
+                           </li>
+                           <li>
+                              <p>Hide <em>bolt.par</em> to see the bearing load symbol.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing08.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a fixed constraint on several faces.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Rotate the view in order to see a side of the wheel. Select the faces in the center
+                                 of the wheel.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing09.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept, and then click to finish. </p>
+                           </li>
+                           <li>
+                              <p>Press Ctrl+I to set an isometric view.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing10.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Mesh</b> command. Choose <b>Mesh &amp; Solve</b>.</p>
+                              <p>After a few moments, the part is meshed and solved. The results are displayed in the
+                                 <b>Simulation Results</b> environment.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing11.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_bearing13.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Home</b> tab→<b>Deformation</b> group→<b>Actual</b>. Zoom to see the highest stress concentration.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bearing12.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Activity: Apply a bearing load, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

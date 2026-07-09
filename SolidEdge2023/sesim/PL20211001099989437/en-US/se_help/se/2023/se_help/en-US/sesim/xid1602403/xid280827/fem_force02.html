@@ -1,0 +1,279 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Create multiple studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Create multiple studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_force02">
+                     <h1 class="topic-title">Tutorial: Create multiple studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this tutorial, you will create two simulation studies for a single model using
+                     copy and paste. Also, you will copy a constraint from one study to another. </p>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_bike_tool.par</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force40.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a study simulating a force exerted on the handle.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Assign a material to the part—On the <b>Simulation</b> tab→<b>Study</b> group, from the <b>Material List</b>, select <b>Stainless Steel</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz02.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Create Study</b> dialog box, set the following:</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Study type</b>=<b>Linear Static</b> </p>
+                                 </li>
+                                 <li>
+                                    <p><b>Mesh type</b>=<b>Tetrahedral</b> </p>
+                                 </li>
+                              </ul>
+                              <p>The study is created and is active, as indicated on the ribbon. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz22.gif"></p>
+                              <p>The new study also is listed in the <b>Simulation</b> study navigation pane.</p>
+                           </li>
+                           <li>
+                              <p>On the <b>Simulation</b> pane, click the minus box to the left of the study name to collapse the study.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force42.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click the default study name, and rename it to <b>Force on handle</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force43.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force44.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Copy this study to create a second study. You will use this new study to model pressure
+                           exerted on the handle.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> pane, right-click the <b>Force on handle</b> study and choose <b>Duplicate Study</b> from the shortcut menu.</p>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>You can quickly duplicate solved studies using the <b>Duplicate Study</b> command. This command copies everything in the study, including geometry, loads,
+                                    constraints, connectors, meshes, and results.</p>
+                              </div>
+                              <p>Another linear static study identical to the first is created. The name of the active
+                                 study is displayed in blue. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force48.gif"></p>
+                           </li>
+                           <li>
+                              <p>Collapse the new study, <b>Static Study 2</b>. Rename the study <b>Pressure on handle</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force_study_rename_pressure.png"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a 445 newton (100 pound) force on the handle.</p>
+                        <ol type="a">
+                           <li>
+                              <p>On the ribbon, in the <b>Simulation</b> tab→<b>Study</b> group, activate the <em>Force on handle</em> study by selecting it from the <b>Study List</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force50.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/sesim_force_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the top face of the handle.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force63.gif"></p>
+                           </li>
+                           <li>
+                              <p>Flip the direction <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_flip_button.gif">, and then type a force value of <b>445 N</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force64.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Symbol Size/Spacing</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force53.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Change the <b>Symbol Size</b> to <b>8</b> using the slider. Select <b>OK</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force65.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept, and then click to finish. </p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a fixed constraint in the <b>Force on handle</b> study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Use the <b>Zoom Area</b> command around the socket. </p>
+                           </li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>, and select the cylindrical and end faces of the socket.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force56.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept, and then click to finish. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force58.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Solve the <b>Force on handle</b> study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Mesh</b> command. In the <b>Tetrahedral Mesh</b> dialog box, use the slider to change the <b>Subjective mesh size</b> to <b>8</b>.</p>
+                           </li>
+                           <li>
+                              <p>Click <b>Mesh &amp; Solve</b>.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The processing takes longer for the finer mesh size. </p>
+                              </div>
+                              <p>The results are displayed in the <b>Simulation Results</b> environment.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force61.gif"></p>
+                           </li>
+                           <li>
+                              <p>Use the <b>Zoom Area</b> command around the socket to observe the regions of highest stress.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force62.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the ribbon, click <b>Close Simulation Results</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a 276 kPa (40 lb/in<sub>2</sub>) pressure in the <b>Pressure on handle</b> study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> tab→<b>Study</b> group, activate the <b>Pressure on handle</b> study by selecting it from the <b>Study List</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force50a.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Pressure</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_pressure_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the top face of the handle.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force51.gif"></p>
+                           </li>
+                           <li>
+                              <p>Ensure that the direction points toward the handle. Type a pressure value of <b>276 kPa</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force52.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <b>Loads</b> command bar, select the <b>Symbol Size/Spacing</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force53.gif">.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Graphic Symbol Size dialog box</b>, change the size to <b>8</b> using the slider. Select <b>OK</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force55.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to finish, and then click to end the command.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Copy the fixed constraint from the <b>Force on handle</b> study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Expand the <b>Constraints</b> collector in the <b>Force on handle</b> study. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force71.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click the <b>Fixed 1</b> constraint, and then click <b>Copy</b>.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Simulation</b> pane, select the <b>Pressure on handle</b> study to make it the active study.</p>
+                           </li> 
+                           <li> 
+                              <p>Right-click the <b>Constraints</b> collector, and then click <b>Paste</b>.</p> 
+                              <p>When selected, the study name displays in blue text to indicate it is the active study.</p>
+                              <p>The + symbol is added to the <b>Constraints</b> to indicate it is now populated. </p>
+                              <p>In the graphics window, you can see fixed constraint symbols on the socket.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force68.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You can expand the <b>Constraints</b> collector in the <b>Pressure on handle</b> study to confirm that the <b>Fixed 1</b> constraint was copied. </p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the <b>Pressure on handle</b> study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Repeat the previous steps for meshing the model and solving the analysis, but this
+                                 time for the <b>Pressure on handle</b> study. </p>
+                              <p>The results are displayed in the <b>Simulation Results</b> environment. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force66.gif"></p>
+                           </li>
+                           <li>
+                              <p>Use the <b>Zoom Area</b> command around the socket, so you can observe the regions of highest stress.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force67.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the ribbon, click <b>Close Simulation Results</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Navigate between studies using the <b>Simulation</b> pane.</p>
+                        <p>The <b>Show Single/All Studies</b> button changes the display list in the <b>Simulation</b> pane to show all studies or just one study at a time. This is useful for managing
+                           multiple studies.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> pane, click the minus button to collapse the <b>Force on handle</b> study. Do the same for the <b>Pressure on handle</b> study.</p>
+                           </li>
+                           <li>
+                              <p>At the top of the <b>Simulation</b> pane, select the <b>Show Single/All Studies</b> button.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force67a.gif"></p>
+                              <p>This displays the <b>Show Next Study</b> and <b>Show Previous Study</b> arrows, as shown below.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force67b.gif"></p>
+                              <p>It also changes the display so that only one study at a time is shown in the <b>Simulation</b> pane.</p>
+                           </li>
+                           <li>
+                              <p>Click the arrows to navigate between the studies in the <b>Simulation</b> pane.</p>
+                           </li>
+                           <li>
+                              <p> Click the <b>Show Single/All Studies</b> button again to restore the original study list.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_disp01" rel="fem_disp01">Tutorial: Compare displacement load results for different materials</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_copy01" rel="fem_copy01">Tutorial: Copy and paste simulation items across part files</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study3a" rel="study3a">Using the Simulation pane</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/status1a" rel="status1a">Reviewing the study status</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/modify1p" rel="modify1p">Modify and reuse analysis studies</a><br><br></div>
+            <div class="footer-content">Tutorial: Create multiple studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

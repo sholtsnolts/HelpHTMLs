@@ -1,0 +1,106 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Mesh modeling support</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Mesh modeling support"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1336790">
+                     <h1 class="topic-title">Mesh modeling support</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/convergent" rel="convergent">Convergent Modeling</a> enables mesh model bodies to be incorporated into design engineering workflows along
+                     with solid body models. Mesh modeling is increasingly the format of choice for additive
+                     manufacturing, reverse engineering, generative design, finite element analysis, and
+                     virtual reality environments. </p>
+                  <p>Mesh model sources include high-resolution scanning, converted point cloud data, photometric
+                     data sets, and other sources for quickly evolving technologies in virtual 3D space.</p>
+                  <h4 class="division-title">Types of supported model bodies</h4>
+                  <div>
+                     <p>Solid Edge supports the following types of model bodies:</p>
+                     <dl>
+                        <dt><b>Solid body</b></dt>
+                        <dd class="ml-3">
+                           <p>The geometry in solid body modeling is fully described in 3D space using parametric
+                              Boolean operations to construct a feature-based model. This feature-based model is
+                              frequently referred to as a boundary representation (B-Rep) model.</p>
+                           <p>The term <em>feature-based</em> is used to describe the various components of a model. A feature is the basic unit
+                              of a parametric solid model.&nbsp; For example, a part consists of 3D solid primitives
+                              (such as cylinders, cones, prisms, rectangles, or spheres) and various types of features
+                              (such as holes, grooves, fillets, and chamfers). </p>
+                           <p>Solid body models&nbsp;use Boolean operations to construct and fully define a model that
+                              is then manipulated using Boolean operations. The term <em>parametric</em>&nbsp;is a term used to describe the ability to change the shape of model geometry as soon
+                              as the dimension value is modified. </p>
+                        </dd>
+                        <dt><b>Mesh body</b></dt>
+                        <dd class="ml-3">
+                           <p>A polygon mesh body is a collection of (1) vertices,&nbsp;(2) edges, and (3)&nbsp;faces that
+                              define the shape of a&nbsp;(4) polyhedral&nbsp;object in&nbsp;3D space, where one or more coplanar
+                              faces form a (5) surface. In Solid Edge, the faces consist of&nbsp;triangular facets. As
+                              a result, this type of body is often referred to as a facet body. The polygon meshes
+                              explicitly represent the surface of a body while the volume is implicit. &nbsp; </p>
+                           <p><img class="img-fluid" src="../../../common/graphicLibrary/se/mesh/mesh_files.png"></p>
+                        </dd>
+                        <dt><b>Mixed mesh body</b></dt>
+                        <dd class="ml-3">
+                           <p>A mixed mesh body contains a combination of both classic (B-rep) and facet geometry.
+                              Mixed bodies are integral to hybrid convergent modeling workflows. For example, mixed
+                              bodies are output by generative design and may require modification and finishing,
+                              and they are imported as mesh, scanned, or facet geometry from other applications
+                              that create mixed body models.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/facet_edges_on.png"></p>
+                           <ul>
+                              <li>
+                                 <p>Mixed bodies are shown as mesh bodies in <b>PathFinder</b>.</p>
+                              </li>
+                              <li>
+                                 <p>Basic ordered commands like <b>Extrude</b>, <b>Revolve</b>, and <b>Cut</b> are supported to create mixed bodies.</p>
+                                 <p>In ordered mode and in an assembly, you can use commands like <b>Unite</b>, <b>Intersect</b>, <b>Split</b>, and <b>Hole</b> to modify mixed bodies.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>The <b>Round</b> and <b>Chamfer</b> commands support mixed mesh modeling, but they create a mesh face.</p>
+                                 </div>
+                                 <p>You can use plastic part modeling commands such as <b>Thin Wall</b>, <b>Thin Region</b>, <b>Web Network</b>, <b>Mounting Boss</b>, and <b>Vent</b> to remove and add material from mixed mesh bodies.</p>
+                              </li>
+                              <li>
+                                 <p>Solid Edge supports patterning in the mixed mesh bodies. In the following example,
+                                    a hole was patterned (A) and a rib was mirrored (B).</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/mixed_mesh1.png"></p>
+                                 <p>The rib and hole were created on mesh bodies, but the faces created by the pattern
+                                    and mirror are B-Rep.</p>
+                              </li>
+                              <li>
+                                 <p>Commonly used commands, such as <b>Physical Properties</b>, <b>Measure</b>, and <b>Geometry Inspector</b>, as well as commands in the <b>Dimension</b> group, the <b>Annotation</b> group, and the <b>Analyze</b> group, are either partially or fully supported.</p>
+                              </li>
+                           </ul>
+                        </dd>
+                        <dt><b></b></dt>
+                     </dl>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Mesh modeling support, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

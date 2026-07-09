@@ -1,0 +1,232 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Linear buckling analysis</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Linear buckling analysis"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_buckling01">
+                     <h1 class="topic-title">Tutorial: Linear buckling analysis</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1602531" rel="xid1602531">buckling analysis</a> to determine the load value at which a cane starts to deform before breaking. The
+                     study parameters used in this tutorial are:</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Linear buckling studies require a standard or advanced simulation license.</p>
+                  </div>
+                  <ul>
+                     <li>
+                        <p>Study type=Linear Buckling</p>
+                     </li>
+                     <li>
+                        <p>Load type=Force</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_Cane.par</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a linear buckling study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Buckling</b> study type and <b>Tetrahedral</b> mesh type. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_buckling.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click <b>OK</b>.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The new study is listed in the <b>Simulation</b> pane. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck02.gif"></p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a force load.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_force_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the curved face on the handle.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the origin of the directional arrow.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck04.gif"></p>
+                              <p>The force directional steering wheel is displayed. </p>
+                           </li>
+                           <li>
+                              <p>Drag its origin to the circular edge on the bottom of the cane handle.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck05.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the bottom cardinal point on the steering wheel to reorient the primary axis
+                                 such that it points down.</p>
+                              <p>See <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/steeringw1h" rel="steeringw1h">Reorient the steering wheel</a> for help.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck06.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck07.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Value</b> box, type <b>667 N</b> (150 pounds-force). </p>
+                              <p>Press Enter to accept.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck08.gif"></p>
+                              <p>The force is placed.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck09.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a fixed constraint to the base.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the planar face on the bottom and accept it.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck10.gif"></p>
+                           </li>
+                           <p> You can see the finished constraint on the model.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck11.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Turn off loads and constraints in the <b>Simulation</b> pane.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck12.gif"></p>
+                     </li>
+                     <li>
+                        <p>Mesh the part and solve the study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Mesh</b> command.</p>
+                           </li>
+                           <li>
+                              <p>Change the <b>Subjective mesh size</b> to 8, and then click <b>Mesh &amp; Solve</b>.</p>
+                              <p>After a few moments, the entire part is meshed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck14.gif"></p>
+                           </li>
+                        </ol>
+                        <p>The Simulation Results environment is displayed automatically when processing is complete.
+                           </p>
+                     </li>
+                     <li>
+                        <p>Review the results.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> command.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/sesim_display_options_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Contour</b>, <b>Deformation</b>, and <b>Color Bar</b> check boxes. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res4.gif"></p>
+                           </li>
+                           <li>
+                              <p>These results are for the Mode 1 Eigenvalue. You can see this in the <b>Home</b> tab→<b>Data selection</b> group.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck17.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck20.gif"></p>
+                           </li>
+                           <li>
+                              <p>Within the menu, you can read the entire Eigenvalue.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck16.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>View results for different modes.</p>
+                        <ol type="a">
+                           <li>
+                              <p>From the <b>Home</b> tab→<b>Data Selection</b> group→<b>Result Mode</b> list, select <b>Mode 2</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck18.gif"></p>
+                           </li>
+                           <li>
+                              <p>From the <b>Result Type</b> list, select <b>Displacement</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck19.gif"></p>
+                              <p>The results change.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck15.gif"></p>
+                           </li>
+                           <li>
+                              <p>Repeat for the remaining two modes.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck21.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_buck22.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Animate the modes.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Home</b> tab→<b>Data selection</b> group, change the <b>Result Mode</b> back to <b>Mode 1</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck17.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Animate</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_animate_button_on.gif"></p>
+                              <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/animate1d" rel="animate1d">Animate command bar</a> is displayed. The modal results begin animating the cane.</p>
+                           </li>
+                           <li>
+                              <p>Click <b>Pause</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_animate_play_pause.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Properties</b> group on the <b>Animate</b> command bar, select the <b>Animate Across Modes</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_animate_allmodes.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Click <b>Play</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_animate_play_play.gif"></p>
+                           </li>
+                           <li>
+                              <p>When you are finished viewing the animation, click <b>Close</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Save and close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/results1p" rel="results1p">Review analysis results</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/animate1h" rel="animate1h">Animate simulation results</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot3a" rel="plot3a">Contour styles</a><br><br></div>
+            <div class="footer-content">Tutorial: Linear buckling analysis, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

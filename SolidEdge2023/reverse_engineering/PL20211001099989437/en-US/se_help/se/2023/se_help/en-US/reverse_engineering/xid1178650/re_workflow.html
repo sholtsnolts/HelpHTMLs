@@ -1,0 +1,207 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Reverse Engineering workflow</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Reverse Engineering workflow"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="re_workflow">
+                     <h1 class="topic-title">Reverse Engineering workflow</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the tools and commands located on the <b>Reverse Engineering</b> tab to transform mesh bodies into Boolean (B-Rep) design bodies. The imported mesh
+                     data must be in the Stereo Lithographic (STL)&nbsp;file&nbsp;format, which is native to many
+                     different types of 3D modeling systems. The commands on the <b>Reverse Engineering</b> tab are enabled when there is at least one mesh body (solid or construction) in the
+                     active document. </p> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p><b>Reverse Engineering</b> supports mixed mesh bodies.</p> </div> 
+                  <p>For more information about mesh bodies, see <a class="xref" data-handle="mesh_models" href="/en-US/product/246738425/doc/PL20211001099989437.mesh_models/html/xid1336790" rel="xid1336790">mesh modeling</a>.</p>
+                  <ol type="1" start="1">
+                     <li>
+                        <p><a class="xref" href="#re_workflow_file">Open a part or sheet metal file containing a mesh model, or create a new document
+                              from an existing .stl file.</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#re_view_options">Set mesh viewing options.</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#align_mesh_bodies_to_cs">Align a mesh body to a coordinate system</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#re_clean_up_mesh">Clean up the mesh.</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#re_identify_geometric_regions">Identify geometric regions.</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#re_extract_surfaces">Extract surfaces.</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#re_trim_stitch">Trim and stitch construction surfaces to form construction bodies.</a></p>
+                     </li>
+                  </ol>
+                  <p>Refer to the sections below for more information.</p>
+                  <h4 class="division-title" id="re_workflow_file">Open or create a file</h4>
+                  <div>
+                     <p>Open a part or sheet metal document that already contains a valid mesh model or create
+                        a new document from an existing STereo Lithographic (STL)&nbsp; file&nbsp;format. The .stl file
+                        can contain one or more mesh bodies.</p>
+                     <p>To create a new document from an existing mesh file, choose the <b>File</b> tab→<b>Open</b>→<b>Browse</b> command and select the <b>STL documents (*.stl)</b> file type filter to identify a valid file type.</p>
+                     <p>Before you open the <b>STL documents (*.stl)</b> file, select the <b>Options...</b> button to specify the import options in the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/stlimport1d" rel="stlimport1d">STL Import Options dialog box</a>.</p>
+                     <p>You are prompted to choose one of the <b>Standard Templates</b> to use for the selected file.</p>
+                     <p>The location of the imported mesh is based on the base coordinate system. The imported
+                        .stl file displays as a mesh.</p>
+                  </div>
+                  <h4 class="division-title" id="re_view_options">Mesh viewing options</h4>
+                  <div>
+                     <p>The mesh file can be viewed using any of the following options:</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/re_views.png"></p>
+                     <p>(1) <b>Wire Frame</b>(2) <b>Visible and Hidden Edges</b>, (3) <b> Visible Edges</b>, (4) <b>Shaded</b>, (5) <b>Shaded with Visible Edges</b></p>
+                     <p>To obtain the wireframe view of the mesh, select the <b>View</b> tab→<b>Style</b> group→<b>View Overrides</b> command to open the <b>View Overrides</b> dialog box. From the <b>Render mode:</b> list, select the <b>Wireframe</b> option.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/mesh_view.png"></p>
+                  </div>
+                  <h4 class="division-title" id="align_mesh_bodies_to_cs">Align mesh bodies to a coordinate system</h4>
+                  <div>
+                     <p>Use the <b>Reverse Engineering</b> tab→<b>Cleanup Mesh</b> group→<b> Align</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/align_command.png"> to automatically align imported mesh bodies to a selected coordinate system.</p>
+                  </div>
+                  <h4 class="division-title">Alignment workflow</h4>
+                  <div>
+                     <p>The steps for aligning mesh bodies are:</p>
+                     <ul>
+                        <li>
+                           <p>Select mesh body</p>
+                        </li>
+                        <li>
+                           <p><a class="xref" data-handle="reverse_engineering" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1664797" rel="xid1664797">Create the "From" coordinate system</a></p>
+                        </li>
+                        <li>
+                           <p>Select the "To" coordinate system</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="re_clean_up_mesh">Clean up the mesh</h4>
+                  <div>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_delete_mesh" rel="re_delete_mesh"><b>Delete Mesh</b></a> command to remove any portion of the mesh that is not required.</p>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fill_holes" rel="re_fill_holes"><b>Fill Holes</b></a> command to fill holes and voids, so that you are able to identify regions successfully.
+                        </p>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_smooth_mesh" rel="re_smooth_mesh"><b>Smooth Mesh</b></a> command to smooth the mesh and boundary.</p>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1592006" rel="xid1592006"><b>Remesh</b></a> command to remesh the mesh to a specific mesh size.</p>
+                  </div>
+                  <h4 class="division-title" id="re_identify_geometric_regions">Identify geometric regions</h4>
+                  <div>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions"><b>Automatic</b></a> regions and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions"><b>Manual</b></a> regions commands to identify geometric regions.</p>
+                     <p>Each recognized geometric region is assigned a color:</p>
+                     <table cellspacing="5" cellpadding="5" rules="all" frame="box">
+                        <colgroup span="1">
+                           <col span="1" width="50 px">
+                           <col span="1" width="150 px">
+                        </colgroup>
+                        <thead>
+                           <tr align="center">
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Color</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Region geometry</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_yellow.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Planar </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_cyan.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Cylindrical </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_blue.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Conical </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_red.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Spherical </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_magenta.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>B spline/Freeform </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_white.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Non Extractable</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>You can paint an area using the options on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions"><b>Manual</b></a> regions command bar, and later assign a region type using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry"><b>Fit</b></a> regions command.</p>
+                  </div>
+                  <h4 class="division-title" id="re_extract_surfaces">Extract surfaces</h4>
+                  <div>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_extract_surfaces" rel="re_extract_surfaces"><b>Extract</b></a> surfaces command to extract the regions based on their color. </p>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry"><b>Fit</b></a> to assign surfaces to selected regions.</p>
+                  </div>
+                  <h4 class="division-title" id="re_trim_stitch">Trim and stitch construction surfaces to form construction bodies</h4>
+                  <div>
+                     <p>Use <b>Surfacing</b> commands to locate the intersections of the surfaces, and trim the construction surfaces
+                        to size. </p>
+                     <p>Trimmed surfaces are then stitched together to construct a model body (also using
+                        Surfacing tools). </p>
+                     <p>When all the stitched construction bodies can be combined to form a fully enclosed
+                        Boolean body, the surfaces change from <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/lil_construction.png"> (construction) to <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/lil_valid_body.png"> (valid body) during <b>Preview</b> (an optional evaluation), before finishing the operation.</p>
+                     <p>Convert the construction body to a model body using the <b>Attach</b> shortcut command. This is available when you right-click the <b>Stitched</b> feature in <b>PathFinder</b>. You can also change the construction body to a model body using the <b>Toggle Design/Construction</b> shortcut command on the <b>Solid Body</b> design body in <b>PathFinder</b>. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1673342" rel="xid1673342">Create a sketch from a section curve</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_assemble" rel="re_assemble">Reverse engineering example</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_delete_mesh" rel="re_delete_mesh">Delete Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fill_holes" rel="re_fill_holes">Fill Holes command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_smooth_mesh" rel="re_smooth_mesh">Smooth Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1631462" rel="xid1631462">Align command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661826" rel="xid1661826">Align command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1592006" rel="xid1592006">Remesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1609920" rel="xid1609920">Remesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions">Automatic regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions">Manual regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_extract_surfaces" rel="re_extract_surfaces">Extract surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry">Fit surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851569" rel="xid1851569">Deviation Analysis command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851570" rel="xid1851570">Deviation Analysis command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851593" rel="xid1851593">Deviation Analysis Settings dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661445" rel="xid1661445">Section Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661773" rel="xid1661773">Section Sketches command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661774" rel="xid1661774">Section Sketches Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1664797" rel="xid1664797">Align a mesh body to a coordinate system</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1854027" rel="xid1854027">Analyze the deviation between two objects</a><br><br></div>
+            <div class="footer-content">Reverse Engineering workflow, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

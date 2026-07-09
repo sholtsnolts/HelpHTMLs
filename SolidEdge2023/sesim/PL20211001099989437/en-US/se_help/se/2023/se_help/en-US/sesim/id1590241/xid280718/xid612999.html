@@ -1,0 +1,126 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Identifying areas of poor mesh quality</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Identifying areas of poor mesh quality"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid612999">
+                     <h1 class="topic-title">Identifying areas of poor mesh quality</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>To identify the areas where mesh sizing is needed and to update the mesh after sizing
+                     is applied, you can use the following commands. These are available based on meshing
+                     results when an object is selected under the <b>Mesh</b> node on the <b>Simulation</b> pane:</p>
+                  <ul>
+                     <li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/show_poor_quality_mesh_icon.png"> <b>Show Poor Quality</b></p>
+                     </li>
+                     <li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/remesh_icon.png"> <b>Remesh</b></p>
+                     </li>
+                     <li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/delete_mesh_icon.png"> <b>Delete Mesh</b></p>
+                     </li>
+                  </ul> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>The <b>Show Poor Quality</b> command is not available for tetrahedral meshes when you select the <b>Generate only Surface results (faster)</b> check box in the <b>Create Study</b> dialog box, under <b>Results Options</b>.</p> </div> 
+                  <h4 class="division-title">Using the Show Poor Quality command </h4>
+                  <div>
+                     <p>The <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/show_poor_quality_mesh_icon.png"> <b>Show Poor Quality</b> shortcut command is available only when the quality of the mesh that was generated
+                        is poor and this status icon is displayed: <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_poor_quality_icon.png">. </p>
+                     <p>You can use the <b>Show Poor Quality</b> command to select and zoom to each of the poor-quality nodes.</p>
+                     <ol type="1">
+                        <li>
+                           <p>Right-click the mesh node where this status icon is displayed <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_poor_quality_icon.png">, and choose <b>Show Poor Quality</b>. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/mesh_show_poor_quality_pf_ex1.png"></p>
+                        </li>
+                        <li>
+                           <p>On the command bar, select a node ID from the <b>Element ID</b> list, and then click <b>Fit</b> to zoom to the area of poor quality.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/mesh_show_poor_quality_ex1.png"></p>
+                           <p>In the graphics window, good quality mesh elements are displayed in translucent white.
+                              Poor-quality mesh elements are displayed in solid dark magenta. </p>
+                        </li>
+                        <li>
+                           <p>After locating the mesh elements that need to be improved, click <b>Close</b> on the command bar. The next step is to refine the mesh. For more information, see
+                              <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a>.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If your study is for a sheet metal document (.psm) that is meshed with a <b>Surface</b> mesh, the <b>Show Poor Quality</b> command bar does not list the individual element IDs where the mesh is poor quality.
+                           You can still use the Solid Edge zoom commands to locate and examine the areas of
+                           poor-quality mesh in the graphics window.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/mesh_show_poor_quality_sm.png"></p>
+                     </div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For legacy files, poor-quality elements are reported based on either the Jacobian
+                           or the Nastran quality checks. While the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359"><b>Check Element Quality</b></a> command refers to only Nastran quality checks. This produces different results using
+                           the <b>Show Poor Quality </b> and <b>Check Element Quality</b> commands.</p> </div>
+                  </div>
+                  <h4 class="division-title">Using the Remesh command </h4>
+                  <div>
+                     <p>The <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/remesh_icon.png"> <b>Remesh</b> command is available on the shortcut menu of individual parts in an assembly. You
+                        can use the <b>Remesh</b> command for:</p>
+                     <ul>
+                        <li>
+                           <p>Parts that failed to mesh the first time.</p>
+                        </li>
+                        <li>
+                           <p>Parts which have a poor-quality mesh.</p>
+                        </li>
+                     </ul>
+                     <p>After you apply mesh sizing, or simplify the geometry, or change the meshing options,
+                        you can use the <b>Remesh</b> command to update the mesh just for the selected part, rather than all of the bodies
+                        in the study.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>In a part or sheet metal file, use the <b>Mesh</b> command to remesh the model after making changes to the part.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Using the Delete Mesh command</h4>
+                  <div>
+                     <p>Deleting the mesh enables you to remesh using the same parameters, without producing
+                        an error.</p>
+                     <ul>
+                        <li>
+                           <p>In a part, sheet metal, or assembly model, you can right-click a single mesh and choose
+                              the <b>Simulation</b> pane→<b>Mesh</b> node→<img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/delete_mesh_icon.png"> <b>Delete Mesh</b> command.</p>
+                        </li>
+                        <li>
+                           <p>In an assembly, you can delete all meshes at once by right-clicking the top-level
+                              <b>Mesh</b> node and selecting the <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/delete_all_mesh_icon.png"> <b>Delete All Mesh</b> command.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Identifying areas of poor mesh quality, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

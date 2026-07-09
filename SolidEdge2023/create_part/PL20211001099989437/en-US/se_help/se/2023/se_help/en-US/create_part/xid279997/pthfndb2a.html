@@ -1,0 +1,244 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using PathFinder in a part model</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using PathFinder in a part model"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="pthfndb2a">
+                     <h1 class="topic-title">Using PathFinder in a part model</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When working in a part model, you can use PathFinder to help you work with synchronous
+                     and ordered features that make up Solid Edge parts. PathFinder is a collection of
+                     the features, sketches, reference planes, dimensions, and coordinate systems that
+                     comprise the model. There is a synchronous portion and an ordered portion of the PathFinder
+                     tree.</p>
+                  <p>PathFinder can be used in a vertical docking window form (1) or in a form that floats
+                     in the document window (2). The Helpers page in Solid Edge options controls the PathFinder
+                     form.</p>
+                  <p><img class="img-fluid" src="../../../common/graphicLibrary/se/pathfinder/pathfinder2.gif"></p>
+                  <p><b>PathFinder</b> provides alternate ways to view the features, besides looking at the part in a graphics
+                     window, and allows you to change the way the part is constructed. The feature viewing
+                     capabilities are especially helpful when you are working with a model that someone
+                     else constructed—you can see exactly what they did, and locate the feature responsible
+                     for any aspect of the part that you want to change.</p>
+                  <h4 class="division-title">PathFinder sketch symbols</h4>
+                  <div>
+                     <p>Symbols in the left column of <b>PathFinder</b> give you information about the status of sketches. The following table explains the
+                        sketch symbols used in <b>PathFinder</b>:</p>
+                     <table cellspacing="1" border="1" cellpadding="5" rules="all" width="40%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="15%">
+                        </colgroup>
+                        <colgroup span="1">
+                           <col span="1" align="left" width="85%">
+                        </colgroup>
+                        <tbody valign="top">
+                           <tr>
+                              <th rowspan="1" colspan="1">
+                                 <p>Legend</p>
+                              </th>
+                              <td rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/pathfinder/pfpermsktch.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Noncombinable sketch</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/pathfinder/pfnonpsktch.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Combinable sketch</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/pathfinder/pfactivesktch.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Active sketch (combinable active sketch shown)</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/pathfinder/pfflpr1.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Sketch with a problem (select the sketch in PathFinder and see the PromptBar for details)</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/pathfinder/under_constrained.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Sketch contains under-constrained profiles. You can turn this off in <b>Solid Edge Options</b>→<b>General</b> "Indicate under-constrained profiles in PathFinder".</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">PathFinder part symbols</h4>
+                  <div>
+                     <p>Symbols in the left column of <b>PathFinder</b> give you information about the status of part features. The following table explains
+                        the part symbols used in <b>PathFinder</b>:</p>
+                     <table cellspacing="1" border="1" cellpadding="5" rules="all" width="50%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="12%">
+                        </colgroup>
+                        <colgroup span="1">
+                           <col span="1" align="left" width="88%">
+                        </colgroup>
+                        <tbody valign="top">
+                           <tr>
+                              <th rowspan="1" colspan="1">
+                                 <p>Legend</p>
+                              </th>
+                              <td rowspan="1" colspan="1"></td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/icons/buttons/suppressedfeature.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Suppressed part feature</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/pathfinder/pfflpr1.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Feature with a problem (select the feature in <b>PathFinder</b> and see the PromptBar for details)</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/icons/buttons/failedfeature.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Unsuccessful feature operation</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/icons/buttons/rollback1.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Feature has been rolled back (right-click feature and click Go to, to roll feature
+                                    forward)</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/icons/buttons/floatingnail1.gif"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Floating feature origin occurs when the face the feature was originally placed on
+                                    no longer exists. To fix this, right-click the feature origin, and then click Reposition
+                                    Feature to define a new face for the feature.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Using PathFinder</h4>
+                  <div>
+                     <p>You can use <b>PathFinder</b> for the following operations when working with a part model:</p>
+                     <ul>
+                        <li>
+                           <p>Selecting features, reference planes, sketches, construction surfaces, coordinate
+                              systems, PMI dimensions.</p>
+                        </li>
+                        <li>
+                           <p>Reordering features, reference planes, sketches, and construction surfaces.</p>
+                        </li>
+                        <li>
+                           <p>Displaying and hiding reference planes, sketches, construction surfaces, coordinate
+                              systems, detached features and so forth within the graphics window.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Selecting features</h4>
+                  <div>
+                     <p>When you position the cursor over an item in the list, the corresponding feature highlights.
+                        To select a feature, click the left mouse button.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/pathfinder/pathfinder3.gif"></p>
+                     <p>You can select multiple features in <b>PathFinder</b> by holding the Ctrl key while selecting the features individually. You can use the
+                        Shift key to select all the features between the first and the last features selected.
+                        To deselect a feature from a list of multiple features, hold down the Ctrl key and
+                        select the feature to drop from the select set.</p>
+                  </div>
+                  <h4 class="division-title">Reordering features</h4>
+                  <div>
+                     <p><b>PathFinder</b> allows you to drag a selected feature to a different position in the list. As you
+                        drag, <b>PathFinder</b> displays an arrow <img class="img-fluid" src="../../../common/nonLocalized/se/pathfinder/pathfinder5.gif"> to show where you can move the feature.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/pathfinder/pathfinder4.gif"></p>
+                     <p>If the change invalidates other features, they are placed on the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo1d" rel="todo1d"><b>Error Assistant </b>dialog box</a>. You can use the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo1c" rel="todo1c"><b>Errors</b> command</a> on the <b>Tools</b> tab to display the<b> Error Assistant</b> dialog box to find and fix the problems.</p>
+                  </div>
+                  <h4 class="division-title">Deleting features</h4>
+                  <div>
+                     <p>To delete a feature in <b>PathFinder</b>, first select the feature, and then press the <b>Delete</b> key. You can delete multiple features by selecting them with the Shift key.</p>
+                     <p>You can also delete a feature by right-clicking the feature and choosing <b>Delete</b> on the shortcut menu.</p>
+                  </div>
+                  <h4 class="division-title">Renaming features</h4>
+                  <div>
+                     <p>By default, Solid Edge provides names for every feature you create. To rename a feature
+                        later, right-click the feature whose name you want to change and click<b> Rename</b> on the shortcut menu. Type the new name in <b>PathFinder</b>.</p>
+                  </div>
+                  <h4 class="division-title">Detaching features</h4>
+                  <div>
+                     <p>You can detach synchronous features that are part of the solid model using the <b>Detach</b> command on the shortcut menu when a feature is selected in <b>PathFinder </b>or the graphics window. When you detach a feature, it is removed from the solid model,
+                        changed to a construction surface, and hidden in the graphics window. You can use
+                        <b>PathFinder</b> to redisplay the construction surface.</p>
+                     <p>To learn more, see <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/featedit5a" rel="featedit5a">Detaching and attaching faces and features</a>.</p>
+                  </div>
+                  <h4 class="division-title">Grouping entries within PathFinder</h4>
+                  <div>
+                     <p>You can define a named group for a set of entries within <b>PathFinder</b>. For example, you can define groups for the sets of features that define the main
+                        body, mounting locations, and rounds on a part.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/pathfinder/bj_featgroupb1.gif"></p>
+                     <p>Creating a group for a set of <b>PathFinder</b> entries helps to consolidate long feature trees and can make it easier to locate,
+                        select, and manipulate a set of <b>PathFinder</b> entries as a unit.</p>
+                     <p>In the synchronous environment, the entries you want to group do not need to be contiguous,
+                        but they must all be in the same collection type. For example, you cannot define a
+                        group that contains entries from the <b>Features</b> collection and <b>Dimensions</b> collection.</p>
+                     <p>You define a group using the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/group6c" rel="group6c"><b>Group</b> command</a> on the shortcut menu when a contiguous set of entries is selected. You can use the
+                        Rename command on the shortcut menu to rename a group entry.</p>
+                     <p>You can also ungroup a previously defined group using the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/group7c" rel="group7c"><b>Ungroup</b> command</a> on the shortcut menu.</p>
+                  </div>
+                  <h4 class="division-title">Creating user defined sets within PathFinder</h4>
+                  <div>
+                     <p>You can define a named set for a related group of entries within <b>PathFinder</b>. For example, you can define sets of features that define the main body, mounting
+                        locations, and rounds on a part.</p>
+                     <p>To learn more, see <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/uds1a" rel="uds1a">Working with user defined sets</a>.</p>
+                  </div>
+                  <h4 class="division-title">Sorting a Synchronous Collection in PathFinder</h4>
+                  <div>
+                     <p>You can use the <b>Sort</b> commands on the shortcut menu when the cursor is positioned over a Collection title
+                        to sort the collection by name or by type. For example, you may want to sort the entries
+                        in the Features collection by feature type to make it easier to find a particular
+                        cutout you constructed. Because a synchronous model has no strict history tree order
+                        that must be maintained, it makes no difference in what order the entries in a collection
+                        are listed.</p>
+                     <p>(1) unsorted <b>PathFinder</b> view, (2) sort by name <b>PathFinder </b>view, (3) sort by type <b>PathFinder</b> view</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/pathfinder/bj_sortpf1.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/refel1h" rel="refel1h">Display reference elements for a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/shwdir1h" rel="shwdir1h">Display Folders within PathFinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat46h" rel="feat46h">Select a feature with PathFinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat49h" rel="feat49h">Reorder features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/recmpt1h" rel="recmpt1h">Recompute a feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat38h" rel="feat38h">Insert a feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat40h" rel="feat40h">Play back feature construction</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat50h" rel="feat50h">Repair a profile with recompute problems</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/suprs1h" rel="suprs1h">Suppress a feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/suprs3h" rel="suprs3h">Unsuppress a feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/suprs4h" rel="suprs4h">Suppress an assembly relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/suprs5h" rel="suprs5h">Unsuppress an assembly relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/shwpc1h" rel="shwpc1h">Show the parents and children for feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/shwonl3h" rel="shwonl3h">Hide the unselected features in a Part document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/xid2061149" rel="xid2061149">Convert a profile to a sketch</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/pthfnd2d" rel="pthfnd2d">PathFinder tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/plybck1d" rel="plybck1d">Feature Playback tab</a><br><br></div>
+            <div class="footer-content">Using PathFinder in a part model, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

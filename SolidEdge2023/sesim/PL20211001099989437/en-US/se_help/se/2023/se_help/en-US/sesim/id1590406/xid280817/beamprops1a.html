@@ -1,0 +1,134 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Beam properties</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Beam properties"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="beamprops1a">
+                     <h1 class="topic-title">Beam properties</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can review beam properties for a beam cross section to understand the results
+                     of a frame model analysis. You also can view beam stress plots of the stress recovery
+                     points on the beam cross section.</p>
+                  <h4 class="division-title" id="beamprops1a_props">Reviewing beam stress recovery locations and cross section properties</h4>
+                  <div>
+                     <p>You can review beam stress recovery locations for a beam cross section in a structural
+                        frame model using the <b>Beam Properties</b> dialog box.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>To open the dialog box from the <b>Simulation</b> pane, expand the <b>Geometry</b> node, and select the <b>View Beam Properties</b> command on the shortcut menu of a frame component.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_training/view_beam_props_cmd.png"></p>
+                     <p>The top of the dialog box shows the stress location points.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/beam_properties.gif"></p>
+                     <p>The bottom of the dialog box reports values from the results of the analysis, including:</p>
+                     <ul>
+                        <li>
+                           <p>Area</p>
+                        </li>
+                        <li>
+                           <p>Moments of Inertia</p>
+                        </li>
+                        <li>
+                           <p>Torsional Constants</p>
+                        </li>
+                        <li>
+                           <p>Shear Area</p>
+                        </li>
+                        <li>
+                           <p>Nonstructural mass and length</p>
+                        </li>
+                        <li>
+                           <p>Warping constant</p>
+                        </li>
+                        <li>
+                           <p>Perimeter </p>
+                        </li>
+                        <li>
+                           <p>Neutral Axis Offset</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_training/beam_stress_properties.png"></p>
+                     <p>While not editable, you can copy this information to be used in Femap. Refer to Femap
+                        help for more information.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <ul style="list-style: none">
+                           <li>
+                              <h5>Element Coordinate System</h5>
+                              <p>The element X axis goes from the first <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430524" rel="xid430524">beam element node</a> to the second beam element node. The element Y axis is perpendicular to the element
+                                 X axis. It points from the first node toward the orientation (or third) node. If you
+                                 use an orientation vector, the Y axis points from the first node in the direction
+                                 of the orientation vector. The element Z axis is determined from the cross product
+                                 of the element X and Y axes.</p>
+                           </li>
+                           <li>
+                              <h5>Stress recovery points</h5>
+                              <p>Stress recovery locations define positions in the elemental YZ plane where you want
+                                 the analysis program to calculate stresses. In Solid Edge Simulation, these points
+                                 are calculated automatically by Femap; there are no controls for altering these point
+                                 locations. </p>
+                              <p>In Femap, however, you can modify the stress recovery and reference points on the
+                                 cross section using the following resources</p>
+                              <ul>
+                                 <li>
+                                    <p>In the <b>Stress Recovery</b> section of the <b>Cross Section Definition</b> dialog box.</p>
+                                 </li>
+                                 <li>
+                                    <p>In the <b>Stress Recovery</b> section of the <b>Define Property</b> dialog box.</p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <h5>Releases</h5>
+                              <p>You can <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/release1h" rel="release1h">define a release</a>, which removes the connection between selected element degrees of freedom and the
+                                 beam element nodes.</p>
+                           </li>
+                           <li>
+                              <h5>Offset vectors</h5>
+                              <p>Offset vectors defined on the element move the neutral axis and shear center from
+                                 the nodes. Neutral Axis Offsets (Y,Z) move the neutral axis away from the shear center.
+                                 If there are no neutral axis offsets, the neutral axis and shear center are coincident.
+                                 If there are no offsets, both the neutral axis and shear center lie directly between
+                                 the nodes.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="beamprops1a_plots">Viewing result plots of stress recovery points</h4>
+                  <div>
+                     <p>You can view the result plots for stresses at each recovery point by viewing the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid433778#xid433778_cs" rel="xid433778">Beam stress recovery point plots</a> in the Simulation Results environment. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/release1h" rel="release1h">Define a release</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot1h" rel="plot1h">Plot results</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot1a" rel="plot1a">Plotting results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot9a" rel="plot9a">Result plots for mixed mesh models</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot4a" rel="plot4a">Displacement component plots</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot2a" rel="plot2a">Stress component plots</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot6a" rel="plot6a">Constraint component plots</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot7a" rel="plot7a">Strain component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot8a" rel="plot8a">Beam reaction component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid433778" rel="xid433778">Beam stress component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid452750" rel="xid452750">Beam diagrams</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430281" rel="xid430281">Temperature plots</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430239" rel="xid430239">Heat flux component plots</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid454470" rel="xid454470">Applied temperature plots</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430524" rel="xid430524">beam element nodes</a><br><br></div>
+            <div class="footer-content">Beam properties, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

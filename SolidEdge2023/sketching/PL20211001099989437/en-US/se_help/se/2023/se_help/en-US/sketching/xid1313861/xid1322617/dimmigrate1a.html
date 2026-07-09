@@ -1,0 +1,80 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Sketch consumption and dimension migration</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Sketch consumption and dimension migration"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dimmigrate1a">
+                     <h1 class="topic-title">Sketch consumption and dimension migration</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In the synchronous environment, when you use sketch elements to construct a feature,
+                     the sketch elements are consumed and the 2D dimensions you placed on the sketch migrate
+                     as driven dimensions to the appropriate edges on the solid body, whenever possible.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/part_creation/bj_sketchcoord4.gif"></p>
+                  <p>Use the <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketchenable1c" rel="sketchenable1c">Migrate Geometry and Dimensions command</a> command on the shortcut menu when selecting a sketch in <b>PathFinder</b> to control whether sketch elements are consumed and dimensions are migrated.</p>
+                  <h4 class="division-title">Automatic sketch consumption and dimension migration</h4>
+                  <div>
+                     <p>By default, the <b>Migrate Geometry and Dimensions</b> command is set for a new document. The sketch elements are automatically consumed
+                        and 2D dimensions are automatically migrated when you use them to construct features.
+                        After you construct a feature, the 2D sketch geometry is moved to the <b>Used Sketches</b> collector in <b>PathFinder</b>, and the 2D dimensions migrate as driven 3D PMI model dimensions.</p>
+                     <p>You can disable the automatic consumption of sketch elements and migration of 2D dimensions
+                        on a sketch-by-sketch basis by clearing the <b>Migrate Geometry and Dimensions</b> command on the shortcut menu when a sketch is selected in <b>PathFinder</b>.</p>
+                     <p>All model dimensions, whether migrated from sketches or added to edges on the 3D model
+                        directly, are PMI dimensions. PMI dimensions are displayed on <b>PathFinder</b> in the <b>PMI</b> collection, <b>Dimensions</b> sub-collection.</p>
+                     <p>To learn more about creating and using PMI, see the Help topic, <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab1a" rel="pmidnab1a">PMI dimensions and annotations</a>.</p>
+                  </div>
+                  <h4 class="division-title">Partially migrated sketches and dimensions</h4>
+                  <div>
+                     <p>In many cases, only some of the sketch elements on a single sketch are used to construct
+                        a feature. If this is the case, only the selected sketch elements and the associated
+                        2D dimensions are consumed and migrated.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/part_creation/bj_sketchconsume1.gif"></p>
+                     <p>During this process, dimensions and constraints may be connected to both body edges
+                        and to remaining sketch geometry. If the sketch contains stacked dimensions, then
+                        some dimensions in the stack may migrate individually. Other dimensions, such as coordinate
+                        dimensions, do not migrate until all of the 2D geometry they are attached to has been
+                        used to construct a feature.</p>
+                     <p>As you continue to construct features using the remaining sketch elements, sketch
+                        elements are consumed and dimensions are migrated.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/part_creation/bj_sketchconsume2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Dimension locking status after migration</h4>
+                  <div>
+                     <p>2D dimensions are locked by default. When they migrate to the 3D model, they are unlocked.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Dimension colors are determined by settings on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/color2d" rel="color2d">Colors page</a> of the Options dialog box.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318148" rel="xid1318148">Working with sketch dimensions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/dimension_sketches_002" rel="dimension_sketches_002">Locked sketch dimensions</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1591641" rel="xid1591641">Scale a sketch automatically</a><br><br></div>
+            <div class="footer-content">Sketch consumption and dimension migration, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

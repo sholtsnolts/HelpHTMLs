@@ -1,0 +1,221 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Define a physical load condition</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Define a physical load condition"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1404603">
+                     <h1 class="topic-title">Define a physical load condition</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use this procedure to define a load boundary condition for a generative study. For
+                     more information about a specific type of load, click the links to the individual
+                     load help topics.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Choose one of the following load commands from the <b>Generative Design</b> tab→<b>Loads</b> group:</p>
+                        <ul>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340176" rel="xid1340176">Force load</a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371440" rel="xid1371440">Pressure load</a> </p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371446" rel="xid1371446">Torque load</a> </p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404298" rel="xid1404298">Gravity load</a> </p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Select geometry:</p>
+                        <ul>
+                           <li>
+                              <p>Force loads only—The default geometry selection is <b>Face</b>. You can use the <b>Selection Type</b> list on the command bar to change this to <b>Feature</b>, which makes it easier to select all of the faces in one feature.</p>
+                           </li>
+                           <li>
+                              <p>All load types—Use the Select tool, QuickPick, drag-select, or the Selection Manager
+                                 to select one or more faces where you want to apply the load.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Type the load values in the dynamic input box as appropriate. Press Tab to move the
+                           cursor between fields. If you change the units, the value is converted to the default
+                           units.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><b>Value</b>=The magnitude of the load.</p>
+                           <p><b>Offset</b>=The additional volume to keep between the face and the load during the generative
+                              process.</p>
+                           <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/gd_magnitude_offset_input.png"></p>
+                        </div>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The <b>Offset</b> value that is displayed as a default is the recommended value based on the volume
+                              of the design space and the default study quality setting defined on the <b>Generative Design</b> page of the <b>Solid Edge Options</b> dialog box. </p>
+                           <p>A low study quality setting causes a higher default offset value to be displayed.
+                              A higher study quality setting requires less material volume to be kept, so the default
+                              offset value is lower. </p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Define the load direction:</p>
+                        <ul>
+                           <li>
+                              <p>For pressure and gravity loads—The load direction is determined automatically. Review
+                                 the default direction in which the load symbols are pointing. </p>
+                              <ul>
+                                 <li>
+                                    <p>To change the direction 180 degrees, click the <b>Flip Direction</b> button <img class="img-fluid" style="max-height: 1.6875rem;" src="../../../common/nonLocalized/se/simulation/analyze/load/sesim_flip_button.gif"> on the command bar or press <b>F</b> on the keyboard.</p>
+                                 </li>
+                                 <li>
+                                    <p>To apply a gravity load at an angle to the face, use the load magnitude input boxes
+                                       to define the angle. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404298" rel="xid1404298">Gravity load</a>. </p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>For torque loads—Use the <a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">loads directional steering wheel</a> to align the torus of the steering wheel with the rotation axis of the selected elements.
+                                 Drag the steering wheel by the origin knob and click to fix it in place. </p>
+                           </li>
+                           <li>
+                              <p>Force loads only—The default method for defining direction is <b>Normal to Face</b> <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/load/sesim_normaltoface.gif">, with the direction pointing out of the face. This option is not always appropriate
+                                 for the geometry you selected. You can select a different method to define the load
+                                 direction using the <b>Direction Type</b> list on the command bar.</p>
+                              <ul>
+                                 <li>
+                                    <p>If you selected the cylindrical face of a hole, you may want to change the <b>Direction Type</b> to <b>Along a Vector</b> <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/load/sesim_alongavector.gif">, and then use the <a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">loads directional steering wheel</a> to align the primary axis (long axis) of the steering wheel with the axis of the
+                                       cylinder. You also can use the <b>Along a Vector</b> option and the steering wheel to align a force direction at an angle on a face. Examples
+                                       of both are shown below.</p>
+                                    <table cellspacing="5" cellpadding="5" rules="all" width="100%" frame="box">
+                                       <colgroup span="1">
+                                          <col span="1" width="34%">
+                                          <col span="1" width="66%">
+                                       </colgroup>
+                                       <thead>
+                                          <tr align="center">
+                                             <td rowspan="1" align="left" valign="top" colspan="1">
+                                                <p>To</p>
+                                             </td>
+                                             <td rowspan="1" align="left" valign="top" colspan="1">
+                                                <p>Do this</p>
+                                             </td>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td rowspan="1" valign="top" colspan="1">
+                                                <p>Align the force direction with the axis of a cylinder.</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Click+drag the steering wheel origin knob, so that the primary axis is oriented as
+                                                   shown below. </p>
+                                                <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/topology_optimization/define_direction_vector_cylinder_axis.png"></p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" valign="top" colspan="1">
+                                                <p>Align the force direction at an angle locked to a face.</p>
+                                             </td>
+                                             <td rowspan="1" valign="top" colspan="1">
+                                                <ol type="a" start="1">
+                                                   <li>
+                                                      <p>Click+drag the steering wheel origin knob, so that the primary axis is oriented on
+                                                         the face as shown below.</p>
+                                                   </li>
+                                                   <li>
+                                                      <p> Shift+click the primary bearing at the tip of the primary axis of the steering wheel
+                                                         to rotate it within the plane of the face. </p>
+                                                   </li>
+                                                   <li>
+                                                      <p>Locate a keypoint and click to select it. </p>
+                                                   </li>
+                                                </ol>
+                                                <div class="attention" type="example">
+                                                   <div class="attention-label">Example: </div>
+                                                   <p>You can locate a keypoint on the corner of the part.</p>
+                                                   <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/topology_optimization/define_direction_vertex.png"></p>
+                                                </div>
+                                                <div class="attention" type="example">
+                                                   <div class="attention-label">Example: </div>
+                                                   <p>Another technique is to locate the base coordinate system at the center of the part.</p>
+                                                   <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/topology_optimization/define_direction_vector_angle.png"></p>
+                                                </div>
+                                                <div class="attention" type="note">
+                                                   <div class="attention-label">Note: </div>
+                                                   <p>Notice the difference in the force direction symbols on the part. The holes at top-right
+                                                      and bottom-left were created using the <b>Normal To Face</b> option, while the forces on the holes at top-left and bottom-right were created using
+                                                      the <b>Along A Vector</b> option .</p>
+                                                   <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/topology_optimization/define_direction_done.png"></p>
+                                                </div>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </li>
+                                 <li>
+                                    <p>When you want to define an angle that is not parallel or perpendicular to a face without
+                                       using the steering wheel, use direction vector components.</p>
+                                    <ol type="a" start="1">
+                                       <li>
+                                          <p>From the <b>Direction Type</b> list, choose the <b>Components</b> option <img class="img-fluid" style="max-height: 1.6875rem;" src="../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_xyz10.gif">.</p>
+                                          <p>A coordinate system showing the current orientation of the design space is displayed
+                                             for reference. </p>
+                                          <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/xyz_comp_csys_triad.png"></p>
+                                       </li>
+                                       <li>
+                                          <p>In the dynamic input boxes, type the X, Y, and Z load direction component values.</p>
+                                          <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/force_direction_vector_components.png"></p>
+                                       </li>
+                                    </ol>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Right-click or press Enter to accept the load.</p>
+                     </li>
+                     <li>
+                        <p>Click to finish the command.</p>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>To edit the load you created, double-click the load name in the <b>Generative Design</b> pane, for example <b>Force 1</b>. This displays the load and the command bar in the graphics window, for you to change
+                        the inputs.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404737" rel="xid1404737">Define an operational constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389157" rel="xid1389157">Modify generative design symbol properties</a><br><br><h5>Learn more</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405933" rel="xid1405933">Using load cases</a><br><br></div>
+            <div class="footer-content">Define a physical load condition, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

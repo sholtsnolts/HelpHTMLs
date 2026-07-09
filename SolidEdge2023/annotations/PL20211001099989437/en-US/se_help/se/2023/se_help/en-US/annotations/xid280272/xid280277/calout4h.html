@@ -1,0 +1,242 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Define smart feature properties in the Dimension style</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Define smart feature properties in the Dimension style"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="calout4h">
+                     <h1 class="topic-title">Define smart feature properties in the Dimension style</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The most efficient way to add callout annotations to smart features such as holes,
+                     slots, and threads is to predefine the properties that you want to include in the
+                     Dimension style. Then when you place a feature callout, the hole or slot geometry
+                     that you select determines which string is used to extract information from the part
+                     model.</p>
+                  <p>You also can use this technique to predefine the hole count text (quantity note) for
+                     dimensions whose type is set to <b>Feature Callout</b>. </p>
+                  <ol type="1">
+                     <li>
+                        <p>Use the <b>Styles</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/style/style.gif"> to modify <b>Style type</b>=<em>Dimension</em>. Both dimensions and annotations are controlled by the dimension style. </p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/annotations/anno_types/define_feature_callout_1.png"></p>
+                        <p>The <b>Modify Dimension Style</b> dialog box displays default content specified by the dimension style you are modifying.
+                           </p>
+                     </li>
+                     <li>
+                        <p>On the <b>Smart Depth</b> tab, define the smart hole depth properties and hole quantity prefix.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/annotations/anno_types/define_feature_callout_2.png"></p>
+                        <ol type="a">
+                           <li>
+                              <p>Add or edit the property text strings and plain text in the <b>Hole Depth</b> section. </p>
+                              <p>Words like "THRU" and "DEEP" are plain text. You can substitute symbols using the
+                                 buttons on the <b>Smart Depth</b> tab, and you can insert any other valid property text values and symbols by clicking
+                                 inside the box before selecting the <b>Select Symbols and Values</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/icons/buttons/symbol_insert.gif">. See <a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/symtxt1d" rel="symtxt1d">Property text codes</a> for a list of property text codes and the information they extract.</p>
+                           </li>
+                           <li>
+                              <p>Add or edit the property text strings and plain text in the <b>Hole Quantity Notes</b> section. </p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p>Open the <b>Select Symbols and Values</b> dialog box.</p>
+                                 </li>
+                                 <li>
+                                    <p> In the <b>Values</b> section, expand the <b>Feature Reference</b> list, and then scroll to the bottom of the list. </p>
+                                 </li>
+                                 <li>
+                                    <p>Double-click one or more of the property text codes shown in the following table to
+                                       specify the kind of holes to count. (Alternatively, you can type the property text
+                                       codes directly into the <b>%QN</b> box.) </p>
+                                 </li>
+                              </ol>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>To include any and all holes, you can enter %QC%QP%QA. You also can type plain text,
+                                    such as the X multiplier shown in the resulting feature callout examples in the table
+                                    below. </p>
+                              </div>
+                              <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                                 <colgroup span="1">
+                                    <col span="1" valign="top" width="19%">
+                                    <col span="1" valign="top" width="48%">
+                                    <col span="1" valign="top" width="33%">
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">
+                                          <p>Enter this </p>
+                                       </th>
+                                       <th rowspan="1" colspan="1">
+                                          <p>To count this type of hole feature</p>
+                                       </th>
+                                       <th rowspan="1" colspan="1">
+                                          <p>Example</p>
+                                       </th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr valign="top">
+                                       <td rowspan="1" colspan="1">
+                                          <p>%QC </p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Quantity-Coplanar</p>
+                                          <p>Counts equivalent holes on the same plane and with axes that are parallel and pointed
+                                             in the same direction. Use this option to count holes in a hole pattern.</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p><b>%QC X</b></p>
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/annotations/anno_types/callout_hole_count_coplanar.png"></p>
+                                       </td>
+                                    </tr>
+                                    <tr valign="top">
+                                       <td rowspan="1" colspan="1">
+                                          <p>%QP </p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Quantity-Parallel </p>
+                                          <p>Counts equivalent holes sharing the same orientation (the axes are parallel and pointed
+                                             in the same direction).</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p><b>%QP X</b></p>
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/annotations/anno_types/callout_hole_count_parallel.png"></p>
+                                       </td>
+                                    </tr>
+                                    <tr valign="top">
+                                       <td rowspan="1" colspan="1">
+                                          <p>%QA </p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Quantity-All </p>
+                                          <p>Counts equivalent holes in the part, based solely on hole parameters. Holes can be
+                                             located on faces with different orientations.</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p><b>%QA X</b></p>
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/annotations/anno_types/callout_hole_count_all.png"></p>
+                                       </td>
+                                    </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>%QD</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>Quantity-User Defined</p> 
+                                          <p>Identifies the holes of the same type, diameter, and depth. You can then click the
+                                             <b>Referenced Geometry</b> <img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pmi/referenced_geometry_option.png"> and select the required holes from the highlighted holes to consider them for hole
+                                             dimension.</p> 
+                                          <div class="attention" type="note">
+                                             <div class="attention-label">Note: </div> 
+                                             <p>The holes which are already toleranced with a separate dimension are not considered.</p> </div> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p><b>%QD X</b> and selecting the reference geometries</p> 
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/en_US/graphics/graphicLibrary/SmartDimensionQD.png"></p> </td> </tr>
+                                 </tbody>
+                              </table>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>On the <b>Feature Callout</b> tab, define the smart hole feature properties. </p>
+                        <p>This includes creating a cross-reference between the depth (%ZH) and quantity (%QN)
+                           information you entered on the <b>Smart Depth</b> tab and the property strings you define for each type of smart feature on the <b>Feature Callout</b> tab. </p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/annotations/anno_types/define_feature_callout_3.png"></p>
+                        <ol type="a">
+                           <li>
+                              <p>Click inside the box corresponding to the hole type that you want to modify:</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Simple</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>Counterbore</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>Countersink</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>Counterdrill</b></p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>To insert a <b>Hole Quantity Note</b> as a prefix, move the cursor to the start of the line, and then type <b>%QN</b>. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Type <b>%QN</b> in both the <b>Simple</b> and <b>Counterbore</b> boxes to ensure that the quantity prefix is included each time a simple or counterbore
+                                    feature callout annotation is placed or a feature callout dimension is placed.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Look for the %ZH property text code in the hole type box; you may have to use the
+                                 right arrow key to scroll far enough to the right to see it. If you do not see %ZH,
+                                 then click the <b>Smart Depth</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/icons/buttons/smart_depth_button.gif"> to insert it into the string where you want the depth information to appear in the
+                                 callout or dimension text. </p>
+                           </li>
+                        </ol> 
+                        <ol type="a"> 
+                           <li>  
+                              <p>To consider the similar holes while creating a hole dimension using prefixes, select
+                                 the <b>Add similar sized holes as a reference geometry to hole dimension</b> check box.</p> 
+                              <p>This check box is available only for the part and sheet metal environment.</p>  </li> </ol>
+                     </li>
+                     <li>
+                        <p>On the drawing, sketch, or PMI model, do one of the following:</p>
+                        <ul>
+                           <li>
+                              <p>To add a callout that references the hole feature properties you defined:</p>
+                              <ol type="a">
+                                 <li>
+                                    <p>Select the <b>Callout</b> command and then click the <b>Feature callout</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/icons/tutorials/sbddaan/holecallout_button.gif">. </p>
+                                    <p>This inserts the property text code %HC for a smart hole callout into the <b>Callout text</b> box.</p>
+                                    <p>%HC causes the callout to reference the predefined property text strings on the <b>Feature Callout</b> page of the <b>Modify Dimension Style</b> dialog box, plus any overrides that you make locally on the <b>Feature Callout </b> tab in the <b>Callout Properties</b> dialog box. </p>
+                                    <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/annotations/anno_types/define_feature_callout_4.png"></p>
+                                 </li>
+                                 <li>
+                                    <p>Select the hole geometry to retrieve the hole information from the model.</p>
+                                    <p>The callout displays the hole type, size, and other specifications, as well as the
+                                       depth, symbols, and any additional that was specified in the style.</p>
+                                    <div class="attention" type="example">
+                                       <div class="attention-label">Example: </div>
+                                       <p>Different properties were defined for these two types of holes.</p>
+                                       <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/annotations/anno_types/define_feature_callout_5.png"></p>
+                                    </div>
+                                 </li>
+                              </ol>
+                           </li>
+                           <li>
+                              <p>To add a feature callout dimension that references the hole feature properties you
+                                 defined, use the <b>Smart Dimension</b> command. To learn how to do this, see <a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid1161077" rel="xid1161077">Place a feature callout dimension</a>.</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout1h" rel="calout1h">Place a callout</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout2h" rel="calout2h">Place a hole callout</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout5h" rel="calout5h">Place a feature callout</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout3h" rel="calout3h">Customize a feature callout</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout1a" rel="calout1a">Formatting callout text and border</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout2a" rel="calout2a">Manipulating callouts</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout1c" rel="calout1c">Callout command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout3d" rel="calout3d">Callout command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout2d" rel="calout2d">Callout Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout4d" rel="calout4d">General tab (Callout Properties dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/annopr1d" rel="annopr1d">Text and Leader tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/holcal1d" rel="holcal1d">Feature Callout tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/calout5d" rel="calout5d">Border tab (Callout Properties dialog box)</a><br><br><h5>Quick links</h5><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid1161077" rel="xid1161077">Place a feature callout dimension</a><br><a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt3a" rel="prptxt3a">Basic reference and property text rules</a><br><a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt4a" rel="prptxt4a">Format codes to modify reference and property text output</a><br><br></div>
+            <div class="footer-content">Define smart feature properties in the Dimension style, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

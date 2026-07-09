@@ -1,0 +1,127 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Simplifying parts</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Simplifying parts"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="smpprt1a">
+                     <h1 class="topic-title">Simplifying parts</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When working with an assembly, it can be useful to work with a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/simplified_part" rel="simplified_part">simplified</a> version of a complex part. For example, a part that contains numerous rounds, chamfers,
+                     and holes will process more slowly than a part from which these features have been
+                     removed.</p>
+                  <p>The commands in the Simplify Model environment allow you to reduce the complexity
+                     of a part so that it processes more quickly when used in an assembly. The ultimate
+                     goal of part simplification is to reduce the total number of surfaces that make up
+                     the part.</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/simp1.gif"></p>
+                  <p>You can also control whether the simplified version or the designed version of the
+                     part is displayed in the assembly.</p>
+                  <h4 class="division-title">Simplifying parts</h4>
+                  <div>
+                     <p>You access the commands for simplifying a part using the Simplify command on the Tools
+                        tab in the Part and Sheet Metal environments. When you set the Simplify command, commands
+                        that can be used for simplifying a part are activated, and commands that are not appropriate
+                        for simplifying a part are disabled. For example, the commands on the Delete list
+                        on the Home tab in the Modify group are available for deleting faces, regions, and
+                        so forth.</p>
+                     <p>After you have simplified a part, you can return to the Part or Sheet Metal environment
+                        with the Design command on the Tools tab.</p>
+                     <p>You can also simplify a part by adding extruded and revolved protrusions, and extruded
+                        and revolved cutouts. Feature construction commands are included in the Simplify Model
+                        environment because sometimes it can be easier to simplify a part by adding one new
+                        feature than deleting many features. For example, you can construct one protrusion
+                        that obstructs several features, which then eliminates dozens of surfaces in one operation.</p>
+                     <p>The features you create in the Simplify Model environment are added to the Simplify
+                        section of the PathFinder tab in the part document. You can also use the commands
+                        on the shortcut menu within PathFinder to manipulate the simplified features you construct.</p>
+                     <p><img class="img-fluid" src="../../../../../common/graphicLibrary/se/se/simppf.gif"></p>
+                  </div>
+                  <h4 class="division-title">Direct editing and simplifying compared</h4>
+                  <div>
+                     <p>Many of the commands available when directly editing a part are also available when
+                        simplifying a part in the Simplify Model environment. Deciding whether to directly
+                        edit the model or simplify the model is determined by whether you want to have access
+                        to a simplified version of the part in an assembly or when creating a drawing.</p>
+                     <p>If you want to use a simplified version of the part in an assembly or a drawing, you
+                        must set the Simplify command. No simplified version of the model is created when
+                        you directly edit a model.</p>
+                  </div>
+                  <h4 class="division-title">Saving simplified parts to a separate file</h4>
+                  <div>
+                     <p>You can save the simplified representation of the part out to a separate file using
+                        the Save Model As command on the File menu. The Save Model As dialog box allows you
+                        to specify a file name, folder location and file format. You can save the new document
+                        as a Solid Edge document or as a Parasolid body, and it is not associative to the
+                        original model.</p>
+                  </div>
+                  <h4 class="division-title">Simplified parts in assemblies</h4>
+                  <div>
+                     <p>When placing a part in an assembly, you can place it using the simplified version
+                        of the part, or the designed version of the part. When you set the Use Simplified
+                        Parts command on the Parts Library shortcut menu, the simplified version of the part
+                        is displayed when placing the part in an assembly. Any faces that you deleted when
+                        simplifying the part will not be available for positioning the part in the assembly.
+                        To make these faces available for positioning, clear the Use Simplified Part command
+                        before placing the part.</p>
+                     <p>When working with simplified parts in an assembly, you can control whether the simplified
+                        version or as-designed version of the part is displayed. If you place the same part
+                        in an assembly more than once, you can control the display for each instance of the
+                        part individually. When you select a part in the assembly, you can use the Use Designed
+                        Part and Use Simplified Part commands on the shortcut menu to control which version
+                        of a selected part is displayed. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The Use Simplified Part command is not available for parts that were selected for
+                           an assembly feature, whether the parts were modified by the assembly feature, or not
+                           modified.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Simplified parts in PathFinder</h4>
+                  <div>
+                     <p>The symbols adjacent to each part in the PathFinder tab in an assembly change to indicate
+                        whether the simplified version or designed version of the part is currently displayed.</p>
+                     <p><img class="img-fluid" src="../../../../../common/graphicLibrary/se/se/smpapf.gif"></p>
+                  </div>
+                  <h4 class="division-title">Locating edges in simplified models</h4>
+                  <div>
+                     <p>In some cases there may be edges in a simplified part that are not locatable. This
+                        occurs when the simplified version of the part creates edges that do not have corresponding
+                        design edges.</p>
+                     <p>When this occurs you will not be able to locate an edge on a simplified part when
+                        placing a dimension or relationship, or when including an edge.</p>
+                     <p>Location of these edges is purposely prevented to ensure stability of the model in
+                        downstream operations.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1504218" rel="xid1504218">Edit an Auto-Simplify definition</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1497019" rel="xid1497019">Create a single body using Auto-Simplify</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt1h" rel="smpprt1h">Use the simplified version of a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt2h" rel="smpprt2h">Use the designed version of a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1h" rel="smpcreatesimpasm1h">Create a simplified version of an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1h" rel="smpsaveas1h">Save a simplified assembly as a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcontrlsimpasm1h" rel="smpcontrlsimpasm1h">Controlling simplified assemblies</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyasm1a" rel="smpsimplifyasm1a">Simplifying assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyasm2a" rel="smpsimplifyasm2a">Simplified assemblies best practices</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1496438" rel="xid1496438">Auto-Simplify command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1497024" rel="xid1497024">Auto-Simplify command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1c" rel="smpcreatesimpasm1c">Create Simplified Assembly using the Visible Faces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid609698" rel="xid609698">Create Simplified Assembly using the Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610879" rel="xid610879">Enclosure command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610882" rel="xid610882">Duplicate Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyenv1c" rel="smpsimplifyenv1c">Simplify Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1c" rel="smpsaveas1c">Save Simplified As command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt4c" rel="smpprt4c">Use Simplified Parts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpusesimpasm2c" rel="smpusesimpasm2c">Use Simplified Assemblies command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt3c" rel="smpprt3c">Simplify Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpupdatesimplify1c" rel="smpupdatesimplify1c">Update Simplified Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsaveas1d" rel="smpsaveas1d">Save Simplified Assembly As dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm2d" rel="smpcreatesimpasm2d">Simplified Assembly Visible Faces Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpdesignenv1c" rel="smpdesignenv1c">Design Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpusedesignedasm1c" rel="smpusedesignedasm1c">Use Designed Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt2c" rel="smpprt2c">Use Designed Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/design1c" rel="design1c">Design Model command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpcreatesimpasm1d" rel="smpcreatesimpasm1d">Create Simplified Assembly Visible Faces command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid610937" rel="xid610937">Create Simplified Assembly Model command bar</a><br><br></div>
+            <div class="footer-content">Simplifying parts, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,189 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Create assembly connectors using the Auto command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Create assembly connectors using the Auto command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconn1h">
+                     <h1 class="topic-title">Create assembly connectors using the Auto command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Rather than selecting the individual faces to be connected using the <b>Manual</b> command, the <b>Auto</b> connector command lets you select whole components or all geometry in the model.
+                     It then automatically identifies the faces on these bodies that are within the specified
+                     search distance. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>To add connectors to a thermal coupled study, which processes two types of studies
+                        in one solution, create the connectors in two passes. Select the <b>Auto</b> command to create all of the thermal connectors for the thermal study, and select
+                        the <b>Auto</b> command again to create all of the structural connectors for the structural study.
+                        It does not matter which connector set you create first.</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Choose the <b>Simulation</b> tab→<b>Connectors</b> group→<b>Auto</b> connector command.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_auto_cmd.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/auto_connector_cmdbar1.png"></p>
+                     </li>
+                     <li>
+                        <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a>, from the <b>Connector Type</b> list, select the type of connector you want to apply between assembly faces. </p>
+                        <p>The available options are based on whether you are creating a structural study, a
+                           thermal study, or a coupled study.</p>
+                        <ul>
+                           <li>
+                              <p><b>Glue</b></p>
+                           </li>
+                           <li>
+                              <p><b>No Penetration</b></p>
+                           </li>
+                           <li>
+                              <p><b>Thermal</b></p>
+                           </li>
+                           <li>
+                              <p><b>Thermal Glue</b></p>
+                           </li>
+                        </ul>
+                        <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a>.</p>
+                     </li>
+                     <li>
+                        <p>(Optional) In the <b>Search distance</b> box on the command bar, type a new value for the maximum distance apart the faces
+                           can be for connectors to be created between them. In most cases, the default value
+                           is acceptable.</p>
+                     </li>
+                     <li>
+                        <p>Select the model components or bodies by doing one of the following:</p>
+                        <ul>
+                           <li>
+                              <p>Click the <b>Select All Components</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_selall.gif"> to automatically select the faces on all component bodies that are within the specified
+                                 search distance of each other. </p>
+                           </li>
+                           <li>
+                              <p>Select at least two component bodies in the model.</p>
+                              <p>You can drag a box or use the Select tool, QuickPick, or the Selection Manager to
+                                 select model geometry. </p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Do one of the following: </p>
+                        <ul>
+                           <li>
+                              <p>To accept the highlighted components and continue, click Accept <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_accept.gif">.</p>
+                           </li>
+                           <li>
+                              <p>To add or remove components from the selection set, click Deselect <img class="img-fluid" src="../../../../common/nonLocalized/se/reverse_engineering/deselect.png">, and then repeat step 4.</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/auto_connector_cmdbar2.png"></p>
+                        <p>The <b>One Connector Per Component Pair</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_1perpair.gif"> on the command bar is selected by default to reduce the number of connections created.
+                           An over-constrained model may generate an NX Nastran solver processing error.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Results</b> dialog box, review the list of face-pair connection candidates.</p>
+                        <ul>
+                           <li>
+                              <p>To see the corresponding elements in a connection pair, click the connection in the
+                                 list to highlight it in the graphics window. </p>
+                           </li>
+                           <li>
+                              <p>You can use the <b>Visibility Options</b> list and the <b>Toggle Hide/Transparent</b> option on the command bar to review the target and source faces in each pair, and
+                                 to show the unconnected parts in transparent and hidden mode.</p>
+                           </li>
+                           <li>
+                              <p>You can remove a connector from the list by selecting it in the list, and then pressing
+                                 the Delete key.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/sesim_training_act_modal09.gif"> </p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>In the <b>Results</b> dialog box, do one of the following:</p>
+                        <ul>
+                           <li>
+                              <p>To create the connectors on the assembly, click the <b>Create Connectors</b> button.</p>
+                              <p>A <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a#assyconn2a_size" rel="assyconn2a">connector symbol</a> is displayed at each connection face pair.</p>
+                           </li>
+                           <li>
+                              <p>To clear the selection set and start over, click the <b>Close</b> button, and then click Deselect on the command bar.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <p>The connectors are displayed on the model. You can identify the target face and source
+                        face in each connection pair by the assembly connector symbol and by the color coding.
+                        As a default, target faces and symbols are blue, and source faces and symbols are
+                        red. To learn how you can use this information for editing, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a>.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/source_target_connectors.png"></p>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <ul>
+                        <li>
+                           <p>After you finish creating the connectors, you can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a> to modify any of the following:</p>
+                           <ul>
+                              <li>
+                                 <p>Change the search distance.</p>
+                              </li>
+                              <li>
+                                 <p>Swap the target and the source faces in the connection pair. </p>
+                              </li>
+                              <li>
+                                 <p>Change connector symbol size, spacing, and color.</p>
+                              </li>
+                              <li>
+                                 <p>Hide or show the connector value label.</p>
+                              </li>
+                              <li>
+                                 <p>Hide or show the geometry associated with the source, target, or both of the elements
+                                    associated with the connections. </p>
+                              </li>
+                           </ul>
+                           <p>To reopen the command bar, do any of the following:</p>
+                           <ul>
+                              <li>
+                                 <p>In the <b>Simulation</b> pane, double-click a connector name (for example, <b>Connector 1</b>, <b>Connector 2</b>).</p>
+                              </li>
+                              <li>
+                                 <p>In the graphics window, click a displayed <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a#assyconn2a_edithandle" rel="assyconn2a">connector edit definition handle</a>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/click_handle_to_edit.png"></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Default value units and precision are defined in the <b>File Properties</b> dialog box, which you can open from the <b>File</b> tab. If you enter a value in units other than the default units, the value is converted
+                              automatically to the default unit type.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><br></div>
+            <div class="footer-content">Create assembly connectors using the Auto command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

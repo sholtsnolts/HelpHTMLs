@@ -1,0 +1,195 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly Connector Properties dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly Connector Properties dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconn2d">
+                     <h1 class="topic-title">Assembly Connector Properties dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you define a new study in the <b>Create Study</b> dialog box, you can use the <b>Connector Options</b> section to specify that connectors are to be created automatically, what type of
+                     connector to use in the model, and whether to limit the connectors created. You also
+                     can open the <b>Assembly Connector Properties</b> dialog box to change the default NX Nastran values used to create them.</p>
+                  <p>When you add connectors to the assembly using the commands in the <b>Connectors</b> group on the ribbon, you can set these properties individually for each connector
+                     (contact pair) that you create. In this case, you can open the <b>Assembly Connector Properties</b> dialog box from the command bar. </p>
+                  <p>The options that are available vary with the selected connector type. </p>
+                  <dl>
+                     <dt>NX Nastran No Penetration Connector</dt>
+                     <dd class="ml-3">
+                        <p>This option is set when you choose to create a no penetration contact <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a#assyconn1a_types" rel="assyconn1a">connection type</a> between assembly faces. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The No Penetration connector is equivalent to the Linear Contact connector in NX Nastran.</p>
+                        </div>
+                        <dl>
+                           <dt>Coefficient of Static</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the static coefficient of friction for a contact pair. </p>
+                              <p>In general, if different friction values are not needed, then the contact pairs should
+                                 all reference the same contact value. </p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Minimum search</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the minimum distance apart the faces must be for a no penetration contact
+                                 connector to be created between them. </p>
+                              <p>The search distance for no penetration contact connectors is used to determine if
+                                 two element pairs on a contact region are within the range of the minimum and maximum
+                                 search distances of the <em>first</em> contact iteration. If true, contact is checked between the element pairs for all
+                                 iterations. If false, the two elements are assumed never to be in contact.</p>
+                              <p>In general, no penetration contact connector search distance is larger than glue connector
+                                 search distance, to ensure that NX Nastran looks at elements that may come in contact
+                                 at some point during analysis.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Maximum search distance is defined in the dynamic input box in the graphics window.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Penalty value</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the penalty factor for all no penetration (linear contact) connection pairs.
+                                 The penalty factor is the stiffness factor used to transmit the displacement between
+                                 the element pairs in a connection. The default penalty value for a no penetration
+                                 (linear contact) connector is 10.</p>
+                              <p>The penalty factor influences the rate of solution convergence, and to a lesser extent,
+                                 the accuracy of the contact solution. The automatic penalty factor calculation using
+                                 the default value works well for most instances, but manual adjustments may be necessary,
+                                 particularly if a contact problem fails to converge.</p>
+                              <p>A higher number reduces penetration and improves solution convergence. </p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Initial penetration</dt>
+                           <dd class="ml-3">
+                              <p>Specifies what the solver does with initial gaps or penetrations of the generated
+                                 contact elements. </p>
+                              <p>Use the <b>Initial Penetration</b> option when the goal is for a pair of contact regions to be initially touching without
+                                 interference, but when—due to the faceted nature of finite elements around curved
+                                 geometry—some of the element faces may have a slight gap or penetration. Refer to
+                                 the example, below.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Nominal gaps in bearings and bolted parts.<img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_linear3.gif"> </p>
+                                 <p>To close the gaps, you can set the Initial Penetration to Calculate, which will move
+                                    the nodes, or set it to Calculated/Zero Penetrations, which will ignore the penetrations.</p>
+                              </div>
+                              <ul>
+                                 <li>
+                                    <p><b>Calculated</b>—The contact is evaluated exactly as the geometry is modeled. No corrections are made
+                                       for gaps or penetrations. This is the default option.</p>
+                                    <p>When this option is used, penetrations will cause nodes to be moved during the solution,
+                                       emulating a "press fit" behavior.</p>
+                                    <div class="attention" type="tip">
+                                       <div class="attention-label">Tip: </div>
+                                       <p>Use the <b>Calculated</b> option for flat surfaces.</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p><b>Calculated/Zero Penetrations</b>—Same as <b>Calculated</b>, but if penetration is detected, sets the value to zero.</p>
+                                    <p>The result is that initial penetrations are ignored. In successive steps, each connector
+                                       node is allowed to penetrate the target up to its initial penetration. </p>
+                                    <div class="attention" type="tip">
+                                       <div class="attention-label">Tip: </div>
+                                       <p>Use the <b>Calculated/Zero Penetrations</b> option in special cases only.</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p><b>Zero Gap/Penetration</b>—Sets the penetration or gap to zero for all contact elements.</p>
+                                    <p>This is similar to <b>Calculated/Zero Penetrations</b>, except both gaps and penetrations are taken into account. The result is that both
+                                       gaps and penetrations are reset to a new initial condition in which there is no interference.</p>
+                                    <div class="attention" type="tip">
+                                       <div class="attention-label">Tip: </div>
+                                       <p>Use the <b>Zero Gap/Penetration</b> option for curved surfaces, such as a bolt in a hole.</p>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </dd>
+                        </dl>
+                        <p>To learn more about these options, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_contact_connections" rel="linear_contact_connections">no penetration contact connections</a>.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>NX Nastran Glue Connector</dt>
+                     <dd class="ml-3">
+                        <p>This option is set when you choose to create a Glue or Thermal Glue <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a#assyconn1a_types" rel="assyconn1a">connection type</a> between assembly faces.</p>
+                        <dl>
+                           <dt>Penalty value</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the penalty factor for all connection pairs. The penalty factor is the stiffness
+                                 factor used to transmit the displacement between the element pairs in a glued connection.</p>
+                              <p>A higher number reduces penetration and speeds convergence. The default penalty value
+                                 for a glue connector is 100.</p>
+                              <p>The penalty factor influences the rate of solution convergence, and to a lesser extent,
+                                 the accuracy of the contact solution. The automatic penalty factor calculation using
+                                 the default value works well for most instances, but manual adjustments may be necessary,
+                                 particularly if a contact problem fails to converge.</p>
+                              <p>A higher number improves solution convergence. For example, if you observe that the
+                                 connection regions are separated, raise the penalty factor value by an order of magnitude
+                                 until separation no longer occurs. (If defined too large, however, numerical errors
+                                 may occur.) </p>
+                           </dd>
+                        </dl>
+                        <p>For more information about these types of connectors in Solid Edge Simulation, see
+                           the help topic, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a>.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>NX Nastran Thermal</b></dt>
+                     <dd class="ml-3">
+                        <p>Use thermal connectors in a thermal study (for example, steady state heat transfer
+                           or transient heat transfer) and in thermal <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">coupled studies</a>.</p>
+                     </dd>
+                     <dt><b>Thermal conductance value</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies a value for thermal resistance, which can be determined by dividing the
+                           thickness of the surfaces by the thermal conductivity of the material. </p>
+                        <p>A thermal conductivity value is based on contact resistance between the materials,
+                           as in a steel-to-copper contact versus a steel-to-steel contact, and on the surface
+                           finish. The higher the value, the greater the conductivity. The lower the value, the
+                           higher the resistance. In Solid Edge Simulation, the thermal conductivity of the material
+                           you are using is listed in the <b>Material Table</b>.</p>
+                        <p>The inverse of thermal conductivity, thermal resistance is a heat property and a measurement
+                           of the steady-state temperature difference by which an object or material resists
+                           heat flow between the contacting surfaces.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>In home insulation products, their effectiveness at preventing heat transfer between
+                              the inside and outside air is measured by their R-value (thermal resistance value).</p>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><br></div>
+            <div class="footer-content">Assembly Connector Properties dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,176 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Remove drawing view geometry with a clipping plane</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Remove drawing view geometry with a clipping plane"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dvclip1h_1">
+                     <h1 class="topic-title">Remove drawing view geometry with a clipping plane</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><br><p>Use the Set Drawing View Depth command to define a back clipping plane to remove geometry
+                     from a drawing view (1). You can define the plane in a view that is folded 90 degrees
+                     from it by clicking a keypoint or a centerline (2). The geometry is removed when you
+                     update the view (3).</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/drawings/dvw_modify/dvw_modify_howto/set_dv_depth_command.gif"></p>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Right-click the drawing view from which you want to remove geometry and choose Set
+                           Drawing View Depth.</p>
+                     </li>
+                     <li>
+                        <p>Set the depth of the back clipping plane using one of the following methods.</p>
+                        <table rules="all" frame="box">
+                           <colgroup span="1">
+                              <col span="1" valign="top">
+                              <col span="1">
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p>To specify this type of display depth</p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Do the following</p>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Associative display depth</p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <ol type="a" start="1">
+                                       <li>
+                                          <p>Position the cursor over a drawing view that is orthogonal to the view you are modifying.
+                                             </p>
+                                          <p>Move the cursor across the geometry, and observe the red depth plane line with a shaded
+                                             rectangle attached to it. </p>
+                                          <ul>
+                                             <li>
+                                                <p>The depth plane line represents the back clipping plane. The shaded area represents
+                                                   the <em>depth to be removed</em> from the drawing view. </p>
+                                             </li>
+                                             <li>
+                                                <p>To see the distance value corresponding to the <em>display depth to be kept</em>, look at the Depth box on the command bar. </p>
+                                             </li>
+                                          </ul>
+                                          <div class="attention" type="tip">
+                                             <div class="attention-label">Tip: </div>
+                                             <p>To control the increments by which the distance increases or decreases as you move
+                                                the cursor, enter a value in the Step box on the command bar.</p>
+                                          </div>
+                                       </li>
+                                       <li>
+                                          <p>Click a keypoint (such as a center point, end point, or midpoint) to define the drawing
+                                             view display depth. </p>
+                                       </li>
+                                    </ol>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Non-associative display depth</p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <ol type="a" start="1">
+                                       <li>
+                                          <p>In the Depth box on the command bar, type a value to specify the location of the visible
+                                             display depth distance (the amount you want to keep). Press Enter. </p>
+                                       </li>
+                                       <li>
+                                          <p>Click to finish the command. </p>
+                                       </li>
+                                    </ol>
+                                    <div class="attention" type="note">
+                                       <div class="attention-label">Note: </div>
+                                       <p>The visible display depth is measured from the top plane of the model in the selected
+                                          drawing view to the location where you want the back clipping plane to be placed.
+                                          </p>
+                                    </div>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If you selected a pictorial drawing view in Step 1, the dynamic depth plane line described
+                              above is not available to you. Instead, type a value as described below.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>To see the results, right-click the drawing view you selected in Step 1 and choose
+                           Update. </p>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <ul>
+                        <li>
+                           <p>There are other ways to specify the depth value. </p>
+                           <ul>
+                              <li>
+                                 <p>You can locate a keypoint or centerline to define the depth, yet make the depth plane
+                                    non-associative. To do this, press Shift when you click the keypoint or centerline.
+                                    </p>
+                              </li>
+                              <li>
+                                 <p>If the model contains holes, you can use the Automatic Centerlines command to extract
+                                    the centerline annotations into the drawing view. If there is a centerline parallel
+                                    to the depth plane line, then you can define an associative depth value by clicking
+                                    it.</p>
+                              </li>
+                              <li>
+                                 <p>You can click a free-space point in the drawing view to specify a non-associative
+                                    display depth. </p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>To adjust the drawing view depth, select the Set Drawing View Depth command again.
+                              For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvclip1h" rel="dvclip1h">Modify the drawing view display depth</a>.</p>
+                        </li>
+                        <li>
+                           <p>For detail views, you can:</p>
+                           <ul>
+                              <li>
+                                 <p>Apply clipping planes at different depths directly to an <em>independent detail view</em>.</p>
+                              </li>
+                              <li>
+                                 <p>Apply a back clipping plane to a <em>dependent detail view</em> by first setting the display depth on its source view, and then updating both views.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvclip1h" rel="dvclip1h">Modify the drawing view display depth</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvclip2h" rel="dvclip2h">Delete the drawing view display depth clipping plane</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvclip1a" rel="dvclip1a">Using a drawing view clipping plane</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvclip1c" rel="dvclip1c">Set Drawing View Depth command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvclip1d" rel="dvclip1d">Set Drawing View Depth command bar</a><br><br></div>
+            <div class="footer-content">Remove drawing view geometry with a clipping plane, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

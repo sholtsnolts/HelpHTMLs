@@ -1,0 +1,185 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate stress on a car ramp</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate stress on a car ramp"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1602479">
+                     <h1 class="topic-title">Tutorial: Simulate stress on a car ramp</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_static" rel="linear_static">linear static analysis</a> to simulate the stresses and displacement of a car ramp. As a car is driven onto
+                     the car ramp, it is anticipated that the ramp can move slightly along the floor. Use
+                     a Sliding Along Surface constraint to replicate the sliding-along-a-surface condition.
+                     </p>
+                  <p> The study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Study type=Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Load type=Force</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Sliding Along Surface</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Constraint symbols indicate the degrees of freedom (DOF) of a model. The symbols are
+                              comprised of two shapes: a sphere and one or more arrows. Arrow symbols point in the
+                              direction the model is <em>not constrained</em>, with each arrow indicating one DOF.</p>
+                           <table width="100%">
+                              <tbody>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1" height="204">
+                                       <p><b>Sliding Along Surface</b> constraint symbol </p>
+                                       <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_dof_slidealongsurface0.gif"></p>
+                                    </td>
+                                    <td rowspan="1" valign="top" colspan="1" height="204">
+                                       <p>By default, constrains only the direction normal to the surface.</p>
+                                    </td>
+                                    <td rowspan="1" valign="top" colspan="1" height="204">
+                                       <div class="attention" type="example">
+                                          <div class="attention-label">Example: </div>
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_dof_slidealongsurface_ex2.gif"></p>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_car_ramp.par</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p>In the <b>Simulation</b> pane, notice that a linear static study was already created for this model.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sim_pane_car_ramp.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_const01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Place a constraint to replicate sliding along the floor.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Sliding Along Surface</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_slidealongsurf_button.gif">.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <ul>
+                                    <li>
+                                       <p>When you choose the Sliding Along Surface constraint for a solid, the translation
+                                          direction <em>perpendicular</em> to the face is constrained.</p>
+                                    </li>
+                                    <li>
+                                       <p>When you choose the Sliding Along Surface constraint for a thin-body part, the translation
+                                          direction perpendicular to the face is constrained, as are the rotations out of the
+                                          face. You can clear the <b>Include Rotational DOF</b> option on the <b>Constraints</b> command bar to allow rotation out of the face.</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Rotate the view so you can see the underside of the ramp. </p>
+                           </li>
+                           <li>
+                              <p>Zoom in on the right end and use QuickPick to select the bottom face.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_const03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept. Click to finish placing the constraint.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_const04.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Reorient the view to Isometric by pressing Ctrl+I.</p>
+                     </li>
+                     <li>
+                        <p>Place a fixed constraint.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Zoom in on the left end of the ramp. Select the bottom face.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_const10.gif"></p>
+                              <p>A preview of the fixed constraint appears on the face. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_const11.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept. Click to finish placing the constraint.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Fit to view the entire part.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_const09.gif"></p>
+                     </li>
+                     <li>
+                        <p>Define a force load.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads </b>group→<b>Force</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_force_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the top face and type <b>600</b> for the load. Press Tab.</p>
+                           </li>
+                           <li>
+                              <p>Flip the direction so that it points downward.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_const05.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept this force; click to finish.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_const06.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study: </p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p> In the <b>Simulation</b> pane, turn off loads and constraints by clearing their respective check boxes.</p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Mesh</b> command, and then in the <b>Tetrahedral Mesh</b> dialog box, click <b>Mesh &amp; Solve</b>.</p>
+                           </li>
+                        </ol>
+                        <p>After a few moments, the part is meshed and solved. The <b>Simulation Results</b> environment is displayed.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_const08.gif"></p>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Tutorial: Simulate stress on a car ramp, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,72 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Understanding Teamcenter terms</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Understanding Teamcenter terms"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="genid_understanding_terms_39_2174">
+                     <h1 class="topic-title">Understanding Teamcenter terms</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Teamcenter uses objects to store information that describes each Solid Edge document,
+                     in addition to storing the document or file itself. An <em>Item</em> is a commonly used workspace object that captures the metadata describing all the
+                     associated revisions. An <em>Item Revision</em> captures the revision-specific metadata. A <em>Dataset</em> captures the document specific metadata and it holds the physical document(s). Datasets
+                     can capture unique document types such as <b>.asm</b>, <b>.doc</b>, and <b>.pdf</b>.</p>
+                  <p>It is metadata that is useful in data retrieval and reuse. The Item, Item Revision
+                     and Dataset combine to fully describe the associated document.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p> Datasets have the ability to capture versions of a document. </p>
+                  </div>
+                  <p>If you want to think of these objects in terms of hierarchy, from top to bottom, it
+                     would be Item, Item Revision, Dataset. You can view this hierarchy from the Teamcenter
+                     client. Each object is represented by a unique image, and as you expand each level,
+                     you can see the structure. Once you reach the Item Revision, you may see more than
+                     one Dataset. When your business process requires the Solid Edge draft file to have
+                     the same Document Number as its 3D part (.par), assembly (.asm), sheet metal (.psm)
+                     or weldment (.pwd) file, you may have a draft (.dft) file with the corresponding number
+                     under the Item Revision. This practice impacts how a company manages Revisions. </p>
+                  <p>Each object must have a unique identifier (ID). For Items, this is called an Item
+                     ID. In the following example, the Item ID for the Item (A) is 000130. The Item Revision
+                     (B) for this item is <em>A</em>, which adds a unique Revision designation, followed by the Dataset (C) and its Item
+                     Name. </p><img class="img-fluid d-block" src="../../../../../common/graphicLibrary/se/seec_admin_guide/item2.gif"><div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The use of multifield keys (MFK) can change the unique identifier from Item ID to
+                        a combination of fields. To learn more about multifield keys, see <em>Using multifield keys in the Teamcenter-managed environment</em>.</p>
+                  </div>
+                  <p>The attributes that describe these objects are often the same, but when applied to
+                     the Item, Item Revision or Dataset, they provide uniqueness. For example, since the
+                     Name attribute is used by these three objects, to get a specific piece of information
+                     you can specify the Item ID, Item Revision, and Item Name. These three properties
+                     are considered the mandatory properties that must be defined for each managed document.</p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid614232" rel="xid614232">Add documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/reimport1h" rel="reimport1h">Reimport documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096228" rel="xid1096228">Use naming rules</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid617976" rel="xid617976">Cut, copy, or paste a row or cell</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcsuspend1h" rel="addtotcsuspend1h">Suspend or pause Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1117432" rel="xid1117432">Sort multiple columns</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/wwadd2tc1a" rel="wwadd2tc1a">Working with Add to Teamcenter Interactive</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/docprop1a" rel="docprop1a">Document properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid760444" rel="xid760444">Reimporting documents using Add to Teamcenter Interactive</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multifieldkey1a" rel="multifieldkey1a">Using multifield keys in the Teamcenter managed environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findlinkeddocs1c" rel="findlinkeddocs1c">Find All Linked Documents command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findrelateddrafts1c" rel="findrelateddrafts1c">Find All Related Drafts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid615683" rel="xid615683">Run Unmanaged Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/savecommand1c" rel="savecommand1c">Save Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/cutcommand1c" rel="cutcommand1c">Cut command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/copycommand1c" rel="copycommand1c">Copy command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/pastecommand1c" rel="pastecommand1c">Paste command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/retrievedata1c" rel="retrievedata1c">Retrieve Data From Teamcenter command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcassignall1c" rel="add2tcassignall1c">Assign All command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/updatestatus1c" rel="updatestatus1c">Update Status Information command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/runtcvalidations1c" rel="runtcvalidations1c">Run Teamcenter Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid613495" rel="xid613495">Set Action command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid733438" rel="xid733438">Save As command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcperformactions1c" rel="add2tcperformactions1c">Perform Actions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcstatus1d" rel="addtotcstatus1d">Add to Teamcenter Status dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096063" rel="xid1096063">Naming rules and revision naming rules</a><br><br></div>
+            <div class="footer-content">Understanding Teamcenter terms, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

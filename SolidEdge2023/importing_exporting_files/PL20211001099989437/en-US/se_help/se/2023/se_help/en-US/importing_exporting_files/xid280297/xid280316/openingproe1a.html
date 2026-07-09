@@ -1,0 +1,94 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Opening Pro/Engineer Documents in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Opening Pro/Engineer Documents in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="openingproe1a">
+                     <h1 class="topic-title">Opening Pro/Engineer Documents in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Pro/Engineer direct translator allows you to import Parametric Technology CAD
+                     files directly into Solid Edge part files. To open single Pro/Engineer files, access
+                     the translator through the <b>Open File</b> dialog box. To translate multiple Pro/Engineer files in a single session, use <b>SeProE.exe</b>, located in the Solid Edge/program folder. The executable requires Solid Edge be
+                     loaded on the machine where the translation occurs.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The translator for the <b>Open</b> command and the <b>Proe Migration Wizard</b> supports Pro/Engineer files created in ProE version 17 - Creo Parametric 3.0. The
+                        translator supports single part and assembly files.</p>
+                  </div>
+                  <p>Solid Edge assumes that all models in Pro/Engineer part files are solids and that
+                     they contain single solid bodies. However, it is possible that the solid in the Pro/Engineer
+                     file is a multi-volume solid. In these cases, Solid Edge generates individual Parasolid
+                     bodies for each of the volumes. By default, the Pro/Engineer translator in Solid Edge
+                     translates solids and surfaces that form a volume. To translate surfaces that do not
+                     form a volume select the <b>Import Free Surfaces</b> option on the <b>Import Options for Pro/ENGINEER (.prt)</b> dialog box.</p>
+                  <h4 class="division-title">Pro/Engineering File Naming Conventions</h4>
+                  <div>
+                     <p>The first time you save a Pro/Engineer file, .1 is appended to the end of the file
+                        name. Pro/Engineering tracks file versions by incrementing the file name each time
+                        the file is saved. For example, if you make changes and re-save bolt.prt.1, the saved
+                        file name will be bolt.prt.2.</p>
+                     <p>When a Pro/E part is ready to release, you may decide to drop the .n (where n represents
+                        the increment number) from the end of the file name. This causes problems when translating
+                        the Pro/E file to Solid Edge. NX also saves documents to a .prt extension. When you
+                        import a Pro/E document saved to a .prt extension, Solid Edge recognizes the file
+                        as a NX file and the translation fails. Therefore, you should not remove the .n from
+                        any Pro/E files that will be translated to Solid Edge. If you discover the files you
+                        want to translate contain a .prt extension, you can append the .1 to the file and
+                        then translate them.</p>
+                  </div>
+                  <h4 class="division-title">Loading Multiple Pro/Engineer Documents to Solid Edge</h4>
+                  <div>
+                     <p>You can use the Pro-e Data Migration standalone executable to load multiple Pro/Engineer
+                        part, assembly, and drawing documents to Solid Edge as managed or unmanaged documents.
+                        To use the executable to load multiple Pro/Engineer documents, Solid Edge and Pro/Engineer
+                        do not have to be loaded on the same machine. However, Pro/Engineer must be loaded
+                        on the same machine as the documents being migrated.</p>
+                     <p>To access the executable, choose <b>Start→Siemens Solid Edge 2023→Pro-e Data Migration</b>. This displays the <b>Pro-e Migration Wizard</b> that assists in migrating the Pro/Engineer documents to Solid Edge.</p>
+                     <p>On the <b>Connecting to Pro-e</b> dialog box, you can specify a host machine where the Pro/Engineer documents reside.
+                        You can specify the Solid Edge template you want to use to create the new Solid Edge
+                        document equivalent for the Pro/Engineer document you are opening. You can also specify
+                        a local folder location where you want to save the Solid Edge documents you create.
+                        The folder structure for the Pro/Engineer document will be replicated in this folder.
+                        You can specify the name and location of the <b>PROE2SE.ini</b> file that is used to store the settings selected from the user interface.</p>
+                     <p>On the Pro/Engineer Selection Page dialog box, you can specify the documents you want
+                        to migrate to Solid Edge.</p>
+                     <p>On the Pro/Engineer Save dialog box, you can specify the configuration file to which
+                        you want to save the remapped configuration.</p>
+                     <p>If you want to save the changes to the original configuration file, click the <b>Save the Remappings to the Original Configuration File</b> option. The default file name is <b>PROE2SE.ini</b> and is located in the <b>Program Files\Siemens\Solid Edge 2023\Preferences\Translators</b> folder. This name is reserved by Solid Edge and cannot be overwritten. You can write
+                        to the Program folder, but you must change the name to avoid overwriting the default
+                        settings.</p>
+                     <p>If you want to save the changes to a new configuration file, click the <b>Create a New Configuration File</b> option, and then click the <b>Copy To</b> button. On the <b>Save As</b> dialog box, define a folder and file name for the new configuration file.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/proeimport1d" rel="proeimport1d">Import Options for Pro/ENGINEER (.prt) dialog box</a><br><br></div>
+            <div class="footer-content">Opening Pro/Engineer Documents in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

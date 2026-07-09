@@ -1,0 +1,174 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Graph nodal analysis results</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Graph nodal analysis results"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="probe3h">
+                     <h1 class="topic-title">Graph nodal analysis results</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When probing the results of a transient heat transfer study, you can graph the temperature
+                     data at each time step for nodes selected in the <b>Probe Table</b>. When probing the results of a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/harmonic_response" rel="harmonic_response">harmonic frequency response analysis</a>, you can graph the displacement (translation) at each frequency for selected nodes.
+                     </p>
+                  <p>You can save your graphs to the simulation results document (*.ssd) when you select
+                     the <b>Save Graph</b> button. </p>
+                  <ol type="1">
+                     <li>
+                        <p>On the <b>Home</b> tab→<b>Data Selection</b> group, use the <b>Result Mode</b> list to cycle through each plot produced at each time interval, until you find the
+                           plot at the time increment that shows the highest temperatures.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/transient_heat_results_increments.png"></p>
+                     </li>
+                     <li>
+                        <p>Select the <b>Home</b> tab→<b>Probe</b> group→<b>Probe</b> command.</p>
+                        <p>The <b>Probe Table</b> is opened. </p>
+                     </li>
+                     <li>
+                        <p>In the <b>Probe Table</b>, use either the <b>Node</b>, <b>Face</b>, or <b>Edge</b> option to add nodal temperature values to the table. For information about the selection
+                           methods, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe1h" rel="probe1h">Display node analysis data</a>.</p>
+                     </li>
+                     <li>
+                        <p>Use the <b>Sort</b> and <b>Find</b> shortcut commands to identify the nodes with the highest stress values. </p>
+                        <p>To see all of the data at once, size the <b>Probe Table</b> using the control in the lower-right corner.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/resize_probe_table_control.png"></p>
+                     </li>
+                     <li>
+                        <p>Use Shift+click and Ctrl+click to select up to 10 data cells. </p>
+                     </li>
+                     <li>
+                        <p>Select the <b>Show Graph</b> button to show the temperature data in graphical form. </p>
+                        <p>Probe labels matching each of the selected nodes are displayed in the simulation results,
+                           color-coded to match the data in the graph window. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>This graph shows the selected node data for a transient heat study.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/probe_table_graph.png"></p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/probe_table_graph_labels.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>To save a graph for reuse after the <b>Probe Table</b> is closed, click the <b>Save Graph</b> button.</p>
+                        <p>Graphs that you save are included in the report when you select the <b>Create Report</b> command. You can view, rename, and delete saved graphs using shortcut commands from
+                           the <b>Simulation</b> pane→<b>Results</b>→<b>Graphs</b> node. You can reopen saved graphs in multiple graph windows to compare the trend.
+                           </p>
+                     </li>
+                  </ol>
+                  <h4 class="division-title">Use the transient heat Temperature-Nodal graph to find the steady state temperature</h4>
+                  <div>
+                     <p>While the example above shows how the temperature changes over time, it does not indicate
+                        the temperature at which a steady operational state is reached. If you close the Simulation
+                        Results, you can modify the transient heat transfer study to change input values,
+                        and then solve it again. Adjust the <b>End Time</b> (the length of time the study runs), until you are able to generate a graph that
+                        shows that temperatures have reached a nearly steady state. To maintain a useful temperature
+                        distribution of node values along the curve, you can also experiment with changes
+                        to the <b>Calculation Time Increment</b> or the <b>Output Time Increment</b>. As you change either of these options, the read-only <b>Number of Results</b> value in the <b>Transient Heat Options</b> dialog box updates to show the number of data points that will be plotted on the
+                        graph.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>The first graph shows the starting point for the comparison. It is a transient heat
+                           graph of a single node generated using the following transient heat study values:
+                           </p>
+                        <ul>
+                           <li>
+                              <p>End Time=100</p>
+                           </li>
+                           <li>
+                              <p>Calculation Time Increment=1</p>
+                           </li>
+                           <li>
+                              <p>Output Time Increment=5</p>
+                           </li>
+                           <li>
+                              <p>Number of Results=20 (plus one baseline plot)</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/probe_graph_21.png"></p>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>The second example extended the study processing time.</p>
+                        <ul>
+                           <li>
+                              <p>End Time=1000</p>
+                           </li>
+                           <li>
+                              <p>Calculation Time Increment=10</p>
+                           </li>
+                           <li>
+                              <p>Output Time Increment=100</p>
+                           </li>
+                           <li>
+                              <p>Number of Results=10 (plus one baseline plot)</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/probe_graph_single_1000.png"></p>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>The last two examples use an adjusted End Time=5000 sec. Running the study for this
+                           length of time produces a graph that flattens to show the steady state temperature.
+                           The node distribution along the curve varies with the number of results produced.</p>
+                        <ul>
+                           <li>
+                              <p>End Time=5000</p>
+                           </li>
+                           <li>
+                              <p>Calculation Time Increment=50</p>
+                           </li>
+                           <li>
+                              <p>Output Time Increment=100</p>
+                           </li>
+                           <li>
+                              <p>Number of Results=50 (plus one baseline plot)</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/transient_graph_5000_cti50_oti100_results50.png"></p>
+                        <ul>
+                           <li>
+                              <p>End Time=5000</p>
+                           </li>
+                           <li>
+                              <p>Calculation Time Increment=10</p>
+                           </li>
+                           <li>
+                              <p>Output Time Increment=200</p>
+                           </li>
+                           <li>
+                              <p>Number of Results=25 (plus one baseline plot)</p>
+                           </li>
+                        </ul>
+                        <p>This graph also has a nice distribution of values along the curve. </p>
+                        <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/probe_graph_single.png"></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe1h" rel="probe1h">Display node analysis data</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe1a" rel="probe1a">Probing analysis results</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1668045" rel="xid1668045">Verify linear static stress results are at equilibrium</a><br><br></div>
+            <div class="footer-content">Graph nodal analysis results, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

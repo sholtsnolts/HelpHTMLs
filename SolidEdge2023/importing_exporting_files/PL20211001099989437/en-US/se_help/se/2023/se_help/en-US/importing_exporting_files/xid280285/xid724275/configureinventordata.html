@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Inventor data migration</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Inventor data migration"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="configureinventordata">
+                     <h1 class="topic-title">Inventor data migration</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b> Inventor Data Migration</b> tool translates Inventor part (.ipt), assembly (.iam), and drawing (.dwg and .idw)
+                     files to Solid Edge.</p>
+                  <p>To use the migration tool, Inventor and Solid Edge must be installed on the same computer.
+                     Solid Edge supports migration from Inventor version 2018 and above.</p> 
+                  <p>We recommend migrating the Inventor material and hole databases before you migrate
+                     Inventor CAD files.</p> 
+                  <p>The imported data is placed as either synchronous or ordered, depending on the settings
+                     in <b>Open in</b> on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1d" rel="inventor1d"><b>Inventor Data Migration Start Page</b></a>.</p> 
+                  <h4 class="division-title">Hole feature recognition</h4>
+                  <div>  
+                     <p>To create hole feature during migration, select the <b>Create hole features on Migration</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1d" rel="inventor1d"><b>Inventor Data Migration Start Page</b></a>.</p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>Definition for threaded shaft features is not supported</p> </div> 
+                     <p>Holes other than non-threaded holes are not recognized in Solid Edge 2018. In Version
+                        2019, all types of holes that are available in Inventor are recognized after Inventor
+                        data migration.</p> 
+                     <p>Hole features are only applied to synchronous bodies. No hole features are created
+                        when the data migration is targeted for the ordered environment. </p> </div>
+                  <h4 class="division-title">Migrating drawing views</h4>
+                  <div>
+                     <p>After migration, Inventor drawing files maintain associativity with the migrated Solid
+                        Edge model. For example, changes made to the model get updated in the drawing views
+                        for the model. During the migration process, a link is established between the resulting
+                        Solid Edge part and assembly files and the migrated Solid Edge drawing file.</p> 
+                     <p>To create drawing views during migration, select the <b>Create drawing views on Migration</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1d" rel="inventor1d"><b>Inventor Data Migration Start Page</b></a>.</p>
+                     <p>The following applies when migrating Inventor files:</p>
+                     <ul>
+                        <li>
+                           <p>All Inventor drawing views other than - Overlay, Breakout, Slice and Crop are exported
+                              as associative views and appear as they do in Inventor. </p>
+                           <ul>
+                              <li>
+                                 <p>For Overlay - Positions other than the main position are translated as dxf geometry.
+                                    The main view is associative.</p>
+                              </li>
+                              <li>
+                                 <p>Breakout View - Any view containing a Breakout view is migrated as dxf geometry. Other
+                                    Breakout views are not migrated.</p>
+                              </li>
+                              <li>
+                                 <p>Slice and Crop - These views are migrated as the parent view of Slice/Crop view in
+                                    Inventor. The Slice/Crop action is eliminated from the view. Associativity is maintained
+                                    between view and model</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Cutting plane lines, auxiliary view plane lines, and detail envelopes are supported.</p>
+                        </li>
+                        <li>
+                           <p>Migrated linear, radial, diametric, baseline and chain dimensions are associative.
+                              Other dimensions after migration are dxf geometry.</p>
+                        </li>
+                        <li>
+                           <p>Centered Pattern - The circular center line that connects the various center marks
+                              is not migrated associatevely.</p>
+                        </li>
+                        <li>
+                           <p>View shading is maintained as part of this drawing view creation process.</p>
+                        </li>
+                        <li>
+                           <p>Annotations, such as balloons and callouts, do not migrate as Solid Edge annotations,
+                              but migrate as blocks.</p>
+                        </li>
+                        <li>
+                           <p>Vertically or horizontally inherited break operations are migrated. Auxiliary or isometric
+                              views containing inherited break operations are not migrated.</p>
+                        </li>
+                        <li>
+                           <p>Auxiliary or isometric views containing inherited broken out section operations are
+                              not migrated.</p>
+                        </li>
+                        <li>
+                           <p>The angular dimensions are not migrated as true dimensions.</p>
+                        </li>
+                        <li>
+                           <p>Dimension values are incorrect if they are attached to unsupported drawing views or
+                              entities. Dimension values that are attached to the dxf will be different in the migrated
+                              draft.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Migrating properties</h4>
+                  <div>
+                     <p>Inventor files contain a set of properties that closely resemble Solid Edge file properties.
+                        During migration, these Inventor properties are mapped to Solid Edge file properties.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1h" rel="inventor1h">Migrate Inventor documents to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057196" rel="xid2057196">Migrate Inventor material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057197" rel="xid2057197">Migrate Inventor hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057198" rel="xid2057198">Specify the templates to use during Inventor data migration</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2058596" rel="xid2058596">Migrating Inventor material definitions to solid edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057089" rel="xid2057089">Logging for Inventor data migration</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689903" rel="xid1689903">Migrating iAssemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1d" rel="inventor1d">Inventor Data Migration Start page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057093" rel="xid2057093">Inventor Material Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057090" rel="xid2057090">Inventor Hole Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057091" rel="xid2057091">Hole Mapping dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057094" rel="xid2057094">Templates dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057095" rel="xid2057095">Folder Selection dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor2d" rel="inventor2d">Inventor File Selection page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057096" rel="xid2057096">Preview Selection page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689916" rel="xid1689916">Migrate Inventor material definitions to Solid Edge using the DOS window</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689917" rel="xid1689917">Migrate the Inventor hole database to Solid Edge using the DOS window</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2058597" rel="xid2058597">Migrating Inventor hole definitions to solid edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057199" rel="xid2057199">Specify the location of Inventor and Solid Edge folders</a><br><br></div>
+            <div class="footer-content">Inventor data migration, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

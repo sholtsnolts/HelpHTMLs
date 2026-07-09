@@ -1,0 +1,373 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Opening STEP Documents in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Opening STEP Documents in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="openstep1a">
+                     <h1 class="topic-title">Opening STEP Documents in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can open STEP documents in Solid Edge with the <b>Open</b> command. After you select a STEP file to open you use the <b>Import Options for STEP</b> dialog box to control how the STEP file is opened in Solid Edge.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When importing assemblies containing more than 600 to 700 part files you need to set
+                        the value of the Import DoNotSave=On parameter in the translators .ini file to Off.
+                        The Import DoNotSave parameter controls whether the Solid Edge part files are created
+                        during the translation, or on the initial save of the assembly file. Setting this
+                        value to off may take longer to translate but consumes less memory.</p>
+                  </div>
+                  <p>To translate multiple STEP files in a single session, use the Batch.exe file, located
+                     in the <b>Solid Edge Version #\Custom\Batch\Bin </b> folder. The executable requires Solid Edge be loaded on the machine where the translation
+                     occurs.</p>
+                  <h4 class="division-title">STEP.ini file</h4>
+                  <div>
+                     <p>The settings on the option dialog boxes used when importing or exporting STEP files
+                        are defined in the <b>STEP.ini</b> file, located in the <b>Solid Edge 2023\Preferences\Translators</b> folder. When you make a change to a parameter in the dialog box, a new value is saved
+                        to the .ini file. You can use a text editor, such as Notepad, to set these parameters.
+                        However, if you edit this file, use extreme caution in setting these parameters. Errors
+                        made to this file can adversely affect the quality of the translation. The following
+                        is a list of parameters found in the <b>STEP.ini</b> file.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="26%">
+                           <col span="1" align="left" width="74%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Parameter</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Description</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export STEP Format=ap214</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies the STEP format to which you want to export the Solid Edge document. You
+                                 can set the format to ap203, ap214 or ap242.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Construction Sheets=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to export any construction geometry that exists as sheet bodies.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Construction Solids=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to export any construction geometry that exists as solid bodies.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Construction Wires=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to export any construction geometry that exists as wire bodies.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Displayed Parts=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to export only the active model and construction geometry
+                                 that is visible in the part or assembly.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Author=Unknown</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies the name of the author of the file you want to export.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Description=Unknown</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies a description of the file you want to export.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Organization=Unknown</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies the name of the organization of the file you want to export.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Program Name=Unknown</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies the name of the program for the file you want to export.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the value for the path where the documents will be exported.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Units=Millimeters</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies the units of measurement for the part being exported. You can set the units
+                                 to millimeters, centimeters, inches, or meters.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Part Component Names as Unicode=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that when exporting an assembly that double byte characters are added to
+                                 the STEP file in Unicode format rather than the authoring ASCII character set.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Assembly Simplification=All Designed</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to check each part found in the assembly and use the design
+                                 body, if available, to create the STEP document.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Simplified parts=All Designed</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to check each part and use the design body, if available,
+                                 to create the STEP document.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export PMI=off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to export all part level product manufacturing information
+                                 (PMI) data to the STEP file being created. This option is only enabled when the <b>STEP protocol</b> is set to AP242. The AP242 protocol is used to generate machine-readable files.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Boolean Solids=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies you want to boolean all solid bodies together to form a disjoint solid and
+                                 insert it into PathFinder as a part copy. This option is on by default. &nbsp;If the option
+                                 is off, all solid bodies are added as individual part copies to PathFinder.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Check bodies=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to perform a full body check on the file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Curves=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the importing of curves.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Surfaces=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the importing of surfaces.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Faceted Bodies=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the importing of faceted or meshed bodies.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Solid Bodies=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the importing of solid bodies.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import DoNotSave</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls whether or not assembly components are created on import, or on the initial
+                                 save of the assembly.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Drive=C</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the drive where the documents for the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Enable Default Output Path=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that the translator use the defined “Import Output Path= as the location
+                                 to create the assembly part component files on import. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Imprint Curves=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to combine all curve data into a single part copy. It may
+                                 be to your advantage to identify the curves that you do not need and either hide or
+                                 delete them before importing the file. This option is on by default.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Make Base Feature=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to import the solid body as a design body.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Multiple Bodies As Single Part file=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of multiple solid bodies as a single part in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Output Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the path for the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Simplify Geometry=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of simplified geometry in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Stitch Surfaces=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want all surfaces and sheet bodies to be stitched to a tolerance
+                                 of 1.0e-5 meters. It may be to your advantage not to stitch the surfaces on import,
+                                 but to evaluate what needs to be stitched and perform the stitch after you import
+                                 the file. This option is on by default. &nbsp;If the stitching operation creates a valid
+                                 volume, the volume is converted to a solid.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import PMI=off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to import all product manufacturing information (PMI) data
+                                 from the STEP file into Solid Edge. The option is off by default.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import As Internal Components=off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Specifies that you want to import the non-Solid Edge file to Solid Edge as an internal
+                                 component when you open the file as an assembly. No files are created on disk and
+                                 the components are embedded within the file. The option is off by default.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Enable Logging=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Turns on or off the creation of the log file. The default is on.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Importing PMI</h4>
+                  <div>
+                     <p>You can use the <b>Import PMI</b> option on the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/stpexp3d" rel="stpexp3d">Import Options for STEP (.stp) dialog box</a> to specify that you want to import any part level PMI contained in the STEP AP242
+                        file to the Solid Edge file.</p>
+                     <p>There is also a corresponding <b>Import PMI</b> parameter in the <b>STEP.ini</b> file, which is set to off by default. Leaving the parameter set to off prevents part
+                        level PMI from being imported to the Solid Edge file. Setting the value to on imports
+                        all part level PMI contained in the STEP file to the Solid Edge file being created.
+                        </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The import of assembly level PMI is not supported.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/stpexp3d" rel="stpexp3d">Import Options for STEP (.stp) dialog box</a><br><br></div>
+            <div class="footer-content">Opening STEP Documents in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

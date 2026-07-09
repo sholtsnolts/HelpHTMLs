@@ -1,0 +1,171 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Apply a surface mesh to a sheet metal part</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Apply a surface mesh to a sheet metal part"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_mesh_sheetmetal01">
+                     <h1 class="topic-title">Activity: Apply a surface mesh to a sheet metal part</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Surface meshes are generally used in the analysis of very thin models; in this activity,
+                     you will apply a surface mesh to a sheet metal part.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_enclosure.psm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a study.</p>
+                        <p>All analyses must have an active study. No study exists for this part, so you will
+                           create one.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> tab→<b>Study</b> group, select <b>Tin</b> from the <b>Material List</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet02.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif">.</p>
+                           </li>
+                           <li>
+                              <p>For a sheet metal model, the <b>Mesh Type</b> defaults to <b>Surface</b>. From the <b>Study Type</b> list, choose <b>Linear Static</b> and click <b>OK</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_sheetm.gif"></p>
+                              <p>You can see the new study in the <b>Simulation</b> tab→<b>Study</b> group.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet05.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a mid-surface.</p>
+                        <p>Analysis of a sheet metal part (or any thin part) requires a mid-surface.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Geometry</b> group→<b>Mid-Surface</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_midsurface_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <b>Mid-Surface</b> command bar, do the following:</p>
+                              <ol type="A">
+                                 <li>
+                                    <p>Click <b>Offset From Side 1</b>.</p>
+                                 </li>
+                                 <li>
+                                    <p>Ensure <b>Offset Ratio</b> is set to <b>0.500</b>.</p>
+                                    <p>You can see that the part is automatically selected, and the mid-surface is displayed
+                                       in green</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet07.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p>Click the <b>Preview</b> button, and then click <b>Finish</b>.</p>
+                                 </li>
+                                 <li>
+                                    <p>Click <b>Cancel</b> to exit the command.</p>
+                                 </li>
+                                 <li>
+                                    <p>Zoom in on the model to see the mid-surface.</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet12.gif"></p>
+                                 </li>
+                              </ol>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Select the mid-surface.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Geometry</b> group→<b>Define</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_define_button_only_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the mid-surface as shown and click <b>Accept</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet10.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the enclosure. </p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Mesh</b> button.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet15_a.gif"></p>
+                              <p>The NX Nastran mesh processing starts and displays a progress meter.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_progress_dialog.png"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>In the absence of loads and constraints, you cannot solve the study, but you can mesh
+                                    the model.</p>
+                              </div>
+                           </li>
+                           <p>After a short period of time, the enclosure mid-surface displays with a surface mesh.
+                              </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet14.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Change the subjective mesh sizing.</p>
+                        <p>As with tetrahedral meshes, you can change the number of elements using the <b>Subjective mesh</b> slider.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Use the slider to change the mesh size to <b>1</b> and click <b>Mesh</b> again.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet16.gif"></p>
+                              <p>Notice the reduction in the number of elements.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet15.gif"></p>
+                           </li>
+                           <li>
+                              <p>Use the slider to change this to a value of <b>7</b>, click <b>Mesh</b> again, and review the results. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet17.gif"></p>
+                           </li>
+                           <ul>
+                              <li>
+                                 <p>Note that each increase in the number of elements requires an increase in time to
+                                    mesh the part.</p>
+                              </li>
+                              <li>
+                                 <p>An increase in the number of elements results in increased accuracy of the analysis;
+                                    however, you must decide whether this improvement in accuracy is worth the additional
+                                    processing time. </p>
+                              </li>
+                           </ul>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Activity: Apply a surface mesh to a sheet metal part, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

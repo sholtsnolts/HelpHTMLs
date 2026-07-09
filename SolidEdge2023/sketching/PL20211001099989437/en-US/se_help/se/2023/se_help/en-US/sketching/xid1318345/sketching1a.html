@@ -1,0 +1,172 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Drawing synchronous sketches of parts</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Drawing synchronous sketches of parts"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="sketching1a">
+                     <h1 class="topic-title">Drawing synchronous sketches of parts</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You draw synchronous <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/sketch" rel="sketch">sketches</a> to establish the basic shape requirements of a part before you construct any features.
+                     </p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/training/bj_sketching_sketching3d.gif"></p>
+                  <p>You can draw a synchronous sketch on a principal plane of the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/base_coordinate_system" rel="base_coordinate_system">base coordinate system</a>, a planar face on the model, or a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/reference_plane" rel="reference_plane">reference plane</a>. You can then use these sketches to create sketch-based features, such as extruded
+                     features which add or remove material.</p>
+                  <h4 class="division-title" id="sketching1a_regions">Sketch regions</h4>
+                  <div>
+                     <p>In a part or sheet metal document, when you draw 2D sketch elements that form a closed
+                        area, the closed area is automatically displayed as a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/sketch_region" rel="sketch_region">sketch region</a> (1). When working in a shaded view, the closed region also displays as shaded.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/bj_sketchregion2.gif"></p>
+                     <p>Sketch regions are formed automatically when a series of sketch elements close on
+                        themselves (1), or when sketch elements and one or more model edges form a closed
+                        area (2).</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/bj_sketchregion1.gif"></p>
+                     <ul>
+                        <li>
+                           <p>You can use closed sketch regions to construct features with the <b>Select</b> tool. When you select a closed region, the protrusion feature command starts. </p>
+                        </li>
+                        <li>
+                           <p>To use an open sketch, choose a protrusion command (<b>Extrude</b> or <b>Revolve</b>) in the <b>Solids</b> group, which requires a step to define the material side of the open sketch.</p>
+                        </li>
+                     </ul>
+                     <p>As you draw, you may want to disable sketch regions. You can do this by clearing the
+                        <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/regionenable1c" rel="regionenable1c">Enable Regions command</a>, which is located on the shortcut menu when you select a sketch in <b>PathFinder</b>. You can select the command a second time to turn region selection on again. The
+                        <b>Enable Regions</b> command is not available in an assembly document.</p>
+                     <p>By default, all sketch geometry placed on a sketch plane merges into a single sketch.
+                        This is controlled by the sketch option <b>Merge with Coplanar Sketches</b>. If separate sketches are required on a sketch plane, the <b>Merge with Coplanar Sketches</b> option can be turned off. </p>
+                  </div>
+                  <h4 class="division-title">Using sketches to construct features</h4>
+                  <div>
+                     <p>When you use a sketch to construct a feature in a part or sheet metal document, by
+                        default the sketch elements are consumed and transferred to the <b>Used Sketches</b> collection in <b>PathFinder</b>. The dimensions on the sketch are migrated to the appropriate model edges when possible.</p>
+                     <p>Any remaining sketch geometry not consumed remains in the <b>Sketches</b> collector.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/bj_sketchcoord4.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>After you construct a feature in a synchronous model, the original sketch geometry
+                           does not drive the feature.</p>
+                     </div>
+                     <p>You can use the <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketchenable1c" rel="sketchenable1c">Migrate Geometry and Dimensions </a> command on the shortcut menu when a sketch is selected in <b>PathFinder</b> to control whether sketch elements are consumed and dimensions are migrated when
+                        you construct features using the sketch.</p>
+                  </div>
+                  <h4 class="division-title">Synchronous sketches locked to faces</h4>
+                  <div>
+                     <p>A synchronous sketch drawn on a model face is automatically locked to the face. As
+                        the face moves, the sketch moves with the face. By default, the <b>Maintain Sketch Planes</b> option on the Advanced Design Intent panel is on. See <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relateman1d" rel="relateman1d">Using the Advanced Design Intent panel</a> for more information.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/sketch_filter.gif"></p>
+                     <p>To unlock the sketch from the model face, turn off the <b>Maintain Sketch Planes</b> option in the Advanced Design Intent panel.</p>
+                     <p>If a sketch is drawn on a model face that is coplanar to a base reference plane, the
+                        sketch is not locked to the model face.</p>
+                  </div>
+                  <h4 class="division-title">Sketching and PathFinder</h4>
+                  <div>
+                     <p>The sketches you draw are listed in <b>PathFinder</b>. <b>PathFinder</b> also lists the base coordinate system, PMI dimensions, the base reference planes,
+                        features you construct, and used sketches.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/sketching/creating_editing_sketches/bj_sketchaids.gif"></p>
+                     <p>You can display or hide individual sketches or all the sketches in the document using
+                        the check box options in <b>PathFinder</b> and commands on the <b>PathFinder</b> shortcut menu.</p>
+                     <p>When a sketch name is selected in <b>PathFinder</b>, you can use shortcut commands to:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching6h" rel="sketching6h">Delete a sketch.</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching8h" rel="sketching8h">Cut, copy, and paste a sketch.</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching9h" rel="sketching9h">Rename a sketch.</a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Editing sketches</h4>
+                  <div>
+                     <p>You can move and resize sketch elements using the <b>Select</b> tool. You also can edit sketch elements using commands such as <b>Extend To Next</b>, <b>Trim</b>, <b>Mirror</b>, <b>Scale</b>, <b>Rotate</b>, and <b>Stretch</b>. With these commands, you select the command first, then follow the prompts to edit
+                        the sketch elements you want.</p>
+                  </div>
+                  <h4 class="division-title">Moving sketches</h4>
+                  <div>
+                     <p>Sometimes you may want to move or rotate an entire sketch to a new position in space.
+                        By default, when you use the Select tool to select sketch elements in the graphics
+                        window, only a sketch region or the selected sketch element is selectable.</p>
+                     <p>To select an entire sketch, you can select the sketch entry in <b>PathFinder</b>, or you can use QuickPick <img class="img-fluid" src="../../../common/nonLocalized/se/user_interface/select/qpright1.gif"> to select the sketch in the graphics window.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/sketching/creating_editing_sketches/bj_sketchqp1.gif"></p>
+                     <p>You can then use the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/steering_wheel" rel="steering_wheel">steering wheel</a> to move or rotate the sketch to a new position in space.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/bj_sketchqp2.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To make the move shown, turn off the Coplanar setting on the Design Intent panel or
+                           the Advanced Design Intent. If not, the face and sketch move together because they
+                           are coplanar.</p>
+                     </div>
+                     <p>If the sketch moves such that it becomes coplanar to another sketch, the two sketches
+                        combine into one sketch, unless the <b>Merge Coplanar Sketches</b> command is cleared for one of the sketches.</p>
+                     <p>For more information about moving synchronous sketches, see the following topics:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/move_sketch_003" rel="move_sketch_003">Workflow for moving or copying a sketch</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/move_sketch_006" rel="move_sketch_006">Workflow for a synchronous 3D move or rotate of sketch elements</a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Sketches and associativity</h4>
+                  <div>
+                     <p>Sketch geometry is not directly associative to the plane or face on which it is drawn.
+                        If you move the plane or face on which the sketch is drawn, the sketch geometry does
+                        not move unless it is also in the select set. This does not apply to sketches drawn
+                        on the principal planes of the base coordinate system or the base reference planes,
+                        as these planes are fixed in space.</p>
+                     <p>You can apply 2D geometric relationships between sketch elements and model edges.
+                        If the model edges move, the sketch elements and geometric relationships update.</p>
+                  </div>
+                  <h4 class="division-title">Restoring sketches</h4>
+                  <div>
+                     <p>To restore a sketch to its original location on the model, use the <a class="xref" data-handle="user_interface" href="/en-US/product/246738425/doc/PL20211001099989437.user_interface/html/restore1c" rel="restore1c">Restore command</a> on the shortcut menu when a used sketch is selected. This can be useful if you want
+                        to use the sketch to construct another feature elsewhere on the model or if you deleted
+                        the feature that the used sketch described.</p>
+                     <p>See the Help topic, <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching7h" rel="sketching7h">Restore a used sketch</a>.</p>
+                  </div>
+                  <h4 class="division-title">Projecting elements onto a sketch</h4>
+                  <div>
+                     <p>You can use the <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb1c" rel="incldb1c">Project to Sketch command</a> on the <b>Sketching</b> tab to project model edges or sketch elements onto the current sketch plane. The
+                        sketch elements you project are <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associative</a> to the parent element. If the parent element is modified, the projected element updates.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/using_project_to_sketch.png"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The associative link between the parent element and the projected element is discarded
+                           when you construct a feature using the projected elements.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb1h" rel="incldb1h">Project part edges onto a sketch</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/peerloc1h" rel="peerloc1h">Change peer edge locatability</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/silhouetteedge1h" rel="silhouetteedge1h">Change silhouette edge locatability</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching6h" rel="sketching6h">Delete a sketch or sketch elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching9h" rel="sketching9h">Rename a sketch</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/tearoff1h" rel="tearoff1h">Copy or move a sketch to another reference plane</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/pshsktch1h" rel="pshsktch1h">Copy a sketch to another document</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktch1a" rel="sktch1a">Using ordered sketches to create ordered features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318119" rel="xid1318119">Using sketches in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318146" rel="xid1318146">Editing sketch elements</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching3c" rel="sketching3c">Rename command</a><br><br></div>
+            <div class="footer-content">Drawing synchronous sketches of parts, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

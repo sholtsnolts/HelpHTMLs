@@ -1,0 +1,191 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Thermal analysis</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Thermal analysis"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1655947">
+                     <h1 class="topic-title">Thermal analysis</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">When to use thermal analysis</h4>
+                  <div>
+                     <p>Thermal analysis provides answers to thermal questions related to structural design.
+                        Common thermal analysis validation includes whether any part of a design will overheat
+                        during operation; whether thermal stresses will cause a design to fail and when; and
+                        whether the material used in the design will cause excessive deformation due to heating
+                        and cooling. Thermal analysis enables you to simulate the conditions under which these
+                        problems can occur, and it provides data showing how your design will react. </p>
+                     <p>You can use Solid Edge Simulation for several types of thermal analysis: linear heat
+                        transfer analysis, transient heat transfer analysis, and thermal stress analysis.</p>
+                  </div>
+                  <h4 class="division-title">Heat transfer analysis</h4>
+                  <div>
+                     <p>Heat transfer is the most frequently used type of thermal analysis, as it analyzes
+                        the effects of heat flow due to temperature changes, and the stress and deformation
+                        that the temperature changes cause. Heat flow can be caused by conduction, convection,
+                        and radiation. </p>
+                     <p>Heat transfer can occur during a steady-state condition, as linear heat transfer,
+                        or over time, with transient analysis. Material properties, heat transfer coefficients,
+                        and heat flux can be temperature-dependent. Flow conditions can be set for forced
+                        convection, view factor calculations performed for radiation analysis, as well as
+                        many other factors, which help determine a system’s behavior when thermal conditions
+                        are involved. </p>
+                     <p>Problems which do not involve radiation or temperature-dependent properties and boundary
+                        conditions are linear. Problems which do include these features are nonlinear. </p>
+                     <p>Solid Edge Simulation provides two types of heat transfer studies: </p>
+                     <ul>
+                        <li>
+                           <p>For linear heat transfer analysis, choose the <b>Steady State Heat Transfer</b> study type on the <b>Create Study</b> dialog box.</p>
+                        </li>
+                        <li>
+                           <p>For transient heat analysis, choose the <b>Transient Heat Transfer</b> study type on the <b>Create Study</b> dialog box.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Thermal stress analysis</h4>
+                  <div>
+                     <p>Thermal stress analysis calculates stresses, strains, and displacements due to thermal
+                        effects. You can apply thermal stress analysis using <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">coupled studies</a>. A coupled study combines thermal analysis with structural analysis, and manages
+                        the inputs, processing, and outputs within a single study.</p>
+                     <p>In Solid Edge Simulation, you can apply thermal stress analysis by selecting either
+                        of these study types in the <b>Create Study</b> dialog box:</p>
+                     <ul>
+                        <li>
+                           <p><b>Steady State Heat Transfer + Linear Static</b> </p>
+                        </li>
+                        <li>
+                           <p><b>Steady State Heat Transfer + Linear Buckling</b></p>
+                        </li>
+                     </ul>
+                     <p>In addition to the thermal distribution plots (1) that are generated by the steady
+                        state heat transfer processing step, a coupled study produces displacement (2) and
+                        stress (3) results caused by the temperature load. A thermal coupled study also shows
+                        the X, Y, Z, offset results of the temperature applied to the deformed model.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/study/ssht_coupled1.gif"></p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/study/ssht_coupled23.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="ht_methods">Heat transfer concepts</h4>
+                  <div>
+                     <p>Heat transfer occurs primarily through conduction, convection, and radiation. </p>
+                     <dl>
+                        <dt><b>Conduction</b></dt>
+                        <dd class="ml-3">
+                           <p>Conduction is the heat transfer from one body (or part of a body) at a higher temperature
+                              which is in contact with another body (or part of a body) at a lower temperature.
+                              The better the conductor, the faster the heat will transfer. </p>
+                           <p>The main factors governing thermal conduction in a material are its molecular structure
+                              and temperature. </p>
+                           <ul>
+                              <li>
+                                 <p>Good conductors include Copper, Silver, Iron, and Steel.</p>
+                              </li>
+                              <li>
+                                 <p>Poor Conductors (Insulators) include Wood, Paper, Styrofoam, and Air. </p>
+                              </li>
+                           </ul>
+                        </dd>
+                        <dt><b>Convection</b></dt>
+                        <dd class="ml-3">
+                           <p>Convection is the up and down movement of gases and liquids caused by heat transfer.
+                              As a gas or liquid is heated, it warms, expands, and rises because it is less dense.
+                              When the gas or liquid cools, it becomes denser and falls. As the gas or liquid warms
+                              and rises, or cools and falls, it creates a convection current. Convection is the
+                              primary method by which heat moves through gases and liquids. </p>
+                           <ul>
+                              <li>
+                                 <p>Forced convection occurs when the fluid is in motion due to an external source (for
+                                    example a fan). </p>
+                              </li>
+                              <li>
+                                 <p>Free or natural convection occurs when the fluid is in motion due to density variations
+                                    generated by temperature differences. </p>
+                                 <p></p>
+                              </li>
+                           </ul>
+                        </dd>
+                        <dt><b>Radiation</b></dt>
+                        <dd class="ml-3">
+                           <p>When electromagnetic waves travel through space, it is called radiation. When electromagnetic
+                              waves come in contact with an object, the waves transfer the heat to that object.
+                              </p>
+                           <p>Electromagnetic waves travel through empty space, so they do not require the presence
+                              of a material or medium. The sun warms the earth through the radiation of electromagnetic
+                              waves. </p>
+                           <p>All heated solids and liquids, as well as some heated gasses, emit thermal radiation.
+                              </p>
+                           <p>Radiation is emitted and absorbed through changes in the energy states of atomic nuclei
+                              and electrons. </p>
+                           <p>Thermal radiation is of the same nature as visible light, x-rays, and radio waves,
+                              but differs in wave length and source. </p>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title">Thermal material properties</h4>
+                  <div>
+                     <p>Thermal material properties considered by the NX Nastran solver during thermal analysis
+                        include thermal conductivity, density, constant pressure specific heat, dynamic viscosity,
+                        and internal heat generation. These must be defined in the Solid Edge <b>Material Table</b> for the material used in your design. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>These are the material properties defined for Stainless Steel in the <b>Material Table</b>.</p>
+                        <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/units/material_table_properties_stainless_steel.png"></p>
+                     </div>
+                     <dl>
+                        <dt><b>Conductivity</b></dt>
+                        <dd class="ml-3">
+                           <p>Thermal conductivity is an intrinsic property of all materials and provides the proportionality
+                              constant between the flow of heat through a solid and the temperature gradient maintained
+                              across the solid (Fouriers Law). Thermal conductivity is generally a mild function
+                              of temperature, decreasing with increasing temperature for solids, and generally increasing
+                              with increasing temperature for liquids and gases. Additionally, within a solid, thermal
+                              conductivity can vary due to material orientation (anisotropy). Preferential paths
+                              for heat flow can result. NX Nastran allows for temperature-dependent and direction-dependent
+                              thermal conductivity.</p>
+                        </dd>
+                        <dt><b>Specific Heat and Heat Capacitance</b></dt>
+                        <dd class="ml-3">
+                           <p>Specific Heat is another intrinsic material property. When multiplied by the volume
+                              and density of material, the quantity of interest is referred to as heat capacitance.
+                              Given a closed thermodynamic system, heat capacitance provides the proportionality
+                              constant between heat added or subtracted from the system, and the resultant temperature
+                              rise or fall of the system (dq=C*dt). Since heat capacitance only multiplies the time
+                              derivative of temperature in the heat conduction equation, specific heat is only relevant
+                              in the solution of transient thermal problems. Specific heat is also slightly temperature-dependent.</p>
+                        </dd>
+                     </dl>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To make material properties temperature-dependent for a dynamic study, you must first
+                           create a temperature function using the <b>Create Function</b> command, and then associate the function with the appropriate material constant using
+                           the <b>Edit Material</b> command.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Thermal analysis, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

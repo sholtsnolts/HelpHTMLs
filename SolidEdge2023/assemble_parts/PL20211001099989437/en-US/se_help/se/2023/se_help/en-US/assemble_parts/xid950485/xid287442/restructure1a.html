@@ -1,0 +1,198 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Restructuring assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Restructuring assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="restructure1a">
+                     <h1 class="topic-title">Restructuring assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge contains commands that allow you to change the structure of an existing
+                     assembly.</p>
+                  <p>The <b>Transfer</b> command transfers parts and subassemblies from one assembly to another. &nbsp;You can
+                     transfer these parts and subassemblies to any level of the assembly that can be seen
+                     from the top-level assembly that is open. &nbsp;You can also use the<b> Create New Subassembly</b> dialog box to create a new subassembly for the transferred files. To access the <b>Create New Subassembly</b> dialog box, on the <b>Transfer to Assembly Level</b> dialog box, click the <b>New Subassembly</b> button.</p>
+                  <p>The <b>Disperse</b> command transfers the parts in a subassembly to the next highest subassembly and
+                     deletes the reference to the subassembly. &nbsp;The command disperses only the top-level
+                     occurrence of a subassembly. For example, if a subassembly exists as an occurrence
+                     within the assembly being dispersed, the subassembly remains unchanged, but is moved
+                     up to the next higher assembly level.</p>
+                  <p>To change the order of the files within an assembly, you can drag and drop parts in
+                     the <b>PathFinder</b>.</p>
+                  <h4 class="division-title">Transferring parts between assemblies</h4>
+                  <div>
+                     <p>You can use the <b>Transfer</b> command to transfer assembly files, parts containing <b>Inter-Part</b> relationships, tube parts, and pattern parts.&nbsp;It is important that you understand
+                        how Solid Edge handles these transfers so you can avoid possible problems.</p>
+                     <p>When transferring parts, it is very important that you have write access to all of
+                        the part and assembly files involved in the transfer.</p>
+                     <p>Solid Edge handles relationships during transfers just like it would if you deleted
+                        a part from one subassembly and added it to another. It attempts to re-establish each
+                        positioning relationship exactly like it was before the transfer, with reference to
+                        the same reference part. If the reference part remains in the assembly tree below
+                        its new location, the relationship should be successfully re-established. If the reference
+                        part is not below the transferred part's new location, it will not be converted into
+                        a non-positioning relationship and the relationship is removed. &nbsp;You will not receive
+                        warnings for affected relationships during transfers, so you should be very careful
+                        when transferring parts with relationships. You might choose to add positioning relationships
+                        to any occurrence that becomes underconstrained after its transfer.</p>
+                     <p>If you transfer a part that is a parent of an <b>Inter-Part</b> relationship, the link is broken, but not deleted. <b>Inter-part Manager</b> will show the <b>Inter-Part</b> link as broken, just as if the parent part was deleted from the assembly. You will
+                        not receive a warning when the parent part is deleted. &nbsp;You must understand the relationship
+                        dependencies within your assembly so that you can avoid breaking links when you transfer
+                        parts. You will be warned if you transfer a part that is <b>Inter-Part</b> child. &nbsp;If you continue with the transfer, the link will be broken and automatically
+                        deleted by the command.</p>
+                     <p>Pasted variable links will remain intact during transfer as long as both the parent
+                        and child remain anywhere in the assembly.</p>
+                     <p>If you transfer a tube part containing the port that defines a path, the link will
+                        be deleted and you will not receive a warning message. If you transfer a part containing
+                        a port to a level above the assembly containing the tube path, the tube path becomes
+                        nonassociative to the part and you will not receive a warning message.</p>
+                     <p>If you transfer a part containing a feature pattern that drives the assembly pattern,
+                        the pattern disappears and you will not receive a warning message.</p>
+                  </div>
+                  <h4 class="division-title">Transferring parts to a new subassembly</h4>
+                  <div>
+                     <p>Solid Edge allows you to create a new subassembly for parts you want to transfer.
+                        The <b>New Subassembly</b> button on the <b>Transfer to Assembly Level</b> dialog box accesses &nbsp;the <b>Create New Subassembly</b> dialog box. You can use this dialog box to specify a template, file name and location
+                        for the new database. You can also use the dialog box to define the position of the
+                        transferred parts in the new subassembly.</p>
+                     <p>You have two options when defining the part position.</p>
+                     <ul>
+                        <li>
+                           <p><b>Position First Selected Part at Origin</b> and <b>Others Relative to It</b></p>
+                        </li>
+                        <li>
+                           <p><b>Maintain Current Offsets From Assembly Origin</b></p>
+                        </li>
+                     </ul>
+                     <p>The first option specifies that if the new subassembly is opened outside of the parent
+                        assembly, the parts will be positioned relative to the global reference planes so
+                        that when you fit the view, the parts will not be remote from the reference planes.
+                        This option provides results similar to creating a new assembly with existing parts.
+                        For example, when you create a new assembly and drag the first part in from <b>Parts Library</b>, it is grounded at the origin of the assembly file. The subassembly is then positioned
+                        as a whole within the upper-level assembly.</p>
+                     <p>The second option specifies that you want to position everything relative to a single
+                        global origin. After the new subassembly is created, if you open the subassembly outside
+                        of the parent assembly and the fit the view, the parts might be remotely located from
+                        the global reference planes.</p>
+                  </div>
+                  <h4 class="division-title">Transferring part occurrences between subassemblies</h4>
+                  <div>
+                     <p>If you transfer a part from one subassembly to another and there are multiple occurrences
+                        of one or both of the subassemblies within the assembly structure, it is very likely
+                        that the instances of the transferred occurrence will change. For example, if a part
+                        in subassembly A, which occurs only once, is transferred into subassembly B that occurs
+                        five times, the effect is that four instances of the transferred occurrence is added.
+                        Likewise, if there are more occurrences of the source subassembly than there are of
+                        the target subassembly, the number of occurrences instead could be reduced.</p>
+                  </div>
+                  <h4 class="division-title">Things to consider when transferring parts</h4>
+                  <div>
+                     <p>There are several things you need to consider when transferring parts.&nbsp;It is important
+                        that you understand how Solid Edge handles these situations so you get the desired
+                        results from your transfer.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Occurrence numbers</h5>
+                           <p>The occurrence number of a occurrence after its transfer into the target assembly
+                              is the next consecutive number available for the file name that is transferred.&nbsp;If
+                              you transfer more than one of the same file name occurrences at the same time, the
+                              number that is assigned to each occurrence in the target assembly is determined by
+                              the order in which they are numbered in the source assembly.</p>
+                        </li>
+                        <li>
+                           <h5>Display configurations</h5>
+                           <p>Existing <b>Display Configurations</b> become invalid as parts are removed or added during part transfer.</p>
+                        </li>
+                        <li>
+                           <h5>Face styles of transferred parts</h5>
+                           <p>If you transfer a part into a target assembly that contains a style that is assigned
+                              to the part in the source assembly, you must reapply the style after the transfer.&nbsp;If
+                              the target assembly does not contain the style assigned to the part in the source
+                              assembly, the part is assigned the Aluminum style.</p>
+                        </li>
+                        <li>
+                           <h5>Explode configurations</h5>
+                           <p><b>Explode Configurations</b> become invalid as parts are removed or added during part transfer. In the Draft environment,
+                              drawing views will go out-of-date when parts are removed or added from the configuration.</p>
+                        </li>
+                        <li>
+                           <h5>Groups</h5>
+                           <p>Groups are not maintained during part transfer. Solid Edge handles the transfer of
+                              groups the same as if the part was manually deleted from or added to the source assembly.</p>
+                        </li>
+                        <li>
+                           <h5>3D section views</h5>
+                           <p>Since 3D section views contain a list of parts that are cut, they are affected during
+                              transfer. Solid Edge handles the transfer of 3D section views the same as if the part
+                              was manually deleted from or added to the source assembly.</p>
+                        </li>
+                        <li>
+                           <h5>Sensors</h5>
+                           <p>Sensors are not maintained during part transfer. Solid Edge handles the transfer of
+                              sensors the same as if the part was manually deleted from or added to the source assembly.</p>
+                        </li>
+                        <li>
+                           <h5>Motion joints</h5>
+                           <p>Motion joints are not maintained during part transfer. Solid Edge handles the transfer
+                              of motion joints the same as if the part was manually deleted from or added to the
+                              source assembly.</p>
+                        </li>
+                        <li>
+                           <h5>Physical properties</h5>
+                           <p><b>Physical Properties</b> are not maintained during part transfer. Solid Edge handles the transfer of physical
+                              properties the same as if the part was manually deleted from or added to the source
+                              assembly.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Dispersing subassemblies</h4>
+                  <div>
+                     <p>You can use the <b>Disperse</b> command to disperse a subassembly by reassigning the parts to the next highest subassembly
+                        and removing the reference to the existing subassembly. The command will disperse
+                        only the top-level occurrence of a subassembly. For example, if a subassembly exists
+                        as an occurrence within the assembly being dispersed, the subassembly remains unchanged,
+                        but is moved up to the next higher assembly level.</p>
+                     <p>The command does not modify the dispersed subassembly on the disk. The part occurrences
+                        are copied to the next higher level and the reference to the subassembly is deleted.
+                        When you save the top-level assembly, since it is no longer in the assembly structure,
+                        the dispersed subassembly occurrence is not saved.</p>
+                     <p>If the subassembly being dispersed contains a pattern, the parts of the pattern are
+                        placed at the proper location in the next higher level and a ground constraint is
+                        placed on each of the parts. The parts will not be grouped in the <b>PathFinder</b> under a pattern node, but will be ordered the same in the next higher assembly.</p>
+                     <p>If you disperse a subassembly containing a tube part, the tube part and other parts
+                        are transferred to the next higher level, but the dispersed subassembly on the disk
+                        is not affected. Therefore, the tube part is still associative to the path when you
+                        open the subassembly stored on the disk.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/transfer2h" rel="transfer2h">Transfer parts to a new subassembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/transfer1h" rel="transfer1h">Transfer parts to an existing assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/disperse1h" rel="disperse1h">Disperse parts in a subassembly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/transfer1c" rel="transfer1c">Transfer command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/disperse1c" rel="disperse1c">Disperse command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/transfer2d" rel="transfer2d">Transfer to Assembly Level Dialog Box</a><br><br></div>
+            <div class="footer-content">Restructuring assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,114 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Generative Design example</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Generative Design example"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1340170">
+                     <h1 class="topic-title">Generative Design example</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The following Generative Design example shows the basic steps used to create a mass-optimized
+                     solution for the selected model. The resulting shape is based on the geometry selected
+                     as the design space, subject to physical loads, operational constraints, and manufacturing
+                     requirements that are applied to the study.</p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>A swivel mount for a telescope will be optimized by removing 15 percent of the initial
+                        mass.</p>
+                     <p><img class="img-fluid" src="../../common/nonLocalized/se/generative_design/ex_01.png"></p>
+                  </div>
+                  <p>Refer to the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a>.</p>
+                  <ol type="1">
+                     <li>
+                        <p>To define the material for the mount, choose <b>Generative Design</b> tab→<b>Material</b> group→<b>Material</b> command. </p>
+                        <p>Aluminum 1060 is the material used for the mount.</p>
+                     </li>
+                     <li>
+                        <p>To initiate a generative study to optimize mass for your model, choose <b>Generative Design</b> tab→<b>Generative Study</b> group→<b>Create Generative Study</b> command <img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/create_study_cmd.png">. </p>
+                        <p>You can use this command to explore different optimization approaches on the same
+                           model.</p>
+                     </li>
+                     <li>
+                        <p>If more than one body exists, select the <b>Design Space</b> command <img class="img-fluid" style="max-height: 1.6875rem;" src="../../common/nonLocalized/se/generative_design/define_body_icon.png"> to specify which body to optimize. In this example there is only one body.</p>
+                     </li>
+                     <li>
+                        <p>Use the <b>Preserve Region</b> command <img class="img-fluid" style="max-height: 1.6875rem;" src="../../common/nonLocalized/se/generative_design/preserve_regions_icon.png"> to define the volume of material that will be excluded from the optimization. An
+                           offset value for a face or feature defines the depth of the regions to be preserved.
+                           </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>The offset value is 5 mm.</p>
+                           <p><img class="img-fluid" src="../../common/nonLocalized/se/generative_design/ex_02.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>You can prevent overhanging material and remove internal voids using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371438" rel="xid1371438">Manufacturing Settings</a> command <img class="img-fluid" style="max-height: 1.6875rem;" src="../../common/nonLocalized/se/generative_design/manufacturing_settings_icon.png">. In this example there is no need for these settings. </p>
+                     </li>
+                     <li>
+                        <p>Apply one or more physical forces, such as a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340176" rel="xid1340176">Force load</a>, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371440" rel="xid1371440">Pressure load</a>, or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371446" rel="xid1371446">Torque load</a>. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>A downward force of 60000 mN will be applied to the cylindrical holes in the mount.
+                              The offset value is 1 mm, however a larger volume was preserved with the <b>Preserve Region</b> command used earlier.</p>
+                           <p><img class="img-fluid" src="../../common/nonLocalized/se/generative_design/ex_03.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Apply operational constraints to faces or features that will not move, for example,
+                           using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340178" rel="xid1340178">Fixed constraint</a> or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389708" rel="xid1389708">Pinned constraint</a> commands. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>In this example the bottom and side faces of the bottom plate are fixed.</p>
+                           <p><img class="img-fluid" src="../../common/nonLocalized/se/generative_design/ex_04.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Select the <b>Generate</b> command <img class="img-fluid" style="max-height: 1.6875rem;" src="../../common/nonLocalized/se/topology_optimization/generate_command_gd.png"> to optimize the part. In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1390024" rel="xid1390024">Generate Study dialog box</a>: </p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>Set the <b>Study Quality</b> to <b>20</b> on a scale of 1-300, with 300 being high.</p>
+                           </li>
+                           <li>
+                              <p>Set the mass reduction to <b>15</b> percent.</p>
+                           </li>
+                        </ol>
+                        <p>For this study, the allowable stress is the same as the yield stress for Aluminum
+                           1060.</p>
+                     </li>
+                     <li>
+                        <p>The results are displayed along with the values used for the study. Select the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389713" rel="xid1389713">Show Stress</a> command to display the stresses.</p>
+                        <p><img class="img-fluid" src="../../common/nonLocalized/se/generative_design/ex_05.png"></p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389865" rel="xid1389865">Generative Design overview</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1446066" rel="xid1446066">Setting Generative Design defaults</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1417631" rel="xid1417631">Generative Design licenses</a><br><br></div>
+            <div class="footer-content">Generative Design example, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

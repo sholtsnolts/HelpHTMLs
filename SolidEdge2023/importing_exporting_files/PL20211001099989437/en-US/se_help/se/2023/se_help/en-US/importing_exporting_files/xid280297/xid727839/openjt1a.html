@@ -1,0 +1,242 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Opening JT documents in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Opening JT documents in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="openjt1a">
+                     <h1 class="topic-title">Opening JT documents in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can open JT documents in Solid Edge assembly, part, or sheet metal with the <b>Open</b> command. On the <b>Open File</b> dialog box, after you select the JT (.jt) document you want to open, click the <b>Options</b> button to display the <b>Import Options for JT Documents (.jt)</b> dialog box. The jt document will always contain mesh data, but you can use the dialog
+                     box to add wire and solid data to the document.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When importing assemblies containing more than 600 to 700 part files you need to set
+                        the value of the Import DoNotSave=On parameter in the translators .ini file to Off.
+                        The Import DoNotSave parameter controls whether the Solid Edge part files are created
+                        during the translation, or on the initial save of the assembly file. Setting this
+                        value to off may take longer to translate but will consume less memory.</p>
+                  </div>
+                  <p>Solid Edge supports the following JT document structures:</p>
+                  <ul>
+                     <li>
+                        <p>Monolithic—Produces a single JT document, which can contain a single part, an assembly,
+                           and assembly structure information.</p>
+                     </li>
+                     <li>
+                        <p>Per_Part—Produces a JT document containing an assembly structure and a folder containing
+                           the jt part documents.</p>
+                     </li>
+                     <li>
+                        <p>Full_Shatter—Produces a JT document for each node in the assembly document.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Importing PMI</h4>
+                  <div>
+                     <p> You can import PMI in a JT part or assembly file using the<b> Import PMI</b> option on the <b>Import Options for JT</b> dialog box. </p>
+                     <p>There are two parameters in the <b>SEPvTrn.ini</b> and <b>SEECtoJT.ini</b> files that support the import of PMI:</p>
+                     <ul>
+                        <li>
+                           <p>Import PMI—Controls the import of PMI. The default value is 1, which imports both
+                              Semantic and Symbolic PMI into Solid Edge. You can change the value to 0 to disable
+                              the import of PMI during import.</p>
+                        </li>
+                        <li>
+                           <p>Import PMI as Symbolic PMI—Defines how Semantic PMI is imported. The default value
+                              is 0, which imports all PMI as Symbolic PMI. You can change the value to 1 to import
+                              any Semantic PMI as True PMI in Solid Edge. All PMI that is not supported by a semantic
+                              representation is imported as Symbolic PMI if the parameter is set to 1.</p>
+                        </li>
+                     </ul>
+                     <p>When importing PMI:</p>
+                     <ul>
+                        <li>
+                           <p>You can import PMI in both the ordered and synchronous environments.</p>
+                        </li>
+                        <li>
+                           <p>When importing PMI into the synchronous environment the PMI is created as unlocked.
+                              </p>
+                        </li>
+                        <li>
+                           <p>When importing PMI into the ordered environment the PMI is created as Reference PMI.</p>
+                        </li>
+                        <li>
+                           <p>Dangling PMI is permitted for both synchronous and ordered and is placed as Failed
+                              PMI.</p>
+                        </li>
+                        <li>
+                           <p>PMI will be imported with or without model view information, and will follow the same
+                              rules as any PMI placed in a native Solid Edge document.</p>
+                        </li>
+                        <li>
+                           <p>Assembly PMI is supported as simple lines text (Symbolic PMI).</p>
+                        </li>
+                        <li>
+                           <p>PMI found in a JT file that contains only meshed data, no precise geometry, is imported
+                              into Solid Edge as Symbolic PMI only.</p>
+                        </li>
+                        <li>
+                           <p>Linked or associative JT files with PMI are not supported. In the ordered environment,
+                              if you use the <b>Insert Part Copy</b> command with the Link to file option on the <b>Part Copy Parameters</b> dialog box enabled, a warning message indicates that the PMI cannot be imported with
+                              the option enabled. If you have the CreateAssociativePartsInAssembly parameter set
+                              to 1 and attempt to open a part or assembly file containing associative links, a warning
+                              message indicates that no PMI will be translated.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Importing mesh bodies</h4>
+                  <div>
+                     <p>You can import mesh bodies into Solid Edge Part and Assembly. A mesh body is a surface
+                        representation defined by triangles.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/translators/conceptual/facet1.gif"></p>
+                     <h5>Rules for mesh bodies</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p> When you import a JT mesh body, it is stored in Solid Edge as a non-Parasolid body.
+                              The mesh body is displayed in Feature <b>PathFinder</b> as a part copy. However, since the mesh part copy is a non-Parasolid body, the rules
+                              are different than those for a normal part copy.</p>
+                        </li>
+                     </ul>
+                     <ul>
+                        <li>
+                           <p>When a mesh body is imported into Solid Edge Part, it is placed and treated as the
+                              base feature, but it is not considered a design body since no material can be added
+                              or removed from this type of feature.</p>
+                        </li>
+                        <li>
+                           <p>Multiple mesh bodies can exist in a part file as constructions. Only one of the mesh
+                              part copies can be converted to a base feature in a document. Any other mesh bodies
+                              are treated as constructions.</p>
+                        </li>
+                        <li>
+                           <p>A document can contain both a mesh part copy and design body (BREP). If a document
+                              contains both, only one can be converted to a base feature. Any other mesh bodies
+                              are treated as constructions.</p>
+                        </li>
+                        <li>
+                           <p>You cannot modify a mesh part copy. If a multi-body mesh JT files is imported into
+                              part, only one entry is added to the Feature <b>PathFinder</b>, and the multi-body mesh is treated as a single entity. </p>
+                        </li>
+                        <li>
+                           <p> A mesh body from a JT files can be added to a Solid Edge document with either the<b> Insert Part Copy</b> command or the <b>File Open</b> command. </p>
+                        </li>
+                        <li>
+                           <p>You cannot locate edges, or vertices of a meshed body. You can only locate the entire
+                              body.</p>
+                        </li>
+                        <li>
+                           <p> Commands that require faces, edges, or vertices as input will simply fail when trying
+                              to locate the faces, vertices or edges of a meshed body. For example, when drawing
+                              a sketch, the <b>Sketch</b> command will not locate faces, edge, and vertices of a meshed body. When the Solid
+                              Edge part file contains a mesh body, any commands that only add or removes material
+                              from the base feature are disabled.</p>
+                        </li>
+                        <li>
+                           <p>Commands that calculate physical properties are supported for mesh bodies in a Solid
+                              Edge part document.</p>
+                        </li>
+                        <li>
+                           <p>You can check for interference between mesh bodies in a Solid Edge assembly document.</p>
+                        </li>
+                     </ul>
+                     <h5>Displaying mesh bodies</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Meshed bodies are represented in Feature <b>PathFinder</b> with a unique icon and name. The color of the mesh body is inherited from the sending
+                              system. You can control the display mode of the mesh body in Solid Edge, as with any
+                              other design bodies. However, when the body is shaded, the edge display is never enabled.
+                              You can use the shortcut menu in either Feature <b>PathFinder</b> or the graphics window to show or hide the mesh body.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Importing NX JT files into Solid Edge</h4>
+                  <div>
+                     <p>JT part files exported from NX contain a pseudo assembly structure that Teamcenter
+                        uses to address assembly overrides such as color. Prior to ST7, Solid Edge could only
+                        open these files as a meshed model without the BREP data in either a managed or unmanaged
+                        environment.</p>
+                     <p>JT part files managed in Teamcenter by NX may contain multiple bodies in the form
+                        of reference sets. NX reference sets can only be generated in JT in Teamcenter.</p>
+                     <p>A Teamcenter preference <em>SEEC_JT_Priority_Refset</em> specifies the correct reference set to import. <em>SEEC_JT_Priority_Refset</em> is a rolling list of reference name sets that is processed in order until a valid
+                        reference set name is found. </p>
+                     <p>Values for the preference are:</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>MODEL</p>
+                        </li>
+                        <li>
+                           <p>Entire Part</p>
+                        </li>
+                     </ul>
+                     <p>MODEL is the reference set name typically used in NX to define the active design body.
+                        Entire Part specifies that all reference sets found in the JT model are translated.</p>
+                     <p>Since it is possible to distribute Teamcenter JT files to an unmanaged location, a
+                        similar parameter, <em> Import useRefsets=Model:Entire Part</em>, was added to the <b>SEPVTRN.ini</b> file. </p>
+                  </div>
+                  <h4 class="division-title">Importing JT files with Asserted Mass properties</h4>
+                  <div>
+                     <p>You can import JT part and assembly files that contain asserted mass properties.</p>
+                     <p>Use the <b>Import Asserted Properties</b> parameter in the <b>SEPvTrn.ini</b>, <b>SE2VM.ini</b>, and <b>SEECToJT.ini</b> files to control the importing of mass properties. By default, the parameter is set
+                        to Off, which does not import asserted mass properties. You can set to the value to
+                        On if you want to import the properties.</p>
+                     <p>If the JT file contains asserted properties, they are created as user-defined physical
+                        properties when you import the JT file.</p>
+                     <p>If you export a Solid Edge file that contains user-defined properties, those properties
+                        are written as asserted properties in the exported JT file.</p>
+                     <p>The possible asserted properties include:</p>
+                     <ul>
+                        <li>
+                           <p>ASSERTED_DENSITY</p>
+                        </li>
+                        <li>
+                           <p>ASSERTED_MASS</p>
+                        </li>
+                        <li>
+                           <p>ASSERTED_VOLUME</p>
+                        </li>
+                        <li>
+                           <p>ASSERTED_CENTER_OF_GRAVITY</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">JT documents in the Teamcenter managed environment</h4>
+                  <div>
+                     <p>Teamcenter captures JT content in a dataset called <em>DirectModel</em>. The relation that connects a DirectModel Dataset to an Item Revision is IMAN_Rendering.</p>
+                     <p>BOM synchronization is controlled by the Teamcenter preference <em>SEEC_BOM_Synchronization</em>. To enable BOM synchronization, set the SEEC_BOM_Synchronization preference to true.
+                        </p>
+                     <p>The Teamcenter preference <em>SEEC_Foreign_Datasets</em> determines what datasets to consider when a Solid Edge 3D dataset is not saved to
+                        the Item Revision. Preference syntax details are available in the <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a>.</p>
+                     <p>For more information, see <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multicad1a" rel="multicad1a">Multi-CAD in the Teamcenter managed environment</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/jtimport2d" rel="jtimport2d">Import Options for JT documents (.jt) dialog box</a><br><br></div>
+            <div class="footer-content">Opening JT documents in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,97 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Migrate the Inventor hole database to Solid Edge using the DOS window</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Migrate the Inventor hole database to Solid Edge using the DOS window"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1689917">
+                     <h1 class="topic-title">Migrate the Inventor hole database to Solid Edge using the DOS window</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge provides <b>SEHolePipeFromINV.exe</b> utility to the Solid Edge program folder. The executable reads the Inventor hole
+                     database and creates a new Excel file in a format that is recognized by Solid Edge.</p>
+                  <p><b>To run the hole database migration tool</b></p>
+                  <ol type="1">
+                     <li>
+                        <p>Locate <b>Thread.xls</b> and <b>Clearance.xls</b> files that were delivered when Inventor was installed.</p>
+                     </li>
+                     <li>
+                        <p>Open a DOS window.</p>
+                     </li>
+                     <li>
+                        <p>Enter the path for the <b>SEHolePipeFromINV.exe </b>. For example, “<b>C:\Program Files\Siemens\Solid Edge 2023\Program\SEHolePipeXMLFromCED.exe</b>.”</p>
+                     </li>
+                     <li>
+                        <p>Set the following:</p>
+                        <ul>
+                           <li>
+                              <p>Pathname 1 — Path for the location for <b>Clearance.xls</b> and <b>Threads.xls</b>. For example, “<b>C:\Users\Public\Documents\Autodesk\Inventor &lt;Version&gt;\Design Data\XLS\en-US </b>.” </p>
+                           </li>
+                           <li>
+                              <p>Pathname 2 — The path where migrated hole database files are created. </p>
+                              <p>For example, "<b>C:\Program Files\Siemens\Solid Edge 2023\Preferences\Holes</b>. "</p>
+                           </li>
+                           <li>
+                              <p>Pathname 3 — The path from for the Solid Edge hole database template to be used. Copy
+                                 <b>ANSI Inch.xlsx</b> located in <b>C:\Program Files\Siemens\Solid Edge 2023\Preferences\Holes</b> to another location and use the new location as the path for the ANSI template you
+                                 want to use. The name must be <b>ANSI Inch.xlsx</b>.</p>
+                              <p>For example, "<b>D:\Inventor2SE Migration\HoleDB\ANSI Inch.xlsx</b>. "</p>
+                           </li>
+                           <li>
+                              <p>Pathname 4 — The path from for the Solid Edge hole database template to be used. Copy
+                                 <b>ISO Metric.xlsx</b> located in <b>C:\Program Files\Siemens\Solid Edge 2023\Preferences\Holes</b> to another location and use the new location as the path for the ISO Metric template
+                                 you want to use. The name must be <b>ISO Metric.xlsx</b>.</p>
+                              <p>For example, "<b>D:\Invetor2SE Migration\HoleDB\ISO Metric.xlsx</b>. "</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Add all arguments one after the other.</p>
+                           <p>For example, </p>
+                           <p>C:\&gt;<span class="code-text">”C:\Program Files\Siemens\Solid Edge 2023\Program&gt;SEHolePipeFromINV.exe” "C:\Users\Public\Documents\Autodesk\Inventor
+                                 &lt;Version&gt;\Design Data\XLS\en-US " “C:\Program Files\Siemens\Solid Edge 2023\Preferences\Holes”
+                                 “D:\Invetor2SE Migration\HoleDB\ANSI Inch.xlsx” “D:\Invetor2SE Migration\HoleDB\ISO
+                                 Metric.xlsx”</span></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Press Enter.</p>
+                        <p>This creates the files, such as <b>INV_ISO Inch.xlsx</b> and <b>INV_ISO Metric.xlsx</b> in the <b>Solid Edge Preference\Hole</b> folder</p>
+                     </li>
+                  </ol>
+                  <p>You can use the <b>Create Hole Features on Migration</b> parameter in the <b>Inventor2SE.ini</b> file to control how Solid Edge hole features are created during migration.</p>
+                  <p>The default value for the parameter is 1. When the parameter is set to 1, only simple
+                     holes are created on migration to Solid Edge.</p>
+                  <p>When the parameter is set to 0, no hole or thread attributes are captured or applied
+                     during migration.</p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1h" rel="inventor1h">Migrate Inventor documents to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057196" rel="xid2057196">Migrate Inventor material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057197" rel="xid2057197">Migrate Inventor hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057198" rel="xid2057198">Specify the templates to use during Inventor data migration</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2058596" rel="xid2058596">Migrating Inventor material definitions to solid edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057089" rel="xid2057089">Logging for Inventor data migration</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/configureinventordata" rel="configureinventordata">Inventor data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689903" rel="xid1689903">Migrating iAssemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1d" rel="inventor1d">Inventor Data Migration Start page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057093" rel="xid2057093">Inventor Material Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057090" rel="xid2057090">Inventor Hole Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057091" rel="xid2057091">Hole Mapping dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057094" rel="xid2057094">Templates dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057095" rel="xid2057095">Folder Selection dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor2d" rel="inventor2d">Inventor File Selection page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057096" rel="xid2057096">Preview Selection page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689916" rel="xid1689916">Migrate Inventor material definitions to Solid Edge using the DOS window</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2058597" rel="xid2058597">Migrating Inventor hole definitions to solid edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057199" rel="xid2057199">Specify the location of Inventor and Solid Edge folders</a><br><br></div>
+            <div class="footer-content">Migrate the Inventor hole database to Solid Edge using the DOS window, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,196 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Fill Holes command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Fill Holes command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="re_fill_holes">
+                     <h1 class="topic-title">Fill Holes command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Filling holes in mesh data is part of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering Workflow</a>.</p>
+                  <p><b>Fill Holes</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/fill_holes_cmd.png"></p>
+                  <p>The mesh body in a document may contain imperfections where mesh data is not present.
+                     These imperfections can adversely affect the ability to identify and extract surfaces.
+                     Use the <b>Fill Holes</b> command to correct imperfections that interfere with successfully extracting surfaces.</p>
+                  <ul>
+                     <li>
+                        <p>The boundary of the hole turns orange when the <b>Select</b> cursor passes over it (or when the selection box encloses multiple holes). </p>
+                     </li>
+                     <li>
+                        <p>The hole boundaries turn green when selected. </p>
+                     </li>
+                     <li>
+                        <p>All unselected hole boundaries are highlighted in yellow. </p>
+                     </li>
+                  </ul>
+                  <p>Selecting the <b>Fill Holes</b> command opens the <b>Fill Holes</b> command bar, which is used to identify and correct the imperfections. Refer to the
+                     following table.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/hole_color.png"></p>
+                  <table cellspacing="5" cellpadding="5" rules="all" frame="box">
+                     <colgroup span="1">
+                        <col span="1" width="50 px">
+                        <col span="1" width="50 px">
+                        <col span="1" width="150 px">
+                     </colgroup>
+                     <thead>
+                        <tr align="center">
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>ID</p>
+                           </th>
+                           <td rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Color</p>
+                           </td>
+                           <td rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Meaning</p>
+                           </td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_yellow.png"> </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Yellow boundary indicates unselected hole.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>2</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_orange.png"> </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Orange boundary indicates the Select tool or Select box includes the hole, but it
+                                 is not yet selected. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>3</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_green.png"> </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Green boundary indicates the hole or holes are selected and ready for correction </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>4</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_blue.png"></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>When the interior of the hole is shown in blue fill, the operation is complete and
+                                 the hole is filled using the selected <b>Fill Hole</b> option. </p>
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/filled_hole.png"></p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <h4 class="division-title">Fill Holes command bar</h4>
+                  <div>
+                     <p>The <b>Fill Holes</b> command bar has the following options:</p>
+                     <dl>
+                        <dt><b>Select Bodies</b> </dt>
+                        <dd class="ml-3">
+                           <p>Selects the mesh bodies to fill.</p>
+                        </dd>
+                        <dt><b>Select Holes</b> </dt>
+                        <dd class="ml-3">
+                           <p>Fills the holes from the selected bodies.</p>
+                        </dd>
+                        <dt><b>Select All Holes</b> </dt>
+                        <dd class="ml-3">
+                           <p>Selects all holes to fill.</p>
+                        </dd>
+                        <dt><b>Fill Options</b> </dt>
+                        <dd class="ml-3">
+                           <p>Controls the shape of patches that are created in the resulting filled meshes.</p>
+                           <dl>
+                              <dt><b>Linear</b></dt>
+                              <dd class="ml-3">
+                                 <p>Fills each hole without creating new mesh vertices in the interior of the hole.</p>
+                              </dd>
+                              <dt><b>Refined</b></dt>
+                              <dd class="ml-3">
+                                 <p>Produces a similar shape to linear, but may introduce a new mesh vertices in the interior
+                                    of each hole to ensure new facets maintain approximately the same size as those nearby.</p>
+                              </dd>
+                              <dt><b>Tangent</b></dt>
+                              <dd class="ml-3">
+                                 <p>Uses a similar method to <b>Refined</b> but additionally maintains tangency of the mesh around the boundary of each hole.</p>
+                              </dd>
+                              <dt><b>Curvature</b></dt>
+                              <dd class="ml-3">
+                                 <p>Uses a similar method to <b>Tangent</b> but in addition adjusts the patch to maintain the general curvature of the mesh around
+                                    the boundary of each hole.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><b>Holes List </b> </dt>
+                        <dd class="ml-3">
+                           <p>Displays the <b>Fill Holes</b> dialog box that lists the holes from the mesh. From the dialog box you can zoom in
+                              of the selected hole or remove the selected hole. </p>
+                        </dd>
+                        <dt><b>Reset</b> </dt>
+                        <dd class="ml-3">
+                           <p>Resets the filling of the holes.</p>
+                        </dd>
+                        <dt><b>Accept </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/accept.png"> </dt>
+                        <dd class="ml-3">
+                           <p>Select this option to accept the selected holes. You can also right-click or press
+                              Enter to accept the selections. The selected holes are corrected using the selected
+                              <b>Fill Holes</b> option. The corrected area turns blue.</p>
+                        </dd>
+                        <dt><b>Deselect</b> <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/deselect.png"> </dt>
+                        <dd class="ml-3">
+                           <p>Select this option to deselect the selected holes.</p>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title">Next steps</h4>
+                  <div>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions"><b>Automatic</b></a> regions command</p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions"><b>Manual</b></a> regions command</p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_assemble" rel="re_assemble">Reverse engineering workflow example</a></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1673342" rel="xid1673342">Create a sketch from a section curve</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_assemble" rel="re_assemble">Reverse engineering example</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_delete_mesh" rel="re_delete_mesh">Delete Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_smooth_mesh" rel="re_smooth_mesh">Smooth Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1631462" rel="xid1631462">Align command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661826" rel="xid1661826">Align command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1592006" rel="xid1592006">Remesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1609920" rel="xid1609920">Remesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions">Automatic regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions">Manual regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_extract_surfaces" rel="re_extract_surfaces">Extract surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry">Fit surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851569" rel="xid1851569">Deviation Analysis command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851570" rel="xid1851570">Deviation Analysis command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851593" rel="xid1851593">Deviation Analysis Settings dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661445" rel="xid1661445">Section Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661773" rel="xid1661773">Section Sketches command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661774" rel="xid1661774">Section Sketches Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1664797" rel="xid1664797">Align a mesh body to a coordinate system</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1854027" rel="xid1854027">Analyze the deviation between two objects</a><br><br></div>
+            <div class="footer-content">Fill Holes command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

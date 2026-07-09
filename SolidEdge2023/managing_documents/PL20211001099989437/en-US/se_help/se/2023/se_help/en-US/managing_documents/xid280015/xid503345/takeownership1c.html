@@ -1,0 +1,96 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Take Ownership command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Take Ownership command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="takeownership1c">
+                     <h1 class="topic-title">Take Ownership command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Take Ownership</b> command is used when the product being designed in Solid Edge uses geometric content
+                     authored in another CAD system. Taking ownership removes the driven reference status
+                     from the Solid Edge document and enables the user to add geometric value. The command
+                     creates a new revision and Solid Edge is the CAD author of the new revision.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Use of the command requires the following Teamcenter preference settings:</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p><b>SEEC_BOM_Synchronize=True</b></p>
+                        </li>
+                        <li>
+                           <p><b>SEEC_Foreign_Datasets=True</b></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>When these preferences are set, the <b>Take Ownership</b> command is available in:</p>
+                  <ul>
+                     <li>
+                        <p><b>File menu→Manage→Take Ownership</b>.</p>
+                     </li>
+                     <li>
+                        <p>Assembly <b>PathFinder</b> shortcut menu.</p>
+                     </li>
+                     <li>
+                        <p><b>Read-Only Assistant</b> when the document is determined to be driven.</p>
+                     </li>
+                  </ul>
+                  <p>The number of objects that can be selected for a single take ownership transaction
+                     is determined by the Teamcenter preference:</p>
+                  <p><b>SEEC_TakeOwnership_Limit</b></p>
+                  <p>If the number of objects selected exceeds the limit defined by the preference, a message
+                     is displayed to reduce the number of objects selected and rerun the command.</p>
+                  <p>The <b>Take Ownership</b> command uses additional Teamcenter preferences to govern how datasets are processed.
+                     The preferences contain lists of dataset types that should not be copied to the new
+                     revision, giving the administrator the ability to override deep copy rules. Each preference
+                     is specific to the take ownership workflow and design reuse of geometry using multi-CAD.</p>
+                  <ul>
+                     <li>
+                        <p><b>SEEC_DrivenReference_DoNotCopy_Revise</b></p>
+                     </li>
+                     <li>
+                        <p><b>SEEC_DrivenReference_DoNotCopy_SaveAs</b></p>
+                     </li>
+                  </ul>
+                  <p>If either preference is empty or all entries are in error, Teamcenter Deep Copy Rules
+                     are responsible for all the datasets except the ones being transacted.</p>
+                  <p>Once Solid Edge has ownership of the item revision (it is no longer a driven reference),
+                     Solid Edge generates JT and writes it to the DirectModel dataset when the document
+                     is saved or uploaded to Teamcenter.</p>
+                  <div class="attention" type="caution">
+                     <div class="attention-label">Caution: </div>
+                     <p>This command is not intended to be used as a bulk migration tool. Its focus is on
+                        foreign geometry reuse in the context of an assembly.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/takeownership1h" rel="takeownership1h">Take ownership of a foreign CAD document</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multicad1a" rel="multicad1a">Multi-CAD in the Teamcenter managed environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/takeownership2d" rel="takeownership2d">Take Ownership dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/takeownership1d" rel="takeownership1d">Take Ownership Validation dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multicad1p" rel="multicad1p">Multi-CAD document workflow (SEEC)</a><br><br></div>
+            <div class="footer-content">Take Ownership command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,265 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>NX Nastran basic keywords</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="NX Nastran basic keywords"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="nastran3a">
+                     <h1 class="topic-title">NX Nastran basic keywords</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The following table contains a partial list of the basic keywords that may be used
+                     on the command line or placed into <b>.rcf</b> files as appropriate. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>For a complete list of all keywords and their syntax, refer to Appendix B, Keywords
+                        and Environment Variables, in the <b>NX Nastran Installation and Operations Guide.pdf</b>. This document is not delivered with Solid Edge Simulation.</p>
+                  </div>
+                  <table style="; table-layout: fixed; " cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                     <colgroup span="1">
+                        <col span="1" width="57*">
+                        <col span="1" width="55*">
+                        <col span="1" width="142*">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Keyword</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Usage</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Description</p>
+                           </td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>append</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>append=</b><i>yes,no</i></p>
+                              <p>Default: No </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Combines the <b>.f06</b>, <b>.f04</b>, and <b>.log</b> files into a single file after the run completes.</p>
+                              <p>If “no” is specified, the files are not combined. </p>
+                              <p>If “yes” is specified, the files are combined into one file with the type <b>.out</b>. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><b>append=</b><i>yes</i> </p>
+                                 <p>Result: The <b>.f06</b>, <b>.f04</b>, and <b>.log</b> files are combined into a file named <b>example.out</b>.</p>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>dbs</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>dbs=</b><i>pathname</i></p>
+                              <p>Default: (current directory)</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Creates database files using an alternate prefix. </p>
+                              <p>If “dbs” is not specified, database files are created in the current directory using
+                                 the base name of the input data file as the prefix. </p>
+                              <p>If the “dbs” value is a directory, database files are created in the specified directory
+                                 using the base name of the input data file as the file name.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1" height="19">
+                              <p>memory</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>memory=</b><i>size</i></p>
+                              <p>Default: estimate </p>
+                           </td>
+                           <td rowspan="1" colspan="1" height="19">
+                              <p>Specifies the amount of core memory to allocate to a processing job. If memory=estimate
+                                 is specified, ESTIMATE will be used to determine size. Otherwise, the size is specified
+                                 as a memory size.</p>
+                              <p>If you do not assign a value to the memory keyword, and ESTIMATE runs but fails to
+                                 provide an estimate, the value specified by the “memorydefault” keyword will be used.
+                                 If “memorydefault” is null, NX Nastran will issue a fatal error and the job will end.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <ul>
+                                    <li>
+                                       <p>If <b>memory=</b><i>0.5xPhysical</i>, the job is run using an open core memory size of half the computer’s physical memory.</p>
+                                    </li>
+                                    <li>
+                                       <p>If <b>memory=</b><i>1 gb</i>, the job is run using an open core memory size of one gigabyte, 1024 megabytes, 1048576
+                                          kilobytes, 1073741824 bytes, or 268435436 words.</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1" height="19">
+                              <p>memorydefault</p>
+                           </td>
+                           <td rowspan="1" colspan="1" height="19">
+                              <p><b>memorydefault=</b><i>size</i></p>
+                              <p>Default: 10mw</p>
+                           </td>
+                           <td rowspan="1" colspan="1" height="19">
+                              <p>Specifies the default memory size if a null value was defined for the “memory” keyword,
+                                 or “memory=estimate” was defined and the ESTIMATE utility failed to provide an estimate.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>If a null value is defined for memorydefault and it is used as described above, the
+                                    job will not start. </p>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>old</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>old=</b><i>yes,no</i></p>
+                              <p>Default: Yes </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>If <b>old=</b><i>yes</i>, renames existing output files with version numbers:</p>
+                                 <p>
+                                    <pre class="code-text">v2401.log<br> v2401.f04.1<br> v2401.f06 </pre>
+                                 </p>
+                                 <p>
+                                    <pre class="code-text">v2401.log.1<br> v2401.f04.2<br> v2401.f06.1</pre>
+                                 </p>
+                              </div>
+                              <p>If old=no, deletes existing output files.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>out</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>out=</b><i>pathname</i></p>
+                              <p>Default: (current directory)</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Saves the output files using a different file prefix or in a different directory.
+                                 </p>
+                              <p>If “out” is not specified, the output files are saved in the current directory using
+                                 the base name of the input data file as a prefix. </p>
+                              <p>If the “out” value is a directory, output files are created in the specified directory
+                                 using the base name of the input data file as the file name.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <ul>
+                                    <li>
+                                       <p>If <b>out=</b><i>myfile</i>, output files are created in the current directory with the name “myfile”, for example,
+                                          .\myfile.f06 on Windows.</p>
+                                    </li>
+                                    <li>
+                                       <p>If <b>out=</b><i>mydir/myfile</i>, output files are created in the mydir directory with the name “myfile,” e.g., .\mydir\myfile.f06
+                                          on Windows.</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>rcf</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>rcf=</b><i>pathname</i></p>
+                              <p>Default: None </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies the name for the local <b>.rcf</b> file.</p>
+                              <p>If this keyword is not specified, the <b>SEnastr*.rcf</b> located in the input data file’s directory is used.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><b>rcf=</b><i>newfile.rcf</i> processes .\newfile.rcf.</p>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>scratch</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>scratch=</b><i>yes, no, mini</i></p>
+                              <p>Default: No</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Indicates whether databases are to be deleted when a job completes.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <ul>
+                                    <li>
+                                       <p>If the database files are not required, <b>scratch=</b><i>yes</i> can be used to remove them. This prevents cluttering the directory with unwanted
+                                          files. </p>
+                                    </li>
+                                    <li>
+                                       <p>If <b>scratch=</b><i>mini</i> is specified, a reduced size database that can only be used for data recovery restarts
+                                          will be created. </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>sdirectory</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><b>sdirectory=</b><i>directory</i></p>
+                              <p>Default: from the Windows TEMP environment variable.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies the directory to use for temporary scratch files created during job. </p>
+                              <p>NX Nastran can create very large scratch files; the scratch directory should contain
+                                 sufficient space to store them. You must have read, write, and execute privileges
+                                 to the directory.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><b>sdirectory=</b><i>d:\scratch</i></p>
+                              </div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2a" rel="nastran2a">NX Nastran processing errors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2d" rel="nastran2d">NX Nastran Solve Error dialog box</a><br><br></div>
+            <div class="footer-content">NX Nastran basic keywords, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

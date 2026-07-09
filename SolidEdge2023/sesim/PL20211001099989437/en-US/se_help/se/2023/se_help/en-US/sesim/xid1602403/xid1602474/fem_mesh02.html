@@ -1,0 +1,283 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate wind velocity on a sign post</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate wind velocity on a sign post"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_mesh02">
+                     <h1 class="topic-title">Tutorial: Simulate wind velocity on a sign post</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_static" rel="linear_static">linear static analysis</a> to identify the stresses due to air pressure (as measured by wind speed) on a sign
+                     post. The sign post assembly contains both a solid part and sheet metal part, which
+                     requires a mixed mesh (tetrahedral and surface). </p>
+                  <p>The study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Study type=Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Load type=Pressure</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Mixed and General Bodies</p>
+                     </li>
+                     <li>
+                        <p>Connector type=Glue</p>
+                     </li>
+                  </ul> 
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div> 
+                     <p>This tutorial shows how to use the <b>Auto</b> connector command. Another, faster method of creating assembly connectors is during
+                        study definition, by selecting the <b>Create connectors</b> check box in the <b>Create Study</b> dialog box.</p> </div>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_street_sign.asm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Expose the mid-surface for the sign.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the graphics window, in <b>Assembly PathFinder</b>, right-click <b>sign.psm</b> and select <b>Show / Hide Component...</b>.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Show / Hide Component </b> dialog box, select the following:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p><b>Surfaces</b>=<b>On</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>Design Body</b>=<b>Off</b></p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed01A.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Create a study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Create Study</b> dialog box, select the following:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p><b>Study type</b>=<b>Linear Static</b> </p>
+                                 </li>
+                                 <li>
+                                    <p><b>Mesh type</b>=<b>Mixed and General Bodies</b></p>
+                                 </li>
+                              </ol>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_mixed.gif"></p>
+                              <p>The <b>Define</b> command is now active. </p> 
+                              <p></p>
+                           </li>
+                           <li>
+                              <p>At the prompt, <em>Select one or more occurrences and/or mid-surfaces and/or united bodies to include
+                                    in the study</em>, click the <b>Select All</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_selall.gif"> on the command bar to select both the mid-surface of the sign and the post. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed02.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Alternatively, you can select the <em>sign</em> and <em>sign_post</em> from <b>PathFinder</b>.</p> 
+                                 <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry2a" rel="geometry2a">Selecting occurrences for studies</a>.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Click <b>Accept</b> on the command bar.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a 0.479 kPa (10 lb/in<sub>2</sub>) pressure on the sign. This pressure value approximates a wind velocity of 127 kph
+                           (79 mph).</p>
+                        <ol type="a">
+                           <li>
+                              <p>Zoom in to view the sign.</p><img class="img-fluid d-block" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed04.gif"></li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Pressure</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_pressure_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the front face of the sign and type <b>0.479 kPa</b> in the value box. Press Enter.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click to finish and accept the pressure.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed05.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You can change the size and spacing of the load, constraint, and assembly connector
+                                    symbols using the <b>Graphic Symbol Size</b> dialog box. To learn how, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/modify2h" rel="modify2h">Modify FEA symbol properties</a>.</p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a fixed constraint near the bottom of the sign post.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Use the <b>Zoom Area</b> command around the bottom of the post.</p><img class="img-fluid d-block" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed06.gif"></li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>, and then drag a box around the bottom faces of the post.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed07.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept the constraint.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed08.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define assembly connectors between the post and the sign. </p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Connectors</b> group→<b>Auto</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/sesim_assyconn_auto_button_on.gif"></p>
+                              <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a> is displayed. </p>
+                           </li>
+                           <li>
+                              <p>Select <b>Glue</b> as the <b>Connector type</b>. </p>
+                           </li>
+                           <li>
+                              <p>Select the <b>One connector per component pair</b> check box.</p>
+                           </li>
+                           <li>
+                              <p>Change the <b>Search distance</b> to <b>2 mm</b>.</p>
+                           </li>
+                           <li>
+                              <p>Click <b>Select All</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_selall.gif"> to select both the post and sign.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed09.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click <b>Accept</b> on the command bar. </p>
+                              <p>The connector pair information is displayed in the <b>Results</b> dialog box.</p>
+                           </li>
+                           <li>
+                              <p> In the <b>Results</b> dialog box, select the connector entry <b>(1: sign_post.par1,sign.psm1)</b>, and then click the <b>Create Connectors </b> button.</p>
+                              <p>In this example, one connector pair is listed.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mixed11.gif"></p>
+                           </li>
+                           <p>In the <b>Simulation</b> pane, you can see that <b>Connector 1</b> was created</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mixed12.gif"></p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed08d.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Now turn off the <b>Loads</b> and <b>Constraints</b>.</p>
+                     </li>
+                     <li>
+                        <p>In the graphics window, zoom in on the top and then the bottom of the assembly. </p>
+                        <p>Observe the following:</p>
+                        <ul>
+                           <li>
+                              <p>On <b>sign.psm</b> at the top, both connector target symbols (red) and connector source symbols (blue)
+                                 are shown where the glue connectors were created between the two parts.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed08b.gif"></p>
+                           </li>
+                           <li>
+                              <p>At the bottom of <b>sign_post.par</b>, only the red connector target symbols are shown.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed08c.gif"></p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>In the graphics window, the assembly connector symbols are color-coded to make it
+                              easier to identify the target faces and source faces for editing. You can use this
+                              information to identify and replace target and source connection regions in a glue
+                              or no penetration contact connection. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a></p>
+                           <table cellspacing="1" border="1" cellpadding="6" rules="all" frame="border">
+                              <colgroup span="1">
+                                 <col span="1" width="46%">
+                                 <col span="1" width="54%">
+                              </colgroup>
+                              <thead>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>This symbol</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Represents</p>
+                                    </td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_target_sym.gif"></p>
+                                    </td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Connector target </p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_source_sym.gif"></p>
+                                    </td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Connector source</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Turn off the <b>Connectors</b> node in the <b>Simulation</b> pane.</p>
+                           </li>
+                           <li>  
+                              <p>Select the <b>Mesh</b> command. Choose <b>Mesh &amp; Solve</b>.</p>   
+                              <p>If the study fails to solve, a message box provides remedial actions. You may be prompted
+                                 to do one of the following: </p> 
+                              <ul> 
+                                 <li> 
+                                    <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d"><b>Modify Study</b> dialog box</a> to select the option, <b>Geometry check: Warning only</b>. </p> </li> 
+                                 <li> 
+                                    <p>Open the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d"><b>Mesh Options</b> dialog box</a>, and on the <b>Mesh Sizing</b> page, under <b>Geometry Preparation Options</b>, select or clear the check box, <b>Prepare geometry for meshing</b>.</p> </li> </ul> 
+                              <p>For more information about updating a study definition, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/modify1p" rel="modify1p">Modify and reuse analysis studies</a>.</p>  </li>
+                           <p>The results are displayed in the <b>Simulation Results</b> environment. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mixed10_mod.png"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Save and close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Tutorial: Simulate wind velocity on a sign post, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

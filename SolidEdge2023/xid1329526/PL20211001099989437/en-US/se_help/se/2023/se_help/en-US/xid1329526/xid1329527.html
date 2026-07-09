@@ -1,0 +1,192 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Generative Design workflow</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Generative Design workflow"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1329527">
+                     <h1 class="topic-title">Generative Design workflow</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The objective of generative design is to optimize the mass (weight) of the design
+                     space (the part model) by removing material based on a set of physical loads and manufacturing
+                     constraints. Faces or features that you preserve to meet functional requirements are
+                     not removed. </p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>Structural loads (1) and operational constraints (2) are applied to the part selected
+                        as the design space. A material region around the mounting hole was preserved. The
+                        result of the generative design process (3) is a lighter weight, more organic-looking
+                        part. </p>
+                     <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/gd_process_overview.png"></p>
+                  </div>
+                  <p>Use the following process on an existing part model to generate an optimized shape.
+                     For more information, see a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340170" rel="xid1340170">Generative Design example</a>.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open a part model with a design body that has minimal features. You can open a native
+                           Solid Edge part model (*.par). You also can optimize a part used in an assembly by
+                           opening the part in the context of a Solid Edge assembly. </p>
+                        <p>You can optimize a Parasolid file (*x_t) or a file created by another CAD system by
+                           first opening the file in Solid Edge using an ISO metric or ANSI part file template.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>You get the best results by working on a part with only essential features defined
+                              in it. This leaves more material for the optimization to work with, producing better
+                              results. </p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>On the ribbon, click the <b>Generative Design</b> tab to display the application commands.</p>
+                     </li>
+                     <li>
+                        <p>In the tab set that contains <b>PathFinder</b>, click the <b>Generative Design</b> tab <img class="img-fluid" src="../../common/nonLocalized/se/generative_design/gd_application_icon.png"> to display the <b>Generative Design</b> docking pane. This is where you manage your generative studies. </p>
+                     </li>
+                     <li>
+                        <p>Select a material for the part using the <b>Generative Design</b> tab→<b>Material</b> group→<b>Material Table</b> command <img class="img-fluid" src="../../common/nonLocalized/se/simulation/analyze/study/materialtbl.gif">, or select a material from the list.</p>
+                     </li>
+                     <li>
+                        <p>Choose <b>Generative Design</b> tab→<b>Generative Study</b> group→<b>Create Generative Study</b> <img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/create_study_cmd.png">.</p>
+                        <p>This creates a new <b>Generative Study 1</b> node in the <b>Generative Design</b> pane, and populates the study node with information based on the open part model
+                           document, as well as placeholders for inputs that you must define (preserved regions,
+                           loads, constraints).</p>
+                        <p>The body to optimize was selected automatically and displayed as the <b>Design Space (Defined)</b>.</p>
+                        <p><img class="img-fluid" src="../../common/graphicLibrary/se/topology_optimization/gd_create_study_node.png"></p>
+                     </li>
+                     <li>
+                        <p>Define one or more engineering or production requirements for the generated body:</p>
+                        <ul>
+                           <li>
+                              <p>Identify the geometry that is essential to the operation of the part, and the additional
+                                 volume on faces that you want to keep. To do this, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371428" rel="xid1371428">Preserve a region</a> in the geometry that you do not want to alter. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Select holes, such as mounting holes, that you want to keep. </p>
+                                 <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/preserve_holes_selected.png"></p>
+                              </div>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Preserve the exterior faces of a shape to maintain the original design intent, particularly
+                                    if you are re-evaluating the design of an existing part. </p>
+                                 <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/preserve_profile_faces.png"></p>
+                              </div>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>In this simple example, a region was defined on each face that has a load or constraint.</p>
+                                 <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/gd_workflow_regions.png"></p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Specify <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371438" rel="xid1371438">Manufacturing settings</a> to account for different production methods.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Apply at least one load to the part—<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404603" rel="xid1404603">Define a physical load</a>. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/gd_workflow_force.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Apply at least one constraint as a boundary condition—<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404737" rel="xid1404737">Define an operational constraint</a>. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/gd_workflow_constraint.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Choose the <b>Generate</b> command <img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/generate_command_gd.png"> to solve the generative study. Use the controls in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1390024" rel="xid1390024">Generate Study dialog box</a> to define the optimization objective—mimimze weight, maximize surface area, or a
+                           tradeoff between the two.</p>
+                        <p>Use the default settings the first time you optimize a part to see the baseline results.
+                           </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389713" rel="xid1389713">Show stress</a> results on the structurally optimized mesh body.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/show_stress_on_meshbody.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Use the <b>Generative Design</b> pane and <b>PathFinder</b> to examine the results.</p>
+                        <ul>
+                           <li>
+                              <p>Original design space (1) </p>
+                           </li>
+                           <li>
+                              <p>Original design space and optimized mesh body (2) </p>
+                           </li>
+                           <li>
+                              <p>Optimized mesh body (3) </p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../common/nonLocalized/se/topology_optimization/designbody_both_meshbody.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Review how mass was removed from the optimized structure. </p>
+                        <ul>
+                           <li>
+                              <p>Is the result appropriate for your application? </p>
+                           </li>
+                           <li>
+                              <p>Do you want to remove more material (or less)?</p>
+                           </li>
+                           <li>
+                              <p>Do you want to modify the original design body, and then optimize it again?</p>
+                           </li>
+                           <li>
+                              <p>Do you want to test a different load or constraint, or change a value?</p>
+                              <p>You can quickly review the values and settings defined for a generative design study
+                                 when you hover over an object in the <b>Generative Design</b> pane.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../common/graphicLibrary/se/topology_optimization/study_summary_data_tip.png"></p>
+                              </div>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../common/graphicLibrary/se/topology_optimization/gd_load_case_data_tip.png"></p>
+                              </div>
+                           </li>
+                        </ul>
+                        <p>For information about these topics and to learn how you can fine-tune the results,
+                           see the individual help topics in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389864" rel="xid1389864">Work with Generative Design results</a>.</p>
+                     </li>
+                     <li>
+                        <p>For additive manufacturing, you can <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/so_print_mesh" rel="so_print_mesh">Print an optimized solid mesh body</a>.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340170" rel="xid1340170">Generative Design example</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389865" rel="xid1389865">Generative Design overview</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1446066" rel="xid1446066">Setting Generative Design defaults</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1417631" rel="xid1417631">Generative Design licenses</a><br><br></div>
+            <div class="footer-content">Generative Design workflow, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

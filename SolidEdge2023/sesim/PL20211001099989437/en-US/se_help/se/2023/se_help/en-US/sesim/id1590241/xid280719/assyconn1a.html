@@ -1,0 +1,169 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly connectors</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly connectors"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconn1a">
+                     <h1 class="topic-title">Assembly connectors</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>An assembly connector is a software mechanism that defines how a part is connected
+                     to another part or to the ground for meshing, without having to model the connection
+                     and connected behavior precisely. </p>
+                  <h4 class="division-title">Why do you use connectors?</h4>
+                  <div>
+                     <p>In assemblies, you can identify connected edges, faces, surfaces, and cylinders. You
+                        can use assembly connectors to:</p>
+                     <ul>
+                        <li>
+                           <p>Simulate rigid connections, such as edge-to-edge or welded plates.</p>
+                        </li>
+                        <li>
+                           <p>Simulate bolted parts.</p>
+                        </li>
+                        <li>
+                           <p>Compensate for parts that bend and to specify tolerance. </p>
+                        </li>
+                        <li>
+                           <p>Compensate for mid-surface thickness between two pieces of sheet metal. </p>
+                        </li>
+                        <li>
+                           <p>Define thermal resistance between insulated faces and surfaces.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="assyconn1a_types">Types of assembly connectors</h4>
+                  <div>
+                     <p>Every assembly connector consists of two or more connected elements, which vary with
+                        the type of connector you create. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connectors_commands_group.png"></p>
+                     <ul>
+                        <li>
+                           <p>Use the <b>Auto</b> and <b>Manual</b> commands to create <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a>. These are the most frequently used types of connectors. </p>
+                        </li>
+                        <li>
+                           <p>Use the <b>Bolt</b> command to create <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4a" rel="assyconn4a">Bolt connectors</a>.</p>
+                        </li>
+                        <li>
+                           <p>Use the <b>Edge</b> command to create rigid or glue <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3a" rel="assyconn3a">Edge connectors</a> in sheet metal.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can use the <b>Tools</b> tab→<b>Model</b> group→<b>Weldment</b> command to create welded connections between 2D sheet metal and 3D parts in the assembly
+                           model in Solid Edge. In Solid Edge Simulation, you can add glue connectors, and then
+                           mesh the model using a tetrahedral mesh.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Create connectors using the Create Study dialog box</h4>
+                  <div>
+                     <p>The fastest and easiest way to create thermal, glue, and no penetration connectors
+                        is when you are creating a new study. In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>, use the <b>Connector Options</b> section to specify that connectors are to be created automatically. </p>
+                     <p>You also can verify or change the default NX Nastran values used to create these connectors
+                        by selecting the adjacent <b>Properties</b> button to open the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a>.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/create_study_connector_options_thermal.png"></p>
+                     <p>The connectors are created automatically after you select the geometry to include
+                        in the study using the <b>Define</b> command. Connectors are created based on the mate relationships between parts, as
+                        defined in the assembly model itself. </p>
+                     <p>To learn how to do this, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="assyconn5a_auto">Create connectors using the Auto connector command </h4>
+                  <div>
+                     <p>The <b>Simulation</b> tab→<b>Connectors</b> group→<b>Auto</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_auto_cmd.png"> creates thermal, glued, and no penetration connectors between faces or surfaces.
+                        Use the <b>Auto</b> command to: </p>
+                     <ul>
+                        <li>
+                           <p>Automatically select and create connections between some parts or all parts in the
+                              study.</p>
+                           <ul>
+                              <li>
+                                 <p>If you use the <b>Select All Components</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_selall.gif">, Solid Edge Simulation automatically identifies the faces on all component bodies
+                                    that are within a specified search distance of each other. Then, you can accept or
+                                    reject face-pair connection candidates before the connections are created. </p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Create a single connector or multiple connectors between the faces or surfaces of
+                              the parts.</p>
+                           <ul>
+                              <li>
+                                 <p>The decision to use the <b>One Connector Per Component Pair</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_1perpair.gif">, or to allow multiple connectors to be created for each connector, is primarily a
+                                    management issue. Fewer connectors with multiple faces are easier to modify. On the
+                                    other hand, if you want more granular control, such as setting different search distances
+                                    for each set of faces, or using some glue connectors and some no penetration connectors,
+                                    it may be better to have many individual connectors.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>The <b>Auto</b> connector command uses the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a> to specify and create the connections.</p>
+                     <p>If you use the <b>Auto</b> command to define connectors for a thermal coupled study, you must select the command
+                        twice. Select it once to define thermal connectors for the thermal analysis, and select
+                        it again to define structural connectors for the linear static analysis. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/auto_connector_coupled_cmdbar.png"></p>
+                     <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="assyconn5a_manual">Create connectors using the Manual command</h4>
+                  <div>
+                     <p>Like the <b>Auto</b> command, the <b>Simulation</b> tab→<b>Connectors</b> group→<b>Manual</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/manual_connector_cmd.png"> creates thermal, glued, and no penetration contact connections between faces or surfaces.
+                        However, the <b>Auto</b> command may find too many faces, or it may not find the faces you do want to connect.
+                        Therefore, use the <b>Manual</b> connector command when you want to explicitly connect <em>this face</em> to <em>that face</em>.</p>
+                     <p>By default, the <b>Manual</b> connector command places a single connector between two faces or surfaces that you
+                        select. The first selection is the target side of the connection. The second selection
+                        is the source side of the connection. </p>
+                     <p>For manual connectors, you can choose the same face or surface to be both the target
+                        and the source sides of the connection. You may want to do this when a sheet metal
+                        part is bent, so that one end comes into contact with the other end and they are welded
+                        together. </p>
+                     <p>To connect multiple faces or surfaces with a single connector, use the <b>Select Multiple</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_selmultiple_button.gif"> on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a>.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/manual_connector_glue_commandbar.png"></p>
+                     <p>Use the dynamic input box in the graphics window to specify the maximum separation
+                        distance between the target and source face sets. </p>
+                     <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a>.</p>
+                  </div>
+                  <h4 class="division-title">Working with assembly connectors</h4>
+                  <div>
+                     <p>Defined connectors are listed in the <b>Simulation</b> pane→<b>Connectors</b> node. You can identify what type of connector it is based on its icon and name. For
+                        example, thermal, glue, and no penetration connectors are preceded by the <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_manual_glyph.gif"> icon and are named <b>Connector 1</b>, <b>Connector 2</b>, <b>Connector 3</b>.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/connector_bolt_icon.png"> Bolt connectors are named <b>Bolt Connection 1</b>, <b>Bolt Connection 2</b>.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/connector_edge_icon.png"> Edge connectors are named <b>Edge Connector 1</b>, <b>Edge Connector 2</b>. </p>
+                     <p>If you hover over the connector name in the <b>Simulation</b> pane, the corresponding connection faces highlight in the graphics window. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/highlight_connector_faces.png"></p>
+                     <p>To edit a connector, double-click the connector name in the <b>Simulation</b> pane, or click the edit definition handle in the graphics window. This displays the
+                        associated command bar options for you to modify the connector inputs. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/connector_edit_handle.png"></p>
+                     <p>To remove one or more connectors completely, use the <b>Delete</b> command on the shortcut menu of a connector selected in the <b>Simulation</b> pane.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><br></div>
+            <div class="footer-content">Assembly connectors, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

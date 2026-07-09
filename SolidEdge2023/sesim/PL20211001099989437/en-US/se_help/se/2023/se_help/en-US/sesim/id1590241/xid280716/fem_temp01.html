@@ -1,0 +1,139 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Apply a body temperature load</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Apply a body temperature load"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_temp01">
+                     <h1 class="topic-title">Activity: Apply a body temperature load</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_Pump_Casing.par</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_temp01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a simulation study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>. </p>
+                              <p>Note that the pump casing material is already defined.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_temp02.gif"></p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">study type</a> and <b>Tetrahedral</b> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a#mesh1a_type" rel="mesh1a">mesh type</a>. </p>
+                           </li>
+                           <li>
+                              <p>Click OK.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a temperature load:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Body Loads</b> group→<b>Body Temperature</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_bodytemp_button.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Type a temperature value of <b>148 C</b>. </p>
+                              <p>This is equivalent to 300 degrees Fahrenheit.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_temp03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept the temperature load. Click in space to finish.</p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_temp04.gif"></p>
+                           <p>You can see the <b>Simulation</b> pane entry for this load.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_temp05.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Apply fixed constraints:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <b>Constraints</b> command bar, change the <b>Selection Type</b> to <b>Feature</b>.</p>
+                           </li>
+                           <li>
+                              <p>Within <b>PathFinder</b>, in the <b>Features</b> collector, click <em>Protrusion 4</em>, <em>Protrusion 5</em> and <em>Protrusion 6</em> to select all faces of the mounting plate.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_temp06.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_temp11.png"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept and click to finish.</p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_temp07.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> pane, turn off constraints and loads.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_temp08.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Mesh</b> command. Choose <b>Mesh &amp; Solve</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_temp09.gif"></p>
+                              <p>After a few moments, the part is meshed and solved. </p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>View the results:</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation Results</b> environment, select <b>Home</b> tab→<b>Deformation</b> group→<b>Actual</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Deformation_actual_button.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_temp11.png"></p>
+                           </li>
+                           <li>
+                              <p>Rotate and zoom to view the areas of highest stress.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_temp10.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>On the ribbon, click <b>Close Simulation Results</b>.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_results_exit_button.gif"></p>
+                     </li>
+                     <li>
+                        <p>On the Quick Access toolbar click <b>Save</b>, and then click the <b>X</b> button on the document tab to close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Activity: Apply a body temperature load, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,127 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Project to Sketch command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Project to Sketch command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="incldb1c">
+                     <h1 class="topic-title">Project to Sketch command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Project to Sketch</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ascop.gif"> copies part edges or sketch elements onto the current sketch plane. For example,
+                     you can select a part edge (A) to project onto the current sketch plane (B). The projected
+                     edge (C) can then be used in the current sketch.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/include/ascpy2.gif"></p>
+                  <p>You can project elements <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associatively</a> or non-associatively.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When you use sketch elements to construct a feature in a part document, the sketch
+                        elements are transferred to the<b> Used Sketches</b> collection in <b>PathFinder</b>. For projected elements, the associative link between the parent element and the
+                        projected element is discarded.</p>
+                  </div>
+                  <h4 class="division-title">Projected elements and associativity</h4>
+                  <div>
+                     <p>A relationship symbol <img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/include/link.gif">indicates that an element is associatively linked to the parent element. The symbols
+                        indicate whether the element is associatively linked to an element in the same document
+                        (local) or another document (peer-to-peer).</p>
+                     <table cellspacing="2" width="223">
+                        <colgroup span="1">
+                           <col span="1" width="135*">
+                           <col span="1" width="60*">
+                        </colgroup>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Link (local)</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/link.gif"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Link (peer-to-peer)</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/linkp.gif"></td>
+                        </tr>
+                     </table>
+                     <ul>
+                        <li>
+                           <p>A projected element from the current part is always projected associatively. A projected
+                              element from another document can be associative or non-associative.</p>
+                        </li>
+                        <li>
+                           <p>You can break the associative link on projected elements by deleting the link relationship
+                              symbols.</p>
+                        </li>
+                        <li>
+                           <p>You can trim and modify projected elements, and incorporate associatively projected
+                              elements into a sketch that contains newly created non-associative elements. This
+                              allows you to create features on one part that react to design changes to another
+                              part.</p>
+                        </li>
+                        <li>
+                           <p>You can also add relationships or dimensions to associatively projected elements,
+                              but if the relationship or dimension conflicts with the associative relationship to
+                              the parent element, a warning message displays.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Projecting elements from other documents</h4>
+                  <div>
+                     <p>Projecting elements from another part can be useful when two parts share common characteristics.
+                        For example, you can use the <b>Project to Sketch</b> command to copy the edges on an existing part to create the 2D geometry required
+                        to define the base feature for a new part.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ascpy3.gif"></p>
+                     <p>If you are editing a part in the context of an assembly (you have in-place activated
+                        the part), you can project elements from the assembly into the profile for a feature.
+                        For example, you can project elements from an assembly sketch or an edge from another
+                        part in the assembly.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>An Inter-Part Associativity tutorial is available that demonstrates how to create
+                           associative inter-part features.</p>
+                     </div>
+                     <p>To associatively project an assembly sketch element or edge from another part, you
+                        must first set the following options:</p>
+                     <p>On the <b>Inter-Part</b> tab on the <b>Solid Edge Options</b> dialog box, select <b>Allow Inter-Part Links Using: Project to Curve Command From Part and Assembly Sketches</b>. </p>
+                     <p>on the <b>Project to Sketch Options</b> dialog box, select:</p>
+                     <ul>
+                        <li>
+                           <p><b>Allow Locate of Peer Assembly Parts and Assembly Sketches</b> </p>
+                        </li>
+                        <li>
+                           <p><b>Maintain Associativity When Projecting Geometry From Other Parts in the Assembly</b>. For more information on inter-part links, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt1a" rel="intprt1a">Inter-Part Associativity</a> Help topic.</p>
+                        </li>
+                     </ul>
+                     <p>When working outside the context of an assembly, you can also project edges from a
+                        part copy feature you created using the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1c" rel="prtcpy1c">Part Copy command</a>. To associatively project edges from a part copy, you must set the <b>Link to File</b> option on the <b>Part Copy Parameters</b> dialog box when you insert the part copy.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktchvw1c" rel="sktchvw1c">Sketch View command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktch1c" rel="sktch1c">Sketch command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid2051786" rel="xid2051786">Closed Sketch Indicator command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb1d" rel="incldb1d">Project to Sketch command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb2d" rel="incldb2d">Project to Sketch Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/peerloc1c" rel="peerloc1c">Peer Edge Locate command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/silhouetteedge1c" rel="silhouetteedge1c">Silhouette Edge Locate command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid452594" rel="xid452594">Clean Sketch command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid452595" rel="xid452595">Clean Sketch command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid452596" rel="xid452596">Clean Sketch Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/pshsktch1c" rel="pshsktch1c">Copy Sketch command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/pshsktch1d" rel="pshsktch1d">Copy Sketch command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/pshsktch2d" rel="pshsktch2d">Copy Sketch To Target dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/regionenable1c" rel="regionenable1c">Activate Regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketchperm1c" rel="sketchperm1c">Merge with Coplanar Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketchenable1c" rel="sketchenable1c">Migrate Geometry and Dimensions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/tearoff1c" rel="tearoff1c">Tear-Off Sketch command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/tearoff2d" rel="tearoff2d">Tear-Off Sketch command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/tearoff1d" rel="tearoff1d">Tear-Off Sketch Options dialog box</a><br><br></div>
+            <div class="footer-content">Project to Sketch command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,155 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Migrate SolidWorks hole definitions to Solid Edge using the DOS window</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Migrate SolidWorks hole definitions to Solid Edge using the DOS window"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid727778">
+                     <h1 class="topic-title">Migrate SolidWorks hole definitions to Solid Edge using the DOS window</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">   
+                  <p>When you migrate any SolidWorks part file the hole definitions including thread attributes
+                     are migrated.</p> 
+                  <p>Solid Edge provides following utilities to the Solid Edge program folder:</p> 
+                  <ul> 
+                     <li> 
+                        <p><b>SEHolePipeTxtFromSW.exe</b>—converts the SolidWorks hole database (<b>swbrowser.sldedb</b> to a Solid Edge Holes and pipes Excel spreadsheet (.xls).</p> </li> 
+                     <li> 
+                        <p><b>SEHolePipeTxtFromSW_Legacy.exe</b>—converts the SolidWorks hole database (<b>SWBrowser.mdb</b> to a Solid Edge Holes and pipes Excel spreadsheet (.xls).</p> </li> </ul> 
+                  <h5>To run the data migration tool</h5>
+                  <ol type="1" start="1">  
+                     <li> 
+                        <p>Open a DOS window.</p> </li> 
+                     <li> 
+                        <p>CD to the <b>Solid Edge Data Migration\Component\Program</b> due to dependencies found only in this folder.</p> </li> 
+                     <li> 
+                        <p>Run <b>SEHolePipeTxtFromSW.exe</b> (to migrate sldedb database) or <b>SEHolePipeTxtFromSW_Legacy.exe</b> (to migrate mdb database) and set the following:</p> 
+                        <ul> 
+                           <li> 
+                              <p>Argument 1: Holes or Pipes—Specifies if you are creating a hole file or pipe file.
+                                 </p> </li> 
+                           <li> 
+                              <p>Argument 2: [PathName1 + FileName]—The first path name is an sldedb file (<b>swbrowser.sldedb</b>) or mdb file (<b>SWBrowser.mdb</b>).</p> </li> 
+                           <li> 
+                              <p>Argument 3: [PathName2]—The second path name is the target location where the Excel
+                                 files will be placed. Do not include the name of the output file.</p> </li> 
+                           <li> 
+                              <p>Argument 4—Units standards such as AI, DIN, and ISO within the <b>swbrowser.sldedb</b> or <b>SWBrowser.mdb</b> file to be converted.</p> 
+                              <p>The following standards are available:</p> 
+                              <table cellspacing="1" border="1" cellpadding="6" rules="all" width="42%" frame="border"> 
+                                 <colgroup span="1"> 
+                                    <col span="1" width="43%"> 
+                                    <col span="1" width="57%"> </colgroup> 
+                                 <thead> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>Standard</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>Input to the conversion utility</p> </td> </tr> </thead> 
+                                 <tbody> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>ANSI Inch</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>ai</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>ANSI Metric</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>am</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>BSI</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>bsi</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>DIN</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>din</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>GB</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>gb</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>IS</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>is</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>ISO</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>iso</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>JIS</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>jis</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>KIS</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>ks</p> </td> </tr> 
+                                    <tr> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>MIL</p> </td> 
+                                       <td rowspan="1" colspan="1"> 
+                                          <p>mil</p> </td> </tr> </tbody> </table> 
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div> 
+                                 <p>While migrating .mdb database, two files will be created for each database that is
+                                    Inch and Metric.</p> 
+                                 <p>For .sldedb only one relevant database will be created that is either Inch or Metric
+                                    file will be created based on the database.</p> </div> </li> </ul> </li> </ol> 
+                  <p>After the Solid Edge hole database file (.xls) is created:</p> 
+                  <ol type="1" start="1"> 
+                     <li> 
+                        <p>Ensure that the <b>Solid Edge Options\Files locations\Holes</b> database is set properly </p> </li> 
+                     <li> 
+                        <p>Modify the <b>SolidWorks2SE.ini</b> to include the proper mapping to the Solid Edge hole database you just created. </p> 
+                        <p>Example for a DIN Standard:</p> 
+                        <p>[Hole Table mapping]</p> 
+                        <p>swStandardDIN=SWBrowser_din_Metric (do not include file extension)</p> </li> </ol> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>When using the utility, consider the following:</p> 
+                     <ul> 
+                        <li> 
+                           <p>After successfully running the utility, ensure that the Location entry for the Holes
+                              and Pipes Excel spreadsheet (.xls) on the <b>File Locations</b> page of the <b>Solid Edge Options</b> dialog box is correct.</p> </li> 
+                        <li> 
+                           <p>The creation of hole features and thread attributes assumes that the SolidWorks part
+                              files will be migrated to the Solid Edge synchronous environment.</p> </li> </ul> </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid608758" rel="xid608758">Migrate SolidWorks documents to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022555" rel="xid2022555">Migrate SolidWorks material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022556" rel="xid2022556">Migrate SolidWorks hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022574" rel="xid2022574">Specify the templates to use during SolidWorks data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022573" rel="xid2022573">Specify the location of SolidWorks and Solid Edge folders</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727776" rel="xid727776">Migrate SolidWorks material definitions to Solid Edge using the DOS window</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727775" rel="xid727775">Migrating SolidWorks material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2055819" rel="xid2055819">Migrating SolidWorks hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2055818" rel="xid2055818">Logging for SolidWorks data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727781" rel="xid727781">SolidWorks assemblies in Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432">SolidWorks Data Migration Start Page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021182" rel="xid2021182">SolidWorks Hole Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021231" rel="xid2021231">Hole Mapping dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021183" rel="xid2021183">SolidWorks Material Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021370" rel="xid2021370">Templates dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021854" rel="xid2021854">Folder Selection dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597455" rel="xid597455">Preview Selection page</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597457" rel="xid597457">SolidWorks data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597454" rel="xid597454">SolidWorks File Selection page</a><br><br></div>
+            <div class="footer-content">Migrate SolidWorks hole definitions to Solid Edge using the DOS window, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

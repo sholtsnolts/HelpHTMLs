@@ -1,0 +1,198 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with Systems Libraries in assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with Systems Libraries in assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="compgroup1a">
+                     <h1 class="topic-title">Working with Systems Libraries in assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When building assemblies, you often need to use the same group of parts more than
+                     once. This group of parts may also need the same feature modification made to a mating
+                     part in the assembly to facilitate placement of the group of parts.</p>
+                  <p>For example, you may need to place a bracket (A) and its mounting bolts and washers
+                     (B) in many different assemblies, or many times in one assembly. The bolts may also
+                     need mounting holes in the part (C) to which they are fastened.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/system_library/syslib1.gif"></p>
+                  <p>You can use the <b>Systems Library</b> functionality in Solid Edge to define the group of parts, features, and assembly
+                     relationships so you can reuse them easily later.</p>
+                  <p>The parts, features, and relationships for a <b>Systems Library</b> member are stored in an assembly document you define.</p>
+                  <p>A <b>Systems Library</b> document can consist of the following:</p>
+                  <ul>
+                     <li>
+                        <p>Complete subassembly documents</p>
+                     </li>
+                     <li>
+                        <p>Part documents</p>
+                     </li>
+                     <li>
+                        <p>Features that are <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associative</a> children of one of the part documents</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Creating Systems Library members</h4>
+                  <div>
+                     <p>When creating a new <b>Systems Library</b> member, you must adhere to the following rules:</p>
+                     <ul>
+                        <li>
+                           <p>You can only select parts and entire subassemblies that are in the top-level assembly.</p>
+                        </li>
+                        <li>
+                           <p>You cannot create a <b>Systems Library</b> member when working in an alternate assembly. You can use the <b>Save Member As</b> command to save a copy of the alternate assembly as a normal assembly to use this
+                              functionality.</p>
+                        </li>
+                        <li>
+                           <p>You cannot create a <b>Systems Library</b> member when you are in-place activated in a subassembly.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Creating a new Systems Library member</h4>
+                  <div>
+                     <p>You create a new <b>Systems Library</b> member using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup1c" rel="compgroup1c">Create Systems Library command</a> on the <b>Home</b> tab in the <b>Systems</b> group. When you click the <b>Create Systems Library</b> button, a command bar guides you through the steps required to create the <b>Systems Library</b> member:</p>
+                     <ul>
+                        <li>
+                           <p>Selecting the assembly components you want</p>
+                        </li>
+                        <li>
+                           <p>Selecting the features you want to capture (optional)</p>
+                        </li>
+                        <li>
+                           <p>Viewing the captured relationships</p>
+                        </li>
+                        <li>
+                           <p>Defining the new assembly document name, template, and location</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Selecting components</h4>
+                  <div>
+                     <p>Any parts and subassemblies that are in the active assembly can be added to a <b>Systems Library</b> document. When adding a subassembly, the entire subassembly must be added. You cannot
+                        select individual parts in the subassembly. You can select the parts you want to capture
+                        in the assembly window or in <b>PathFinder</b>. If you select an assembly pattern, the parts that were used to define the pattern
+                        are automatically captured.</p>
+                     <p>The parts and subassemblies you select are listed in the <b>Selected Components</b> dialog box. When you have selected all the parts and subassemblies you want in the
+                        new <b>Systems Library</b> member, click the <b>Accept</b> button on the command bar to proceed to <b>Captures Features</b> step. The relationships used to position the parts and subassemblies are automatically
+                        captured.</p>
+                  </div>
+                  <h4 class="division-title">Capturing features</h4>
+                  <div>
+                     <p>You can only capture features that were created using <b>Inter-Part</b> <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associativity</a> techniques. If one of the parts you selected in the <b>Select Components</b> step was used as a parent to create an associative feature on another part, the associative
+                        child feature on that other part is available for use in the <b>Systems Library</b> member. For example, if the hole feature (A) in the mounting plate was constructed
+                        using the <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb1c" rel="incldb1c">Project to Sketch command</a> to associatively include edges (B) (C) from the bracket part, the hole feature (A)
+                        can be part of the <b>Systems Library</b> document.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/system_library/syslib2.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For more information on <b>Inter-Part</b> associativity, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt1a" rel="intprt1a">Inter-Part Associativity</a> Help topic.</p>
+                     </div>
+                     <p>In the previous example, the <b>Systems Library</b> member will then consist of the bracket part (A), the bolts and washers (B) (C),
+                        and the hole feature (D). When you place the <b>Systems Library</b> document later, the plate part itself is not placed. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/system_library/syslib4.gif"></p>
+                     <p>When you select parts that have been used as parents in an associative <b>Inter-Part</b> feature, the child features that are available for including in the new <b>Systems Library</b> document are listed in the <b>Captured Features</b> dialog box and are highlighted in the assembly window so you can select only the
+                        features you want to capture.</p>
+                     <p>You can also capture any treatment features that modified the associative <b>Inter-Part</b> feature. For example, if you added chamfers to the holes described earlier, you can
+                        add them to the captured features list by selecting the chamfer feature in the assembly
+                        window.</p>
+                     <p>After you have selected the features you want to capture, click the <b>Accept</b> button on the command bar. If you do not want to capture features for the new <b>Systems Library</b> document, you can click the <b>Next</b> button on the command bar to bypass this step.</p>
+                  </div>
+                  <h4 class="division-title">Capturing relationships</h4>
+                  <div>
+                     <p>When you finish defining the parts and features you want to capture, the <b>Capture Relationships</b> dialog box is displayed so you can review the parts, features, and positioning relationships
+                        you captured. You can click the relationships listed on the <b>Capture Relationships</b> dialog box to highlight the faces used to define the relationship you selected, or
+                        you can click the <b>OK</b> button on the dialog box to dismiss it.</p>
+                  </div>
+                  <h4 class="division-title">Defining the Systems Library container document</h4>
+                  <div>
+                     <p>When you click the <b>Create Group</b> button on the command bar, the <b>Create Systems Library</b> dialog box is displayed so you can define the <b>Systems Library</b> document name and location, the assembly template you want to use, and rename any
+                        features you captured. </p>
+                     <p>If you are going to share <b>Systems Library</b> documents with other users at your company, you should define file naming and location
+                        conventions to make it easier to use <b>Systems Library</b> documents.</p>
+                  </div>
+                  <h4 class="division-title">Placing a Systems Library member document</h4>
+                  <div>
+                     <p>You place a <b>Systems Library</b> member document by dragging the assembly document for the <b>Systems Library</b> member from the <b>Parts Library</b> page in <b>PathFinder</b>, and dropping it into the assembly window. When you drop the systems document in
+                        the assembly window, a command bar and the <b>Input</b> dialog box are displayed to guide you through the steps required to place the systems
+                        document:</p>
+                     <ul>
+                        <li>
+                           <p>Positioning the parts</p>
+                        </li>
+                        <li>
+                           <p>Positioning the features</p>
+                        </li>
+                     </ul>
+                     <p>The parts that comprise the <b>Systems Library</b> document are also temporarily positioned in the assembly window.</p>
+                     <p>The <b>Input</b> dialog box lists the assembly relationships required to position the <b>Systems Library</b> components. When placing the component parts and captured features, options are provided
+                        on the command bar to skip captured relationships or features. As you complete the
+                        steps required to define a relationship, the <b>Input</b> dialog box is updated to indicate the steps you have completed.</p>
+                  </div>
+                  <h4 class="division-title">Positioning parts</h4>
+                  <div>
+                     <p>You position the parts similarly to the way you would normally position a part in
+                        an assembly, by selecting a part already in the assembly, and a face or element on
+                        that part to define the relationship. If the <b>Use Reduced Steps When Positioning Parts</b> option is set, then you will only need to select a face or element on an assembly
+                        part to define the relationship.</p>
+                     <p> When you drop the <b>Systems Library</b> member into the assembly, the face on the placement part for the first positioning
+                        relationship is highlighted (A). You can then select the target face in the assembly
+                        to satisfy the first relationship (B). The <b>Input</b> dialog box displays the relationship type and default value for each relationship.
+                        You can also use the command bar to define a new offset value for the first relationship,
+                        or skip defining the relationship entirely.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/system_library/syslib3.gif"></p>
+                     <p>After you select the target face for the first relationship, the set of parts is repositioned,
+                        and the face on the placement part for the second positioning relationship is highlighted
+                        (A). You can then select the target face in the assembly to satisfy the second relationship
+                        (B).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/system_library/syslib5.gif"></p>
+                     <p>You continue in this fashion until all the positioning relationships have been defined
+                        or skipped.</p>
+                  </div>
+                  <h4 class="division-title">Positioning features</h4>
+                  <div>
+                     <p>After you define the assembly relationships, you specify the part that you want to
+                        modify with the captured features. For example, if the feature you are placing is
+                        a hole feature, you would select a planar face on the assembly part (A) on which you
+                        want to apply the hole feature. The hole feature is associatively linked as a child
+                        of the parent part used to define the feature. In this example, the parent part is
+                        the bracket part (B).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/system_library/syslib7.gif"></p>
+                     <p>After placement, the parts behave exactly the same as any part in an assembly. The
+                        <b>Systems Library</b> document itself is not placed into the assembly. It is used as a container that defines
+                        the systems components.</p>
+                  </div>
+                  <h4 class="division-title">Reviewing Inter-Part relationships</h4>
+                  <div>
+                     <p>The <b>Inter-Part</b> relationships that you use when creating a <b>Systems Library</b> member, and when you placing a <b>Systems Library</b> member are indicated in <b>PathFinder</b>, and can be further reviewed using the <b>Inter-Part Manager</b> dialog box.</p>
+                     <p>For example, a symbol is added to the child part (A) in <b>PathFinder</b> to indicate that it is associatively linked to another part in the assembly.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/assembly/system_library/syslib8.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup1h" rel="compgroup1h">Create a Systems Library document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup2h" rel="compgroup2h">Place a Systems Library document</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup1c" rel="compgroup1c">Create Systems Library command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup2d" rel="compgroup2d">Captured Relationships dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup1d" rel="compgroup1d">Create Systems Library command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup3d" rel="compgroup3d">Create Systems Library Documents dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtlib1d" rel="prtlib1d">Parts Library tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup4d" rel="compgroup4d">Place Systems Library dialog box (Input dialog)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/compgroup5d" rel="compgroup5d">Place Systems Library Member command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtlib2d" rel="prtlib2d">Teamcenter Parts Library tab</a><br><br></div>
+            <div class="footer-content">Working with Systems Libraries in assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

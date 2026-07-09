@@ -1,0 +1,316 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Weldments</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Weldments"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="weldasm1a">
+                     <h1 class="topic-title">Weldments</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge provides a set of commands that you can use to add weldment-specific data
+                     to an assembly or part file. For example, you can use material removal commands to
+                     prepare part faces for welding operations, add fillet and groove welds between parts,
+                     or label edges that require welding on the physical parts. You can also construct
+                     assembly features that represent post-weld machining operations.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/weldasm2.jpg"></p>
+                  <p>Before you can access the weldment-specific commands in the Assembly environment,
+                     you must specify that the assembly document is a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/weldment_assembly" rel="weldment_assembly">weldment assembly</a>.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>If you want the weldment features to be contained in a separate part file, you can
+                        create a new part file in-place. In the assembly file, choose the <b>Home</b> tab→<b>Assemble</b> group→<b>Create Part In-Place</b> list→<b>Create Part In-Place</b> command. The weldment commands in the part environment are located on the <b>Home</b> tab→<b>Solids</b> group→<b>Sweep</b> list.</p>
+                  </div>
+                  <ul style="list-style: none">
+                     <li>
+                        <h5>Specifying an assembly document is a Weldment assembly</h5>
+                        <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldasm1c" rel="weldasm1c">Weldment Assembly command</a> to specify that the current assembly document is a weldment assembly. The Mark This
+                           Assembly as a Weldment option on the Weldment Assembly dialog box activates the weldment-specific
+                           commands in the Assembly environment. It also allows you to set other weldment properties
+                           such as the component material, bead material, weld bead color, weld bead density,
+                           and so forth.</p>
+                        <p>You can set this option in an existing assembly document that contains parts and subassemblies,
+                           or in a new assembly document before you place parts. When creating a new document,
+                           you can also select the WELDMENT.ASM assembly template in which the weldment assembly
+                           options have already been set. You can also modify this template to customize it to
+                           meet your requirements.</p>
+                     </li>
+                     <li>
+                        <h5>Weldment assemblies in the Teamcenter-managed environment</h5>
+                        <p>Weldment features such as beads and fillets are recognized and recorded in the Teamcenter
+                           structure as Item Elements provided the Teamcenter Preference SEEC_Asm_Weldment_Feature_Type
+                           is defined.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>See the <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a> for details regarding Teamcenter preferences.</p>
+                        </div>
+                        <p>Each Solid Edge Weldment Feature is published to Teamcenter as a unique occurrence.
+                           For example, four weldment features created in Solid Edge display as four lines in
+                           Teamcenter. Weldment features are not subject to Reverse Property Synchronization
+                           or Reverse BOM Synchronization. Additionally, the Item Elements that store the weldment
+                           features are children of an explicit Item Revision and are not configured by Revision
+                           Rules. Item Elements are dependent children of an Item Revision in Teamcenter.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Preparing the components</h4>
+                  <div>
+                     <p>When creating weldments, you often need to prepare the part surfaces first. For example,
+                        you may need to chamfer the edges where parts are welded together.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/chmweld1.gif"></p>
+                     <p>You can add surface preparation features in the assembly document or in the individual
+                        part documents, as discussed previously.</p>
+                     <p>When making this decision, you may want to consider the manufacturing workflow your
+                        company uses for weldments, or the documentation requirements for weldments at your
+                        company.</p>
+                     <p>For example, some companies create component part drawings for each part in a weldment
+                        assembly. If these drawings document the component parts after surface preparation,
+                        you should consider adding surface preparation features to the individual part documents.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Surface preparation in the assembly</h5>
+                           <p>You can use the commands on the Prep group to construct material removal features
+                              such as chamfers, cutouts, holes, and so forth in the assembly. When constructing
+                              profile-based features in an assembly, such as cutouts and holes, you can use the
+                              Select Parts Step to specify which parts in the weldment assembly the feature will
+                              modify.</p>
+                           <p>Any parts that lie within the range of the profile and extent are automatically selected.
+                              Selecting the parts automatically saves considerable time when working with large
+                              assemblies. If you do not want to remove material from all the selected parts, you
+                              can hold down the CTRL key and click any highlighted parts to remove them from the
+                              select set.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>The Through Next option is not available when creating material removal features.</p>
+                           </div>
+                           <p>For weldment assemblies, you can construct most material removal features as <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat1" rel="asmfeat1">assembly features</a> or <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat2" rel="asmfeat2">assembly-driven part features</a>. Some material removal features are only available as assembly features. For example,
+                              chamfer features can only be constructed as assembly features.</p>
+                           <p>For more information, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmfeat1a" rel="asmfeat1a">Assembly-based Features</a> Help topic.</p>
+                        </li>
+                        <li>
+                           <h5>Surface preparation in the part document</h5>
+                           <p>To add surface preparation features in the original part document, in-place activate
+                              the part document, then add the features you want.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Adding weld bead material and weld labels</h4>
+                  <div>
+                     <p>The commands on the Weld Beads group allow you to add weld bead material to the weldment
+                        assembly. You can define colors for the weld bead material, which makes it easier
+                        to differentiate between weld bead material and the parts in the assembly.</p>
+                     <p>You can construct fillet welds, groove welds, and stitch welds. You can also construct
+                        material addition features that represent weld bead material using protrusions, revolved
+                        protrusions and swept protrusions.</p>
+                     <p>You can add weld labels to weld bead features you construct using the protrusion commands.
+                        You can also add a weld label to a part edge. See the Weld Label Features section
+                        for more details.</p>
+                     <p>You are not required to add weld bead material to your weldments. When you add weld
+                        bead material, the bead volume is used when you calculate the physical properties
+                        of the weldment assembly.</p>
+                     <p>The material addition commands in the Assembly environment work similar to the corresponding
+                        commands in the Part environment, but there are some important differences. Open profiles
+                        are not allowed, and when two protrusions intersect, they are not combined into one
+                        solid body. </p>
+                     <p>The weld bead features you construct are not combined into the solid bodies of the
+                        parts they touch. These features are similar to the parts in an assembly, as they
+                        are separate solid bodies and are not combined with the parts in the weldment assembly.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Weld bead material color control</h5>
+                           <p>You use the Color Manager command to control the colors used for weld bead material.
+                              You can also use the Weldment Assembly command to set the weld bead color.</p>
+                           <p>Weld bead features constructed using material addition features are placed using the
+                              Construction color. Weld bead features constructed using fillet weld, groove weld,
+                              and stitch weld features are placed using the Weld Beads color.</p>
+                           <p>If you set these options to two different colors, it makes it easier to determine
+                              which features have weld symbol information available. You can use the weld symbol
+                              information in the Draft environment.</p>
+                           <p>If you use the Label Weld command, discussed later, to add weld symbol information
+                              to an edge on a material addition feature, the color of the feature changes to the
+                              Weld Beads color. This indicates that weld symbol information has been added.</p>
+                        </li>
+                        <li>
+                           <h5>Fillet weld features</h5>
+                           <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/fltwld1c" rel="fltwld1c">Fillet Weld command</a> adds weld bead material based on two sets of surfaces you define.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/filletweld1.gif"></p>
+                           <p>Each set can contain one or more surfaces, and the surfaces are not required to be
+                              connected to one another. The surface sets do not need to intersect one another, but
+                              the first set should be perpendicular or nearly perpendicular to the second set. The
+                              Fillet Weld Options dialog box allows you to define the fillet weld characteristics
+                              you want. For example, you can define the size and shape of the fillet by specifying
+                              the setback distance properties.</p>
+                           <p>You can also define the weld symbol characteristics for the fillet weld. Fillet weld
+                              features display in the active Construction color.</p>
+                        </li>
+                        <li>
+                           <h5>Groove weld features </h5>
+                           <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldgrv1c" rel="weldgrv1c">Groove Weld command</a> adds weld bead material between parts that have gaps between the welded faces.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/weldgrv1.gif"></p>
+                           <p>To construct a groove weld feature, you must define a set of base faces (A) and target
+                              faces (B). For some groove weld features, this is all the input that is required.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/weldgrv2.gif"></p>
+                           <p>Other situations require that you define a set of target edges. The edges you select
+                              are used to define the path for the feature, similar to how a lofted feature is defined.</p>
+                        </li>
+                        <li>
+                           <h5>Material addition features</h5>
+                           <p>When an assembly has been marked as a weldment, you can also define weld bead material
+                              using the material addition commands. You can construct protrusions, revolved protrusions,
+                              and swept protrusions to define weld bead material. This can be useful for constructing
+                              backing welds, plug or slot welds, or welds that require a specifically-shaped profile
+                              that cannot be constructed using a fillet or groove weld.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/plugweld1.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Label weld features</h5>
+                           <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weld4c" rel="weld4c">Label Weld command</a> to label the edges you want welded together. The Label Weld Options dialog box allows
+                              you to define the weld symbol attributes you want. The edges you label with the Label
+                              Weld command display in the Construction color. You can also label weld bead features
+                              you construct using the material addition commands.</p>
+                           <p>When you add a weld label to a material addition feature, the color of the feature
+                              changes to the Weld Beads color. This color change makes it easier for you to see
+                              which material addition features still require weld label attributes.</p>
+                           <p>The Label Weld command will also compute the bead volume for physical properties calculations.
+                              When you define the cross section area of the weld in the Weld Symbol Properties dialog
+                              box, the length of the labeled edges and the cross section area are used to compute
+                              the bead volume.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>The Fillet Weld, Groove Weld, and Label Weld commands do not display a weld symbol
+                                 in the Assembly environment. You can use the Tie To Geometry option available with
+                                 the Weld Symbol command in the Draft environment to retrieve the weld symbol attributes
+                                 from the assembly when adding weld symbols to the drawing.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <h5>Stitch weld features</h5>
+                           <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/stchweld1c" rel="stchweld1c">Stitch Weld command</a> to modify an existing fillet weld, groove weld, or a weld bead protrusion to create
+                              an intermittent weld.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/stitchweld1.gif"></p>
+                           <p>When working with a weld bead protrusion, you must first label the protrusion as a
+                              weld bead with the Label Weld command. You cannot use the Stitch Weld command on a
+                              part edge on which you added a weld label.</p>
+                           <p>When you create a stitch weld feature, you first select a weld path, which can be
+                              the root edge of a fillet weld, or the edge of the weld bead protrusion on which you
+                              added the weld label. After you select the path, you select the start end of the stitch
+                              weld. You can use the Stitch Option list on the command bar or the Stitch Weld Options
+                              dialog box to specify the stitch definition option you want. The options are Stitch,
+                              Stitch + Offsets, and Offsets Only.</p>
+                           <p>You can also use the Stitch Weld Options dialog box to define the stitch weld properties.
+                              For example, when you set the Stitch + Offsets option, you must also specify the start
+                              offset length (A), bead length (B), gap length (C), and end offset length (D) on the
+                              Stitch Weld Options dialog box.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/stitchweld2.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Post-weld machining</h4>
+                  <div>
+                     <p>You can also define post-weld material removal features, such as cutouts, holes, threaded
+                        features and so forth using the commands on the Prep group. This approach duplicates
+                        how many weld features are added to the actual components. For example, some features
+                        are added after welding due to warpage and accuracy considerations.</p>
+                     <p>You can use the Select Parts Step to specify which parts the feature will modify.
+                        The material removal features can also be used to remove weld bead material, such
+                        as from a fillet weld or a protrusion.</p>
+                  </div>
+                  <h4 class="division-title">Patterning features</h4>
+                  <div>
+                     <p>The Mirror Assembly Feature command allows you to create patterns of assembly features
+                        and weld bead material. Although these commands work similar to the corresponding
+                        commands in the Part and Sheet Metal environments, some special rules apply:</p>
+                     <ul>
+                        <li>
+                           <p>When patterning material removal features, you can use either the Fast or Smart option,
+                              but if the pattern feature encounters different surfaces than the original feature,
+                              you must use the Smart option.</p>
+                        </li>
+                        <li>
+                           <p>When patterning weld bead material, you always use the Fast option. Because weld bead
+                              material does not interact with the surrounding parts, the Smart option is not required.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Documenting the stages of a weldment assembly</h4>
+                  <div>
+                     <p>Some companies want to document the process-specific stages an assembly goes through
+                        as the components are processed into a weldment assembly:</p>
+                     <ul>
+                        <li>
+                           <p>Component Stage</p>
+                        </li>
+                        <li>
+                           <p>Surface Preparation and Weld Bead Stage</p>
+                        </li>
+                        <li>
+                           <p>Post-Weld Machining Stage</p>
+                        </li>
+                     </ul>
+                     <p>If you need to create unique, separate documents for these stages, you can consider
+                        the following workflow.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Stage 1: </h5>
+                           <p>Create an assembly document that collects all the components for the weldment. For
+                              the purposes of this example, it is named: Asm1-C.asm.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/weldstagec.gif"><img class="img-fluid" src="../../../common/graphicLibrary/se/se/weldstagecpf.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Stage 2: </h5>
+                           <p>Place Asm1-C.asm into a new assembly, mark the assembly as a weldment, and create
+                              the features that reflect surface preparation machining and weld bead features. Name
+                              that assembly: Asm1-W.asm.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/weldstagew.gif"><img class="img-fluid" src="../../../common/graphicLibrary/se/se/weldstagewpf.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Stage 3: </h5>
+                           <p>Place Asm1-W.asm into another new assembly, and add the post-weld machining features.
+                              Name that assembly: Asm1-M.asm. </p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/weldstagem.gif"><img class="img-fluid" src="../../../common/graphicLibrary/se/se/weldstagempf.gif"></p>
+                        </li>
+                     </ul>
+                     <p>The completed data set allows you to segregate the features required for each weldment
+                        stage in separate assembly documents. This approach can also make it easier if you
+                        need to create separate drawing documents for each weldment stage.</p>
+                  </div>
+                  <h4 class="division-title">Displaying weld bead color and texture in a shaded model view</h4>
+                  <div>
+                     <p>The Weld Beads option on the <a class="xref" data-handle="visualizing_models" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/colormanager1d" rel="colormanager1d">Color Manager dialog box</a> allows you to define a face style for weld beads. Its default value is set to a style
+                        named Weld Bead. The Textures option on the <a class="xref" data-handle="visualizing_models" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf5d" rel="viewf5d">Rendering tab</a> of the View Overrides dialog box supports photorealistic display of weld beads when
+                        you use the Weld Bead face style.</p>
+                     <p>A weldbead.jpg file is delivered to the <b>Program Files\Siemens\Solid Edge 2023\Images\Textures\Other</b> folder, which you can also use to create your own weld bead styles to display texture.
+                        (You can make adjustments to the display characteristics of the Weld Bead style, and
+                        any other face style using the <a class="xref" data-handle="styles" href="/en-US/product/246738425/doc/PL20211001099989437.styles/html/style1c" rel="style1c">Styles command</a>.)</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/beadtexture1.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/fltwld1h" rel="fltwld1h">Construct a fillet weld</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/stchweld1h" rel="stchweld1h">Construct a stitch weld</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldgrv1h" rel="weldgrv1h">Construct a groove weld</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weld4h" rel="weld4h">Label a weld</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/insertweld1h" rel="insertweld1h">Insert a weldment in an Assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weld3h" rel="weld3h">Create a Weldment Assembly</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/xid959004" rel="xid959004">Creating drawings of weldment assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/fltwld1c" rel="fltwld1c">Fillet Weld command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/fltwld1d" rel="fltwld1d">Fillet Weld command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/fltwld2d" rel="fltwld2d">Fillet Weld Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldgrv1c" rel="weldgrv1c">Groove Weld command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldgrv1d" rel="weldgrv1d">Groove Weld command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldgrv2d" rel="weldgrv2d">Groove Weld Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weld4c" rel="weld4c">Label Weld command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weld4d" rel="weld4d">Label Weld command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weld5d" rel="weld5d">Label Weld Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/stchweld1c" rel="stchweld1c">Stitch Weld command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/stchweld1d" rel="stchweld1d">Stitch Weld command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/stchweld2d" rel="stchweld2d">Stitch Weld Options Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/insertweld1c" rel="insertweld1c">Insert Weldment command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/insertweld1d" rel="insertweld1d">Insert Weldment command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/insertweldment2d" rel="insertweldment2d">Weldment Parameters dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldasm1c" rel="weldasm1c">Weldment Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldasm1d" rel="weldasm1d">Weldment Assembly Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.weldments/html/weldfileswarning1d" rel="weldfileswarning1d">Weldment File Type dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/weld1c" rel="weld1c">Weld symbols</a><br><br></div>
+            <div class="footer-content">Weldments, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

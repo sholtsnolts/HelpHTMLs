@@ -1,0 +1,242 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Fix broken links using command line options</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Fix broken links using command line options"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1195749">
+                     <h1 class="topic-title">Fix broken links using command line options</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Fix Broken Links program repairs links in Solid Edge files before you import them
+                     into the managed environment. The program locates the Excel spreadsheet produced from
+                     the file analysis process and defines the parameters used for repairing broken links.</p>
+                  <div class="attention" type="warning">
+                     <div class="attention-label">Warning: </div>
+                     <p>Failure to repair broken links before proceeding with the data preparation and import
+                        process can result in an improperly populated database.</p>
+                  </div>
+                  <p>The Fix Broken Links program can be run from within the Data Preparation Utility or
+                     from the command line by typing <b>DataPrepUtility.exe /FixBrokenLinks</b> and applying the following options:</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The default location for the <b>DataPrepUtility.exe</b> program is <b>\Program Files\Siemens\Solid Edge 2023\Program</b>.</p>
+                  </div>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p><b>DataPrepUtility.exe /FixBrokenLinks /File "D:\new folder\dataPrepUtility.xlsm" /sheet
+                           "BrokenLinks" /viewlog</b></p>
+                  </div>
+                  <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                     <colgroup span="1">
+                        <col span="1" width="15%">
+                        <col span="1" width="25%">
+                        <col span="1" width="60%">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <td rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Option</p>
+                           </td>
+                           <td rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Use</p>
+                           </td>
+                           <td rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Comments</p>
+                           </td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/preST</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Activates link fix-up for files created in versions of Solid Edge prior to Solid Edge
+                                 ST.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up.</p>
+                              <p>If used, this should be the first option specified.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/File &lt;spreadsheet file&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies the Excel spreadsheet file to use as input.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Enclose the path in quotations.</p>
+                              <p>Example: /File "D:\new folder\datapreputilities.xlsm"</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/sheet &lt;sheet name&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies the sheet in the specified spreadsheet that contains the link replacement
+                                 information.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for Solid Edge ST link fix-up.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/folder &lt;folder path&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies the folder containing Solid Edge files.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up. You must specify either a folder
+                                 path or report summary file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/report &lt;file path&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies report summary file.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up. You must specify either a folder
+                                 path or report summary file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/chkPart</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Processes part documents.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/chkAssy</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Processes assembly documents.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/chkDraft</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Processes draft documents.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/chkWeld</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Processes weldment documents.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/onlyfilename</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Excel Search based on file name only.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only for pre-Solid Edge ST link fix-up.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/fullpathname</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Excel Search based on full path name.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Excel Search based on file name only.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/ShowDialog</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Displays Link Fix-Up dialog box.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specify this option when you want to view the Link Fix-Up dialog box with all specified
+                                 options selected. You must manually start Link Fix-Up by clicking OK in the dialog
+                                 box.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/?</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Displays help for command line options.</p>
+                           </td>
+                           <td rowspan="1" colspan="1"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/viewlog</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Opens log file.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Log file is opened once processing completes.</p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze1h" rel="analyze1h">Perform a Solid Edge file analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/linkfixup1h" rel="linkfixup1h">Fix links in Solid Edge files</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/modify1h" rel="modify1h">Modify Solid Edge files using the Data Preparation Utility</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186978" rel="xid1186978">Generate a list of custom properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186986" rel="xid1186986">Generate a list of reverse links</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/renametc1h" rel="renametc1h">Rename files using the Data Preparation Utility</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seectools1a" rel="seectools1a">Solid Edge Data Preparation Utility</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1192540" rel="xid1192540">Considerations before using the Data Preparation Utility</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1195748" rel="xid1195748">Analyze Solid Edge files using command line options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1195750" rel="xid1195750">Modify Solid Edge files using command line options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186430" rel="xid1186430">Data Preparation dialog box</a><br><br></div>
+            <div class="footer-content">Fix broken links using command line options, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

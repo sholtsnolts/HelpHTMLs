@@ -1,0 +1,153 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Gage Properties tab</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Gage Properties tab"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="material6d">
+                     <h1 class="topic-title">Gage Properties tab</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <dl>
+                     <dt>Use Excel file:</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to get the gage information from an Excel file. </p>
+                        <p>Use the Solid Edge Options→File Locations→Sheet Metal Gage File path option to specify
+                           the Excel file you want to use.</p>
+                     </dd>
+                     <dt>Use Gage Table:</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the name of the gage table. You can use the Edit button to open the Excel
+                           file for edit.</p>
+                     </dd>
+                     <dt>Associate with material</dt>
+                     <dd class="ml-3">
+                        <p>Associates the gage table with the material specified in the field. The button is
+                           enabled when the Use Excel File option is selected, a gage table is selected in the
+                           Use Gage Table, and a material is selected in the Material tab.</p>
+                        <p> When you select this option and click the Save button the gage table is associated
+                           with the material in the material library. Once associated in the material library,
+                           when the same material is applied to another file, the associated gage table is automatically
+                           used.</p>
+                     </dd>
+                     <dt>Sheet metal gage:</dt>
+                     <dd class="ml-3">
+                        <p>Displays the name of the current gage. When you select a name from the list, a set
+                           of associated material and mechanical properties is displayed. You can use the tabs
+                           on the dialog box to review or modify the properties. You can also define the material
+                           thickness using the Material Thickness option on the Gage tab.</p>
+                     </dd>
+                     <dt>Material Thickness</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the material thickness for the part.</p>
+                     </dd>
+                     <dt>Bend radius:</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the bend radius value for the part.</p>
+                        <p>To facilitate creation of flat patterns, Solid Edge always creates a minimum bend
+                           radius for features that can be flattened, even if you specify a bend radius value
+                           of zero (0.00). For metric documents, a zero bend radius will actually be set to a
+                           value of approximately 0.002 millimeters. For English documents, a zero bend radius
+                           will actually be set to a value of approximately 0.0000788 inches. If you need the
+                           bend radius to be exactly zero, you will have to create the features in the Part environment.</p>
+                        <p>If you would like to delete the minimum bend radius and minimum bend-relief surfaces
+                           that Solid Edge creates, you can use the <a class="xref" data-handle="create_sheet_metal_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/deletesmfaces1c" rel="deletesmfaces1c">Delete Relief Faces command</a>.</p>
+                     </dd>
+                     <dt>Relief depth:</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the relief depth value for the part.</p>
+                     </dd>
+                     <dt>Relief width:</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the relief width value for the part.</p>
+                     </dd>
+                     <dt>Bend Equation</dt>
+                     <dd class="ml-3">
+                        <p>Defines the bend equation formula you want to use. The bend equation formula is used
+                           to calculate the flat pattern of a sheet metal part when using the Part Copy command.
+                           You can use the standard formula delivered with Solid Edge, one of the example formulas
+                           in the Solid Edge 2023/Custom/sheetmetal folder or a custom formula you develop.</p>
+                        <dl>
+                           <dt>Standard Formula</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the formula delivered with Solid Edge is used to calculate the flat
+                                 pattern size. The standard formula is:</p>
+                              <p>PZL = <img class="img-fluid" src="../../../common/nonLocalized/se/admin/admin_functions/admin_ui/pi2.gif"> * (BR + (NF * THK)) * BA / 180</p>
+                              <p>Where:</p>
+                              <p>PZL = Plastic Zone Length</p>
+                              <p>BR = Bend Radius</p>
+                              <p>NF = Neutral Factor</p>
+                              <p>THK = Material Thickness</p>
+                              <p>BA = Bend Angle</p>
+                           </dd>
+                           <dt>Neutral Factor:</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the neutral factor to use for the bend(s).</p>
+                              <div class="row">
+                                 <div class="col-3"><b>Neutral Factor</b></div>
+                                 <div class="col-9">
+                                    <p>Specifies the default neutral factor for the bend(s).</p>
+                                 </div>
+                                 <div class="col-3"><b>Use Neutral Factors from Excel File</b></div>
+                                 <div class="col-9">
+                                    <p>Specifies the neutral factor information is extracted from the Excel file.</p>
+                                 </div>
+                              </div>
+                           </dd>
+                           <dt>Custom Formula</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that a custom formula you define is used to calculate the flat pattern size.</p>
+                              <p>ProgramID.ClassName:</p>
+                              <p>Defines the custom bend formula you want to use. Type the program ID and class name
+                                 using the following syntax:</p>
+                              <p>ProgramID.ClassName</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Add Gage</dt>
+                     <dd class="ml-3">
+                        <p>Adds the new material or gage to the material library. This button is available when
+                           you have defined a new material or gage.</p>
+                     </dd>
+                     <dt>Delete Gage</dt>
+                     <dd class="ml-3">
+                        <p>Deletes the existing material or gage in the material library. This button is available
+                           when you have selected an existing material or gage.</p>
+                     </dd>
+                     <dt>Save</dt>
+                     <dd class="ml-3">
+                        <p>Updates the existing material or gage in the material library. This button is available
+                           when you have changed the properties for an existing material or gage.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material1h" rel="material1h">Apply a material to a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid730575" rel="xid730575">Add a favorite material</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material2h" rel="material2h">Create a new material</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material3h" rel="material3h">Create a custom material property</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid730578" rel="xid730578">Change the location of the material folder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid730577" rel="xid730577">Change the Material Table units</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material1a" rel="material1a">Material Table</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid730686" rel="xid730686">Material PathFinder node</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid730722" rel="xid730722">Managing material libraries</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid731094" rel="xid731094">Copying and pasting materials</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid730570" rel="xid730570">Importing and exporting materials</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material1c" rel="material1c">Material Table command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid999601" rel="xid999601">Material library property file</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid999602" rel="xid999602">Sheet metal gages file</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material1d" rel="material1d">Material Table dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material2d" rel="material2d">Material Properties tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid730621" rel="xid730621">Favorites and Recent Materials tab</a><br><br></div>
+            <div class="footer-content">Gage Properties tab, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

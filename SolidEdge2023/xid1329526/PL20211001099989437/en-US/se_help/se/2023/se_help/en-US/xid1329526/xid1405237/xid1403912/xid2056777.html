@@ -1,0 +1,125 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Planar Symmetry </title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Planar Symmetry "></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid2056777">
+                     <h1 class="topic-title">Planar Symmetry </h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can constrain the optimized design model to be symmetric about a specified plane.
+                     Use the <b>Planar Symmetry</b> command <img class="img-fluid" src="../../../../common/graphicLibrary/se/topology_optimization/planar_symmetry_command.png"> to apply a half, quarter, or one-eighth planar symmetry to an optimized design model.</p> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>This command is available based on your <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1417631" rel="xid1417631">Generative Design license</a> type.</p>
+                  </div> 
+                  <h4 class="division-title">Planar Symmetry inputs</h4>
+                  <div>  
+                     <p>When defining a planar symmetry, you use the options on the <b>Planar Symmetry</b> command bar and the dynamic input boxes to specify:</p> 
+                     <dl> 
+                        <dt><b>Planar Symmetry - Types</b></dt> 
+                        <dd class="ml-3">
+                           <p>Select the type of symmetry you want to apply for a design model.</p> 
+                           <dl> 
+                              <dt><b>Half</b></dt> 
+                              <dd class="ml-3">
+                                 <p>The optimized design model should be symmetric with respect to the specified plane.</p>
+                              </dd> 
+                              <dt><b>Quarter</b></dt> 
+                              <dd class="ml-3">
+                                 <p>The optimized design model should be symmetric with respect to two orthogonal planes.</p>
+                              </dd> 
+                              <dt><b>One-Eighth</b></dt> 
+                              <dd class="ml-3">
+                                 <p>The optimized design model should be symmetric with respect to three orthogonal planes.</p>
+                              </dd> </dl>
+                        </dd> 
+                        <dt><b>Select Plane</b></dt> 
+                        <dd class="ml-3">
+                           <p>Select the reference plane that defines the symmetry plane for an optimized design
+                              model.</p> 
+                           <p>You must specify one plane for a <b>Half</b> symmetry, two orthogonal planes for a <b>Quarter</b> symmetry, and three orthogonal planes for a <b>One-Eighth</b> symmetry.</p>
+                        </dd> </dl> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The <b>Planar Symmetry</b> constraint gives the best possible symmetric design models. However, the results
+                           may vary with the complexity of the model.</p>
+                     </div>
+                  </div> 
+                  <h4 class="division-title">Applying a planar symmetry</h4>
+                  <div>  
+                     <p>In this design study, a <b>Quarter</b> symmetry is applied to the design model by selecting the two orthogonal planes. The
+                        design study results are compared with and without applying a planar symmetry.</p> 
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/topology_optimization/planar_symmetry_example.png"></p>
+                     <ol type="1"> 
+                        <li> 
+                           <p>The design model is symmetric about the XZ and YZ planes. The force loads applied
+                              to a set of holes, make the optimized design model asymmetric about the XZ and YZ
+                              planes.</p> </li> 
+                        <li> 
+                           <p>Choose <b>Generative Design</b> tab → <b>Shape Constraints</b> group → <b>Planar Symmetry</b>.</p> </li> 
+                        <li> 
+                           <p>On the <b>Planar Symmetry</b> command bar, provide the inputs in the order shown. You can change the plane selection
+                              by clicking the corresponding step buttons on the command bar.</p> 
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/topology_optimization/planar_symmetry_commandbar.png"></p> 
+                           <ol type="a" start="1"> 
+                              <li>
+                                 <p>From the drop-down list at the top of the <b>Planar Symmetry</b> dialog box, select <b>Quarter</b>.</p>
+                              </li> 
+                              <li>
+                                 <p>The <b>Select Plane 1</b> option is available. Select the first reference plane. Right-click or press Enter
+                                    for the next plane selection.</p>
+                              </li> 
+                              <li>
+                                 <p>Now, the <b>Select Plane 2</b> option will be available. Select the second orthogonal plane. Right-click or press
+                                    Enter to continue.</p>
+                              </li> </ol> </li> </ol> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>The <b>Select Plane 3</b> option becomes available after you select the <b>One-Eighth</b> symmetry type.</p> </div> 
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div> 
+                        <p>Compare the results of solving the study of this design space with and without applying
+                           a planar symmetry using the <b>Planar Symmetry</b> command. The results show an optimized design model symmetric with respect to the
+                           XZ and YZ planes.</p> 
+                        <p>Solution 1 - No planar symmetry</p> 
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/topology_optimization/without_planar_symmetry.png"></p> 
+                        <p>Solution 2 - Quarter symmetry applied</p> 
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/topology_optimization/quarter_planar_symmetry.png"></p> </div> </div> 
+                  <h4 class="division-title">Editing a planar symmetry</h4>
+                  <div>  
+                     <p>The planar symmetry is listed in the <b>Generative Design</b> pane as either <b>Planar Symmetry (Undefined)</b> or <b>Planar Symmetry (Defined)</b>.</p> 
+                     <p>To edit a planar symmetry, you can double-click the <b>Planar Symmetry (Defined)</b> node in the <b>Generative Design</b> pane, or simply select the <b>Planar Symmetry</b> command again.</p> 
+                     <p>To remove a planar symmetry, right-click the <b>Planar Symmetry (Defined)</b> node and choose <b>Delete</b>. This also resets the label to its initial <b>Planar Symmetry (Undefined)</b> state.</p> </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340170" rel="xid1340170">Generative Design example</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404603" rel="xid1404603">Define a physical load condition</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404737" rel="xid1404737">Define an operational constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404299" rel="xid1404299">Set a maximum displacement</a><br><br><h5>Learn more</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405933" rel="xid1405933">Using load cases</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340178" rel="xid1340178">Fixed constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389708" rel="xid1389708">Pinned constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389141" rel="xid1389141">Graphic Symbol Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389140" rel="xid1389140">Color dialog box</a><br><br></div>
+            <div class="footer-content">Planar Symmetry , Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,159 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Add unmanaged documents to Teamcenter</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Add unmanaged documents to Teamcenter"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="addtoteamcenter1h">
+                     <h1 class="topic-title">Add unmanaged documents to Teamcenter</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Choose <b>Start→Siemens Solid Edge 2023→Add to Teamcenter</b>.</p>
+                        <div class="attention" type="caution">
+                           <div class="attention-label">Caution: </div>
+                           <p>Running Add to Teamcenter while Solid Edge documents are open can cause interference
+                              with documents that exist in the cache. As a best practice, close all Solid Edge documents
+                              before running Add to Teamcenter.</p>
+                        </div>
+                        <p>Optionally, you can clear existing cache content prior to running Add to Teamcenter.</p>
+                        <div>
+                           <div style="display: inline-block; vertical-align: top;">→</div>
+                           <div style="display: inline-block;">
+                              <p>In the <b>Add to Teamcenter</b> dialog box, click <b>Cache</b>.</p>
+                           </div>
+                        </div>
+                        <div>
+                           <div style="display: inline-block; vertical-align: top;">→</div>
+                           <div style="display: inline-block;">
+                              <p>Log on to Teamcenter by entering your User ID and Password.</p>
+                           </div>
+                        </div>
+                        <div>
+                           <div style="display: inline-block; vertical-align: top;">→</div>
+                           <div style="display: inline-block;">
+                              <p>In Cache Assistant, clear your cache by choosing <b>Workspace </b> group→<b>Clear Cache</b>.</p>
+                           </div>
+                        </div>
+                        <div>
+                           <div style="display: inline-block; vertical-align: top;">→</div>
+                           <div style="display: inline-block;">
+                              <p>Click <b>Yes</b> to confirm that you want to delete all the documents from the project.</p>
+                           </div>
+                        </div>
+                        <div>
+                           <div style="display: inline-block; vertical-align: top;">→</div>
+                           <div style="display: inline-block;">
+                              <p>Close the <b>Cache Assistant</b> dialog box.</p>
+                           </div>
+                        </div>
+                     </li>
+                     <li>
+                        <p>In the <b>Add to Teamcenter </b>dialog box, select the folder or documents you want to add to the managed library.</p>
+                     </li>
+                     <li>
+                        <p>Click <b>Add</b> and your selection is added to the <b>Folders and Documents To Be Added</b> list.</p>
+                     </li>
+                     <li>
+                        <p>To link the files that are added to Teamcenter to a specific folder, select the <b>Add Documents to This Folder</b> check box.</p>
+                        <p>Use <b>Browse for Library Folder</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/browse.gif"> to choose a folder from the <b>Select Folder</b> dialog box or create a new folder.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Leaving the <b>Add Documents to This Folder</b> check box cleared adds the files to Teamcenter, but the folder is determined by the
+                              Teamcenter preference <b>WsoInsertNoSelectionsPref</b>. By default, they are linked to the <b>Newstuff</b> folder.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Click <b>Dry Run</b> to examine the selected unmanaged files for broken links or missing information and
+                           generate an ordered list of your documents.</p>
+                        <p>The documents are not added to the library. The documents remain in the queue for
+                           you to make any necessary corrections using the Data Preparation Utility, and then
+                           return to Add to Teamcenter.</p>
+                     </li>
+                     <li>
+                        <p>(Optional) Select the <b>Update Status On All Documents to Checked-In</b> check box to check the documents into Teamcenter.</p>
+                     </li>
+                     <li>
+                        <p>Determine how you would like the software to handle an overwrite condition by setting
+                           the <b>Overwrite</b> option.</p>
+                        <p>The Add to Teamcenter program compares the Teamcenter import date with the date the
+                           files were last modified to see if the files have already been loaded into Teamcenter.
+                           You can set the overwrite option to prompt you, to overwrite all documents it finds,
+                           or to not overwrite any documents. This option is particularly helpful if you are
+                           loading unmanaged documents unattended.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can load files over files that already exist in Teamcenter. Add to Teamcenter
+                              checks the item, revision, and dataset against those already in the database and gives
+                              you the option to check out the document and overwrite it, check out all files that
+                              exist and overwrite them, leave the file and use the file already in the database,
+                              leave all files and use the ones that already exist in the database or cancel the
+                              import process.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Set the Revision Rule for use with the documents.</p>
+                        <p>Your choice specifies the revision rule used to create the BOM. If this is the first
+                           time you have run Add to Teamcenter, the <b>Teamcenter default</b> Revision Rule is used. The Teamcenter Preference <b>TC_config_rule_name</b> defines the default Revision Rule.</p>
+                     </li>
+                     <li>
+                        <p>(Optional) Set the <b>Automatically Retry Documents That Fail to Load</b> check box to retry the load of any documents that failed to load on the previous
+                           attempt.</p>
+                     </li>
+                     <li>
+                        <p>Click <b>OK</b> to perform the Dry Run.</p>
+                        <p>While the dry run is processing, you can monitor its progress on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcstatus1d" rel="addtotcstatus1d"><b>Add to Teamcenter Status</b></a> dialog box. The files in a dry run are not validated against what is in Teamcenter.</p>
+                        <div class="attention" type="caution">
+                           <div class="attention-label">Caution: </div>
+                           <p>Repair any broken links before proceeding with adding your unmanaged documents into
+                              Teamcenter. </p>
+                        </div>
+                        <p>You can suspend Add to Teamcenter and use the Data Preparation Utility to correct
+                           reported problems in your unmanaged files.</p>
+                        <p>Once any broken links or other problems have been corrected, restart Add to Teamcenter
+                           to complete any unfinished actions.</p>
+                     </li>
+                     <li>
+                        <p>If no broken links or missing information were found, respond to the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/valcomplete1d" rel="valcomplete1d"><b>Validations Complete</b> dialog box</a> by clicking <b>View Log</b>, <b>Summary</b>, <b>Continue</b>, <b>Cancel</b>, or <b>Suspend</b>.</p>
+                        <p>Clicking <b>Continue</b> loads the documents into Teamcenter.</p>
+                     </li>
+                     <li>
+                        <p>When your selected documents successfully load into Teamcenter, you are notified that
+                           the Add to Teamcenter process is complete.</p>
+                     </li>
+                     <li>
+                        <p>(Optional) Click <b>Cache</b> to view your documents in the cache.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcsuspend1h" rel="addtotcsuspend1h">Suspend or pause Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter3h" rel="addtoteamcenter3h">Assign unmanaged documents to a project during Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter2h" rel="addtoteamcenter2h">Migrate a standard part to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/adddoc2tc1h" rel="adddoc2tc1h">Enable or disable the Add Document to Teamcenter command</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter1a" rel="addtoteamcenter1a">Working with Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1007158" rel="xid1007158">Overwriting documents with Add to Teamcenter</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter1d" rel="addtoteamcenter1d">Add to Teamcenter dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcstatus1d" rel="addtotcstatus1d">Add to Teamcenter Status dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotccomplete1d" rel="addtotccomplete1d">Add to Teamcenter Complete dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/valcomplete1d" rel="valcomplete1d">Validations Complete dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/adddoc2tc1c" rel="adddoc2tc1c">Add Document to Teamcenter command</a><br><br></div>
+            <div class="footer-content">Add unmanaged documents to Teamcenter, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

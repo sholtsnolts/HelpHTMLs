@@ -1,0 +1,147 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Defining the Teamcenter environment list</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Defining the Teamcenter environment list"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="populatetcenv1a">
+                     <h1 class="topic-title">Defining the Teamcenter environment list</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Define Teamcenter Environments utility is used to define the list of Teamcenter
+                     environments available to you. This capability is especially useful to administrators
+                     who have a need to work with multiple Teamcenter environments, including single sign-on
+                     enabled environments. The Define Teamcenter Environments dialog box provides the functionality
+                     to add, modify and remove entries in your list of available Teamcenter environments.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Starting with Solid Edge ST10, Teamcenter environments are defined using the Teamcenter
+                        Environment Manager (TEM). You define your Teamcenter environment, provide a description,
+                        and specify Teamcenter Client Communication System (TCCS) all through TEM. The Teamcenter
+                        Communication Service is a four-tier function that acts as a central client tier process
+                        for managing functionality needed by multiple Teamcenter clients. The process hosts
+                        the FMS Client Cache (FCC) for communication with FMS Server Cache (FSC), the Teamcenter
+                        Proxy (TSP) for communication with Teamcenter web tier, and the Teamcenter Model Event
+                        Manager which provides client-to-client synchronization messages.</p>
+                     <p>The following information pertains only to Solid Edge users who choose not to use
+                        TCCS or who use Teamcenter 10 in a 2-tier environment.</p>
+                  </div>
+                  <h4 class="division-title">Defining Teamcenter environments</h4>
+                  <div>
+                     <p>Use the Define Teamcenter Environments dialog box to define your Teamcenter server,
+                        provide a description, and as an option, specify the use of a two-tier environment.</p>
+                     <p>Environments that utilize Teamcenter Security Services (single sign-on) are also defined
+                        through this utility. An application ID and login service URL are required for enabling
+                        single sign-on servers.</p>
+                     <p>To start Define Teamcenter Environments, choose Start→Siemens Solid Edge 2023→Choose
+                        PDM Integration→Teamcenter Environments. </p>
+                  </div>
+                  <h4 class="division-title">Adding Teamcenter environments</h4>
+                  <div>
+                     <p>Use the Define Teamcenter Environments dialog box, to define at least one environment.
+                        You can add multiple Teamcenter environment URL entries into the list and keep the
+                        list current by using options on the dialog box.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The Teamcenter Database URL must specify the HTTP protocol for a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/four_tier" rel="four_tier">four-tier configured</a> environment. Example: http://hsvnt123/test or https://hsvnt321/test</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Specifying a two-tier configuration</h4>
+                  <div>
+                     <p>When you define your Teamcenter environments, you can specify a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/two_tier" rel="two_tier">two-tier configuration</a> by checking the <b>2-Tier</b> check box.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>A URL can be defined for both two-tier and four-tier to the same database.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Providing a Teamcenter environment description</h4>
+                  <div>
+                     <p>Each Teamcenter environment listed should have a brief corresponding description.
+                        The description assists you in distinguishing one environment from another when multiple
+                        environments are listed. The description you provide is displayed at login.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>A database description is required for each database listed.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Teamcenter Security Services (TcSS)</h4>
+                  <div>
+                     <p>Any Solid Edge application that requires a Teamcenter logon (such as Solid Edge with
+                        Embedded Client, Structure Editor, Add to Teamcenter) can take advantage of Teamcenter
+                        Security Services using single sign-on (SSO), provided that an SSO enabled database
+                        is activated. When you use single sign-on, you log onto a Teamcenter enabled single
+                        sign-on application. The default group and role are assigned. Then the next application
+                        uses those credentials and submits them to the authentication authority. You are not
+                        required to log on again. A background window holds the token while you are authenticated.
+                        Dismissing the window deletes the token.</p>
+                     <p>Teamcenter Security Services is available to both 2–tier and 4–tier connections. Defining
+                        a single sign-on enabled database is accomplished in the same way as defining any
+                        other Teamcenter database, except that you must enter the corresponding application
+                        ID and logon service URL for the Teamcenter Security Service enabled database you
+                        specified. The Teamcenter database URL you specify is added to the list and is displayed
+                        in green for easy identification. Only one Teamcenter database URL that is single
+                        sign-on enabled can be active at a time. Choose the URL from the list and select Activate
+                        to make a database active.</p>
+                  </div>
+                  <h4 class="division-title">Specifying a default database</h4>
+                  <div>
+                     <p>When multiple environments are defined, you can specify one environment as the default
+                        by choosing the environment and then selecting the <b>Default database</b> check box. The default database is shown in blue on the Define Teamcenter Environments
+                        dialog box.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>This option is disabled when single sign-on databases are defined. Use the Activate
+                           option to make a single sign-on database active.</p>
+                     </div>
+                     <p>If no default environment is specified, the environment that was last used is selected.
+                        If no default environment is specified and you are accessing Teamcenter for the first
+                        time, the first entry in the list is the environment used as the default.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Once you log in using a specific environment, you are connected to that environment
+                           for the duration of your working session. You can change the environment you are working
+                           with by closing Solid Edge, starting a new session, and specifying the environment
+                           of your choice at login.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Removing entries</h4>
+                  <div>
+                     <p>Using the Define Teamcenter Environments dialog box, you can delete outdated or incorrect
+                        URLs from the list by selecting an existing URL and clicking <b>Remove</b>.</p>
+                  </div>
+                  <h4 class="division-title">Updating existing entries</h4>
+                  <div>
+                     <p>Entries that exist in the Teamcenter database list can be updated or modified by selecting
+                        the entry, making necessary changes, and clicking <b>Update</b>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/populatetcdblist1h" rel="populatetcdblist1h">Define Teamcenter environments</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/twotier1h" rel="twotier1h">Configure Solid Edge Embedded Client for two-tier deployment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seecdiag2h" rel="seecdiag2h">Determine your Teamcenter connection type</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/populatetcdblist2h" rel="populatetcdblist2h">Modify single sign-on Teamcenter environments</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/twotier1a" rel="twotier1a">Solid Edge Embedded Client two-tier configuration</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/populatetcdblist1d" rel="populatetcdblist1d">Define Teamcenter Environments dialog box</a><br><br></div>
+            <div class="footer-content">Defining the Teamcenter environment list, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

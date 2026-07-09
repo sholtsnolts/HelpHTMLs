@@ -1,0 +1,201 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Saving to AutoCAD</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Saving to AutoCAD"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid727826">
+                     <h1 class="topic-title">Saving to AutoCAD</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use the <b>AutoCAD Translation Wizard</b> to save Solid Edge documents to AutoCAD format. The wizard maps entities, such as
+                     line type, line width, font, and hatch style, in a Solid Edge document to an AutoCAD
+                     document. If you want to save a Solid Edge Draft file to AutoCAD (.dxf or .dwg) format
+                     and the file contains OLE objects such as a Word or .bmp document, you must save the
+                     file first. If you do not save the draft file, the OLE objects will not be translated
+                     to AutoCAD format.</p>
+                  <p>Any text profiles in the draft file are exported to AutoCAD.</p>
+                  <h4 class="division-title">Exporting Solid Edge multiline text boxes to AutoCAD</h4>
+                  <div>
+                     <p>You can use the <em>Export Multiline Text As Multiline Text</em> parameter in the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse5a#seacadini" rel="acse5a">seacad.ini file</a> to control how Solid Edge exports multiline text. By default, the parameter is set
+                        to 1, which exports multiline text boxes as multiline text box. You can set the value
+                        to 0 if you want to export the text boxes as single line text boxes.</p>
+                  </div>
+                  <h4 class="division-title">Exporting Solid Edge symbols to AutoCAD</h4>
+                  <div>
+                     <p>You can use the new <b>Remove dependency of Solid Edge Fonts</b> option on the <b>Solid Edge to AutoCAD Translation Wizard - Step 5 of 7</b> to remove the dependency of Solid Edge fonts during export. When you select this
+                        option, Solid Edge exports mechanical symbols using AutoCAD fonts rather than Solid
+                        Edge fonts.</p>
+                     <p>As an alternative, you can use the Export Mechanical Symbols using AutoCAD parameter
+                        in the <b>seacad.ini</b> file to control how Solid Edge exports draft symbols to AutoCAD. By default, the
+                        parameter is set to 0, which simply uses the Solid Edge ISO font. </p>
+                     <p>&nbsp;If you set the value to 1, Solid Edge substitutes the mechanical symbol font, Solid
+                        Edge ISO\ANSI GDT <b>Symbols.ttf</b> file, with the Autodesk mechanical symbol font <b>GDT.ttf</b> file. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The AutoCAD GDT font does not support all of the symbols provided in the Solid Edge
+                           ISO\ANSI GDT Symbols.ttf. In these cases, the mechanical symbols are drawn as simple
+                           lines and arcs. &nbsp;Click <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid854521" rel="xid854521">here</a> for a list of the symbols that are drawn. &nbsp;</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Exporting drawing view borders to a specific layer in AutoCAD</h4>
+                  <div>
+                     <p>When exporting to paper space, you can export drawing view borders to a specific layer
+                        in AutoCAD.</p>
+                  </div>
+                  <h4 class="division-title">Exporting custom line types to AutoCAD</h4>
+                  <div>
+                     <p>You can use the <b>Solid Edge to AutoCAD Translation Wizard (Line Type Mapping)</b> to assign a Solid Edge custom line type to a specific AutoCAD line type. </p>
+                     <p>For more information see <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz3d" rel="acexpwiz3d">Solid Edge to AutoCAD Translation Wizard (Line Type Mapping)</a>.</p>
+                  </div>
+                  <h4 class="division-title">Exporting Solid Edge dimensions as AutoCAD dimensions</h4>
+                  <div>
+                     <p>Because of differences in CAD systems and the large number of possible dimension styles
+                        that can be created, you can easily create a dimension in one system that cannot be
+                        displayed in another. The <b>Export Solid Edge Dimensions as AutoCAD Dimensions</b> and the <b>Export Dimension Picture Data</b> options on the <b>AutoCAD Translation Wizard</b> help you to avoid these problems and create dimensions that appear the same in Solid
+                        Edge and AutoCAD.</p>
+                     <p>An AutoCAD dimension consists of three parts:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Dimension block or picture data</p>
+                        </li>
+                        <li>
+                           <p>Dimension object</p>
+                        </li>
+                        <li>
+                           <p>Dimension style object</p>
+                        </li>
+                     </ol>
+                     <p>The dimension block or picture data contains lines, arcs, and points that make up
+                        the dimension. The dimension object contains information about the dimension attributes,
+                        such as layer, color, definition points, and pointers to the dimension block data
+                        and dimension style object. The dimension style object contains various dimensioning
+                        variables such as tolerances, formats, and unit type.</p>
+                     <p>When you open a drawing in AutoCAD, the dimension block, or picture data is displayed.
+                        If you change the dimension in AutoCAD, the picture data is deleted. AutoCAD regenerates
+                        the display based on the dimension object and the dimension style object. This may
+                        cause the dimension in AutoCAD to change based on the style and dimension limitations
+                        between the two CAD systems. You can use the <b>Export Dimension Picture Data</b> option on the <b>AutoCAD Translation Wizard</b> to avoid this problem and maintain the appearance of a Solid Edge dimension as long
+                        as the dimension is not regenerated in AutoCAD.</p>
+                     <p>If you export a Solid Edge document with the <b>Export Dimension Picture Data</b> option on the <b>AutoCAD Translation Wizard</b> enabled, Solid Edge writes the block or picture data to the AutoCAD document. When
+                        you open the AutoCAD document, the dimensions will appear as they would in Solid Edge.</p>
+                     <p>If you export a Solid Edge document with the <b>Export Dimension Picture Data</b> option on the <b>AutoCAD Translation Wizard</b> disabled, Solid Edge does not write the block or picture data to the AutoCAD document.
+                        When you open the AutoCAD document, AutoCAD generates its own picture data to create
+                        an AutoCAD-like dimension.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you are exporting to .dxf format, but do not intend to open and save these documents
+                           in AutoCAD, you should enable the <b>Export Dimension Picture Data</b> option. If the target system is dependent on any of the block or picture data, it
+                           cannot successfully read and display the dimension correctly if the picture data is
+                           not exported. The target CAD system must be able to generate the dimension based only
+                           on the dimension object and dimension style information.</p>
+                     </div>
+                     <p>If you export a Solid Edge document with the <b>Export Dimension Picture Data</b> option disabled and force AutoCAD to regenerate the picture data, you may see differences
+                        in:</p>
+                     <ul>
+                        <li>
+                           <p>Radial or diameter dimensions</p>
+                        </li>
+                        <li>
+                           <p>Limited dimensions</p>
+                        </li>
+                        <li>
+                           <p>Prefixes and suffixes</p>
+                        </li>
+                        <li>
+                           <p>Alternate units</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Limit dimensions</h4>
+                  <div>
+                     <p>Solid Edge allows you to create a horizontal limit dimension (A) and a vertical limit
+                        dimension (B).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/translators/conceptual/limitdim1.gif"></p>
+                     <p>AutoCAD supports only horizontal limit dimensions. When you export Solid Edge dimensions
+                        as AutoCAD dimensions, the vertical limit dimensions will appear as horizontal limit
+                        dimensions in the AutoCAD document.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/translators/conceptual/limitdim2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Prefixes and suffixes</h4>
+                  <div>
+                     <p>When you export dimensions as dimension objects superfixes, prefixes, suffixes, and
+                        subfixes are written as text overrides. In Solid Edge, you can set a left or centered
+                        justification when placing a subfix on a dimension. However, AutoCAD only supports
+                        a centered justification for text overrides. Therefore all dimensions created in Solid
+                        Edge with a subfix that has a left justification (A) are exported to AutoCAD as a
+                        text override, and will have a centered justification (B).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/translators/conceptual/prefix1.gif"></p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/translators/conceptual/prefix2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Alternate units</h4>
+                  <div>
+                     <p>Solid Edge allows alternate units that can be ( ), Null, or [ ]. AutoCAD only supports
+                        [ ], so all alternate units in Solid Edge will be displayed a [ ] in AutoCAD.</p>
+                  </div>
+                  <h4 class="division-title">Exceptions when exporting Solid Edge dimensions as AutoCAD dimensions</h4>
+                  <div>
+                     <p>There are a few exceptions when you export Solid Edge dimensions as AutoCAD dimensions:</p>
+                     <ul>
+                        <li>
+                           <p>Dimensions with jogs</p>
+                        </li>
+                        <li>
+                           <p>Dimensions with space value between dimension and tolerance</p>
+                        </li>
+                        <li>
+                           <p>Radial dimension with space between symbol and its value</p>
+                        </li>
+                        <li>
+                           <p>Diametric dimensions with space after diameter symbol</p>
+                        </li>
+                        <li>
+                           <p>Radial and diametric dimensions after text</p>
+                        </li>
+                     </ul>
+                     <p>Any dimension with a jog is exported as simple lines and text to represent the dimension
+                        just as if the Export Solid Edge dimensions as AutoCAD Dimension control was disabled.</p>
+                     <p>AutoCAD does not have a parameter similar to the Solid Edge<em>Horizonal Tolerance Gap</em> parameter to store a gap between the dimension and tolerance.</p>
+                     <p>In Solid Edge you can create radial or diameter dimensions and specify that the diameter
+                        symbol be displayed before the diameter value, after the diameter value, or not all.
+                        AutoCAD only allows you to display the diameter or radial symbol before the value.
+                        &nbsp;When you export Solid Edge dimensions as AutoCAD dimensions the diameter symbol will
+                        always be displayed preceding the diameter value.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/translators/conceptual/autocaddim2.gif"></p>
+                     <p>Solid Edge creates a space (A) between the dimension value and the dimension symbol
+                        to make it easier to read. AutoCAD does not support this and removes the space (B)
+                        between the dimension value and the dimension symbol when you export the Solid Edge
+                        document.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/translators/conceptual/autocaddim3.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1h" rel="acexpwizms1h">Export one or all sheets to AutoCAD</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz1d" rel="acexpwiz1d">Solid Edge to AutoCAD Translation Wizard</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1d" rel="acexpwizms1d">Solid Edge to AutoCAD Translation Wizard (Model Space Scaling)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz4d" rel="acexpwiz4d">Solid Edge to AutoCAD Translation Wizard (Line Width Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz3d" rel="acexpwiz3d">Solid Edge to AutoCAD Translation Wizard (Line Type Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexplmwiz1d" rel="acexplmwiz1d">Solid Edge to AutoCAD Translation Wizard (Layer Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz5d" rel="acexpwiz5d">Solid Edge to AutoCAD Translation Wizard (Font Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/achatchexp1d" rel="achatchexp1d">Solid Edge to AutoCAD Translation Wizard (Hatch Style Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz7d" rel="acexpwiz7d">Solid Edge to AutoCAD Translation Wizard (Configuration File Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz2d" rel="acexpwiz2d">Solid Edge to AutoCAD Translation Wizard (File Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1d" rel="acexpwizms1d">Solid Edge to AutoCAD Translation Wizard (Model Space Scaling)</a><br><br></div>
+            <div class="footer-content">Saving to AutoCAD, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,119 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Scale a sketch automatically</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Scale a sketch automatically"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1591641">
+                     <h1 class="topic-title">Scale a sketch automatically</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Driving dimensions control the size and location of a sketch. The <b>Auto-Scale Sketch</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/auto_scale_sketch_cmd.png"> automatically scales a 2D or 3D sketch that contains just one driving dimension.
+                     When you place the first driving dimension that measures distance, radial, diameter,
+                     or symmetric diameter, and then you change its value, the whole sketch is scaled proportionally.
+                     You can scale the sketch by increasing or decreasing the value of the driving dimension
+                     as many times as needed. Auto-scaling continues until you deselect the option on the
+                     ribbon or add a second driving dimension.</p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>Here are some ways you can use auto-scaling. </p>
+                     <ul>
+                        <li>
+                           <p>Draw a sketch similar to the desired shape, without worrying about proportions. You
+                              can add <em>driven</em> dimensions to define the sketch initially, but it must not contain more than one
+                              <em>driving</em> dimension. When you are done with the basic shape, edit the driving dimension to
+                              scale the entire sketch. </p>
+                        </li>
+                        <li>
+                           <p>You can create an ordered sketch, derive a feature from that sketch, and then auto-scale
+                              the sketch at a later time by adding a driving dimension. The feature still reacts
+                              to sketch auto scaling. </p>
+                        </li>
+                        <li>
+                           <p>Synchronous sketches can have multiple regions in the same sketch. Editing the driving
+                              dimension auto-scales all of the regions of that sketch. </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>On the <b>Home</b> tab or the <b>Sketching</b> tab→<b>Draw</b> group, verify the <b>Auto-Scale Sketch</b> command is selected as shown below.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/sketching/creating_editing_sketches/draw_group_commands.png"></p>
+                        <p>The <b>Auto-Scale Sketch</b> option is available when sketching in synchronous and ordered modes in the modeling
+                           environments, and when drawing in the draft environment. It is not available when
+                           creating 3D sketches using the commands on the <b>3D Sketching</b> tab.</p>
+                     </li>
+                     <li>
+                        <p>Draw the sketch elements with <b>Maintain Relationships</b>=<b>On</b>, or apply the appropriate sketch relationships as you normally do. </p>
+                     </li>
+                     <li>
+                        <p>Use the <a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimsd1c" rel="dimsd1c">Smart Dimension command</a> or another dimension command to add one <em>driving dimension</em> to control the distance, radius, or diameter of the sketch. You also can add <em>driven dimensions</em>.</p>
+                        <p>The color of a dimension identifies its type and its behavior when you edit it.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>This sketch is a synchronous part sketch. The default color of a driving dimension
+                              is red. Non-driving dimensions (driven) are blue.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/autoscale_sketch1.png"></p>
+                        </div>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>In the Draft environment, driving (locked) dimensions are black (1), and unlocked
+                              (driven) dimensions are dark cyan (2).</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_format/dim_format_command/driving_driven.gif"></p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/autoscale_draft_sketch_colors.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Edit the value of the driving dimension and press Enter.</p>
+                        <p>For more information, see <a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid487060" rel="xid487060">Edit a 2D dimension (sketch, profile, draft)</a>.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/autoscale_sketch2.png"></p>
+                        <p>The entire sketch is scaled based on your edit of the driving dimension.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/autoscale_sketch3.png"></p>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <ul>
+                        <li>
+                           <p>Some open sketches can be scaled. Examples include a B-spline curve or a synchronous
+                              sketch that does not form a region. If the sketch cannot be solved, the edit is applied
+                              only to the element to which the dimension is attached.</p>
+                        </li>
+                        <li>
+                           <p><b>Auto-Scale Sketch</b> is on by default in new files. Like the Maintain Relationships and Relationship Handles
+                              options, you can turn it off and on at any time while you sketch. You can set this
+                              preference separately for draft and for modeling environments.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318148" rel="xid1318148">Working with sketch dimensions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/dimension_sketches_002" rel="dimension_sketches_002">Locked sketch dimensions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/dimmigrate1a" rel="dimmigrate1a">Sketch consumption and dimension migration</a><br><br></div>
+            <div class="footer-content">Scale a sketch automatically, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

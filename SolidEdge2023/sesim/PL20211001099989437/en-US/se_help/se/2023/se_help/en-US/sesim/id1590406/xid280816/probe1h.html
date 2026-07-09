@@ -1,0 +1,162 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Display node analysis data</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Display node analysis data"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="probe1h">
+                     <h1 class="topic-title">Display node analysis data</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Probe</b> command to display detailed analysis data about individual geometry nodes at the
+                     intersection of mesh elements. You can choose to display the stress values node-by-node,
+                     or you can display all values on a selected face or edge. </p>
+                  <ol type="1">
+                     <li>
+                        <p>In the <b>Simulation Results</b> environment, from the <b>Color Bar</b> tab→<b>Format</b> group, select the numeric value display format and number of decimal places you want
+                           to use to display node values in the <b>Probe Table</b>, the node data labels, and on the color bar.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>To have Solid Edge Simulation automatically select the best possible format, set <b>Number Format</b> to <b>Automatic</b>. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/colorbar1a" rel="colorbar1a">Using the color bar</a>.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Choose <b>Home</b> tab→<b>Probe</b> group→<b>Probe</b>.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_howto/sesim_probe_button_on.gif"></p>
+                        <p>An empty <b>Probe Table</b> is displayed.</p>
+                     </li>
+                     <li>
+                        <p>To show the DX, DY, DZ relative displacement values in the probe labels, in addition
+                           to the X, Y, Z node location, click <b>Show displacement</b>.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Probe Table</b>, under <b>Select</b>, choose how you want to identify stress values on the model:</p>
+                        <ul>
+                           <li>
+                              <p><b>Node</b>—Examine one or more individual nodes in a high-stress area on the model, guided by
+                                 the color scale on the color bar. </p>
+                           </li>
+                           <li>
+                              <p><b>Face</b>—Populate the table with all of the node data for a specific face.</p>
+                           </li>
+                           <li>
+                              <p><b>Edge</b>—Populate the table with all of the node data for a specific edge.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <ul>
+                              <li>
+                                 <p>Face and edge selection are not available for structural frame models.</p>
+                              </li>
+                              <li>
+                                 <p>Study results must be current to be able to probe edges. If the <b>Edge</b> option is not available, the study results are out-of-date. Close the Simulation
+                                    Results environment and solve the study.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Continue with the following steps, based on your selection method. You can interact
+                           with the table data as long as the table is open.</p>
+                        <p>If you change the selection mode, the <b>Probe Table</b> is emptied of all data.</p>
+                     </li>
+                  </ol>
+                  <h4 class="division-title">To examine one or more individual nodes in a high-stress area on the model</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Click a node at a vertex on the model. Move the cursor to position the label and click
+                              to place it. </p>
+                           <p>Nodes are the yellow dots you see as you move your cursor over the model. </p>
+                           <p>The node data is added to the table, and the node data callout is displayed in the
+                              simulation results.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/probe_table_bynode1.png"> </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/probe_table_bynode2.png"></p>
+                        </li>
+                        <li>
+                           <p>Continue clicking nodes and placing labels on the model.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">To populate the table with all of the node data for a specific face or edge</h4>
+                  <div>
+                     <p>If you selected the <b>Faces</b> option or the <b>Edges</b> option, continue with the following steps:</p>
+                     <ol type="1">
+                        <li>
+                           <p>On the model, click one or more faces or edges. </p>
+                           <p>The name of each selected face or edge is added to the <b>Selected Entities</b> list in the <b>Probe Table</b>. You can match face names to faces on the model by clicking individual names in the
+                              <b>Selected Entities</b> list. To remove an entity from the list, click the adjacent <b>Delete</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/probe_table_delete_entity_button.png">. </p>
+                        </li>
+                        <li>
+                           <p>Click the <b>Update</b> button to load the data into the <b>Probe Table</b>.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Values</b> column, click a cell to see where it is located on the model.</p>
+                           <ul>
+                              <li>
+                                 <p>Shift+click to select a range of cells.</p>
+                              </li>
+                              <li>
+                                 <p>Ctrl+click to select each additional cell. </p>
+                              </li>
+                              <li>
+                                 <p>Click a column header to select all of the cells in that column. </p>
+                              </li>
+                           </ul>
+                           <p>Stress values are listed in the <b>Values</b> column. To sort the values from highest to lowest, right-click the column header
+                              and choose <b>Sort</b>→<b>Descending</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/probe_table_byface1.png"></p>
+                        </li>
+                        <p>Probe labels are displayed on the model for all of the selected stress values. </p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/probe_table_byface2.png"></p>
+                     </ol>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <ul>
+                           <li>
+                              <p>After the data is displayed in the <b>Probe Table</b>, you can use the shortcut commands to change the font size, reorder the values in
+                                 ascending or descending order, find a specific value, and copy (or Ctrl+C) then paste
+                                 (Ctrl+V) information into another document.</p>
+                           </li>
+                           <li>
+                              <p>If you are probing the results of a transient heat transfer study, you can see the
+                                 changes in temperature at each node over time. If you are probing the results of a
+                                 harmonic frequency response study, you can see the changes in displacement (translation)
+                                 at each frequency. </p>
+                              <p>Select up to 10 data cells in the table and then click the <b>Show Graph</b> button. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a>.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe3h" rel="probe3h">Graph nodal analysis results</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe1a" rel="probe1a">Probing analysis results</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1668045" rel="xid1668045">Verify linear static stress results are at equilibrium</a><br><br></div>
+            <div class="footer-content">Display node analysis data, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,151 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Auto-Explode command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Auto-Explode command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="atxpld1c">
+                     <h1 class="topic-title">Auto-Explode command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Auto-Explode</b> command (also referred to as the <b>Automatic Explode</b> command) <img class="img-fluid" src="../../../../../common/nonLocalized/se/explode/atxpld.gif"> to explode the active assembly by applying a spread distance between parts. </p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/explode/atxpld4.gif"></p>
+                  <p>The Automatic Explode command explodes assemblies based on the relationships applied
+                     between parts. In assemblies where the components are positioned using mate or axial
+                     align relationships, the Automatic Explode command quickly gives you excellent results.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>Grounded parts, pipes, pipe fittings, frames, and fastener systems will not explode
+                        using the <b>Automatic Explode</b> command. These items should instead be exploded manually, using the <b>Explode</b> command.</p>
+                  </div>
+                  <h4 class="division-title">Steps</h4>
+                  <div>
+                     <p>The basic steps for automatically exploding an assembly are:</p>
+                     <ul>
+                        <li>
+                           <p>Specifying the components to explode.</p>
+                        </li>
+                        <li>
+                           <p>Defining the explode settings.</p>
+                        </li>
+                     </ul>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Specifying the components</h5>
+                           <p>You can use the Select option on the command bar to specify whether all the parts
+                              and subassemblies in the assembly are exploded or only the subassemblies you select
+                              are exploded. When you explode selected subassemblies, you can select the subassemblies
+                              in the graphics window or the Assembly PathFinder tab.</p>
+                        </li>
+                        <li>
+                           <h5>Defining the explode settings</h5>
+                           <p>You can use the options on the command bar and the Automatic Explode Options dialog
+                              box to specify how the components are exploded. For example, you can specify whether
+                              the spread distance between parts is calculated automatically, or you can specify
+                              the spread distance yourself.</p>
+                           <p>When exploding an assembly that contains subassemblies, you can specify how the parts
+                              in the subassemblies are exploded using the Automatic Explode Options dialog box.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Calculating spread distance</h4>
+                  <div>
+                     <p>The Automatic Spread Distance button on the command bar allows you to specify whether
+                        the spread distance between parts is calculated automatically by the Automatic Explode
+                        command, or that you want to specify the spread distance yourself.</p>
+                     <ul>
+                        <li>
+                           <p>To have the spread distance calculated automatically, set the Automatic Spread Distance
+                              option.</p>
+                        </li>
+                        <li>
+                           <p>To specify the spread distance yourself, clear the Automatic Spread Distance option,
+                              then type the value you want in the Distance box.</p>
+                        </li>
+                     </ul>
+                     <p>When defining the spread distance yourself, you can type the value you want, then
+                        click the Explode button to see the result. To try another spread distance, type a
+                        new value, then click the Explode button again.</p>
+                  </div>
+                  <h4 class="division-title">Binding subassemblies</h4>
+                  <div>
+                     <p>When using the Automatic Explode command on an assembly that contains subassemblies,
+                        you can specify whether the parts in subassemblies are exploded (A) or the parts in
+                        subassemblies are grouped together as a single unit (B). To keep the parts in the
+                        subassemblies grouped together, set the Bind All Subassemblies option on the Automatic
+                        Explode Options dialog box.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/explode/atxpld1.gif"></p>
+                     <p>If you want to explode the parts in some subassemblies (A), but not others (B), you
+                        can use the Bind Subassembly command to select the subassemblies you want to remain
+                        a single unit when exploded.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/explode/atxpld2.gif"></p>
+                     <p>First, select the subassemblies in Assembly PathFinder, then click the Bind Subassembly
+                        command. A symbol is added adjacent to the subassembly entry in Assembly PathFinder
+                        to indicate that the subassembly is bound.</p>
+                     <p>You can then clear the Bind All Subassemblies option on the Automatic Explode Options
+                        dialog box, and only the bound subassemblies you selected remain a single unit when
+                        you complete the command.</p>
+                     <p>If you want to explode the subassembly later, you can use the Unbind Subassembly command
+                        to unbind the subassembly.</p>
+                  </div>
+                  <h4 class="division-title">Explode technique</h4>
+                  <div>
+                     <p>The Explode Technique option on the Automatic Explode Options dialog box allows you
+                        to specify whether the subassembly is considered or ignored when creating the explosion.</p>
+                     <p>The By Subassembly Level option specifies that each subassembly is considered as a
+                        unique explosion. This keeps the parts in a subassembly adjacent to one another as
+                        they are exploded (A).</p>
+                     <p>The By Individual Part option specifies that the subassembly structure is ignored
+                        when the parts are exploded. The parts are exploded based on their proximity to one
+                        another. This can result in parts in separate subassemblies being intermingled with
+                        one another. (B) This option duplicates the behavior used prior to version 19 of Solid
+                        Edge.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/explode/atxpld3.gif"></p>
+                  </div>
+                  <h4 class="division-title">Explode PathFinder tab</h4>
+                  <div>
+                     <p>The Explode PathFinder tab on PathFinder lists the explode operations in the order
+                        you perform them. You can use the Explode PathFinder tab to review and modify explode
+                        operations. When you save explode configurations, each explode configuration captures
+                        a separate set of explode operations. When you activate an explode configuration,
+                        the Explode PathFinder tab updates to list the operations captured for that configuration.</p>
+                  </div>
+                  <h4 class="division-title">Grounded parts</h4>
+                  <div>
+                     <p>The Automatic Explode command cannot explode parts that are grounded. For example,
+                        when you create a new part within the context of the assembly using the Create In-Place
+                        option, the part is positioned using a ground relationship. You can use the Explode
+                        command to manually explode a grounded part, or you can delete the ground relationship,
+                        then position the part using assembly relationships, such as mate and align.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/atxpld1h" rel="atxpld1h">Explode an assembly automatically</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xplde1h" rel="xplde1h">Explode individual parts in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/repstn2h" rel="repstn2h">Reposition a Part in an Exploded Assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/rmvxpt2h" rel="rmvxpt2h">Remove a part from an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/cllpse1h" rel="cllpse1h">Collapse a part in an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/movxprt1h" rel="movxprt1h">Drag an exploded part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/unxpld1h" rel="unxpld1h">Unexplode an Assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xplgrp1h" rel="xplgrp1h">Keep a subassembly intact when exploding</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xungrp1h" rel="xungrp1h">Unbind a subassembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwdroph" rel="flwdroph">Drop flow lines</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwshw1h" rel="flwshw1h">Display or Hide Flow Lines in an Exploded Assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/eventadd1h" rel="eventadd1h">Add Events to or Remove Events from an Event Group</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xpldas1a" rel="xpldas1a">Creating exploded views of assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/atxpld1d" rel="atxpld1d">Automatic Explode command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/atxpld2d" rel="atxpld2d">Automatic Explode Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xplde1c" rel="xplde1c">Explode command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xplde1d" rel="xplde1d">Explode command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xplde2d" rel="xplde2d">Manual Explode Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/pthfnd5d" rel="pthfnd5d">Explode PathFinder tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prpxpld1d" rel="prpxpld1d">Explosion Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/repstn1c" rel="repstn1c">Reposition command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/repstn1d" rel="repstn1d">Reposition command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/rmvxpt1c" rel="rmvxpt1c">Remove command (Explode application)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/cllpse1c" rel="cllpse1c">Collapse command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/movxprt1c" rel="movxprt1c">Drag Component command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/movxprt1d" rel="movxprt1d">Drag Component command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/unxpld1c" rel="unxpld1c">Unexplode command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xplgrp1c" rel="xplgrp1c">Bind Subassembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xungrp1c" rel="xungrp1c">Unbind Subassembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwdrawc" rel="flwdrawc">Draw command (flow lines)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwdrawd" rel="flwdrawd">Draw command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwedit1c" rel="flwedit1c">Modify command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwedit1d" rel="flwedit1d">Modify command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwlin1c" rel="flwlin1c">Flow Lines command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwtrm1c" rel="flwtrm1c">Flow Line Terminators command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwshw1c" rel="flwshw1c">Show Flow Lines Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwhde1c" rel="flwhde1c">Hide Flow Lines Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/eventremv1c" rel="eventremv1c">Remove Event from Group Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/eventadd1c" rel="eventadd1c">Add Event to Group Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/configmngroptionsd" rel="configmngroptionsd">Display Configuration Options dialog box</a><br><br></div>
+            <div class="footer-content">Auto-Explode command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

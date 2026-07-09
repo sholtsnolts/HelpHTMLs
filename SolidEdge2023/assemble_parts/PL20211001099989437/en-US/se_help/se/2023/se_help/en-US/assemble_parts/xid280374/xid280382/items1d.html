@@ -1,0 +1,244 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Item Numbers page (Solid Edge Options dialog box)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Item Numbers page (Solid Edge Options dialog box)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="items1d">
+                     <h1 class="topic-title">Item Numbers page (Solid Edge Options dialog box)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Item Numbers</b> page controls whether item numbers are created in the assembly document. Once created,
+                     an <b>Item Number</b> column is added automatically to, and may be edited in, the assembly <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1d" rel="prtprp1d">Occurrence Properties dialog box</a>. The item numbers are available for display in assembly reports.</p>
+                  <p>If you change an option on this page after item numbers have been created, existing
+                     item numbers are replaced when you select <b>OK</b> or <b>Apply</b>.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>In the Teamcenter-managed environment, when you enable the Teamcenter preference <b>SEEC_Synchronize_ItemNumbers</b>, the Item Numbers page is available for viewing only. Definitions are based on the
+                        values specified with the preference.</p>
+                  </div>
+                  <dl>
+                     <dt><b>Maintain item numbers</b></dt>
+                     <dd class="ml-3">
+                        <p>Creates item numbers in the assembly. Use the options to specify the structures for
+                           which the item numbers are to be generated. Selecting <b>OK</b> or <b>Apply</b> creates the item numbers.</p>
+                        <p>Item numbers are assigned in assembly order, as shown in <b>Assembly PathFinder</b>. New item numbers are assigned automatically as new assembly components are added.</p>
+                        <p>Clearing the check box removes item numbers from the model.</p>
+                        <p>See the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/items1a" rel="items1a">Item numbers in assemblies</a> help topic for a comparison of item numbering schema options listed below.</p>
+                        <dl>
+                           <dt><b>Top level only</b></dt>
+                           <dd class="ml-3">
+                              <p>Creates item numbers only for top-level parts and subassemblies.</p>
+                           </dd>
+                           <dt><b>Atomic - Top down</b></dt>
+                           <dd class="ml-3">
+                              <p>Creates item numbers for parts at all levels in the assembly structure. Subassemblies
+                                 are not numbered at any level.</p>
+                           </dd>
+                           <dt><b>Exploded - Top down</b></dt>
+                           <dd class="ml-3">
+                              <p>Creates item numbers for all parts, subassemblies, and subassembly parts.</p>
+                              <p>Items are numbered sequentially from top to bottom as viewed in the <b>Occurrence Properties</b> dialog box. If you create an atomic assembly report from the exploded item number
+                                 structure, the numbers are not sequential.</p>
+                              <dl>
+                                 <dt><b>Use level-based numbers</b></dt>
+                                 <dd class="ml-3">
+                                    <p>Displays level-based item numbers (for example, 1, 1.1, 1.2, 1.3) in exploded reports
+                                       and parts lists. These are generated per owner, where: </p>
+                                    <ul>
+                                       <li>
+                                          <p>The top-level assembly owns parts and subassemblies.</p>
+                                       </li>
+                                       <li>
+                                          <p>Each unique subassembly is an owner, and the parts and subassemblies under it receive
+                                             item numbers based on its level.</p>
+                                       </li>
+                                    </ul>
+                                 </dd>
+                              </dl>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>To generate an exploded parts list on a drawing that uses the assembly-generated item
+                                    numbers and level-based numbers, these check boxes must be selected:</p>
+                                 <ul>
+                                    <li>
+                                       <p><b>Exploded Top-down</b></p>
+                                    </li>
+                                    <li>
+                                       <p><b>Use level-based numbers</b></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Expand weldment subassemblies</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies whether a weldment is counted as a single item or a subassembly.</p>
+                        <ul>
+                           <li>
+                              <p>When checked, all items within a weldment subassembly are numbered.</p>
+                           </li>
+                           <li>
+                              <p>When unchecked, only the weldment subassembly receives an item number. Items within
+                                 the subassembly are not numbered.</p>
+                           </li>
+                        </ul>
+                     </dd>
+                     <dt><b>Start with item number</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the first number to use when item numbers are assigned in the assembly.
+                           You can enter any integer greater than or equal to zero.</p>
+                     </dd>
+                     <dt><b>Increment by</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies a positive integer as the item number increment value.</p>
+                     </dd>
+                     <dt><b>Item Numbers controlled by</b></dt>
+                     <dd class="ml-3">
+                        <p>In the Teamcenter-managed environment, displays the application responsible for Item
+                           Number generation. The value is determined by the Teamcenter preference <b>SEEC_Synchronize_ItemNumbers</b>. When the value is <b>Both</b>, item numbers are generated in the application that created the new occurrence. When
+                           the value is <b>Tc</b> or <b>Teamcenter</b>, only Teamcenter assigns Item Numbers.</p>
+                     </dd>
+                     <dt><b>Find Number generation mode</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the value of the Teamcenter preference <b>PS_new_seqno_mode</b>, and sets the mode for Find Number generation for a newly added occurrence. When
+                           the preference value is not defined, the value is set to the default value <b>New</b>.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Frame and Piping Uniqueness</b></dt>
+                     <dd class="ml-3">
+                        <p>When generating an assembly bill of material report and a parts list on an assembly
+                           drawing, these check boxes specify the criteria to use to compare individual structural
+                           frame members, pipes, and tubes to determine whether they are the same or different.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>To produce the roughest calculation, similar to a total lengths parts list, do not
+                              check any boxes.</p>
+                        </div>
+                        <dl>
+                           <dt><b>Cut length</b></dt>
+                           <dd class="ml-3">
+                              <p>Calculated for the final length of the frame member, pipe, or tube. If an element
+                                 is nonlinear, such as a bent frame, then the path length is used to determine cut
+                                 length.</p>
+                           </dd>
+                           <dt><b>Mass</b></dt>
+                           <dd class="ml-3">
+                              <p>Determines whether two elements are unique based on their item mass.</p>
+                           </dd>
+                           <dt><b>Miter</b></dt>
+                           <dd class="ml-3">
+                              <p>Uniqueness for miter cuts is based on the acute angle value (between 0 and 90 degrees).</p>
+                           </dd>
+                           <dt><b>End Angles</b></dt>
+                           <dd class="ml-3">
+                              <p>Determines the uniqueness of end angles for pipes and frames. Before version SE2020,
+                                 this option was named <b>Miter</b>.</p>
+                              <p>This option applies to the following properties used in the <b>Parts List</b> column:</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Miter Cut 1</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>Miter Cut 2</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>End Angle 1 (Side Face)</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>End Angle 2 (Side Face)</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>End Angle 1 (End Face)</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>End Angle 2 (End Face)</b></p>
+                                 </li>
+                              </ul>
+                              <dl>
+                                 <dt><b>Use Angle direction as uniqueness criteria</b></dt>
+                                 <dd class="ml-3">
+                                    <p>When checked, the uniqueness is based on the angle direction.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Tube Uniqueness</b></dt>
+                     <dd class="ml-3">
+                        <p>When generating an assembly bill of material report and a parts list on an assembly
+                           drawing, these check boxes specify the criteria to use to compare individual tubes
+                           to determine whether they are the same or different.</p>
+                        <dl>
+                           <dt><b>Flat length</b></dt>
+                           <dd class="ml-3">
+                              <p>Calculated for the flat length of the tube. </p>
+                           </dd>
+                           <dt><b>Mass</b></dt>
+                           <dd class="ml-3">
+                              <p>Determines whether two elements are unique based on their item mass.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Gusset Plate Uniqueness</b></dt>
+                     <dd class="ml-3">
+                        <p>When generating an assembly bill of material report and a parts list on an assembly
+                           drawing, these check boxes specify the criteria to use to compare individual gussets
+                           to determine whether they are the same or different.</p>
+                        <dl>
+                           <dt><b>Mass</b></dt>
+                           <dd class="ml-3">
+                              <p>Determines whether two elements are unique based on their item mass.</p>
+                           </dd>
+                           <dt><b>Cutting stock (bounding box) parameters</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to create the gusset name to include Cutting Stock parameters.</p>
+                           </dd>
+                           <dt><b>Gusset Parameters</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to create the gusset name to include Gusset parameters.</p>
+                           </dd>
+                           <dt>Naming</dt>
+                           <dd class="ml-3">
+                              <p>Displays the conventions used to create the gusset name displayed in the report.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1010244" rel="xid1010244">Display the status of item numbers</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1011745" rel="xid1011745">Set Parts List properties to default to Assembly item numbers</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/items1a" rel="items1a">Item numbers in assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/items1h" rel="items1h">Create and edit assembly item numbers</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1010242" rel="xid1010242">Item Number Status command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1010229" rel="xid1010229">Item number status dialog box (Assembly)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1010239" rel="xid1010239">Item number status dialog box (Draft)</a><br><br></div>
+            <div class="footer-content">Item Numbers page (Solid Edge Options dialog box), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

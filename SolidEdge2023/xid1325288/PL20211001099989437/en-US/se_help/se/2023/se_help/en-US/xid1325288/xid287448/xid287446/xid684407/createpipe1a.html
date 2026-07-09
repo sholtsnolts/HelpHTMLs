@@ -1,0 +1,126 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating the piping route</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating the piping route"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="createpipe1a">
+                     <h1 class="topic-title">Creating the piping route</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/piping1c" rel="piping1c">Piping Route command</a> creates the piping route. Creating a piping route consists of:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="#assignpipeattribute1">Defining pipe location and assigning pipe attributes.</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#assignpipefitting1">Assigning pipe fittings.</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#selectpathsegment1">Selecting the path segment.</a></p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title" id="assignpipeattribute1">Defining pipe location and assigning pipe attributes</h4>
+                  <div>
+                     <p>When you click the Piping Route command, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/piping1d" rel="piping1d">Piping Option dialog box</a> is displayed to define the information about the pipes and fittings. You can use
+                        the Pipes section to specify the pipe location and to assign attributes for the pipe.
+                        You can either select the pipes from a standard parts library or browse for pipes
+                        outside the library.</p>
+                     <p>If you select the Select from Standard Part Library option, you can use the list to
+                        assign attribute for the standard, diameter, and material for the pipe. These attribute
+                        values are based on pipe stored in the standard parts library.</p>
+                     <p>If you select the Browse for Pipes option, the Select from Folder becomes active so
+                        you can browse for pipes outside the standard parts library. You can also use the
+                        Recently Used menu to select any pipes you have recently placed in an assembly.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Before placing a part from outside a standard parts library, you must run the <b>PreparePipingComponents.exe</b> utility located in the Program Files\Siemens\Solid Edge 2023\Piping Route\Piping
+                           Utility folder to create the appropriate coordinate systems and variables for the
+                           part file you want to place.</p>
+                        <p>Revolved protrusions are not valid components for pipe. Pipes created with the <b>Extrude</b> command populate the variable table with a length entry and are valid. </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="assignpipefitting1">Assigning pipe fittings</h4>
+                  <div>
+                     <p>The Fittings section of the dialog box assigns fittings for the piping route. As with
+                        pipes, you can select fittings from a standard parts library or browse for pipes outside
+                        the library.</p>
+                     <p>When placing fittings stored in a standard parts library, you can select the Automatically
+                        Place Fittings option to automatically place fittings in the piping route. Solid Edge
+                        delivers the PipeClass.txt file to the Solid Edge Program folder that filters standard
+                        fittings during automatic placement. You can select the Verify Availability of Fittings
+                        option if you want to query the standard parts library based on specified fitting
+                        standard and diameter for each entry in PipeClass.txt. Only the entries that contain
+                        fittings meeting the criteria are displayed in the Class list.</p>
+                     <p>The fitting type can be:</p>
+                     <ul>
+                        <li>
+                           <p>Threaded fittings</p>
+                        </li>
+                        <li>
+                           <p>Socket weld fittings</p>
+                        </li>
+                        <li>
+                           <p>Butt weld fittings</p>
+                        </li>
+                        <li>
+                           <p>Flanged fittings</p>
+                        </li>
+                        <li>
+                           <p>Pipe penetration cuts</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="selectpathsegment1">Selecting the path segment</h4>
+                  <div>
+                     <p>After assigning the pipe attributes and fittings you can click OK to dismiss the Piping
+                        Options dialog box. You can then click a path segment to define the route for the
+                        pipe. After accepting the path segment, you can click the Preview button on the command
+                        bar to create the pipes and place the fittings.</p>
+                  </div>
+                  <h4 class="division-title">Creating gradient pipe routes</h4>
+                  <div>
+                     <p>You can create pipe routes with a gradient slope to provide a degree of positive drain
+                        for the pipe. When creating a gradient pipe route, you draw a path that contains the
+                        desired amount of slope.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/pipegradientselect.gif"></p>
+                     <p>During placement of the pipe and fittings, you select the Allow Gradient button and
+                        specify the maximum gradient to create the gradient pipe route.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/pipegradientselect2.gif"></p>
+                     <p>To learn how, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/pipe1h#placegradientpipes1" rel="pipe1h">Place pipes and fittings along a gradient pipe route</a>.</p>
+                     <p>After creating the pipe route, you can use the Edit Fitting Alignment button <img class="img-fluid" src="../../../../../common/nonLocalized/se/se/editfittingt.gif"> to align the fittings along the gradient pipe. When you the click the button, the
+                        Next Alignment button <img class="img-fluid" src="../../../../../common/nonLocalized/se/icons/buttons/nextalignment.gif"> and Previous Alignment button <img class="img-fluid" src="../../../../../common/nonLocalized/se/icons/buttons/previousalignment.gif"> are displayed to assist in properly aligning the fitting.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/gradientalign1.gif"></p>
+                     <p>To learn how, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/pipingroute2h#aligngradient" rel="pipingroute2h">Align the fitting for a gradient pipe.</a></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/smartdim1h" rel="smartdim1h">Dimension a path segment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/pipe1h" rel="pipe1h">Create a piping route</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/piping1c" rel="piping1c">Piping Route command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/piping2d" rel="piping2d">Piping Route command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/smartdim1d" rel="smartdim1d">Smart Dimension command bar (XpresRoute)</a><br><br></div>
+            <div class="footer-content">Creating the piping route, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

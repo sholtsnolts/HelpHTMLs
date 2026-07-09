@@ -1,0 +1,126 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Defining design optimization parameters</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Defining design optimization parameters"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid613076">
+                     <h1 class="topic-title">Defining design optimization parameters</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>When you select the Optimize command for a selected simulation study, the Optimization
+                     dialog box displays a sequence of tabs for you to define the parameters in the design
+                     optimization scenario you want to evaluate. </p>
+                  <p>This topic provides general information about assigning a design objective, one or
+                     more design variables, and a design limit. For information about what these terms
+                     mean and how they are used to define the problem statement, see the overview topic,
+                     <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610944" rel="xid610944">Optimizing study results</a>.</p>
+                  <h4 class="division-title">Defining the design objective</h4>
+                  <div>
+                     <p>When defining the design objective, the parameters that are available for selection
+                        in the Optimization dialog box depend on the study type you are optimizing and the
+                        geometry that is included in the study. In general, you can choose from the following
+                        properties:</p>
+                     <ul>
+                        <li>
+                           <p>Physical properties (Mass, Volume, Surface Area), as listed in the Physical Properties
+                              dialog box or the Physical Properties Manager dialog box.</p>
+                           <p>Physical properties that have been overridden are not available for selection. For
+                              more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613006" rel="xid613006">How overriding properties affects study optimization</a>.</p>
+                        </li>
+                        <li>
+                           <p>All of the processed and unprocessed result components of a solved simulation study,
+                              as listed on the Simulation pane, in the Results collector, under Plots. (For example,
+                              the Result components you see by expanding the Stress node include Max Principal Stress,
+                              Min Principal Stress, Von Mises stress, and Factor of Safety.)</p>
+                        </li>
+                        <li>
+                           <p>In a normal modes study, resonant frequency (Hz), as shown on the Simulation pane,
+                              in the Results collector, under Plots (for example, the Mode 1, Mode 2 values).</p>
+                        </li>
+                        <li>
+                           <p>In a linear buckling study, the buckling load factor, as shown on the Simulation page,
+                              in the Results collector, under Plots (for example, the Mode 1, Mode 2 Eigenvalues).</p>
+                        </li>
+                     </ul>
+                     <p>You define the design objective using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610945" rel="xid610945">Design Objective (Optimization dialog box)</a> tab. </p>
+                  </div>
+                  <h4 class="division-title">Defining the design limits</h4>
+                  <div>
+                     <p>Each optimization requires one or more design limits. For each design limit, you can
+                        specify minimum or maximum conditions or a range of values. The same types of parameters
+                        are available for the design limits as for the design objective. You cannot assign
+                        the same property to the design objective as the design limit.</p>
+                     <p>You define the design limits using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610946" rel="xid610946">Optimization dialog box (Design Limits)</a> tab. </p>
+                  </div>
+                  <h4 class="division-title">Defining the design variables</h4>
+                  <div>
+                     <p>Design variables are available for optimization through the Variable Table. Any variable
+                        that you want to select as a design variable must have a minimum and maximum limit
+                        defined for it. It is better to do this from the Variable Table, using the Variable
+                        Rule Editor dialog box, but you also can do this while defining the optimization parameters,
+                        using the Design Variable Rule Editor. </p>
+                     <p>Only variables that can be changed are eligible as design variables. These include
+                        the following:</p>
+                     <ul>
+                        <li>
+                           <p>Dimension variables generated in the Variable Table when geometry is created. These
+                              include locked PMI dimensions on synchronous features, sketches, and on assembly relationships.</p>
+                        </li>
+                        <li>
+                           <p>User-defined variables that you enter in the Variable Table.</p>
+                        </li>
+                        <li>
+                           <p>Peer variables that are accessed through the assembly.</p>
+                        </li>
+                        <li>
+                           <p>Variables associated with shape (such as fillet radii) are also generated when geometry
+                              is modified.</p>
+                        </li>
+                        <li>
+                           <p>Simulation Variables, which are another kind of design variable, are added automatically
+                              to the Variable Table when you place a load or select surface geometry.</p>
+                        </li>
+                     </ul>
+                     <p>Variables that cannot be selected as design variables are the following:</p>
+                     <ul>
+                        <li>
+                           <p>Variables with discrete values or variables based on a formula in a pasted link cannot
+                              be selected as design variables.</p>
+                        </li>
+                        <li>
+                           <p>Read-only variables, such as a PMI dimension on an ordered part.</p>
+                        </li>
+                     </ul>
+                     <p>You define the design variables using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610947" rel="xid610947">Design Variables (Optimization dialog box)</a> tab. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612963" rel="xid612963">Minimize the mass of a part with design optimization</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610944" rel="xid610944">Optimizing study results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid654835" rel="xid654835">Displaying and modifying the optimization results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612930" rel="xid612930">Best practices for design optimization</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613006" rel="xid613006">How overriding properties affects design optimization</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610945" rel="xid610945">Design Objective (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610946" rel="xid610946">Design Limits (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610947" rel="xid610947">Design Variables (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610948" rel="xid610948">Control Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610949" rel="xid610949">Convergence Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613198" rel="xid613198">Design Limit/Design Variable Rule Editor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613088" rel="xid613088">Convergence status dialog box</a><br><br></div>
+            <div class="footer-content">Defining design optimization parameters, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

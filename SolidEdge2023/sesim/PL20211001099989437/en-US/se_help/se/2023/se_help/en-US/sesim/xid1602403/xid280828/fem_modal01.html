@@ -1,0 +1,320 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Normal modes analysis</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Normal modes analysis"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_modal01">
+                     <h1 class="topic-title">Tutorial: Normal modes analysis</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/modal_analysis" rel="modal_analysis">modal analysis</a> to find the natural frequencies at which a mower blade assembly resonates when a
+                     constraint is applied to it. The objective is to verify that the natural frequencies
+                     (resonance frequencies) do not approach the operating frequencies of the assembly.</p>
+                  <p>The study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Study type=Normal Modes</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>In a modal analysis, one or more constraint commands are used to define the boundary
+                              conditions. You do not apply loads.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                     <li>
+                        <p>Connector type=Auto</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Assemblies require connectors to define how individual parts are connected. You can
+                              add connectors explicitly using the different connector commands, or you can add connectors
+                              implicitly, based on the mate relationships in the model, when you create the study.
+                              </p>
+                        </div>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open and activate the parts in an existing assembly.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>File</b> menu→<b>Open</b>→<b>Browse</b> command <img class="img-fluid" src="../../../../common/graphicLibrary/se/user_interface/browse_command.png">.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Open File</b> dialog box, locate and select file <b>FE_Mower Blade Assy.asm</b>, and then click <b>More</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal01.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Assembly open as</b> dialog box:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p>From the <b>Assembly open as</b> list, select <b>Small Assembly</b>.</p>
+                                 </li>
+                                 <li>
+                                    <p>From the <b>Part activation</b> list, select <b>Activate all</b>.</p>
+                                 </li>
+                                 <li>
+                                    <p>Click <b>OK</b>.</p>
+                                 </li>
+                              </ol>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal01a.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Open File</b> dialog box, click <b>Open</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal02.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Create a modal study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the following:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p><b>Study type</b>=<b>Normal Modes</b> </p>
+                                 </li>
+                                 <li>
+                                    <p><b>Mesh type</b>=<b>Tetrahedral</b>. </p>
+                                    <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_modal02.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p>Click <b>OK</b>.</p>
+                                 </li>
+                              </ol>
+                              <p>The <b>Define</b> command in the <b>Geometry</b> group is active. You are prompted to select one or more occurrences in the model.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy03.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the graphics window or in <b>Assembly PathFinder</b>, select all three parts (<b>Machined Hub.par</b>, <b>blade.par</b>, and <b>B-121-L.par</b>). Click <b>Accept</b> on the command bar.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You also can drag a selection box around the parts.</p>
+                              </div>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal03.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The new study is listed in the <b>Simulation</b> pane. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal04.gif"></p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a fixed constraint to the hub.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the cylindrical face and the plane on the bottom of <b>Machined Hub</b>; right-click to accept.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal05.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal05a.gif"></p>
+                              <p> You can see the finished constraint on the model and in the <b>Simulation</b> pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal06.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal07.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define an assembly connector between the parts.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Connectors</b> group→<b>Auto</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/sesim_assyconn_auto_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a>, select <b>No penetration</b> from the <b>Connector Type</b> list.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy54.gif"></p>
+                           </li>
+                           <li>
+                              <p>Verify the <b>One connector per component pair</b> is selected.</p>
+                           </li>
+                           <li>
+                              <p>Select all three parts. You can do this by clicking the <b>Select All Components</b> button on the command bar.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal08.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click <b>Accept</b> on the command bar. </p>
+                              <p>The connector pair information is displayed in the <b>Results</b> dialog box.</p>
+                           </li>
+                           <li>
+                              <p>The list in the <b>Results</b> dialog box shows three pairs of connectors. Select all three entries and click the
+                                 <b>Create Connectors</b> button.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal09.gif"></p>
+                              <p>You can see the connectors in the assembly model as well as in the <b>Simulation</b> pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal10.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal11.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the assembly.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> pane, turn off constraints and connectors.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal13.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Mesh</b> command, and then click the <b>Mesh</b> button in the dialog box.</p>
+                              <p>After a few moments, the entire assembly is meshed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal12.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Solve</b> command <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/sesim_solve_button.gif">.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>When the <b>Simulation Results</b> environment is displayed, select <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/sesim_display_options_button.gif">. </p>
+                     </li>
+                     <li>
+                        <p>In the <b>Display Options</b> dialog box, select the <b>Contour</b>, <b>Deformation</b>, and <b>Color Bar</b> check boxes. Click <b>Close</b>.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res4.gif"></p>
+                        <p>The result plot displays <b>Mode 1</b> of the modal study. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal20.gif"></p>
+                     </li>
+                     <li>
+                        <p>Display <b>Mode 2</b>, <b>Mode 3</b>, and <b>Mode 4</b> of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a#study1a_modal" rel="study1a">modal analysis (normal modes)</a> study using the <b>Next Mode</b> arrow on the <b>Home</b> tab→<b>Data Selection</b> group.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal15.gif"></p>
+                     </li>
+                     <li>
+                        <p>On the ribbon, click <b>Close Simulation Results</b>.</p>
+                     </li>
+                     <li>
+                        <p>Increase the blade thickness by 2 mm.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Right-click the blade part and select <b>Open</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal16.gif"></p>
+                              <p>The blade part file opens in the Part environment.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal17.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the top face of the blade. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal18.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the up arrow and type <b>2</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal19.gif"></p>
+                           </li>
+                           <li>
+                              <p>Press <b>Enter</b>, and then click to finish.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal19a.gif"></p>
+                           </li>
+                           <li>
+                              <p>Save and close this file. </p>
+                              <p>You are transferred back to the assembly.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal02.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Create another normal modes study named <b>Modal Study 2</b>.</p>
+                     </li>
+                     <li>
+                        <p>As you did previously, select all of the parts in the assembly. Repeat the fixed constraint
+                           and assembly connector steps. You also can copy and paste the constraint and connectors
+                           from the first study to the second study.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal10.gif"></p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_modal23.gif"></p>
+                     </li>
+                     <li>
+                        <p>Mesh and then solve <b>Modal Study 2</b> as you did for <b>Modal Study 1</b>.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal12.gif"></p>
+                     </li>
+                     <li>
+                        <p>When the <b>Simulation Results</b> environment is displayed, show the contours on the model.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res4.gif"></p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_modal14_new1.gif"></p>
+                     </li>
+                     <li>
+                        <p>Compare the modal shapes between the two studies.</p>
+                        <p>A normal modes analysis solves for the eigenvalues and eigenvectors of the model.
+                           For each eigenvalue (natural frequency), there is a corresponding eigenvector (mode
+                           shape of deformation). </p>
+                        <p>Note the decrease in the deformation in the second study. This is due to the thicker
+                           blade.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/normal_modes_modal_study1_result.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/normal_modes_modal_study2_result.png"></p>
+                     </li>
+                     <li>
+                        <p>Save and close this file.</p>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>After solving the study initially using the default study settings, you can modify
+                        the study to solve it again for a subset of frequencies identified in the first solution.
+                        Use the <b>Frequency range</b> boxes on the <b>Modify Study</b> dialog box to specify a frequency range of interest.</p>
+                     <p>In this example, the results identified the following natural frequencies for Mode
+                        1 through Mode 4.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/normal_mode_study_results1.png"></p>
+                     <p>If you wanted to see the results in a user-defined range, for example from 2e+4 to
+                        4e+4 Hz, then you can select the <b>Modify Study</b> command on the study shortcut menu to enter the lower and upper values in the <b>Frequency range</b> boxes.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/normal_mode_study_results2.png"></p>
+                     <p>Solving the study again shows only the results that fall within the range you defined.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/normal_mode_study_results3.png"></p>
+                  </div>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>After you solve a normal modes analysis, you can then use the natural frequencies
+                        as a guide to selecting the proper time or frequency step for transient and harmonic
+                        frequency response analysis, respectively. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define and review a harmonic response study</a>.</p>
+                  </div>
+                  <h4 class="division-title">Reviewing the results of a normal modes analysis</h4>
+                  <div>
+                     <p>The results of a normal modes analysis help you determine the natural frequencies
+                        (frequencies of free vibration) and mode shapes (the shapes of deformation) of your
+                        design. The excitation frequencies should not match the natural frequencies.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>The XY plot below from Femap help shows three peaks, one peak for each of the first
+                           three modes. The Y value is arbitrary on this plot, but the X-values are an excellent
+                           way to visualize where the excitations are occurring with respect to the frequency
+                           range. Also, the width of the base of each peak represents the frequency bandwidth
+                           associated with each frequency.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/femap_modal_frequency_table.png"></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry2a" rel="geometry2a">Selecting occurrences for studies</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><br></div>
+            <div class="footer-content">Tutorial: Normal modes analysis, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

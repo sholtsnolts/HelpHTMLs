@@ -1,0 +1,153 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Define a constraint</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Define a constraint"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="constraint1h">
+                     <h1 class="topic-title">Define a constraint</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <ol type="1">
+                     <li>
+                        <p>On the ribbon, choose one of the following constraint types from the <b>Simulation</b> tab→<b>Constraints</b> group:</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/constraint/sesim_constraint_group.gif"></p>
+                        <p>For specific information about each type of constraint, click the links below.</p>
+                        <ul>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a#fixed" rel="constraint1a">Fixed</a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a#pinned" rel="constraint1a">Pinned </a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a#norot" rel="constraint1a">No Rotation</a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a#surface" rel="constraint1a">Sliding Along Surface</a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a#cylindrical" rel="constraint1a">Cylindrical</a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a#user" rel="constraint1a">User-Defined</a></p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <ul>
+                              <li>
+                                 <p>Cylindrical and Sliding Along Surface constraint types are not available for frame
+                                    analysis.</p>
+                              </li>
+                              <li>
+                                 <p>For a thermal study, use the commands in the <b>Thermal Loads</b> group as <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a#constraint" rel="load4a">thermal constraints</a>.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Click one or more geometric elements where you want to apply the constraint, and then
+                           click Accept. </p>
+                        <ul>
+                           <li>
+                              <p>(For a <b>Fixed</b>, <b>Pinned</b>, <b>No Rotation</b>, or <b>User-Defined constraint</b>) On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraintqb1d" rel="constraintqb1d">Constraints command bar</a>, from the <b>Type</b> list, first select the type of entity to which the constraint will be applied—Face
+                                 (including face set), Edge, Point, Feature, Node or Curve—and then click the elements.</p>
+                           </li>
+                           <li>
+                              <p>(For a <b>Sliding Along Surface</b> or <b>Cylindrical</b> constraint) Click the planar faces or cylinders, as instructed on PromptBar. </p>
+                           </li>
+                           <li>
+                              <p>If you are adding a <b>Cylindrical</b> or <b>User-Defined</b> constraint, specify the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/degrees_of_freedom" rel="degrees_of_freedom">degrees of freedom (DOF)</a> to restrict or allow.</p>
+                              <ul>
+                                 <li>
+                                    <p>(Cylindrical constraint) Set or clear the options on the <b>Constraints</b> command bar to add or remove DOF. For examples, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint3a#cylsym" rel="constraint3a">Cylindrical constraints</a>.</p>
+                                 </li>
+                                 <li>
+                                    <p>(User-defined constraint) Do the following:</p>
+                                    <ol type="a" start="1">
+                                       <li>
+                                          <p>On the <b>Constraints</b> command bar, from the <b>Coordinate System</b> list <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_constraint_ud_csys_button.gif">, select a user-defined coordinate system or the base coordinate system (the default
+                                             option).</p>
+                                       </li>
+                                       <li>
+                                          <p>Specify the DOF to remove by clicking the triad direction arrows. At least one DOF
+                                             is required.</p>
+                                          <div class="attention" type="example">
+                                             <div class="attention-label">Example: </div>
+                                             <p>To remove 1 translational DOF on a solid part: </p>
+                                             <p><img class="img-fluid" id="constraint_user_dof_add.gif" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_constraint_user_3dof_ex.gif"> </p>
+                                          </div>
+                                          <div class="attention" type="example">
+                                             <div class="attention-label">Example: </div>
+                                             <p>To remove 2 rotational DOF on a thin-body part:</p>
+                                             <p> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_constraint_user_6dof_ex%28a%29.gif"></p>
+                                             <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_constraint_user_6dof_ex%28b%29.gif"> </p>
+                                             <p>To add a DOF that you removed, click the wireframe element on the triad: </p>
+                                             <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_constraint_user_dof_add.gif"></p>
+                                          </div>
+                                       </li>
+                                    </ol>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>To finish adding the constraint, do one of the following: </p>
+                        <ul>
+                           <li>
+                              <p>Press the Enter key. </p>
+                           </li>
+                           <li>
+                              <p>Right-click. </p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <ul>
+                        <li>
+                           <p>Alternatively, you can right-click the <b>Constraints</b> group in the <b>Simulation</b> pane, select <b>Create New Constraint</b>, and choose the constraint from the list. </p>
+                        </li>
+                        <li>
+                           <p>You can use the Select tool, QuickPick, fence select, or the Selection Manager to
+                              select model geometry. </p>
+                        </li>
+                        <li>
+                           <p>Before you finish the command, you can make adjustments on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraintqb1d" rel="constraintqb1d">Constraints command bar</a> to change constraint display color and label display.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint01" rel="fem_constraint01">Activity: Apply a fixed constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sheetmetal01" rel="fem_sheetmetal01">Activity: Apply pinned and no rotation constraints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint02" rel="fem_constraint02">Activity: Apply a sliding along surface constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint04" rel="fem_constraint04">Activity: Apply a user defined constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint2h" rel="constraint2h">Edit a constraint</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint2a" rel="constraint2a">Creating and using constraints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a" rel="constraint1a">Constraints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint3a" rel="constraint3a">Constraint symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint4a" rel="constraint4a">Constraint labels</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraintqb1d" rel="constraintqb1d">Constraints command bar</a><br><br></div>
+            <div class="footer-content">Define a constraint, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

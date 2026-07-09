@@ -1,0 +1,109 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Variable Table Motor command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Variable Table Motor command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid996792">
+                     <h1 class="topic-title">Variable Table Motor command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/animate/variable_table_motor.png"><br>You can use the <b>Variable Table Motor</b> command (<b>Home</b> tab→<b>Motors</b> group→<b>Variable Table Motor</b>) to simulate motion in an assembly by incrementing the variable associated with an
+                     angular or linear assembly relationship by a specified amount over a period of time.
+                     This allows for more complex motions than can be achieved using the <b>Linear Motor</b> command or the <b>Rotational Motor</b> command (for more information, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1c" rel="motor1c">Rotational and Linear Motor</a> commands). </p>
+                  <p>The <b>Variable Table Motor</b> can be used to:</p>
+                  <ul>
+                     <li>
+                        <p>Animate patterns</p>
+                     </li>
+                     <li>
+                        <p>Animate variable table formulas and equations</p>
+                     </li>
+                     <li>
+                        <p>Aid in animating adjustable assemblies</p>
+                     </li>
+                  </ul>
+                  <p>For example, the follower in a path relationship can be moved along the path by incrementing
+                     a fixed <b>Path</b> relationship variable value in the <b>Variable Table</b> (<b>Tools</b> tab→<b>Variables</b> group→<b>Variables</b>) at a specified speed. The following animation depicts how a follower is moved along
+                     a edge chain path using a <b>Variable Table Motor</b>. <br><img class="img-fluid" src="../../../../../common/nonLocalized/se/animate/variable_table_motor_2_1_1.gif"></p>
+                  <p>You can use this capability to define a wide variety of movements. Valid variables
+                     can be any <em>driving</em> distance or angular <b>Variable Table</b> parameter. Driven variables are not supported. </p>
+                  <p>The <b>Variable Table Motor</b> works with existing motors (<b>Linear</b> and <b>Rotational</b>) in the motor simulation timeline. To accomplish this, linear and rotation motors
+                     update from the current position to the next position (processed incrementally). Direction
+                     vectors and axis are defined and updated using the current position of the component.
+                     </p>
+                  <p>The <b>Variable Table Motor</b> dialog box allows you to: </p>
+                  <ul>
+                     <li>
+                        <p>Identify the driving variable in the <b>Variable Table</b></p>
+                     </li>
+                     <li>
+                        <p>Define speed </p>
+                     </li>
+                     <li>
+                        <p>Optionally limit movement</p>
+                     </li>
+                     <li>
+                        <p>Control direction </p>
+                     </li>
+                  </ul>
+                  <p>If a relationship that is used to define the motion is deleted or becomes driven,
+                     the motor is shown in an error state in the <b>Motors</b> collector in the <b>PathFinder</b>. Invalid relationship variable values for a motor in an error state are not indicated
+                     in <b>Variable Table</b>. If the variable value is invalid in the <b>Variable Table</b>, the motor is shown in an error state in the <b>Motor</b> collector in the <b>PathFinder</b>. </p>
+                  <p>A <b>Family of Assemblies</b> motor must be defined for all members. The simulation timeline only processes the
+                     active member. If the variable is excluded or suppressed from the active member, the
+                     motor performs no action.</p>
+                  <p>In the simulation timeline, a <b>Variable Table Motor</b> behaves just like any other existing motor. It appears in the <b>Motors</b> collector using its <b>PathFinder</b> name.</p>
+                  <p><b>Variable Table Motors</b> have the following characteristics:</p>
+                  <ul>
+                     <li>
+                        <p>A <b>Variable Table Motor</b> definition can be reversed or mirrored in the simulation timeline. </p>
+                     </li>
+                     <li>
+                        <p>If a <b>Variable Table Motor</b> attempts to set a variable value and it fails, no error is issued during simulation.
+                           The value just does not change.</p>
+                     </li>
+                     <li>
+                        <p>More than one <b>Variable Table Motor</b> can be defined using the same variable in the <b>Variable Table</b>.</p>
+                     </li>
+                     <li>
+                        <p>The simulation timeline does not allow motors of the same type on the same part to
+                           be invoked at the same time. </p>
+                     </li>
+                     <li>
+                        <p>The <b>Physical Motion</b> and <b>Detect Collisions</b> options are not valid when defining a <b>Variable Table Motor</b> using the <b>Motor Group Properties</b> dialog box. </p>
+                     </li>
+                  </ul>
+                  <p>Right-click a <b>Variable Table Motor</b> in the <b>Motors</b> collector of the <b>PathFinder</b> to edit its definition, delete the motor, or change its name. </p>
+                  <p>See the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/VT_motor_workflow" rel="VT_motor_workflow">Variable Table Motor</a> workflow for more information about the procedure used to define a <b>Variable Table Motor</b> and apply it to a simulation.</p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth2h" rel="fltpth2h">Create an animation using the Animation Editor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth1h" rel="fltpth1h">Define a Camera Path for an Assembly Animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1h" rel="motor1h">Create a motor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor2h" rel="motor2h">Simulate a Motor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwdrawh" rel="flwdrawh">Modify flow lines in an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb2h" rel="tmlplb2h">Modify an animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd3h" rel="vrtstd3h">Delete an Animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd2h" rel="vrtstd2h">Add frames or time to an animation event</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd4h" rel="vrtstd4h">Remove frames or time from an animation event</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb1h" rel="tmlplb1h">Play back an animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi1h" rel="svmovi1h">Save a movie</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwlin1h" rel="flwlin1h">Display flow lines in an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwtrm2h" rel="flwtrm2h">Display flow line terminators in an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid1374089" rel="xid1374089">Use a Surface Dial with the Animation Editor</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd1a" rel="vrtstd1a">Creating assembly animations</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb2d" rel="tmlplb2d">Animation Editor Tool</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth1d" rel="fltpth1d">Camera Path Wizard</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth3d" rel="fltpth3d">Camera Path Wizard (Page 1)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth4d" rel="fltpth4d">Camera Path Wizard (Page 2)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth2d" rel="fltpth2d">Camera Path Wizard (Page 3)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1c" rel="motor1c">Rotational Motor and Linear Motor commands</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb1c" rel="tmlplb1c">Animation Editor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth1c" rel="fltpth1c">Camera Path Wizard command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor2c" rel="motor2c">Simulate Motor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd3c" rel="vrtstd3c">Delete Animation command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd2c" rel="vrtstd2c">Add Frames Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd4c" rel="vrtstd4c">Remove Frames Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi1c" rel="svmovi1c">Save As Movie command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd2d" rel="vrtstd2d">Add Frames Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prptmln1d" rel="prptmln1d">Animation Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb3d" rel="tmlplb3d">Appearance command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd3d" rel="vrtstd3d">Delete Animation Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prpdurat1d" rel="prpdurat1d">Duration Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1d" rel="motor1d">Rotational Motor command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid608470" rel="xid608470">Linear Motor command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prpmotor1d" rel="prpmotor1d">Motor Group Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb4d" rel="tmlplb4d">Path command bar (Animation Editor Tool)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd4d" rel="vrtstd4d">Remove Frames Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi1d" rel="svmovi1d">Save As Movie dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi2d" rel="svmovi2d">Save As Movie Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/VT_motor_workflow" rel="VT_motor_workflow">Variable Table Motor workflow</a><br><br></div>
+            <div class="footer-content">Variable Table Motor command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

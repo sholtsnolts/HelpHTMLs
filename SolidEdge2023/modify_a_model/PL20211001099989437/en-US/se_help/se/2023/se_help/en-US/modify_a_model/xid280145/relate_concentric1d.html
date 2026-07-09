@@ -1,0 +1,120 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Concentric relationship command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Concentric relationship command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="relate_concentric1d">
+                     <h1 class="topic-title">Concentric relationship command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <ul style="list-style: none">
+                     <li>
+                        <h5>Connected Faces</h5>
+                        <p>Specifies how the faces connected to the selection adapt during the modification.</p>
+                        <ul style="list-style: none">
+                           <li>
+                              <h5>Extend/Trim</h5>
+                              <p>Modifies the model by trimming and extending adjacent faces.</p>
+                           </li>
+                           <li>
+                              <h5>Tip</h5>
+                              <p>Modifies the model by allowing the current orientation of connected faces to change.
+                                 In some situations, this can cause the current orientation of connected faces to tip
+                                 or change their angle.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <h5>Clash</h5>
+                        <p>Specifies how the selected seed faces interact with the model during modification.</p>
+                        <ul style="list-style: none">
+                           <li>
+                              <h5>Select set override</h5>
+                              <p>Gives priority to selected and other moving faces over non moving faces.</p>
+                           </li>
+                           <li>
+                              <h5>Model override</h5>
+                              <p>Gives priority to non moving faces.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <h5>Single/All</h5>
+                        <p>Controls how alignment is performed when multiple elements are in the select set.
+                           When multiple elements are in the select set, the first element you select is considered
+                           the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/seed_element" rel="seed_element">seed element</a>. The seed element is displayed in a different color than the remaining elements in
+                           the select set.</p>
+                        <ul style="list-style: none">
+                           <li>
+                              <h5>Single</h5>
+                              <p>Specifies that the existing spatial relationship between the seed element (A) and
+                                 the remaining elements in the select set is not changed by the relate operation. When
+                                 the Single option is set, the seed element (A) is moved to honor the relationship
+                                 you specified with respect to the target face (B). The remaining elements in the select
+                                 set are also moved, but their current spatial relationship to the seed element is
+                                 maintained. In this example, the coincident relationship was applied.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/relationships/face/bj_alignmulti1.gif"></p>
+                           </li>
+                           <li>
+                              <h5>All</h5>
+                              <p>Specifies that the spatial relationship between the seed element (A) and the remaining
+                                 elements in the select set can be changed by the relate operation. When the Multiple
+                                 option is set, all the elements in the set are moved such that they honor the relationship
+                                 you specified with respect to the target element (B). In this example, the coplanar
+                                 relationship was applied, and all faces in the select set were moved such that they
+                                 are coplanar to the target face (B).</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/relationships/face/bj_alignmulti2.gif"></p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <h5>Persist</h5>
+                        <p>Specifies that the applied relationship is maintained if the model is modified later.
+                           When the Persist option is set, the relationship is applied, and a relationship entry
+                           is added to the Relationships collector in PathFinder. To modify the position of the
+                           faces independently later, you can delete the relationship entry from PathFinder.</p>
+                        <p>When the Persist option is cleared, the relationship is applied, but the faces are
+                           free to move later, and no relationship is added to PathFinder.</p>
+                        <p>You can also delete a persisted relationship. See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relateman1d" rel="relateman1d"> Using the Advanced Design Intent panel </a> for more information.</p>
+                     </li>
+                     <li>
+                        <h5>Accept</h5>
+                        <p>Accepts the operation.</p>
+                     </li>
+                     <li>
+                        <h5>Cancel</h5>
+                        <p>Cancels the operation.</p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/alignface1h" rel="alignface1h">Define a relationship between two faces</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/featedit4a" rel="featedit4a">Defining relationships between model faces</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_coplanar1c" rel="relate_coplanar1c">Coplanar command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_coplanar1d" rel="relate_coplanar1d">Coplanar relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_concentric1c" rel="relate_concentric1c">Concentric command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_symmetry1c" rel="relate_symmetry1c">Symmetry command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_symmetry1d" rel="relate_symmetry1d">Symmetry relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_offset1c" rel="relate_offset1c">Offset command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_offset1d" rel="relate_offset1d">Offset relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_parallel1c" rel="relate_parallel1c">Parallel command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_parallel1d" rel="relate_parallel1d">Parallel relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_coplanar_axis1c" rel="relate_coplanar_axis1c">Aligned Holes command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_coplanar_axis1d" rel="relate_coplanar_axis1d">Aligned Holes relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_equal_radius1c" rel="relate_equal_radius1c">Equal Radius command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_equal_radius1d" rel="relate_equal_radius1d">Equal radius relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_perpendicular1c" rel="relate_perpendicular1c">Perpendicular command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_perpendicular1d" rel="relate_perpendicular1d">Perpendicular relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_tangent1c" rel="relate_tangent1c">Tangent command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_tangent1d" rel="relate_tangent1d">Tangent relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_horzvert1c" rel="relate_horzvert1c">Horizontal and Vertical command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_horzvert1d" rel="relate_horzvert1d">Horizontal and vertical relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_ground1c" rel="relate_ground1c">Ground command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_ground1d" rel="relate_ground1d">Ground relationship command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_rigid1c" rel="relate_rigid1c">Rigid command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relate_rigid1d" rel="relate_rigid1d">Rigid relationship command bar</a><br><br></div>
+            <div class="footer-content">Concentric relationship command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

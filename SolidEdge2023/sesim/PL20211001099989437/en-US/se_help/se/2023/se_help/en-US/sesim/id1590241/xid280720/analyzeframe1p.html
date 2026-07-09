@@ -1,0 +1,135 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Analyze a structural frame model</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Analyze a structural frame model"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="analyzeframe1p">
+                     <h1 class="topic-title">Analyze a structural frame model</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In a structural frame model, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beam_curves" rel="beam_curves">beam curves</a> are created from the design body, and the beam curves are meshed into discrete beam
+                     elements and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430524" rel="xid430524">beam element nodes</a>. </p>
+                  <p>Use the following finite element analysis process to simulate loading conditions on
+                     a frame model and determine its response at various locations on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430548" rel="xid430548">beam cross section</a>. </p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/sesim_beam_res.gif"></p>
+                  <ol type="1">
+                     <li>
+                        <p>Open a frame model.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>For practice creating a study of the structural framework model shown above, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_frame01" rel="fem_frame01">Tutorial: Simulate stresses on a bridge</a>.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Select <b>Tools</b> tab→<b>Environs</b> group→<b>Frame</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/frames_001.gif">.</p>
+                        <p>This opens the <b>Frame</b> environment.</p>
+                     </li>
+                     <li>
+                        <p>On <b>PathFinder</b>, click the <b>Simulation</b> tab <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/sesim_simulation_tab_icon.gif"> to display the <b>Simulation</b> pane.</p>
+                     </li>
+                     <li>
+                        <p>Select the <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/new_study_command.png">, and use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d"><b>Create Study</b> dialog box</a> to create a study.</p>
+                        <p>For a structural frame model:</p>
+                        <ul>
+                           <li>
+                              <p>Select the <b>Linear Static</b> study type and the <b>Beam</b> mesh type.</p>
+                           </li>
+                           <li>
+                              <p>(Optional) In the <b>Connector Options</b> section, in the <b>Maximum rigid link length</b> box, specify the maximum length of rigid link connectors automatically created for
+                                 disjoint beams. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973909" rel="xid1973909">Rigid link connectors</a>.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h#study1h_geometry" rel="study1h">Select the model geometry</a> to analyze—On the ribbon, click the <b>Define</b> command. Select the frame members to include in the study, and click Accept.</p>
+                     </li>
+                     <li>
+                        <p>Define boundary conditions. </p>
+                        <ol type="a">
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a>. In a structural frame model, you also can add a <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_moment_button.gif"> <b>Moment</b> load, for example, to the free end of an I-beam where the other end is fixed.</p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1h" rel="constraint1h">Define a constraint</a>. </p>
+                           </li>
+                           <li>
+                              <p>For a structural frame model, you also can add the following:</p>
+                              <ul>
+                                 <li>
+                                    <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/node1h" rel="node1h">Define a node</a> to place supplemental loads and constraints along a beam.</p>
+                                    <div class="attention" type="note">
+                                       <div class="attention-label">Note: </div>
+                                       <p>Use the <b>Mesh</b> group→ <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/sesim_node_button.gif"> <b>Node</b> command to place an explicit node for adding a load or constraint along a frame member.</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/release1h" rel="release1h">Define a release</a> to release degrees of freedom on frame joints.</p>
+                                    <div class="attention" type="note">
+                                       <div class="attention-label">Note: </div>
+                                       <p>When beam elements are connected, all six degrees of freedom are connected at each
+                                          beam end. Choose the <b>Mesh</b> group→ <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/sesim_release_button.gif"> <b>Release</b> command to specify the degrees of freedom that you do not want to connect. </p>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a>. </p>
+                        <p>For more information about meshing, refer to <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a>.</p>
+                     </li>
+                     <li>
+                        <p>Choose the <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b> command to run the simulation.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/frame/sesim_solve_button.gif"> </p>
+                        <p>The <b>Simulation Results</b> environment is displayed.</p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/results1p" rel="results1p">Review the analysis results</a>.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Review the beam cross sections and beam diagram by selecting the following check boxes
+                                 on the <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> menu:</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_beam_res_sel3.gif"></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot1h" rel="plot1h">Plot results</a>.</p>
+                              <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid452750" rel="xid452750">Beam diagrams</a>, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot8a" rel="plot8a">Beam reaction component plots</a>, and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid433778" rel="xid433778">Beam stress component plots</a>.</p>
+                           </li>
+                           <li>
+                              <p>Review the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beamprops1a" rel="beamprops1a">beam properties</a> of a cross section.</p>
+                           </li>
+                        </ol>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973886" rel="xid1973886">Define rigid links manually</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/node1h" rel="node1h">Define a node</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/release1h" rel="release1h">Define a release</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430558" rel="xid430558">Display a beam cross section</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_frame01" rel="fem_frame01">Tutorial: Simulate stresses on a bridge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_frame02" rel="fem_frame02">Tutorial: Create and simulate a roof truss framework</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973909" rel="xid1973909">Rigid link connectors</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot8a" rel="plot8a">Beam reaction component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid433778" rel="xid433778">Beam stress component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid452750" rel="xid452750">Beam diagrams</a><br><br></div>
+            <div class="footer-content">Analyze a structural frame model, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

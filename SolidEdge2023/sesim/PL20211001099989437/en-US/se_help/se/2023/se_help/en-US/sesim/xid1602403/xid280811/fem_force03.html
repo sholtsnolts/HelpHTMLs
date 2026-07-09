@@ -1,0 +1,168 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simplify a model and apply a load using X, Y, Z components</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simplify a model and apply a load using X, Y, Z components"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_force03">
+                     <h1 class="topic-title">Tutorial: Simplify a model and apply a load using X, Y, Z components</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>To get the best results from Solid Edge Simulation, you can optimize the geometry
+                     in your part, sheet metal, and assembly models. There are several techniques for doing
+                     this, such as:</p>
+                  <ul>
+                     <li>
+                        <p>Using a simplified model</p>
+                     </li>
+                     <li>
+                        <p>Removing geometry flaws and small entities</p>
+                     </li>
+                     <li>
+                        <p>Offsetting edges around openings, holes, and fasteners</p>
+                     </li>
+                  </ul>
+                  <p>For information about these and other techniques, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a>.</p>
+                  <p>To speed meshing times in an assembly model, you can use the simplified representation
+                     of part and sheet metal geometry in a study. In this tutorial, you learn how to simplify
+                     a bicycle handlebar using the <b>Loads</b> command bar→<b>Direction Type</b> list, <b>Component</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz10.gif">.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file named <b>FE_bar-XYZ.par</b>. This model represents a bicycle handle bar. </p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Simplify the model.</p>
+                        <p>Assume that forces are applied equally by each arm to the bar. By taking advantage
+                           of symmetry you speed up processing of the finite element model by cutting the bar
+                           in half. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>This change affects the design part; for your own production models, it is recommended
+                              that you copy a model for this type of simplification.</p>
+                        </div>
+                        <ol type="a">
+                           <li>
+                              <p>In <b>PathFinder</b>, turn on the <b>Front (xz)</b> base reference plane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz02.gif"></p>
+                           </li>
+                           <li>
+                              <p>Also in <b>PathFinder</b>, turn on the <b>Base</b> coordinate system.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Sketch a circle by center point centered on the origin of the base coordinate system.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz04.gif"></p>
+                           </li>
+                           <li>
+                              <p>Define a circle of diameter <b>75 mm</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz05.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the region encompassed by the circle. On the <b>Extrude</b> command bar, from the <b>Add/Cut</b> list, choose <b>Cut</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz08.gif">. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz06.gif"></p>
+                           </li>
+                           <li>
+                              <p>Extrude the circle <b>375 mm</b> to the right.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz07.gif"></p>
+                           </li>
+                           <li>
+                              <p>In <b>PathFinder</b>, turn off the <b>Base</b> coordinate system and the <b>Front (xz)</b> reference plane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz09.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Create a static study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Tetrahedral</b> mesh type. Select <b>OK</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a force.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                           </li>
+                           <li>
+                              <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>, from the <b>Direction Type</b> list, select <b>Components</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz10.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Also on the command bar, from the <b>Select Coordinate System</b> list, select <b>right hand CS</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_xyz11.gif">.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz12.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the inner and outer cylindrical faces of the bar. In the <b>Fy</b> component box, type and enter a force of <b>334 N</b> (75 lbf). Set to <b>zero</b> the <b>Fx</b> and <b>Fz</b> components.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz13.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept and click to finish. </p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz14.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a fixed constraint on several faces.</p>
+                        <ol type="a">
+                           <li>  
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>. </p>  </li>
+                           <li>
+                              <p>Select the inner and outer faces at the right end of the bar.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz15.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept and click to finish. </p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz16.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Select the <b>Mesh</b> command, and in the dialog box click the <b>Mesh &amp; Solve</b> button.</p>
+                        <p>After a few moments, the part is meshed and solved.</p>
+                        <p>The results are displayed on the deformed model in the <b>Simulation Results</b> environment. </p>
+                     </li>
+                     <li>
+                        <p>Rotate the part to view the area of maximum stress.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_xyz17.gif"></p>
+                     </li>
+                     <li>
+                        <p>Close the file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_simplify01" rel="fem_simplify01">Tutorial: Simplify a bicycle stem for simulation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sm-assy01" rel="fem_sm-assy01">Tutorial: Simplify a sheet metal assembly</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a><br><br></div>
+            <div class="footer-content">Tutorial: Simplify a model and apply a load using X, Y, Z components, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

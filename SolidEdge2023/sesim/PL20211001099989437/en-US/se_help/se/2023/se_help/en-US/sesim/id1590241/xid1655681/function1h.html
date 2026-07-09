@@ -1,0 +1,144 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Use a function as variable input to loads</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Use a function as variable input to loads"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="function1h">
+                     <h1 class="topic-title">Use a function as variable input to loads</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can create a function using the <b>Simulation</b> tab→<b>Function</b> group→<b>Function</b> command <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/function_command.png"> on the ribbon, or using the <b>Create Function</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/create_function_icon_cmdbar.png"> on the command bar when creating or editing a load. </p>
+                  <ul>
+                     <li>
+                        <p>For a transient heat study, you can use the <b>Function</b> command to define a thermal load that varies with respect to time. </p>
+                     </li>
+                     <li>
+                        <p>For a harmonic response study, you can use the <b>Function</b> command to apply a structural load that varies with frequency. </p>
+                     </li>
+                     <li>
+                        <p>Functions are not applicable to linear static, normal modes, or buckling studies.
+                           </p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Choose the <b>Simulation</b> tab→<b>Function</b> group→<b>Function</b> command <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/function_command.png">.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>New Function</b> dialog box:</p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>Type a name for the function, such as <b>Time Function 1</b> or <b>Frequency Function 1</b>. You also can accept the default name.</p>
+                           </li>
+                           <li>
+                              <p>Type the X and Y values in the table cells. Press Tab to apply each value. Press Enter
+                                 to add each new row. You also can paste values from another source using the table
+                                 context commands.</p>
+                              <p>As you add or remove values for a function, a graph of the function loading trajectory
+                                 is plotted in the dialog box.</p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Save</b> button to save the function. </p>
+                           </li>
+                        </ol>
+                        <p>The newly created function is listed in the <b>Simulation</b> pane, under the <b>Functions</b> node. You can double-click the entry to review and edit the function,</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/functions_node.png"></p>
+                     </li>
+                     <li>
+                        <p>To use the function, select the appropriate load command.</p>
+                        <ul>
+                           <li>
+                              <p>In a transient heat study, choose one of the following load commands from the <b>Thermal Loads</b> group:</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_temp_button.gif"> <b>Temperature</b>—Define a time-dependent temperature on selected entities. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_heatflux_button.gif"> <b>Heat Flux</b>—Conduction through a solid medium in a part model.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_heatgen_button.gif"> <b>Heat Generation</b>—Conduction through a solid medium in an assembly.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_conv_button.gif"> <b>Convection</b>—Define heat transfer between a solid and a liquid or gas.</p>
+                           </li>
+                           <li>
+                              <p>In a harmonic response study, select the <b>Structural Loads</b> group→<b>Force</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_force_command_sm.png">.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>On the <b>Loads</b> command bar, select the name of the function you created from the <b>Function</b> list (1).</p>
+                        <p>You also can create the load function from the command bar by selecting the adjacent
+                           <b>Create Function</b> button (2), instead of selecting the <b>Function</b> command on the ribbon.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_heat_flux_cmdbar_function.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Solve the study to apply the function.</p>
+                     </li>
+                     <li>
+                        <p>In the Simulation Results environment, use the <b>Probe</b> command to select and graph the nodes of interest. </p>
+                     </li>
+                  </ol>
+                  <h4 class="division-title">Function examples</h4>
+                  <div>
+                     <p>For transient heat studies, you can use a function table to define a thermal load
+                        that is applied at variable rates with respect to the study end time. The X-axis values
+                        that you enter are based on the time intervals at which you expect heat flow to increase,
+                        and the Y-axis values represent the scale factor by which you expect the temperature
+                        to increase. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>If at 100 seconds of operation you expect the temperature to double, enter 100 in
+                           the Time column and enter 2 in the scale Factor column.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/transient_heat_study_function_table.png"></p><br><p>Probing the nodal data for this transient heat transfer study, this graph of Time
+                           Vs. Temperature resulted from the application of the function table shown above to
+                           the study geometry.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/transient_heat_study_function_results2.png"></p>
+                     </div>
+                     <p>For a harmonic response study, you can use a function table to define a structural
+                        force load that is applied at variable rates over different modal frequencies. The
+                        X values are the modal frequencies of interest, and the Y values are the loading factors.
+                        The objective is to determine the maximum displacement response of a structure or
+                        design based on known modal frequency values.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/function_db_harmonic_force_load.png"></p>
+                        <p>This graph of Frequency Vs. Translation shows the maximum displacement at the highest
+                           frequency mode, based on the frequency-dependent function table above.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/harmonic_response_force_function_results.png"></p>
+                     </div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you define a harmonic response study, you also can use a Frequency Vs. Structural
+                           Damping function table to define variable structural damping, rather than using a
+                           fixed coefficient. To learn how to create this type of function, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a>.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/function1a" rel="function1a">Using functions</a><br><br></div>
+            <div class="footer-content">Use a function as variable input to loads, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

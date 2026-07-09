@@ -1,0 +1,99 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating custom document properties</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating custom document properties"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="customprop1a">
+                     <h1 class="topic-title">Creating custom document properties</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use custom Solid Edge properties to map to Teamcenter attributes prior to adding unmanaged
+                     documents to Teamcenter. For example, create custom properties to define the Item
+                     Revision for non-Solid Edge documents including image files, .pdf documents, and Microsoft
+                     Office documents (MS Word, MS Excel, MS PowerPoint). You can also create custom properties
+                     to define the properties for non-graphic parts.</p>
+                  <h4 class="division-title">Adding non-Solid Edge documents to Teamcenter</h4>
+                  <div>
+                     <p>When non-Solid Edge documents (image files, <b>.pdf</b> documents, Microsoft Office documents, etc.) are added to Teamcenter using Add to
+                        Teamcenter, the custom properties that map Solid Edge properties to Teamcenter attributes
+                        are used. If the Item Type, Item ID, and Item Revision are defined, the non-Solid
+                        Edge document is uploaded into Teamcenter using the defined property mappings. However,
+                        if any defining properties are missing, the Teamcenter attribute is automatically
+                        assigned as with any other document type.</p>
+                     <div class="attention" type="caution">
+                        <div class="attention-label">Caution: </div>
+                        <p>If the Solid Edge property that defines the Teamcenter Item Revision is not defined,
+                           the Item Revision will be auto-assigned upon import. The non-Solid Edge document may
+                           not receive the same Item Revision number as its parent document.</p>
+                        <p>Create custom properties to map Solid Edge properties to Teamcenter attributes defining
+                           the Item Revision before adding the non-Solid Edge document to Teamcenter.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Adding non-graphic parts into Teamcenter</h4>
+                  <div>
+                     <p>Before you add non-graphic parts (grease, paint, and so on) to Teamcenter using Add
+                        to Teamcenter, create the custom properties:</p>
+                     <ul>
+                        <li>
+                           <p>SE_ASSEMBLY_QUANTITY_OVERRIDE</p>
+                        </li>
+                        <li>
+                           <p>SE_ASSEMBLY_QUANTITY_STRING</p>
+                        </li>
+                        <li>
+                           <p>Unit of Measure (UOM)</p>
+                        </li>
+                     </ul>
+                     <p>If one or more of these properties are missing when you add the document to Teamcenter,
+                        the item is added to the assembly without the non-graphic information.</p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>Use the Add to Teamcenter Dry Run prior to adding your document to Teamcenter in order
+                           to be notified of any condition that should be resolved.</p>
+                     </div>
+                     <p>The value of unit of measure must be considered with regard to what is defined as
+                        geometric units of measure. The Teamcenter preference SEEC_UOM_List_as_Geometric defines
+                        the unit of measure values that represent geometric components. (Example: each)</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>For details regarding defining projects and using Teamcenter preferences, see the
+                           <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a>.</p> </div>
+                  </div>
+                  <h4 class="division-title">Defining custom properties for use</h4>
+                  <div>
+                     <p>Define your custom Solid Edge properties for use in Teamcenter using the spreadsheet
+                        <b>datapreputilitiestemplate.xlsm</b> located in <b>\Program Files\Siemens\Solid Edge 2023 \Program</b>. </p>
+                     <p>See the Help file <em><a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze2h" rel="analyze2h">Define custom properties prior to analysis</a></em> for instructions.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze2h" rel="analyze2h">Define custom properties before analysis</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenterprep1a" rel="addtoteamcenterprep1a">Preparing unmanaged documents for Teamcenter</a><br><br><h5>Quick links</h5><a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/prop6h" rel="prop6h">Create custom document properties</a><br><br></div>
+            <div class="footer-content">Creating custom document properties, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

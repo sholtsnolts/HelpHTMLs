@@ -1,0 +1,110 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Sketch regions in the ordered environment</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Sketch regions in the ordered environment"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid2053344">
+                     <h1 class="topic-title">Sketch regions in the ordered environment</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Sketch regions in the ordered environment provide ease of use that can increase productivity.
+                     Clicking a region displays a context toolbar at the tip of the cursor so that you
+                     can quickly select frequently needed commands, without having to locate them on the
+                     ribbon. Many commands, such as <b>Extrude</b>, <b>Revolve</b>, <b>Tab</b>, and <b>Dimple</b>, support regions. </p>
+                  <h4 class="division-title">Displaying regions</h4>
+                  <div>
+                     <p>Each sketch contains its own region within the model. To display a region, in <b>PathFinder</b>, right-click the sketch containing the region and click <b>Activate regions</b>. This saves time since you can select a complex region without having to edit, connect,
+                        or trim the sketch for modeling.</p>
+                     <p>When selecting regions, the regions take precedence over features in selection priority.
+                        The order of selection priority is sketches, regions, then features.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/sketch_regions/region_selection_order1.png"></p>
+                  </div>
+                  <h4 class="division-title">Creating features with internal loops</h4>
+                  <div>
+                     <p>Commands that support regions, such as <b>Extrude</b> and <b>Cut</b>, provide the <b>Internal Face Loops option</b>, which is helpful when you select regions that contain internal loops.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/internal_loop_ordered1.png"></p>
+                  </div>
+                  <h4 class="division-title">Regions created for sketches located on a face</h4>
+                  <div>
+                     <p>Unlike in synchronous, sketches in ordered that lie on the face of a part create regions
+                        using the edges of that face.</p>
+                     <p>In the following example, <b>Sketch 1</b>, the rectangle and circle on the part face, creates two regions.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_region_face1.png"></p>
+                     <p>After a round is placed, four new regions are added where the edges were rounded.
+                        The regions are created between the rectangle edge and the rounded edges of the part.
+                        <b>Sketch1</b> now defines six total regions.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_region_face2.png"></p> 
+                     <p>If a new <b>Sketch 2</b>, smaller circle at the center of the larger circle, is added to the part's front
+                        face, two new regions are created: one within the circle (1) and the second outside
+                        the circle, towards the part edges, resulting in the orange region (2).</p>
+                     <p> Notice that the <b>Sketch 1</b> edges are ignored when creating the orange region since separate sketches always
+                        create independent regions. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_region_face10.png"></p>
+                     <p>As illustrated in the example, regions are created for closed areas found within sketch
+                        geometry. If the sketch is located on a part face, regions are also created between
+                        the sketch edges and the part edges adjacent to them, as shown in <b>Sketch 2</b> above.</p>
+                  </div>
+                  <h4 class="division-title">Sketches with overlapping regions</h4>
+                  <div>
+                     <p>Each sketch contains its own region. If multiple sketches exist on the same plane,
+                        the regions for these sketches may overlap, which may require using <b>QuickPick</b> to select the desired regions.</p>
+                     <p>In the following example, sketch 1 and sketch 3 exist on the same plane and their
+                        regions overlap.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/sketch_regions/2022-03-01_16-39-46.png"></p>
+                     <p>By turning off sketch 1 you can easily pick sketch 3 to create a feature.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_sketch_create5.png"></p>
+                  </div>
+                  <h4 class="division-title">Editing features with regions</h4>
+                  <div>
+                     <p>Editing features with regions works the same as editing features with sketches.</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Select the feature and click <b>Edit Definition</b> on the context toolbar. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_sketch_create1.png"></p>
+                        </li>
+                        <li>
+                           <p>On the <b>Edit Definition</b> command bar, click <b>Sketch Step</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_sketch_create2.png"></p>
+                        </li>
+                        <li>
+                           <p>Select the regions to edit.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_sketch_create3.png"></p>
+                        </li>
+                        <li>
+                           <p>Finish the edit and the feature recomputes.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sketching/creating_editing_sketches/ordered_sketch_create4.png"></p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktch3h" rel="sktch3h">Update a sketch</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketch_behavior1a" rel="sketch_behavior1a">Synchronous sketch behavior in the ordered environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktch2c" rel="sktch2c">Show All Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktch3c" rel="sktch3c">Hide All Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktch4c" rel="sktch4c">Update sketch command</a><br><br></div>
+            <div class="footer-content">Sketch regions in the ordered environment, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

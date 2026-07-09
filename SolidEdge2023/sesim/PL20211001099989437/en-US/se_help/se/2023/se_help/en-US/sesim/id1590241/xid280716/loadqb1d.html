@@ -1,0 +1,364 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Loads command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Loads command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="loadqb1d">
+                     <h1 class="topic-title">Loads command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The options displayed on the <b>Loads</b> command bar vary with the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">load type</a> you have selected.</p>
+                  <dl>
+                     <dt><b>Element Selection Criteria</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies which model geometry elements you want to select to apply the load to.</p>
+                        <dl>
+                           <dt><b>Face</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that faces and surfaces are selectable.</p>
+                              <p>Face sets may also be selected using <b>PathFinder</b>. </p>
+                           </dd>
+                           <dt><b>Edge/Corner</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that model edges are selectable.</p>
+                           </dd>
+                           <dt><b>Point/Vertex</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that points and vertices are selectable.</p>
+                           </dd>
+                           <dt><b>Feature</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that features are selectable using <b>PathFinder</b>.</p>
+                           </dd>
+                           <dt><b>Node</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430524" rel="xid430524">beam element nodes</a> are selectable. (Available for beam mesh types.)</p>
+                           </dd>
+                           <dt><b>Curve</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beam_curves" rel="beam_curves">beam curves</a> are selectable. (Available for beam mesh types.)</p>
+                           </dd>
+                        </dl>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <ul>
+                              <li>
+                                 <p>If possible, avoid applying a load on a point or curve, as it can concentrate stresses.</p>
+                              </li>
+                              <li>
+                                 <p>Split surfaces distribute loads and constraints more realistically.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Function list</b></dt>
+                     <dd class="ml-3">
+                        <p>Selects a previously created function to be applied to the load when the study is
+                           solved. </p>
+                        <p>You can use functions in thermal loads and in force loads for some types of structural
+                           studies. </p>
+                     </dd>
+                     <dt><b>Function</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the <b>New Function</b> dialog box for you to define a new function. You can apply the function to the current
+                           load, and you can save the function for reuse in another load.</p>
+                        <p>You can use functions in thermal loads and in force loads for some types of structural
+                           studies. </p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Radiation Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d"> Radiation Load Options dialog box</a> for you to choose the type of radiation load (Radiation to Space or Enclosed Radiation)
+                           and to change thermal radiation load processing default values.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_constraint_pinned_button.gif"> <b>Pinned Constraint</b></dt>
+                     <dd class="ml-3">
+                        <p>Available only for displacement loads, this option automatically creates a pinned
+                           constraint on the same face, edge, or vertex where the load is placed.</p>
+                        <p>Clear this option if you want to create a different type of constraint for the displacement
+                           load.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>This option satisfies the NX Nastran requirement for enforced displacement. </p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_flip_button.gif"> <b>Flip Direction</b></dt>
+                     <dd class="ml-3">
+                        <p>Changes the direction in which the load is applied by 180 degrees or to the opposite
+                           side.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>When applying a pressure load, a default load direction is selected (A). You can use
+                              the <b>Flip Direction</b> option on the command bar to control the load direction (B).</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/simulation_express/analysiswiz3.gif"></p>
+                        </div>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>A convection load on a solid face or surface is applied in the positive normal direction
+                              by default. In this case, flipping the direction to the opposite side means it:</p>
+                           <ul>
+                              <li>
+                                 <p>Flips the load direction to the negative normal direction on a surface.</p>
+                              </li>
+                              <li>
+                                 <p>Flips the load direction so that it points inward on a solid face.</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>For convection loads, the <b>Flip Direction</b> option is equivalent to the Femap option, <b>On plate back face</b>.</p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Load Direction Type</b></dt>
+                     <dd class="ml-3">
+                        <p>Sets the method for specifying load direction.</p>
+                        <ul style="list-style: none">
+                           <li>
+                              <h5><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_alongavector.gif"> Along a Vector</h5>
+                              <p>Aligns the load direction along a vector using the primary axis of the steering wheel.
+                                 This vector is applied to all selected faces.</p>
+                           </li>
+                           <li>
+                              <h5><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_normaltoface.gif"> Normal to Face</h5>
+                              <p>If one or more faces or surfaces are selected, changes the direction of the load symbols
+                                 on each to be normal to that face.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>For a bearing load, the following illustrations show the effect of selecting and deselecting
+                                    the <b>Normal to Surface</b> option.</p>
+                                 <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                                    <colgroup span="1">
+                                       <col span="1">
+                                       <col span="1">
+                                    </colgroup>
+                                    <thead>
+                                       <tr>
+                                          <td rowspan="1" colspan="1">
+                                             <p>(A) Normal to Surface=on</p>
+                                          </td>
+                                          <td rowspan="1" colspan="1">
+                                             <p>(B) Normal to Surface=off</p>
+                                          </td>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr>
+                                          <td rowspan="1" valign="top" colspan="1">
+                                             <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_norm2surf_on.gif"></p>
+                                          </td>
+                                          <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_norm2surf_off.gif"></td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </li>
+                           <li>
+                              <h5><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_xyz10.gif"> Components</h5>
+                              <p>Defines load direction by specifying the individual X, Y, and Z direction components
+                                 with respect to a coordinate system. You select a coordinate system using the <b>Coordinate System</b> list.</p>
+                              <p>Choose the <b>Components</b> option to specify the load direction without using the steering wheel, or when you
+                                 do not know the total magnitude of the load.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Practice using this option. See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_force03" rel="fem_force03">Activity: Simplify a model and apply a load using X, Y, Z components</a>.</p>
+                              </div>
+                           </li>
+                        </ul>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_traction_button.gif"> <b>Traction load</b></dt>
+                     <dd class="ml-3">
+                        <p>For bearing loads, specifies that the load pulls on a surface instead of pushes on
+                           a surface.</p>
+                        <p>The following illustrations show the effect of setting the Traction option to on and
+                           off.</p>
+                        <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                           <colgroup span="1">
+                              <col span="1">
+                              <col span="1">
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p>(A) Traction=on (pull)</p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>(B) Traction=off (push)</p>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_traction_pull.gif"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_traction_push.gif"></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <p>The <b>Traction load</b> option also changes the contact area.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_total_button_off.gif"> <b>Total Load</b></dt>
+                     <dd class="ml-3">
+                        <p>When selected, distributes the load value proportionally across all of the selected
+                           entities based on their lengths or surface areas. </p>
+                        <p>When deselected, the full load value is applied to each selected entity.</p>
+                        <p>This option is available for force, torque, bearing, moment, and some thermal loads
+                           when multiple geometric entities of the same type are selected. </p>
+                        <p>The load name in the <b>Simulation</b> pane and the load label in the graphics window provide feedback as to whether the
+                           load is distributed or not. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                              <colgroup span="1">
+                                 <col span="1">
+                                 <col span="1" align="left" valign="top">
+                              </colgroup>
+                              <thead>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Load name in the Simulation pane</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Effect on the model</p>
+                                    </td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Force 1 (Total)</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_total_results.gif"></p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Force 1 (Per Entity)</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_distributed_results.gif"></p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_freespace_pt_icon.png"> <b>Hydrostatic Pressure–Free Space Selection</b></dt>
+                     <dd class="ml-3">
+                        <p>When active, identifies the free space within a container by specifying a point to
+                           define the maximum height of the fluid. You can click a keypoint on the geometry and
+                           enter a value in the <b>Offset</b> box, or you can select the <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/xyz_pt_icon.png"> <b>XYZ Point</b> option from the <b>Keypoints</b> list, click to specify a point, and then edit its coordinates in the X, Y, Z box.</p>
+                     </dd>
+                     <dt> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_gravity_load_icon.png"> <b>Hydrostatic Pressure–Gravity</b></dt>
+                     <dd class="ml-3">
+                        <p>When active, specifies the gravity type, direction, and magnitude. Options are <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_alongavector.gif"> <b>Along a Vector</b>, for gravity normal to the defined point, or <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_xyz10.gif"> <b>Components</b>, when you want to define an angle that is not parallel or perpendicular to a face.</p>
+                        <p>Value—Use the adjacent dynamic input box to specify the gravity acceleration value.
+                           The default units are Length/Time², for example, 981.000 cm/sec². </p>
+                     </dd>
+                     <dt></dt>
+                     <dd class="ml-3">
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>For information about using these options, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a>.</p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_symbol_color_button.gif"> <b>Symbol Color</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the <b>Symbol Color</b> dialog box so you can change the default load direction arrow color displayed in
+                           the graphics window.</p>
+                        <p>Click a color box to select a predefined color, or click <b>New</b> to define a custom color.</p>
+                        <p>The color is applied to existing symbols and to new load direction arrows.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_symbol_size_button.gif"> <b>Symbol Size/Spacing</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the <b>Symbol Size</b> dialog box so you can change the default load direction symbol size and spacing displayed
+                           in the graphics window.</p>
+                        <dl>
+                           <dt><b>Symbol Size</b> slider</dt>
+                           <dd class="ml-3">
+                              <p>Changes the symbol size of the load direction vector arrows for the current load.
+                                 Symbol size is proportional. The default value is 50.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt><b>Symbol Spacing slider</b></dt>
+                           <dd class="ml-3">
+                              <p>Changes the symbol spacing pattern of the load direction vector arrows for the current
+                                 load. A lower value produces a denser symbol display. Conversely, a higher value produces
+                                 a sparser symbol display.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_label_button.gif"> <b>Show Label</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the load value label in the graphics window.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_xyz11.gif"> <b>Coordinate System</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the coordinate system to use to define the load direction and magnitude.
+                           You can select a coordinate system from the list, or you can click the button and
+                           then click one of the available coordinate systems in the graphics window.</p>
+                        <p>This option is available when you first select Components as the Direction Type.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Practice using this option. See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_force03" rel="fem_force03">Activity: Simplify a model and apply a load using X, Y, Z components</a>.</p>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Loads command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

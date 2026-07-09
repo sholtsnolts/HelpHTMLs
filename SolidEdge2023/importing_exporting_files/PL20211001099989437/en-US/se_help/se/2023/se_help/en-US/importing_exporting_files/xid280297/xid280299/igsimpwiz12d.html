@@ -1,0 +1,160 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>IGES Import Translation Wizard (Stitching)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="IGES Import Translation Wizard (Stitching)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="igsimpwiz12d">
+                     <h1 class="topic-title">IGES Import Translation Wizard (Stitching)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>&nbsp;IGES files normally contain only surface definitions and no solid geometry. Therefore
+                     it is necessary to sew surface definitions to form a solid body.</p>
+                  <p>Healing involves preparing the free surfaces for stitching. &nbsp;Solid Edge cleans the
+                     faces to resolve underlying problems such as self-intersection, multiple intersections,
+                     or edges equal to or smaller than the minimum stitching tolerance. Once the faces
+                     are cleaned, Solid Edge identifies and removes sheets that are invalid due to bad
+                     trimming curves, or sheets that result in slivers.</p>
+                  <p>Once the sheets have been cleaned, Solid Edge stitches any remaining gaps and fills
+                     holes where possible, using surfaces that were removed during pre-processing. &nbsp;After
+                     the stitching process, Solid Edge identifies missing geometry due to surface errors
+                     during translation. &nbsp;New surfaces are created where possible using adjacent surface
+                     edges.</p>
+                  <p>Healing prepares solids by resolving such issues as self-intersections, tolerant edges,
+                     and topology problems.</p>
+                  <dl>
+                     <dt>Actions on Import</dt>
+                     <dd class="ml-3">
+                        <p>Specifies how you want to format the imported file.</p>
+                        <dl>
+                           <dt>Do Not Heal or Stitch Free Surfaces</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you do not want to heal or stitch any free surfaces.</p>
+                           </dd>
+                           <dt>Stitch Free Surfaces (Create Solid Body)</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to stitch the free surfaces to create a solid body.</p>
+                           </dd>
+                           <dt>Heal and Stitch Surfaces (Create Solid Body)</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to heal and stitch free surfaces to create a solid body. When
+                                 given a set of sheet bodies the software cleans the input sheets of self-intersections
+                                 and loop inconsistencies. It then identifies and removes very small surfaces or sliver
+                                 sheets from the set of sheets. Edges of adjacent surfaces are then used to fill holes
+                                 where slivers were removed. Larger holes from missing surfaces are also filled. After
+                                 the healing process is complete a single stitch operation at 1.0e-5 (meters) is attempted
+                                 to create a solid body.</p>
+                           </dd>
+                           <dt>Boolean Solids</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to boolean all solid bodies together to form a disjoint solid
+                                 and inserted into PathFinder as a part copy. This option is on by default. &nbsp;If the
+                                 option is off, all solid bodies are added as individual part copies to PathFinder.</p>
+                           </dd>
+                           <dt>Body Check</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to perform a full body check on the file. This option is off
+                                 by default.</p>
+                           </dd>
+                           <dt>Imprint Curves</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to combine all curve data into a single part copy. It may
+                                 be to your advantage to identify the curves that you do not need and either hide or
+                                 delete them before importing the file. This option is on by default.</p>
+                           </dd>
+                           <dt>Create Base Feature</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to make the imported solid body the base feature for the Solid
+                                 Edge model. If there is more than one solid body in the Parasolid (.X_T) file, no
+                                 base feature is created. In this case you can use the Make Base Feature command to
+                                 select a solid to use as the base feature or construct a new base feature for the
+                                 model.</p>
+                              <p>If you clear this option, all solid bodies contained in the IGES (.IGS) file you are
+                                 importing are placed in PathFinder as a part copy rather than a body feature. Inserting
+                                 bodies as a part copy requires you to select or create a base feature.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Stitch Tolerance Iteration</dt>
+                     <dd class="ml-3">
+                        <p>Defines stitching tolerance information used in the stitching process.</p>
+                        <dl>
+                           <dt>Start At:</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the starting value for the stitch tolerance.</p>
+                           </dd>
+                           <dt>End At: &nbsp;</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the ending value for the stitch tolerance.</p>
+                           </dd>
+                           <dt>Incremental Factor: </dt>
+                           <dd class="ml-3">
+                              <p>Specifies a factor by which the stitching tolerance is incremented during the stitching
+                                 process. This value must be greater than 5 and has no upper limit.</p>
+                           </dd>
+                           <dt>Values At Which Stitching will be Attempted:</dt>
+                           <dd class="ml-3">
+                              <p>Displays the tolerance values at which Solid Edge attempts to stitch the surfaces
+                                 into a valid solid body. &nbsp;These values are obtained by multiplying the stitching tolerance
+                                 for the previous attempt by the increment value. &nbsp;For example, suppose you have a
+                                 Start At: value of 1.00e-006 and an Increment Value of 10. &nbsp;On the first attempt,
+                                 Solid Edge will try to stitch the surface at the Start At: value of 1.00e-006. On
+                                 the second attempt, the tolerance value on the previous attempt of 1.00e-006 is multiplied
+                                 by the Increment Value of 10, resulting in a tolerance value of 1.00e-005. &nbsp;On the
+                                 third attempt, the tolerance value on the previous attempt of 1.00e-005 is multiplied
+                                 by the Increment Value of 10, resulting in a tolerance value of 1.00e-004. Solid Edge
+                                 will continue this until it can successfully stitch the surfaces or until it reaches
+                                 the End At: value.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Preview</dt>
+                     <dd class="ml-3">
+                        <p>Lists the entities, entity names, and occurrences found in the IGES file being opened.
+                           This is used to confirm the template selection, or to make informed decisions on other
+                           parameter selections.</p>
+                     </dd>
+                     <dt>Back</dt>
+                     <dd class="ml-3">
+                        <p>Moves to the previous dialog box of the IGES Import Translation Wizard.</p>
+                     </dd>
+                     <dt>Next</dt>
+                     <dd class="ml-3">
+                        <p>Moves to the next dialog box of the IGES Import Translation Wizard.</p>
+                     </dd>
+                     <dt>Finish</dt>
+                     <dd class="ml-3">
+                        <p>Finishes the wizard and returns to the Open File dialog box.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/openigs1a" rel="openigs1a">Opening IGES Documents in Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/iges1a" rel="iges1a">Working with IGES files in Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz9d" rel="igsimpwiz9d">IGES Import Translation Wizard (Hatchstyle)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz8d" rel="igsimpwiz8d">IGES Import Translation Wizard (Linetype)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz7d" rel="igsimpwiz7d">IGES Import Translation Wizard (Fonts)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz4d" rel="igsimpwiz4d">IGES Import Translation Wizard (General)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz1d" rel="igsimpwiz1d">IGES 2-D Import Translation Wizard</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz5d" rel="igsimpwiz5d">IGES Import Translation Wizard (Final)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz6d" rel="igsimpwiz6d">IGES Import Translation Wizard (Save)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz10d" rel="igsimpwiz10d">IGES Import Translation Wizard (Geometry Types)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz3d" rel="igsimpwiz3d">IGES Import Translation Wizard (Main)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz2d" rel="igsimpwiz2d">IGES 3-D Import Translation Wizard</a><br><br></div>
+            <div class="footer-content">IGES Import Translation Wizard (Stitching), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,164 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Create a column for custom property content</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Create a column for custom property content"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1001732">
+                     <h1 class="topic-title">Create a column for custom property content</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can add a column for custom properties and for variables exposed in the <b>Variable Table</b>. Custom properties include:</p>
+                  <ul>
+                     <li>
+                        <p>Document properties defined on the <b>Custom</b> tab in the <b>File Properties</b> dialog box.</p>
+                     </li>
+                     <li>
+                        <p>Custom material properties added to the Solid Edge <b>Material Table</b>.</p>
+                     </li>
+                     <li>
+                        <p>Custom occurrence properties defined in the <b>Occurrence Properties</b> dialog box in an assembly. </p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Right-click a parts list or table and choose <b>Properties</b>.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Properties</b> dialog box, click the <b>Columns</b> tab. </p>
+                     </li>
+                     <li>
+                        <p>Add the custom column to the table:</p>
+                        <ol type="a">
+                           <li>
+                              <p>From the <b>Properties</b> list, select the name of the custom property that you want to add to the table.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Custom properties are listed by name and type. When two custom properties have the
+                                    same name, this helps you choose the source of the property that you want to use.</p>
+                                 <dl>
+                                    <dt><b>Accuracy (Custom Property)</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Source=<b>Custom</b> tab, <b>File Properties</b> dialog box</p>
+                                    </dd>
+                                    <dt><b>Accuracy (Exposed Variable)</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Source=<b>Variable Table</b></p>
+                                    </dd>
+                                    <dt><b>Heat Capacity (Custom Material Property)</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Source=<b>Material Table</b></p>
+                                    </dd>
+                                    <dt><b>Maintenance (Occurrence Property)</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Source=<b>Occurrence Properties</b> dialog box</p>
+                                    </dd>
+                                 </dl>
+                              </div>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>If two properties have the same name, the advantage to using an exposed variable in
+                                    a column definition instead of a numeric custom property is that you can format the
+                                    resulting, real number value in the table cell.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Click the <b>Add Column</b> button.</p>
+                              <p>The name of the property is added to the <b>Columns</b> list. </p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define the custom column content—In the <b>Columns</b> list, click the column name that you added in the previous step. </p>
+                        <p>Observe the following:</p>
+                        <ul>
+                           <li>
+                              <p>If you added a column for an exposed variable, its property text string is displayed
+                                 in the <b>Property text</b> box using the descriptive, user-assigned name in the Exposed Name column in the <b>Variable Table</b>, for example, %{Spout Top Diameter/EV|G}. Otherwise, the cryptic, system-assigned
+                                 variable name is displayed, for example, V486.</p>
+                           </li>
+                           <li>
+                              <p>If you added a custom property column with predefined content, for example, Part Type,
+                                 its property text string is displayed in the <b>Property text </b> box as %{Part Type/CP|G}. The values defined for the Part Type property in the part
+                                 documents are extracted and displayed in the Part Type column in the draft document.
+                                 For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/varpro3h" rel="varpro3h">Example: Show custom properties and materials in a parts list</a>.</p>
+                           </li>
+                           <li>
+                              <p>Similarly, if you added a custom material property column with predefined content,
+                                 for example, Hardness, its property text code is displayed in the <b>Property text </b> box as %{Hardness/CM|G}. The values defined for hardness in the Solid Edge <b>Material Table</b> are extracted and displayed in the Hardness column in the draft document.</p>
+                           </li>
+                           <li>
+                              <p>If you added custom occurrence property columns, for example, Maintenance Schedule
+                                 and Paint Color, the property text codes are displayed in the <b>Property text </b> box as %{Maintenance Schedule/OP|G} and %{Paint Color/OP|G} The values defined for
+                                 these custom occurrence properties are defined in the <b>Occurrence Properties</b> dialog box. They are extracted and displayed in their respective columns in the draft
+                                 document. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1177387" rel="xid1177387">Example: Show custom occurrence properties in a parts list</a>.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Format the property text string in the <b>Property text</b> box. You can do any of the following:</p>
+                        <ul>
+                           <li>
+                              <p>To format the evaluated property text value, click to position the cursor within the
+                                 property text string, and then click the <b>Format</b> button located to the right of the <b>Property text</b> box. In the <a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid994105" rel="xid994105">Format Values dialog box</a>, select the type of formatting you want to apply. The formatting that is available
+                                 depends on the property text string you clicked. To learn how to do this, see the
+                                 help topic <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid994396" rel="xid994396">Format property text values</a>.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/partlist_tables/table_types/table_data_format_values.gif"></p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>To add plain text, special characters, or any other fixed information that you want
+                                 to appear in the custom column, type directly in the <b>Property text</b> box. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You can add spacing to multiple property text strings using the Spacebar and the Enter
+                                    key. </p>
+                              </div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Click <b>Apply</b> to save the changes and continue formatting the parts list, or click <b>OK</b> to close the <b>Parts List Properties</b> dialog box.</p>
+                        <p>The table is updated.</p>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>You can combine multiple properties in a column you created for custom properties.
+                        You also can combine properties in a pre-defined table column. For example, to the
+                        Quantity column, you can add the File name (no extension) of the part file. To learn
+                        how to do this, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1178401" rel="xid1178401">Combine properties in one column</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/varpro1h" rel="varpro1h">Expose a variable</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1177646" rel="xid1177646">Create a column for user-defined content</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid994396" rel="xid994396">Format property text values</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1178401" rel="xid1178401">Combine properties in a column</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid378218" rel="xid378218">Group data in a table</a><br><br><h5>Learn more</h5><a class="xref" data-handle="parts_lists_tables" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid602977" rel="xid602977">Editing a table directly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table2a" rel="table2a">Defining table size and location</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table6a" rel="table6a">Using the Columns tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table3a" rel="table3a">Using the Title tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table4a" rel="table4a">Using the Data tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst2a" rel="prtlst2a">Using the Options tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table5a" rel="table5a">Using the Sorting tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid377562" rel="xid377562">Grouping data in tables</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="parts_lists_tables" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3d" rel="prtlst3d">Parts List Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid994105" rel="xid994105">Format Values dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table7d" rel="table7d">Format Column dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table8d" rel="table8d">Insert Row dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table9d" rel="table9d">Insert Column dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/table15d" rel="table15d">Format Table Cells dialog box</a><br><br></div>
+            <div class="footer-content">Create a column for custom property content, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

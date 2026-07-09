@@ -1,0 +1,184 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Target and source connector regions</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Target and source connector regions"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconn6a">
+                     <h1 class="topic-title">Target and source connector regions</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>When you create assembly connectors using the <b>Manual</b> connector command or the <b>Auto</b> connector command, you need to select target and source faces and surfaces to connect.
+                     In Solid Edge Simulation, the first selection is the target side of the connection.
+                     The second selection is the source side of the connection.</p>
+                  <p>After connectors are created, you can use the options on the command bar to review
+                     the connected faces in each contact pair to determine which is the target face, swap
+                     target and source faces, and replace one face with another.</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="#assyconn6a_regions">Choosing target and source connection regions</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#assyconn6a_target_source">Identifying connector target and source faces </a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#assyconn6a_editregion">Editing connector region direction</a></p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title" id="assyconn6a_regions">Choosing target and source connection regions</h4>
+                  <div>
+                     <p>It is important to understand how contact elements are created when selecting the
+                        target and source sides of the connection, since the two can be interchangeable. The
+                        solver projects vector normals from the source region to the target region. It creates
+                        contact elements when these normals intersect elements in the target region and are
+                        within the search distance criteria for the contact pair. This means that when the
+                        two regions of a pair do not have corresponding one-to-one elements, the number of
+                        contact elements that the solver creates can change depending on which region it projects
+                        the element from and which region it projects them to.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Region (A) has one linear mesh element and region (B) has four. When contact elements
+                           are created between source region (A) and target region (B), a single contact element
+                           is created.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_target_source_sel_order1.gif"> </p>
+                        <p>If (C) is selected as the source region and (D) is selected as the target region,
+                           then four contact elements are created. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_target_source_sel_order2.gif"> </p>
+                     </div>
+                     <p>In general, of the two regions you select in a contact pair, the mesh density on the
+                        source side of a connection should be greater than or equal to the mesh density on
+                        the target side of the connection. When the source and target regions have different
+                        mesh densities, more elements on the source region means that more contact elements
+                        are created, producing better results.</p>
+                     <p>To learn how you can change the assigned regions in an existing connection, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="assyconn6a_target_source">Identifying connector target and source faces</h4>
+                  <div>
+                     <p>In the <b>Simulation</b> pane, you can hover over a connector name to highlight the faces in the connected
+                        parts. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/highlight_connector_faces.png"></p>
+                     <p>If you zoom in, you can see that the assembly connector symbols are color-coded to
+                        make it easier to identify the target faces and source faces for editing. You can
+                        use this information to identify and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">replace target and source connection regions</a> in a thermal, glue, or no penetration contact connection. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/source_target_connectors.png"></p>
+                     <p>The default colors are set on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/analysisopt1d" rel="analysisopt1d">Simulation page (Solid Edge Options dialog box)</a>, but you can change the colors locally on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a>.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" frame="border">
+                        <colgroup span="1">
+                           <col span="1">
+                           <col span="1">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Connection face</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Symbol on connected faces</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Connector target </p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_target_sym.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Connector source</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_source_sym.gif"></p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>Click a connector name once to display its <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a#assyconn2a_edithandle" rel="assyconn2a">connector edit definition handle</a> in the graphics window.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/show_connector_handle.png"></p>
+                     <p>Click the edit definition handle once to display the command bar options for showing
+                        the source and target connected faces and for hiding unconnected parts. </p>
+                  </div>
+                  <h4 class="division-title">Reviewing connected faces in each connection</h4>
+                  <div>
+                     <p>When creating and editing connectors, you can use the <b>Visibility Options</b> list on the command bar to review the connected faces in each contact pair. For the
+                        currently selected connector pair, it highlights and shows the target face (red highlight),
+                        the source face (blue highlight), or both faces (green highlight).</p>
+                     <dl>
+                        <dt>Show Both</dt>
+                        <dd class="ml-3">
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_visibility_both.png"></p>
+                        </dd>
+                        <dt>Show Target</dt>
+                        <dd class="ml-3">
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_show_target_cmdbar.png"></p>
+                        </dd>
+                        <dt>Show Source</dt>
+                        <dd class="ml-3">
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_show_source.png"></p>
+                        </dd>
+                     </dl>
+                     <p>You can use the <b>Toggle Hide/Transparent</b> control with the <b>Visibility Options</b> list to identify the target and source objects in a connection, and to cycle through
+                        the display of all unconnected parts in transparent mode or in hidden mode. If a model
+                        contains multiple parts, all of the parts that are not involved in the connection
+                        are shown in transparent mode, and then hidden.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>When the <b>Show Source</b> visibility option is selected, and <b>Toggle Hide/Transparent</b> is on, the source part is shown in shaded mode, and the target part and all unconnected
+                           parts are displayed in transparent mode.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_toggle_transparent.png"></p>
+                        <p>If you now turn <b>Toggle Hide/Transparent</b> off, all other parts are hidden.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_toggle_hide.png"></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="assyconn6a_editregion">Editing connector region direction</h4>
+                  <div>
+                     <p>In a correctly defined assembly connector, the connector direction of the faces and
+                        surfaces in the target region, and the connector direction of the faces and surfaces
+                        in the source region, should point toward each other. In most cases, the connection
+                        commands achieve this goal. If they do not, you can use the <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/edit_region_direction_command.png"> <b>Edit Region Directions</b> command on the shortcut menu in the <b>Simulation</b> pane to:</p>
+                     <ul>
+                        <li>
+                           <p>View the faces and surfaces constituting the connector regions. </p>
+                        </li>
+                        <li>
+                           <p>Change the direction of all connectors.</p>
+                        </li>
+                        <li>
+                           <p>Change the direction of individual connectors on faces and surfaces.</p>
+                        </li>
+                     </ul>
+                     <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><br></div>
+            <div class="footer-content">Target and source connector regions, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,160 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>SEEC diagnostics</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="SEEC diagnostics"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="seecdiag1a">
+                     <h1 class="topic-title">SEEC diagnostics</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The SEEC Diagnostic application is designed to provide the information you need to
+                     diagnose any problems that might arise when you work with Solid Edge in the Teamcenter-managed
+                     environment. The application can be used to:</p>
+                  <ul>
+                     <li>
+                        <p>Set the level of information being logged when Solid Edge is in use in the Teamcenter-managed
+                           environment.</p>
+                     </li>
+                     <li>
+                        <p>Perform a diagnostic scan that enables you to easily create a collection of information
+                           regarding the configuration of your Teamcenter integration.</p>
+                     </li>
+                  </ul>
+                  <p>To run the diagnostics application, from the <b>Start</b> menu, choose <b>Siemens Solid Edge 2023→Diagnostic Application</b>. You can also access the diagnostics application from the <b>Teamcenter</b> tab of the <b>Solid Edge PDM Client - Application Launcher</b>.</p>
+                  <h4 class="division-title">Setting logging levels</h4>
+                  <div>
+                     <p>You can use the <b>Settings</b> portion of the <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seecdiag1d" rel="seecdiag1d">SEEC Diagnostics dialog box</a> to define the type of logging enabled when you use Solid Edge in the Teamcenter-managed
+                        environment. You only need to set the level of logging you require and click <b>Apply</b>. Logging levels you can choose from are:</p>
+                     <dl>
+                        <dt><b>Performance</b></dt>
+                        <dd class="ml-3">
+                           <p>Generates the Performance Journal Logging (PJL) file in the Solid Edge logs folder.
+                              This level of logging is the default.</p>
+                        </dd>
+                        <dt><b>Debug</b></dt>
+                        <dd class="ml-3">
+                           <p>Enhances the amount of information collected. In addition to the PJL file, the following
+                              logs are generated when the logging level is set to <b>Debug</b>:</p>
+                           <ul>
+                              <li>
+                                 <p>PJL file</p>
+                              </li>
+                              <li>
+                                 <p>TALLOG file</p>
+                              </li>
+                              <li>
+                                 <p>SOAClient log file</p>
+                              </li>
+                              <li>
+                                 <p>TAL debug log file</p>
+                              </li>
+                              <li>
+                                 <p>Save as deep copy data</p>
+                              </li>
+                           </ul>
+                        </dd>
+                     </dl>
+                     <p>All log files are saved to the location defined in <b>Solid Edge Options</b>→<b>File Locations</b>→<b>Log files</b> with the exception of soaclient*.txt which is saved to %TEMP%.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If Solid Edge or a Teamcenter integration application such as Structure Editor is
+                           running when you make changes to the logging level, the application must be restarted
+                           for the changes to be implemented.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Performing a diagnostic scan</h4>
+                  <div>
+                     <p>The SEEC Diagnostic scan collects information such as software location, database
+                        connection, cache information, registry details, and log files into one location to
+                        share with product support in the event assistance is needed.</p>
+                     <p>The Teamcenter portion of the <b>SEEC Diagnostics</b> dialog box displays your current Teamcenter connection configuration information.
+                        You only need to provide a location for the output of the scan in the <b>Diagnostic package location</b>. Once the scan is run, read-only output from the scan appears in the <b>Detail</b> portion of the <b>SEEC Diagnostics</b> dialog box. If multiple versions of an application are installed, the scan reports
+                        the details for each version.</p>
+                  </div>
+                  <h4 class="division-title">Workflow for performing a scan</h4>
+                  <div>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Start the SEEC Diagnostic application.</p>
+                           <p>The connection type, <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/two_tier" rel="two_tier">2-tier</a> or <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/four_tier" rel="four_tier">4-tier</a>, defaults to the connection type you worked with last.</p>
+                        </li>
+                        <li>
+                           <p>Supply either your TC_ROOT and TC_DATA information for a 2-tier configuration or your
+                              server's URL for a 4-tier configuration.</p>
+                        </li>
+                        <li>
+                           <p>Define the diagnostic package folder location that will hold the files created by
+                              the scan.</p>
+                        </li>
+                        <li>
+                           <p>Start the scan and log into Teamcenter when prompted.</p>
+                           <div class="attention" type="caution">
+                              <div class="attention-label">Caution: </div>
+                              <p>You should exit Solid Edge, Structure Editor, and Add to Teamcenter before running
+                                 the scan.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>When the scan completes, close the application.</p>
+                        </li>
+                     </ol>
+                     <p>For more details, see <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seecdiag1h" rel="seecdiag1h">Run a SEEC diagnostics scan</a>.</p>
+                  </div>
+                  <h4 class="division-title">The SEECDiagnostic log file</h4>
+                  <div>
+                     <p>The log file generated by the diagnostics scan is <b>SEECDiagnostic_YYYYMMDDHHMMSS.txt</b> where YYYY is the year, MM is the month, DD is the day, HH is the hour, MM is the
+                        minute, and SS is the second the scan was started. Types of information the log file
+                        can include are:</p>
+                     <ul>
+                        <li>
+                           <p>System hardware and software information</p>
+                        </li>
+                        <li>
+                           <p>Disk size and free space</p>
+                        </li>
+                        <li>
+                           <p>Teamcenter preferences</p>
+                        </li>
+                        <li>
+                           <p>Template file names</p>
+                        </li>
+                        <li>
+                           <p>Environment variables</p>
+                        </li>
+                     </ul>
+                     <p>The SEECDiagnostic log file and other output generated by the scan is stored in a
+                        folder in the diagnostic package location you define. The data in the diagnostic package
+                        folder should be zipped along with an <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seecdiag3h" rel="seecdiag3h">export of your Teamcenter attribute mapping</a> and sent to product support for analysis in the event assistance is needed.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seecdiag1h" rel="seecdiag1h">Run a SEEC diagnostics scan</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1538947" rel="xid1538947">Generate logs for incident reporting</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seecdiag3h" rel="seecdiag3h">Export Teamcenter attribute mapping</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seecdiag1d" rel="seecdiag1d">SEEC Diagnostics dialog box</a><br><br></div>
+            <div class="footer-content">SEEC diagnostics, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

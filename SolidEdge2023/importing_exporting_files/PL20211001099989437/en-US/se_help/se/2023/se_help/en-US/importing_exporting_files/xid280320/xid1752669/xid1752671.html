@@ -1,0 +1,181 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Export options for FBX (.fbx) dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Export options for FBX (.fbx) dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1752671">
+                     <h1 class="topic-title">Export options for FBX (.fbx) dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Simplified bodies contained in an assembly are not exported to FBX.</p>
+                  </div>
+                  <dl>
+                     <dt><b>Export</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies what types of geometry you want to export.</p>
+                        <dl>
+                           <dt><b>Export solids (constructions)</b></dt>
+                           <dd class="ml-3">
+                              <p>Export any construction geometry that exists as solid bodies.</p>
+                           </dd>
+                           <dt><b>Export flatten assembly</b></dt>
+                           <dd class="ml-3">
+                              <p>Export the flatten assembly so you can select the individual parts. When you select
+                                 this option, no subassemblies will appear under the top level assembly. All parts
+                                 are listed under the top level assembly.</p>
+                           </dd>
+                           <dt><b>Export displayed only</b></dt>
+                           <dd class="ml-3">
+                              <p>Export only the active model and construction geometry that is visible in the part
+                                 or assembly.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>If you select this option, only design bodies are exported. </p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Tolerance Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the tolerance options for the translated file.</p>
+                        <dl>
+                           <dt><b>Custom</b></dt>
+                           <dd class="ml-3">
+                              <p>Enables the <b>Conversion tolerance</b> and <b>Surface plane angle</b> options so you can specify custom values for these options. You can enter a value
+                                 or use the slider to change the value for the <b>Conversion tolerance</b> or <b>Surface plane angle</b>.</p>
+                              <p>The slider range for the surface plane angle is from 1 to 60 degrees, which is recommended
+                                 by Solid Edge, but you can key in a value up to 90 degrees. If you enter a value that
+                                 is not recommended by Solid Edge, the angle edit field becomes yellow. If you enter
+                                 an invalid value below 0.5 degrees or above 90 degrees, the angle edit field becomes
+                                 orange.</p>
+                           </dd>
+                           <dt><b>Fine</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want the tolerance to be fine. If you select this option, you cannot
+                                 change the values for the <b>Conversion tolerance</b> or <b>Surface plane angle</b>.</p>
+                              <p>Selecting this option sets the <b>Surface plane angle</b> value to 30 degrees.</p>
+                           </dd>
+                           <dt><b>Coarse</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want the tolerance to be coarse. If you select this option, you
+                                 cannot change the values for the <b>Conversion tolerance</b> or <b>Surface plane angle</b>.</p>
+                              <p>Selecting this option sets the <b>Surface plane angle</b> value to 60 degrees.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt><b>Conversion tolerance</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies the conversion tolerance, which is the distance between the surface and
+                                 its facets, in model units. </p>
+                              <p>Conversion tolerance controls the amount of tessellation (facets) on the model. A
+                                 higher tessellation value produces a coarser, more meshed model. A lower tessellation
+                                 value produces a finer, smoother model. </p>
+                              <p>File size decreases as tolerance size increases.</p>
+                              <p>The following shows the tolerance ranges by unit of measurement. Any value below these
+                                 ranges is invalid and the tolerance edit field becomes orange. Any value above these
+                                 ranges is not recommended and the tolerance edit field becomes yellow.</p>
+                              <table cellspacing="1" border="1" bgcolor="#FFFFFF" cellpadding="2">
+                                 <colgroup span="1">
+                                    <col span="1" width="50%">
+                                    <col span="1" width="50%">
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">
+                                          <p>Unit of measurement</p>
+                                       </th>
+                                       <th rowspan="1" colspan="1">
+                                          <p>Tolerance range</p>
+                                       </th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Millimeters, Meters, Centimeters</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>.001 to 2.5</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Inch, Feet</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>0.0001 to .01</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Microns</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>1 to 100</p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </dd>
+                           <dt><b>Surface plane angle</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies the surface angle tolerance, which is the tolerance between the surface
+                                 and its facets. It is the upper bound on the angular deviation between the surface
+                                 normals at any two positions under the facet. </p>
+                              <p>A lower value produces greater accuracy in the model. This is most visible in small
+                                 details. </p>
+                              <p>The slider range for the surface plane angle is from 1 to 60 degrees, but you can
+                                 key in a value up to 90 degrees. If you enter a value that is not recommended by Solid
+                                 Edge, the angle edit field becomes yellow and the slider moves to the extreme right.</p>
+                              <p>By default, the angle displays in degrees, but you can change the measurement unit
+                                 to radians.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Translation Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Export Units</b></dt>
+                           <dd class="ml-3">
+                              <p>The units of measurement for the part being exported. You can set the units to millimeters,
+                                 centimeters, inches, microns, feet, or meters.</p>
+                           </dd>
+                           <dt><b>Generate log file</b></dt>
+                           <dd class="ml-3">
+                              <p>A log file that contains warnings and information about the files involved in translation.
+                                 The name of the file is the <b>&lt;filename&gt;.log</b> and it is located in the same folder as the 3MF file.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <div class="footer-content">Export options for FBX (.fbx) dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

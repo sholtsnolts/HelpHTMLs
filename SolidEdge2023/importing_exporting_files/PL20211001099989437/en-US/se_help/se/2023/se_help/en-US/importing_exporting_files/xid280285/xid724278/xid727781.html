@@ -1,0 +1,178 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>SolidWorks assemblies in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="SolidWorks assemblies in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid727781">
+                     <h1 class="topic-title">SolidWorks assemblies in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">   
+                  <p>When migrating SolidWorks assemblies into Solid Edge, it is important to understand
+                     how relationships work between the two systems.</p> 
+                  <h4 class="division-title">Migrating SolidWorks mate relationships to Solid Edge</h4>
+                  <div>  
+                     <p>The SolidWorks data migration software supports the following Solid Edge assembly
+                        relationships.</p> 
+                     <table rules="all" frame="box"> 
+                        <colgroup span="1"> 
+                           <col span="1"> 
+                           <col span="1"> 
+                           <col span="1"> </colgroup> 
+                        <thead> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>SolidWorks</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Solid Edge</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Comments</p> </td> </tr> </thead> 
+                        <tbody> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Coincident, including Distance Face Normals opposite of each other</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Planar Align, including offset</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Only face–based alignment is supported. </p> 
+                                 <p>Relationships created using Base Reference Plane, User Defined Reference Plane, and
+                                    Edge Based, Sketch, Vertex, and Coordinate System are not supported.</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Coincident, including Distance Face Normals in the same direction</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Planar Mate, including offset</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Only face–based mates are supported. </p> 
+                                 <p>Relationships created using Base Reference Plane, User Defined Reference Plane, and
+                                    Edge Based, Sketch, Vertex, and Coordinate System are not supported.</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Concentric</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Axial Align</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>The Axial Align Constraint is always applied with the Unlocked Rotation option.</p> 
+                                 <p>Only surface–based element types are supported: Cylinder, Cone, Torus, Sphere, and
+                                    Spun Surface.</p> 
+                                 <p>Relationships created using Sketches, Points, and Coordinate Systems are not supported.</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Fixed</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Grounded or Fixed</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>All SolidWorks part components with a fixed property or relationship are grounded
+                                    in Solid Edge.</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Tangent</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Tangent</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Only SolidWorks face–based are supported.</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Parallel</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Mate, with Float option applied</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Only SolidWorks face–based are supported.</p> </td> </tr> </tbody> </table> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>Mates or relationships are not migrated.</p> 
+                        <p>The <b>Create assembly constraints on Migration</b> tool on the <b><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432">SolidWorks Data Migration Start Page</a></b> supports to apply constraints on each part component in the Solid Edge assembly.</p> </div> </div> 
+                  <h4 class="division-title">SolidWorks Family of Assemblies</h4>
+                  <div>  
+                     <p>The <b>Get all configuration members</b> tool on the <b><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432">SolidWorks Data Migration Start Page</a></b> supports to control how assembly configurations are applied as family of assemblies
+                        during migration.</p> 
+                     <p>By default, this option is checked. </p> 
+                     <p>When this option is not checked, the migration includes the active configuration for
+                        the top–level assembly, including all parts and assemblies that are referenced by
+                        the configuration. In other words, you get what you see. For each assembly, including
+                        the top assembly, with multiple configurations, the configuration name is appended
+                        to the file name. </p> 
+                     <p>For suppressed parts without a configuration, a Solid Edge part is created with the
+                        part occurrence properties set as follows:</p> 
+                     <ul style="list-style: none"> 
+                        <li> 
+                           <p>Reference = Yes</p> </li> 
+                        <li> 
+                           <p>Assembly reports = No</p> </li> 
+                        <li> 
+                           <p>Display in higher level = No</p> </li> 
+                        <li> 
+                           <p>Physical Properties = No</p> </li> 
+                        <li> 
+                           <p>Selectable = No</p> </li> 
+                        <li> 
+                           <p>Check Interference = No</p> </li> </ul> 
+                     <p>When this option is checked, all SolidWorks assembly configurations are migrated as
+                        a Solid Edge family of assemblies. </p> 
+                     <p>With suppressed configurations or simplifies assemblies, for each suppressed part
+                        in the SolidWorks configuration, the part is added as an excluded occurrence in a
+                        Solid Edge family of assemblies. Suppressed parts in SolidWorks can be optionally
+                        added to the bill of materials. However, Solid Edge does not support this concept,
+                        so the excluded occurrence is not added to the Solid Edge bill of materials.</p> 
+                     <p>Relationship suppression is only available for mates, aligns, and axial aligns, including
+                        static distance values. If the <b>Create assembly constraints on Migration</b> is not checked, relationship suppression is not available because all parts are grounded.
+                        Suppressed relationships that are not included in the SolidWorks configuration, or
+                        in an assembly with a single configuration, are imported and suppressed in Solid Edge.</p> 
+                     <p>While migrating SolidWorks part configurations, separate files are created on the
+                        disk for each part configuration. Part configuration names are appended to the part
+                        file name when the part file contains more than one configuration.</p> 
+                     <p>Speed pack configurations are not migrated. Only those Display states are migrated
+                        that are linked to the configurations.</p> 
+                     <p>When migrating SolidWorks assemblies that contain configurations with assembly features,
+                        a separate assembly file is generated for each assembly configuration and the migrated
+                        assembly is not treated as a family of assemblies.</p> </div> 
+                  <h4 class="division-title">Assemblies with internally saved components</h4>
+                  <div>  
+                     <p>Internally saved components are migrated as Solid Edge parts and assemblies saved
+                        on disk. They are no more saved internally in the Solid Edge assembly. Relationships
+                        are not migrated for these components.</p> 
+                     <p></p> </div> 
+                  <h4 class="division-title">SolidWorks flexible assemblies</h4>
+                  <div>  
+                     <p>During data migration, SolidWorks flexible assemblies are migrated as Solid Edge adjustable
+                        assemblies.</p> 
+                     <p></p> </div> 
+                  <h4 class="division-title">SolidWorks assembly features</h4>
+                  <div>  
+                     <p>The SolidWorks data migration tool supports SolidWorks assembly level features, such
+                        as fillets, chamfers, cuts, and holes. Solid Edge creates a separate file for each
+                        unique SolidWorks body created by an assembly feature.</p> 
+                     <p>The SolidWorks data migration tool supports SolidWorks assembly level pattern and
+                        mirror features. The migrated pattern or mirror features appear as individual instances
+                        of the assembly, and not a pattern or mirror feature in PathFinder.</p> </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid608758" rel="xid608758">Migrate SolidWorks documents to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022555" rel="xid2022555">Migrate SolidWorks material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022556" rel="xid2022556">Migrate SolidWorks hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022574" rel="xid2022574">Specify the templates to use during SolidWorks data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2022573" rel="xid2022573">Specify the location of SolidWorks and Solid Edge folders</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727776" rel="xid727776">Migrate SolidWorks material definitions to Solid Edge using the DOS window</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727778" rel="xid727778">Migrate SolidWorks hole definitions to Solid Edge using the DOS window</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727775" rel="xid727775">Migrating SolidWorks material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2055819" rel="xid2055819">Migrating SolidWorks hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2055818" rel="xid2055818">Logging for SolidWorks data migration</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597432" rel="xid597432">SolidWorks Data Migration Start Page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021182" rel="xid2021182">SolidWorks Hole Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021231" rel="xid2021231">Hole Mapping dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021183" rel="xid2021183">SolidWorks Material Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021370" rel="xid2021370">Templates dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2021854" rel="xid2021854">Folder Selection dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597455" rel="xid597455">Preview Selection page</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597457" rel="xid597457">SolidWorks data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid597454" rel="xid597454">SolidWorks File Selection page</a><br><br></div>
+            <div class="footer-content">SolidWorks assemblies in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,163 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Draft quality and high quality views</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Draft quality and high quality views"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dftqltvw1a">
+                     <h1 class="topic-title">Draft quality and high quality views</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Views fall into two general categories: draft quality and high quality.</p>
+                  <p> For assembly models, which typically are larger and more complex than part or sheet
+                     metal models, you can generate either a draft quality or a high quality view. Draft
+                     quality views usually require less processing time than high quality views, and only
+                     visible lines are created.</p>
+                  <p>For part and sheet metal models, you can only generate high quality views. High quality
+                     views are the default representations of the model.</p>
+                  <p>You specify whether to create a draft quality view or a high quality view, as well
+                     as other view options, in the Drawing View Wizard.</p>
+                  <h4 class="division-title">View generation options</h4>
+                  <div>
+                     <p>The view generation options displayed by the Drawing View Wizard depend upon the source
+                        model file type: .asm, .par, or .psm. Once the view is generated, you can make additional
+                        modifications using the tabbed Drawing View Properties dialog box.</p>
+                     <p>Some of the drawing view generation and display options include:</p>
+                     <ul>
+                        <li>
+                           <p>Whether the view is a draft quality or high quality drawing view.</p>
+                        </li>
+                        <li>
+                           <p>Whether the assembly model and/or its parts will be generated as simplified graphics.</p>
+                        </li>
+                        <li>
+                           <p>Whether part or sheet metal model graphics are displayed As Designed, Simplified,
+                              or Flat Pattern.</p>
+                        </li>
+                        <li>
+                           <p>Whether hidden and tangent lines will be visible in orthographic and/or pictorial
+                              views.</p>
+                        </li>
+                        <li>
+                           <p>Whether tube centerlines, if present, are generated.</p>
+                        </li>
+                        <li>
+                           <p>Whether to show material-removed or material-added assembly features, such as cutouts,
+                              holes, and chamfers, or weldments and protrusions.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Identifying views on a drawing</h4>
+                  <div>
+                     <p>If you are looking at a drawing and want information about a particular view on the
+                        drawing sheet, there are two quick ways to get it:</p>
+                     <ul>
+                        <li>
+                           <p>You can right-click the view and select the Properties command to display the Drawing
+                              View Properties dialog box. Here, the dialog box title bar displays information about
+                              the drawing view.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/drawing_production/dvw_types/dvinfodb.gif"></p>
+                        </li>
+                        <li>
+                           <p>You can use the tool tip feature. To see how this works, click the Select Tool, and
+                              then place the cursor on the drawing view border and leave it there. A tool tip identifies
+                              the view quality, the view type, and the name of the source model document. For example,
+                              the full tool tip for an independent detail view of a screw might display: "High Quality
+                              View - Independent Detail View - AllenScrewM8.par." The tool tip for a draft quality
+                              drawing view is shown in this illustration.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/drawing_production/dvw_types/dvinfo.gif"></p>
+                        </li>
+                     </ul>
+                     <p>If you do not see tool tips displayed on the drawing view, set both of these options
+                        on the Helpers tab in the Solid Edge Options dialog box: Show Tool Tips and With Enhanced
+                        Text.</p>
+                  </div>
+                  <h4 class="division-title">Draft quality views</h4>
+                  <div>
+                     <p>Available for assembly models only, a draft quality view is a quickly generated line
+                        rendering for display and annotation in the Draft environment. Only visible edges
+                        are created. Typically, draft quality views are used to produce interim design drawings
+                        and to provide a pictorial illustration of a ballooned parts list.</p>
+                     <p>Draft quality views are particularly useful when working with very large assemblies,
+                        as the time it takes to generate the view is reduced. However, when you zoom in on
+                        a draft quality view created from a large assembly, you may notice that it displays
+                        at a lower resolution.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Creating draft quality views</h5>
+                           <p>To create a draft quality drawing view, set the Create Draft Quality Views option
+                              on the Assembly Drawing View Options dialog box of the Drawing View Wizard.</p>
+                        </li>
+                     </ul>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Using draft quality views</h5>
+                           <p>You can use draft quality views as input for principal views, auxiliary views, cutting
+                              planes, section views, and broken-out section views.</p>
+                           <p>Adding Annotations–You can add annotations such as balloons to draft quality views
+                              and create parts lists from them. You can also place elements that connect to a drawing
+                              view with a leader, such as callouts and weld symbols. For these types of annotation
+                              operations, you can use inactive parts.</p>
+                           <p>Adding Dimensions–Because dimension values are generated from the 3D model, you first
+                              need to use the Activate Parts command to make the model part data available for dimensioning.</p>
+                           <p>Final Drawing Production–Although draft quality views can be shown in shaded and wireframe
+                              formats, only visible lines are generated. To achieve the best appearance for final
+                              drawing production, you may want to convert the draft quality view to a high quality
+                              format. To do this, use the Convert to High Quality View command on the selected drawing
+                              view's shortcut menu.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">High quality views</h4>
+                  <div>
+                     <p>A high quality view is a drawing view that provides an accurate representation of
+                        the model because it is generated from Parasolid objects. High quality views may be
+                        used for precise operations, such as dimensioning, and for final drawing production.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Creating high quality views</h5>
+                           <p>The default settings on the Drawing View Wizard generate a high quality drawing view
+                              for assembly, part, and sheet metal models. You can start the Drawing View Wizard
+                              using the File menu→Drawing View of Active Model command or by selecting the Drawing
+                              View Wizard command button.</p>
+                        </li>
+                     </ul>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Converting draft quality to high quality views </h5>
+                           <p>To convert a draft quality view to a high quality view, use the Convert to High Quality
+                              View command on the selected drawing view's shortcut menu.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/snpsht1h" rel="snpsht1h">Create a draft quality view</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/convhq1h" rel="convhq1h">Convert a Draft Quality View to a High Quality View</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/convhq1c" rel="convhq1c">Convert to High Quality View command</a><br><br></div>
+            <div class="footer-content">Draft quality and high quality views, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

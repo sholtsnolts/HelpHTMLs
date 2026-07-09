@@ -1,0 +1,132 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Options: Harmonic Frequency Analysis  dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Options: Harmonic Frequency Analysis  dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1654044">
+                     <h1 class="topic-title">Options: Harmonic Frequency Analysis dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Options: Harmonic Frequency Analysis</b> dialog box when creating or modifying a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">harmonic response study</a> to define the frequency intervals at which you want to see the response of the model
+                     to the effects of vibration at specific frequencies. To learn how to use this dialog
+                     box, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a>. </p>
+                  <p>You can save your harmonic response study definition parameters as global defaults
+                     using the <b>Harmonic Response Options...</b> button on the <b>Solid Edge Options</b> dialog box→<b>Simulation</b> tab.</p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/harmonic_frequency_analysis_options_db.png"></p>
+                  <dl>
+                     <dt><b>Modal Result Frequencies</b> section</dt>
+                     <dd class="ml-3">
+                        <p>Use the options in this section when your document contains one or more previously
+                           solved normal modes studies. </p>
+                        <dl>
+                           <dt><b>Add modal frequencies</b></dt>
+                           <dd class="ml-3">
+                              <p>Enables you to use the modal frequency results from a solved normal modes study in
+                                 the current document. Select the check box, and then select the study name from the
+                                 adjacent list, for example, <b>Modal Study 1</b>. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You can select the frequencies from multiple normal modes studies in the document,
+                                    and apply them to your harmonic response study.</p>
+                              </div>
+                           </dd>
+                           <dt><b>Show Modes...</b></dt>
+                           <dd class="ml-3">
+                              <p>Displays the modal frequencies for the currently selected normal modes study in the
+                                 <b>Frequency Table from Modal Results</b> dialog box. </p>
+                              <p>Review the <b>Selected modal frequencies</b> in the right column, and use the left arrow key to remove the frequencies you do
+                                 not want to include in the harmonic response study to the <b>Available modal frequencies</b> list in the left column. You can target a specific frequency to investigate, or select
+                                 a low to high range. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/frequency_table_from_modal_results.png"></p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt> <b>Solution Frequencies</b> section</dt>
+                     <dd class="ml-3">
+                        <p>Use the options in this section to specify a user-defined range of frequencies where
+                           you want to calculate the harmonic response. These can be in addition to the modal
+                           frequencies you selected from a normal modes study, for example to limit the results
+                           to a subset of those frequencies, or to expand the range beyond those frequencies.
+                           You also can use these options when prior modal frequency results do not exist. </p>
+                        <p>Default units are Hz.</p>
+                        <dl>
+                           <dt><b>Start frequency</b></dt>
+                           <dd class="ml-3">
+                              <p>Specify the lowest frequency to include in the solution.</p>
+                           </dd>
+                           <dt><b>End frequency</b></dt>
+                           <dd class="ml-3">
+                              <p>Specify the highest frequency to include in the solution.</p>
+                           </dd>
+                           <dt><b>Frequency increment</b></dt>
+                           <dd class="ml-3">
+                              <p>Specify how often you want frequencies to be computed.</p>
+                           </dd>
+                           <dt><b>Frequency division (n)</b></dt>
+                           <dd class="ml-3">
+                              <p>This read-only field shows how many modal results will be produced based on your start,
+                                 end, and increment input values, plus one more result set as the baseline. </p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt> <b>Frequency Response</b> section</dt>
+                     <dd class="ml-3">
+                        <p>Use the options in this section to specify how you want to apply structural damping
+                           to account for energy that is dissipated due primarily to some type of friction. Structural
+                           damping mitigates the displacement response of a structure or design. </p>
+                        <dl>
+                           <dt><b>Modal damping coefficient</b></dt>
+                           <dd class="ml-3">
+                              <p>Select this option to apply a constant damping ratio across all frequencies. You can
+                                 use or edit the default value for the damping coefficient in the adjacent box.</p>
+                           </dd>
+                           <dt><b>Modal damping table</b></dt>
+                           <dd class="ml-3">
+                              <p>Select this option to apply variable damping at critical vibration frequencies using
+                                 a function, and then select the name of the function from the adjacent list. If no
+                                 damping functions are available in the study, use the <b>New</b> button to create one.</p>
+                           </dd>
+                           <dt><b>New</b></dt>
+                           <dd class="ml-3">
+                              <p>Opens the <b>New Function</b> dialog box for you to define a <b>Frequency Vs. Structural Damping</b> function, using values that are appropriate for your design. For more information,
+                                 see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a>.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><br></div>
+            <div class="footer-content">Options: Harmonic Frequency Analysis  dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

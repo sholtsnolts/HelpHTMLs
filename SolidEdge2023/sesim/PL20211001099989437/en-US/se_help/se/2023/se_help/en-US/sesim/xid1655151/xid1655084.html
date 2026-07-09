@@ -1,0 +1,114 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Modal frequency analysis</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Modal frequency analysis"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1655084">
+                     <h1 class="topic-title">Modal frequency analysis</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><h4 class="division-title" id="study1a_modal">When to use modal frequency analysis</h4>
+                  <div>
+                     <p>In Solid Edge Simulation, modal frequency analysis is normal modes analysis. Use it
+                        to find the frequencies at which a part or assembly vibrates freely. The results of
+                        a normal modes analysis identify the natural frequencies (frequencies of free vibration)
+                        and mode shapes (the shapes of deformation) of your design. The objective is for you
+                        to be able to verify that the natural frequencies and mode shapes do not approach
+                        the known critical operating frequencies required for your design.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>A sorting machine operates at 60 Hz. Upon startup, the machine cycles from 0 Hz up
+                           to the operating speed. Modal analysis reports that the first two natural frequencies
+                           are 27.5 Hz and 59 Hz. This will cause reliability problems as the loads applied are
+                           amplified at the natural frequency. </p>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>All rotating components, such as a propeller rotating on a shaft, or blades rotating
+                           on a windmill, can be evaluated with respect to defined limits on their revolutions-per-minute.
+                           If the natural frequency of the supporting structure is close to an operating frequency
+                           of the component, then there can be significant dynamic amplification of the loads.
+                           </p>
+                     </div>
+                     <ul>
+                        <li>
+                           <p>To apply modal analysis, choose the <b>Normal Modes</b> study type on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>.</p>
+                        </li>
+                        <li>
+                           <p>For an example of how to define and review the results of a normal modes study, try
+                              the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_modal01" rel="fem_modal01">Tutorial: Perform a modal analysis</a>.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Concepts of normal modes analysis</h4>
+                  <div>
+                     <p>Normal modes analysis forms the foundation for understanding the dynamic characteristics
+                        of an object subject to cyclical forces at periodic intervals. </p>
+                     <p>Normal modes analysis computes the natural frequencies and mode shapes of a structure.
+                        When a structure is disturbed or excited, its motion will be a linear combination
+                        of the natural frequencies of the structure. The natural frequencies (normal modes)
+                        are a fundamental characteristic of the structure and are a function of the stiffness
+                        and mass of the structure. For example, the strings of a piano are each tuned to vibrate
+                        at a specific frequency with a specific input. The deformed shape at a specific natural
+                        frequency is called the mode shape. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>The XY plot below from Femap help shows three peaks, one peak for each of the first
+                           three modes. The Y value is arbitrary on this plot, but the X values are an excellent
+                           way to visualize where the excitations are occurring with respect to the frequency
+                           range. Also, the width of the base of each peak represents the frequency bandwidth
+                           associated with each frequency.</p>
+                        <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/analyze/study/femap_modal_frequency_table.png"></p>
+                     </div>
+                     <p>In normal modes analysis, we solve for the eigenvalues and eigenvectors of the model.
+                        For each eigenvalue, which is proportional to a natural frequency, there is a corresponding
+                        eigenvector, or mode shape. (This is why normal modes analysis is also called real
+                        eigenvalue analysis.)</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res_modes.gif"></p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/result/sesim_normal_modes_shapes.png"></p>
+                     <p>Normal modes analysis is performed for many reasons, among them: </p>
+                     <ul>
+                        <li>
+                           <p>Assessing the effects of design changes on the base dynamic characteristics. </p>
+                        </li>
+                        <li>
+                           <p>Using the modes in a subsequent harmonic response analysis. </p>
+                        </li>
+                        <li>
+                           <p>Using the natural frequencies as a guide to selecting the proper time or frequency
+                              step for transient and frequency response analyses, respectively. </p>
+                        </li>
+                        <li>
+                           <p>Assessing the degree of correlation between modal test data and analytical results.
+                              </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Modal frequency analysis, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

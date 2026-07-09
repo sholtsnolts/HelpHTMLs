@@ -1,0 +1,416 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Define and review a transient heat study</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Define and review a transient heat study"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="study4h">
+                     <h1 class="topic-title">Define and review a transient heat study</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>Use the following process to define and review a transient heat transfer study, which
+                     is a type of thermal study that analyzes heat flow due to temperature differences
+                     over a period of time, before the study reaches a steady state. Transient heat studies
+                     allow design engineers to see temperature changes, from initial state to saturated
+                     state, and to assess heating and cooling performance based on results taken at specific
+                     time intervals. Based on your material and design, you can answer questions such as
+                     how long a component will take to heat, or how much time is needed for it to cool
+                     from a working temperature. You can also find the point at which there is a dramatic
+                     change in temperature.</p>
+                  <p>The objective of this transient heat study is to identify the maximum temperature
+                     of the break rotor over time, and to verify that thermal stresses do not exceed operational
+                     maximum temperature for the part. </p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/heat_transfer_brake_rotor.png"></p>
+                  <p>If you find that you need to mitigate thermal stress, you can edit the model to change
+                     the shape or thickness of different elements.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/heat_transfer_brake_rotor_modifications.png"></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Before beginning, verify that material property values for Thermal Conductivity, Density,
+                        and Specific Heat are defined for the materials used in your model. To open the <b>Material Table</b> dialog box to verify this:</p>
+                     <ul>
+                        <li>
+                           <p>In a part model, double-click the <b>Material</b> node in the <b>Simulation</b> pane.</p>
+                        </li>
+                        <li>
+                           <p>In an assembly, choose <b>Simulation</b> tab→<b>Study</b> group→<b>Material Table</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/materialtbl.gif">.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Create the study.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>, from the <b>Study type</b> list, select <b>Transient Heat Transfer</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/create_study_type_transient_heat_transfer.png"></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Transient heat transfer studies require an advanced simulation license.</p>
+                           </div>
+                           <p>The <b>Transient Heat Options</b> dialog box is displayed.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/transient_heat_options_default.png"></p>
+                        </li>
+                        <li>
+                           <p>In the <b>Transient Heat Options</b> dialog box, define the study processing parameters. Press Tab to enter each value
+                              and move to the next field.</p>
+                           <ol type="a" start="1">
+                              <li>
+                                 <p><b>End Time</b>—Enter the total time that you want the analysis to run. The default units are seconds.
+                                    You can convert a value from a known number of minutes to seconds by typing <b>min</b> after the value, and then pressing Tab. The maximum value is 100,000,000.00 seconds.</p>
+                              </li>
+                              <li>
+                                 <p><b>Calculation Time Increment</b>—Specify how often you want the system to calculate thermal results. Use a value that
+                                    is sufficiently small, so that the results are linear over the time step interval.
+                                    This value must be greater than zero and less than the end time. You can use the default
+                                    value initially, and then adjust it based on the results.</p>
+                                 <div class="attention" type="tip">
+                                    <div class="attention-label">Tip: </div>
+                                    <p>For guidance based on your geometry mesh size, refer to the NX Nastran equation for
+                                       <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d#calc_time_incr" rel="study4d">estimating the time step</a>.</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p><b>Output Time Increment</b>—Specify at what time increment in the process you want to begin generating plots.
+                                    You can use the arrow controls or type a value. Adjusting this value directly affects
+                                    the number of results. This value must be greater than or equal to the calculation
+                                    time increment, and less than the end time. </p>
+                              </li>
+                              <li>
+                                 <p><b>Number of Results</b>—Results are generated until the study end time is reached. If you choose the constant
+                                    interval type, then this read-only field shows how many result sets will be produced
+                                    based on your current input values, plus one more plot as the baseline. If you choose
+                                    the adaptive interval type, then the number of results is determined during processing.
+                                    </p>
+                              </li>
+                              <li>
+                                 <p><b>Interval Type</b>—Choose one of the following methods for calculating the intervals at which results
+                                    are produced.</p>
+                                 <ul>
+                                    <li>
+                                       <p>The <b>Constant</b> option is the default interval type. Use this option if it is important to obtain
+                                          the number of results shown in the <b>Number of Results</b> box. The number is calculated automatically based on the formula: <br>Number of Results=(End Time)/(Output Time Increment)+1, where +1 represents the baseline
+                                          result plots at Increment 1, 0 seconds.</p>
+                                       <div class="attention" type="example">
+                                          <div class="attention-label">Example: </div>
+                                          <ul style="list-style: none">
+                                             <li>
+                                                <p>If <b>End Time</b>=<b>100 sec</b></p>
+                                                <p><b>Output Time Increment</b>=<b>25</b></p>
+                                                <p><b>Interval Type</b>=<b>Constant</b>,</p>
+                                                <p>then result sets are produced at these intervals:</p>
+                                                <p>Number of Result Sets =100/25+1=5</p>
+                                                <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/transient_heat_result_increments.png"></p>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <p>Choose the <b>Adaptive</b> option to allow flexible calculation of transient heat step intervals during processing.
+                                          This means that there may be more or fewer result sets produced than is currently
+                                          indicated. During high change, the step interval is low, and during steady change,
+                                          the interval is larger. Another advantage of using the adaptive time step algorithm
+                                          is the potential for significantly reduced processing times for large files.</p>
+                                       <div class="attention" type="example">
+                                          <div class="attention-label">Example: </div>
+                                          <ul style="list-style: none">
+                                             <li>
+                                                <p>If <b>End Time</b>=<b>5000 sec</b></p>
+                                                <p><b>Output Time Increment</b>=<b>200</b></p>
+                                                <p><b>Interval Type</b>=<b>Adaptive</b>,</p>
+                                                <p>then result sets are produced at irregular intervals. In this case, only four result
+                                                   sets, plus the baseline plot, were generated:</p>
+                                                <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/results_node_adaptive_intervals.png"></p>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p><b>Default Initial Temperature</b>—Assign a single temperature to all of the geometry included in the study. Subsequent
+                                    temperatures are calculated from this starting point. This value is required to define
+                                    the starting temperature that is applied <em>to all of the bodies</em> included in the thermal study. </p>
+                                 <div class="attention" type="tip">
+                                    <div class="attention-label">Tip: </div>
+                                    <p>To change the default initial temperature after the study is initiated, you must edit
+                                       the <b>Simulation</b> pane→<b>Loads</b> group→<b>Body Temperature</b> load value.</p>
+                                 </div>
+                              </li>
+                           </ol>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>The following values were used for the initial simulation of this brake rotor part.
+                                 </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/transient_heat_options_db_ex.png"></p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Click <b>OK</b> to close the <b>Transient Heat Options</b> dialog box and return to the <b>Create Study</b> dialog box. </p>
+                        </li>
+                        <li>
+                           <p>In the <b>Create Study</b> dialog box, continue by doing the following:</p>
+                           <ol type="a" start="1">
+                              <li>
+                                 <p>From the <b>Mesh type</b> list, select the appropriate the mesh type.</p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Results Options</b> section, under <b>Elemental Results</b>, click <b>Heat Flux</b>. Temperature result plots are produced by default. Selecting this check box adds
+                                    heat flux plots to each set of results.</p>
+                              </li>
+                              <li>
+                                 <p>If you are defining a study for an assembly, you can automatically create the connectors
+                                    needed for meshing and solving based on the assembly mate relationships. Select the
+                                    appropriate options in the <b>Connector Options</b> section of the <b>Create Study</b> dialog box. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a>.</p>
+                              </li>
+                              <li>
+                                 <p>Click <b>OK</b> to initiate the transient heat study.</p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Identify the study geometry—A part or sheet metal model with one body is selected
+                              automatically as the study geometry. For an assembly or a multibody part model, select
+                              the study geometry using the <b>Define</b> command. </p>
+                           <p>For this brake rotor part model, the geometry was selected automatically.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/heat_transfer_define_geometry.png"></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Apply thermal boundary conditions.</h4>
+                  <div>
+                     <p>Temperature differentials occur when heat is transferred by conduction (through a
+                        solid body), by convection (between a body and a liquid or gas), or by radiation (electromagnetic
+                        waves). Use the commands in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal Loads</a> group on the ribbon to define the heat transfer mechanisms (the boundary conditions)
+                        for your model. These commands act as both loads and constraints in thermal studies.
+                        </p>
+                     <p>The next few steps provide examples of how you can combine thermal loads to define
+                        the starting temperature, the heat source, and how heat is dissipated. The specific
+                        commands you choose for your model depend on the file type (part, sheet metal, or
+                        assembly), where you want to apply the load (entire bodies or selected entities),
+                        and how the model is intended to operate.</p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>To create a variable thermal load with respect to the transient heat study end time,
+                           you can select the <b>Create Function</b> button on the command bar, and then define a time versus factor table. The function
+                           is applied automatically when the study is solved. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/function1h" rel="function1h">Use a function as variable input to loads</a>.</p>
+                     </div>
+                     <ol type="1">
+                        <li>
+                           <p>Notice that a <b>Body Temperature</b> load <img class="img-fluid" style="max-height: 1.75rem;" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_bodytemp_cmd.gif"> was added automatically to the <b>Simulation</b> pane→<b>Loads</b> group when you initiated the study. The body temperature is the default initial temperature
+                              value you entered in the <b>Transient Heat Options</b> dialog box.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>A body temperature load is required to assign a default initial temperature as a starting
+                                 point for all of the geometry in a transient heat study. The initial temperature to
+                                 the end of the study is considered ambient heating and cooling.</p>
+                           </div>
+                           <p>To edit an existing body temperature, double-click the <b>Body Loads</b> group→<b>Body Temperature</b> entry in the <b>Simulation</b> pane.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/heat_transfer_body_temp.gif"></p>
+                        </li>
+                        <li>
+                           <p>Apply a thermal load to define the source of the heat. There are three basic mechanisms
+                              for specifying heat flow in a heat transfer study: conduction (<b>Heat Flux</b> or <b>Heat Generation</b> commands), convection (<b>Convection</b> command), and radiation (<b>Radiation</b> command). </p>
+                           <ul>
+                              <li>
+                                 <p>Use the <b>Heat Flux</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_heat_flux_cmd.png"> to define heat conducted within a solid or between a solid and a liquid or gas. You
+                                    can apply it to a face, curve, edge, node, or point. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a#heatflux" rel="load4a">Heat Flux loads</a>.</p>
+                              </li>
+                              <li>
+                                 <p>Use the <b>Heat Generation</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_heat_gen_cmd.png"> to apply heat transfer to entire bodies or components in an assembly. For more information,
+                                    see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a#heatgen" rel="load4a">Heat Generation loads</a>.</p>
+                              </li>
+                           </ul>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Heat is generated by friction on the brake pad. To define this, select the <b>Heat Flux</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_heat_flux_cmd.png">, and apply a heat flux load to the brake pad surfaces on both sides of the rotor.
+                                 Assign a value of <b>1200 W</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/heat_transfer_heat_flux_load_inputs.png"></p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Apply a thermal load to specify how heat is removed. Use the <b>Convection</b> command to define how heat is transferred naturally from one surface to another surface
+                              or to its surroundings due to a temperature differential.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>To define how heat is transferred from the rotor to surrounding air, select the <b>Convection</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_convection_cmd.png">.</p>
+                              <p>Apply a convection load to all of the surfaces of the rotor <em>except</em> the brake pad surfaces. Assign a natural convection film coefficient value of <b>22.000 W/m^2-K</b> and an ambient temperature of <b>20.000 C</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/heat_transfer_convection_load_inputs1.png"></p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Mesh and solve the study.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/heat_transfer_sim_pane_mesh.png"></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>If a message is displayed stating that you are solving a transient heat transfer study
+                                 without explicitly applying a body temperature, you are prompted to accept the default
+                                 body temperature. If this value is acceptable, click <b>Yes</b> to process the study. You can cancel and change this value using the <b>Body Temperature</b> command. </p>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Review transient heat study results.</h4>
+                  <div>
+                     <p>When the study is solved, the results are shown in the Simulation Results environment.
+                        The temperature plot in the last result set is displayed. Compare the Color Bar color-coding
+                        and values to the temperatures shown in the temperature and heat flux plots. You can
+                        use this information to quickly determine whether the part meets the maximum temperature
+                        requirements set by your company.</p>
+                     <p>After you identify areas of maximum temperature or heat flow, you can use the <b>Probe Table</b> to locate and graph the values at specific nodes. You also can save all of the study
+                        inputs, study data, plots, graphs, and your conclusions in HTML or Word format.</p>
+                     <ol type="1">
+                        <li>
+                           <p>Display the result plot for the output increment that shows the areas of highest temperature.
+                              You can do this using the lists in the <b>Home</b> tab→<b>Data Selection</b> group.</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Use the <b>Result Mode</b> list to choose a specific results increment, or use the arrows to cycle through each
+                                    plot produced at each time interval.</p>
+                              </li>
+                              <li>
+                                 <p>From the <b>Result Type</b> list, choose <b>Temperature</b> or <b>Heat Flux</b>.</p>
+                              </li>
+                              <li>
+                                 <p>From the <b>Result Component</b> list, choose the specific result plot.</p>
+                              </li>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/transient_heat_temp_plot.png"></p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/transient_heat_heatflux_plot.png"></p>
+                              </div>
+                              <p>You also can display these plots using the <b>Simulation</b> pane. Expand the <b>Results</b>→<b>Plots</b>→<b>Increment</b> sets to view each temperature and heat flux plot produced at the specified time intervals.
+                                 The result plot that is currently displayed is identified in blue text in the <b>Simulation</b> pane. If a plot is listed in black or gray text, you can double-click it to display
+                                 it.</p>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Graph temperature values at specific times, and save the graphs. </p>
+                           <ol type="a">
+                              <li>
+                                 <p>When the result plot with the temperature areas you want to investigate is displayed
+                                    in the graphics window, select the <b>Home</b> tab→<b>Probe</b> group→<b>Probe</b> command.</p>
+                                 <p>The <b>Probe Table </b> is opened. </p>
+                              </li>
+                              <li>
+                                 <p>Using the Color Bar colors as a guide, click a node in the plot window, and then click
+                                    again to place the data label. Repeat this for the nodes of interest. </p>
+                                 <p>For each node, a white probe label is displayed in the simulation results, and a row
+                                    of nodal analysis data (temperature and node location) is added to the table.</p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Probe Table</b>, select up to 10 data cells.</p>
+                              </li>
+                              <li>
+                                 <p>Select the <b>Show Graph</b> button to show the stress data in graphical form. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/probe_table_graph.png"></p>
+                                 <p>Probe labels matching each of the selected nodes are displayed in the simulation results,
+                                    color-coded to match the data in the graph.</p><img class="img-fluid d-block mx-auto" src="../../../../common/graphicLibrary/se/simulation/result/probe_table_graph_labels.png"><p></p>
+                              </li>
+                              <li>
+                                 <p>Before you close the graph window, click the <b>Save Graph</b> button. </p>
+                                 <p>You can access saved transient heat graphs as you do plots using shortcut commands
+                                    from the <b>Simulation</b> pane→<b>Results</b>→<b>Graphs</b> node. This also saves the graph for review in the Simulation Report. </p>
+                              </li>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p> For more information, see the following help topics: <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe1h" rel="probe1h">Display node analysis data</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe3h" rel="probe3h">Graph nodal analysis results</a>.</p>
+                              </div>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Select the <b>Home</b> tab→<b>Output Results</b> group→<b>Create Report</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/create_report_cmd.png"> to create a report of all of the simulation results. </p>
+                           <p>This saves the study analysis parameters, the values used to define the thermal boundary
+                              conditions, the resulting temperature and heat flux result plots, and any Time vs.
+                              Temperature graphs you explicitly saved to the simulation results file (.ssd file).
+                              It also includes your conclusions for review by others.</p>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <p>You can share this report with others using the Solid Edge Portal.</p>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Modify a transient heat study to improve the results</h4>
+                  <div>
+                     <p>After reviewing the study results, you may decide to change one or more transient
+                        heat transfer study input values and reprocess the study. </p>
+                     <ol type="1">
+                        <li>
+                           <p>Close the Simulation Results environment.</p>
+                        </li>
+                        <li>
+                           <p>Right-click the study name in the <b>Simulation</b> pane and select <b>Modify Study</b>. </p>
+                        </li>
+                        <li>
+                           <p>In the <b>Modify Study</b> dialog box, click the <b>Transient Heat Options...</b> button to access the <b>Transient Heat Options</b> dialog box. (When you created the study, this dialog box was displayed automatically.)</p>
+                        </li>
+                        <li>
+                           <p>Now you can adjust the study input values. </p>
+                           <ul>
+                              <li>
+                                 <p>To generate a graph that shows that temperatures have reached a nearly steady state,
+                                    you can change the <b>End Time</b> (the length of time the study runs). </p>
+                              </li>
+                              <li>
+                                 <p>To maintain a useful temperature distribution of node values along the curve, you
+                                    can experiment with changes to the <b>Calculation Time Increment</b> and the <b>Output Time Increment</b>.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Right-click the study name and choose <b>Solve</b> to evaluate the changes. </p>
+                        </li>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Here is a nodal analysis graph for a node from the initial simulation, with an End
+                              Time of 100 seconds:</p>
+                           <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/probe_graph_21.png"></p>
+                        </div>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>The results begin to show the temperature leveling off by extending the study length
+                              (the End Time) to 1000 seconds.</p>
+                           <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/optionsdb_1000.png"></p>
+                           <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/probe_graph_single_1000.png"></p>
+                        </div>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>By increasing the study length to 5000 seconds, the graph now shows the time increments
+                              at which the temperature values are changing, as well as when a steady state temperature
+                              is reached. You can change the time increment values to change how often results are
+                              calculated and how often results are output. </p>
+                           <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/optionsdb.png"></p>
+                           <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/probe_graph_single.png"></p>
+                        </div>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Define and review a transient heat study, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

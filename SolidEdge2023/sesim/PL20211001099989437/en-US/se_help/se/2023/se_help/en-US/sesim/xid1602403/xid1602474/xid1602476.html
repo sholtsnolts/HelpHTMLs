@@ -1,0 +1,135 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate torque on a mower hub</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate torque on a mower hub"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1602476">
+                     <h1 class="topic-title">Tutorial: Simulate torque on a mower hub</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_static" rel="linear_static">linear static analysis</a> to simulate torque stresses on the shaft of a lawn mower hub, at a steady-state condition.
+                     Use the <b>Torque</b> command to apply a turning force to one or more faces about an axis of rotation.</p>
+                  <p>The study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Structural Study type=Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Load type=Torque</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file named <b>FE_mower_hub.par</b>. </p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_torque01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create the study.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The material is already defined: <b>Stainless steel</b>.</p>
+                        </div>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Create Study</b> dialog box, choose the <b>Linear Static</b> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">study type</a> and <b>Tetrahedral</b> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a#mesh1a_type" rel="mesh1a">mesh type</a>, and then click <b>OK</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_cmdbar.gif"></p>
+                              <p>The study is created and is active, as indicated on the ribbon in the <b>Study</b> group on the <b>Simulation</b> tab. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz22.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define the torque load.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Torque</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_load_torque_button.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Select the hub shaft. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_torque10.gif"></p>
+                           </li>
+                           <li>
+                              <p>Type <b>100 N-m</b> for the torque value. Press Enter.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_torque03.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_torque05.gif"></p>
+                           </li>
+                           <li>
+                              <p>Left-click in space to finish. </p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a fixed constraint:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the end face of the hub shaft.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_torque07.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to apply the constraint.</p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_torque08.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Turn off constraints and loads in the <b>Simulation</b> pane.</p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Mesh</b> command. Choose <b>Mesh &amp; Solve</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_torque10.gif"></p>
+                              <p>The part is meshed and solved. The units for stress are expressed in megapascals (MegaPa).</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_torque09.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Tutorial: Simulate torque on a mower hub, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

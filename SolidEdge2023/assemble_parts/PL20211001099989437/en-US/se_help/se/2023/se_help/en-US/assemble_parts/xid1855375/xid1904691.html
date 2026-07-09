@@ -1,0 +1,181 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with internal components</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with internal components"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1904691">
+                     <h1 class="topic-title">Working with internal components</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Internal components are representations of model structure in Solid Edge that contain
+                     all of the geometry and structure of an assembly within a single document. With an
+                     internal component structure, the geometry (including design bodies, construction
+                     bodies, sketches, reference planes and coordinate systems, and PMI) for multiple components
+                     and product structure are hosted in the assembly without the need for additional files
+                     and links.</p>
+                  <p>Internal components are ideal for representing and working with imported assembly
+                     structures within Solid Edge, for example, as purchased parts or parts provided by
+                     third parties with which your Solid Edge models need to interact. If you import CAD
+                     data and want to do further design and manipulation of the data, you should first
+                     publish internal components as Solid Edge parts and assemblies.</p>
+                  <p>By contrast with external components (the ordinary model structure supported by Solid
+                     Edge), assembly documents, with few exceptions, contain only structural information,
+                     and they link to part documents or subassemblies that contain the geometric information.</p>
+                  <h4 class="division-title">Creating internal components</h4>
+                  <div>
+                     <p>There are two ways to create internal components:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>You can create and edit an internal component as a single multibody part in the context
+                              of an assembly using the <b>Home</b> tab→<b>Components</b> group→<b>Create Part In-Place</b> list→<b>Create Internal Component</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/create_edit/create_internal_comp_cmd.png">. </p>
+                           <p>For information about this method, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1975299" rel="xid1975299">Create an internal component in an assembly</a>.</p>
+                        </li>
+                        <li>
+                           <p>When you open a non-Solid Edge document to import it into Solid Edge, on the <b>Open</b> dialog box, click the <b>Options</b> button and select the <b>Create Internal Components</b> option.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Applying material to internal components</h4>
+                  <div>
+                     <p>You can assign a material to internal components that are imported or modeled. A single
+                        material can be associated with one or more internal components.</p>
+                     <p>With materials assigned, you can save attributes such as density, and then use the
+                        <b>Physical Properties</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/internal_component/physical_properties_cmd.png"> to calculate physical properties, such as Center of Mass and Center of Gravity, for
+                        the internal components. </p>
+                     <p>The material and physical properties assigned to an internal component are saved with
+                        the component when you publish it.</p>
+                     <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1932944" rel="xid1932944">Apply a material to an internal component</a>.</p>
+                  </div>
+                  <h4 class="division-title">Using internal components</h4>
+                  <div>
+                     <p>You can select and show or hide internal components as you would other components
+                        within an assembly model, and you can add dimensions and other forms of PMI to and
+                        between internal components and other components with an assembly model.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/internal_components/ic_phys_props_pmi_callout.png"></p>
+                     <p>If you want to make changes to model data represented by an internal component, you
+                        must first publish the internal components as parts and assemblies. This creates individual
+                        part and assembly documents to contain the model, and replaces the internal components
+                        within the parent assembly with references to the new Solid Edge files.</p>
+                  </div>
+                  <h4 class="division-title">Creating internal references to internal components</h4>
+                  <div>
+                     <p>You can create internal references to internal components in an assembly. These references
+                        are available for commands such as <b>Pattern</b>, <b>Mirror</b>, <b>Insert Assembly Copy</b>, <b>Replace Part</b>, <b>Transfer</b>, and <b>Disperse</b>.</p>
+                  </div>
+                  <h4 class="division-title" id="internal_component_property_manager">Managing internal components with Property Manager</h4>
+                  <div>
+                     <p>If an active document contains an internal component, you can use <b>Property Manager</b> to edit existing properties or create new properties for the internal component.
+                        </p>
+                     <p>When you select the <b>Property Manager</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/internal_component/properties_mgr_cmd.png">, the <b>Property Manager</b> dialog box is displayed so you can edit property values. File-based properties that
+                        you cannot edit are disabled and appear in gray. </p>
+                     <p>You can only edit the properties for internal components in the active assembly document.
+                        Internal components in other attached documents are not listed in <b>Property Manager</b>. All internal references to the same internal component have the same property values.</p>
+                     <p>When you create an internal component, all the property values are blank. You can
+                        click the property cell and type in a value.</p>
+                     <p>To add a custom property to an internal component, you must assign a value for the
+                        internal component in <b>Property Manager</b>.</p>
+                     <p>You can use the <b>New</b> option on the <b>Show Properties</b> dialog box to add new properties for internal components. After adding file properties,
+                        use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1855377" rel="xid1855377"><b>Publish Internal Components</b> command</a> to save to disk the files containing the internal components.</p>
+                  </div>
+                  <h4 class="division-title" id="drag_drop_internal_component">Dragging internal components into an assembly</h4>
+                  <div>
+                     <p>You can drag internal components into an assembly. When you locate an internal component
+                        in the collector, all the internal references to the internal component highlight.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/internal_components/highlight_internal_component1.png"></p>
+                     <p>After you drag the internal component into the assembly, you can use the <b>Assemble</b> command to apply relationships between the internal component and one or more target
+                        parts in the assembly.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/internal_components/drag_drop_ic1.png"></p>
+                     <p>In this example, when you select the internal component in <b>PathFinder</b>, two internal components highlight in the assembly.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/internal_components/internal_component_highlight1.png"></p>
+                     <p>This is because there are two internal references to the internal component within
+                        the assembly.</p>
+                  </div>
+                  <h4 class="division-title" id="reorder_design_bodies">Reordering design bodies between internal components</h4>
+                  <div> 
+                     <p>If multiple internal components are open for editing simultaneously, then you can
+                        drag a <b>Design Body</b> from one internal component to another in <b>PathFinder</b>.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/internal_components/move_ic_design_body1.png"></p>
+                  </div>
+                  <h4 class="division-title" id="export_internal_component">Exporting files containing internal components</h4>
+                  <div>
+                     <p>You can use the <b>Save as Translated</b> command to export files containing internal components to the following formats:</p>
+                     <ul>
+                        <li>
+                           <p>Parasolid (*.x_t)</p>
+                        </li>
+                        <li>
+                           <p>JT (*.jt)</p>
+                        </li>
+                        <li>
+                           <p>IFC (*.IFC)</p>
+                        </li>
+                        <li>
+                           <p>STEP (*.step, *.stp)</p>
+                        </li>
+                        <li>
+                           <p>OBJ (.obj)</p>
+                        </li>
+                        <li>
+                           <p>FBX (.fbx)</p>
+                        </li>
+                        <li>
+                           <p>3MF (.3mf)</p>
+                        </li>
+                        <li>
+                           <p>STL (.stl)</p>
+                        </li>
+                        <li>
+                           <p>ACIS (.sat)</p>
+                        </li>
+                        <li>
+                           <p>IGES (.iges, .igs)</p>
+                        </li>
+                        <li>
+                           <p>CATIA V4 (.model)</p>
+                        </li>
+                        <li>
+                           <p>CATIA V5 (.catpart)</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>PMI is supported only when exporting to JT.</p>
+                     </div>
+                     <p>The geometry and structure of the file containing the internal components is maintained
+                        during export and you will get the same output as if you were exporting traditional
+                        files.</p>
+                     <p>You can use 3D PDF Publish to publish files containing internal components. You can
+                        use Technical Publications to view and open files containing internal components.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1975299" rel="xid1975299">Create an internal component in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1932944" rel="xid1932944">Apply a material to internal components</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1855379" rel="xid1855379">Publish internal components</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1855376" rel="xid1855376">Publishing internal components</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1974886" rel="xid1974886">Create Internal Component command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1975582" rel="xid1975582">Create Internal Component Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1975647" rel="xid1975647">Create Internal Component command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1975535" rel="xid1975535">Activate Internal Component command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1855377" rel="xid1855377">Publish Internal Components command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1855378" rel="xid1855378">Publish Internal Components dialog box</a><br><br></div>
+            <div class="footer-content">Working with internal components, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

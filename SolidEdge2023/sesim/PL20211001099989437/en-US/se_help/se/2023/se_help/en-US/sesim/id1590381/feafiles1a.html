@@ -1,0 +1,160 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>FEA architecture and files</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="FEA architecture and files"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feafiles1a">
+                     <h1 class="topic-title">FEA architecture and files</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In the simplest terms, Solid Edge Simulation and the NX Nastran solver process the
+                     model geometry and study data. They generate analysis data and a meshed model that
+                     are stored in a container called an analysis file. </p>
+                  <h4 class="division-title">FEA file structure</h4>
+                  <div>
+                     <p>The FEA file structure is shown in the following illustration:</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/processing/sesim_feafiles1.gif"></p>
+                     <ul>
+                        <li>
+                           <p>A single Solid Edge part, sheet metal, or assembly model file (A) may have a number
+                              of studies defined in it. Each study captures the following information:</p>
+                           <ul>
+                              <li>
+                                 <p>Study name and type, to uniquely identify the study</p>
+                              </li>
+                              <li>
+                                 <p>Geometry and material</p>
+                              </li>
+                              <li>
+                                 <p>Loads, constraints, and connectors</p>
+                              </li>
+                              <li>
+                                 <p>Mesh type and sizing</p>
+                              </li>
+                              <li>
+                                 <p>NX Nastran processing options </p>
+                              </li>
+                              <li>
+                                 <p>Properties, such as Up To Date, Out Of Date, Visible or Hidden, Active or Inactive</p>
+                              </li>
+                              <li>
+                                 <p>Data pertaining to the analysis file out-of-date check.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>A structured Solid Edge Simulation analysis file (B) is generated in the same location
+                              as the model file. It shares the model file name, with a <b>.ssd</b> file extension. </p>
+                           <p>Each study defined in the model produces corresponding data in the analysis file.
+                              This includes custom data (C) and study data (D), which can be converted to a Femap
+                              <b>.modfem</b> executable file.</p>
+                        </li>
+                        <li>
+                           <p>The custom data (C) includes variable information: </p>
+                           <ul>
+                              <li>
+                                 <p>Applied physical mesh</p>
+                              </li>
+                              <li>
+                                 <p>Analysis results.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <p>The combined content (C) (D) of the analysis file enables Solid Edge Simulation to
+                        open the analysis data for review outside of Femap, making it faster to display and
+                        review the results. </p>
+                     <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1h" rel="savefea1h">Save a study to Femap</a> to learn how to generate a Femap <b>.modfem</b> executable file. </p>
+                  </div>
+                  <h4 class="division-title">Analysis file size</h4>
+                  <div>
+                     <p>Analysis files, which contain the meshed model and results data, can become large
+                        very quickly. You should have sufficient disk space available in the location of the
+                        Solid Edge model document, where the corresponding analysis file is generated.</p>
+                  </div>
+                  <h4 class="division-title">FEA file types</h4>
+                  <div>
+                     <p>These file name extensions are associated with FEA in Solid Edge Simulation:</p>
+                     <ul>
+                        <li>
+                           <p><b>.ssd</b>: The Solid Edge Simulation analysis file.</p>
+                        </li>
+                        <li>
+                           <p><b>.modfem</b>: Contains the model and analysis results for display in Femap. </p>
+                        </li>
+                        <li>
+                           <p><b>.rcf</b>: The default <b>.rcf</b> file (<b>SENastran*.rcf</b>) is provided with the setup. This file is written to the same location as the NX
+                              Nastran <b>.dat</b> file, which is a local <b>.rcf </b> file generated for each study. </p>
+                           <p>To learn more about <b>.rcf </b> files: <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1a" rel="nastran1a">NX Nastran processing options</a>.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Analysis files in the Teamcenter-managed environment</h4>
+                  <div>
+                     <p>When you use Solid Edge Simulation in a Teamcenter-managed environment:</p>
+                     <ul>
+                        <li>
+                           <p>The .ssd file is saved to the same Dataset as the model.</p>
+                        </li>
+                        <li>
+                           <p>In Teamcenter, the .ssd file is saved in <b>Named References</b>.</p>
+                        </li>
+                        <li>
+                           <p>The analysis file (.ssd) is uploaded to Teamcenter using the <b>Upload.ssd</b> command, or downloaded from Teamcenter using the <b>Download.ssd</b> command. The commands are located in the <b>Simulation</b> tab→<b>Teamcenter</b> group.</p>
+                        </li>
+                        <li>
+                           <p>The <b>Upload</b> dialog box displays a mesh icon <img class="img-fluid" src="../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_ui/mesh_ssd.gif"> in the <b>Type</b> column to the right of the document type. The icon indicates the .ssd file is being
+                              uploaded with the model. The time required to upload the files can be impacted by
+                              the size of the analysis file.</p>
+                        </li>
+                        <li>
+                           <p>You can use settings in the <b>Solid Edge Options</b>→<b>Manage</b>→<a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid1398979" rel="xid1398979">General tab</a> to determine the default behavior when you save managed documents with Solid Edge
+                              Simulation results (.ssd).</p>
+                        </li>
+                        <li>
+                           <p>The <b>Open Options</b> pane of the <b>Open File</b> and <b>Download</b> dialog boxes gives you the override option to <b>Download Simulation results file (*.ssd)</b>.</p>
+                        </li>
+                        <li>
+                           <p>The <b>Cache Assistant</b> dialog box displays a mesh icon <img class="img-fluid" src="../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_ui/mesh_ssd.gif"> to the right of the document type. The icon indicates a Solid Edge Simulation results
+                              (.ssd) file is associated with the model.</p>
+                        </li>
+                        <li>
+                           <p>The <b>Revise</b> and <b>Save As</b> commands do not include the Solid Edge Simulation analysis file (.ssd) file.</p>
+                        </li>
+                        <li>
+                           <p>You cannot use the <b>Binder</b> command on an analysis file. </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid849277" rel="xid849277">Set units for .modfem files opened in Femap</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1h" rel="savefea1h">Save a study to Femap</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/ref1a" rel="ref1a">FEA processing resources</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1a" rel="nastran1a">NX Nastran processing options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1a" rel="savefea1a">Saving FEA documents</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid849256" rel="xid849256">Setting units for files opened in Femap</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1d" rel="nastran1d">Simulation Progress dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1d" rel="savefea1d">Save Femap Model File dialog box</a><br><br></div>
+            <div class="footer-content">FEA architecture and files, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

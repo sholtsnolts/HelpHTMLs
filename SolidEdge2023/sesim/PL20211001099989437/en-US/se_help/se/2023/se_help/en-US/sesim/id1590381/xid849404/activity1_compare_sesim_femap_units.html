@@ -1,0 +1,231 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity 1: Compare Solid Edge Simulation file units with Femap units</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity 1: Compare Solid Edge Simulation file units with Femap units"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="activity1_compare_sesim_femap_units">
+                     <h1 class="topic-title">Activity 1: Compare Solid Edge Simulation file units with Femap units</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this activity you will learn how units are written to the Femap model file from
+                     Solid Edge Simulation.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>This activity requires that you have a separate installation and license for Femap.</p>
+                  </div>
+                  <h4 class="division-title">Create a simulation study In Solid Edge</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Create a new part.</p>
+                           <ol type="a">
+                              <li>
+                                 <p>On the <b>File</b> menu, click <b>New</b> to create a new part file using an <b>iso metric part.par </b> template.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>The unit system for this template is measured in millimeters, kilograms, and seconds.
+                                       You can verify this by opening the <b>Units</b> tab in the <b>Solid Edge Options</b> dialog box.</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>Create a 10x10x100 mm protrusion, with 10x10 mm on the Z-Y plane and 100 mm along
+                                    the X axis.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/units/training/compare_se_units_to_femap1.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Choose <b>File</b> menu→<b>Info</b>→<b>Material Table</b>.</p>
+                              </li>
+                              <li>
+                                 <p>Select <b>Aluminum 1060</b> for the material and click <b>Apply to Model</b>.</p>
+                                 <div class="attention" type="tip">
+                                    <div class="attention-label">Tip: </div>
+                                    <p>You also can select and apply a material using the <b>Material List</b> or the <b>Material Table</b> button on the <b>Simulation</b> tab→<b>Study</b> group.</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>Choose <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_study_button.gif">. </p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Create a new linear static study.</p>
+                           <ol type="a">
+                              <li>
+                                 <p>In the <b>Create Study</b> dialog box, select the following:</p>
+                                 <ul>
+                                    <li>
+                                       <p><b>Study type</b> = <b>Linear Static </b> </p>
+                                    </li>
+                                    <li>
+                                       <p><b>Mesh type</b> = <b>Tetrahedral</b> </p>
+                                    </li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Choose <b>Simulation</b> tab→<b>Geometry</b> group→<b>Define</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_define_button_on.gif">, and then accept the selected part. </p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Define loads and constraints:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Choose <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force </b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/sesim_force_button.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>Select the 10x10 mm face on the right, and apply a force of 1000 N along the X-axis
+                                    positive direction. Right-click to accept.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>The value converts to millinewtons when it is applied. This is consistent with the
+                                       Force units in the metric template, <b>iso metric part.par</b>.</p>
+                                 </div>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/units/training/compare_se_units_to_femap2.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif">. </p>
+                              </li>
+                              <li>
+                                 <p>Select the 10x10 mm face on the left end of the part, and right-click to accept it.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/units/training/compare_se_units_to_femap3.gif"></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Mesh and solve the study:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Tetrahedral Mesh</b> dialog box, click <b>Mesh &amp; Solve</b>.</p>
+                              </li>
+                              <li>
+                                 <p>When processing is finished, the model is displayed in the <b>Simulation Results</b> environment. Observe that the maximum Von Mises Stress is 10.4 MegaPa.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/units/training/compare_se_units_to_femap4.gif"></p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>This matches the <b>Stress</b> units on the <b>Units</b> tab in the <b>Solid Edge Options dialog</b> box for the metric template, <b>iso metric part.par</b>.</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>Choose <b>Home</b> tab→<b>Close</b> group→<b>Close Simulation Results</b>.</p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Generate an output file to open in Femap:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>In the <b>Simulation</b> pane, right-click <b>Static Study 1</b>, and choose <b>Save Femap Model File</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/units/save_femap_model_file_command.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Save Femap Model File</b> dialog box, click <b>Save</b>.</p>
+                              </li>
+                              <li>
+                                 <p>Close Solid Edge.</p>
+                              </li>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Set and review units in Femap</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Start the Femap program from the desktop or from the <b>Start</b> menu.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Do not use the Femap command on the <b>Tools</b> tab→<b>Environs</b> group in Solid Edge to run Femap.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Choose <b>File</b>→<b>Preferences</b>.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Preferences</b> dialog box, click the <b>Geometry/Model</b> tab.</p>
+                        </li>
+                        <li>
+                           <p>From the <b>Solid Geometry Scale Factor</b> list, select <b>1. Meters</b>.</p>
+                           <p>This specifies the internal storage units for your geometry in Parasolid.</p>
+                        </li>
+                        <li>
+                           <p>Close Femap.</p>
+                        </li>
+                        <li>
+                           <p>Open the analysis file in Femap:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Restart Femap.</p>
+                              </li>
+                              <li>
+                                 <p>Choose <b>File</b>→<b>Open</b>, and then select and open the <b>.modfem</b> file that you previously created in Solid Edge Simulation.</p>
+                              </li>
+                              <li>
+                                 <p>Click <b>OK</b> to dismiss the <b>Neutral File Read Options</b> dialog box.</p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Model Info</b> pane, review the material properties. </p>
+                                 <ul>
+                                    <li>
+                                       <p>Young's Modulus is 6.8948E+10. This is consistent with pascals.</p>
+                                    </li>
+                                    <li>
+                                       <p>The density is 2712, consistent with kg/m^3.</p>
+                                    </li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <p>Measure the distance of one of the long edges of the model. Observe that it is 0.1.
+                                    </p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>This is because&nbsp;the&nbsp;Femap model size&nbsp;is always written using SI base units (meters),
+                                       when the Femap model file is created in Solid Edge Simulation.&nbsp;</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>Choose <b>Tools</b>→<b>Check</b>→<b>Sum Forces</b>. </p>
+                                 <p>Observe that the total force (the sum of the applied loads) is 1000 newtons.</p>
+                              </li>
+                              <li>
+                                 <p>Adjust the units as needed. If the units do not meet your requirements, then select
+                                    the <b>Tools</b>→<b>Convert Units</b> command to convert the quantities of basic units or apply conversion factors to specific
+                                    entities.</p>
+                              </li>
+                              <li>
+                                 <p>Close Femap without saving the file.</p>
+                              </li>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Activity 1: Compare Solid Edge Simulation file units with Femap units, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

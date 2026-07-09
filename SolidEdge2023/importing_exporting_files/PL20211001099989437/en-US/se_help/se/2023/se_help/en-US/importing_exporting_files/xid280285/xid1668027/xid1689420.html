@@ -1,0 +1,90 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Migrating Creo Elements Direct material definitions to Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Migrating Creo Elements Direct material definitions to Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1689420">
+                     <h1 class="topic-title">Migrating Creo Elements Direct material definitions to Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you migrate any Creo Elements Direct part files, the material definition is extracted.
+                     This material is assigned to the Solid Edge document if the material name exists in
+                     the Solid Edge Material.mtl file. To ensure that the Creo Elements Direct material
+                     name exists in the Solid Edge Material file, Solid Edge provides a tool to convert
+                     the Creo Elements Direct material file to the Solid Edge <b>Material.mtl</b> file.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Converting the Creo Elements Direct Material data base is optional. However, if you
+                        do not convert the table or improperly set up either the Creo Elements Direct or Solid
+                        Edge material table location, no material is mapped to Solid Edge. </p>
+                  </div>
+                  <p>The <b>CEDmat2SEMat.exe</b> utility is delivered as part of the server-side application to the Solid Edge <b>Program</b> folder. The executable creates a new Solid Edge <b>Material.mtl</b> file rather than appending an existing .mtl file. The executable organizes material
+                     definitions by placing all similar materials, such as steel and iron into a single
+                     category.</p>
+                  <p></p>
+                  <p>Before running the utility, you should consider:</p>
+                  <ul>
+                     <li>
+                        <p>Make a copy of the Solid Edge <b>Material.mtl</b> file.</p>
+                     </li>
+                     <li>
+                        <p>After successfully converting the material table ensure that the <b>Solid Edge\Options\File</b> location pointer is pointing to the appropriate file.</p>
+                     </li>
+                     <li>
+                        <p>Material database migration must be carried out before Creo Elements Direct files
+                           migration. Also material database migration can be carried out successfully only on
+                           the machine, where both Creo Elements Direct and Solid Edge are installed.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">To migrate the material database</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Go to your Solid Edge installation Program folder. For example, <b>C:\Program Files\Siemens\Solid Edge 2020\Program</b>.</p>
+                        </li>
+                        <li>
+                           <p>Shift+Right-click -&gt; click <b>Open PowerShell Window here</b>.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Windows Powershell</b> window, type <b>CEDmat2SEMat.exe</b> and press the <b>Tab</b> button.</p>
+                        </li>
+                        <li>
+                           <p>Enter the .csl file path and press <b>Enter</b>.</p>
+                           <p>The material database is migrated to the location where Solid Edge material file is
+                              located. The file name of the migrated database is the same as original Creo Elements
+                              Direct database, for example, <b>Werkst.csl</b>.</p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1671637" rel="xid1671637">Translate multiple Creo Element Direct documents in Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689419" rel="xid1689419">Migrate the hole database from Creo Elements Direct to Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689423" rel="xid1689423">Creo Elements Direct 3D files migration to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668029" rel="xid1668029">Creo Elements Direct Data Migration Start Page dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668030" rel="xid1668030">Creo Elements Direct File Selection Page dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668028" rel="xid1668028">Creo Elements Direct data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668032" rel="xid1668032">Creo Elements Direct Saving Changes dialog box</a><br><br></div>
+            <div class="footer-content">Migrating Creo Elements Direct material definitions to Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

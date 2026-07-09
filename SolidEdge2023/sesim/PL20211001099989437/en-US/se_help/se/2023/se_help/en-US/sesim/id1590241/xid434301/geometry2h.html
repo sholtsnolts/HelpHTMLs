@@ -1,0 +1,130 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Suppress, unsuppress, and remove study geometry</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Suppress, unsuppress, and remove study geometry"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="geometry2h">
+                     <h1 class="topic-title">Suppress, unsuppress, and remove study geometry</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>In an assembly model, you can temporarily remove a part, component, or feature from
+                     consideration in a simulation study using the <b>Suppress</b> command. When you mesh and solve the study, the geometry that is suppressed and its
+                     associated loads, constraints, and connectors are not included in the solution. Suppressing
+                     individual parts in a large assembly with many components makes it easier to test
+                     the study design on a subset of the study geometry.</p>
+                  <p>After you test the effect of suppressing geometry, you can use the <b>Unsuppress</b> command to restore the geometry and its associated simulation objects. </p>
+                  <p>Use the <b>Remove</b> command when you want to remove a body and its dependent simulation objects from
+                     the study. </p>
+                  <p>In Solid Edge Simulation, these shortcut commands are available on the context menu
+                     for parts selected in the <b>Simulation</b> pane→<b>Geometry</b> node.</p>
+                  <h4 class="division-title">Suppress study geometry</h4>
+                  <div>
+                     <p>Use the following process to suppress individual bodies (such as a part, subassembly,
+                        sheet metal feature, or mid-surface) within the same simulation study.</p>
+                     <ol type="1">
+                        <li>
+                           <p>Open an assembly with a previously solved study, and double-click the study name to
+                              activate it. </p>
+                        </li>
+                        <li>
+                           <p>In the <b>Simulation</b> pane, expand the <b>Geometry</b> node, right-click the body you want to test, and then select <b>Suppress</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/geometry_node.png"></p>
+                           <p>The suppressed icon <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/suppressed_indicator.png"> indicates the body will not be evaluated in the simulation results. Loads, constraints,
+                              connectors for suppressed geometry go out of date. The mesh for the suppressed body
+                              is deleted.</p>
+                        </li>
+                        <li>
+                           <p>Right-click the study name, and choose <b>Mesh</b> to mesh the study, and then <b>Solve</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/solve_command_on_shortcut_menu.png">.</p>
+                           <p>When processing completes, the study results are displayed in the <b>Simulation Results</b> environment. </p>
+                        </li>
+                        <li>
+                           <p>After you review the results, click <b>Close Simulation Results</b>.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Restore suppressed geometry</h4>
+                  <div>
+                     <p>To restore the suppressed body (as well as the related loads, constraints, and connectors):</p>
+                     <ol type="1">
+                        <li>
+                           <p>In the <b>Simulation</b> pane, expand the <b>Geometry</b> node. </p>
+                        </li>
+                        <li>
+                           <p>Right-click the suppressed body and select <b>Unsuppress</b>.</p>
+                           <p>Associated loads, constraints, and connectors are restored along with the geometry,
+                              but the parent mesh is out of date.</p>
+                        </li>
+                        <li>
+                           <p>Right-click the study name, and choose <b>Mesh</b> to mesh the study, and then <b>Solve</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/solve_command_on_shortcut_menu.png">.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Remove geometry from a study</h4>
+                  <div>
+                     <p>In a study of a large assembly, you can speed its processing by removing bodies that
+                        do not directly affect the simulation. Removing the geometry from the study does not
+                        remove it from the model.</p>
+                     <ol type="1">
+                        <li>
+                           <p>In the <b>Simulation</b> pane, expand the <b>Geometry</b> node. </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/geometry_node.png"></p>
+                        </li>
+                        <li>
+                           <p>Right-click the part you want to remove from the study and select <b>Remove</b>.</p>
+                           <p>The body is removed from the <b>Geometry</b> node in the <b>Simulation</b> pane, but not from the model. Simulation objects in the study that depend on the
+                              removed geometry (loads, constraints, connectors, results) go out-of-date. The body
+                              mesh also is removed.</p>
+                        </li>
+                        <li>
+                           <p>Mesh and solve the study to regenerate the mesh and the results. </p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>It is best to use this option when the removed bodies:</p>
+                        <ul>
+                           <li>
+                              <p>Do not directly affect the operation of the area you are studying or have limited
+                                 impact on it. </p>
+                           </li>
+                           <li>
+                              <p>Are not close to the area you are studying. </p>
+                           </li>
+                           <li>
+                              <p>Can be estimated through loads and constraints applied to other bodies included in
+                                 the study.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry1h" rel="geometry1h">Add or remove study geometry using the Define command</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry3a" rel="geometry3a">Selecting geometry for studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry1a" rel="geometry1a">Selecting surface geometry for studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry2a" rel="geometry2a">Selecting occurrences for studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry4a" rel="geometry4a">Preparing and selecting united bodies for studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2055979" rel="xid2055979">Selecting convergent bodies for studies</a><br><br></div>
+            <div class="footer-content">Suppress, unsuppress, and remove study geometry, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

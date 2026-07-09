@@ -1,0 +1,220 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Analyze Solid Edge files using command line options</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Analyze Solid Edge files using command line options"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1195748">
+                     <h1 class="topic-title">Analyze Solid Edge files using command line options</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge file analysis can be performed from within the Data Preparation Utility
+                     or from the command line by typing <b>\Program Files\Siemens\Solid Edge 2023\Program\DataPrepUtility.exe /viewproperties</b> and applying the following options:</p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p><b>DataPrepUtility.exe /viewproperties /tc /folder "D:\folder path" /Sort /ShowCSVFile
+                           /viewLog</b></p>
+                  </div>
+                  <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                     <colgroup span="1">
+                        <col span="1" width="27%">
+                        <col span="1" width="23%">
+                        <col span="1" width="50%">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th rowspan="1" colspan="1">
+                              <p>Option</p>
+                           </th>
+                           <th rowspan="1" colspan="1">
+                              <p>Use</p>
+                           </th>
+                           <th rowspan="1" colspan="1">
+                              <p>Comments</p>
+                           </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/tc</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Prepare data for Teamcenter.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Choose /tc. If no option is specified, data is prepared for the unmanaged environment.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/folder &lt;folder path&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specify the path of the folder to analyze.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>By default, the option to analyze files from a specified folder is selected and folder
+                                 path is considered.</p>
+                              <p>If &lt;folder path&gt; is the only argument specified, then /folder option is not necessary.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/DryrunXML &lt;xmlfile&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Analyze data from Add to Teamcenter dry run.</p>
+                           </td>
+                           <td rowspan="2" colspan="1">
+                              <p>Specify either /DryrunXML or /DryrunCsvOrText followed by the file path.</p>
+                              <p>In the case of a conflicting parameter, the program uses the second parameter.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/DryrunCSV &lt;csv/text file&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Analyze data from Add to Teamcenter dry run output CSV file path.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/BrokenLinkAnalysis</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Performs broken link analysis.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only if analyzing from a folder path. This option is ignored when used
+                                 with other options.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/CrawlLinks</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Crawl links to build a complete list of Solid Edge files to be imported.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Applicable only if analyzing from a folder path.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/Sort</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies that you want the Excel spreadsheet sorted.</p>
+                           </td>
+                           <td rowspan="1" colspan="1"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/report &lt;reportfile&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Specifies the name of the report file.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>If name is not specified, the default report file AnalyisOfSolidEdgefiles.txt is created
+                                 in the folder path specified with /folder option.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/ShowDialog</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Displays Analyze Files dialog box.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Use this option when you want to see the Analyze Files dialog box with all specified
+                                 options selected. You must manually start the analysis by clicking OK in the dialog
+                                 box.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/ShowCSVFile</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Opens output CSV file.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/saveCSVfile &lt;output file&gt;</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Saves output file in to the specified location.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Provide full path with name where you want to save the output CSV file.</p>
+                              <p>If no file is specified, the file <em>dataPrepUtility.xlsm</em> is created in the folder path specified with /folder option.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/viewreport</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Opens log file.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Report file is opened when processing completes.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>/?</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Displays help for command line options.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Any error messages encountered while processing display in the command window.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze1h" rel="analyze1h">Perform a Solid Edge file analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/linkfixup1h" rel="linkfixup1h">Fix links in Solid Edge files</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/modify1h" rel="modify1h">Modify Solid Edge files using the Data Preparation Utility</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186978" rel="xid1186978">Generate a list of custom properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186986" rel="xid1186986">Generate a list of reverse links</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/renametc1h" rel="renametc1h">Rename files using the Data Preparation Utility</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seectools1a" rel="seectools1a">Solid Edge Data Preparation Utility</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1192540" rel="xid1192540">Considerations before using the Data Preparation Utility</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1195749" rel="xid1195749">Fix broken links using command line options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1195750" rel="xid1195750">Modify Solid Edge files using command line options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1186430" rel="xid1186430">Data Preparation dialog box</a><br><br></div>
+            <div class="footer-content">Analyze Solid Edge files using command line options, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

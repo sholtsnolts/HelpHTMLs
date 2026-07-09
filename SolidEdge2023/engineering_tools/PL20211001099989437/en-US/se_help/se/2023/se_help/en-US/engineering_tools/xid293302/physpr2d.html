@@ -1,0 +1,144 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Physical Properties dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Physical Properties dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="physpr2d">
+                     <h1 class="topic-title">Physical Properties dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Displays the physical properties of a part or an assembly.</p>
+                  <dl>
+                     <dt>Tabs</dt>
+                     <dd class="ml-3">
+                        <ul style="list-style: none">
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physpr1d" rel="physpr1d">Global</a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physpr3d" rel="physpr3d">Principal</a></p>
+                           </li>
+                        </ul>
+                     </dd>
+                     <dt>Dialog Box Options</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>User Defined Properties</dt>
+                           <dd class="ml-3">
+                              <p>Allows you to manually define the physical properties for an assembly, part or a weldment.
+                                 &nbsp;When the option is set, all data boxes become available so that you can enter the
+                                 user-defined properties. The Coordinate System, Density, and Accuracy boxes, as well
+                                 as the Update button, become unavailable.</p>
+                           </dd>
+                           <dt>Coordinate System</dt>
+                           <dd class="ml-3">
+                              <p>Sets the coordinate system for the properties to be computed relative to. &nbsp;A drop
+                                 list contains all user-defined coordinate systems plus an entry for the Model Space
+                                 coordinate system, which is the default. &nbsp;As you move the cursor over the entries
+                                 in the list, the coordinate system under the cursor highlights graphically.</p>
+                           </dd>
+                           <dt>Material</dt>
+                           <dd class="ml-3">
+                              <p>Displays the material name and density for the part. These options are available only
+                                 for part and sheet metal documents.</p>
+                              <p>The material and density for a part is set using the Material Table command. You can
+                                 click the Change button to display the Solid Edge Material Table dialog box.</p>
+                              <dl>
+                                 <dt>Name</dt>
+                                 <dd class="ml-3">
+                                    <p>Displays the material name for the part.</p>
+                                 </dd>
+                                 <dt>Density</dt>
+                                 <dd class="ml-3">
+                                    <p>Displays the density for the part or weldment. The value is in the active working
+                                       units for density. You set the density value by using the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material2d" rel="material2d">Material Properties tab</a> in the Solid Edge Material Table dialog box. This option is available in the Part,
+                                       Sheet Metal, and Weldment environments.</p>
+                                 </dd>
+                                 <dt>Change</dt>
+                                 <dd class="ml-3">
+                                    <p>Displays the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material1d" rel="material1d">Solid Edge Material Table dialog box</a> so you can change the material or edit the mechanical properties, such as density
+                                       for the part.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt>Component Density</dt>
+                           <dd class="ml-3">
+                              <p>Sets the component density for parts in a weldment that have not had their density
+                                 defined. This option is available only in the Weldment environment.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>For weldments, this value is used only if the parent part is missing or the part does
+                                    not have a density already defined. &nbsp;Also, the density value for a weldment only applies
+                                    to the active document and is used for computations at that level. The density for
+                                    the weldment is not saved to parts with no density. You should add to the correct
+                                    density for all parts. You can use the Property Manager command to determine which
+                                    densities are missing and then add the density column to the Property Manager display.</p>
+                              </div>
+                           </dd>
+                           <dt>Bead Density</dt>
+                           <dd class="ml-3">
+                              <p>Sets the weld bead density. This option is available only in the Weldment environment.</p>
+                           </dd>
+                           <dt>Accuracy (0 to 1.0)</dt>
+                           <dd class="ml-3">
+                              <p>Sets the accuracy of the physical properties calculation. A lower value processes
+                                 faster, but reduces the accuracy of the result.</p>
+                              <p>To display absolute accuracy, set the accuracy to 1.0. This will return a +0/-0 tolerance.</p>
+                           </dd>
+                           <dt>Update on File Save</dt>
+                           <dd class="ml-3">
+                              <p>Recalculates physical properties when you save the document.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Solid Edge Assembly templates are delivered with update physical properties turned
+                                    off. As a result, assemblies marked as driven references are not automatically updated.
+                                    Enable the <b>Update on file save</b> option when you use the Multi-CAD capability in the Teamcenter-managed environment.</p>
+                              </div>
+                           </dd>
+                           <dt>Update</dt>
+                           <dd class="ml-3">
+                              <p>Updates the physical properties of a part, a weldment, or an assembly. Physical properties
+                                 can require updating if you add, remove, or modify a feature on a part or a weldment;
+                                 or if you add or remove a component from an assembly. A message is displayed at the
+                                 bottom of the dialog box that indicates whether the physical properties are up-to-date
+                                 or out-of-date.</p>
+                           </dd>
+                           <dt>Save As</dt>
+                           <dd class="ml-3">
+                              <p>Saves the physical properties data to a document.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physas1h" rel="physas1h">Calculate the physical properties for an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physpr1h" rel="physpr1h">Calculate the physical properties for a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physman1h" rel="physman1h">Modify the physical properties for the parts in an assembly</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physpr1a" rel="physpr1a">Physical properties of parts and assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physpr1c" rel="physpr1c">Physical Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physman1d" rel="physman1d">Physical Properties Manager dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physman1c" rel="physman1c">Physical Properties Manager command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physpr1d" rel="physpr1d">Global Tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/physpr3d" rel="physpr3d">Principal Tab</a><br><br></div>
+            <div class="footer-content">Physical Properties dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

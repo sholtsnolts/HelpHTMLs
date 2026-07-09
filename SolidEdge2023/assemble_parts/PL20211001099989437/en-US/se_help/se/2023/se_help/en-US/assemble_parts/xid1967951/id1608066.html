@@ -1,0 +1,1271 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Exploding an assembly</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Exploding an assembly"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="id1608066">
+                     <h1 class="topic-title">Activity: Exploding an assembly</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <div class="row justify-content-center">
+                     <div class="col-11">
+                        <h4 class="division-title">Overview</h4>
+                        <div>
+                           <p>In this activity you open an assembly and enter the Explode-Render-Animate application.
+                              You use the <b>Auto-Explode</b> command (also referred to as the <b>Automatic Explode</b> command) to create an exploding time line used to animate the explosion. After the
+                              initial explosions are created, you use the manual explode command to group parts
+                              and subassemblies, to sequence the explosions, and to define the behavior of the parts
+                              as they explode.</p> 
+                           <p><a download="explode.zip" target="_blank" href="../../../common/nonLocalized/courseware_datasets/spse01691/explode.zip"> <b>Click here to download the activity file.</b> </a></p>
+                        </div>
+                        <h4 class="division-title">Objectives</h4>
+                        <div>
+                           <p>In this activity, you will use the Explode-Render-Animate application to accomplish
+                              the following:</p>
+                           <ul>
+                              <li>
+                                 <p>Use the <b>Manual Explode</b> command to order and sequence the events of an explosion.</p>
+                              </li>
+                              <li>
+                                 <p>Define the distances and directions of exploding parts along a time line.</p>
+                              </li>
+                              <li>
+                                 <p>Group parts and subassemblies and control how they behave during and explosion and
+                                    when they explode.</p>
+                              </li>
+                              <li>
+                                 <p>Creating an animation time line to be used in an animation sequence.</p>
+                              </li>
+                              <li>
+                                 <p>Use the <b>Auto-Explode</b> command to begin an exploding sequence.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">1: Open an assembly and create an exploding time line to animate the explosion.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity" data-parent=".id1608066" id="explode_activity">
+                        <p>When using the <b>Auto Explode</b> command, the results are dependent on several factors. Relationships used in building
+                           the assembly determine how the <b>Auto Explode</b> command behaves. Parts positioned with an <b>Axial Align</b> will explode away from the adjacent part in the direction of the axis. The same parts
+                           that can be positioned with an <b>Axial Align</b>, can also be positioned with <b>Mate</b>, and <b>Planar Align</b>, however how these parts explode using the <b>Auto Explode</b> command may not be as desired.</p>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_0_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_0_0" class="step-label">
+                                    <p>Open the assembly <b>explode.asm</b> with all the parts active.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_1_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_1_0" class="step-label">
+                                    <p>In <b>PathFinder</b>, observe the relationships and grouping of parts in subassemblies that were used
+                                       to create the assembly. </p>
+                                    <p>These relationships and subassemblies will be used in the <b>Auto Explode</b> command. To ensure that the <b>Auto Explode</b> command gives desirable and predictable results, it's important to consider which
+                                       relationships to use when positioning parts in the assembly.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_007.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_2_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_2_0" class="step-label">
+                                    <p>Choose the <b>Tools tab</b>→<b>Environs</b> group→<b>ERA</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_a_044.jpg">.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_001.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_3_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_3_0" class="step-label">
+                                    <p>To explode the assembly, choose the <b>Home</b> tab→<b>Explode</b> group→<b>Auto Explode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_002.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_4_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_4_0" class="step-label">
+                                    <p>On the <b>Auto Explode</b> command bar, select <b>Top level assembly</b>, and then click the <b>Accept</b> button.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_5_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_5_0" class="step-label">
+                                    <p>Click <b>Automatic Explode Options</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_004.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_6_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_6_0" class="step-label">
+                                    <p>To define the behavior of subassemblies, in the <b>Automatic Explode Options</b> dialog box, select <b>Bind all subassemblies</b>. Set the <b>Explode Technique</b> to <b>By subassembly level</b> and click <b>OK</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_005.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <p>Subassembly parts can be bound together as a group causing it to behave as if it were
+                                    a single part, or the subassembly can be exploded into its constituent parts.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_7_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_7_0" class="step-label">
+                                    <p>On the command bar, click <b>Explode</b>, click <b>Finish</b> and then click <b>Cancel</b>. The results are shown.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_008.jpg"></p>
+                                 <p>Examine the results. The parts that were in the top level of the assembly exploded,
+                                    and the subassemblies stayed intact.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_8_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_8_0" class="step-label">
+                                    <p>Click the <b>Explode PathFinder</b> tab <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_035.jpg"> and observe the grouping. The display shows that the subassemblies are bound and
+                                       behave as if they were a single part.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_033.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>If <b>PathFinder</b> does not contain the tab you are looking for, such as <b>Explode PathFinder</b>, <b>Parts Library</b>, or <b>Family of Assemblies</b>, you can display it by doing either of the following:</p>
+                                    <ul>
+                                       <li>
+                                          <p>Choose <b>View</b> tab→<b>Show</b> group→<b>Panes</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/edgbar.gif">, and then select the tab name from the menu.</p>
+                                       </li>
+                                       <li>
+                                          <p>In any of the other open <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/docking_window" rel="docking_window">docking windows</a>, such as the <b>Layers</b> tab or the <b>Sensors</b> tab, click the <b>Display Docking Window Menu</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/dockwnd_dispbutton.gif">, and then select the tab name.</p>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_9_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_9_0" class="step-label">
+                                    <p>Expand some of the parts and observe the offset values. The <b>Explode PathFinder</b> allows you to modify events and parameters that define the explosion.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_034.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_10_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_10_0" class="step-label">
+                                    <p>Select Group 2 in the <b>Explode PathFinder</b>, and in the command bar enter <b>15 mm</b> for the explode <b>Distance</b>, and then press <b>Enter</b>. This will set a uniform explosion distance.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_036a.jpg"></p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_036.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>If you exit the <b>Explode-Render-Animate</b> application, or use the <b>Unexplode</b> command to collapse the explosion without saving a display configuration, any information
+                                       about the explosion is lost.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_11_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_11_0" class="step-label">
+                                    <p>Choose the <b>Home</b> tab→<b>Configurations</b> group→<b>Display Configurations</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_032.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_12_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_12_0" class="step-label">
+                                    <p>Click <b>New</b> to create a new configuration, type <b>exp01</b>, and then click <b>OK</b>. Click <b>Close</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_13_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_13_0" class="step-label">
+                                    <p>Choose the <b>Home</b> tab→<b>Modify</b> group→<b>Unexplode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_009.jpg"> to restore the assembly to the unexploded state. When asked to delete the current
+                                       explosion, click <b>Yes</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_01">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">2: Explode the assembly with the bind subassemblies option turned off.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_01" data-parent=".id1608066" id="explode_activity_01">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_14_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_14_0" class="step-label">
+                                    <p>Choose the <b>Auto Explode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_002.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_15_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_15_0" class="step-label">
+                                    <p>Select <b>Top-level assembly</b> and click the <b>Accept</b> button.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_16_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_16_0" class="step-label">
+                                    <p>Click the <b>Automatic Explode Options</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_004.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_17_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_17_0" class="step-label">
+                                    <p>Deselect <b>Bind all subassemblies</b> and click <b>OK</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_010.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_18_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_18_0" class="step-label">
+                                    <p>On the command bar, click <b>Explode</b>, click <b>Finish</b> and then click <b>Cancel</b>. The results are shown.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_011.jpg"></p>
+                                 <p>Examine the results. All the parts exploded as if they were in the top level assembly.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_19_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_19_0" class="step-label">
+                                    <p>Choose the <b>Display Configurations</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_032.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_20_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_20_0" class="step-label">
+                                    <p>Click <b>New</b> to create a new configuration, and enter <b>exp02</b>, and then click <b>OK</b>. Click <b>Close</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_21_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_21_0" class="step-label">
+                                    <p>Choose the <b>Home</b> tab→<b>Modify</b> group→<b>Unexplode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_009.jpg"> to restore the assembly to the unexploded state. When asked to delete the current
+                                       explosion, click <b>Yes</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_02">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">3: Bind the clock hand subassemblies so that they do not explode.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_02" data-parent=".id1608066" id="explode_activity_02">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_22_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_22_0" class="step-label">
+                                    <p>In <b>PathFinder</b>, select the subassemblies defining the clock hands.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_012.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_23_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_23_0" class="step-label">
+                                    <p>Choose the <b>Home</b> tab→<b>Modify</b> group→<b>Bind</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_013.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_24_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_24_0" class="step-label">
+                                    <p>Notice the display in <b>PathFinder</b> has changed to indicate the subassemblies are bound.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_015.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>If you need to unbind a subassembly, select the subassembly and click the <b>Unbind</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_014.jpg">.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_25_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_25_0" class="step-label">
+                                    <p>Repeat the <b>Auto Explode</b> command with <b>Bind all subassemblies</b> turned off.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_010.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_26_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_26_0" class="step-label">
+                                    <p>Click <b>Explode</b>, click <b>Finish</b> and then click <b>Cancel</b>. The results are shown.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_016.jpg"></p>
+                                 <p>Examine the results. All the parts exploded as if they were in the top level assembly
+                                    except the clock hands.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_27_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_27_0" class="step-label">
+                                    <p>You will reposition the parts <b>e_glass.par</b> and <b>e_SE_face.par</b> in the explosion. Choose the <b>Home</b> tab→<b>Modify</b> group→<b>Reposition</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_074.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_28_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_28_0" class="step-label">
+                                    <p>Select <b>e_glass</b> as the part to reposition.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_075.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_29_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_29_0" class="step-label">
+                                    <p>Select <b>G07_60_15.par</b> as the part to place the part next to.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_076.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_30_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_30_0" class="step-label">
+                                    <p>Select the side away from the clock housing to place the part.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_077.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>The flow line retains its length and may be longer than desired.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_31_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_31_0" class="step-label">
+                                    <p>Reposition the part <b>e_SE_face.par</b> by repeating the steps above. The part to place the part next to will be <b>e_glass.par</b>. The direction is towards the clock body. This positions the face between the glass
+                                       and the rest of the clock.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_078.jpg"></p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_079.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_32_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_32_0" class="step-label">
+                                    <p>Choose the <b>Select</b> command and in the <b>Explode PathFinder</b>, find <b>e_glass.par</b> and <b>e_SE_face.par</b> and set the offset distance to <b>30 mm</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_080a.jpg"></p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_080.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_33_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_33_0" class="step-label">
+                                    <p>Choose the <b>Display Configurations</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_032.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_34_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_34_0" class="step-label">
+                                    <p>Click <b>New</b>, enter <b>exp03</b>, and then click <b>OK</b>. Click <b>Close</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_35_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_35_0" class="step-label">
+                                    <p>Choose the <b>Home</b> tab→<b>Modify</b> group→<b>Unexplode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_009.jpg"> to restore the assembly to the unexploded state. When asked to delete the current
+                                       explosion, click <b>Yes</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_03">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">4: Use the Auto Explode command with the Subassembly option set. </div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_03" data-parent=".id1608066" id="explode_activity_03">
+                        <p>This is the first step in creating the final explosion. After the automatic explosion,
+                           use the manual <b>Explode</b> command to further control the events in the explosion.</p>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_36_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_36_0" class="step-label">
+                                    <p>Choose the <b>Auto Explode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_002.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_37_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_37_0" class="step-label">
+                                    <p>On the <b>Auto Explode</b> command bar, select <b>Subassembly</b>. Select <b>e_housing.asm</b>, and then click the <b>Accept</b> button.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_018.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_38_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_38_0" class="step-label">
+                                    <p>Click the <b>Automatic Explode Options</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_004.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_39_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_39_0" class="step-label">
+                                    <p>Select <b>Bind all subassemblies</b>. Set the <b>Explode Technique</b> to <b>By subassembly level</b> and click <b>OK</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_005.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_40_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_40_0" class="step-label">
+                                    <p>Click the <b>Automatic Spread Distance</b> button and enter a value of <b>15 mm</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_41_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_41_0" class="step-label">
+                                    <p>Click <b>Explode</b>, click <b>Finish</b> and then click <b>Cancel</b>. The results are shown.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_019.jpg"></p>
+                                 <p>Examine the results. Only the subassembly chosen exploded.</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_04">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">5: Refine the explosion events using the manual Explode command.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_04" data-parent=".id1608066" id="explode_activity_04">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_42_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_42_0" class="step-label">
+                                    <p>Choose <b>Home</b> tab→<b>Explode</b> group→<b>Explode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_020.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_43_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_43_0" class="step-label">
+                                    <p>In <b>PathFinder</b>, in the subassembly <b>e_housing.asm</b>, select <b>e_feltpad.par</b>, and then click <b>Accept</b>. This part is on the bottom of the housing and is positioned using a ground relationship.
+                                       You will explode it in the same direction as the foot pads.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_021.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_44_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_44_0" class="step-label">
+                                    <p>Select the <b>e_case.par</b> as the stationary part.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_022.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_45_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_45_0" class="step-label">
+                                    <p>Select the bottom face of <b>e_case.par</b> as the stationary part face to explode from.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_023.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_46_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_46_0" class="step-label">
+                                    <p>Select down as the direction to explode.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_024.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_47_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_47_0" class="step-label">
+                                    <p>Set the offset distance to <b>35 mm</b> and then click <b>Explode</b>. Click <b>Finish</b>, then click <b>Cancel</b>.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_025.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_05">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">6: Move the gears as a group using the manual Explode command. </div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_05" data-parent=".id1608066" id="explode_activity_05">
+                        <p>Gears will be placed between the clock housing and the circular back plane that is
+                           used to position the gears in the clock. You first need to correct the spread distance
+                           between the housing and the back to make room for the gears.</p>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_48_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_48_0" class="step-label">
+                                    <p>In the <b>Explode PathFinder</b>, select the Event 1 in <b>e_back.par</b> and change the distance to <b>60.00 mm</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_038.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_49_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_49_0" class="step-label">
+                                    <p>Choose the <b>Explode</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_020.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_50_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_50_0" class="step-label">
+                                    <p>In <b>PathFinder</b>, select all the gears and the subassemblies that define the clock hands, and then
+                                       click <b>Accept</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_026.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_51_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_51_0" class="step-label">
+                                    <p>Select <b>e_back.par</b> as the part to remain stationary.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_027.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_52_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_52_0" class="step-label">
+                                    <p>Select the circular face shown as the stationary face from which to explode.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_028.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_53_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_53_0" class="step-label">
+                                    <p>Select the direction shown as the explosion direction.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_029.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_54_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_54_0" class="step-label">
+                                    <p>Set the parameters shown, then click <b>OK</b>.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_031.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_55_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_55_0" class="step-label">
+                                    <p>Enter a distance of <b>25 mm</b> and then click <b>Explode</b>, click <b>Finish</b>, then click <b>Cancel</b>.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_030.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_56_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_56_0" class="step-label">
+                                    <p>Choose the <b>Display Configurations</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_032.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_57_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_57_0" class="step-label">
+                                    <p>Click <b>New</b>, and enter <b>exp04</b>. Then click <b>OK</b>. Click <b>Close</b>.</p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>You will overwrite this configuration at a later time. It is good practice to incrementally
+                                       save the exploded views in case you need to revert back to the point at which you
+                                       saved.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_06">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">7: Reposition a portion of the explosion.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_06" data-parent=".id1608066" id="explode_activity_06">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_58_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_58_0" class="step-label">
+                                    <p>Choose <b>Home</b> tab→<b>Modify</b> group→<b>Drag Component</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_039.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_59_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_59_0" class="step-label">
+                                    <p>From the <b>Explode PathFinder</b>, select <b>e_back.par</b>, and then click <b>Accept</b> on the <b>Drag Component</b> command bar.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_040.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_60_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_60_0" class="step-label">
+                                    <p>On the command bar, select <b>Move</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_61_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_61_0" class="step-label">
+                                    <p>Drag the Z axis vertically.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_041.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_62_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_62_0" class="step-label">
+                                    <p>Position the parts as shown.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_043.jpg"></p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_044.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_63_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_63_0" class="step-label">
+                                    <p>Choose the <b>Select</b> command, and in the <b>Explode PathFinder</b>, select the event you just created. The vertical flow line will highlight. Set the
+                                       distance to <b>50 mm</b>, and then click <b>OK</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_045.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_64_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_64_0" class="step-label">
+                                    <p>Choose the <b>Drag Component</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_039.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_65_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_65_0" class="step-label">
+                                    <p>Select <b>e_backplate.par</b>, and then click <b>Accept</b>.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_046.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_66_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_66_0" class="step-label">
+                                    <p>On the command bar, select <b>Rotate</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_67_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_67_0" class="step-label">
+                                    <p>Enter <b>45<sup>o</sup></b> as the angle to rotate about the Y axis. The results are shown.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_048.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_68_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_68_0" class="step-label">
+                                    <p>In the <b>Configuration</b> group on the ribbon, choose the <b>Save Display Configuration</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_050.jpg">.</p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>The <b>Save Display Configuration</b> command saves the changes to the configuration name that is currently displayed on
+                                       the ribbon. This is a quick way to save a configuration.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_07">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">8: Animate the explosion.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_07" data-parent=".id1608066" id="explode_activity_07">
+                        <p>Creating an animation of an exploded view is the only portion of the animate command
+                           covered in this activity.</p>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_69_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_69_0" class="step-label">
+                                    <p>Choose the <b>Home</b> tab→<b>Animate</b> group→<b>Animation Editor</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_049.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_70_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_70_0" class="step-label">
+                                    <p>Examine the <b>Animation Editor</b>.</p></span></div>
+                              <div class="step-result">
+                                 <p>The right pane is the time line for each of the animation events. A motor was previously
+                                    defined in this assembly. Controls for playing the animation are displayed.</p>
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_055.jpg"></p>
+                                 <p>The left pane displays the animation events, and the right pane displays the event
+                                    duration bars. These can be used to define and sequence the events of the animation.</p>
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_056.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_71_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_71_0" class="step-label">
+                                    <p>Click <b>Animation Properties</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_066.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_72_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_72_0" class="step-label">
+                                    <p>Set the values as shown, and then click <b>OK</b>.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_065.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_73_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_73_0" class="step-label">
+                                    <p>Right-click the <b>Explosion</b> event, and then click <b>Edit Definition</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_057.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_74_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_74_0" class="step-label">
+                                    <p>Set the parameters as shown.</p>
+                                    <ul>
+                                       <li>
+                                          <p>Initial State: <b>Exploded</b>.</p>
+                                       </li>
+                                       <li>
+                                          <p>Speed: Explosion duration <b>5 seconds per event</b>.</p>
+                                       </li>
+                                       <li>
+                                          <p>Animation Order: <b>Innermost first</b>.</p>
+                                       </li>
+                                    </ul>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_058.jpg"></p>
+                                    <p>Click <b>OK</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_75_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_75_0" class="step-label">
+                                    <p>The explosion events are populated in the left pane.</p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>During an animation, you can zoom and pan. It is good practice to arrange the display
+                                       window before the animation to fit the animation in the view. To do this, choose the
+                                       <b>View</b> tab→<b>Window</b> group→<b>Arrange</b> command, and then choose <b>Horizontal</b>.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_76_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_76_0" class="step-label">
+                                    <p>Click <b>Play</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_016.jpg"> on the animation controls and observe the explosion.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_77_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_77_0" class="step-label">
+                                    <p>When the explosion is complete, click <b>Stop</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_019.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_78_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_78_0" class="step-label">
+                                    <p>Click <b>Go to Start</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_018.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_79_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_79_0" class="step-label">
+                                    <p>Now change the sequence of the explosion. Right-click the explosion event, and then
+                                       click <b>Edit Definition</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_061.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_80_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_80_0" class="step-label">
+                                    <p>Set the parameters as shown.</p>
+                                    <ul>
+                                       <li>
+                                          <p>Initial state: <b>Collapsed</b>.</p>
+                                       </li>
+                                       <li>
+                                          <p>Animation order: <b>Innermost first</b>.</p>
+                                       </li>
+                                    </ul>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_059.jpg"></p>
+                                    <p>Click <b>OK</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_81_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_81_0" class="step-label">
+                                    <p>Click <b>Play</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_016.jpg"> on the animation controls and observe the explosion.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_82_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_82_0" class="step-label">
+                                    <p>When the explosion is complete, click <b>Stop</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_019.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_83_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_83_0" class="step-label">
+                                    <p>Click <b>Go to Start</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_018.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_84_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_84_0" class="step-label">
+                                    <p>Now change the sequence of the explosion. Right-click the explosion event, and then
+                                       click <b>Edit Definition</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_061.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_85_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_85_0" class="step-label">
+                                    <p>Set the parameters as shown.</p>
+                                    <ul>
+                                       <li>
+                                          <p>Initial state: <b>Collapsed</b>.</p>
+                                       </li>
+                                       <li>
+                                          <p>Animation order: <b>Outermost first</b>.</p>
+                                       </li>
+                                    </ul>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_060.jpg"></p>
+                                    <p>Click <b>OK</b>.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_86_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_86_0" class="step-label">
+                                    <p>Click <b>Play</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_016.jpg"> on the animation controls and observe the explosion.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_87_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_87_0" class="step-label">
+                                    <p>When the explosion is complete, click <b>Stop</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_019.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_88_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_88_0" class="step-label">
+                                    <p>Click <b>Go to Start</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_018.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_89_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_89_0" class="step-label">
+                                    <p>To exit the <b>Animation Editor</b>, click the <b>Animation Editor</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_049.jpg"> again. Click <b>Yes</b> to save the changes to the current animation.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_08">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">9: Move all the fasteners into the same event group.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_08" data-parent=".id1608066" id="explode_activity_08">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_90_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_90_0" class="step-label">
+                                    <p>In the <b>Explode PathFinder</b>, select the fasteners connecting the footpads to the bottom of the case. Right-click
+                                       and select <b>Remove from Event Group</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_051.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>The event group that contained these fasteners was dissolved because it no longer
+                                       contains any events.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_91_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_91_0" class="step-label">
+                                    <p>Right-click the fasteners and select <b>Add to Event Group</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_052.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_92_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_92_0" class="step-label">
+                                    <p>Either from <b>Explode PathFinder</b> or in the graphics window, select a fastener in the group you are adding these fasteners
+                                       to.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_053.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_93_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_93_0" class="step-label">
+                                    <p>The fasteners now all belong to the same event group.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_054.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_94_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_94_0" class="step-label">
+                                    <p>Choose the <b>Save Display Configuration</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_050.jpg"> command.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_09">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">10: Replay the animation and observe the behavior of the fasteners.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_09" data-parent=".id1608066" id="explode_activity_09">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_95_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_95_0" class="step-label">
+                                    <p>Choose the <b>Animation Editor</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_049.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_96_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_96_0" class="step-label">
+                                    <p>Update the animation with the configuration changes.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_062.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_97_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_97_0" class="step-label">
+                                    <p>Click <b>Play</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_016.jpg"> on the animation controls and observe the explosion.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_98_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_98_0" class="step-label">
+                                    <p>When the explosion is complete, click <b>Stop</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_m_019.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>Notice the fasteners exploded simultaneously.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_99_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_99_0" class="step-label">
+                                    <p>Click <b>Go to End</b> <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_mm2.jpg"> on the animation controls.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_10">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">11: Add a motion path to the explosion.</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_10" data-parent=".id1608066" id="explode_activity_10">
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_100_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_100_0" class="step-label">
+                                    <p>Choose the <b>Motion Path</b> command on the animation controls.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_067.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_101_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_101_0" class="step-label">
+                                    <p>Select the bottom fasteners as the components that follow the motion path, and then
+                                       click <b>Accept</b>.</p></span></div>
+                              <div class="step-result">
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_068.jpg"></p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_102_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_102_0" class="step-label">
+                                    <p>Press <b>X</b> on the keyboard as many times as it takes to lock the XY plane as shown.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_069.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_103_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_103_0" class="step-label">
+                                    <p>On the command bar, enter <b>35</b> as the frame count.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_104_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_104_0" class="step-label">
+                                    <p>Enter the curve approximately as shown and <b>Accept</b>. Click <b>Finish</b>.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_070.jpg"></p></span></div>
+                              <div class="step-result">
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>This curve is a free-form 3D space curve locked into the XY plane. Your results may
+                                       vary slightly.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_105_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_105_0" class="step-label">
+                                    <p>Play the animation. Notice the fasteners follow the motion path at the beginning of
+                                       the animation.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_106_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_106_0" class="step-label">
+                                    <p>In the animation time line, drag the motion path event bar to the right as far as
+                                       it can go.</p>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_072.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_107_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_107_0" class="step-label">
+                                    <p>Right-click the event bar and check the <b>Properties</b>. These can be modified if necessary.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_108_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_108_0" class="step-label">
+                                    <p>Run the animation from the beginning. Notice the fasteners follow the motion path
+                                       at the end of the animation rather than the beginning.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_109_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_109_0" class="step-label">
+                                    <p>Stop the animation and reset to the beginning. Save the changes by clicking the <b>Save Animation</b> command.</p>
+                                    <p><img class="img-fluid" src="../../../common/graphicLibrary/se/explode/training/bj_explode_render_animate_e_073.jpg"></p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_110_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_110_0" class="step-label">
+                                    <p>To exit the <b>Animation Editor</b>, click the <b>Animation Editor</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_e_049.jpg">.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                        <div class="step-container">
+                           <div class="step-collapser-target">
+                              <div class="step-action"><input type="checkbox" class="step-collapser" id="genid_step_111_0" data-toggle="task-tooltip" data-placement="top" title="Check when completed"><span data-for="genid_step_111_0" class="step-label">
+                                    <p>This completes the activity. Click <b>Close ERA</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/explode/training/bj_explode_render_animate_a_046.jpg"> to exit the Explode-Render-Animate application. <b>Save</b> the assembly.</p></span></div>
+                              <div class="step-result"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".explode_activity_11">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">12: Activity summary</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse explode_activity_11" data-parent=".id1608066" id="explode_activity_11">
+                        <p>In this activity, you used the Explode-Render-Animate application to explode an assembly.
+                           You accomplished the following:</p>
+                        <ul>
+                           <li>
+                              <p>Used the <b>Auto Explode</b> command to begin an exploding sequence.</p>
+                           </li>
+                           <li>
+                              <p>Defined the distances and directions of exploding parts along a time line.</p>
+                           </li>
+                           <li>
+                              <p>Used the manual <b>Explode</b> command to order and sequence the events of an explosion.</p>
+                           </li>
+                           <li>
+                              <p>Grouped parts and subassemblies and controlled how they behave during and explosion
+                                 and when they explode.</p>
+                           </li>
+                           <li>
+                              <p>Created an animation time line to be used in an animation sequence.</p>
+                           </li>
+                        </ul> 
+                        <div>
+                           <div style="display: inline-block; vertical-align: top;">→</div>
+                           <div style="display: inline-block;"> 
+                              <p>Click the <b>Close</b> button in the activity window.</p> </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".spse01691_explode_review">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">13: Test your knowledge: Exploding an assembly</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse spse01691_explode_review" data-parent=".id1608066" id="spse01691_explode_review">
+                        <p>Answer the following questions:</p>
+                        <ol type="1" start="1">
+                           <li>
+                              <p>Where are exploded views stored?</p>
+                           </li>
+                           <li>
+                              <p>Name two methods of binding a subassembly during an explosion?</p>
+                           </li>
+                           <li>
+                              <p>How can explode events be moved to other explode groups?</p>
+                           </li>
+                           <li>
+                              <p>Why would you use manual explode rather than auto explode?</p>
+                           </li>
+                           <li>
+                              <p>What type of flow lines are created with the auto explode command?</p>
+                           </li>
+                        </ol>
+                     </div>
+                  </div>
+                  <div class="card collapser activity-task">
+                     <div class="collapser-header collapser-toggle activity-task-title collapser-header-color collapser-collapsed" data-toggle="collapse" data-target=".spse01691_explode_answers">
+                        <div class="activity-task-title-text">
+                           <div class="collapser-content">14: Answers</div>
+                        </div><span class="collapser-header-drop"><img src="../../../../../../../../../ui/1.0/tdoc/resources/down-arrow.svg" class="training-resource"></span></div>
+                     <div class="collapser-content collapser-target collapse spse01691_explode_answers" data-parent=".id1608066" id="spse01691_explode_answers">
+                        <ol type="1" start="1">
+                           <li>
+                              <p>Where are exploded views stored?</p>
+                              <p>Exploded views are stored as a display configuration. Display configurations are stored
+                                 in .cfg files usually having the same name as the assembly document.</p>
+                           </li>
+                           <li>
+                              <p>Name two methods of binding a subassembly during an explosion?</p>
+                              <p>Subassemblies can be bound either using the explode options, or by forcing an assembly
+                                 to stay bound by using the bind assembly command. Pathfinder graphically shows which
+                                 assemblies are bound. </p>
+                           </li>
+                           <li>
+                              <p>How can explode events be moved to other explode groups?</p>
+                              <p>After selecting the explode events from explode pathfinder, right-click and remove
+                                 the explode events from the current explode group. Use the same procedure to add the
+                                 events to a different group.</p>
+                           </li>
+                           <li>
+                              <p>Why would you use manual explode rather than auto explode?</p>
+                              <p>Auto explode positions assembly components based on which assembly relationships used
+                                 to place the components. Sometimes the results do not convey the intended results.
+                                 By using the manual explode command, you can control the placement of exploded assembly
+                                 components. This can be done after the auto explode command has finished.</p>
+                           </li>
+                           <li>
+                              <p>What type of flow lines are created with the auto explode command?</p>
+                              <p>Event flow lines are created with the auto explode command. Event flow lines are used
+                                 to create animations of exploded parts and will show up in draft documents. They are
+                                 stored in a display configuration.</p>
+                           </li>
+                        </ol>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Activity: Exploding an assembly, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

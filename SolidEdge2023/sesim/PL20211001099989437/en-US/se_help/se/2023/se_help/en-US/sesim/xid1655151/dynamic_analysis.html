@@ -1,0 +1,101 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Dynamic analysis</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Dynamic analysis"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dynamic_analysis">
+                     <h1 class="topic-title">Dynamic analysis</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>In many ways, dynamic analysis is a more realistic type of analysis than static analysis,
+                     but it is also more complex. Whereas static analysis takes into account the behavior
+                     of a structure at one time step or one frequency, dynamic analysis accounts for additional
+                     forces, such as damping and stiffness, that vary dynamically with frequency or with
+                     time.</p>
+                  <p>In Solid Edge Simulation, dynamic analysis is available using harmonic frequency response
+                     analysis and transient heat transfer analysis, and by applying dynamic loading using
+                     functions.</p>
+                  <h4 class="division-title">When to use harmonic frequency response analysis</h4>
+                  <div>
+                     <p>Harmonic frequency response is a method of dynamic analysis. </p>
+                     <p>Use harmonic frequency response analysis to evaluate the effects of vibration at specific
+                        harmonic frequencies as external energy is introduced to a system that was at equilibrium.
+                        The objective is to determine the optimal steady-state response to a dynamic series
+                        of oscillations at those frequencies. Oscillatory loading is sinusoidal in nature.
+                        In its simplest case, this loading is defined as having amplitude at a specific frequency.
+                        The steady-state oscillatory response occurs at the same frequency as the loading.
+                        </p>
+                     <p>By looking at the dynamic response level at each frequency, such as vibration displacement
+                        and chatter, you can identify important frequency ranges that must be mediated to
+                        prevent structural or mechanical failure. Mediation can include adjusting your design,
+                        redistributing weight, changing material properties, and adding damping mechanisms.
+                        </p>
+                     <p>Harmonic frequency response is an extension of normal modes analysis, in that you
+                        can use the results of a normal modes study (the frequencies at which an object resonates
+                        naturally, before external forces are applied) as input to a harmonic response study.
+                        </p>
+                     <ul>
+                        <li>
+                           <p>To use this form of dynamic analysis, choose the <b>Harmonic Response</b> study type on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a>.</p>
+                        </li>
+                        <li>
+                           <p>For an example, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a>. </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Concepts of harmonic frequency response</h4>
+                  <div>
+                     <p>Harmonic frequency response analysis is an alternate numerical approach to computing
+                        the frequency response of a structure. This method uses the mode shapes of the structure
+                        to reduce the size and uncouple the equations of motion. The mode shapes are usually
+                        calculated in an earlier normal modes analysis to determine the behavior of the structure.
+                        For this reason, harmonic frequency response is a natural extension of a normal modes
+                        analysis, making it a very efficient solving method.</p>
+                     <p>The results of harmonic frequency response analysis are in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot4a" rel="plot4a">displacement component plots</a>, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot6a" rel="plot6a">constraint force plots</a>, and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot7a" rel="plot7a">strain component plots</a> that are produced. You also can <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/probe3h" rel="probe3h">Graph nodal analysis results</a>.</p>
+                  </div>
+                  <h4 class="division-title">Dynamic loading</h4>
+                  <div>
+                     <p>An important aspect of a frequency response analysis or a transient heat analysis
+                        is the definition of a dynamic loading function. In a frequency response analysis,
+                        the force can be defined as a function of frequency. In a transient heat analysis,
+                        the thermal load can be defined as a function of time.</p>
+                     <p>There are two important aspects of dynamic load definition. The location of the loading
+                        on the structure must be defined in physical space; this is called the spatial distribution
+                        of the loading. Next, the dynamic load references a frequency function or a time function,
+                        which is created using the <b>Create Function</b> command. The frequency-varying or time-varying portion of the load is known as the
+                        temporal distribution of the load. A complete dynamic loading is a product of spatial
+                        (for instance, actual forces on nodes and pressures on elements) and temporal distributions
+                        of the function. </p>
+                     <p>Functions allow you to create general X vs. Y tables of information. They can be used
+                        for time- or frequency-dependent loads, or to attach nonlinear information to material
+                        properties. </p>
+                     <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/function1a" rel="function1a">Using functions</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Dynamic analysis, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

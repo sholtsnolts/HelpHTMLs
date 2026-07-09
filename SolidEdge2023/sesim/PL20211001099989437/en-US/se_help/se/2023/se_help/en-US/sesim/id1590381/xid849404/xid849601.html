@@ -1,0 +1,240 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity 2: Set the Femap scale factor to match Solid Edge model length units (mm or m) </title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity 2: Set the Femap scale factor to match Solid Edge model length units (mm or m) "></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid849601">
+                     <h1 class="topic-title">Activity 2: Set the Femap scale factor to match Solid Edge model length units (mm
+                        or m) </h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this activity you will learn how to import a Solid Edge model defined in millimeters
+                     into Femap, and then apply the millimeter scale factor. </p>
+                  <p>You will import the 10x10x100 mm part file you created in the previous activity.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/units/training/compare_se_units_to_femap1.gif"></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <ul>
+                        <li>
+                           <p>This activity requires that you have a separate installation and license for Femap.</p>
+                        </li>
+                        <li>
+                           <p>Femap provides several conversion files (*.cf), which are delivered in the Femap program
+                              folder. If you have specific conversion factor needs, these files are a good place
+                              to start. You can load them using the Tools→Convert Units→Load command in Femap.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Import Solid Edge files with length units set to millimeters</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>Start the Femap program from the desktop or from the <b>Start</b> menu.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>Do not use the <b>Tools</b> tab→<b>Environs</b> group→<b>Femap</b> command in Solid Edge to run Femap.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <h5>Set the conversion units in Femap.</h5>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>Choose <b>File</b>→<b>Preferences</b>.</p>
+                              </div>
+                           </div>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>In the <b>Preferences</b> dialog box, click the <b>Geometry/Model</b> tab.</p>
+                              </div>
+                           </div>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>From the <b>Solid Geometry Scale Factor</b> list, select <b>2. Millimeters</b>.</p>
+                                 <p>Notice that the scale factor in the box to the right of the list now shows 1000.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>This sets the Femap working units to be scaled to match the units in the Solid Edge
+                                       part model (also millimeters). </p>
+                                    <p>It also affects the material properties in the incoming file. Femap converts the material
+                                       property units to maintain consistency with the metric system standard of millimeters.
+                                       Units of pressure in the original model are converted to kiloPascals. </p>
+                                    <table rules="all" frame="box">
+                                       <colgroup span="1">
+                                          <col span="1">
+                                          <col span="1">
+                                       </colgroup>
+                                       <thead>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Model data units</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Equivalent Femap model units (based on millimeter)</p>
+                                             </td>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Length</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>millimeter (mm)</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Force</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>milliNewtons (mN)</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Mass</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>kilogram (kg)</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Temperature</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Centigrade (C)</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Stress, pressure</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>kiloPascals (kPa)</p>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>Close Femap.</p>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <h5>Import the Solid Edge file.</h5>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>Restart Femap.</p>
+                              </div>
+                           </div>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p> From the <b>Femap</b> menu, choose <b>File</b>→<b>Import</b>→<b>Geometry</b>.</p>
+                              </div>
+                           </div>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>In the <b>Import Geometry</b> dialog box, change the file type to <b>Solid Edge (*.par, *.psm, *.pwd, *.asm)</b>.</p>
+                              </div>
+                           </div>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p> Select the file you created in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/activity1_compare_sesim_femap_units" rel="activity1_compare_sesim_femap_units">Activity 1—Compare Solid Edge Simulation file units with Femap units</a>, and click <b>Open</b>.</p>
+                              </div>
+                           </div>
+                        </li>
+                        <li>
+                           <h5>Review the material properties.</h5>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>In the<b> Model Info</b> pane, review the material properties. </p>
+                                 <ul>
+                                    <li>
+                                       <p>Young's Modulus is 68947570. This is consistent with kiloPascals.</p>
+                                    </li>
+                                    <li>
+                                       <p>The density is 2.712E-6, matching kg/mm^3.</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                           <div>
+                              <div style="display: inline-block; vertical-align: top;">→</div>
+                              <div style="display: inline-block;">
+                                 <p>Close Femap without saving the file.</p>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Import Solid Edge files with length units set to meters</h4>
+                  <div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Assume in the previous example that you set the <b>Solid Geometry Scale Factor</b> to <b>1. Meters</b>. Also assume that you then try to import the same Solid Edge .par file with the base
+                           unit for length set to millimeters. </p>
+                        <p>The following message box is displayed: </p>
+                        <p><em>OK to Adjust Geometry Scale Factor to Match Value from Part File?</em> </p>
+                        <ul>
+                           <li>
+                              <p>In this case, it is best to click <b>No </b> and leave the scale factor in meters. This causes Femap to adjust its unit system
+                                 to match the actual units (meters) of the incoming Solid Edge .par file.</p>
+                           </li>
+                           <li>
+                              <p>If you click <b>Yes</b>, then this changes the model to meters, such as a 10x10x100 meters, which may not
+                                 be what you want to see.</p>
+                           </li>
+                        </ul>
+                        <p>This message box is not displayed if the base unit for length is set to meters in
+                           the Solid Edge file.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Activity 2: Set the Femap scale factor to match Solid Edge model length units (mm
+               or m) , Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

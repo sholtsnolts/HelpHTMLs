@@ -1,0 +1,154 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>IGES Export Translation Wizard (Types)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="IGES Export Translation Wizard (Types)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="igsxprtwiz3d">
+                     <h1 class="topic-title">IGES Export Translation Wizard (Types)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Assists in defining the type of IGES entity you want to create from the Solid Edge
+                     part or assembly file.</p>
+                  <dl>
+                     <dt>Solid Bodies Export As</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the body type to which you want export the IGES file. You should be careful
+                           when selecting these options, because of the entities supported by different CAD systems.
+                           For example, not all CAD systems support the BREP entity. However, most CAD systems
+                           do support trimmed surfaces.</p>
+                        <dl>
+                           <dt>BREP Solid as Analytics</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that Parasolid solid entities are written as Manifold Solid B-rep Objects
+                                 (MSBOs) that contain topology (connectivity) information, or as trimmed faces without
+                                 any topology information. It also specifies that the underlying trim surfaces that
+                                 make up the MSBOs are written as analytic surfaces, such as planes or cylinders, whenever
+                                 possible.</p>
+                              <p>When deselected, the files that are created are IGES version 4.0 compatible since
+                                 IGES version 4.0 does not support topology information.</p>
+                           </dd>
+                           <dt>BREP Solid as NURBS [Type 128]</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that Parasolid solid entities are written as Manifold Solid B-rep Objects
+                                 (MSBOs) that contain topology (connectivity) information or as trimmed faces without
+                                 any topology information. It also specifies that the underlying trim surfaces that
+                                 make up the MSBOs are written as b-spline (Type 128) surfaces whenever possible.</p>
+                              <p>When deselected, the files that are created are IGES version 4.0 compatible since
+                                 IGES version 4.0 does not support topology information.</p>
+                           </dd>
+                           <dt>Trim Surfaces as Analytics</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the solid data types found in Solid Edge are written as a surface definition,
+                                 Trim Surface (Type 144). It also specifies that the trimmed and free surfaces are
+                                 written as analytic surfaces without topology information, such as planes or cylinders,
+                                 whenever possible.</p>
+                              <p>When selected, the files that are created are IGES version 4.0 - 5.3 compatible since
+                                 there is no topology information written. This will result in free surfaces.</p>
+                           </dd>
+                           <dt>Trim Surfaces as NURBS [Type 128]</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the solid data types found in Solid Edge are written as a surface definition,
+                                 Trim Surface (Type 144). It also specifies that trimmed and free surfaces are written
+                                 as b-spline surfaces.</p>
+                              <p>The files that are created when you select this option are IGES version 4.0 - 5.3
+                                 compatible since there is no topology information written. This will result in free
+                                 surfaces.</p>
+                           </dd>
+                           <dt>Wireframe</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that surface or solid edges are extracted and written to the output file
+                                 as lines, arcs, and b-spline curves.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Export </dt>
+                     <dd class="ml-3">
+                        <p>Specifies the types of construction geometry you want to export.</p>
+                     </dd>
+                     <dt>Units</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the output units for the file. The units can be either inches or millimeters.</p>
+                        <dl>
+                           <dt>Inches</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to use inches as the output units in the IGES file.</p>
+                           </dd>
+                           <dt>Millimeters</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to use millimeters as the output units in the IGES file.</p>
+                           </dd>
+                           <dt>Export Solids (Constructions)</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to export any construction geometry that exists as solid bodies.</p>
+                           </dd>
+                           <dt>Export Sheets (Constructions)</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to export any construction geometry that exists as sheet bodies.</p>
+                           </dd>
+                           <dt>Export wires and points</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to export any construction geometry that exists as wire bodies.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Use this option to export Solid Edge documents that contain 3D points to IGES.</p>
+                              </div>
+                           </dd>
+                           <dt>Export Displayed Only</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to export only the active model and construction geometry
+                                 that is visible in the part or assembly.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Japan Automobile Manufacturers Association (Jama)</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to export the Solid Edge file to Japan Automobile Manufacturers
+                           Association (JAMA) IGES format. Jama IGES is a subset of the larger specification
+                           IGES. Therefore, any receiving system, including Solid Edge, will read JAMA IGES files.</p>
+                        <p>JAMA was designed to "trim back" the IGES specification, thus providing a more robust
+                           version of IGES. However, at the same time, it does reduce the ability to support
+                           some entity types such as type 120 Surface of Revolution. This means that almost all
+                           surface types will be spline surfaces.</p>
+                     </dd>
+                     <dt>Back</dt>
+                     <dd class="ml-3">
+                        <p>Moves to the previous dialog box of the <b>IGES Export Translation Wizard.</b></p>
+                     </dd>
+                     <dt>Next</dt>
+                     <dd class="ml-3">
+                        <p>Moves to the next dialog box of the <b>IGES Export Translation Wizard</b>.</p>
+                     </dd>
+                     <dt>Finish</dt>
+                     <dd class="ml-3">
+                        <p>Finishes the wizard and returns to the <b>Save As</b> dialog box.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <div class="footer-content">IGES Export Translation Wizard (Types), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

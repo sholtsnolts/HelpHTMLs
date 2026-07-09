@@ -1,0 +1,202 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate pressures in a tank</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate pressures in a tank"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1602236">
+                     <h1 class="topic-title">Tutorial: Simulate pressures in a tank</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_static" rel="linear_static">linear static analysis</a> to simulate the stresses inside a pressure tank. The study parameters used in this
+                     tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Structural Study type=Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Load type=Pressure</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The tutorial below is divided into four sections to make it easier to scan. </p>
+                  </div>
+                  <h4 class="division-title">Define a structural study.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Open the file named <b>FE_pressure_tank.par</b>.</p>
+                           <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_press01.gif"></p>
+                        </li>
+                        <li>
+                           <p>Set your force units to newtons:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>On the <b>File</b> menu, click <b>Info</b>→<b>File Units</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force11.gif"></p>
+                                 <p>This displays the <b>Units</b> tab in the <b>Solid Edge Options</b> dialog box. </p>
+                              </li>
+                              <li>
+                                 <p>Observe that the unit system for this model is based on the metric <b>MMKS (millimeter, kilogram, second)</b>.</p>
+                                 <p>You can make selective changes to these units using the <b>Base Units</b> table and the <b>Derived Units</b> table in this dialog box.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/metric_units2.gif"></p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Derived Units</b> table, the analysis properties are listed in the <b>Name</b> column. Scroll down to locate the table row for <b>Force</b>. Click in the <b>Value</b> box, and then choose <b>N </b> (newtons) from the list. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force13.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Click <b>Apply</b> and <b>OK</b>.</p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Create the study.</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Assign a material to the part on the <b>Simulation</b> tab→<b>Study</b> group, by selecting <b>Stainless steel</b> from the <b>Material List</b>. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz02.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                                 <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a> is displayed.</p>
+                              </li>
+                              <li>
+                                 <p>Select the following:</p>
+                                 <p><b>Study type</b>=<b>Linear Static</b></p>
+                                 <p><b>Mesh type</b>=<b>Tetrahedral</b></p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_type.gif"></p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_mesh.gif"></p>
+                              </li>
+                              <p>As indicated in the <b>Study</b> group on the ribbon, the study was created and is active.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sz22.gif"></p>
+                              <p>The new study also is listed on the <b>Simulation</b> pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press04.gif"></p>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Define and modify a pressure load.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Pressure</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_pressure_button.gif"></p>
+                        </li>
+                        <li>
+                           <p>In <b>PathFinder</b>, click <b>Thin-Wall 2</b> to select the inside faces of the tank.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_press06.gif"></p>
+                        </li>
+                        <li>
+                           <p>Type <b>200 psi</b> in the <b>Value</b> box. Press Enter.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press07.gif"></p>
+                           <p>The typed units automatically convert to the file units of kiloPascals.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press08.gif"></p>
+                        </li>
+                        <li>
+                           <p>Click in space to finish and exit the command.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_press09.gif"></p>
+                        </li>
+                        <li>
+                           <p>Modify the pressure value.</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Expand the <b>Loads</b> node in the <b>Simulation</b> pane and double-click <b>Pressure 1</b>. </p>
+                              </li>
+                              <li>
+                                 <p>Type <b>1000 kPa</b> in the <b>Value</b> box and press Enter. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press12.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Click to finish.</p>
+                              </li>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Apply fixed constraints.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                        </li>
+                        <li>
+                           <p>Select all of the planar faces on the two supports.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_press13.gif"></p>
+                        </li>
+                        <li>
+                           <p>Right-click in space to accept and click to finish.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_press14.gif"></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Solve the study and review the results.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Turn off loads and constraints in the <b>Simulation</b> pane.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press15.gif"></p>
+                        </li>
+                        <li>
+                           <p>Right-click the <b>Mesh</b> node in the <b>Simulation</b> pane, and choose the <b>Mesh</b> command from the shortcut menu. Choose <b>Mesh &amp; Solve</b> from the <b>Mesh</b> dialog box.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press18.gif"></p>
+                           <p>The <b>Simulation Results</b> environment is displayed when processing is complete.</p>
+                           <p>The Von Mises stress plot is shown on the deformed model by default.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press17.gif"></p>
+                        </li>
+                        <li>
+                           <p>To display the undeformed model, select the <b>Display</b> tab→<b>Show</b> group→<b>Display Options</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/sesim_display_options_button.gif">.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Display Options</b> list, clear the <b>Deformation</b> check box, and click <b>Close</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res2.gif"></p>
+                           <p>Now the results are shown on the undeformed model.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_press16.gif"></p>
+                        </li>
+                        <li>
+                           <p>On the ribbon, click <b>Close Simulation Results</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/sesim_results_exit_button.gif"></p>
+                        </li>
+                        <li>
+                           <p>Close this file.</p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Tutorial: Simulate pressures in a tank, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

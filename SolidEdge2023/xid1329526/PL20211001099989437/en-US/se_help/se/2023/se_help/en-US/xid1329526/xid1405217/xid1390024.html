@@ -1,0 +1,196 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Generate Study dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Generate Study dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1390024">
+                     <h1 class="topic-title">Generate Study dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Generate Study</b> dialog box is displayed when you select the <b>Generate</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/generate_command_gd.png"> to solve a generative design study. </p>
+                  <p>You can optimize the part by solving for a specific value. You also can choose a general
+                     quality or a maximum value that you want to optimize for, such as mass or factor of
+                     safety. The method you choose should be based on the design and operational requirements
+                     for the part. Different optimization criteria can affect the resulting stresses on
+                     the part. </p>
+                  <h4 class="division-title">Processing options</h4>
+                  <div>
+                     <p>Adjust the <b>Generate Study</b> dialog box processing options to produce different results. You can:</p> 
+                     <ul> 
+                        <li> 
+                           <p>Reduce mass based on a target value or percentage.</p> </li> 
+                        <li> 
+                           <p>Reduce mass based on a known factor of safety standard.</p> </li> 
+                        <li> 
+                           <p>Reduce mass by increasing the study quality.</p> </li> </ul>
+                     <dl>
+                        <dt><b>Study Quality</b></dt>
+                        <dd class="ml-3">
+                           <p>Use the <b>Study Quality</b> option to allow the optimizer to determine the best way to reduce the weight of the
+                              part. Increasing the study quality improves the precision and balance in the results.
+                              Drag the slider to adjust the quality from <b>Low</b> (less mass is removed) to <b>High</b> (more mass is removed).</p> 
+                           <dl> 
+                              <dt><b>Voxel size</b></dt> 
+                              <dd class="ml-3">
+                                 <p>Voxel size represents the side length of a unit cube in a 3D model (similar to the
+                                    pixel in 2D pictures). Use this value to get the desired quality of output. Currently,
+                                    the range of voxel size is automatically calculated based on the model size.</p>
+                              </dd> </dl> 
+                           <p>You can start with a lower study quality, and then review the stress results using
+                              the <b>Show Stress</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../common/nonLocalized/se/topology_optimization/show_stress_command_gd.png">. If the stress results are higher than desired, or if you want to remove more material
+                              from the part, reopen the <b>Generate Study</b> dialog box and use the slider to increase the study quality.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Study Quality=20</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/to4d_mass_50.png"></p>
+                              <p>Study Quality=200</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/to4d_mass_75.png"></p>
+                           </div>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div> 
+                              <p>Study quality affects the default offset value that is displayed when you define a
+                                 load, constraint, or preserved region. A higher study quality setting requires a smaller
+                                 offset volume. This is because the study results are more accurate, and there is less
+                                 chance that small features are removed. A lower study quality requires a larger offset
+                                 volume, to prevent too much material from being removed during processing. </p> 
+                              <p>You can set a default study quality on the <b>Generative Design</b> page of the <b>Solid Edge Options</b> dialog box.</p> </div>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Mass Reduction</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies the goal for the optimized mass of the resulting mesh body. You can choose
+                              to optimize by solving for a specific mass value or to optimize the mass to meet a
+                              desired factor of safety. </p>
+                           <dl>
+                              <dt><b>Reduce by this percentage</b></dt>
+                              <dd class="ml-3">
+                                 <p>Select this option when you want to optimize mass by a percent of the original or
+                                    by entering a known target value. </p>
+                                 <dl>
+                                    <dt><b>Slider</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Drag the slider to the desired percentage by which you want to reduce the weight of
+                                          the part. </p>
+                                    </dd>
+                                    <dt><b>Original mass</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Shows the mass of the input body in the design space.</p>
+                                    </dd>
+                                    <dt><b>Target mass</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Assigns a specific mass value to the output mesh body.</p>
+                                    </dd>
+                                 </dl>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Use factor of safety</b></dt>
+                              <dd class="ml-3">
+                                 <p>Select this option when you want to reduce the mass within the stress limits of a
+                                    factor of safety. From the adjacent list, choose the stress type to optimize for:
+                                    </p>
+                                 <ul>
+                                    <li>
+                                       <p><b>Yield Stress</b>—The stress value at which the shape deforms permanently, based on the selected material.</p>
+                                    </li>
+                                    <li>
+                                       <p><b>Ultimate Stress</b>—The stress value at which the material breaks.</p>
+                                    </li>
+                                 </ul>
+                                 <p>The <b>Generate Study</b> dialog box updates to show the current <b>Yield Stress</b> value or<b> Ultimate Stress</b> value for the selected material. </p>
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/gd_study_fos_ultimate_stress.png"></p>
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/gd_study_fos_yield_stress.png"></p>
+                                 <p>In the <b>Factor of safety</b> box, enter the value to apply during optimization.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>You can obtain the desired factor of safety value from a specification or by consulting
+                                       an industry standard. You also can calculate the factor of safety based on the maximum
+                                       allowable design stress for your part.</p>
+                                    <p>The formula to determine the Factor of Safety (FoS) value is:</p>
+                                    <p>FoS=Yield Stress/Maximum Allowable Stress</p>
+                                 </div>
+                                 <dl>
+                                    <dt><b>Yield Stress</b> / <b>Ultimate Stress</b></dt>
+                                    <dd class="ml-3">
+                                       <p>For the material that is currently assigned to the design space body in this study,
+                                          displays the read-only value at which that material deforms or fails.</p>
+                                    </dd>
+                                    <dt><b>Factor of safety</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Enters the factor of safety limit value. The default value is 1.000. </p>
+                                       <div class="attention" type="example">
+                                          <div class="attention-label">Example: </div>
+                                          <p>If the material is Aluminum 1060, then the default yield stress for the material is
+                                             27.579 MegaPa. With a default yield stress of 1.000, the allowable stress for the
+                                             output mesh body is also set to 27.579 MegaPa. </p>
+                                          <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/calculate_fos_value1.png"></p>
+                                          <p>Based on the formula shown, if your part design requires an allowable stress of 10
+                                             MegaPa, then the factor of safety you enter should be <b>2.758</b>.</p>
+                                          <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/fos_new1.png"></p>
+                                       </div>
+                                    </dd>
+                                    <dt><b>Allowable stress</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Displays the read-only allowable stress value for the output mesh body, based on the
+                                          current yield stress and factor of safety.</p>
+                                    </dd>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Results Display</b></dt>
+                        <dd class="ml-3">
+                           <dl>
+                              <dt><b>Hide design space when results are displayed</b></dt>
+                              <dd class="ml-3">
+                                 <p>Displays only the resulting mesh body in the results, and not the input body selected
+                                    in the design space. The display of the design bodies can be controlled using <b>PathFinder</b>.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Generate</b></dt>
+                        <dd class="ml-3">
+                           <p>Applies all of the study inputs and begins the TO4D software structural optimization
+                              process. The <b>Generative Design Process Information</b> dialog box is displayed when processing completes or if there are errors.</p>
+                           <p>The resulting output is a mesh model consisting of triangles (facets). For information
+                              about how you can use the resulting body, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389864" rel="xid1389864">Using Generative Design results</a>.</p>
+                        </dd>
+                     </dl>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340170" rel="xid1340170">Generative Design example</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340179" rel="xid1340179">Solve the generative study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389713" rel="xid1389713">Show stress</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404416" rel="xid1404416">Detach a shape from the study</a><br><br><h5>Learn more</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389864" rel="xid1389864">Using Generative Design results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371438" rel="xid1371438">Manufacturing settings</a><br><br></div>
+            <div class="footer-content">Generate Study dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

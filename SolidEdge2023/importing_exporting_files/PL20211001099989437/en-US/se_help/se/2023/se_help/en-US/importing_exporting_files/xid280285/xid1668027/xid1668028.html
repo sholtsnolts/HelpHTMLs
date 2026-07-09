@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creo Elements Direct data migration</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creo Elements Direct data migration"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1668028">
+                     <h1 class="topic-title">Creo Elements Direct data migration</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Creo Elements Direct data migration tool, <b>CreoEDDataMigration.exe</b>, translates Creo Elements Direct part, assembly, and drawing files (*.sdpc,*.sdp,*.sda,
+                     *.sdac, *.bdl and *.pkg) to Solid Edge. The migration tool supports Creo Elements
+                     Direct, versions 19.0 and newer.</p>
+                  <p>Creo Elements Direct data migration supports both 2D and 3D data migration. During
+                     2D migration, drawing views maintain associativity with the 3D model and dimensions.
+                     During 3D migration, 3D models maintain component colors and user-defined groups.</p>
+                  <p>The migration tool does not support the migration of the material table and holes
+                     database.</p>
+                  <h4 class="division-title">CreoED2SE.ini file</h4>
+                  <div>
+                     <p>The settings used when importing Creo Elements Direct files are defined in the <b>CreoED2SE.ini</b> file, located in the <b>Solid Edge2023\Preferences\Translators</b> folder. If you edit this file, use extreme caution in setting these parameters. Errors
+                        made to this file can adversely affect the quality of the translation. </p>
+                     <p>Migrated data is imported in synchronous or ordered mode, based on the <b>Solid Edge Options</b> page→<b>Helper</b> tab settings.</p>
+                     <p>You can use the <b>Export Drafts as PDF or DXF</b> parameter in the <b>CreoED2SE.ini</b> file to specify how Creo Elements Direct drawing documents (.bdl) are migrated to
+                        Solid Edge. </p>
+                     <p>The values for this parameter are:</p>
+                     <ul>
+                        <li>
+                           <p>PDF – Exports the Creo Elements Direct draft file to .pdf format.</p>
+                        </li>
+                        <li>
+                           <p>DXF – Exports the .dxf file from Creo Elements Direct and imports the .dxf file into
+                              Solid Edge Draft.</p>
+                        </li>
+                        <li>
+                           <p>Both – Exports both a .dxf and .pdf file.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Hole feature recognition</h4>
+                  <div>
+                     <p>You can use the <em>Create Hole Features on Migration</em> parameter in the <b>CreoED2SE.ini</b> file to control how Solid Edge hole features are created during migration.</p>
+                     <p>The default value for the parameter is 1. When the parameter is set to 1, hole features,
+                        including thread attributes, are created during the migration. Hole features are only
+                        applied to synchronous bodies. No hole feature is created when the migration is targeted
+                        for the ordered environment.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>External threads/threaded shafts are not supported.</p>
+                        <p>When the parameter is set to 0, no hole or thread attributes are captured or applied
+                           during migration.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Drawing View migration</h4>
+                  <div>
+                     <p>After migration, Creo Elements Direct drawing files (*.bdl) maintain associativity
+                        with the migrated Solid Edge model. For example, changes made to the model get updated
+                        in the drawing views for the model. During the migration process a link is established
+                        between the resulting Solid Edge part and assembly files and the migrated Solid Edge
+                        drawing file.</p>
+                     <p>The following applies when migrating Creo Elements Direct files:</p>
+                     <ul>
+                        <li>
+                           <p>Drawing views are grouped with dimensions and labels.</p>
+                        </li>
+                        <li>
+                           <p>All drawing views other than the dependent general views and partial views are migrated
+                              associative to models. The dependent general views and partial views is extracted
+                              geometry, non-associative to the model. </p>
+                        </li>
+                        <li>
+                           <p>Cutting plane lines, auxiliary view plane lines, and detail envelopes are supported.</p>
+                        </li>
+                        <li>
+                           <p>Dimensions migrated from Creo Elements Direct are attached to the geometry. Single,
+                              datum long, and chain dimensions are true dimensions after migration. Other dimensions
+                              are blocks.</p>
+                        </li>
+                        <li>
+                           <p>Annotations, such as balloons and callouts, do not migrate as Solid Edge annotations,
+                              but migrate as blocks.</p>
+                        </li>
+                        <li>
+                           <p>Center marks and center lines are connected to the Solid Edge drawing views.</p>
+                        </li>
+                        <li>
+                           <p>Only automatically created hatches in Creo Elements Direct are migrated as associative
+                              hatch. Manual hatch migrate as blocks.</p>
+                        </li>
+                        <li>
+                           <p>View shading is maintained as part of this drawing view creation process</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Multi-sheet drawings are supported through this migration process.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1671637" rel="xid1671637">Translate multiple Creo Element Direct documents in Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689419" rel="xid1689419">Migrate the hole database from Creo Elements Direct to Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689423" rel="xid1689423">Creo Elements Direct 3D files migration to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668029" rel="xid1668029">Creo Elements Direct Data Migration Start Page dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668030" rel="xid1668030">Creo Elements Direct File Selection Page dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668032" rel="xid1668032">Creo Elements Direct Saving Changes dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689420" rel="xid1689420">Migrating Creo Elements Direct material definitions to Solid Edge</a><br><br></div>
+            <div class="footer-content">Creo Elements Direct data migration, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

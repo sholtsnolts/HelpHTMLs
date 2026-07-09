@@ -1,0 +1,114 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Solve the generative study</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Solve the generative study"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1340179">
+                     <h1 class="topic-title">Solve the generative study</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Generating a structurally optimized body for a defined generative design study is
+                     part of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a>.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Select the <b>Generative Design</b> tab→<b>Generate</b> group→<b>Generate</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/generate_command_gd.png">. </p>
+                     </li>
+                     <li>
+                        <p>In the <b>Generate Study</b> dialog box, change the optimization parameters or use the default settings. For information
+                           about how these options affect the results, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1390024" rel="xid1390024">Generate Study dialog box</a>.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>Observe that changing the study quality using the slider control also adjusts the
+                              <b>Rough approximate study time</b> indicated in the dialog box. You may want to process using the default setting the
+                              first time to see what type of result you get. Processing time increases with increases
+                              in study quality. </p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Click the <b>Generate</b> button to begin processing.</p>
+                        <p>The <b>Generative Design Process Information</b> dialog box is displayed when processing completes or if there are errors.</p>
+                        <p>The generated shape is shown in the graphics window and added to the bottom of <b>PathFinder</b>. A matching entry, <b>Generative Study 1 Result</b>, is added to the bottom of the <b>Generative Design</b> pane. </p>
+                        <ul>
+                           <li>
+                              <p>To access the generated shape in <b>PathFinder</b>, expand the <b>Construction Bodies</b> node. The <b>Solid Mesh Body 1</b> entry is the resulting mesh body. </p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/gd_result.png"></p>
+                              <p>This is the object you can <a class="xref" data-handle="print" href="/en-US/product/246738425/doc/PL20211001099989437.print/html/print6h" rel="print6h">Print directly to a 3D printer</a>. </p>
+                           </li>
+                           <li>
+                              <p>To access the original input body, expand the <b>Design Bodies</b> node in <b>PathFinder</b>. </p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/design_body.png"></p>
+                           </li>
+                           <li>
+                              <p>Use the check boxes to show and hide the original and resulting bodies.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/design_and_meshbody_result.png"></p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>To review the settings used to solve a study without having to reopen the <b>Generate Study</b> dialog box again, hover over the study name in the <b>Generative Design</b> pane.</p>
+                           <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/study_summary_data_tip.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>You can experiment with different optimization settings on the resulting mesh body
+                           by selecting the <b>Generate</b> command again. This will change the result you got the first time. </p>
+                        <p>If you want to keep the current result but you also want to test different optimization
+                           settings, first remove the result from the study using the <b>Detach from Study</b> shortcut command on the <b>Generative Study Result 1</b> object in the Generative Design pane.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>To learn how you can use the information and the physical results of this structural
+                              optimization, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389864" rel="xid1389864">Using Generative Design results</a>.</p>
+                        </div>
+                     </li>
+                  </ol>
+                  <h4 class="division-title">Requirements</h4>
+                  <div>
+                     <p>The <b>Generate</b> command is not available <img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/generate_command_not_available.png"> until minimum study definition requirements are met.</p>
+                     <ul>
+                        <li>
+                           <p>A material must be assigned. Material properties are an important part of the solution.
+                              </p>
+                        </li>
+                        <li>
+                           <p>A body is selected as input.</p>
+                        </li>
+                        <li>
+                           <p>At least one load is defined.</p>
+                        </li>
+                        <li>
+                           <p>At least one constraint is defined.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340170" rel="xid1340170">Generative Design example</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389713" rel="xid1389713">Show stress</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404416" rel="xid1404416">Detach a shape from the study</a><br><br><h5>Learn more</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389864" rel="xid1389864">Using Generative Design results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1371438" rel="xid1371438">Manufacturing settings</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1390024" rel="xid1390024">Generate Study dialog box</a><br><br></div>
+            <div class="footer-content">Solve the generative study, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

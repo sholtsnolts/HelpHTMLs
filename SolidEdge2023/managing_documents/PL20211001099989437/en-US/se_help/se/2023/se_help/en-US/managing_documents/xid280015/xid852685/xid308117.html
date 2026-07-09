@@ -1,0 +1,188 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using Teamcenter variants</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using Teamcenter variants"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid308117">
+                     <h1 class="topic-title">Using Teamcenter variants</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Manufacturers often want to create a range of products based on the same generic platform,
+                     offering their customers the greatest choice for the least engineering cost. Using
+                     the interaction between Solid Edge and Teamcenter you can create a single generic
+                     product structure that is configurable for each different variant of the product offered.</p>
+                  <h4 class="division-title">Classic variants</h4>
+                  <div>
+                     <p>Using classic variants or product configurator, you can define options (for example,
+                        color) and the corresponding values for each option (for example, red and blue). You
+                        can then associate the options with an item revision, typically the top-level item
+                        in the structure. You can then define a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid309952" rel="xid309952">variant condition</a> (for example, load IF color=red) for any occurrence of components that are configurable,
+                        and therefore subject to <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid309953" rel="xid309953">variant rules</a>. The master is the structure where no variant rule is applied. It is referred to
+                        as <em>unconfigured</em>.</p>
+                     <p>Variants are defined in the Teamcenter program, Structure Manager. Typically, you
+                        create your Solid Edge design and save it to Teamcenter. Using the rich client, the
+                        item revision is sent to Structure Manager to create the variant option’s allowed
+                        values.</p>
+                     <p>You can define and attach additional logic to the item, as follows:</p>
+                     <ul>
+                        <li>
+                           <p>Set error warnings for incompatible option values selected in the variant rule.</p>
+                        </li>
+                        <li>
+                           <p>Set default values for options.</p>
+                        </li>
+                        <li>
+                           <p>Set derived default values to allow one option value to set another.</p>
+                        </li>
+                     </ul>
+                     <p>Teamcenter evaluates the variant conditions on the occurrences in the structure against
+                        set option values, and components are configured or not configured according to the
+                        results of the evaluation. Unconfigured components can be hidden.</p>
+                     <p>Classic variant configuration supports:</p>
+                     <ul>
+                        <li>
+                           <p>Options that are a mandatory choice or an accessory.</p>
+                        </li>
+                        <li>
+                           <p>Components that may be configured by more than one option.</p>
+                        </li>
+                        <li>
+                           <p>Variant assemblies that may be shared between products.</p>
+                        </li>
+                     </ul>
+                     <p>Classic variant configuration does not support:</p>
+                     <ul>
+                        <li>
+                           <p>Automatic creation of variant items.</p>
+                        </li>
+                        <li>
+                           <p>Updating of existing variant items.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Modular variants are not supported at this time.</p>
+                     </div>
+                     <p>Refer to the Teamcenter documentation, <em>Getting Started with Product Structure</em>, and <em>Structure Manager Guide</em> for detailed information on creating and configuring variants.</p>
+                  </div>
+                  <h4 class="division-title">An example of using classic variants</h4>
+                  <div>
+                     <p>For this example of using classic variants, a top-level assembly is identified as
+                        Car Model G. It includes a body assembly and two choices of engine (1200 and 1600).
+                        You create variant data on the structure to allow configuration of one or the other
+                        engine.</p>
+                     <p>First, in Teamcenter you create basic variant data:</p>
+                     <ul>
+                        <li>
+                           <p>Define options</p>
+                           <p>Create an engine option on the item Car Model G with allowed values 1200 and 1600.
+                              You can later create other necessary options and allowed values. These options configure
+                              components lower in the structure.</p>
+                        </li>
+                        <li>
+                           <p>Add variant conditions</p>
+                           <p>Specify a variant condition on each engine component to configure it appropriately.
+                              For the 1200 Engine component, define a condition that loads this component only if
+                              the option engine is set to a value of 1200 (that is, Load IF engine=1200). Also define
+                              a condition for the 1600 Engine (that is, Load IF engine=1600).</p>
+                        </li>
+                     </ul>
+                     <p>Then, set a variant rule. There are three ways of setting a valid variant rule that
+                        configures an allowed variant of the product.</p>
+                     <ul>
+                        <li>
+                           <p>Variant rule checks</p><br><p>Prevents the designer from defining option values or combinations of option values
+                              that are not allowed.</p>
+                        </li>
+                        <li>
+                           <p>Derived defaults</p><br><p>Allows one option value to set any number of other related option values.</p>
+                        </li>
+                        <li>
+                           <p>Fixed defaults</p><br><p>Allows an option to be set to a specific value.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Storing variant data</h4>
+                  <div>
+                     <p>Variant data can be stored on the following objects:</p>
+                     <ul>
+                        <li>
+                           <p>Item revision</p>
+                        </li>
+                        <li>
+                           <p>Occurrence</p>
+                        </li>
+                     </ul>
+                     <p>Variant data is owned by a specific revision of an item. As the item evolves, it may
+                        be necessary to change the set of allowed values for a particular option or possibly
+                        to add further options.</p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>Since Solid Edge Embedded Client supports the Variant Rule relationship for item revisions,
+                           set the Teamcenter Preference <em>PSEVariantMode=legacy</em>.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Solid Edge and variants</h4>
+                  <div>
+                     <p>The interaction between Teamcenter variants and Solid Edge documents is within the
+                        Assembly and Draft environments. The variant rule list is displayed on the Open dialog
+                        box. The variant rule option is not enabled until you select the item revision of
+                        an assembly that has variant rules associated with it. Once you select the appropriate
+                        value for your variant rule, your selection acts as a display filter. Only the components
+                        corresponding to the variant rule you choose are displayed when you open the document.
+                        Once the structure has been opened in Solid Edge, you cannot change the selected variant
+                        rule. You can close and reopen the assembly using a different variant rule.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you open a non-modeled assembly (one that does not have a Solid Edge Assembly dataset),
+                           you are notified that you must first open the master assembly. Subsequently, variant
+                           assemblies can be opened.</p>
+                     </div>
+                     <p>Assemblies configured with variant rules open read-only at all levels. The <a class="xref" data-handle="user_interface" href="/en-US/product/246738425/doc/PL20211001099989437.user_interface/html/openreadonly1a" rel="openreadonly1a">Read-Only Assistant</a> displays a message indicating an assembly is opened with a variant rule. PathFinder
+                        displays the variant rule used to configure the direct document.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>000362/B-A1 (Latest Working) <b>(red)</b></p>
+                     </div>
+                     <p>Any changes to the assembly must be saved to a new item using the Save As command.
+                        As a result, only the parts that are configured by the variant rule are saved to the
+                        new assembly. You cannot save an assembly opened and configured by a variant rule
+                        back to Teamcenter. You must open the assembly unconfigured to edit the assembly.</p>
+                  </div>
+                  <h4 class="division-title">Additional information</h4>
+                  <div>
+                     <p>For comprehensive information regarding product structure and variants, refer to the
+                        Teamcenter documentation, <em>Getting Started with Product Structure</em>, and <em>Structure Manager Guide</em>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/opentc1h" rel="opentc1h">Open a Teamcenter-managed document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid916187" rel="xid916187">Open a Solid Edge document from Teamcenter rich client</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1019919" rel="xid1019919">Open a Solid Edge document from Active Workspace</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/open5h" rel="open5h">Open a non-Solid Edge document in a Teamcenter-managed environment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/newdoc1h" rel="newdoc1h">Save a new Teamcenter-managed document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid2009846" rel="xid2009846">Revert documents to the version in Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1602229" rel="xid1602229">Save an existing design to a different Item type (SEEC)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1602538" rel="xid1602538">Exclude Draft documents when using a Save As command (SEEC)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1606239" rel="xid1606239">Automatically open a cloned draft document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1329933" rel="xid1329933">Save a new document to an existing Teamcenter item</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/selectproject1h_1" rel="selectproject1h_1">Assign a Teamcenter project to an item</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1182732" rel="xid1182732">Using Download Options - Overrides</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1178449" rel="xid1178449">Using multiple revisions of documents</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1308318" rel="xid1308318">Resolving problems identified in the Issues column (New Document dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multifieldkey1a" rel="multifieldkey1a">Using multifield keys in the Teamcenter managed environment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid386457" rel="xid386457">Meta model</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1582084" rel="xid1582084">Hide CPD option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid2009847" rel="xid2009847">Revert command (SEEC)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1602158" rel="xid1602158">Save As - New Item command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1602319" rel="xid1602319">Exclude Draft option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1606197" rel="xid1606197">Clone Draft command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1606202" rel="xid1606202">Open cloned Draft option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1329969" rel="xid1329969">Save to Existing command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/newdoc1d" rel="newdoc1d">New Document dialog box (SEEC)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1929184" rel="xid1929184">Assign Project ID command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/selectproject1d" rel="selectproject1d">Select Projects dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid852684" rel="xid852684">Opening and saving Teamcenter-managed documents</a><br><br></div>
+            <div class="footer-content">Using Teamcenter variants, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

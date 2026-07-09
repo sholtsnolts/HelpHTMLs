@@ -1,0 +1,206 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Mesh dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Mesh dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mesh1d">
+                     <h1 class="topic-title">Mesh dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The options that are available in the <b>Mesh</b> dialog box vary with the type of model (part, sheet metal, assembly) and the type
+                     of mesh applied to the model: 2D surface mesh, tetrahedral mesh, beam mesh, or mixed
+                     mesh. </p>
+                  <dl>
+                     <dt><b>Tetrahedral Mesh</b></dt>
+                     <dd class="ml-3">
+                        <p>Options for a solid part model:</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_tet_cmdbar.gif"> </p>
+                        <p>For the solid part model environment, the options <b>Same component mesh size</b> and <b>Show plate thickness</b> are not required and therefore not available.</p>
+                        <p>Options for an assembly model:</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_db_tet_assy.png"></p>
+                        <p>For the solid assembly model environment, the <b>Show plate thickness</b> option is not required and therefore not available.</p>
+                     </dd>
+                     <dt><b>2D Surface Mesh</b></dt>
+                     <dd class="ml-3">
+                        <p>Options for a sheet metal part model:</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_mesh_sheet15.gif"></p>
+                        <p>For the sheet metal part model environment, the <b>Same component mesh size</b> option is not required and therefore not available.</p>
+                     </dd>
+                     <dt><b>Beam Mesh</b></dt>
+                     <dd class="ml-3">
+                        <p>Options for a frame model:</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_db_beam.png"></p>
+                     </dd>
+                     <dt><b>Mixed Mesh</b></dt>
+                     <dd class="ml-3">
+                        <p>Options for an assembly with solid and sheet metal parts:</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_db_mixed_bodies.png"></p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Subjective mesh size</b></dt>
+                     <dd class="ml-3">
+                        <p>Adjusts the mesh sizing interactively. Slider values range from 1 to 10. Lower values
+                           produce a coarser mesh; higher values produce a finer mesh. Higher values also may
+                           result in a longer processing time. </p>
+                        <p>On a solid model, the mesh should be ≥2 elements thick.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <ul>
+                              <li>
+                                 <p>The value shown in the <b>Subjective mesh size</b> box is based on the model size and current units of length.</p>
+                              </li>
+                              <li>
+                                 <p>If you previously applied mesh sizing to the model using the <b>Body Size</b>, <b>Surface Size</b>, or <b>Edge Size</b> commands, then the slider control is unavailable.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Same component mesh size</b></dt>
+                     <dd class="ml-3">
+                        <p>This option is available for tetrahedral meshes on assembly models.</p>
+                        <ul>
+                           <li>
+                              <p>When cleared, the mesh is sized automatically as appropriate for each component. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_assy_diff.gif"></p>
+                           </li>
+                           <li>
+                              <p>When checked, the same mesh size is applied to all components. This is the default
+                                 Femap behavior. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_assy_same.gif"></p>
+                           </li>
+                        </ul>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Show plate thickness</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies that a thickness is displayed for sheet metal parts that contain mid-surfaces
+                           and other thin part surfaces.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_showplatethickness.gif"></p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <ul>
+                              <li>
+                                 <p>You also can use the <b>Show Plate Thickness</b> and <b>Hide Plate Thickness</b> shortcut commands on the top-level <b>Mesh</b> node in the <b>Simulation</b> pane to quickly turn the 2D mesh thickness on and off. </p>
+                              </li>
+                              <li>
+                                 <p>The thickness value applied to the mesh is the <b>Thickness</b> value shown in the <b>Simulation</b> pane, under the <b>Material</b> node. You can edit the <b>Thickness</b> value using the <b>Edit Thickness</b> command on its shortcut menu.</p>
+                              </li>
+                              <li>
+                                 <p>You can show and hide plate thickness in the<b> Simulation Results</b> environment using the <b>Plate Thickness</b> check box on the <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> menu.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Body Mesh</b></dt>
+                     <dd class="ml-3">
+                        <p>Select this option to simplify and improve mesh for a complex part or assembly model
+                           with intricate bodies. In addition to producing a good quality mesh, it provides automatic
+                           geometry cleanup of small faces and edges. </p>
+                        <p>Refer to the table for examples of the types of parts that you can mesh successfully
+                           by selecting the <b>Body Mesh</b> check box.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/robust_mesh_option_examples.png"></p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <ul>
+                              <li>
+                                 <p>The <b>Body Mesh</b> option is not available for a mixed mesh and beam mesh type.</p>
+                              </li>
+                              <li>
+                                 <p>This option does not always produce an optimal mesh. If a mesh error message still
+                                    is generated, deselect the <b>Body Mesh</b> option and mesh again, or experiment with different mesh sizing options, or select
+                                    the <b>Geometry Inspector</b> command to improve the geometry prior to meshing. </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Show mesh</b></dt>
+                     <dd class="ml-3">
+                        <p>Select this option to examine the mesh on a previously meshed model. Deselect this
+                           option to review the meshing parameters in the <b>Mesh</b> dialog box, without rendering the mesh on the model.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You also can use the check box on the top-level <b>Mesh</b> node in the <b>Simulation</b> pane to turn the mesh display on and off. </p>
+                           <ul>
+                              <li>
+                                 <p>In a part model—<img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/mesh_control_part.png"></p>
+                              </li>
+                              <li>
+                                 <p>In an assembly model—<img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_show_mesh_box.gif"></p>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>In an assembly, you can use the check boxes to turn the mesh on and off for each body
+                              in the study that was meshed. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_show1a.gif"></p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_show2a.gif"></p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_show3a.gif"></p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Mesh</b></dt>
+                     <dd class="ml-3">
+                        <p>Starts the meshing process using the NX Nastran solver and displays a progress meter.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Mesh &amp; Solve</b></dt>
+                     <dd class="ml-3">
+                        <p>This first runs the meshing process and then runs the solving process. It displays
+                           a single progress meter throughout.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The <b>Mesh &amp; Solve</b> button is available only when the study definition is complete and a material is
+                              assigned. </p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Opens the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a>, which provides various options for meshing.</p>
+                        <p>Options that you select in the <b>Mesh Options</b> dialog box are applied and saved with the study when you select either the <b>Mesh</b> button or the <b>Mesh &amp; Solve</b> button to mesh the model.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Mesh dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

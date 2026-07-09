@@ -1,0 +1,96 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Selecting surface geometry for studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Selecting surface geometry for studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="geometry1a">
+                     <h1 class="topic-title">Selecting surface geometry for studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>You can select surface geometry directly in the graphics window. </p>
+                  <p>When working with sheet metal models (.psm), you must select an existing mid-surface
+                     feature. If a mid-surface feature does not exist, you can use the <b>Mid-Surface</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/mid-surface_command.png"> on the <b>Simulation</b> tab to create a mid-surface for analysis, and then you can use the <b>Define</b> command to include the mid-surface in the study. </p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/simulation_express/analysiswiz6.gif"></p>
+                  <p>You can then analyze the mid-surface feature.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/simulation_express/analysiswiz7.gif"></p>
+                  <h4 class="division-title" id="geometry1a_midsurface">Why you should use a mid-surface for analysis of sheet metal models</h4>
+                  <div>
+                     <p>Sheet metal models which contain solids that are thin in relation to overall size
+                        are good candidates for using a mid-surface for analysis purposes. Examples include
+                        thin-walled parts, sheet metal parts, or plastic injection molded parts. </p>
+                     <p>You can produce a much smaller and much more accurate analysis model by meshing mid-surfaces
+                        formed from a thin-wall part, than by solid meshing the thin-wall. Differences in
+                        model sizes can literally be an order of magnitude, thereby significantly reducing
+                        processing time. In most cases, you even get the added benefit of a more accurate
+                        solution.</p>
+                  </div>
+                  <h4 class="division-title" id="geometry1a__createmidsurface">Creating a mid-surface</h4>
+                  <div>
+                     <p>To create a mid-surface, you can use the <b>Simulation</b> tab→<b>Geometry</b> group→<b>Mid-Surface</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/mid-surface_command.png">. </p>
+                     <p>The <b>Mid-Surface</b> command constructs a surface between the sheet faces of a sheet metal part. You use
+                        the <a class="xref" data-handle="create_sheet_metal_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/midsurface1d" rel="midsurface1d">Mid-Surface command bar</a> to define the location of a mid-surface by specifying the side of the part you want
+                        to offset and a ratio value between 0 and 1.0.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/sesim_midsurf_create.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>By default, a mid-surface updates when the model geometry is changed. You can remove
+                           this associativity permanently by selecting the mid-surface in <b>PathFinder</b>, and then selecting the <b>Break</b> command on its shortcut menu. </p>
+                     </div>
+                     <p>After you create the mid-surface, you must then select it and apply it to the study
+                        using the <b>Define</b> command.</p>
+                  </div>
+                  <h4 class="division-title" id="geometry1a__selectmidsurface">Selecting a mid-surface</h4>
+                  <div>
+                     <p>You can select an existing mid-surface for the active study using the <b>Simulation</b> tab→<b>Geometry</b> group→<b>Define</b> command.</p>
+                     <p><img class="img-fluid" style="max-height: 3.125rem;" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_define_button_on.gif"></p>
+                     <p>You select the mid-surface in the graphics window or in <b>PathFinder</b>, and then choose Accept in the Select Mid-Surface step on the Define command bar.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/sesim_midsurf_select.gif"></p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/sesim_training_act_mesh_sheet13.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To expose the mid-surface and make it easier to see and select, you can right-click
+                           in the empty space in <b>PathFinder</b>, and then choose the <b>Hide All</b>→<b>Design Body</b> command.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_training_act_sheet06.gif"></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Editing a mid-surface</h4>
+                  <div>
+                     <p>You can edit a mid-surface by selecting it in the graphics window, and then selecting
+                        the mid-surface edit definition handle. This displays the Mid-Surface command bar.
+                        Changing any of the options on it will update the mid-surface while maintaining the
+                        attached data, such as loads, constraints, and connectors.</p>
+                     <p>Depending upon the edits you make, when the mid-surface is updated, the attached simulation
+                        data may or may not still be valid. Simulation data that needs to be adjusted or recreated
+                        is marked in the <b>Simulation</b> pane with this symbol: <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/dvderror.gif">. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry1h" rel="geometry1h">Add or remove study geometry using the Define command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry2h" rel="geometry2h">Suppress, unsuppress, and remove study geometry</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry3a" rel="geometry3a">Selecting geometry for studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry2a" rel="geometry2a">Selecting occurrences for studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry4a" rel="geometry4a">Preparing and selecting united bodies for studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2055979" rel="xid2055979">Selecting convergent bodies for studies</a><br><br></div>
+            <div class="footer-content">Selecting surface geometry for studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

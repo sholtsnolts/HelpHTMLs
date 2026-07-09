@@ -1,0 +1,355 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Alternate assemblies impact on Solid Edge functionality</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Alternate assemblies impact on Solid Edge functionality"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="famasm2a">
+                     <h1 class="topic-title">Alternate assemblies impact on Solid Edge functionality</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you create alternate assemblies in Solid Edge, functionality in other areas of
+                     the Solid Edge product is impacted. This impact is typically felt as a restriction
+                     on whether certain functionality is available when an assembly has been converted
+                     to an alternate assembly. This topic documents this impact in one central location.</p>
+                  <h4 class="division-title">3D section views</h4>
+                  <div>
+                     <p>You can only create new 3D section views with the Section command when the Apply Edits
+                        to All Members option on the Family of Assemblies tab is set.</p>
+                  </div>
+                  <h4 class="division-title">Adjustable parts</h4>
+                  <div>
+                     <p>You can use adjustable parts in a family of assemblies. You can edit the assembly
+                        variable used to control an adjustable part on a per member basis by clearing the
+                        Apply Edits to All Members option.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When the applying edit to all members option is not checked, the functionality of
+                           adding new dimensions is disabled because creation of new dimension variables is disabled.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Assembly-based features</h4>
+                  <div>
+                     <p>Because there are two distinct types of assembly-based features: assembly features,
+                        and assembly-driven part features, they are discussed separately.</p>
+                  </div>
+                  <h4 class="division-title">Assembly features</h4>
+                  <div>
+                     <p>You can use <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat1" rel="asmfeat1">assembly features</a> in a family of assemblies. For example, you can use the Delete key to exclude a cutout
+                        feature on a per member basis while the Apply Edits to All Members option is cleared
+                        (you are working locally). The assembly feature is added to the Excluded Assembly
+                        Features list for the member.</p>
+                     <p>Because it is possible to create inter-part links when creating an assembly feature,
+                        and alternate assemblies do not allow inter-part links, the inter-part links are deleted
+                        when you convert the assembly to an alternate assembly. When including geometry from
+                        other components within the assembly, the sketch geometry is linked, but not considered
+                        an inter-part link unless the geometry comes from a higher level assembly component.
+                        Therefore, included sketch geometry is valid in alternate assemblies.</p>
+                     <p>You can add the dimensions and relationships to an assembly sketch or an assembly
+                        reference plane to constrain the profile if they were deleted.</p>
+                  </div>
+                  <h4 class="division-title">Assembly-driven part features</h4>
+                  <div>
+                     <p>With <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat2" rel="asmfeat2">assembly-driven part features</a>, the profile geometry (such as lines, arcs, and circles) is copied to the part documents
+                        that were modified by the feature. Then the assembly-driven part feature and all dimensions
+                        and relationships are deleted from the assembly document. You can open the part documents
+                        and add the necessary dimensions and relationships to constrain the profile.</p>
+                     <p>For more information, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmfeat1a" rel="asmfeat1a">Assembly-based Features</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title">Editing assembly relationships using PathFinder</h4>
+                  <div>
+                     <p>You cannot use the lower pane of assembly PathFinder to modify a relationship setting
+                        such as flip, lock or unlock, unless the apply edits to all members option is checked
+                        since this is a global change. If unchecked, the relationship can be modified with
+                        the <b>Edit Definition</b> command for that component.</p>
+                  </div>
+                  <h4 class="division-title">Assembly patterns of parts</h4>
+                  <div>
+                     <p>You can place new patterns, and delete or modify existing patterns on a per member
+                        basis when the Apply Edits to All Members option is cleared (you are working locally).
+                        For example, you can use the DELETE key to exclude one bolt in a pattern of bolts
+                        when working locally. You can then place a different bolt in that position on the
+                        pattern.</p>
+                     <p>When you delete an entire pattern of parts, it is added to the Excluded Pattern Occurrences
+                        list on the Family of Assemblies tab. When you delete a pattern item, it is added
+                        to the Excluded Occurrences list.</p>
+                     <p>You can only modify the inputs for a pattern of parts when the Apply Edits to All
+                        Members option is set (you are working globally). For example, if an assembly pattern
+                        of parts originally included a bolt and nut, you cannot modify the pattern to add
+                        a washer to the pattern unless you are working globally.</p>
+                     <p>A Drop Pattern command is available on the shortcut menu when the Apply Edits to All
+                        Members option is set (you are working globally). This command allows you to drop
+                        an assembly pattern and the parts that were contained in the pattern are now positioned
+                        using a ground relationship. &nbsp;Dropping a pattern allows you to place a part formerly
+                        contained in the pattern onto the Excluded Occurrences list when working locally.</p>
+                  </div>
+                  <h4 class="division-title">Check interference</h4>
+                  <div>
+                     <p>The Save As Part option on the Interference Options dialog box is not available when
+                        the Apply Edits to All Members option is set. If an interfering volume is created
+                        as a part while working in the local mode (the Apply Edits to All Members option is
+                        cleared), the part is added to the Excluded Occurrence list for the inactive members.</p>
+                  </div>
+                  <h4 class="division-title">Construction elements</h4>
+                  <div>
+                     <p>Coordinate systems, layouts and reference planes can be edited only when the Apply
+                        Edits to All Members option is set.</p>
+                  </div>
+                  <h4 class="division-title">Display configurations</h4>
+                  <div>
+                     <p>Display configurations are available when working with alternate assemblies. The behavior
+                        of display configurations based on whether you specify that the alternate assembly
+                        is a family of assemblies or an alternate position assembly.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Family of assemblies</h5>
+                           <p>For a family of assemblies, a display configuration is member-specific. In other words,
+                              the family of assembly member which is active when you create the display configuration
+                              is the only member in which you can use the display configuration later. The Assembly
+                              Configuration list on the Select Tool command bar filters the available display configurations
+                              automatically.</p>
+                        </li>
+                        <li>
+                           <h5>Alternate position assemblies</h5>
+                           <p>For alternate position assemblies, display configurations are not member-specific.
+                              In other words, you can use any display configuration for any active member. The Assembly
+                              Configuration list on the Select Tool command bar displays all the display configurations.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Disperse command</h4>
+                  <div>
+                     <p>The Disperse command is only available when the Apply Edits to All Members option
+                        is set.</p>
+                  </div>
+                  <h4 class="division-title">Fastener systems</h4>
+                  <div>
+                     <p>You can use fasteners created with the Fastener Systems command in a family of assemblies
+                        on a per member basis. You can delete or place fasteners to only the active member
+                        by clearing the Apply Edits to All Members option first. The Excluded Fasteners option
+                        on the Family of Assemblies tab lists excluded fasteners for an alternate assembly
+                        member.</p>
+                  </div>
+                  <h4 class="division-title">In-place activating alternate assemblies</h4>
+                  <div>
+                     <p>When an alternate assembly member has been placed in a higher level assembly, you
+                        cannot in-place activate the alternate assembly. You can use the Open command on the
+                        shortcut menu in PathFinder to open the assembly instead.</p>
+                  </div>
+                  <h4 class="division-title">Inter-part relationships</h4>
+                  <div>
+                     <p>Because inter-parts links are not allowed in an alternate assembly, when you create
+                        the first two members of an alternate assembly that contains inter-part links, a dialog
+                        box is displayed to warn you that inter-part links will be deleted. You can use the
+                        Inter-Part Manager dialog box to review the inter-part links.</p>
+                  </div>
+                  <h4 class="division-title">Motor definitions</h4>
+                  <div>
+                     <p>You can only create and edit motors when the Apply Edits to All Members option is
+                        set. </p>
+                     <p> If a motor is applied to a part, and that part is deleted when the Apply Edits to
+                        All Members option is set, the motor will show as failed in all members.</p>
+                     <p>If a motor is applied to a part, and that part is deleted when the Apply Edits to
+                        All Members option is cleared, the motor object is removed from the display in PathFinder.
+                        If an excluded part which is a motor is re-included in a member, the motor will be
+                        displayed in Assembly PathFinder.</p>
+                  </div>
+                  <h4 class="division-title">Occurrence properties</h4>
+                  <div>
+                     <p>In the Occurrence Properties editor, the X, Y, and Z translation and rotation occurrence
+                        property cell values will be unique for each Family of Assembly member or Alternate
+                        Position member. All other values can be set as either unique or global.</p>
+                  </div>
+                  <h4 class="division-title">Opening files</h4>
+                  <div>
+                     <p>The default alternate assembly member is opened when a file is opened using Windows
+                        Explorer. When opening a file using the Open File dialog box in Solid Edge, the Assembly
+                        Member dialog box is displayed so you can select the assembly member you want.</p>
+                  </div>
+                  <h4 class="division-title">Part copies</h4>
+                  <div>
+                     <p>When creating a part copy using an alternate assembly document, the Assembly Member
+                        dialog box is displayed so you can select the assembly member you want.</p>
+                     <p>If you convert an existing assembly to an alternate assembly, and that assembly was
+                        used as the basis for a part copy document, the default member is used.</p>
+                  </div>
+                  <h4 class="division-title">Path segment commands</h4>
+                  <div>
+                     <p>The commands you use to create 3D path segments for tubes, wires, and piping routes
+                        are available only when the Apply Edits to All Members option is set. For example,
+                        the Path Xpres, Line Segment, Split Path, and Move Segment commands are available
+                        only when the Apply Edits to All Members option is set (you are working globally).</p>
+                     <p>This restriction also applies to the commands you use to dimension 3D path segments,
+                        such as SmartDimension. After you create and dimension the 3-D paths, you can clear
+                        the Apply Edits to All Members option to define tubes, wires, and piping routes on
+                        a per member basis as long as you follow the guidelines for tubes, wires, and pipe
+                        routes discussed elsewhere in this document.</p>
+                  </div>
+                  <h4 class="division-title">Piping routes</h4>
+                  <div>
+                     <p>You can use the Piping Route command to define a piping route (the pipe and fittings)
+                        on a per member basis by clearing the Apply Edits to All Members option. You can also
+                        create a piping route that applies to all members by setting the Apply Edits to All
+                        Members option. After you create a piping route, the 3-D path segments you used are
+                        automatically hidden to prevent you from reusing the selected segments on a different
+                        piping path. It is recommended that you do not reuse path segments to create unique
+                        piping routes for individual alternate assembly members.</p>
+                     <p>Although you can redisplay the segments using the Show All Paths command, and then
+                        reuse them, in some cases, reusing segments can result in a piping route with piping
+                        couplings you may not expect.</p>
+                     <p>For example, when you connect one line segment to the midpoint of a second line segment,
+                        the second line segment is automatically split at the midpoint. When you define the
+                        piping route, a coupling is using to connect the pipe components together where they
+                        meet. </p>
+                     <p>If you then try to create a new piping route for a different alternate assembly member
+                        that does not include the first segment, a coupling will be added to connect the segments
+                        of the line that was split. Typically, a coupling is not wanted in this situation.
+                        To avoid this, draw a separate line segment in this type of situation.</p>
+                  </div>
+                  <h4 class="division-title">Placing parts in assemblies</h4>
+                  <div>
+                     <p>Part placement obeys the current setting of the Apply Edits to All Members option.
+                        When this option is set, the part is added to all assembly members. When this option
+                        is cleared, the part is added to the active member, and the part is added to the Excluded
+                        Occurrence list for the other members.</p>
+                     <p>When you place a subassembly that has alternate assembly members defined into a higher
+                        level assembly, the Assembly Member dialog box is displayed so you can select the
+                        member you want.</p>
+                  </div>
+                  <h4 class="division-title">Reorder command</h4>
+                  <div>
+                     <p>This command is available only when the Apply Edits to All Members option is set.</p>
+                  </div>
+                  <h4 class="division-title">Reports</h4>
+                  <div>
+                     <p>When you use the Reports command to create an assembly report from within the assembly,
+                        the report is created for the active member.</p>
+                     <p>When you use the Reports command to create an assembly report from within Windows
+                        Explorer, the FOA Member Names dialog box is displayed so you can select the member
+                        you want to create the report for.</p>
+                  </div>
+                  <h4 class="division-title">Design Manager</h4>
+                  <div>
+                     <p>When an alternate assembly is opened in Design Manager, the file list is a compilation
+                        of all the members contained in the assembly.</p>
+                     <p>When an assembly containing a subassembly that is an alternate assembly is opened
+                        in Design Manager, the subassembly reflects the file set contained in the member that
+                        was placed into the higher level assembly.</p>
+                  </div>
+                  <h4 class="division-title">Simply Motion</h4>
+                  <div>
+                     <p>The Motion command is not available for an alternate assembly. You can use the Save
+                        Member As command on the Family of Assemblies tab to save an alternate assembly member
+                        as a normal assembly document. You can then access the Simply Motion environment.</p>
+                  </div>
+                  <h4 class="division-title">Simplified assemblies</h4>
+                  <div>
+                     <p>You cannot create a simplified representation of an assembly that is an alternate
+                        assembly. If you have already simplified an assembly, then try to convert the assembly
+                        to an alternate assembly, a message is displayed to warn you that the simplified assembly
+                        representation will be deleted if you continue.</p>
+                  </div>
+                  <h4 class="division-title">Structural frames</h4>
+                  <div>
+                     <p>You can use structural frames in a family of assemblies. You can place structural
+                        frame components on a per member basis when the Apply Edits to All Members option
+                        is cleared (you are working locally).</p>
+                     <p>You can also exclude a complete frame component from an individual family of assembly
+                        member when the Apply Edits to All Members option is cleared. You cannot exclude individual
+                        part documents that make up a frame component.</p>
+                  </div>
+                  <h4 class="division-title">Transfer command</h4>
+                  <div>
+                     <p>The Transfer command is only available when the Apply Edits to All Members option
+                        is set.</p>
+                  </div>
+                  <h4 class="division-title">Undo command</h4>
+                  <div>
+                     <p>The Undo command is not available when working with an alternate assembly.</p>
+                  </div>
+                  <h4 class="division-title">XpresRoute</h4>
+                  <div>
+                     <p>Each tube that is created in an alternate assembly file must be controlled by a single
+                        member. The reason for this is that the parts that contain ports that drive the tube
+                        path (that in turn drives the tube) can be positioned differently in various members
+                        through techniques involving excluded relationships and overridden variables, causing
+                        the potential for any one tube part to assume different geometries depending on the
+                        active member. The following rules govern XpresRoute behavior:</p>
+                     <ul>
+                        <li>
+                           <p>When a tube part is created, it is created in the context of a single member. &nbsp;The
+                              tube part is automatically placed on the exclude list of all other members, but the
+                              tube part is hidden in the exclude list so that it cannot be removed from the exclude
+                              list of non-driving members.</p>
+                        </li>
+                        <li>
+                           <p>Occurrence one of a tube created through XpresRoute is always the driven occurrence,
+                              and may only exist within the driving member.</p>
+                        </li>
+                        <li>
+                           <p>All commands which create and manipulate tube path elements are available when working
+                              globally (the Apply Edits to All Members option is set).</p>
+                        </li>
+                        <li>
+                           <p>The Tube command is available only when the Apply Edits to All Members option is cleared
+                              (you are working locally).</p>
+                        </li>
+                        <li>
+                           <p>All tube paths are seen in all members.</p>
+                        </li>
+                        <li>
+                           <p>If an assembly that contains a tube part that is driven by a path existing in the
+                              file, and that assembly is converted into an alternate assembly, the default member
+                              becomes the driving member for the tube. &nbsp;The tube is automatically placed on the
+                              exclude list and hidden in the second member. If you want to include this tube part
+                              in other members, you can place it using the Parts Library tab. &nbsp;This places an occurrence
+                              that is not a child and therefore will not trigger an update of itself when the Update
+                              All command is run. &nbsp;This assures that a tube part is not updated unless the member
+                              in which it was created is currently active, and consequently, each tube part is driven
+                              only in context of a single member.</p>
+                        </li>
+                        <li>
+                           <p>When a new member is created while the active member contains a tube that is driven
+                              by that member, the driven tube is placed on the exclude list of the new member and
+                              hidden on the list so that it cannot be taken off the list. &nbsp;The effect will be that
+                              the tube part does not appear in the new member.</p>
+                        </li>
+                        <li>
+                           <p>In version 17, if you convert an assembly to an alternate assembly after you create
+                              tube paths and tubes in XpresRoute, the links to the tubes will be broken. If you
+                              convert the assembly to an alternate assembly before you create tube paths or tubes,
+                              the links to the tubes you create later will function properly.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm3h" rel="famasm3h">Create a new alternate position assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm1h" rel="famasm1h">Create a new family of assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1490936" rel="xid1490936">Publish family of assembly members to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant1h" rel="variant1h">Define a list of alternate components for a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2h" rel="famasm2h">Save an alternate assembly member as a separate assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movprt2h" rel="movprt2h">Examples: Dynamically moving a part in an assembly</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm1a" rel="famasm1a">Alternate Assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1516913" rel="xid1516913">Using Family of Assemblies in the Teamcenter-managed environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1539706" rel="xid1539706">Save to Source command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1539707" rel="xid1539707">Save to Member command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant1d" rel="variant1d">Define Alternate Components Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant1c" rel="variant1c">Define Alternate Component command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/editdefasm1c" rel="editdefasm1c">Edit Definition command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant2d" rel="variant2d">Alternate Member Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm6d" rel="famasm6d">Assembly Member dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm5d" rel="famasm5d">New Member dialog box (Family of Assemblies tab)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2d" rel="famasm2d">Alternate Assemblies dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/plprt3d" rel="plprt3d">Dynamic Configuration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm1d" rel="famasm1d">Family of Assemblies tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm7d" rel="famasm7d">Alternate Assemblies Table dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm3d" rel="famasm3d">Save Member dialog box</a><br><br></div>
+            <div class="footer-content">Alternate assemblies impact on Solid Edge functionality, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

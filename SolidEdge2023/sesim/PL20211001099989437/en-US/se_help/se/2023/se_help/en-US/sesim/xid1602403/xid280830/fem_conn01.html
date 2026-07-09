@@ -1,0 +1,119 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Apply edge connectors to an assembly</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Apply edge connectors to an assembly"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_conn01">
+                     <h1 class="topic-title">Tutorial: Apply edge connectors to an assembly</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Learn how to use the <b>Edge</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_assyconn_edge_cmd.gif"> to apply edge connectors to a sheet metal assembly. The Edge connector simulates
+                     the functionality of the Femap <b>Closest Link</b> command, using rigid elements that constrain all six <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/degrees_of_freedom" rel="degrees_of_freedom">degrees of freedom</a> (DOF).</p>
+                  <p>The <b>Edge connector</b> command works like the <b>Manual connector</b> command. It uses the <b>Assembly Connector</b> command bar to specify and create the connections, and you are prompted to select
+                     elements to connect from and elements to connect to.</p>
+                  <p>The connections are generated automatically. Each node on the <em>From</em> edge is connected to the nearest node on the <em>To</em> edge, face, or surface.</p>
+                  <ul>
+                     <li>
+                        <p>When <b>Connector Type</b>=<b>Rigid</b>, you can create connections between two or more edges. You also can create a connection
+                           between an edge and a surface, or an edge and a face.</p>
+                     </li>
+                     <li>
+                        <p>When <b>Connector Type</b>=<b>Glue</b>, you can enter a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/search_distance" rel="search_distance">search distance</a> and a<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/penalty_factor" rel="penalty_factor"> penalty factor</a> in the <b>Assembly Connector Properties</b> dialog box before you create connections by:</p>
+                        <ul>
+                           <li>
+                              <p>Selecting an edge and a face.</p>
+                           </li>
+                           <li>
+                              <p>Selecting an edge and a surface.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>This differs from the <b>Manual connector</b> command (Connector Type=Glue), which creates connections between faces and surfaces.</p>
+                        </div>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open an assembly model document with an existing study, <b>FE_sheetmetal_edge.asm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p>The assembly consists of two parts represented by mid-surfaces.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_edge01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Place an edge connector:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Connectors</b> group→<b>Edge</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_assyconn_edge_cmd.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Ensure that <b>Glue</b> is selected in the <b>Connector Type</b> list.</p>
+                           </li>
+                           <li>
+                              <p>Select the edge of the cover (the long edge) as the <em>From</em> edge, and type <b>0.55 mm</b> in the <b>Search Distance</b> box.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_edge03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to enter the value and continue.</p>
+                           </li>
+                           <li>
+                              <p>Select the small face as the <em>To surface</em> and right-click to accept.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_edge04.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click to finish placing the connector.</p>
+                           </li>
+                        </ol>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_edge05.gif"></p>
+                     </li>
+                     <li>
+                        <p>From the <b>Simulation</b> tab→<b>Mesh</b> group, select the <b>Mesh</b> command.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif"></p>
+                     </li>
+                     <li>
+                        <p>Click the <b>Mesh</b> button. </p>
+                        <p>After a short period of time, the assembly is displayed with a surface mesh. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_edge06.gif"></p>
+                     </li>
+                     <li>
+                        <p>Continue using the <b>Edge Connector</b> command to apply edge connectors to the remaining free edges of the assembly.</p>
+                        <p>Set the <b>Search Distance</b> to <b>4 mm</b> for all remaining free edges.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_edge07.gif"></p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_edge08.gif"></p>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy01" rel="fem_assy01">Tutorial: Simulate stresses on a basketball hoop</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy02" rel="fem_assy02">Tutorial: Simulate stresses on a valve handle</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy03" rel="fem_assy03">Tutorial: Using bolted connections</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3a" rel="assyconn3a">Edge connectors</a><br><br></div>
+            <div class="footer-content">Tutorial: Apply edge connectors to an assembly, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

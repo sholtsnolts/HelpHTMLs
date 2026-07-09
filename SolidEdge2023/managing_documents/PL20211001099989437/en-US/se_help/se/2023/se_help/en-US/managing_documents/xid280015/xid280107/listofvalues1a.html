@@ -1,0 +1,556 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Lists of Values (LOV)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Lists of Values (LOV)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="listofvalues1a">
+                     <h1 class="topic-title">Lists of Values (LOV)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p><a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/list_of_values" rel="list_of_values">Lists of values</a> (LOVs) are used in <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/common_property_dialog" rel="common_property_dialog">common property dialog box</a> and Structure Editor property fields to ensure consistent data input into a database.
+                     The list entries are created either by referencing existing data or by entering customized
+                     data for your managed site. Once created, the List of Values is implemented throughout
+                     the user interface by attaching the List of Values to one or more Teamcenter properties.
+                     Using Lists of Values helps you improve productivity and helps prevent incorrect user
+                     entries.</p>
+                  <h4 class="division-title" id="listofvalues1a_process">Process for implementing Lists of Values</h4>
+                  <div>
+                     <p>Lists of Values are managed through BMIDE and then deployed to the Teamcenter database.
+                        Regardless of the version of Teamcenter you are running, all Lists of Values are implemented
+                        using a similar process:</p>
+                     <ul>
+                        <li>
+                           <p>Create a List of Values</p>
+                           <p>When you create a new List of Values, you create a new object that references existing
+                              data in Teamcenter (for example, group names) or contains some custom data (a range
+                              of serial numbers) that you want to store in the List of Values.</p>
+                        </li>
+                        <li>
+                           <p>Attach the List of Values</p>
+                           <p>You must attach the List of Values to the appropriate property in order for the List
+                              of Values to display in the user interface. Attaching the List of Values to a property
+                              type links it to any input box where that data is entered. A list with the selected
+                              values is then displayed in the user interface.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>For details regarding defining projects and using Teamcenter preferences, see the
+                           <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a>.</p> </div>
+                  </div>
+                  <h4 class="division-title" id="listofvalues1a_valuetypes">Value types</h4>
+                  <div>
+                     <p>There are five value types you can use to construct Lists of Values. Each List of
+                        Values can contain only one of the following value types. Value types cannot be mixed
+                        in the same List of Values.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="50%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="15%">
+                           <col span="1" align="left" width="85%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Value</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Definition</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Integer</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Whole number.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Double</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Double-precision floating point decimal number.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Char</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Single ASCII character.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>String</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>String of ASCII characters.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Date</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Date and time (uses the Regional and Language Options Settings in Control Panel).</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title" id="listofvalues1a_usagetypes">Usage types</h4>
+                  <div>
+                     <p>Each List of Values must be assigned one of three usage types:</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="80%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Symbol</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Type</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Description</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/exhaustive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Exhaustive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Defines all possible entries. Exhaustive lists prevent you from specifying a value
+                                    that is not contained in the exhaustive list of values.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/suggestive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Suggestive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Provides a suggested list of choices. However, you can enter a value not contained
+                                    in the list. For example, a suggestive list of values can be used to show commonly
+                                    used description strings as with a Material Library. You can select one of the suggested
+                                    description strings from the List of Values or enter another user-defined string.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/range_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Range</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Indicates that the choice falls within a range of numeric values. You are prevented
+                                    from specifying a value not contained within the range. For example, a range List
+                                    of Values can be used to construct a small consecutive list of serial numbers.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you create a List of Values, you must exit and restart the application to see
+                           an updated list. The Lists of Values are evaluated once per session. </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="listofvalues1a_impusagetypes">Implementation of usage types</h4>
+                  <div>
+                     <p>The LOV usage types can be implemented using basic, filtering, cascading (also known
+                        as hierarchical), and interdependent lists.</p>
+                     <p>A Filter LOV is based on an existing LOV definition. You have the option to hide values.
+                        Filter LOV's can be of any LOV usage type (Exhaustive, Suggestive or Range) and they
+                        can be used with a Cascading or Interdependent LOV's.</p>
+                     <p>A Cascading LOV (also known as hierarchical) is a list of values whose values contain
+                        other lists of values. Cascading LOV's can be Exhaustive, Suggestive or Range and
+                        have multiple entries per level, and be multiple levels deep. The only entry that
+                        is written into the property in the database is the end-point (leaf node) value.</p>
+                     <p>Interdependent LOV's keep track of every entry you pick (a roadmap) and can be Exhaustive
+                        or Suggestive. The root note determines the structure's LOV usage type. For example,
+                        if the root node is Exhaustive, but a child is Suggestive, the entire group of properties
+                        is Exhaustive. User defined values are not inserted into the structure. Determine
+                        your selections by working from left to right in the common property dialog box.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>All child properties must be mapped.</p>
+                     </div>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="15%">
+                           <col span="1" align="left" width="75%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Symbol</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Type</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Example</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/cas_exhaustive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Cascading Exhaustive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>A list of states that contains a comprehensive list of cities to choose from. Only
+                                    the city you choose is entered into the property.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/cas_suggestive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Cascading Suggestive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>A list of cities that contain a partial list of zip codes related to each city. You
+                                    can enter zip codes that are not in the list. Only the zip code you choose is entered
+                                    into the property value.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/int_exhaustive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Interdependent Exhaustive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>A list of cities where your choice determines the state that is displayed as your
+                                    next choice. The selections you make are entered into the property value. The end-point
+                                    (leaf node) value may not be unique.</p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>Huntsville, Alabama</p>
+                                    <p>Huntsville, Texas</p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/int_suggestive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Interdependent Suggestive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>A list of cities where your choice determines the state that is displayed as your
+                                    next choice and you need to be able to enter a user-defined value. Each entry you
+                                    choose is entered into the property value.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title" id="listofvalues1a_balanced">Balanced and unbalanced Lists of Values</h4>
+                  <div>
+                     <p>Parent-child relationships can be created between Lists of Values. These relationships
+                        can be <em>balanced</em> or <em>unbalanced</em>. In a balanced List of Values, each level of the List of Values displays a related
+                        set of values. For example, the first level of the List of Values could display state
+                        values, the second levels show city values, and the third levels show zip code values.</p>
+                     <p>In an unbalanced List of Values, each level of the List of Values does not have related
+                        sets of values. For example, the first level shows related values such as states.
+                        In one set the second level shows cities, and in the other set the second level shows
+                        zip codes.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Unbalanced Lists of Values are not supported in Teamcenter Unified Architecture or
+                           Teamcenter Engineering.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="listofvalues1a_interact">Interacting with Lists of Values</h4>
+                  <div>
+                     <p>You interact with Lists of Values when you define properties on common property dialog
+                        boxes where lists of values have been defined by a Teamcenter administrator. Two examples
+                        of dialog boxes where you see LOVs are the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/newdoc1d" rel="newdoc1d">New Document dialog box</a> and the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/uploaddoc1d" rel="uploaddoc1d">Upload dialog box</a>.</p>
+                     <p>In Structure Editor and Add to Teamcenter - Interactive, you interact with Lists of
+                        Values through the <em>source</em> and <em>target</em> window panes.</p>
+                     <p>Basic and cascading LOV's are shown in the common property dialog box in a single
+                        column, a supported LOV type, and a LOV usage type of Exhaustive, Suggestive, or Range.
+                        A Cascading LOV displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/listofvalues1d" rel="listofvalues1d">Select Cascading LOV dialog box</a> to define the property.</p>
+                     <p>Your interaction with various types of Lists of Values differs. The symbol associated
+                        with each type acts as a visual cue to aid you in knowing what behavior to expect.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="15%">
+                           <col span="1" align="left" width="75%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Symbol</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Type</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Interaction</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/exhaustive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Exhaustive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <ul>
+                                    <li>
+                                       <p>Click a cell in the common property dialog box and begin typing. Your cursor moves
+                                          to the word you specify.</p>
+                                    </li>
+                                    <li>
+                                       <p>Double–clicking the cell displays the list of values.</p>
+                                    </li>
+                                    <li>
+                                       <p>You are limited to choosing from the list.</p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/suggestive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Suggestive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <ul>
+                                    <li>
+                                       <p>Click the cell in the common property dialog box and begin typing. Your cursor does
+                                          not advance to an entry matching your input. Instead, your text is entered into the
+                                          cell and your new user-defined entry is added to the bottom of the existing list of
+                                          entries for the current session.</p>
+                                    </li>
+                                    <li>
+                                       <p>Double–clicking the cell displays the suggested list of values.</p>
+                                    </li>
+                                    <li>
+                                       <p>When a user-defined value is entered, it is validated against the List of Values type
+                                          definition (ie. integer, string, etc.). You can select one of the suggested description
+                                          strings from the List of Values or enter another user-defined string. </p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/range_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Range</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <ul>
+                                    <li>
+                                       <p>Your choice falls within a range of numeric values. The entry is expected to follow
+                                          the example where <em>lower limit&lt;=value&lt;=upper limit</em></p>
+                                    </li>
+                                    <li>
+                                       <p>You are prevented from specifying a value not contained within the range.</p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/cas_exhaustive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Cascading Exhaustive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <ul>
+                                    <li>
+                                       <p>Clicking the cell in a common property dialog box selects the cell for copying or
+                                          pasting an entry. </p>
+                                    </li>
+                                    <li>
+                                       <p>Double-clicking the cell displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/listofvalues1d" rel="listofvalues1d">Select Cascading LOV dialog box</a>. The cascading structure on the dialog box is collapsed, showing only the first level.
+                                          The current selection is unset. You navigate to find the value and make your selection.
+                                          </p>
+                                    </li>
+                                    <li>
+                                       <p>The User Defined Value field cannot be selected.</p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/cas_suggestive_lov.gif"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Cascading Suggestive</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <ul>
+                                    <li>
+                                       <p>Clicking the cell in a common property dialog box selects the cell for copying or
+                                          pasting an entry. </p>
+                                    </li>
+                                    <li>
+                                       <p>Double-clicking the cell displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/listofvalues1d" rel="listofvalues1d">Select Cascading LOV dialog box</a>. The cascading structure on the dialog box is collapsed, showing only the first level.
+                                          The current selection is unset. You can choose from the list of values or enter a
+                                          user defined value.</p>
+                                    </li>
+                                    <li>
+                                       <p>The user Defined Value field can be used to type your desired value.</p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title" id="listofvalues1a_pda">List of Values with Property Description attachments</h4>
+                  <div>
+                     <p>Lists of Values with Property Description attachments capture both the selected value
+                        and its defined description in separate properties. Property description attachments
+                        can be used with Exhaustive and Suggestive LOV's.</p>
+                     <p>A basic or cascading LOV with a property description attachment displays two columns
+                        on the common property dialog box where one column is <em>parent</em> and the other is <em>child</em>. The <em>parent</em> property is shown in the left column in the common property dialog box, and the <em>child</em> property is shown in the right column. If either of the columns move, both columns
+                        move to maintain their relationship. When the parent property is defined through input
+                        from the user, the child property is empty.</p>
+                     <p>Interdependent LOVs with property description attachments are represented on the common
+                        property dialog boxes by a parent column and a group of child columns, a supported
+                        LOV type and an LOV usage type of Exhaustive or Suggestive. The root note is writable
+                        and the child columns are read-only.</p>
+                  </div>
+                  <h4 class="division-title">Lists of Values with descriptions</h4>
+                  <div>
+                     <p>You can also integrate descriptions with Lists of Values so that a row in the list
+                        includes both the value and its corresponding description in a single column. This
+                        capability assists users who could benefit from a description to choose an appropriate
+                        value from a list. When you select the row from a list, only the value is captured
+                        in the property. </p>
+                     <p>In this implementation, the List of Values uses the character defined by the Teamcenter
+                        preference <em>LOV_value_Desc_separator</em> to separate the value (real name) from the description (displayable name) in the
+                        display. For example:<br>&lt;value&gt; &lt;separator&gt; &lt;description&gt; </p>
+                     <p>If no description exists, only the value is displayed in the row.</p>
+                     <p>Use the three Teamcenter preferences that impact Lists of Values to determine the
+                        behavior of value/description pairs:</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="70%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="15%">
+                           <col span="1" align="left" width="15%">
+                           <col span="1" align="left" width="70%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Preference</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Default</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Description</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>LOV_hide_desc</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>True</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Determines whether side-by-side LOV value and corresponding description are displayed.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>LOV_value_desc_separator</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>, (comma)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Defines the character used to separate the value from the description in a List of
+                                    Values.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>LOV_user_id_display</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>0 (User)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Specifies how the User ID is displayed within an LOV.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>The preferences are described in more detail in the <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/smartcodes2h" rel="smartcodes2h">Create a List of Values (LOV)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/listofvalues1h" rel="listofvalues1h">Define the List of Values (LOV) value-description separator</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/listofvalues1d" rel="listofvalues1d">Select Cascading LOV dialog box</a><br><br></div>
+            <div class="footer-content">Lists of Values (LOV), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

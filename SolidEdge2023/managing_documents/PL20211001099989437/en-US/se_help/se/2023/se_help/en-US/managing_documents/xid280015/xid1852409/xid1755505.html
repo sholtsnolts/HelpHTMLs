@@ -1,0 +1,153 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using Concept Workspace to explore design ideas</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using Concept Workspace to explore design ideas"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1755505">
+                     <h1 class="topic-title">Using Concept Workspace to explore design ideas</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Exploring new design ideas using existing models that may already be released can
+                     be a complicated process, especially if you are not sure if you want to commit the
+                     design to Teamcenter. Using Concept Workspace, you can use existing models as a starting
+                     point, make design changes, evaluate the need for new components, and then interactively
+                     publish your design to Teamcenter when you are ready, or even delete a design if you
+                     choose. Think of Concept Workspace as your sandbox for exploring creative ideas without
+                     committing to the creation of a new Item in Teamcenter.</p>
+                  <p>With Concept Workspace you can:</p>
+                  <ul>
+                     <li>
+                        <p>Create new parts or assemblies without creating an Item.</p>
+                     </li>
+                     <li>
+                        <p>Modify existing Teamcenter-managed documents without committing changes or actions.</p>
+                     </li>
+                     <li>
+                        <p>Add existing parts to new assemblies.</p>
+                     </li>
+                     <li>
+                        <p>Add new parts to existing assemblies without creating an Item.</p>
+                     </li>
+                     <li>
+                        <p>Delete a design if it is not needed.</p>
+                     </li>
+                  </ul>
+                  <p>When you are satisfied with your new design, you can accept the design in Concept
+                     Workspace by publishing it and uploading it to Teamcenter.</p>
+                  <h4 class="division-title">Working in a Concept Workspace</h4>
+                  <div>
+                     <p>Concept Workspace is enabled using the Teamcenter preference <b>SEEC_Enable_ConceptWorkspace</b>.</p>
+                     <p>After the functionality is enabled, Concept Workspaces are created and set active
+                        in the Cache Assistant when no document is open in Solid Edge. You can populate your
+                        workspace by opening an existing document, downloading a document in Cache Assistant,
+                        creating new content, or by adding managed content. The Teamcenter rich client and
+                        Active Workspace can be used to retrieve managed documents. Additional documents can
+                        be added through the Teamcenter Library. Existing documents are only checked out if
+                        you want to prevent the creation of newer versions by other users. Documents in cache
+                        are never overwritten unless explicitly specified using the <b>Revert</b> or <b>Synchronize</b> commands.</p>
+                     <p>A Concept Status is determined for documents in the Concept Workspace as they are
+                        saved to disk:</p>
+                     <ul>
+                        <li>
+                           <p>Up-to-date—Any Solid Edge document retrieved from Teamcenter that has not been modified.</p>
+                        </li>
+                        <li>
+                           <p>Modified—Managed documents that have been changed or contain modified properties,
+                              and saved to disk. </p>
+                        </li>
+                        <li>
+                           <p>New—Document created new or in-place within the workspace. The new status is not applied
+                              until the file is saved to disk. The <b>Save As</b>, <b>Replace with Copy</b>, <b>Replace with New </b> commands create documents with a status of <b>New</b>.</p>
+                        </li>
+                     </ul>
+                     <p>When you work with designs in a Concept Workspace, Solid Edge automatically adjusts
+                        the user interface as needed to indicate you are working in a sandbox for exploring
+                        new ideas. This changes the Solid Edge user interface in the following ways:</p>
+                     <ul>
+                        <li>
+                           <p><b>Concept Workspace</b> is displayed in the application title bar of the window.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>If Concept Workspace is not indicated in the title bar, you are working in a Cache
+                                 Workspace.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p><b>Concept Workspace</b> is indicated in the cache information portion of the start page.</p>
+                        </li>
+                        <li>
+                           <p>The <b>Open File</b> dialog box indicates <b>Open File - Working in Concept Workspace</b>.</p>
+                        </li>
+                     </ul>
+                     <p>While you can create multiple Concept Workspaces, you cannot work across the multiple
+                        workspaces. You can switch to a different workspace when no document is open in Solid
+                        Edge by opening the <b>Cache Assistant</b>, and choosing a workspace from the list in the <b>Workspace</b> group.</p>
+                  </div>
+                  <h4 class="division-title">Working offline in a Concept Workspace</h4>
+                  <div>
+                     <p>Files in a Concept Workspace can be opened and modified in Online or Offline mode.
+                        However, when you work offline, files can only be opened from within the Concept Workspace.
+                        Opening a file opens what is in the active Concept Workspace.</p>
+                  </div>
+                  <h4 class="division-title">Using the Concept Assistant</h4>
+                  <div>
+                     <p>When you work in a <b>Concept Workspace</b>, the <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1762348" rel="xid1762348">Concept Assistant</a> is available from the Teamcenter ribbon as an interactive interface for manipulating
+                        new or modified documents in the active <b>Concept Workspace</b>. You can use commands to filter the display of the contents, view or modify file
+                        properties of documents in the Concept Workspace, set actions for the documents in
+                        the workspace, and then publish the items to Teamcenter. You can also use the <b>Validate</b> command to provide basic validation checks. The results are provided in the <b>Issues</b> column of the Concept Assistant.</p>
+                  </div>
+                  <h4 class="division-title">Cloning your concept</h4>
+                  <div>
+                     <p>When you work through a concept or idea, you may want to use part or all of your idea
+                        into other conceptual scenarios. The use of cloning in Concept Assistant enables you
+                        to identify selections of your design to be <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1859656" rel="xid1859656">pushed</a> to an existing or new Concept Workspace. You also have the capability to <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1859740" rel="xid1859740">pull</a> documents from a workspace into your active workspace.</p>
+                     <ul>
+                        <li>
+                           <p>Push—Copies the selection from your active selection to a different Concept Workspace.
+                              The <b>Push</b> command is available from the <b>Clone</b> group of the <b>Concept Assistant</b>. </p>
+                        </li>
+                        <li>
+                           <p>Pull—Copies documents from a different Concept Workspace to your active workspace.
+                              You can pull documents into your workspace with the <b>Replace</b> command or by using the Teamcenter Library and then selecting the desired workspace.</p>
+                        </li>
+                     </ul>
+                     <p>Cloning can overwrite files, so an informational message is displayed to alert you
+                        so that you do not overwrite existing data.</p>
+                  </div>
+                  <h4 class="division-title">Publishing your concepts</h4>
+                  <div>
+                     <p>When you are ready to commit your design ideas developed in Concept Workspace to a
+                        Teamcenter-managed environment, use the <b>Publish</b> command, available in <b>Concept Assistant</b>, to add to Teamcenter the items you created or modified in the direct document.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1759737" rel="xid1759737">Create a Concept Workspace</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1875918" rel="xid1875918">Comparing models in Concept Workspace</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1874726" rel="xid1874726">Revert files to Teamcenter in Concept Workspace</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1859656" rel="xid1859656">Push files to a different Concept Workspace</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1859740" rel="xid1859740">Pull files into a Concept Workspace</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1855490" rel="xid1855490">Publish concepts to Teamcenter</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1755447" rel="xid1755447">Concept Workspace workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1855499" rel="xid1855499">Concept Assistant Publish dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1855500" rel="xid1855500">Using the Concept Assistant Publish toolbar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1853414" rel="xid1853414">Resolving problems identified in the Issues column (Concept Assistant)</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1759747" rel="xid1759747">Concept Workspace command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1762325" rel="xid1762325">Concept Assistant command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1762348" rel="xid1762348">Concept Assistant dialog box</a><br><br></div>
+            <div class="footer-content">Using Concept Workspace to explore design ideas, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

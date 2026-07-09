@@ -1,0 +1,427 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using Geometry Inspector</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using Geometry Inspector"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="geominspect1a">
+                     <h1 class="topic-title">Using Geometry Inspector</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Inspect</b> tab→<b>Evaluate</b> group→<b>Geometry Inspector</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/evaluate/analyze/geometry_inspector2.png"> detects flaws in model geometry, and it provides information to help you understand
+                     and resolve the errors. You can use the <b>Geometry Inspector</b> to identify flaws in imported foreign models that may cause problems in Solid Edge.
+                     You can use it to simplify Solid Edge models for finite element analysis or find and
+                     cleanup faulty meshes.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The command can also be found here: <b>Reverse Engineering</b> tab→<b>Cleanup Mesh</b> group→<b>Geometry Inspector</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/evaluate/analyze/geometry_inspector2.png"></p>
+                  </div>
+                  <h4 class="division-title">Inspecting geometry</h4>
+                  <div>
+                     <p>When you select the <b>Geometry Inspector</b> command, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1d" rel="geominspect1d">Geometry Inspector dialog box</a> displays.</p>
+                     <ul>
+                        <li>
+                           <p>You first choose the geometry you want to inspect, and whether you want to detect
+                              geometry faults, or small entities, or both.</p>
+                           <p>Selecting the <b>Go</b> button starts the inspection process.</p>
+                        </li>
+                        <li>
+                           <p>When processing finishes, the <b>Results</b> area of the dialog box displays the part name, the number of faults or small entities
+                              found, and the names of the detected items.</p>
+                        </li>
+                        <li>
+                           <p>You can select an item to read a description in the <b>Results</b> description area of the dialog box, and to highlight the geometry in the graphics
+                              window.</p>
+                        </li>
+                        <li>
+                           <p>You can use the <b>Fit</b> button to display all of the problem geometry in the window at once.</p>
+                        </li>
+                        <li>
+                           <p>You can use the <b>Save As</b> button on the dialog box to save the inspection information to an ASCII text file,
+                              with a <b>.txt</b> file extension.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you make a change to the model, you must select the <b>Geometry Inspector</b> command again to update the results in the dialog box.</p>
+                     </div>
+                     <p>To learn how you can use the <b>Geometry Inspector</b> options to inspect simulation geometry for small entities, see <a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="geominspect1a_faultlist">Types of faults identified by the Geometry Inspector</h4>
+                  <div>
+                     <p>The following table shows the faults detected by Geometry Inspector and displayed
+                        in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1d" rel="geominspect1d">Geometry Inspector dialog box</a>.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="30%">
+                           <col span="1" align="left" width="70%">
+                        </colgroup>
+                        <tr valign="top">
+                           <th rowspan="1" align="left" colspan="1">
+                              <p>Type of fault</p>
+                           </th>
+                           <th rowspan="1" align="left" colspan="1">
+                              <p>Description </p>
+                           </th>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Corrupt Data-Structure</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>The structure of the data does not conform to the Parasolid format. &nbsp;This is a very
+                                 serious problem and will usually require the face, sheet, or body to be reconstructed.
+                                 </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Invalid or Duplicate Identifiers</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault may be caused by importing very old (pre V5) versions of Parasolid files
+                                 or bodies created by modeling with such bodies in later versions. &nbsp;This will not cause
+                                 a problem, unless you want the model to remain associative with the inserted part
+                                 copy because Solid Edge uses the identifiers and relies on their uniqueness.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Missing Geometry</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>The fault or error for missing geometry is usually the result of importing data that
+                                 may not have a clear definition for bounding curves. As a result the geometry is not
+                                 found as part of the sheet definition. &nbsp;Boolean operations cannot be performed on
+                                 bodies with missing geometry, and you need to be careful when manipulating such bodies.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Invalid Geometry</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>The structure of the data does not conform to the Parasolid format. &nbsp;This is a very
+                                 serious problem and will usually require you to reconstruct the face or sheet. </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Self-Intersecting Geometry or Degenerate Geometry</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This generally occurs when construction curves used in the creation of surface data
+                                 have more than one intersection. Although, not always, this is seen more often in
+                                 three-sided surfaces. These problems will usually require you to reconstruct the data
+                                 so that the geometry can successfully be stitched and form a solid body. </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Geometry Not G1-Continuous, or Fails Other Composite Geometry Checks</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Non-tangent faces that are joined together to form a single sheet or composite create
+                                 conditions such as geometry that is G1-discontinuous. When this type of geometry is
+                                 encountered some modeling operations may work with the offending geometry, but it
+                                 is best to replace this if possible.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Open or Non-Periodic Curve Attached to Ring Edge</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>The related edge has been turned into a ring edge by a large tolerance, leaving an
+                                 open curve as the geometry. &nbsp;It indicates a possible internal failure if the tolerances
+                                 on the edge become so large as to consume features incorrectly. </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Open or Non-Periodic Nominal Geometry Attached to Ring Edge</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>The related open edge has been turned into a closed edge usually by a large tolerance
+                                 leaving an open curve as the nominal geometry.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Vertex Not on Curve of Edge</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This indicates failure, which may be the result of tolerances used by the curve. Such
+                                 a failure may result in additional failures when you modify this body. </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Vertex Not on Nominal Geometry</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This indicates failure, which may be caused by tolerances on the nominal geometry
+                                 that have become too large. Such a failure may result in additional failures when
+                                 you modify this body.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Edge Reversed</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This failure indicates that the order of the curves is not sequential and may cause
+                                 a situation where the software is not able to close a curve set. &nbsp;</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Nominal Geometry in Wrong Direction</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault indicates a failure in which the tolerances on the nominal geometry have
+                                 become too large, and a body exhibiting this would probably have other failures.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>SP-Curves of Edge Not Within Tolerance</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>No definition found for this error.</p>
+                              <p>This could be caused by invalid SP-curve data, or, more likely, an unsuitable tolerance
+                                 value on the edge</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>SP-Curves Not Within Edge's Tolerance of Nominal Geometry</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault indicates an internal failure in which the tolerances on the nominal geometry
+                                 have become too large, and a body exhibiting this would probably have other failures.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Vertices of Edge Touch</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault is usually a result of excess tolerance.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Faces Incorrectly Ordered at Edge</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>The order of the faces around an edge in the topological data structure does not agree
+                                 with the order of the surfaces attached to those faces.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Vertex Not on Surface of Face</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This could occur as a result of a tolerance mismatch between the trimming curve and
+                                 the surface to be trimmed.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Edge Not on Surface of face</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This could occur as a result of a tolerance mismatch between the trimming curve and
+                                 the surface to be trimmed.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Self-Intersecting Face </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault indicates a body that may contain a surface that loops back upon itself.
+                                 This is usually not visible because the loop may be found on the portion of the surface
+                                 that has been trimmed away by the bounding curve. Reconstruction of this geometry
+                                 is recommended. </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Edges Incorrectly Ordered at Vertex</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault indicates edges that are not correctly ordered at their vertex. This may
+                                 result in an open curve thought to be closed by the software.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Loops Inconsistent</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Either the direction of the loop in the face is wrong, or the number and types of
+                                 loops in the face are inconsistent with the surface type.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Missing Vertex at Surface Singularity</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>No information found for this definition.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Wireframe Edge/Face Inconsistency</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault indicates that a wire frame edge intersects a face other than at a vertex.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Wireframe Edge/Wireframe Edge Inconsistency</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault indicates that two wire frame edges intersect other than at a vertex.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Size-Box Violation</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>To handle precision correctly, all parts of a body must be within a box whose size
+                                 is 1000 by 1000 by 1000, and is centered at the origin of the Solid Edge reference
+                                 planes. This type of fault should be avoided, but does not mean that modeling operations
+                                 will necessarily fail. Modeling with entities outside the size-box may often work,
+                                 but it is not recommended.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Face-Face Inconsistency</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>No information found for this definition.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Body is Inside Out</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>PK_BODY_state_inside_out_c</p>
+                              <p>This fault indicates that a surface normal in this body may be reversed.&nbsp;Software
+                                 healing operation may resolve such a problem. &nbsp;</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Shells of Region are Inconsistent</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>A shell is a connected collection of oriented faces. A region is an open connected
+                                 subset of 3D space whose boundary is a collection of vertices, edges, and oriented
+                                 faces. Regions are either solid or void (empty). This fault occurs when a region is
+                                 invalid, such as a body with two positive shells. </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Regions of Body are Inconsistent</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>A region is an open connected subset of 3D space whose boundary is a collection of
+                                 vertices, edges, and oriented faces. Regions are either solid or void (empty).</p>
+                              <p>A body always has an infinite void region, which you can think of as all the space
+                                 outside of the body itself, and the sum of all regions in a body comprises the whole
+                                 of 3-D space.</p>
+                              <p>This fault occurs when there is an inconsistency between regions. It means that either
+                                 the body contains more than one infinite region, or that the infinite region is not
+                                 the first region. </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Geometry/Topology Inconsistency in Shell</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>A shell is a connected collection of oriented faces. Inconsistency in a shell can
+                                 only occur for general bodies. This means that a wire frame edge or a face in a shell
+                                 is not geometrically inside that shell.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Acorn Shell/Shell Inconsistency</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>No information found for this definition.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Unspecified Checker Failure or Checker Failure During Face-Face Check</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>These fault types are used to distinguish cases where the checker itself has failed
+                                 due to an internal numerical problem. They should not be taken to mean that the body
+                                 itself is invalid.</p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Non-Printing Character Used in Name of Attribute Definition</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>This fault can occur if a non-printing character, such as a line feed or carriage
+                                 return, is used in an attribute definition name.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Mesh surface is self-intersecting</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Faulty triangular mesh. Facet is self-intersecting. The healing option removes these
+                                 facets and if a hole results from the facet removal, the hole is filled.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1h" rel="geominspect1h">Inspect the geometry of a model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid293066" rel="xid293066">Optimize the quality of a model</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1c" rel="geominspect1c">Geometry Inspector command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1d" rel="geominspect1d">Geometry Inspector dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid280807" rel="xid280807">Optimize command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid280881" rel="xid280881">Optimize dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid280809" rel="xid280809">Optimize command bar</a><br><br></div>
+            <div class="footer-content">Using Geometry Inspector, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

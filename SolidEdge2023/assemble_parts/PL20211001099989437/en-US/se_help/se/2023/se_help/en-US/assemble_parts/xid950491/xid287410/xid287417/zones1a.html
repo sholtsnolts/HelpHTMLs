@@ -1,0 +1,136 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using zones in assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using zones in assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="zones1a">
+                     <h1 class="topic-title">Using zones in assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>It can be useful to define a set of components in an assembly based on the volume
+                     of space the parts occupy. The <b>Zones</b> functionality on the <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/query1d" rel="query1d">Select Tools page</a> in Solid Edge allows you to define a rectangular volume of space based on one or
+                     more assembly components you select. You can then use that named zone to select, display,
+                     or hide all the assembly components that are contained within the boundary of the
+                     zone. For example, you can select a named zone on the <b>Select Tools</b> page, then click the <b>Hide Components</b> command on the shortcut menu to hide all the assembly components in the zone.</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/large/config_zone_simplify/zones3.gif"></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>You can use a zone to show, hide, and select parts, assemblies, assembly sketches,
+                        weld beads, coordinate systems, and reference planes in an assembly. Defining and
+                        using zones is especially useful when working with large assembly data sets. For more
+                        information on working with large assemblies, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/assem3a" rel="assem3a">Working with large assemblies efficiently</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title">Defining zones</h4>
+                  <div>
+                     <p>You define a zone using the <b>Create Zone</b> command on the <b>Select Tools</b> page. When you click the <b>Create Zone</b> button, a command bar is displayed, with the <b>Origin</b> and <b>Size Step</b> active, which allows you to define the initial volume of the zone by selecting one
+                        or more assembly components. The range box of the design body of each selected component
+                        is used to calculate the zone box volume.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Construction bodies and simplified bodies are ignored when calculating zone box volume.</p>
+                     </div>
+                     <p>You can select the components in the <b>PathFinder</b> page or the graphics window. For example, you can select a subassembly (A) using
+                        <b>PathFinder</b>. When you click the <b>Accept</b> button, a zone boundary box is displayed in the graphics window (B). The command
+                        bar then advances to the <b>Modify Size Step</b>, which allows you to further refine the size of the zone.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/large/config_zone_simplify/zones2.gif"></p>
+                     <p>To change the size of the zone during the <b>Modify Size Step</b>, you can select a face on the zone box, and then select a keypoint on an adjacent
+                        part or a point in free space.</p>
+                     <p>To control which components are included in the zone, you can specify whether the
+                        zone definition is inside or overlapping using the options on the command bar.</p>
+                     <p>When you finish defining a zone, a zone boundary box is displayed in the graphics
+                        window (B), and a zone name is added to the <b>Select Tools</b> page. You can also edit the size of a zone later.</p>
+                     <p>The zone boundary box volume is not associative to the parts used to define the zone.
+                        If you move, edit, or delete the parts used to define the zone, the size of the zone
+                        boundary box remains the same.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you create the first zone in an assembly, the assembly structure must be updated.
+                           A message is displayed to warn you that updating the assembly structure may take several
+                           minutes, depending on the size of the assembly. For more information, see the <a class="xref" href="#zones1a_update_structure">Updating the assembly structure</a> section of this Help topic.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Modifying zones later</h4>
+                  <div>
+                     <p>You can edit the size of a zone later using the <b>Edit Definition</b> command on the shortcut menu when you select a zone entry in the <b>Select Tools</b> page, or a zone box in the graphics window. If you click the <b>Origin</b> and <b>Size Step</b> on the command bar, you can select new parts to redefine the zone boundary. If you
+                        click the <b>Modify Size Step</b>, you can edit the size of the zone boundary as described earlier.</p>
+                  </div>
+                  <h4 class="division-title">Displaying zone boundary boxes</h4>
+                  <div>
+                     <p>The zone box can be displayed or hidden in the graphics window.</p>
+                     <ul>
+                        <li>
+                           <p>You can use the zone shortcut menu commands to show and hide a zone boundary box display
+                              when you select a zone entry on the <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/query1d" rel="query1d">Select Tools tab</a> or in the graphics window.</p>
+                        </li>
+                        <li>
+                           <p>You can show or hide all the zone boundary boxes using the <b>View</b> tab→<b>Show</b> group→<b>Zones</b> command.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using zones</h4>
+                  <div>
+                     <p>Shortcut menu commands in the <b>Select Tools</b> page allow you to show only, show, hide, and select the components in a zone. You
+                        can also show all the parts in a zone by double-clicking a zone box in the graphic
+                        window.</p>
+                     <p>A part can belong to one or more zones. As you add new components to an assembly,
+                        the components are automatically added to the zone(s) they fall within.</p>
+                  </div>
+                  <h4 class="division-title">Drawing views of assembly zones</h4>
+                  <div>
+                     <p>You can use the <b>Drawing View Wizard</b> to select an assembly zone volume to be shown in a drawing view. The assembly zone
+                        captures any part components that exist within the predefined volume.</p>
+                     <p>You can choose an assembly zone from the <b>.cfg</b>, <b>PMI model view</b>, or <b>Zone List</b> on the <a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw6d" rel="prtvw6d">Drawing View Options page of the Drawing View Wizard</a>.</p>
+                  </div>
+                  <h4 class="division-title">Zones and display configurations</h4>
+                  <div>
+                     <p>The functionality of zones and display configurations differ in a number of ways.
+                        For more information, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/config1a#config1a_comparing" rel="config1a">Comparing display configuration and zones section</a> of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/config1a" rel="config1a">Displaying parts in assemblies</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title" id="zones1a_update_structure">Updating the assembly structure</h4>
+                  <div>
+                     <p>When working with zones, assembly components that are considered to be inside or outside
+                        a zone is accurate as long as the assembly structure is up to date. The assembly structure
+                        can become out of date when multiple people are working on different subassemblies,
+                        and you then open a higher level assembly with some of those changed subassemblies
+                        hidden. For example, on the <b>Open File</b> dialog box, there are options that allow you to open an assembly using a display
+                        configuration, a zone, or with all components hidden.</p>
+                     <p>You update the assembly structure using the <b>Update Assembly Structure</b> button on the <b>Select Tools</b> page. When you click the <b>Update Assembly Structure</b> button, the entire assembly structure is loaded into memory to ensure that the assembly
+                        structure is up to date.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Updating the assembly structure can take several minutes, depending on the size of
+                           the assembly.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/zones1h" rel="zones1h">Define a zone in an assembly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/zones1c" rel="zones1c">Create Zone command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/zones1d" rel="zones1d">Create Zone command bar</a><br><br></div>
+            <div class="footer-content">Using zones in assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

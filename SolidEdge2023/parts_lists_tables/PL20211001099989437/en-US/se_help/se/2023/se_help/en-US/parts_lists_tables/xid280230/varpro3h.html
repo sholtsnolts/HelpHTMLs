@@ -1,0 +1,193 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Example: Show custom properties and materials in a parts list</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Example: Show custom properties and materials in a parts list"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="varpro3h">
+                     <h1 class="topic-title">Example: Show custom properties and materials in a parts list</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In addition to the standard document properties (such as <b>File name</b>, <b>Document Number</b>, and <b>Revision Number</b>) and standard material properties (such as <b>Density</b>, <b>Coefficient of Thermal Expansion</b>, and <b>Yield Stress</b>), you can define custom document properties in part and sheet metal documents and
+                     custom material properties in the <b>Material Table</b> and display them in your parts list and other reports. </p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>You can add a Vendor column to a parts list on an assembly drawing by first defining
+                        a custom property for Vendor in the part files. </p>
+                     <p>You also can use custom properties to group parts by category. In the part document,
+                        create a custom property named Category, and assign custom property values, such as
+                        Fitting, Fastener, and Purchased Part. Then in the draft document, you can add a Category
+                        column to the parts list, and insert blank rows and formatted subtitles to group the
+                        parts list into each of the categories. As a final step, you can sort the parts list
+                        by Category. </p>
+                  </div>
+                  <h4 class="division-title">Add a custom document property to the part file</h4>
+                  <div>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Open the part file, and from the <b>File</b> menu, choose the <b>Info</b>→<b>File Properties</b> command.</p>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <ul>
+                                 <li>
+                                    <p>You must do this for each part that you want to show in the parts list.</p>
+                                 </li>
+                                 <li>
+                                    <p>You also can define part properties without opening the part or sheet metal document
+                                       in Solid Edge. Select the document in Windows Explorer, and then choose the <b>Properties </b>command on its shortcut menu.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li>
+                           <p>In the <b>File Properties</b> dialog box, click the <b>Custom</b> tab.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Custom</b> page, in the <b>Name</b> box, type a name for the custom property.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>To include the vendor name in a parts list, type <b>Vendor</b>.</p>
+                              <p>To group a parts list by category, type <b>Category</b>.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>From the <b>Type</b> list, select the <b>Text</b> property.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Value</b> box, type a value for each custom document property.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Type one of the following:</p>
+                              <ul>
+                                 <li>
+                                    <p>For the Vendor property, type the part vendor name.</p>
+                                 </li>
+                                 <li>
+                                    <p>For the Category property, type <b>Fitting</b>, <b>Fastener</b>, or <b>Purchased Part</b>.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Click <b>Add</b>, and then close the <b>File Properties</b> dialog box.</p>
+                        </li>
+                        <li>
+                           <p>Save the document.</p>
+                        </li>
+                        <li>
+                           <p>To display the custom property in a parts list, continue with the following instructions.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>You also can add a custom material property for Hardness to the Solid Edge <b>Material Table</b>, apply it to parts used in an assembly, and then display the values for Hardness
+                           in a column in the parts list. To learn how to define a custom material property in
+                           a part model so that it can be referenced in a parts list, see the help topic, <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material3h" rel="material3h">Create a custom material property</a>. To show the custom material property in a parts list, continue with the following
+                           instructions.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Reference custom properties and materials in a parts list</h4>
+                  <div>
+                     <p>After you define custom file properties and custom material properties in your part
+                        models, you can reference them in your parts list.</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Open the draft document that contains the parts list.</p>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <p>If there is no parts list on the drawing, use the <b>Parts List</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_type/table_type_command/parts_list_cmd.gif"> to generate one. To learn how to create a parts list, see the help topic, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview2h" rel="dview2h">Create a parts list</a>.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Select the parts list, and on the command bar, click <b>Properties</b>.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Parts List Properties</b> dialog box, click the <b>List Control</b> tab. In the <b>Global</b> section, choose a level of granularity for the parts list that ensures the parts
+                              you added the custom properties to are listed. For example, select <b>Atomic list (all parts and subassemblies)</b>. </p>
+                        </li>
+                        <li>
+                           <p>Click the <b>Columns</b> tab, and then do the following:</p>
+                           <ol type="a" start="1">
+                              <li>
+                                 <p>From the <b>Properties</b> list, select a custom property.</p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>To add the vendor name to the parts list, click <b>Vendor (Custom Property)</b>.</p>
+                                    <p>To add the part category to the parts list, click <b>Category (Custom Property)</b>.</p>
+                                    <p>To add a custom material property for Hardness to the parts list, click <b>Hardness (Custom Material Property)</b>.</p>
+                                 </div>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>All custom properties—both custom document properties and custom material properties—are
+                                       available for selection in the <b>Properties</b> list. These property names are appended with the text, (Custom Property) and (Custom
+                                       Material Property), respectively. </p>
+                                    <p>You also can select exposed variables as properties from the <b>Variable Table</b>. These property names are appended with the text, (Exposed Variable).</p>
+                                 </div>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>If two properties have the same name, the advantage to using an exposed variable property
+                                       instead of a custom property is that you can format the resulting real number using
+                                       the <a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid994105" rel="xid994105">Format Values dialog box</a>. For example, you can specify precision, no units, dual units, and tolerance.</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>Click <b>Add Column</b>.</p>
+                                 <p>The custom property column is added to the <b>Columns</b> list.</p>
+                              </li>
+                              <li>
+                                 <p>Use the <b>Move Up</b> and <b>Move Down</b> buttons as needed to move the column containing the custom property into the desired
+                                    position in the column order.</p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Click <b>OK</b> to close the dialog box and update the parts list.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <ul>
+                           <li>
+                              <p>You can insert blank rows into the table structure to add white space. Blank rows
+                                 are affected by sorting, however, so you should complete the table layout before you
+                                 add the rows that you want to remain blank. (The table is sorted automatically whenever
+                                 you click a different tab in the <b>Parts List Properties</b> dialog box.)</p>
+                           </li>
+                           <li>
+                              <p>If you subsequently change the part or assembly document, you must update the parts
+                                 list in the draft document using the <b>Update</b> command on its shortcut menu.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview2h" rel="dview2h">Create a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid969395" rel="xid969395">Create a subassembly parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst6h" rel="prtlst6h">Create an exploded parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst5h" rel="prtlst5h">Create a total length parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1472881" rel="xid1472881">Create a parts list for flexible hoses and tubing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1926173" rel="xid1926173">Create a family of assemblies parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid725042" rel="xid725042">Exclude parts from an exploded parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid732539" rel="xid732539">Open a model from a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1177387" rel="xid1177387">Example: Show custom occurrence properties in a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/varpro2h" rel="varpro2h">Example: Show sheet metal material thickness in a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1h" rel="prtlst1h">Renumber a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst4h" rel="prtlst4h">Change the active parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview5h" rel="dview5h">Display assembly occurrences in a drawing view or parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst2h" rel="prtlst2h">Convert a parts list to a table</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3h" rel="prtlst3h">Copy a parts list to the clipboard</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1a" rel="prtlst1a">Parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1926828" rel="xid1926828">Family of Assemblies (FOA) parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid973634" rel="xid973634">Assembly part views and parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid984917" rel="xid984917">Subassembly drawing views and parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3a" rel="prtlst3a">Exploded parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1178759" rel="xid1178759">Custom occurrence properties in parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1206783" rel="xid1206783">Occurrence quantity overrides in parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid726732" rel="xid726732">Item numbers in parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid969567" rel="xid969567">Saving and reusing the parts list format</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1c" rel="prtlst1c">Parts List command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst4d" rel="prtlst4d">Parts List command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3d" rel="prtlst3d">Parts List Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3c" rel="prtlst3c">Copy Contents command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst2c" rel="prtlst2c">Convert To Table command</a><br><br></div>
+            <div class="footer-content">Example: Show custom properties and materials in a parts list, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

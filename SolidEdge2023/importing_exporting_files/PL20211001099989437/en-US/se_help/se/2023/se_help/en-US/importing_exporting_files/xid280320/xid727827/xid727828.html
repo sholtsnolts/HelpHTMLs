@@ -1,0 +1,1003 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Saving to JT</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Saving to JT"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid727828">
+                     <h1 class="topic-title">Saving to JT</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can save Solid Edge assembly, part, and sheet metal documents in JT format with
+                     the <b>Save As</b> command. On the <b>Save As</b> dialog box, after you select the Solid Edge document you want to save, click the
+                     Options button to display the <b>Solid Edge to JT Translation Options</b> dialog box. You can use the dialog box to control how the Solid Edge document is
+                     saved in *.jt format.</p>
+                  <p>The <b>SePvTrn.ini</b> file, found in the Solid Edge Preferences\Translators folder, stores the settings
+                     selected from the user interface. When you change a parameter in the options form,
+                     a new value is saved to the <b>SePvTrn.ini</b> file.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When you are working in a Teamcenter-managed environment through Solid Edge Embedded
+                        Client, the file <b>SEECtoJT.ini</b> stores settings selected for the user interface. The <b>SEECtoJT.ini</b> file is located in the Solid Edge Program folder.</p>
+                  </div>
+                  <p>Some parameters are not exposed through the user interface. You can use a text editor,
+                     such as Notepad, to set these parameters. However, if you edit this file, use extreme
+                     caution in setting these parameters. Errors in this file can adversely affect translation
+                     quality.</p>
+                  <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                     <colgroup span="1">
+                        <col span="1" width="20%">
+                        <col span="1" width="80%">
+                     </colgroup>
+                     <tr>
+                        <th rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Parameter in SePvTrn.ini file</p>
+                        </th>
+                        <th rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Description</p>
+                        </th>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Include Precise Geometry = 0</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the inclusion of BREP definition in resultant jt files. jt file size will
+                              be larger when set to true, but jt viewer functionality that is able to use the precise
+                              BREP definition will provide more accurate results.</p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>JT Units = m</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the model units for the JT files.</p>
+                           <p>Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>mm — (millimeter)</p>
+                              </li>
+                              <li>
+                                 <p>cm — (centimeter)</p>
+                              </li>
+                              <li>
+                                 <p>m — (meter)</p>
+                              </li>
+                              <li>
+                                 <p>km — (kilometer)</p>
+                              </li>
+                              <li>
+                                 <p>in — (inches)</p>
+                              </li>
+                              <li>
+                                 <p>ft — (feet)</p>
+                              </li>
+                              <li>
+                                 <p>yd — (yard)</p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ChordalOption = RELATIVE</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the interpretation of the Chordal LOD parameter.</p>
+                           <ul>
+                              <li>
+                                 <p>RELATIVE — The toolkit tessellates all parts relative to their size (equally) and
+                                    with the same surface quality. The Chordal value is interpreted as a fractional percentage
+                                    of the underlying B-REP geometry's bounding box diagonal.</p>
+                              </li>
+                              <li>
+                                 <p>ABSOLUTE - The toolkit interprets the tessellation value as a strict number of units,
+                                    which is applied to all parts, regardless of size. The Chordal value is interpreted
+                                    as a value in the units of the original CAD file.</p>
+                              </li>
+                           </ul>
+                           <p>Possible values include a string equal to:</p>
+                           <ul>
+                              <li>
+                                 <p>RELATIVE</p>
+                              </li>
+                              <li>
+                                 <p>ABSOLUTE </p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>StructureOption = PER_PART</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the mapping of the jt product structure to the jt file structure for any
+                              jt output. Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>PER_PART</p>
+                              </li>
+                              <li>
+                                 <p>FULL_SHATTER</p>
+                              </li>
+                              <li>
+                                 <p>MONOLITHIC</p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>WriteWhichFiles = ALL</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the filtering of the jt files to be written based on the content. Possible
+                              values include:</p>
+                           <ul>
+                              <li>
+                                 <p>ALL - All parts and assemblies are written to the jt files. This allows no filtering.</p>
+                              </li>
+                              <li>
+                                 <p>PARTS_ONLY - Only data that is translated as parts is written to the jt files.</p>
+                              </li>
+                              <li>
+                                 <p>ASSEMBLY_ONLY - Only data that is translated as assemblies is written to the jt files.</p>
+                              </li>
+                           </ul>
+                           <p>Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>ALL</p>
+                              </li>
+                              <li>
+                                 <p>PARTS_ONLY</p>
+                              </li>
+                              <li>
+                                 <p>ASSEMBLY_ONLY </p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>PmiOption = NONE</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Not used</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>partMonitor=false</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Compression = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the toolkit's ability to output compressed jt files. Setting the value to
+                              false writes uncompressed jt file. Setting it to true writes compressed jt files.</p>
+                           <p>Possible values are a Boolean value of true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>TristripOpt = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the toolkit's ability to perform an additional optimization. The additional
+                              optimization increases the visualization performance of renderable geometry data in
+                              each jt part file. When set to true, the toolkit attempts to reduce the number of
+                              triangles to render without reducing the quality of the geometry displayed. This increases
+                              visualization performance, but may increase the jt file export time. </p>
+                           <p>When used in conjunction with the compression option, this option may increase jt
+                              part file sizes due to alterations in the renderable geometry's data composition.</p>
+                           <p>The value can be a Boolean value of true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>SeamSewing = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the toolkit logic to create shared edges between adjacent surfaces in the
+                              rendered geometry. This helps to eliminate gaps in the geometry. This option is impacted
+                              by the seamSewingTol option.</p>
+                           <p>The value can be a Boolean value of true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>SeamSewingTol = 0.001</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the tolerance used by the SeamSewing option to compare two vertices for equality
+                              in a seam to be sewn. The value specified represents a floating point fractional percentage
+                              of the bounding box diagonal of the part undergoing seam sewing.</p>
+                           <p>The option can be a floating point value in the range [0.0,1.0]. </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>BrepPrecision = DOUBLE</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the floating-point precision for any B-REP geometry data saved in a jt file.
+                              Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>DOUBLE - Use eight bytes per floating point value.</p>
+                              </li>
+                              <li>
+                                 <p>SINGLE - Use four bytes per floating point value.</p>
+                              </li>
+                           </ul>
+                           <p>This parameter controls how the data is stored on the disk and does not affect the
+                              settings of the Include Precise Geometry or XTBasedNewFormat parameters.</p>
+                           <p>Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>DOUBLE</p>
+                              </li>
+                              <li>
+                                 <p>SINGLE</p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>AutoNameSanitize = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the toolkit logic to remove undesirable characters from the names of jt files
+                              by replacing them with an underscore character (_). The default set of undesirable
+                              characters that will be replaced is:</p>
+                           <p>$ ~ ` ! @ # % ^ &amp; * ( )- + = " ' ; , . &lt; &gt; ? [ ]{ } </p>
+                           <p>You can use the FilenameSanitizeSet, FilenameSanitizeSetAdd, and FilenameSanitizeSetDelete
+                              options to modify this set of characters.</p>
+                           <p>The value can be a Boolean value (true or false).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>deleteUnusedparts=true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1"></td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>WriteAsciiAssembly = false</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the toolkit logic preventing the use of the jttoascii utility on resultant
+                              assembly-only jt files. When set to true, the translator creates an .A jt file equivalent
+                              for each .jt file that is created. </p>
+                           <p>For this option to function, jt Utilities product must be configured so that the jttoascii
+                              executable can be run from the same command line environment as the toolkit client
+                              application. </p>
+                           <p>The value can be a Boolean value (true or false).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>AutoLowLODgeneration = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the toolkit logic that analyzes and potentially creates two default lowest
+                              LODs. Specifically, this logic (potentially) creates a convex hull (<em>shrink wrapped</em>) and bounding box representation of a part's geometry.</p>
+                           <p>The value can be a Boolean value (true or false).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>SmartLODgeneration = false</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the toolkit logic that automatically analyzes and creates LODs to smooth
+                              the transition between the lowest user-defined LOD and the highest LOD generated by
+                              the autoLowLODgeneration option. </p>
+                           <p>This option may result in an arbitrary number of additional LODs.</p>
+                           <p>The value can be a Boolean value (true or false).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Number of LODs = 3</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the number of LOD definitions. The value must be an integer greater than
+                              1.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>XTBasedNewFormat = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the inclusion of XT BREP into the jt files. When this is true:</p>
+                           <p>Solid Edge uses the Parasolid BREP by adding it to the jt files. Before version 15,
+                              Solid Edge translated the jt file from Parasolid to jt BREP format. Reusing the Parasolid
+                              BREP is much faster.</p>
+                           <p>Solid Edge uses the Solid Edge triangles instead of creating them from the jt BREP.</p>
+                           <p>When X_TBasedNewFormat is enabled, the Levels Of Detail (LODs) are not used, since
+                              Solid Edge uses the Solid Edge triangles instead of generating them.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>IncludeVisibleConstructions = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the inclusion of Solid Edge construction geometry in the jt files. If this
+                              is true, all visible constructions are translated to JT format.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>IncludeSEProperties = true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the inclusion of Solid Edge properties in the jt files.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export Simplified parts = </p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies when to use simplified parts when exporting an assembly. Possible values
+                              are All Designed, All Simplified, and Use Current Configuration. The default value
+                              is Use Current Configuration.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export Assembly Simplification = </p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies when to use simplified subassemblies. Possible values are All Designed,
+                              All Simplified, Top Level Configuration, and Use Current Configuration. The default
+                              value is Use Current Configuration.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export Inter-Part Copies as constructions=true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export inter-part copies as construction surfaces. </p>
+                           <p>Possible values are a Boolean value of true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>UpdateChangedPartOnly=false</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Prevents an overwrite of jt files whose content is not changing. When set to true,
+                              the bill of materials for each jt file to be written is compared to that of any potentially
+                              overwritten jt file. If the product structure content or versions of this content
+                              differ, the JT file will be overwritten. This is for incremental JT translation support.</p>
+                           <p>Possible values are a Boolean value of true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>SEPartFileAsSingleJTFile=true</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Exports a single JT file for a Solid Edge part document. If this flag is set to true,
+                              <b>Save As jt</b> outputs a single JT file. </p>
+                           <p>Possible values are a Boolean value of true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Import Multiple Bodies As Single Part file=On</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>This parameter is used during the import of precise assembly geometry. When multiple
+                              solid bodies are encountered in a single part definition this parameter specifies
+                              how the bodies are added to the assembly file.</p>
+                           <p>If the parameter is set to the default value, On, a part file containing multiple
+                              construction bodies is created and added to the assembly. </p>
+                           <p> If the parameter is set to Off, an individual part file is created for each body
+                              contained in the part definition. A subassembly is then created, to which the individual
+                              part files are added.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Import DoNotSave=On</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>This parameter controls whether or not the Solid Edge part files are created on import,
+                              or on the initial save of the assembly file. For small to intermediate file sizes,
+                              this enhancement works well. For assemblies that are larger than 600-700 part files,
+                              you should disable this parameter to ensure there is sufficient memory to create the
+                              files on save.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>HealAndSew=0</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether to heal and sew free surfaces to create a solid body. When given
+                              a set of sheet bodies, the software cleans the input sheets of self-intersections
+                              and loop inconsistencies. It then identifies and removes very small surfaces or sliver
+                              sheets from the set of sheets. Edges of adjacent surfaces are then used to fill holes
+                              where slivers were removed. Larger holes from missing surfaces are also filled. After
+                              the healing process is complete a single stitch operation at 1.0e-5 (meters) is attempted
+                              to create a solid body. </p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ImportSewSheet=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether all surfaces and sheet bodies are to be stitched to a tolerance of
+                              1.00e005 meters. It may be to your advantage not to stitch the surfaces on import,
+                              but to evaluate what needs to be stitched and perform the stitch after you import
+                              the file. This option is on by default. If the stitching operation creates a valid
+                              volume, the volume is converted to a solid.</p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ImportBooleanSolid=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether to Boolean all solid bodies together and insert the results into
+                              PathFinder as part copies. This option is off by default. If the option is off, all
+                              solid bodies are added as individual part copies to PathFinder. </p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>CreateAssociativePartsInAssembly=0</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>During the import of a JT assembly, this parameter determines whether if an associative
+                              link to the jt file is created. By default, the creation of associative links is disabled.
+                              </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ImportSheet=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>If the jt file contains precise sheet (surface) data, it is imported or excluded.
+                              By default this is enabled (1).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ImportWires=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>If the jt file contains precise Wire (curve) data, it is imported or excluded. By
+                              default this is enabled (1). </p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Import Triangles Only=0</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether the meshed data or BREP data is imported from the .jt file. A false,
+                              0, value retrieves the BREP body, while a true, 1, value retrieves triangle data without
+                              the BREP data.</p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ImportImprintCurve=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether to combine all curve data into a single part copy. It may be to your
+                              advantage to identify the curves that you do not need and either hide or delete them
+                              before importing the file. This option is on by default.</p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>MakeBaseFeature=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether to make the imported solid body the base feature for the Solid Edge
+                              model. If there is more than one solid body in the Parasolid (.X_T) file, no base
+                              feature is created. In this case you can use the Make Base Feature command to select
+                              a solid to use as the base feature or construct a new base feature for the model.
+                              If you clear this option, all solid bodies contained in the SolidWorks file you are
+                              importing are placed in PathFinder as a part copy, rather than as a body feature.
+                              Inserting bodies as a part copy requires you to select or create a base feature. </p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ImportCheckBody=0</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether to perform a full body check on the file.</p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Stitch=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies if the <b>Heal and stitch</b> option, the <b>Stitch</b> option, or neither option is used when opening the file.</p>
+                           <p>Setting the value to 1 enables the dialog and will either heal and stitch, or stitch
+                              surfaces depending on the radial button setting.</p>
+                           <p>Setting the value to 0 will not heal and stitch nor will it stitch surfaces when disabled.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>EnableDefaultOutputPath=1</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether the output folder is the same as the input folder for the documents
+                              you are importing. If you select this option and import an assembly, the assembly
+                              and the individual parts in the assembly are imported to the same folder.</p>
+                           <p>The value can be a Boolean value (1 or 0).</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>ImportOutputPath=</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies the path to which the files will be output.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>[LOD 1]</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>A grouping of parameters that controls tessellation and simplification for a specific
+                              LOD. The value can be in the range of [1–n], where n is specified by the Number of
+                              LODs parameter.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Level</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the level of compression.</p>
+                           <p>Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>0: Produces the least amount of compression, maintains precision for the tessellation
+                                    in the JT file, and produces a larger file size. </p>
+                              </li>
+                              <li>
+                                 <p>1: Produces maximum compression, results in loss of precision for the tessellation,
+                                    and produces a smaller file size.</p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Chordal</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies the maximum distance that a (tessellated) line segment may deviate from
+                              the actual curve it is approximating. The value specified is interpreted as dictated
+                              by the <b>Chordal</b> option. </p>
+                           <p>For best results, use chordal values in conjunction with the Angular parameter. Chordal
+                              values affect primarily the larger features of the model, while angular values affect
+                              primarily the smaller features.</p>
+                           <p>The value can be a floating point in the range [0.0,1.0] for relative interpretation,
+                              arbitrary range for absolute interpretation.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Angular</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies the maximum angle (in degrees) between two adjacent (tessellated) line segments
+                              in a curve approximation. </p>
+                           <p>For best results, use angular values in conjunction with the Chordal parameter. Angular
+                              values affect primarily the smaller features of the model, while chordal values affect
+                              primarily the larger features.</p>
+                           <p>The value can be a floating point value in the range [0.0,90.0].</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Length</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies the maximum absolute length of (tessellated) line segments in a curve approximation.</p>
+                           <p>The value can be a floating point value of arbitrary range, depending on the magnitude
+                              of modeling units used for geometry.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>FeatureSuppression</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies the size tolerance of holes and arcs to suppress. The value specified represents
+                              a floating point fractional percentage of the bounding box diagonal of the part undergoing
+                              suppression. A value of 0.0 indicates no suppression.</p>
+                           <p>The value can be a floating point value in the range [0.0,1.0].</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Simplify</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies the minimum percent reduction of renderable geometry (triangles) for the
+                              specific LOD versus the highest LOD. The value specified represents a floating point
+                              fractional percentage of the number of triangles in the highest LOD. </p>
+                           <p>This value should be left at 1.0 (100%) for the high LOD.</p>
+                           <p>The value can be a floating point value in the range [0.0,1.0].</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>AdvCompressionLevel</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies the level of advanced compression.</p>
+                           <p>Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>0.0 = Least amount of compression used.</p>
+                              </li>
+                              <li>
+                                 <p>0.1= Minimal amount of compression used. This setting generally results in modest
+                                    compression ratios with little if any, visual difference when compared to the same
+                                    images rendered from the least amount of compression used.</p>
+                              </li>
+                              <li>
+                                 <p>0.5= Moderate compression used. The setting results in more data loss than minimal
+                                    compression and thus a higher compression ratio is obtained. Some visual difference
+                                    will likely be noticeable when compared to the same images rendered from the least
+                                    amount (0.0) specified.</p>
+                              </li>
+                              <li>
+                                 <p>1.0 = Aggressive compression used. With this setting, as much data as possible will
+                                    be thrown away, resulting in the highest compression ratio, while still maintaining
+                                    a modestly useable representation of the underlying data. Visual differences may be
+                                    evident when compared to the same images rendered from the Least (0.0) compression
+                                    value.</p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export 3D Bodies</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Specifies which body is included in the .jt file.</p>
+                           <p>Possible values include:</p>
+                           <ul>
+                              <li>
+                                 <p>0 — design body only</p>
+                              </li>
+                              <li>
+                                 <p>1 — flat body only</p>
+                              </li>
+                              <li>
+                                 <p>3 — all bodies</p>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export PMI</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether PMI is exported to the .jt file. </p>
+                           <p>Possible values are true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export Coordinate System</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether coordinate systems are exported to the .jt file. </p>
+                           <p>Possible values are true or false.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export Surface Connections to PMI Dimensions and Annotations</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls whether surface information associated with PMI annotations and dimensions
+                              is saved with the file. Surface information is required for precise measurement on
+                              CMM machines for the CMM inspection process.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>You must also check the boxes for <b>Include precise geometry</b> and <b>Save PMI Data</b> in the <b>Save As Translated Options</b> dialog box.</p>
+                           </div>
+                        </td>
+                     </tr> 
+                     <tr> 
+                        <td rowspan="1" valign="top" colspan="1"> 
+                           <p id="sectionbodydim">Attach Section Body Dimensions to Main Body=1</p> </td> 
+                        <td rowspan="1" valign="top" colspan="1"> 
+                           <p>Controls the attachment of the section body dimensions to the main body when you select
+                              face association on export.</p> 
+                           <p>When the value is set to 1, the section body dimensions are attached to main body
+                              when you select face association on export.</p> 
+                           <p>This INI option is the subset of face association option and is effective only if
+                              <b>Export Surface Connections to PMI Annotations and Dimensions=1</b>.</p> </td> </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Export Symmetric Diameter as Standard Diameter dimension</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Although symmetric diameter dimensions are not a native dimension type in JT files,
+                              you can set this option to 1 to export Solid Edge symmetric diameter dimensions as
+                              standard diameter dimensions. This parameter works in conjunction with the parameter,
+                              <b>Export Surface Connections to PMI Dimensions and Annotations</b>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>If <b>Export Surface Connections to PMI Dimensions and Annotations</b>=1, then the standard diameter dimension will be associative to the body edge (for
+                                 example, a virtual edge of a section body).</p>
+                              <p>If <b>Export Surface Connections to PMI Dimensions and Annotations</b>=0, then the standard diameter dimension will be associative to the body surface.</p>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Use Solid Edge Resolution </p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Controls the level of detail used during the export to JT. The default value is 1,
+                              which specifies that the export use the Solid Edge display cache conversion to JT
+                              triangles. Setting the value to 0 specifies that the export use the value defined
+                              in the numLODs = parameter to create a user-defined set of levels of detail.</p>
+                        </td>
+                     </tr>
+                  </table>
+                  <h4 class="division-title">Saving sheet metal files to the .jt file format</h4>
+                  <div>
+                     <p>You can use the Export 3D Bodies parameter in the <b>SePvTrn.ini</b> file to specify how to save a sheet metal file to .jt format. By default, the parameter
+                        is set to 0, which includes only the design body in the .jt file. You can set the
+                        parameter to 1 to include only the flat body in the .jt file or to 3 to include all
+                        bodies in the .jt format.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you set the parameter to 1 and there is no flat body for the sheet metal part,
+                           the .jt file includes the design body instead.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Saving assembly files to the .jt file format</h4>
+                  <div>
+                     <p>When saving assemblies to .jt format: </p>
+                     <ul>
+                        <li>
+                           <p>If an assembly contains assembly features, any parts affected by the features have
+                              an <em>_oa</em> suffix.</p>
+                        </li>
+                        <li>
+                           <p>If an assembly contains a subassembly with one or more parts hidden and the <b>Translate Visible Parts Only</b> option on <b><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/stpexp1d" rel="stpexp1d">Solid Edge to JT Translation Options</a></b> dialog box is selected, the assembly has an <em>_oa</em> suffix.</p>
+                        </li>
+                        <li>
+                           <p>If parts are simplified and have multiple occurrences, some simplified and some designed,
+                              the name of the simplified part has a <em>_1</em> suffix.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Saving PMI and coordinate systems to .jt format</h4>
+                  <div>
+                     <p>You can use the <b>Save PMI data</b> option on the <b>Solid Edge to JT Translation Options</b> dialog box to save all product manufacturing information (PMI) data and all model
+                        views to the JT file being created. When you select this option, other JT save options
+                        are disabled and the appropriate options are set to support PMI data. Precise geometry
+                        is always sent when the Save PMI Data option is selected even if the <b>Include Precise Geometry</b> option is not set.</p>
+                     <p>You can use the <b>Save Coordinate System</b> option on the <b>Solid Edge to JT Translation Options</b> dialog box to save the coordinate system to the JT file being created.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The JT document structure must be set to <b>Single JT document</b> and the <b>Save PMI data</b> option must be selected to use the Solid Edge <b>Publish to 3D PDF</b> command to generate JT attachments for machining applications (CAM/CMM), such as
+                           Solid Edge CAM Pro. </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Controlling the level of detail during JT export</h4>
+                  <div>
+                     <p>You can use the Use Solid Edge Resolution parameter to control the level of detail
+                        used during the export to JT. The default value is 1, which specifies that the export
+                        use the Solid Edge display cache conversion to JT triangles. Setting the value to
+                        0 specifies that the export use the value defined in the numLODs = parameter to create
+                        a user-defined set of levels of detail.</p>
+                  </div>
+                  <h4 class="division-title">Understanding JT attributes and Solid Edge properties</h4>
+                  <div>
+                     <p>Documents saved in JT format contain attributes that describe the information contained
+                        in the document. These attributes are the equivalent of file properties used by Solid
+                        Edge to describe document information.</p>
+                     <p>When you export a Solid Edge document to JT format, Solid Edge file properties are
+                        written where they can be read by viewers, and other CAD systems that read JT format.</p>
+                     <p>When you export a Solid Edge document to JT format, Solid Edge writes the following
+                        properties to the JT file as string properties:</p>
+                     <ul>
+                        <li>
+                           <p>CAD_MASS</p>
+                        </li>
+                        <li>
+                           <p>CAD_MASS_UNIT</p>
+                        </li>
+                        <li>
+                           <p>CAD_DENSITY</p>
+                        </li>
+                        <li>
+                           <p>CAD_SURFACE_AREA</p>
+                        </li>
+                        <li>
+                           <p>CAD_VOLUME</p>
+                        </li>
+                        <li>
+                           <p>CAD_CENTER_OF_GRAVITY</p>
+                        </li>
+                        <li>
+                           <p>CAD_MATERIAL</p>
+                        </li>
+                     </ul>
+                     <p>These are standard JT properties and any application which reads JT files can read
+                        these properties. </p>
+                     <p>When you import a JT to Solid Edge all JT user attributes are imported and saved as
+                        file properties. There is no file property associativity between the Solid Edge document
+                        and the JT document. In other words, if you change attribute values in the JT file,
+                        the changes are not updated in the Solid Edge file. There is no user interface to
+                        control the import of file properties. You can use the ImportjtProperties parameter
+                        in the <b>SePvTrn.ini</b> file. Setting the parameter to True enables the import of JT attributes to Solid
+                        Edge file properties. By default, the value is True. If the parameter does not exist
+                        in the <b>SePvTrn.ini</b> file, the default value of True is assumed and the attributes are imported.</p>
+                     <p>The [Import Property map] section of the <b>SePvTrn.ini</b> file serves as a mapping table, allowing you to map JT attributes to Solid Edge file
+                        properties. The mapping table contains two columns. The left column is an exact match
+                        of the Solid Edge property page string and the right column is the string in the JT
+                        file. <br><br><span class="code-text">[Import Property map]<br>Document Number = I-DEAS Part Number <br>Author = Creator Project Name = I-DEAS Project <br>Density = CAD_Density</span></p><br><div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Parameters in the [Import Property Map] section are case insensitive.</p>
+                     </div>
+                     <p>Physical properties are exported by IDEAS and NX with the same naming conventions.
+                        This provides a standard name used by the VIS viewers to display or calculate properties
+                        of a solid body. Solid Edge exports physical properties using the same naming convention.</p>
+                  </div>
+                  <h4 class="division-title">Exporting multiple Solid Edge files to JT</h4>
+                  <div>
+                     <p>To use the batch translator to translate a list of files, create a text file that
+                        includes the full path for each file name you want to export. Include only one file
+                        name per line as shown:</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <table cellspacing="1" cellpadding="2" width="392">
+                           <colgroup span="1">
+                              <col span="1" width="100*">
+                           </colgroup>
+                           <tbody>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <pre class="code-text">c:\My&nbsp;SE&nbsp;files\part1.par&nbsp;<br>c:\my&nbsp;se&nbsp;files\asm1.asm<br></pre>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <p>Use this text file as input to the translator.</p>
+                  </div>
+                  <h4 class="division-title">Exporting Solid Edge textures to. JT</h4>
+                  <div>
+                     <p>You can use the Export Textures parameter in the SEPVtrn.ini file located in the <b>Solid Edge Preferences\Translators</b> folder, to export Solid Edge textures to .jt By default the parameter value is set
+                        to 0, but you can change the value to 1 to export the textures. The textures can be
+                        applied to parts within the assembly or to faces at the assembly level.</p>
+                     <p>When you export textures, the texture file is embedded in the .jt document, which
+                        increases the size of the document.</p>
+                     <p>When exporting textures, the <b>Background Colors</b> and <b>Rotation</b> options on the <b>Texture</b> tab of the <b>Face Overrides</b> dialog box are not supported. If you select either of these texture options, the
+                        results of the .jt document may be different from the Solid Edge document you are
+                        exporting.</p>
+                  </div>
+                  <h4 class="division-title">Bulk translations</h4>
+                  <div>
+                     <p>Use <b>SePvAdp.exe</b>, located in the Solid Edge Program folder to translate Solid Edge files through a
+                        standalone interface. The executable uses the <b>SePvTrn.ini</b> file to control the JT output translation settings. Any changes to the .ini file
+                        must be done before invoking the translator.</p>
+                     <p>To run the executable, Solid Edge must be installed on the computer and <b>SePvAdp.exe</b> must exist in the Solid Edge Program folder. The executable does not launch a full
+                        version of Solid Edge, so it requires less memory, leaving more resources available
+                        for processing larger files. When you select the files for translation, you must enclose
+                        in quotation marks "" any folder or file names containing spaces.</p>
+                     <p>Once started, the only indication that the translator is running is the presence of
+                        SePvAdp.exe on the <b>Processes</b> tab in Task Manager. Once the translation of all selected files is complete, the
+                        process ends and is no longer displayed in Task Manager. Subsequent exportation of
+                        the same input file to the same output folder will overwrite the existing JT file.</p>
+                     <p>You can invoke the executable through Start→Run in Windows Explorer or through a command
+                        line prompt in a DOS window. Examples of the command line prompt include:</p>
+                     <h5>Single input file with JT file exported to same folder as input file</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>C:&gt;”C:\Program Files\Siemens\Solid Edge 2023\Program\SePvAdp.exe” &lt;input_filename&gt;</p>
+                        </li>
+                     </ul>
+                     <h5>Multiple input files with JT files exported to same folder as input files</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>C:&gt;”C:\Program Files\Siemens\Solid Edge 2023\Program\SePvAdp.exe” &lt;input_filename_1&gt;
+                              &lt;input_filename_2&gt; and so on.</p>
+                        </li>
+                     </ul>
+                     <h5>Single input file with JT file exported to a different output folder</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>C:&gt;”C:\Program Files\Siemens\Solid Edge 2023\Program\SePvAdp.exe” -g -o &lt;output_folder&gt;
+                              &lt;input_filename&gt;</p>
+                        </li>
+                     </ul>
+                     <h5>Multiple input files with JT files exported to a different output folder</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>C:&gt;”C:\Program Files\Siemens\Solid Edge 2023\Program\SePvAdp.exe” -g -o &lt;output_folder&gt;
+                              &lt;input_filename_1&gt; &lt;input_filename_2&gt; and so on.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Uploading to Teamcenter</h4>
+                  <div>
+                     <p>When you upload a Solid Edge file that contains PMI into Teamcenter, the PMI is now
+                        exported to JT.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you use SePvAdp.exe to covert Solid Edge files to JT without opening them, any
+                           PMI in the Solid Edge file is automatically exported to JT. Also, when using SePvAdp.exe,
+                           any PMI of inactive parts within an assembly is automatically exported to JT. </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1964524" rel="xid1964524">Save surface PMI to JT format</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/stpexp1d" rel="stpexp1d">Solid Edge to JT Translation Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid457751" rel="xid457751">Solid Edge to JT Translator dialog box</a><br><br></div>
+            <div class="footer-content">Saving to JT, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

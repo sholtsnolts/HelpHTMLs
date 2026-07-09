@@ -1,0 +1,236 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Simulation Express command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Simulation Express command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="analysiswiz1c">
+                     <h1 class="topic-title">Simulation Express command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>In Solid Edge 2023, the <b>Tools</b> tab→<b>Environs</b> group→<b>Simulation Express</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/simulation_express/simxpres_cmd.gif"> is still available on the ribbon, but you cannot use it to create new studies, only
+                        to review the results of previously created Simulation Express studies. Instead, you
+                        can use equivalent capabilities in Solid Edge Simulation to perform the first-pass
+                        analysis of the effects of stress, displacement, and vibration on a part.</p>
+                     <p>When you select the <b>Simulation Express</b> command, you are prompted to migrate your existing study to Solid Edge Simulation
+                        or to create a new study in Solid Edge Simulation. Refer to the instructions below.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/simulation_express/analysiswiz1.gif"></p>
+                     <p>If you do not have a Solid Edge Simulation license, then the same limitations that
+                        apply to Simulation Express studies also apply when using the Solid Edge Simulation
+                        interface to create, modify, and review your study results. </p>
+                  </div>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>At any time while using Solid Edge Simulation, press F1 to open the Help. Tutorials
+                        are also available. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/aboutsesim3a" rel="aboutsesim3a">Using integrated help and tutorials</a>. </p>
+                  </div>
+                  <h4 class="division-title" id="analysiswiz1c_migrate">Migrate a Simulation Express study</h4>
+                  <div>
+                     <p>You can reuse an existing Simulation Express study by migrating it to Solid Edge Simulation.
+                        In this process, you have the option to remove the original Simulation Express study,
+                        which includes the results. We recommend that you do this, as Simulation Express results
+                        are stored inside the part or sheet metal document, which can produce a very large
+                        file. Solid Edge Simulation results are stored separately in a *.ssd file. </p>
+                     <ol type="1">
+                        <li>
+                           <p>Open the part or sheet metal file that contains the existing study and select the
+                              <b>Tools</b> tab→<b>Environs</b> group→<b>Simulation Express</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/simulation_express/simxpres_cmd.gif">.</p>
+                           <p>The following message box is displayed:</p>
+                           <p><span class="code-text">Simulation Express functionality is replaced by the functionality in Solid Edge Simulation.
+                                 Do you want to copy the Simulation Express study in this file to the Solid Edge Simulation
+                                 environment? Once the Simulation Express study is copied to Solid Edge Simulation,
+                                 you need to solve the study again to see the results.</span></p>
+                           <p><span class="code-text">Clicking Yes will start copying the Simulation Express study to Solid Edge Simulation.
+                                 Clicking No will show you the existing Simulation Express study.</span></p>
+                        </li>
+                        <li>
+                           <p>Click <b>Yes</b> to migrate your Simulation Express study to Solid Edge Simulation.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>If you click <b>No</b> and do not migrate your study, then the Simulation Express command bar is displayed
+                                 for you to review your previous study results using the options on the right side
+                                 of the command bar. You cannot modify your Simulation Express study, and the options
+                                 on the left side of the command bar are not available.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/simulation_express/simxpres_cmdbar.gif"></p>
+                           </div>
+                           <p>The following message is displayed while the study is recreated: </p>
+                           <p><span class="code-text">Copying Simulation Express study...</span> </p>
+                        </li>
+                        <li>
+                           <p>If the model geometry changed since the last analysis, you are prompted whether you
+                              want to analyze the revised model.</p>
+                           <p>Click <b>Yes</b> to continue.</p>
+                        </li>
+                        <li>
+                           <p>When migration is complete, the following message is displayed:</p>
+                           <p><span class="code-text">The Simulation Express study in this file was successfully copied to Solid Edge Simulation.
+                                 Do you want to delete the existing Simulation Express study?</span> </p>
+                           <ul>
+                              <li>
+                                 <p>Click <b>Yes</b> to delete the Simulation Express study. This removes the old results from the migrated
+                                    study.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>We recommend that you delete the original study to reduce the file size of your document.
+                                       After migration, you will solve the study in Solid Edge Simulation to generate fresh
+                                       results. These are stored separately in the *.ssd file. </p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>To keep the Simulation Express study, click <b>No</b>.</p>
+                              </li>
+                           </ul>
+                           <p>The migrated study is opened in Solid Edge Simulation. </p>
+                        </li>
+                        <li>
+                           <p>Look for the following: </p>
+                           <ul>
+                              <li>
+                                 <p>Your simulation model is shown in the graphics window, along with your previously
+                                    applied loads and constraints.</p>
+                              </li>
+                              <li>
+                                 <p>On the command ribbon, the <b>Simulation</b> tab is displayed and active.</p>
+                              </li>
+                              <li>
+                                 <p>In <b>PathFinder</b>, the <b>Simulation</b> study navigator pane is open. As shown in the following example, all of the study
+                                    inputs were copied from Simulation Express to Solid Edge Simulation, except for the
+                                    results. </p>
+                                 <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/analyze/analyze_training/simulation_pane_migration_example.png"></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Solve the study to regenerate the results. On the ribbon, choose the <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/mesh/solve_command.png">.</p>
+                           <p>The solved study is opened in the Simulation Results environment. There is now a <b>Results</b> node in the <b>Simulation</b> pane. The default result plot is shown in the graphics window.</p>
+                           <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_results_env.png"></p>
+                        </li>
+                        <li>
+                           <p>You can use the available options on the ribbon to review the study results. Click
+                              <b>Close Simulation Results</b> to return to the modeling environment.</p>
+                           <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/result/sesim_results_exit_button.gif"></p>
+                           <p>The Simulation Results environment is closed. </p>
+                        </li>
+                        <li>
+                           <p>(Optional) To free memory after closing the Simulation Results environment, in the
+                              <b>Simulation</b> pane, right-click the <b>Results</b> node and choose <b>Unload Results</b>.</p>
+                           <p>Look for this indicator on the <b>Simulation</b> pane in <b>PathFinder</b>: <img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/result/results_unloaded.png">.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Create a new study using the Simulation Express command</h4>
+                  <div>
+                     <p>If you select the <b>Simulation Express</b> command to create a new study for a part or sheet metal file, the following message
+                        box is displayed:</p>
+                     <p><span class="code-text">Simulation Express functionality was replaced by the functionality in Solid Edge Simulation.
+                           Create a new study using the commands on the Simulation ribbon and the Simulation
+                           study navigator pane in PathFinder.</span></p>
+                     <p>Click <b>OK</b> to create the study in Solid Edge Simulation.</p>
+                     <p>Continue reading below.</p>
+                  </div>
+                  <h4 class="division-title">Creating a study using the Solid Edge Simulation interface</h4>
+                  <div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Command availability on the ribbon is based on your license. Without a Solid Edge
+                           Simulation license, you are limited to the study inputs and outputs identified below.
+                           </p>
+                        <ul>
+                           <li>
+                              <p>Only one study is allowed per document.</p>
+                           </li>
+                           <li>
+                              <p>You can create a study for a part or sheet metal model. You cannot create a study
+                                 for an assembly. </p>
+                           </li>
+                           <li>
+                              <p>Study type=<b>Linear Static</b> (stress) or <b>Normal Modes</b> (natural frequency vibration) analysis.</p>
+                           </li>
+                           <li>
+                              <p>You can use the <b>Force</b> command or the <b>Pressure</b> command to define loading conditions on the part. You can apply pressure or force
+                                 loading on one or more faces, but not on edges or other geometric elements.</p>
+                           </li>
+                           <li>
+                              <p>Constraint type=<b>Fixed</b>.</p>
+                           </li>
+                           <li>
+                              <p>Only these mesh types are supported:</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Tetrahedral</b> (for part models)</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Surface</b> (for sheet metal models)</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Subjective mesh size</b> adjustment from coarse to fine.</p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>Result output plots are limited to the following types:</p>
+                              <ul>
+                                 <li>
+                                    <p>Stress</p>
+                                 </li>
+                                 <li>
+                                    <p>Displacement</p>
+                                 </li>
+                                 <li>
+                                    <p>Factor of Safety</p>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </div>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Use the <b>Simulation</b> tab to create your study. It is arranged in the order that you use the commands,
+                              from left to right.</p>
+                        </li>
+                        <li>
+                           <p>After you finish defining the loads and constraints, select the <b>Mesh</b> command, followed by the <b>Solve</b> command. </p>
+                        </li>
+                        <li>
+                           <p>In the Simulation Results environment, you can review the post-processing results
+                              using the commands that are available on the <b>Home</b> tab. You also can review result plots using the shortcut commands on the <b>Simulation</b> pane in <b>PathFinder</b>.</p>
+                        </li>
+                        <li>
+                           <p>After closing the Simulation Results environment, you can use the <b>Simulation</b> pane in <b>PathFinder</b> and its shortcut commands to edit, delete, rename, and manage your study. </p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>To learn how to define a study in Solid Edge Simulation, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/analyze1p" rel="analyze1p">Analyze a model</a> process topic, and follow the links at each step.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Simulation Express command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

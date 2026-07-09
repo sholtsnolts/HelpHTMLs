@@ -1,0 +1,121 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<html class="main-html scroll-area">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+  <title>Duplicate Component command</title>
+ </head>
+ <body>
+  <div class="main content-container"><contenttitle title="Duplicate Component command"></contenttitle>
+   <div class="container-fluid content-start">
+    <div class="row justify-content-center topic-header">
+     <div class="col-12 content-pad">
+      <div class="topic-header-content" id="ptndup1c">
+       <h1 class="topic-title">Duplicate Component command</h1>
+      </div>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-12 content-pad">
+      <p>The <b>Duplicate Component</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/duplicate_component_command.png"> duplicates one or more assembly components into a duplicate pattern. The orientation of the duplicated part is determined by the relative orientation of the base coordinate system of the selected component to that of the base coordinate system of the target components.</p>
+      <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/dup_after.jpg"></p>
+      <p>Learn how to duplicate components in an assembly by watching the following video.</p>
+      <div id="videoContainer" style="max-width: 750px;">
+       <div id="video">
+        <div id="videoPlayer" class="video-player m-b-md"><iframe id="player" src="https://video.sw.siemens.com/embed/dbf69d7e-9445-4f60-aacc-053fe637943e" allowfullscreen scrolling="no" frameborder="0"></iframe>
+        </div>
+       </div>
+      </div>
+      <p>You can select the following types of components in the active assembly to be duplicated:</p>
+      <ul>
+       <li><p>Parts</p></li>
+       <li><p>Subassemblies</p></li>
+       <li><p>Pipes</p></li>
+       <li><p>Patterns</p></li>
+       <li><p>Frames</p></li>
+      </ul>
+      <p>The components are not positioned using assembly relationships. They are positioned using a target component consisting of one of the following component types:</p>
+      <ul>
+       <li><p>Parts</p></li>
+       <li><p>Subassemblies</p></li>
+       <li><p>Pipes</p></li>
+       <li><p>Patterns</p></li>
+       <li><p>Tubes</p></li>
+      </ul>
+      <h4 class="division-title">Positioning the component to be duplicated.</h4>
+      <div>
+       <p>Before duplicating assembly components, you should properly position one copy of the components you want to duplicate. For example, to pattern a light bulb, use the <b>Place Part</b> command to place the light bulb into one of the sockets in the part.</p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/dup_before.jpg"></p>
+      </div>
+      <h4 class="division-title">Selecting the components to be duplicated</h4>
+      <div>
+       <p>After you have positioned the components you want to duplicate, use the <b>Duplicate Component</b> command to select them. The <b>Select Parts</b> step on the<b> Duplicate Component</b> command bar allows you to select the components you want to duplicate. You can duplicate multiple components in one operation.</p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/select_01.jpg"></p>
+      </div>
+      <h4 class="division-title">Defining the from component</h4>
+      <div>
+       <p>In most cases, the from component will be the component that is positioned relative to the selected component to duplicate.</p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/select_02.jpg"></p>
+      </div>
+      <h4 class="division-title">Defining the target component</h4>
+      <div>
+       <p>The target components used for duplicating the assembly component is chosen.</p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/select_03.jpg"></p>
+       <p>The component is duplicated and positioned relative to the target.</p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/select_04.jpg"></p>
+       <p>Clicking the All Matching Occurrences button selects all the sockets as targets.</p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/select_05.jpg"></p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/dup_after.jpg"></p>
+      </div>
+      <h4 class="division-title">Using coordinate systems and blocks to position duplicated components</h4>
+      <div>
+       <p>You can use coordinate systems to duplicate and position assembly components. To do this, select the coordinate system in the <b>Select From</b> step. The <b>Select To</b> step can then be used to orient the component by matching the coordinate system to a previously created coordinate system. The <b>Select All Matching Occurrences</b> option is not available when using coordinate systems to duplicate components.</p>
+       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/patterning/duplicate_coordinatesystem.jpg"></p>
+       <p>Blocks placed in assembly or subassembly sketches can also be used to duplicate components. The orientation of the duplicate component is determined by matching the orientation of the block identified in the <b>Select From</b> step to the orientation of the block selected in the <b>Select To</b> step. <b>Select All Matching Occurrences</b> is valid when placing duplicate components using blocks.</p>
+       <div class="attention" type="note">
+        <div class="attention-label">
+         Note:
+        </div>
+        <p>The <b>Clone Component</b> command is similar to the <b>Duplicate Component</b> command. The differences are:</p>
+        <ul>
+         <li><p>The <b>Duplicate Component</b> command uses a target part or target coordinate system to orient the assembly component, and the resultant placement is grouped as a pattern in Assembly <b>PathFinder</b>. Relationships are not created or used.</p></li>
+         <li><p>The <b>Clone Component</b> command uses existing relationships and target face geometry to place and orient the cloned components. It also recreates those relationships on the clones. Cloned components are placed in Assembly <b>PathFinder</b> as individual components, or they can be placed in an assembly group.</p></li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+     <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1h" rel="ptnprt1h">Build a pattern of parts in an assembly</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/drppat1h" rel="drppat1h">Drop an assembly pattern</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm1h" rel="mirasm1h">Mirror components in an assembly</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1900654" rel="xid1900654">Copy and paste assembly components</a> <br> <br>
+     <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1a" rel="ptnprt1a">Pattern, mirror, and copy components in assemblies</a> <br> <br>
+     <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1c" rel="ptnprt1c">Pattern Parts command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1d" rel="ptnprt1d">Pattern Parts command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptndup1d" rel="ptndup1d">Pattern Parts command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/drppat1c" rel="drppat1c">Drop Pattern command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm2c" rel="mirasm2c">Remove Override Body command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm1c" rel="mirasm1c">Mirror Components command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm1d" rel="mirasm1d">Mirror Components command bar (Assembly)</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm2d" rel="mirasm2d">Mirror component options (Assembly)</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptncrv1c" rel="ptncrv1c">Pattern Along Curve (assembly)</a> <br> <br>
+     <h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1303653" rel="xid1303653">Along Curve pattern parts command (assembly)</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1303786" rel="xid1303786">Along Curve pattern features command (assembly)</a> <br> <br>
+    </div>
+    <div class="footer-content">
+     Duplicate Component command, Solid Edge 2023 <br>© 2022 Siemens
+    </div>
+   </div>
+  </div>
+  <script>window.mainLanguage="en_US"</script>
+  <script>window.delivId=""</script>
+  <script>window.projectId=""</script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script>
+ </body>
+</html>

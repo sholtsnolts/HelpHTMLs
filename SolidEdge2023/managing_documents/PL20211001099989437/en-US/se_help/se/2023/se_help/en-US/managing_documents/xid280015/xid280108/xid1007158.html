@@ -1,0 +1,84 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Overwriting documents with Add to Teamcenter</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Overwriting documents with Add to Teamcenter"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1007158">
+                     <h1 class="topic-title">Overwriting documents with Add to Teamcenter</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Add to Teamcenter program compares the item number, revision, and dataset values
+                     of a document with those existing in the Teamcenter database. As a result, you can
+                     import files over files that already exist in the Teamcenter database. Add to Teamcenter
+                     adds the import time to the original file, and on subsequent loads it checks to see
+                     if the modified date is after the import date. If the document being imported has
+                     not been modified since the last import, it is recognized as already being in the
+                     database and is not re-added to Teamcenter on subsequent imports. However, if the
+                     unmanaged file is modified after its initial import into the database, on subsequent
+                     imports you are given the options to:</p>
+                  <ul>
+                     <li>
+                        <p>Check out the document and overwrite it.</p>
+                     </li>
+                     <li>
+                        <p>Check out all files that exist and overwrite them.</p>
+                     </li>
+                     <li>
+                        <p>Leave the file and use the file already in the database.</p>
+                     </li>
+                     <li>
+                        <p>Leave all files and use the ones that already exist in the database.</p>
+                     </li>
+                     <li>
+                        <p>Cancel the import process.</p>
+                     </li>
+                  </ul>
+                  <p>In the event the Add to Teamcenter comparison discovers an item number that already
+                     exists in the database, it compares the file being imported to all revisions, datasets,
+                     and files that comprise the dataset. If a match is found, you are given the opportunity
+                     to determine the action on the file being imported. If no match is found, the file
+                     is assigned a new item number and a record of the action will be placed in the log
+                     file.</p>
+                  <p>For example, if the following information exists in Teamcenter:</p>
+                  <div class="literal-example">Item&nbsp;ID&nbsp;000100<br>	Revision&nbsp;A<br>		Dataset&nbsp;SE&nbsp;Part&nbsp;000100/A<br>			Named&nbsp;Reference&nbsp;part1_04112007.par<br>	Revision&nbsp;B<br>		Dataset&nbsp;SE&nbsp;part&nbsp;000100/B<br>			Named&nbsp;Reference&nbsp;000100.par</div>
+                  <p>Then when you import a file with 000100 as the document number, a comparison is made
+                     between the file name of the file being imported against all named references (ie.,
+                     part1_04112007.par and 000100.par in this example). If it matches, you are given the
+                     option to overwrite the file. If you choose not to overwrite, the file is assigned
+                     a new item ID, which is recorded in the log file.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>During an overwrite condition, BOM precision is not changed.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter1h" rel="addtoteamcenter1h">Add unmanaged documents to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcsuspend1h" rel="addtotcsuspend1h">Suspend or pause Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter3h" rel="addtoteamcenter3h">Assign unmanaged documents to a project during Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter2h" rel="addtoteamcenter2h">Migrate a standard part to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/adddoc2tc1h" rel="adddoc2tc1h">Enable or disable the Add Document to Teamcenter command</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter1a" rel="addtoteamcenter1a">Working with Add to Teamcenter</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtoteamcenter1d" rel="addtoteamcenter1d">Add to Teamcenter dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcstatus1d" rel="addtotcstatus1d">Add to Teamcenter Status dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotccomplete1d" rel="addtotccomplete1d">Add to Teamcenter Complete dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/valcomplete1d" rel="valcomplete1d">Validations Complete dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/adddoc2tc1c" rel="adddoc2tc1c">Add Document to Teamcenter command</a><br><br></div>
+            <div class="footer-content">Overwriting documents with Add to Teamcenter, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

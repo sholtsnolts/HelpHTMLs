@@ -1,0 +1,743 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>PathFinder in assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="PathFinder in assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="asmpthfnd1a">
+                     <h1 class="topic-title">PathFinder in assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Assembly PathFinder overview</h4>
+                  <div>
+                     <p>The <b>PathFinder</b> tab helps you work with the components that make up your assembly. It provides alternate
+                        ways to view the composition and arrangement of the assembly, besides looking at the
+                        graphics in a regular assembly window. You can also use <b>PathFinder</b> to <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/in_place_activation" rel="in_place_activation">in-place activate</a> a part or subassembly so you can make edits to individual assembly components while
+                        viewing the entire assembly.</p>
+                     <p>The <b>PathFinder</b> tab is available when you work in an assembly or a subassembly within the active
+                        assembly.</p>
+                     <p>In the Assembly environment, you can also use <b>PathFinder</b> to view, modify, and delete the assembly relationships used to position the parts
+                        and subassemblies, reorder parts in an assembly, and to help you diagnose problems
+                        in an assembly.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/edgebar1.gif"> </p>
+                     <p>In the Assembly environment, <b>PathFinder</b> is divided into two panes. </p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>The top pane lists the components of the active assembly in a folder tree structure.
+                              Listed components can include: parts, subassemblies, assembly reference planes, and
+                              assembly sketches.</p>
+                        </li>
+                        <li>
+                           <p>The bottom pane shows the assembly relationships applied to the part or subassembly
+                              selected in the top pane.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Using the top pane</h4>
+                  <div>
+                     <p>The top pane of <b>PathFinder</b> allows you to:</p>
+                     <ul>
+                        <li>
+                           <p>Use <b>Component Finder</b> to quickly locate components in the assembly structure. Begin typing the name of
+                              a part or subassembly that you want to find. Automatic completion of the search text
+                              finds all available matches in the document, and displays them in a list. When you
+                              click an item in the search list, it is located and highlighted in <b>PathFinder</b>. </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/user_interface/user_assistance/assy_component_finder.png"></p>
+                        </li>
+                        <li>
+                           <p>View components in collapsed or expanded form. For example, when you expand a subassembly,
+                              you can view all of its parts.</p>
+                        </li>
+                        <li>
+                           <p>Highlight, select, and clear components for subsequent tasks.</p>
+                        </li>
+                        <li>
+                           <p>Determine the current status of the components within the assembly.</p>
+                        </li>
+                        <li>
+                           <p>Determine how the assembly was constructed.</p>
+                        </li>
+                        <li>
+                           <p>Reorder parts within an assembly.</p>
+                        </li>
+                        <li>
+                           <p>Rename reference planes, sketches, and coordinate systems.</p>
+                        </li>
+                        <li>
+                           <p>Place a component by dragging it into the assembly from <b>PathFinder</b> rather than the <b>Parts Library</b>.</p>
+                        </li>
+                     </ul>
+                     <p>When you hover over a component in the top pane of <b>PathFinder</b>, it is displayed in the graphics window using the highlight color. When you click
+                        a component, it is displayed using the Select color. This allows you to associate
+                        the component entry in <b>PathFinder</b> with the corresponding component in the graphics window.</p>
+                     <p>When you hover over a component in the assembly window, not only does the component
+                        display in <b>PathFinder</b> using the highlight color, but if the component resides in a subassembly, any parent
+                        assemblies are also displayed in a lighter shade of that color. The same rule applies
+                        after selecting a component. The component is displayed in <b>PathFinder</b> using the select color and parent assemblies are displayed in a lighter shade of
+                        the select color.</p>
+                     <p>Figure A shows <b>PathFinder</b> in the highlight color and Figure B shows <b>PathFinder</b> in the select color, with the parent assemblies shown in a lighter shade of those
+                        colors.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/assembly/pathfinder_highlight_select.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you hover over or click the top-level assembly in <b>PathFinder</b>, it does not display in the highlight or select color. This improves performance
+                           when working with large assemblies.</p>
+                     </div>
+                     <p>Because the highlight and selection of components in large assemblies can impact performance,
+                        options are available on the <b>Assembly</b> tab in the <b>Solid Edge Options </b>dialog box that allow you to improve the performance when working with large assemblies.
+                        For example, options are available that allow you to simplify the display of highlighted
+                        and selected components in the graphics window and to turn off the highlighting of
+                        components in the graphics window when you hover over them in <b>PathFinder</b>.</p>
+                     <p>For more information on improving performance in large assemblies, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/assem3a" rel="assem3a">Working with large assemblies efficiently</a>.</p>
+                  </div>
+                  <h4 class="division-title">Determining the status of a component</h4>
+                  <div>
+                     <p>The symbols in <b>PathFinder</b> reflect the current status of the components in the assembly. The following table
+                        explains the symbols used in the top pane in PathFinder:</p>
+                     <table cellspacing="1" cellpadding="6" width="50%">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="90%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="2">
+                              <p>Legend</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" align="left" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/se/pfdsplyd.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Active part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfinact.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Inactive part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfinact.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Unloaded part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/relationships/ground_part1.png"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Grounded part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfunpstn.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Part that is not fully positioned</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfcnflct.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Part that has conflicting relationships</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pflink.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Linked part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pathfinder/IAC.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Assembly copy</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/simplified_assembly_icon/simplified_assembly_icon_in_pathfinder.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Simplified assembly</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfsimp.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Simplified part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfmiss.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Missing component</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfvariant.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Alternate components part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfdriven.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Part position is driven by a 2D relationship in an assembly sketch</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfassy.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Displayed assembly</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfadjst.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Adjustable Part</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfadjassy.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Adjustable Assembly</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/drivenref.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Driven Reference</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pffastener.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Fastener System</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfpttn1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Pattern group</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfpttn2.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Pattern item</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pflayout.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Reference planes</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfrfpln.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Reference plane</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfsktch.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Sketch</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/pfpermsktch.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Noncombinable sketch (synchronous only)</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/pfnonpsktch.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Combinable sketch (synchronous only)</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/pfactivesktch.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Active sketch (synchronous only)</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/weldment_icon.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Weldment</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/pfgroup2.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Group of parts and subassemblies</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/assembly/pfmotor.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Motor</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/available1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Available</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/inwork1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>In Work</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/inreview1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>In Review</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/released1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Released</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/baselined1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Baselined</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/obsolete1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Obsolete</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/pathfinder/limited_update_save_pathfinder.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Limited Update or Limited Save is turned on.</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The symbols in <b>PathFinder</b> can also represent combinations of conditions. For example, a symbol can show that
+                           a part is hidden and not fully positioned:</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Determining how the assembly was constructed</h4>
+                  <div>
+                     <p>The components in the top pane of PathFinder are listed in the order in which they
+                        were placed in the assembly. This can be useful when evaluating design changes. For
+                        example, if you delete a single assembly relationship from a part, the symbols for
+                        other parts could also change to indicate that the parts are no longer fully positioned.
+                        This occurs because the positioning of the other parts depended upon the part from
+                        which you removed the relationship. In this example, reapplying the single relationship
+                        should cause the other parts to also become fully positioned again.</p>
+                  </div>
+                  <h4 class="division-title">Making changes to assembly components</h4>
+                  <div>
+                     <p>You can use the top pane of <b>PathFinder</b> to open or in-place activate a part or subassembly so you can make design modifications.
+                        For example, you can select a part in <b>PathFinder</b>, then use the Edit command on the shortcut menu to in-place activate a part. You
+                        can then add, remove, or modify features on the part while viewing the other assembly
+                        components. You can also use geometry on the other assembly components to help you
+                        construct or modify features on the part. When you use the Open command to open an
+                        assembly component, you cannot view the other assembly components.</p>
+                     <p>When you in-place activate a subassembly, the display of <b>PathFinder</b> changes to make it easier to determine your current position within the assembly
+                        structure. For example, while in the top-level assembly A1.asm, if you in-place activate
+                        into subassembly S1.asm:1, subassembly S1.asm:1 is displayed using bold text and a
+                        contrasting background color is used for the subassembly and its components.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/asmpth1.gif"> </p>
+                     <p>When you in-place activate a part for editing, you do not need to return to the assembly
+                        first to in-place activate another part or subassembly in the assembly. </p>
+                     <p>You can select another part or subassembly in <b>PathFinder</b> and use the <b>Edit</b> command on the shortcut menu to in-place activate the component for editing. When
+                        you are finished making the design changes, you can use the <b>Close and Return</b> command on the Home tab to return to the original assembly.</p>
+                     <p>When you in-place activate a part or subassembly for editing, you cannot collapse
+                        the assembly structure to which the part or subassembly belongs within <b>PathFinder</b>. For example, in the following illustration, part P2.par:1 has been in-place activated
+                        and it is in subassembly S1.asm. If you click the minus Collapse symbol adjacent to
+                        S1.asm to collapse its structure, it will remain expanded.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/asmpth3.gif"> </p>
+                  </div>
+                  <h4 class="division-title">Changing the display status of assembly components</h4>
+                  <div>
+                     <p>You can use the top pane of <b>PathFinder</b> to control the display status of assembly components. For example, you can hide parts
+                        and subassemblies to make it easier to position a new part you are placing in an assembly.
+                        You can use the check boxes adjacent to the assembly components in <b>PathFinder</b> to control component display or shortcut menu commands when one or more components
+                        are selected.</p>
+                     <p>The color of the text in <b>PathFinder</b> also indicates whether a component is displayed or hidden.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/pthfnda4.gif"> </p>
+                  </div>
+                  <h4 class="division-title">Reordering parts within an assembly</h4>
+                  <div>
+                     <p><b>PathFinder</b> allows you to drag a part to a different position within an assembly.&nbsp;As you drag
+                        the part, <b>PathFinder</b> displays a symbol to show where you can reposition the part in the assembly structure.
+                        The part is positioned below the highlighted part occurrence in <b>PathFinder</b>.</p>
+                  </div>
+                  <h4 class="division-title">Grouping parts and subassemblies within an assembly</h4>
+                  <div>
+                     <p><b>PathFinder</b> allows you to select a set of parts or subassemblies in the active assembly, then
+                        specify that the selected components are a group using the Group command on the shortcut
+                        menu. The set of components is then collected into a group entry in <b>PathFinder</b>. You can then expand, collapse,&nbsp;or rename the group to a more logical name. Defining
+                        a group of parts reduces the space requirements for a set of parts, and allows you
+                        to gather together a set of similar parts into a logical group. This can make it easier
+                        to select the parts for other operations, such as displaying and hiding a set of parts.
+                        &nbsp;</p>
+                     <p>You cannot select nested parts or nested subassemblies.</p>
+                     <p>Grouping components is also useful when working with large assemblies that contain
+                        few or no subassemblies. You can select a set of parts, define them as a group with
+                        the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/group8c" rel="group8c">Group command</a> on the <b>PathFinder</b> shortcut menu, then use the <b>Rename</b> command to rename the group to a more logical name. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/groupasm1.gif"> </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Some assembly commands create a group of components automatically. For example, the
+                           <b>Move Components</b> command creates a group entry in <b>PathFinder</b> when you set the <b>Copy</b> option on the command bar.</p>
+                     </div>
+                     <p>You can ungroup a group using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/group9c" rel="group9c">Ungroup command</a> on the shortcut menu when a group is selected in <b>PathFinder</b>.</p>
+                     <p>The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/group10c" rel="group10c">Select Components command</a>, on the shortcut menu when you select a group entry in <b>PathFinder</b>, activates additional commands and options for manipulating groups that would otherwise
+                        not be available. For example, after selecting a group with the <b>Select Components</b> command, you can then apply a face style to the group of parts, or transfer the group
+                        of parts to another assembly.</p>
+                  </div>
+                  <h4 class="division-title">Renaming PathFinder entries</h4>
+                  <div>
+                     <p>You can use <b>PathFinder</b> to rename an entry for an assembly reference plane, sketch, group, or coordinate
+                        system. To rename an entry, select it in <b>PathFinder</b>, right-click and then click <b>Rename</b>. In the name box, enter the new name for the entry.</p>
+                  </div>
+                  <h4 class="division-title">Finding parts using the Scroll To command</h4>
+                  <div>
+                     <p>In a complex or unfamiliar assembly, it can sometimes be difficult to determine which
+                        subassembly a particular part is contained in. You can use the <b>Scroll To</b> command to quickly find a part in <b>PathFinder</b>. When you select a part in the assembly window, then click the <b>Scroll To</b> command on the shortcut menu, the display of <b>PathFinder</b> scrolls to the selected part. If the part is in a subassembly, the listing for the
+                        subassembly is expanded to display the part.</p>
+                     <p>To automatically scroll to a selected part, set the option <em>Auto scroll in assembly PathFinder</em>, on the assembly tab in Solid Edge options. When this option is set, <b>PathFinder</b> scrolls so that the selected part is visible in <b>PathFinder</b>. This is useful when working in large assemblies.</p>
+                  </div>
+                  <h4 class="division-title">Replacing the file name with the document name formula value</h4>
+                  <div>
+                     <p>You can use the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/replacefilename1d" rel="replacefilename1d">Document Name Formula dialog box</a> to replace the file name displayed in <b>PathFinder</b> with a value composed of document properties. Refer to the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/replacefilename1h" rel="replacefilename1h">Replace a file name with a property value</a> help topic for instructions.</p>
+                     <p>You can combine properties with additional characters to replace the file name. For
+                        example, you can separate two properties with dashes, such as Document Number–Revision
+                        Number.</p>
+                     <p>If a property does not exist or does not have a value, the property name is displayed
+                        in place of the property value, and the file name is displayed in parentheses after
+                        the value.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The Property list displays the properties that you can use to replace the file name.
+                           You can add a property that is not in the active document by typing [property name]
+                           in the Formula field.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Using the bottom pane</h4>
+                  <div>
+                     <p>When you select a part or subassembly in the top pane of <b>PathFinder</b>, you can use the bottom pane to view and modify the assembly relationships between
+                        the selected part and the other parts in the assembly. The document name is also displayed,
+                        as well as a symbol that represents the type of relationship. The following table
+                        explains the symbols used in the bottom pane in <b>PathFinder</b>:</p>
+                     <table cellspacing="1" cellpadding="6" width="40%">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="90%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="2">
+                              <p>Legend</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pfgrnd.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Ground relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pfmate.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Mate relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pfplalgn.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Planar align relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pfaxalgn.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Axial align relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pfcnnct.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Connect relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pfangl.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Angle relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pftang.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Tangent relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/relationships/cam_1.jpg"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Cam relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/relationships/rigid_1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Rigid set relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/relationships/center_plane.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Center plane relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/pfgear.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Gear relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/suppres.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Suppressed relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_training/replace2.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Failed relationship</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/relationships/driving.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>Driving relationship, such as a linked assembly driven part feature.</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <p>When you select a relationship in the bottom pane you can:</p>
+                     <ul>
+                        <li>
+                           <p>View which elements were used to apply the relationship.</p>
+                        </li>
+                        <li>
+                           <p>Edit the fixed offset value of the relationship.</p>
+                        </li>
+                        <li>
+                           <p>Change the offset type of the relationship.</p>
+                        </li>
+                        <li>
+                           <p>Delete the relationship.</p>
+                        </li>
+                        <li>
+                           <p>Suppress the relationship</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Double-click a relationship to display the edit dialog box for that relationship.
+                           When editing a relationship with missing geometry double click or edit definition
+                           will take you into a step to select and fix the missing geometry.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Shortcut menu for relationships</h4>
+                  <div>
+                     <p>The shortcut menu for a relationship in the lower pane of <b>PathFinder</b> has the following commands:</p>
+                     <ul>
+                        <li>
+                           <p><b>Show</b></p>
+                        </li>
+                        <li>
+                           <p><b>Show only</b></p>
+                        </li>
+                        <li>
+                           <p><b>Zoom to</b></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Zoom to is useful for finding the geometry used to define a relationship in large
+                                 assemblies.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p><b>Select Components</b></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Select components puts the two components used to define the relationship into a selection
+                                 set.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Viewing assembly relationships</h4>
+                  <div>
+                     <p>When you select a relationship in the bottom pane, the elements used to apply the
+                        relationship are highlighted in the assembly window. For example, if you select a
+                        planar align relationship, the planar faces or reference planes that were used to
+                        apply the relationship highlight in the assembly window. This can help you determine
+                        how design changes need to be applied.</p>
+                  </div>
+                  <h4 class="division-title">Modifying assembly relationships</h4>
+                  <div>
+                     <p>When you select a relationship in the bottom pane, you can use the relationship command
+                        bar to edit the fixed offset value or change the offset type. For example, you may
+                        want to change a mate relationship from a fixed offset to a floating offset.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you change the offset type from fixed to floating, you may have to make other relationship
+                           edits to ensure that the part remains fully positioned.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Deleting assembly relationships</h4>
+                  <div>
+                     <p>If you delete an assembly relationship, the symbol next to the part in the top pane
+                        changes to show that the part is no longer fully positioned. The part is also placed
+                        on the <b>Error Assistant</b> dialog box list. It is good practice to apply a new relationship to the affected
+                        parts as soon as possible. If you delete too many relationships without applying new
+                        ones, it could become difficult to fully position the affected parts. If this occurs,
+                        you may have to delete the affected parts from the assembly and place them again.</p>
+                  </div>
+                  <h4 class="division-title">Replacing relationships</h4>
+                  <div>
+                     <p>After you place a part in an assembly, you can replace any of its relationships. Select
+                        the part in <b>PathFinder</b> or in the graphics window, then click the <b>Edit Definition</b> button on the command bar. You can then select the relationship you want to replace
+                        from the <b>Relationship List</b> box on the command bar. Use the <b>Relationship Types</b> button to specify the new relationship you want to apply.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can also delete the current relationship in the bottom pane of <b>PathFinder</b> and apply a new one using the <b>Assemble</b> command bar.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Conflicting relationships</h4>
+                  <div>
+                     <p>If you change the design of parts in an assembly, some assembly relationships may
+                        no longer be applicable. When this occurs, the symbol next to the part or subassembly
+                        in the top pane of <b>PathFinder</b> will change to indicate that there are conflicting relationships and the part will
+                        be placed on the <b>Error Assistant</b> dialog box list.</p>
+                     <p>When you select the conflicted part or subassembly, the symbols for the affected relationships
+                        in the bottom pane of <b>PathFinder</b> are displayed in red. You can then evaluate the relationship scheme to determine
+                        how to repair the assembly. For example, you can delete the affected relationships
+                        and apply new relationships to fully position the part.</p>
+                  </div>
+                  <h4 class="division-title">Suppressing assembly relationships</h4>
+                  <div>
+                     <p>You can use the <b>Suppress</b> command on the shortcut menu to temporarily suppress an assembly relationship for
+                        a part. Suppressing an assembly relationship allows you to use the <b>Drag Part</b> command to evaluate how the part interacts with other parts in the assembly. When
+                        you suppress an assembly relationship, the symbol for the part in the top pane of
+                        <b>PathFinder</b> changes to indicate that the part is no longer fully positioned. Also, a symbol is
+                        added adjacent to the suppressed relationship in the bottom pane to indicate that
+                        the relationship is suppressed.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can use the <b>Unsuppress</b> command on the shortcut menu to unsuppress the relationship.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Displaying document status in PathFinder</h4>
+                  <div>
+                     <p>You can display the document status for components in <b>PathFinder</b>. The <b>Manage</b>→<b>Document Status</b>→<b>Display Status</b> command on the <b>PathFinder</b> shortcut menu turns on and off the display of symbols adjacent to the document names
+                        in <b>PathFinder</b>. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/pathfinder1.gif"> </p>
+                     <table cellspacing="1" cellpadding="6" width="30%">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="90%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="2">
+                              <p>Legend</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/select_show_revise_update/available1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Available</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/select_show_revise_update/inwork1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>In Work</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/select_show_revise_update/inreview1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>In Review</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/select_show_revise_update/released1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Released</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/select_show_revise_update/baselined1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Baselined</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/assembly/select_show_revise_update/obsolete1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Obsolete</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Dashed line in the bottom pane</h4>
+                  <div>
+                     <p>Often a dashed line is displayed between sets of relationships in the bottom pane
+                        of <b>PathFinder</b>. The relationships above the dashed line were applied to parts that are above the
+                        selected part in the top pane of <b>PathFinder</b>. The relationships below the dashed line were applied to parts that are below the
+                        selected part in the top pane of <b>PathFinder</b>. You can edit the relationships above the dashed line and below the dashed line.
+                        For example, when you select <b>Valve01.asm</b>, the relationships above the dashed line were applied to <b>Body01.par</b>, which is above <b>Valve01.asm</b> in the top pane of <b>PathFinder</b>. The relationships below the dashed line were applied to <b>Handle01.par</b> and <b>NutM15.par</b>, which are below <b>Valve01.asm</b> in the top pane of <b>PathFinder</b>.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/pathfinder/dash1.gif"> </p>
+                  </div>
+                  <h4 class="division-title">Managing relationships in nested assemblies</h4>
+                  <div>
+                     <p><b>PathFinder</b> can show relationships applied outside the active assembly. You can view the relationship
+                        by clicking the part in <b>PathFinder</b>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/pthfnd1h" rel="pthfnd1h">Select a part with PathFinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/pthfnd2h" rel="pthfnd2h">Use multi-select within Assembly PathFinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/active1h" rel="active1h">Activate parts in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/inactv2h" rel="inactv2h">Inactivate parts in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/shwall3h" rel="shwall3h">Display All Profile Elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mkgchg1h" rel="mkgchg1h">Change an assembly component in the Assembly environment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/fndprt1h" rel="fndprt1h">Find a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/query1h_1" rel="query1h_1">Find a part in an assembly using a quick query</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/scrlprt1h" rel="scrlprt1h">Scroll to a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/cllpse2h" rel="cllpse2h">Collapse an assembly in PathFinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/show1h" rel="show1h">Show and hide components in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reorderpart1h" rel="reorderpart1h">Reorder parts in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/displaystatus1h" rel="displaystatus1h">Display or update the status information for documents</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/unload1h" rel="unload1h">Unload Hidden Parts from Memory</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/expand1h" rel="expand1h">Expand an assembly in PathFinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/refpln2h" rel="refpln2h">Hide all the reference planes in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/shwonl1h" rel="shwonl1h">Hide the unselected parts in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/shwonl2h" rel="shwonl2h">Hide unselected profile elements</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/pthfnd3d" rel="pthfnd3d">PathFinder tab (Assembly environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1151907" rel="xid1151907">Toggle the display status of assembly components</a><br><br></div>
+            <div class="footer-content">PathFinder in assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

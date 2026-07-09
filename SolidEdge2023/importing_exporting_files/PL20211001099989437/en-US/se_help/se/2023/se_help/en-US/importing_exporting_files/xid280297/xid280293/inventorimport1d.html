@@ -1,0 +1,170 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Import Options for Inventor (.ipt and .iam) dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Import Options for Inventor (.ipt and .iam) dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="inventorimport1d">
+                     <h1 class="topic-title">Import Options for Inventor (.ipt and .iam) dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>This dialog box specifies how Solid Edge uses imported Inventor data. You can specify
+                     that it use the data as individual features or as a single body feature.&nbsp;You can also
+                     specify that Solid Edge heal or clean any inconsistencies in the surfaces or solids
+                     contained in the Inventor file you are importing. Inventor files must be saved in
+                     Inventor V6 or greater before they can be opened in Solid Edge.</p>
+                  <dl>
+                     <dt>Options</dt>
+                     <dd class="ml-3">
+                        <p>Specifies options to use during translation.</p>
+                        <dl>
+                           <dt>Generate Log File</dt>
+                           <dd class="ml-3">
+                              <p>Produces a log file that contains warnings and information about the files involved
+                                 in translation. The name of the file is the &lt;filename&gt;.log and it is located in the
+                                 same folder as the Inventor file.</p>
+                           </dd>
+                           <dt>Heal and Stitch</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to heal and stitch free surfaces to create a solid body. When
+                                 given a set of sheet bodies the software cleans the input sheets of self-intersections
+                                 and loop inconsistencies. It then identifies and removes very small surfaces or sliver
+                                 sheets from the set of sheets. Edges of adjacent surfaces are then used to fill holes
+                                 where slivers were removed. Larger holes from missing surfaces are also filled. After
+                                 the healing process is complete a single stitch operation at 1.0e-5 (meters) is attempted
+                                 to create a solid body.</p>
+                           </dd>
+                           <dt>Simplify Geometry</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that whenever possible, you want replace the B-spline geometry from the
+                                 model with simplified analytic geometry. This creates a smaller and more efficient
+                                 model. This option also merges half cylinders that share a common center line.</p>
+                              <p>If the system used to create the original model used a larger tolerance than the standard
+                                 Parasolid tolerance (1.0e - 8), the translated model often contains a large number
+                                 of tolerant edges and vertices. This simplification routine recalculates the model
+                                 and repairs the edges and vertices to Parasolid precision.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Actions on Import</dt>
+                     <dd class="ml-3">
+                        <p>Specifies how you want to format the imported file.</p>
+                        <dl>
+                           <dt>Stitch Surfaces</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want all surfaces and sheet bodies to be stitched to a tolerance
+                                 of 1.0e-5 meters. It may be to your advantage not to stitch the surfaces on import,
+                                 but to evaluate what needs to be stitched and perform the stitch after you import
+                                 the file. This option is on by default. &nbsp;If the stitching operation creates a valid
+                                 volume, the volume is converted to a solid.</p>
+                           </dd>
+                           <dt>Boolean Solids</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to Boolean all solid bodies together to form a disjoint solid
+                                 and added to PathFinder as a part copy. This option is on by default. If the option
+                                 is off, all solid bodies are added as individual part copies to PathFinder.</p>
+                           </dd>
+                           <dt>Group Curves in a Single Part Copy</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to combine all curve data into a single part copy. It may
+                                 be to your advantage to identify the curves that you do not need and either hide or
+                                 delete them before importing the file. This option is on by default.</p>
+                           </dd>
+                           <dt>Body Check</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to perform a full body check on the file. This option is off
+                                 by default.</p>
+                           </dd>
+                           <dt>Solids as design bodies</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to import the solid body as a design body.</p>
+                              <p> When multiple bodies are translated into a single part file the process to make active
+                                 or toggle from construction to design is the same for both Ordered and Synchronous.
+                                 &nbsp;To do this:</p>
+                              <h5>With Solids as design bodies enabled</h5>
+                              <ol type="1" start="1">
+                                 <li>
+                                    <p>In PathFinder, select the body to which you want to add features.</p>
+                                 </li>
+                                 <li>
+                                    <p>Click the right mouse button and select <b>Activate Body</b>.</p>
+                                 </li>
+                              </ol>
+                              <h5>With Solids as design bodies disabled</h5>
+                              <ol type="1" start="1">
+                                 <li>
+                                    <p>In PathFinder, select the construction body that you wish to toggle to a design body.</p>
+                                 </li>
+                                 <li>
+                                    <p>Click the right mouse button and select <b>Toggle Design/Construction Body</b>.</p>
+                                    <div class="attention" type="note">
+                                       <div class="attention-label">Note: </div>
+                                       <p>If the <b>Make Base Feature</b> parameter in the .ini file is enabled all solids are imported as design bodies and
+                                          you can skip step 2. If the Make Base Feature parameter is disabled, you need to perform
+                                          step 2 to toggle to the construction body to a design body.</p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p>Click the right mouse button and select <b>Activate Body</b>.</p>
+                                 </li>
+                              </ol>
+                              <p>If you clear this option, all solid bodies contained in the file you are importing
+                                 are placed in PathFinder as Construction solids rather than a Design bodies.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Output Folder</dt>
+                     <dd class="ml-3">
+                        <p>Specifies an output folder for the documents you are importing. This is very helpful
+                           when you open foreign files with an assembly template. When Solid Edge encounters
+                           multiple bodies, the documents for each body are created and written to the specified
+                           folder with a .par extension.&nbsp;If you open single body foreign documents with a part
+                           template, Solid Edge does not automatically save the .par file to this folder. However
+                           if the log file is enabled it is written to this folder.</p>
+                        <dl>
+                           <dt>Output Folder is the Same as the Input Folder</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want the output folder to be the same as the input folder for the
+                                 documents you are importing. If you select this option and import an assembly, the
+                                 assembly and the individual parts in the assembly are imported to the same folder.</p>
+                           </dd>
+                           <dt>Browse</dt>
+                           <dd class="ml-3">
+                              <p>Displays a dialog box that specifies an existing output folder or asks you to create
+                                 a new output folder for the documents you are importing. This option is not available
+                                 if the Output Folder is the Same as the Input Folder option is selected.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor2h" rel="inventor2h">Open an Inventor document in Solid Edge</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor2a" rel="inventor2a">Importing Inventor part and assembly documents to Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor3d" rel="inventor3d">Saving Changes dialog box</a><br><br></div>
+            <div class="footer-content">Import Options for Inventor (.ipt and .iam) dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

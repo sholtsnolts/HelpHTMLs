@@ -1,0 +1,298 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Define a harmonic frequency response study</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Define a harmonic frequency response study"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="study6h">
+                     <h1 class="topic-title">Define a harmonic frequency response study</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>Use the following process to define and review a harmonic response study, which is
+                     a type of structural study that evaluates the effects of vibration over a period of
+                     time and at known oscillatory frequencies. You can use the results to predict whether
+                     your product, equipment, or structure can withstand the prolonged effects caused by
+                     vibration, such as resonance, fatigue, and displacement. </p>
+                  <p>When the analysis is solved, you can determine the steady state response at multiple
+                     frequencies by reviewing the displacement plots, probing the results, and examining
+                     the Frequency vs. Translation graphs. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>This example shows a part model, <b>roller.par</b>. It demonstrates how to use the natural frequencies from a normal modes study as
+                        input to the harmonic response study. This is optional, however. You can skip directly
+                        to the section, <a class="xref" href="#harmonic">Create and solve a harmonic response study</a>. </p>
+                  </div>
+                  <h4 class="division-title" id="modal">Create and solve a normal modes study.</h4>
+                  <div>
+                     <p>This example shows how you can use the results of a normal modes study—the frequencies
+                        at which the object vibrates naturally, before external forces are applied—as input
+                        to a harmonic response study. This enables you to limit the harmonic response solution
+                        to those frequencies identified in the normal modes study.</p>
+                     <ol type="1">
+                        <li>
+                           <p>Select the <b>Simulation</b> tab→<b>New Study</b> command. In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>, from the <b>Study type</b> list, select <b>Normal Modes</b>, and then select the appropriate <b>Mesh type</b> for your model. Click <b>OK</b> to accept all of the default options for this type of study.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_modal02.gif"></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>The study geometry is selected automatically in a part or sheet metal model with one
+                                 body. For an assembly or a multibody part model, select the study geometry using the
+                                 <b>Define</b> command.</p>
+                           </div>
+                           <p>A new container for a <b>Modal Study</b> is created in the <b>Simulation</b> pane.</p>
+                        </li>
+                        <li>
+                           <p>Apply a constraint as a boundary condition for the modal analysis. This example uses
+                              a fixed constraint. </p>
+                           <p>A normal modes study does not use loads, only constraints. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/contraint_fixed_ex.png"></p>
+                        </li>
+                        <li>
+                           <p>Mesh and solve the modal analysis.</p>
+                           <p>A normal modes analysis solves for the eigenvalues (1) and eigenvectors (2) of the
+                              model, and displays them in the <b>Simulation</b> pane, under <b>Plots</b>. </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/modal_eigenvalues_eigenvectors.png"></p>
+                           <p>For each eigenvalue (natural frequency), there is a corresponding eigenvector (mode
+                              shape of deformation). These are shown as plots in the Simulation Results environment.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Using the default options for a normal modes study, four modal frequencies and mode
+                                 shapes are identified in the results. These represent the natural frequencies at which
+                                 the model vibrates freely. Expand each mode to view the mode shape plots, which show
+                                 the deformations at each frequency.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/modal_study_solved_mode4.png"></p>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title" id="harmonic">Create and solve a harmonic response study.</h4>
+                  <div>
+                     <p>Use the frequencies found in the normal modes study—<b>Mode 1</b>, <b>Mode 2</b>, <b>Mode 3</b>, <b>Mode 4</b>—as input to a harmonic response study. You can test the results of the normal modes
+                        study by applying a load value that you know will cause vibration, to see how much
+                        deformation occurs. The objective is to compare the resonance frequencies of the model
+                        to its natural frequencies. Resonance occurs when a dynamic load frequency coincides
+                        with one of the natural frequencies and causes displacements and stresses. </p>
+                     <p>Although resonance may be a desired result in some applications, for safety and structural
+                        integrity applications, the resonance frequencies should not match the natural frequencies.</p>
+                     <p>Structural damping, which you specify as an input to the harmonic response study,
+                        limits the response of the design to excessive resonance by shifting the timing of
+                        peak loads and peak frequencies. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Creating the harmonic response study in the same document as the normal modes study
+                           enables you to reference the modal frequency results. </p>
+                     </div>
+                     <ol type="1">
+                        <li>
+                           <p>In the same document, create a new study, and from the <b>Study type</b> list, select <b>Harmonic Response</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/create_study_type_harmonic_response.png"></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Harmonic response studies require an advanced simulation license.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>In the <b>Options: Harmonic Frequency Analysis</b> dialog box, define the study processing parameters.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/harmonic_frequency_analysis_options_db.png"></p>
+                           <ol type="a">
+                              <li>
+                                 <p><b>Modal Result Frequencies</b> section—Use the options in this section when a previously solved normal modes study
+                                    is available in the current document. </p>
+                                 <ol type="A" start="1">
+                                    <li>
+                                       <p>Select the <b>Add modal frequencies</b> option, and from the adjacent list, select the modal study to use.</p>
+                                    </li>
+                                    <li>
+                                       <p>Select the <b>Show Modes...</b> button.</p>
+                                    </li>
+                                    <li>
+                                       <p>In the <b>Frequency Table from Modal Results</b> dialog box, review the frequencies from the normal modes study that are listed in
+                                          the <b>Selected modal frequencies</b> column. If there are frequencies that you do not want to include in the harmonic
+                                          response study, use the arrow keys to move them from the right column to the left
+                                          column. You can target a specific frequency to investigate, or select a low to high
+                                          range. Click <b>OK</b>. </p>
+                                       <p>In this example, all four modal frequencies were included in the harmonic frequency
+                                          response analysis. This does not affect the simulation results values, only the number
+                                          of results produced. </p>
+                                       <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/frequency_table_from_modal_results.png"></p>
+                                       <div class="attention" type="tip">
+                                          <div class="attention-label">Tip: </div>
+                                          <p>It is possible that not all of the computed modes are required in the modal frequency
+                                             response solution. Often, only the lowest few suffice for dynamic response calculation.
+                                             At a minimum, all the modes whose resonant frequencies lie within the range of forcing
+                                             frequencies should be retained. For example, if your product design requires the frequency
+                                             response analysis must be between 100 and 1000 Hz, all modes whose resonant frequencies
+                                             are in this range should be retained. This guideline is only a minimum requirement,
+                                             however. For better accuracy, all modes up to at least two to three times the highest
+                                             forcing frequency should be retained. For example, if a structure is excited to between
+                                             100 and 1000 Hz, all modes from 0 to at least 3000 Hz should be retained. </p>
+                                       </div>
+                                    </li>
+                                 </ol>
+                              </li>
+                              <li>
+                                 <p>Use the <b>Solution Frequencies</b> section if you do not have a previously solved normal modes study to reference, or
+                                    if you want to add specific additional frequencies to the results of your normal modes
+                                    study. </p>
+                                 <p>This example was created using the default settings, so we cleared the <b>Solution frequencies</b> check box.</p>
+                              </li>
+                              <li>
+                                 <p><b>Frequency Response</b> section—Specify how to apply a structural damping force to account for energy that
+                                    is dissipated due to friction. Structural damping mitigates the displacement response
+                                    of a structure or design. </p>
+                                 <ul>
+                                    <li>
+                                       <p>To apply a constant damping ratio, select the <b>Structural damping coefficient</b> option, and either accept or change the default value of 0.010.</p>
+                                       <p>The <b>Structural damping coefficient</b> option and default value were used for these examples.</p>
+                                    </li>
+                                    <li>
+                                       <p>To apply structural damping that varies in intensity at different modal frequencies,
+                                          select the <b>Modal damping table</b> option, and then click <b>New</b> to define a <b>Frequency vs. Structural Damping</b> function table. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a>.</p>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Click <b>OK</b> to close the <b>Options: Harmonic Frequency Analysis</b> dialog box and return to the <b>Create Study</b> dialog box. </p>
+                        </li>
+                        <li>
+                           <p>In the <b>Create Study</b> dialog box:</p>
+                           <ol type="a" start="1">
+                              <li>
+                                 <p>If you are defining a study for an assembly, you can automatically create the connectors
+                                    needed for meshing and solving based on the assembly mate relationships. Select the
+                                    appropriate options in the <b>Connector Options</b> section of the <b>Create Study</b> dialog box. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a>.</p>
+                              </li>
+                              <li>
+                                 <p>Click <b>OK</b> to initiate the harmonic response study.</p>
+                              </li>
+                           </ol>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <p>Creating a new harmonic response study opens the <b>Options: Harmonic Frequency Analysis</b> dialog box automatically. To change the study parameters <em>after</em> you create the study, select the <b>Modify Study</b> shortcut command to open the <b>Create Study</b> dialog box, and click the <b>Harmonic Response Options</b> button.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Select the same study geometry that you used in the normal modes study.</p>
+                        </li>
+                        <li>
+                           <p>Select the <b>Force</b> command to apply a structural load to define the external force to excite the model.
+                              </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/force_load_roller_ex.png"></p>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <p>To create a variable force load with respect to the frequency modes in the harmonic
+                                 response study, you can select the <b>Create Function</b> button on the command bar, and then define a time versus factor table. The function
+                                 is applied automatically when the study is processed. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a>.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Apply the same constraint as a boundary condition for the harmonic response analysis
+                              as you did for the normal modes analysis.</p>
+                        </li>
+                        <li>
+                           <p>Mesh and solve the harmonic response analysis.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title" id="results">Review harmonic response study results.</h4>
+                  <div>
+                     <p>When the study is solved, the results are shown in the Simulation Results environment.
+                        The default plot in the last modal case result set is displayed. Each case set contains
+                        the results at a specific frequency. You can review the displacement result plot for
+                        the output increments to find the areas of highest displacement. </p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>To quickly identify the frequency results set (case) with the maximum displacement
+                           values, look in the Results section of the Simulation Report. Minimum and maximum
+                           values for each case are listed in tabular format.</p>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Case 14 contains the highest displacement results at 2,000 Hz.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/harmonic_response_study_results_ex1.png"></p>
+                     </div>
+                     <p>Use the following steps to review the result cases to see the structure's response
+                        at several frequencies, and to obtain a graph of the response quantity (displacements
+                        or constraint forces and moments) versus frequency. You can identify the peak responses
+                        on the graph and review the stresses at those peak frequencies.</p>
+                     <ol type="1">
+                        <li>
+                           <p>Display the result plots for other output increments. You can do this using the lists
+                              in the <b>Home</b> tab→<b>Data Selection</b> group.</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Use the <b>Result Mode</b> list to choose a specific results increment, or use the arrows to cycle through each
+                                    plot produced at each frequency.</p>
+                              </li>
+                              <li>
+                                 <p>From the <b>Result Type</b> list, choose <b>Displacement</b> or <b>Constraint Force</b>.</p>
+                              </li>
+                              <li>
+                                 <p>From the <b>Result Component</b> list, choose the specific result plot, such as translation, rotation, constraint
+                                    force, or constraint moment.</p>
+                              </li>
+                              <p>You also can display these plots using the <b>Simulation</b> pane. Expand the <b>Results</b>→<b>Plots</b>→<b>Increment</b> sets to view each displacement and constraint force plot produced at the specified
+                                 frequencies intervals. The result plot that is currently displayed is identified in
+                                 blue text in the <b>Simulation</b> pane. If a plot is listed in black or gray text, you can double-click it to display
+                                 it.</p>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>To quickly locate the maximum and minimum values, on the <b>Color Bar</b> tab→<b>Show</b> group, select the <b>Min Marker</b> and <b>Max Marker</b> check boxes.</p>
+                           <p>You can use this information as input to the <b>Probe</b> command.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/harmonic_response_max_value.png"></p>
+                        </li>
+                        <li>
+                           <p>Graph the results. Use the <b>Home</b> tab→<b>Probe</b> command to select one or more nodes in the results. Select the matching values in
+                              the <b>Probe</b> table and click the <b>Show Graph</b> button.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Oscillatory loading is sinusoidal in nature. In its simplest case, this loading is
+                                 defined as having amplitude at a specific frequency. The steady-state oscillatory
+                                 response occurs at the same frequency as the loading. However, a dynamic load frequency
+                                 that coincides with one of the natural frequencies can cause large displacements and
+                                 stresses. Structural damping limits the response of the design to excessive resonance
+                                 by shifting the timing of peak loads and peak frequencies. </p>
+                           </div>
+                           <p></p>
+                        </li>
+                        <li>
+                           <p>Select the <b>Home</b> tab→<b>Output Results</b> group→<b>Create Report</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/create_report_cmd.png"> to create a report of all of the simulation results. </p>
+                           <p>This saves the study analysis parameters, the values used to define the harmonic response
+                              boundary conditions, the resulting displacement result plots, and any Frequency vs.
+                              Translation graphs you explicitly saved to the simulation results file (.ssd file).
+                              It also includes your conclusions for review by others.</p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Define a harmonic frequency response study, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

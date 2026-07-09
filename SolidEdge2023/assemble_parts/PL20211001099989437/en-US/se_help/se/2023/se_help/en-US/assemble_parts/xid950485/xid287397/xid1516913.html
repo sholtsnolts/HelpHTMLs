@@ -1,0 +1,177 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using Family of Assemblies in the Teamcenter-managed environment</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using Family of Assemblies in the Teamcenter-managed environment"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1516913">
+                     <h1 class="topic-title">Using Family of Assemblies in the Teamcenter-managed environment</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The integration of Family of Assemblies in the Teamcenter-managed environment enables
+                     you to create product variants in Solid Edge and save those members to Teamcenter
+                     for use by downstream consumers.</p>
+                  <p>Family of assembly members are uniquely identified in Teamcenter when they are <em>published</em>. Publishing the members creates individual items in Teamcenter that are identified
+                     by a unique Item ID, Revision and Name. Use the <b>Alternate Assemblies Table</b> → <b>Publish Members</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_ui/publish.gif"> command to <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1490936" rel="xid1490936">publish family of assembly members to Teamcenter</a>. You can publish all members simultaneously, publish members individually, or choose
+                     to not publish members at all. Publishing the members results in BOM accuracy, consistent
+                     visualization, and a visually correct preview.</p>
+                  <h4 class="division-title">Characteristics of published members</h4>
+                  <div>
+                     <p>Each published member is saved to its own Object. The published member:</p>
+                     <ul>
+                        <li>
+                           <p>Can be defined by an Item Type that can differ from the source.</p>
+                        </li>
+                        <li>
+                           <p>Has its own set of properties that can participate in property synchronization.</p>
+                        </li>
+                        <li>
+                           <p>Can take advantage of naming rules and multi-field keys (MFK).</p>
+                        </li>
+                     </ul>
+                     <p>You can use the Teamcenter preference <b>SEEC_Property_AssemblyFamilyMember_Name</b> to specify the pattern used to generate the initial value of the Item Name when a
+                        new Family of Assembly member is published. By default, the member name is &lt;Source's
+                        Item Name&gt;-&lt;Solid Edge Member Name&gt;.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For details, see the <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a>.</p>
+                     </div>
+                     <p>Although a separate Item and Revision is created for each published member, they are
+                        complementary and belong together as a single unit. </p>
+                  </div>
+                  <h4 class="division-title">Data model</h4>
+                  <div>
+                     <p>The relation <em>Solid Edge Assembly Family Source</em> connects the member to the source. Another relation, <em>Solid Edge Assembly Family Members</em>, connects the source to the member. To visualize the related documents in the Teamcenter
+                        rich client, display these relations and then expand them in My Teamcenter.</p>
+                  </div>
+                  <h4 class="division-title">Creating content</h4>
+                  <div>
+                     <p>To use Family of Assemblies in the Teamcenter-managed environment:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Create an assembly.</p>
+                        </li>
+                        <li>
+                           <p>Convert the assembly to a FOA with at least two members.</p>
+                        </li>
+                        <li>
+                           <p>Finalize the member names before they are used.</p>
+                        </li>
+                        <li>
+                           <p>Publish the members to create individual items in Teamcenter.</p>
+                        </li>
+                        <li>
+                           <p>Use the published member(s) in a design or draft.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="caution">
+                        <div class="attention-label">Caution: </div>
+                        <p>After a member is used in an assembly or documented on a draft, it must not be renamed.
+                           Renaming a published member that is used creates a broken link.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Modifying content</h4>
+                  <div>
+                     <p>When you open an assembly family with published members, the source and all published
+                        members are checked out to you. If write access is not available for the source and
+                        all members, you are notified and the assembly is opened read-only.</p>
+                  </div>
+                  <h4 class="division-title">Creating drafts of published Family of Assembly Members</h4>
+                  <div>
+                     <p>When you create a new draft of a published Family of Assembly Member, you can choose
+                        to:</p>
+                     <ul>
+                        <li>
+                           <p>Save the new draft to the revision of the Source</p>
+                           <p>When a draft is saved, the Item ID of the FOA Source is populated and the saved draft
+                              is linked to the FOA Source. </p>
+                        </li>
+                        <li>
+                           <p>Save the new draft to the revision of the published Member.</p>
+                           <p>When a draft is saved, the Item ID of the FOA member is populated, and the saved draft
+                              is linked to the FOA member.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>The <b>Save As</b> command will not copy a draft saved to the revision of the published Member. To copy
+                                 the draft using Save As, save the draft to the Revision of the Source, or a separate
+                                 Item.</p>
+                           </div>
+                        </li>
+                     </ul>
+                     <p>The default option is set in the <b>Solid Edge Options</b> → <b>Manage</b> → <b>Assembly</b> tab. </p>
+                     <p>Follow the steps in <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/ribbtb1h" rel="ribbtb1h">Customize the command ribbon</a> to add the corresponding commands <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1539706" rel="xid1539706">Save to Source</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1539707" rel="xid1539707">Save to Member</a> to your Teamcenter command ribbon for the Draft environment.</p>
+                  </div>
+                  <h4 class="division-title">Creating new workflows in Solid Edge</h4>
+                  <div>
+                     <p>When you create a new workflow using the <b>New Workflow Process</b> command, the entire assembly family is included in the workflow so that they can
+                        be released together.</p>
+                  </div>
+                  <h4 class="division-title">Revising published FOA members</h4>
+                  <div>
+                     <p>The assembly file is managed in the Item Revision of the Family of Assembly source.
+                        The assembly family is represented by a single file even though published members
+                        have their own Item\Revision. You cannot revise a single member independently of the
+                        source. Therefore when you run a workflow against the assembly family, the source
+                        and all the members participate in the workflow and receive the same status, preparing
+                        the assembly family for release and subsequently, revise.</p>
+                     <p>When you revise a Family of Assemblies, the entire family (source and published members)
+                        is included in the revision. Even though they are revised together, they have independent
+                        properties so the Revision value can be different. This behavior is the same in Solid
+                        Edge and Structure Editor.</p>
+                  </div>
+                  <h4 class="division-title">Creating an accurate BOM for product structures that use nested FOAs</h4>
+                  <div>
+                     <p>If you create a product structure where a FOA member uses a FOA member, and you want
+                        to have that structure be BOM-accurate, start from the bottom, open the FOA assembly
+                        and publish it to Teamcenter. Then, open the next higher level and its member and
+                        publish it. Continue this process until all FOAs have been published and saved. This
+                        process creates a new Item for the member and uses the previously published member
+                        and its associated structure.</p>
+                  </div>
+                  <h4 class="division-title">Using Save-As with published FOA members</h4>
+                  <div>
+                     <p>The <b>Save As</b> command affects only the source and its direct documents. Members are not copied
+                        to new Items.</p>
+                  </div>
+                  <h4 class="division-title">Where Used with published FOA members</h4>
+                  <div>
+                     <p>In Solid Edge, when you work with Family of Assemblies, you always open a FOA member.
+                        However, the results of the <b>Where Used</b> command displays the member in context of its source. The source is displayed at
+                        the top of the structure with members below it.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/doc_mgt/manage_tc/manage_tc_ui/foa_in_where_used.gif"></p>
+                  </div>
+                  <h4 class="division-title"></h4>
+                  <div>
+                     <p>For additional information, see <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1492499" rel="xid1492499">Family of Assemblies in Structure Editor</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm3h" rel="famasm3h">Create a new alternate position assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm1h" rel="famasm1h">Create a new family of assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1490936" rel="xid1490936">Publish family of assembly members to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant1h" rel="variant1h">Define a list of alternate components for a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2h" rel="famasm2h">Save an alternate assembly member as a separate assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/movprt2h" rel="movprt2h">Examples: Dynamically moving a part in an assembly</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm1a" rel="famasm1a">Alternate Assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2a" rel="famasm2a">Alternate assemblies impact on Solid Edge functionality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1539706" rel="xid1539706">Save to Source command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1539707" rel="xid1539707">Save to Member command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant1d" rel="variant1d">Define Alternate Components Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant1c" rel="variant1c">Define Alternate Component command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/editdefasm1c" rel="editdefasm1c">Edit Definition command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant2d" rel="variant2d">Alternate Member Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm6d" rel="famasm6d">Assembly Member dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm5d" rel="famasm5d">New Member dialog box (Family of Assemblies tab)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2d" rel="famasm2d">Alternate Assemblies dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/plprt3d" rel="plprt3d">Dynamic Configuration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm1d" rel="famasm1d">Family of Assemblies tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm7d" rel="famasm7d">Alternate Assemblies Table dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm3d" rel="famasm3d">Save Member dialog box</a><br><br></div>
+            <div class="footer-content">Using Family of Assemblies in the Teamcenter-managed environment, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

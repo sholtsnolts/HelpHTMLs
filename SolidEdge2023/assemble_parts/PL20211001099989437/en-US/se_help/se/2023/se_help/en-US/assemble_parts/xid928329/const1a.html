@@ -1,0 +1,254 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Understanding Assembly relationships</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Understanding Assembly relationships"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="const1a">
+                     <h1 class="topic-title">Understanding Assembly relationships</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">                           
+                  <p>Developing an understanding of the various assembly relationships is fundamental to
+                     successfully creating assemblies.</p> 
+                  <p>When you place a part or subassembly into an assembly, you define how the part is
+                     positioned with respect to the other parts by applying assembly relationships. Available
+                     relationships include <b>Mate</b>, <b>Planar Align</b>, <b>Axial Align</b>, <b>Insert</b>, <b>Connect</b>, <b>Angle</b>, <b>Tangent</b>, <b>Cam</b>, <b>Path</b>, <b>Parallel</b>, <b>Gear</b>, <b>Match Coordinate System</b>, <b>Center-Plane</b>, <b>Rigid Set</b>, and <b>Ground</b>. For more information, see<a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid453632" rel="xid453632">Show list of assembly relationships</a>.</p> 
+                  <p>In addition to the traditional assembly relationships listed above, the <b>FlashFit</b> option reduces the steps required to position a part using the <b>Mate</b>, <b>Planar Align</b>, or <b>Axial Align</b> relationships.</p> 
+                  <p>All relationship options in addition to the <b>FlashFit</b> option are located on the <b>Assemble - Relationship Types</b> list on the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/plprt4d" rel="plprt4d">Assemble command bar</a> and the relationship-specific command bars for each type of relationship.</p>  
+                  <h4 class="division-title">Part positioning workflows</h4>
+                  <div>   
+                     <p>The following workflows are used to position parts in an assembly:</p> 
+                     <ul> 
+                        <li> 
+                           <p><a class="xref" href="#flashfitlink">FlashFit workflow</a></p> </li> 
+                        <li> 
+                           <p><a class="xref" href="#traditionalwf">Traditional workflow</a></p> </li> 
+                        <li> 
+                           <p><a class="xref" href="#reducedstepswf">Reduced Steps workflow</a></p> </li> 
+                        <li> 
+                           <p><a class="xref" href="#capturefitwf">Capture Fit workflow</a></p> </li> </ul> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>If you are new to modeling, focus on learning both <b>FlashFit</b> and the Traditional workflows. As your expertise in building assemblies increases,
+                           explore the other available workflows. All workflows are discussed in more detail
+                           later in this topic. The Slider tutorial demonstrates <b>FlashFit</b> capabilities.</p>  </div>  </div>   
+                  <h4 class="division-title">Maintaining assembly relationships</h4>
+                  <div>  
+                     <p>By default, Solid Edge maintains the relationships that are defined when the part
+                        is position. If the <b>Maintain Relationships</b> option is set on the <b>Parts Library</b> shortcut menu (right-click on the white space in the <b>Parts Library</b>) when a part is placed, the relationships that are applied also control the behavior
+                        of the part when it is modified. For example:</p> 
+                     <ul> 
+                        <li> 
+                           <p>If a <b>Planar Align</b> relationship is applied between two parts, they remain aligned when either part is
+                              modified.</p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/assem1g.gif"></p> </li> 
+                        <li> 
+                           <p>If an <b>Axial Align</b> relationship is applied between two parts, they remain axially aligned when either
+                              part is modified.</p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/assem2g.gif"></p> </li> </ul> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>Assembly relationships can be viewed, modified, or deleted using the Assembly <b>PathFinder</b>.</p> </div> 
+                     <p>If the <b>Maintain Relationships</b> command is cleared when a part is placed, the assembly relationships must still be
+                        used to position the part in the assembly. However, instead of applying these relationships
+                        on the part, the software applies a <b>Ground</b> relationship. Grounded parts do not update their positions in the assembly when other
+                        parts are modified.</p> </div>   
+                  <h4 class="division-title">Capturing design intent</h4>
+                  <div>  
+                     <p>To fully control one part in relation to the other parts in an assembly, a combination
+                        of assembly relationships must be applied. There is often more than one way to apply
+                        relationships that will position a part correctly. It is important to choose the way
+                        that best captures design intent, because this makes the assembly easier to understand
+                        and edit.</p> 
+                     <p>When positioning a part, it may be helpful to keep in mind how the part will react
+                        to future modifications. Although the part may be positioned correctly using a particular
+                        set of assembly relationships, it may not behave as expected if modifications are
+                        made.</p> 
+                     <p>To gain more experience placing parts in an assembly, it can be useful to make minor
+                        design modifications and observe how the parts in the assembly react. If the assembly
+                        does not behave as expected, relationships can be deleted and reapplied using a different
+                        approach. With more experienced, it will become easier to see which set of relationships
+                        correctly position parts and also provide the desired design intent behavior when
+                        design modifications are made later in the process.</p> </div>   
+                  <h4 class="division-title">Assembly relationships and part movement</h4>
+                  <div>  
+                     <p>When a part is fully positioned in an assembly, it cannot move in any direction in
+                        relation to the assembly. The first assembly relationship that is placed controls
+                        some part movement, but the part is still free to move in some other direction by
+                        sliding along or rotating around the X, Y, or Z axes.</p> 
+                     <p>Applying more relationships controls more movement until the part is fully positioned.
+                        The types of relationships and options that are applied determine how the relationships
+                        control part movement.</p> 
+                     <p>Parts that must be able to move in an assembly cannot be fully positioned. This is
+                        generally achieved by defining rotational relationships that are not locked, ranges
+                        of motion that allow movement, or floating relationships that determine the extent
+                        of movement as defined by another part or subassembly. Parts can also be made to be
+                        adjustable. For more information, see<a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1a" rel="adjust1a"> Adjustable and rigid assemblies</a>.</p> </div>  
+                  <h4 class="division-title" id="flashfitlink">FlashFit workflow</h4>
+                  <div>   
+                     <p>The <b>FlashFit</b> workflow reduces the steps required to position parts using <b>Mate</b>, <b>Planar Align</b>, and <b>Axial Align</b> relationships when compared to the traditional workflow. Because many parts are positioned
+                        using these relationships, <b>FlashFit</b> is appropriate and quicker in many situations.</p> 
+                     <p>The <b>FlashFit</b> relationship is the default assembly relationship which makes the <b>FlashFit</b> workflow the default workflow. This default condition is controlled through the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/plprt2d" rel="plprt2d">Assemble Command bar Options dialog box</a>.</p> 
+                     <p>When possible, <b>FlashFit</b> moves the first part that was selected when applying the relationship while the second
+                        part remains stationary. If the first part is fully constrained, the second part will
+                        move.</p> 
+                     <p>The <b>FlashFit</b> option can then be used to define additional relationships required to fully position
+                        the part in the assembly, or another relationship type can be selected.</p>  </div> 
+                  <h4 class="division-title">Using FlashFit for positioning fasteners</h4>
+                  <div>  
+                     <p><b>FlashFit </b>also allows more flexibility to use edges, in addition to faces, when positioning
+                        a part using mate, axial align, and planar align relationships. This can be especially
+                        useful when positioning a fastener, such as a bolt into hole. </p> 
+                     <p>For example, when positioning a part using an <b>Axial Align</b> relationship, a circular edge cannot be selected. However when using <b>FlashFit</b>, a circular edge on both the placement part and target part can be selected to completely
+                        position the part in two steps.</p> </div>  
+                  <h4 class="division-title">FlashFit options</h4>
+                  <div>  
+                     <p>The <b>Options</b> dialog box on the <b>Assemble command bar</b> is used to set which <b>FlashFit</b> options to consider when placing a part. For example, any combination of the following
+                        element types can be specified placing a part: <b>Planer faces</b>, <b>Cylindrical faces</b>, <b>Linear edges</b>, or <b>Points</b>. This allows the behavior of the <b>FlashFit</b> command to be tailored for the part that is currently being placed. This action can
+                        help limit the number of identified elements to only those elements being sought when
+                        applying a relationship.</p> </div>   
+                  <h4 class="division-title">Moving and rotating parts with FlashFit</h4>
+                  <div>  
+                     <p>When using <b>FlashFit</b>, the placement can be moved or rotated into a more convenient location. To move the
+                        part, position the cursor over the part and drag the cursor.</p> 
+                     <p>To rotate the part, press the Ctrl key while dragging the cursor. If any relationships
+                        have already been applied to the placement part, the movement or rotation is limited
+                        to the available degrees of freedom.</p> </div>   
+                  <h4 class="division-title" id="traditionalwf">Traditional workflow</h4>
+                  <div>  
+                     <p>The traditional workflow requires the user to perform each step required to position
+                        a part using assembly relationships. This approach allows new users to gain a full
+                        understanding of the part positioning process. The <b>Assembly</b> command bar and prompts that are unique to each type of relationship, guide the user
+                        through the positioning process.</p> 
+                     <p>The traditional workflow is also preferred when positioning parts using relationships
+                        that <b>FlashFit</b> does not recognize, such as <b>Angle</b>, <b>Cam</b>, <b>Parallel</b>, <b>Path</b>, and <b>Tangent</b> relationships.</p> </div>   
+                  <h4 class="division-title" id="reducedstepswf">Reduced Steps workflow</h4>
+                  <div>  
+                     <p>The <b>Reduced Steps</b> workflow eliminates the part selection and accept steps in the traditional workflow.
+                        To use this option activate the <b>Use Reduced Steps when placing parts</b> in the <b>Options</b> dialog box on the <b>Assemble command bar</b>. For more information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/plprt2d" rel="plprt2d">Assemble Command bar Options dialog box</a>. When the <b>Use Reduced Steps when placing parts</b> option is set, simply select a face on the placement part and target part to form
+                        a relationship. This reduces the number of steps from five to three for a typical
+                        <b>Mate</b> relationship. There are some trade-offs when using this option. Since the part in
+                        the assembly is no longer selected as a separate step, surfaces or cylinders on every
+                        active part are available for selection.</p> 
+                     <p>In large assemblies or in assemblies with numerous overlapping parts, positioning
+                        one part precisely relative to another can prove time consuming. In such cases, use
+                        the <b>QuickPick</b> option to select the relationship feature.</p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>When the <b>Use Reduced Steps when placing parts</b> option is set, the offset type and offset value must be set before selecting the
+                           target face. To use a reference plane on the target part to position the placement
+                           part, the reference planes must already be displayed.</p> </div> </div>   
+                  <h4 class="division-title" id="capturefitwf">Capture Fit workflow</h4>
+                  <div>  
+                     <p>The Capture Fit workflow uses the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/capfit1c" rel="capfit1c">Capture Fit command</a> to save assembly relationships and faces used to position a part or subassembly in
+                        the active assembly. When the part or subassembly is placed again, simply select the
+                        faces on a new target part already in the assembly to position the new part or subassembly.
+                        This reduces the number of steps required to position the part.</p> 
+                     <p>If the Insert option is used to position a part, the <b>Capture Fit command</b> will capture a mate and an axial align relationship, since these are the relationships
+                        the <b>Insert</b> option places.</p> 
+                     <p>Relationships can also be captured by activating the option <b>Automatically Capture Fit when placing parts</b> on the <b>Options</b> dialog box on the <b>Assemble command bar</b>.</p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>The <b>Capture Fit command</b> cannot capture angular relationships.</p> </div> </div>  
+                  <h4 class="division-title">Defining offset values</h4>
+                  <div>   
+                     <p>Fixed or floating offsets between parts can be defined for some types of relationships
+                        such as <b>Mate</b> and <b>Planer Align</b>. To specify an offset type, select one of the offset type options on the <b>Assemble command bar</b>; <b>Fixed</b>, <b>Float</b>, or <b>Range</b>. When a fixed offset is selected, enter the dimensional value for the offset distance.
+                        For example, when a fixed offset for a planar align relationship is defined, a value
+                        can be set so that the parts are no longer coplanar.</p> 
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/alface2.gif"></p>   
+                     <p>A floating offset is useful when the orientation of a part with respect to another
+                        part must be controlled but it is impossible to define a fixed dimensional value.
+                        For example, a floating offset can be applied to control the <em>rotational</em> orientation of a part. When an <b>Axial Align</b> relationship is applied using the <b>Unlock Rotation</b> option between a cylindrical shaft and the cylindrical axis on another part as shown
+                        in (A), then a <b>Planar Align</b> relationship using a <b>Float</b> option can control the rotational orientation of the shaft as shown in (B).</p> 
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/insert4c.gif"></p> 
+                     <p>Attempting to apply a fixed offset using a <b>Planar Align</b> relationship results in displaying a message that indicates that the relationship
+                        conflicts with another relationship.</p>  
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>The range offset command is not intended to be used to for geometric tolerances. Depending
+                           on the relationships used to position the part are defined, this may result in an
+                           over constrained condition and cause errors.</p> </div> </div>  
+                  <h4 class="division-title">Locking and unlocking rotation on axial align relationships</h4>
+                  <div>  
+                     <p>When an <b>Axial Align</b> relationship has been applied, use the <b>Lock Rotation</b> and <b>Unlock Rotation</b> buttons on the <b>Assemble command bar</b> to specify whether the part is free to rotate around the axis of rotation. The <b>Lock Rotation</b> option is useful when the rotational orientation of the part is not important, such
+                        as when placing a bolt into a hole. When the <b>Lock Rotation</b> option is selected, the rotational orientation of the part is locked at a random
+                        position and one less relationship is required to fully position the part.</p> 
+                     <p>When the <b>Unlock Rotation</b> option is set, the rotational orientation can be set to the desired condition by
+                        applying another relationship such as an <b>Angle</b> relationship.</p> 
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/alaxis2.gif"></p> </div>  
+                  <h4 class="division-title">Assembly relationship dimensions</h4>
+                  <div>   
+                     <p>When positioning parts using assembly relationships, driving or driven dimensions
+                        are created and displayed when appropriate. For example, when a part is positioned
+                        using a <b>Mate</b> relationship with a fixed offset, a driving dimension is created.</p> 
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/asmdim1.gif"></p>   
+                     <p>When a part is positioned using a <b>Mate</b> relationship with a floating offset (the offset value is controlled by another relationship),
+                        a driven dimension is created that cannot be edited to reposition the part. Zero,
+                        positive, and negative dimension values are supported.</p> 
+                     <p>When an assembly relationship is first applied or later edited, the driving dimension
+                        can be selected to change the offset value. </p>  </div>  
+                  <h4 class="division-title">Assembly Relationship Assistant command</h4>
+                  <div>  
+                     <p>When working with assemblies whose parts are oriented correctly, but do not have assembly
+                        relationships, such as assemblies that were imported into Solid Edge from another
+                        CAD system, the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/relasst1c" rel="relasst1c">Assembly Relationship Assistant command</a> can be used to apply relationships between the parts and subassemblies. The relationships
+                        are applied based on their current geometric orientation. For more information, see
+                        <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/relasst1c" rel="relasst1c">Assembly Relationship Assistant command</a>.</p> </div>   
+                  <h4 class="division-title">Differences between assembly relationships and sketch relationships</h4>
+                  <div>  
+                     <p>The relationships that are applied between the parts and subassemblies of an assembly
+                        differ from the relationships that are applied while working with part sketches. For
+                        example:</p> 
+                     <ul> 
+                        <li> 
+                           <p>There are no relationship handles added to the assembly to show that a relationship
+                              has been applied. Instead, the relationships between parts are shown in the <b>PathFinder</b>.</p> </li> 
+                        <li> 
+                           <p>Except for the ground relationship, all assembly relationships are defined between
+                              the part or subassembly that is being placed and a part or subassembly that was previously
+                              placed in the assembly.</p> </li> 
+                        <li> 
+                           <p>The dimensioning commands cannot be used to place relationships between parts and
+                              subassemblies in an assembly.</p> </li> </ul> </div>   
+                  <h4 class="division-title">Positioning parts using coordinate systems</h4>
+                  <div>  
+                     <p>Parts can also be placed in an assembly using coordinate systems. To accomplish this,
+                        the coordinate systems in the part document for both the placement and target parts
+                        must be defined. Then use the <b>Planar Align</b>, <b>Mate</b>, and <b>Match Coordinate Systems</b> options on the <b>Assemble command bar</b> to position the placement part.</p> 
+                     <p>For example, when using the <b>Match Coordinate Systems</b> option, the placement part is positioned using planar align relationships that match
+                        the three principal axes on the coordinate system for the placement part and the target
+                        part. This allows the placement part to be positioned using fewer steps than applying
+                        three separate planar align relationships. This can be useful when working with a
+                        common part that is placed into an assembly multiple times in the same position relative
+                        to a target part.</p>  </div>   </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid453632" rel="xid453632">Show list of assembly relationships</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/assem4a" rel="assem4a">Building assemblies</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/getstartedasm1p" rel="getstartedasm1p">Assemble parts (workflow)</a><br><br></div>
+            <div class="footer-content">Understanding Assembly relationships, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,147 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Apply a hydrostatic pressure load</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Apply a hydrostatic pressure load"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1965456">
+                     <h1 class="topic-title">Apply a hydrostatic pressure load</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In a linear static or coupled study, use the <b>Hydrostatic Pressure</b> load command to determine the maximum and minimum pressure that is exerted by a fluid
+                     at equilibrium, from a given point, due to the effect of gravity. Pressure is always
+                     normal to the surface of the container, with nonuniform pressure distribution.</p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>This canister is part of a fuel filter assembly. The diesel fuel exerts pressure on
+                        the walls of the container. The fluid pressure on the bottom of the container is greater
+                        than the pressure at the top. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_pressure_ex.png"></p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Choose <b>Simulation</b> tab→<b>Structural Loads</b> groups→<b>Hydrostatic Pressure</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_hydrostatic_pressure.png">. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The Hydrostatic Pressure load command bar guides you through the process of entering
+                              the information defined below:</p>
+                           <ul style="list-style: none">
+                              <li>
+                                 <p>Surfaces where the load is applied.</p>
+                              </li>
+                              <li>
+                                 <p>Height of fluid from bottom surface <em>(h)</em></p>
+                              </li>
+                              <li>
+                                 <p>Gravity <em>(g)</em></p>
+                              </li>
+                              <li>
+                                 <p>Fluid density <em>(ρ)</em></p>
+                              </li>
+                           </ul>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_pressure_load_tank_sides.png"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_pressure_load_tank_bottom.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Select one or more faces inside the container where you want to apply the hydrostatic
+                           pressure load, and then right-click or press Enter to accept.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_select_faces.png"></p>
+                     </li>
+                     <li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_freespace_pt_icon.png">—Define the height of the fluid from the bottom surface by specifying the free space
+                           above it. Right-click or press Enter to continue.</p>
+                        <p>Do either of the following to define the height of the fluid:</p>
+                        <ul>
+                           <li>
+                              <p>Click a keypoint in the container, and enter an offset value on the command bar.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_pressure_select_freespace.png"></p>
+                           </li>
+                           <li>
+                              <p>Select the <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/xyz_pt_icon.png"> <b>XYZ Point</b> option from the <b>Keypoints</b> list, click a point, and then enter the exact location coordinate in the X, Y, Z
+                                 boxes.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_freespace_xyz.png"></p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_gravity_load_icon.png">—Define the gravity type, direction, and value. Right-click or press Enter to continue.</p>
+                        <p>The gravity load symbol is displayed in the model space. </p>
+                        <ul>
+                           <li>
+                              <p>The default is to apply gravity in the negative Z direction of the part, and the gravity
+                                 magnitude is shown in the <b>Value</b> input box. You can reverse the gravity direction using the <b>Flip</b> button on the command bar. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_gravity_default.png"></p>
+                           </li>
+                           <li>
+                              <p>When you want to define gravity at an angle that is not parallel or perpendicular
+                                 to a face, use direction vector components.</p>
+                              <ol type="a" start="1">
+                                 <li>
+                                    <p>From the <b>Direction Type</b> list, choose the <b>Components</b> option.</p>
+                                 </li>
+                                 <li>
+                                    <p>In the dynamic input boxes, type the Ax, Ay, and Az gravity direction component values.</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_gravity_magnitude_xyz_values.png"></p>
+                                    <div class="attention" type="example">
+                                       <div class="attention-label">Example: </div>
+                                       <p>If the part is oriented so that gravity will be applied along the X axis, then enter
+                                          the gravity value in the <b>Ax</b> box, instead of the <b>Az</b> box. </p>
+                                       <p>If the part is oriented such that gravity will be applied at an XY angle from the
+                                          base coordinate system, then enter the gravity value in the <b>Ax</b> and <b>Ay</b> boxes to define that angle.</p>
+                                    </div>
+                                 </li>
+                              </ol>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>There can be just one gravity acceleration value applied to the study geometry. If
+                              you previously defined gravity using the <b>Simulation</b> tab—<b>Body Loads</b> group→<b>Gravity</b> command, then that acceleration value is applied automatically to the hydrostatic
+                              pressure load. To change the acceleration value, edit the gravity load definition.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Edit the value in the <b>Density</b> box on the command bar, which displays the density of water by default, 998 kg/m<sup>3</sup>. Right-click or press Enter to finish the hydrostatic pressure load. </p>
+                        <p>The study geometry displays the hydrostatic pressure load symbols, the minimum pressure
+                           value at the top surface of the fluid, and the maximum pressure value at the bottom
+                           of the container. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_minmax_pressure.png"></p>
+                     </li>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_pressure_load_done.png"></p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>To edit the hydrostatic pressure inputs, double-click the load label, <b>Hydrostatic Pressure 1</b>, and then on the command bar, click the icon for the input step that you want to
+                           modify. For example, to change the height of the fluid, click the <b>Free Space Selection</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_freespace_pt_icon.png">, and then click a new keypoint or edit the offset value.</p>
+                     </div>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br></div>
+            <div class="footer-content">Apply a hydrostatic pressure load, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

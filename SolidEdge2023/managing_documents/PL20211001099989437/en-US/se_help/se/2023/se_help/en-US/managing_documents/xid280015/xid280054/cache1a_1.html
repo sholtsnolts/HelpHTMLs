@@ -1,0 +1,205 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Managing your local cache</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Managing your local cache"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="cache1a_1">
+                     <h1 class="topic-title">Managing your local cache</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you work with managed documents, Solid Edge creates a local cache of the viewed
+                     documents to improve performance. You can use the File Locations tab on the Solid
+                     Edge Options dialog box to specify the location of your local cache. When you open
+                     a document, Solid Edge automatically manages the synchronization between the document
+                     stored in the managed location and the document in your local cache. Solid Edge checks
+                     your local cache to see if the local document is up to date with the version of the
+                     document in the managed location. Solid Edge then opens the local document or copies
+                     the current version from the managed location to your local cache.</p>
+                  <p>The Cache Assistant command displays the Cache Assistant dialog box. You can use the
+                     options on the dialog box to filter the display of the contents of the cache, synchronize
+                     all the documents in the managed location, check out documents from the managed location,
+                     check in documents you have checked out, download documents from the managed location
+                     to your local cache, delete documents from your local cache, or create a new cache
+                     workspace.</p>
+                  <p>You can use the options on the dialog box to manage all the documents in your local
+                     cache, or you can use the shortcut menu commands to manage selected documents. Similar
+                     to Windows Explorer, you can use the Ctrl key to select documents randomly, or the
+                     Shift key to select a sequential list of documents.</p>
+                  <h4 class="division-title">Filtering the display of cache contents</h4>
+                  <div>
+                     <p>As the number of documents in your cache increase, you may want to filter the documents
+                        displayed in the Cache Assistant dialog box to make it easier to find the document
+                        you are looking for. The first row in the Cache Assistant dialog box is used to set
+                        filters on the documents displayed from the cache. Use the values associated with
+                        each property to display the documents from the cache that match the criteria you
+                        choose. For example, setting the Cache Status to Checked Out To You displays files
+                        you have checked out and also those that have a cache status of Modified as documents
+                        have to be checked out to be modified. The filter Checked Out To Others displays all
+                        files checked out to someone other than yourself. When you choose the Synchronize
+                        command, all documents in the cache are synchronized and not just the ones displayed
+                        by the filter.</p>
+                  </div>
+                  <h4 class="division-title">Synchronizing documents in the library</h4>
+                  <div>
+                     <p>The Synchronize command checks your local cache for any out-of-date documents, and
+                        then downloads the latest version from the managed location to update your local cache.
+                        You can also use the Synchronize command on the shortcut menu to synchronize selected
+                        documents.</p>
+                  </div>
+                  <h4 class="division-title">Previewing documents</h4>
+                  <div>
+                     <p>You can verify the contents of a document by selecting it in the document list, clicking
+                        the Preview command <img class="img-fluid" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/preview.gif"> and looking at the image displayed in the Preview pane. Not all documents have a
+                        preview image associated with them.</p>
+                     <p>To create a preview image, you can use the options on the Preview page of the File
+                        Properties dialog box. To learn how to do this, see the Help topic, <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/prevw1h" rel="prevw1h">Set document preview options.</a></p>
+                     <p>You can set preview image display options using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/prevw2c" rel="prevw2c">Preview command</a> in the Cache Assistant dialog box.</p>
+                  </div>
+                  <h4 class="division-title">Checking documents in and out of the managed location</h4>
+                  <div>
+                     <p>To prevent other users from making changes to a document, you can lock it using the
+                        Check Out command on the Cache Assistant shortcut menu. The Check Out command also
+                        changes the document status in the local cache to read-write, so you can make changes
+                        to the document. If you check out a direct document, read-only copies of all indirect
+                        documents are downloaded to your local cache. If you in-place activate a part in an
+                        assembly, Solid Edge checks out the part.</p>
+                     <p>After you make changes to the checked out document, you can upload it to the managed
+                        location and make it available for other users to check out, using the Check In All
+                        command on the Cache Assistant dialog box. You can also use the Check In command on
+                        the shortcut menu to check in selected documents.</p>
+                     <p>You can undo changes you make to a checked out document using the Cancel Check Out
+                        command on the Cache Assistant shortcut menu. In other words, any changes you have
+                        made to the checked out document are lost when you cancel the check out of the document.
+                        This also releases the check out lock on the document in the managed location, which
+                        allows other users to make changes to the document. If you cancel the check out of
+                        a direct document, you also cancel the check out for any associated indirect documents
+                        that are checked out. The Cancel Check Out command does not upload the document to
+                        the database, and it does not remove it from your local cache.</p>
+                     <p>Managed direct documents opened with read-only permissions can be checked out using
+                        the Check Out command. The command verifies the active document is the most recent
+                        version, checks the file out of the database, sets the file to a writable state, and
+                        enables the Save command for you to save any in-memory file changes. This command
+                        is available in Teamcenter-managed environments for Assembly (.asm), Part (.par),
+                        Sheet Metal (.psm), and Draft (.dft).</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The Check Out command does not transfer any files from the server since the active
+                           document is the latest version.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Downloading documents to local cache</h4>
+                  <div>
+                     <p>You can use the Download command on the Cache Assistant dialog box to select documents
+                        from the managed location and download them to your local cache. This is helpful if
+                        you want to manage your cache manually. When you click Download, the Download dialog
+                        box is displayed for you to select the documents you want.</p>
+                  </div>
+                  <h4 class="division-title">Deleting documents from cache</h4>
+                  <div>
+                     <p>The Delete All command removes all the documents in your local cache except where
+                        the cache file is not in the database. This is helpful if you want to free disk space
+                        or force the local cache to update with the latest information from the managed location.</p>
+                  </div>
+                  <h4 class="division-title">Checking document revisions</h4>
+                  <div>
+                     <p>The Revised From command on the Cache Assistant shortcut menu displays the name and
+                        folder path of the document that was used as a template to create the selected document.
+                        &nbsp;The Show Revisions command on the Cache Assistant shortcut menu displays the name
+                        and folder path of any documents that are revisions of the selected document.</p>
+                  </div>
+                  <h4 class="division-title">Opening documents</h4>
+                  <div>
+                     <p>Double-clicking a document in the document list in the Cache Assistant opens the document
+                        in the application used to create it. Documents can also be opened using the Open
+                        command on the Cache Assistant shortcut menu.</p>
+                  </div>
+                  <h4 class="division-title">Understanding transactions with the cache</h4>
+                  <div>
+                     <p>Most commands that involve the management of documents result in transactions with
+                        the cache. For example, the synchronization between the document stored in the database
+                        and the document in your local cache. The following are a few examples of commands
+                        where interaction with the cache takes place:</p>
+                     <ul>
+                        <li>
+                           <p>Synchronize</p>
+                        </li>
+                        <li>
+                           <p>Check Out and Check In</p>
+                        </li>
+                        <li>
+                           <p>Download and Upload</p>
+                        </li>
+                        <li>
+                           <p>Delete and Delete All from Cache</p>
+                        </li>
+                        <li>
+                           <p>Revise</p>
+                        </li>
+                     </ul>
+                     <p>If an incomplete transaction occurs, for example due to a network interruption, the
+                        information being processed at the time of the interruption is not lost. Processing
+                        is tracked so that the Cache Assistant can restart and complete the transaction before
+                        starting a new transaction. You are notified that a potential loss of data could result
+                        from deleting files from the cache, or by downloading another revision before the
+                        reprocessing is complete.</p>
+                     <p>In the event of an interruption where the server is reachable, Solid Edge:</p>
+                     <ul>
+                        <li>
+                           <p>Confirms network and server connectivity.</p>
+                        </li>
+                        <li>
+                           <p>Completes any transaction that is in-process.</p>
+                        </li>
+                        <li>
+                           <p>Gives you the option to restart.</p>
+                        </li>
+                     </ul>
+                     <p>If your network or server is unreachable:</p>
+                     <ul>
+                        <li>
+                           <p>You can view the activity in the status area.</p>
+                        </li>
+                        <li>
+                           <p>Any document that was in process at the time of the interruption is available as a
+                              read-only document.</p>
+                        </li>
+                        <li>
+                           <p>You can work in unmanaged documents in Solid Edge Embedded Client until access to
+                              the network or server is restored.</p>
+                        </li>
+                        <li>
+                           <p>Once connectivity is restored, you are given the choice to resume the transaction
+                              before proceeding with any subsequent commands you selected.</p>
+                        </li>
+                     </ul>
+                     <p>All of these features are in place to ensure the integrity of your data.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Managing your local cache, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

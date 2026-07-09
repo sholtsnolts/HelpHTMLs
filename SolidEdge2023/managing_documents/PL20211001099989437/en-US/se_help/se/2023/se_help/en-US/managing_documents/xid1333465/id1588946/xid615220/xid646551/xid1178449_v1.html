@@ -1,0 +1,302 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using multiple revisions of documents</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using multiple revisions of documents"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1178449">
+                     <h1 class="topic-title">Using multiple revisions of documents</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In the Teamcenter-managed environment, you can open multiple revisions of a document
+                     in the same item by enabling the Teamcenter preference <b>SEEC_Enable_MultipleRevisions</b>. This preference enables the configuration of document links to a different revision.
+                     </p>
+                  <p>In the most basic workflow, you can open two revisions of the same item that have
+                     no additional document links:</p>
+                  <ul>
+                     <li>
+                        <p>Enable the Teamcenter preference at the site, group, role, or user level.</p>
+                     </li>
+                     <li>
+                        <p>From the <b>Open File</b> dialog box, select two revisions of the same item, and click <b>Open</b>.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">In Assembly</h4>
+                  <div>
+                     <p>You can open an assembly that uses multiple revisions of an item as long as:</p>
+                     <ul>
+                        <li>
+                           <p>The assembly has more than one level.</p>
+                        </li>
+                        <li>
+                           <p>Each subassembly or container contains only one item revision.</p>
+                        </li>
+                        <li>
+                           <p>You are not using patterned components. </p>
+                        </li>
+                        <li>
+                           <p>You use precise BOM View Revisions.</p>
+                        </li>
+                     </ul>
+                     <p>For example:</p>
+                     <table border="1" bgcolor="#FFFFFF" cellpadding="2" rules="all" width="700">
+                        <colgroup>
+                           <col span="1">
+                        </colgroup>
+                        <colgroup span="1">
+                           <col span="1">
+                           <col span="1">
+                           <col span="1">
+                        </colgroup>
+                        <thead>
+                           <tr align="left">
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Not Supported</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Supported</p>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1"><img class="img-fluid d-block" style="max-width: 100%;" src="../../../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_procedures/config_example1.png"></td>
+                              <td rowspan="1" colspan="1"><img class="img-fluid d-block" style="max-width: 100%;" src="../../../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_procedures/config_example2.png"></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">In Draft</h4>
+                  <div>
+                     <p>Drawings act as a container and can only reference one revision of an item. The assembly
+                        defines the product structure and the drawing documents it.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>In the Drawings View group→View Wizard, do not use the option, Create Drawing View
+                           Independent of Assembly.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Log file entry</h4>
+                  <div>
+                     <p>When you open managed documents with multiple revisions, a message informs you that
+                        your design contains multiple revisions and <b>SEECDiagnostics_&lt;timestamp&gt;.csv</b> is added to your <b>\Solid Edge\Version 223\Log Files</b> folder. The <em>.csv</em> file lists each of the revisions and a message indicating the documents opened. For
+                        example:</p>
+                     <table bgcolor="#FFFFFF" cellpadding="2" rules="all" width="100%" frame="box">
+                        <colgroup span="1">
+                           <col span="1" width="16%">
+                           <col span="1" width="12%">
+                           <col span="1" width="12%">
+                           <col span="1" width="12%">
+                           <col span="1" width="30%">
+                           <col span="1" width="18%">
+                        </colgroup>
+                        <thead>
+                           <tr align="left">
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Issue</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Type</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Item ID</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Revision</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Item Revision Display Name</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Message</p>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Contains multiple revisions</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Item</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Item ID</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>A</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>00010/A;1-Bracket</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Opened 0001203/A;1-A1</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Contains multiple revisions</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Item</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Item ID</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>B</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>00010/B;1-Bracket</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Opened 0001203/A;1-A1</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">In Cache Assistant</h4>
+                  <div>
+                     <p>When multiple revisions of a document are present in the cache, <b>Cache Assistant</b> displays the metadata associated with the documents. You can use any <b>Cache Assistant</b> command with any object in the table. However, the file name that displays for the
+                        second and subsequent revisions is a system-generated name. Solid Edge manages the
+                        file name when the document is uploaded to Teamcenter.</p>
+                  </div>
+                  <h4 class="division-title">Choosing options in Structure Editor</h4>
+                  <div>
+                     <p>Structure Editor uses the settings defined on the <b>Manage</b> page of the <b>Solid Edge Options</b> dialog box to determine how to work with multiple revisions of the same document.
+                        When you revise or copy a product structure containing multiple revisions of an item,
+                        you can choose from the following:</p>
+                     <table cellpadding="2" rules="all" width="100%" frame="box">
+                        <colgroup span="1">
+                           <col span="1" width="40%">
+                           <col span="1" width="60%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Revise All</p>
+                              </th>
+                              <th rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Action</p>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Create one new revision and replace the other revisions with the new revision.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Sets the action to Revise on the latest revision, and then sets all other revisions
+                                    to replace to the new revision.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Create one new revision and reuse the other revisions.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Sets the action to Revise on the latest revision, and has no action on the parent
+                                    container that holds a link to the other revision.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>When you choose <b>Save As All</b>, you can choose from the following:</p>
+                     <table cellpadding="2" rules="all" width="100%" frame="box">
+                        <colgroup span="1">
+                           <col span="1" width="40%">
+                           <col span="1" width="60%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Save As All</p>
+                              </th>
+                              <th rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Action</p>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Create one new item and replace the other revisions with the new item.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Creates a new item for the latest revision and uses it for all previous revisions.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Create one new item and reuse the other revisions.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Sets the action to Save As on the latest revision and then replaces the other document
+                                    links with it.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Create a new item for each revision.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Creates a new item for each unique revision.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Additional considerations</h4>
+                  <div>
+                     <p>When you enable multiple revisions, keep in mind the following:</p>
+                     <ul>
+                        <li>
+                           <p>Enabling multiple revisions does not configure occurrences within a single document
+                              to different revisions.</p>
+                        </li>
+                        <li>
+                           <p>Families of Parts and Families of Assemblies do not participate in multiple revisions.</p>
+                        </li>
+                        <li>
+                           <p>Setting the action to both Save As and Revise on multiple revisions is not supported.
+                              First, revise the document, and then perform the Save As.</p>
+                        </li>
+                        <li>
+                           <p>Use caution to not create circular references with Insert Assembly Copy, Insert Part
+                              Copy, and other similar commands.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/opendoc1h" rel="opendoc1h">Open a document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/openwith1h" rel="openwith1h">Open a document in another application</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/openingdocuments1a" rel="openingdocuments1a">Opening documents</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/opendoc1c" rel="opendoc1c">Open command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/openwith1c" rel="openwith1c">Open With command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/opendoc1d" rel="opendoc1d">Open a File dialog box (Structure Editor)</a><br><br></div>
+            <div class="footer-content">Using multiple revisions of documents, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

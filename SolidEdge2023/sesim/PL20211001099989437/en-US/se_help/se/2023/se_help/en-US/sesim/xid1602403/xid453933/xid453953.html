@@ -1,0 +1,284 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Steady state thermal stress analysis</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Steady state thermal stress analysis"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid453953">
+                     <h1 class="topic-title">Tutorial: Steady state thermal stress analysis</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Coupled studies require an advanced simulation license.</p>
+                  </div>
+                  <p>Thermal stress analysis combines structural analysis (displacement and stress, such
+                     as Von Mises and factor of safety) with thermal analysis (temperature and applied
+                     temperature). </p>
+                  <p>This tutorial demonstrates how to use a thermal coupled study to evaluate thermal
+                     stress analysis on a water pipe that is designed to carry hot and cold water. In a
+                     thermal coupled study, you define thermal loads and constraints and structural loads
+                     and constraints, in any order. When you solve the study, Solid Edge Simulation first
+                     processes the thermal analysis, and then applies the thermal results as a boundary
+                     condition input to the linear static analysis.</p>
+                  <p> The study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Study type=Steady State Heat Transfer+Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Body Load type=Gravity</p>
+                     </li>
+                     <li>
+                        <p>Thermal Load type=Temperature</p>
+                     </li>
+                     <li>
+                        <p>Thermal Load type=Convection</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_water_pipe.par</b>. </p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple1.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a thermal coupled study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>From the <b>Study type</b> list, choose <b>Steady State Heat Transfer+Linear Static</b>, and from the <b>Mesh type</b> list, choose <b>Tetrahedral</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple2.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Options</b> button, and then verify that the following results options are selected:</p><img class="img-fluid d-block" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple3.gif"></li>
+                           <li>
+                              <p>Click <b>OK</b>.</p>
+                           </li>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Because this is a part file, the geometry is included automatically in the study.
+                                 The new study is listed in the <b>Simulation</b> pane. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple4.gif"></p>
+                           </div>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define the structural loads and constraints.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif">, and select the two round faces on the sides of the part. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple5.gif"></p>
+                           </li>
+                           <li>
+                              <p> Right-click to accept and click to finish.</p>
+                              <p>You can see the finished constraints on the model and in the <b>Simulation</b> pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple6.gif"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple6a.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple7.gif"></p>
+                           </li>
+                           <li>
+                              <p>To account for the effect of gravity on the water pipe, select the <b>Simulation</b> tab→<b>Body Loads</b> group→<b>Gravity</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_gravity_button.gif">. </p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept the default gravity direction (pointing down) and the default
+                                 value of 981.000 cm/s^2, and then click to finish. </p>
+                              <p>You can see the gravity load in the graphics window and in the <b>Simulation</b> pane. </p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple9.gif"></p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple10.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define the thermal loads and constraints.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Apply a temperature load to specify the maximum expected water temperature. Choose
+                                 <b>Simulation</b> tab→<b>Thermal Loads</b> group→<b>Temperature</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_temp_button.gif">. </p>
+                           </li>
+                           <li>
+                              <p>Select the inside cylinder, as shown below, and type <b>100.000 C</b> in the <b>Value</b> box. (This is the equivalent of 212 degrees Fahrenheit.)</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple11.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to enter the temperature, and then click to finish. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The thermal <b>Temperature</b> load specifying the maximum water temperature acts as a thermal constraint on the
+                                    model.</p>
+                              </div>
+                              <p>You can see the temperature load in the graphics window and in the <b>Simulation</b> pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple12.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple13.gif"></p>
+                           </li>
+                           <li>
+                              <p>Apply a convection load to disperse heat from the water pipe. Select <b>Simulation</b> tab→<b>Thermal Loads</b> group→<b>Convection</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_conv_button.gif">, and then select all of the model surfaces <em>except</em> the inside cylinder. </p>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>You can do this by dragging a box around the part, and then using Shift+click to deselect
+                                    the inside cylinder.</p>
+                              </div>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple14.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the dynamic input box, do all of the following: </p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p>Press Tab to accept the default value of 1.000 W/m^2-K for the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a#load4a_filmcoefficient" rel="load4a">film coefficient</a>, which is also known as the heat transfer coefficient.</p>
+                                 </li>
+                                 <li>
+                                    <p>Change the <b>Ambient temperature</b> value to <b>10.000 C</b>. (This is the equivalent of 50 degrees Fahrenheit.)</p>
+                                 </li>
+                                 <li>
+                                    <p>Right-click to confirm the values.</p>
+                                 </li>
+                              </ol>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple15.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click to finish. </p>
+                           </li>
+                           <p>You can see the convection load in the graphics window as well as in the <b>Simulation</b> pane.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple16.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the model.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation</b> pane, turn off loads and constraints.</p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Mesh</b> command. Choose <b>Mesh</b>.</p>
+                              <p>After a few moments, the meshed model is displayed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple17.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Click <b>Solve</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/sesim_solve_button.gif">.</p>
+                        <p>In a thermal coupled study, the thermal analysis is processed first, followed by the
+                           structural analysis.</p>
+                        <p>After a couple of minutes, the <b>Simulation Results</b> environment is displayed. The default result plot, <b>Von Mises Stress</b>, is displayed in the graphics window. The value indicated by the red arrow is the
+                           Yield Stress value.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple18_new.gif"></p>
+                     </li>
+                     <li>
+                        <p>Review the thermal stress analysis results.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Expand the <b>Results</b>→<b>Plots</b> collector in the <b>Simulation</b> pane one level. </p>
+                              <p>Observe that two categories of results—<b>Thermal</b> and <b>Static</b>—are generated by a thermal stress analysis coupled study: </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple20.gif"></p>
+                           </li>
+                           <li>
+                              <p>Expand the <b>Plots</b>→<b>Static</b> node. </p>
+                              <p>Observe the two categories of plots generated by the linear static analysis (Displacement
+                                 and Stress).</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple21.gif"></p>
+                           </li>
+                           <li>
+                              <p>Expand the <b>Plots</b>→<b>Static</b>→<b>Stress</b> node.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple19.gif"></p>
+                              <p>Observe the following:</p>
+                              <ul>
+                                 <li>
+                                    <p>The result plot that is currently displayed, <b>Von Mises Stress</b>, is listed in blue text.</p>
+                                 </li>
+                                 <li>
+                                    <p>The <b>Factor of Safety</b> result plot also was generated by default in the stress results; it is listed in
+                                       black text. </p>
+                                 </li>
+                                 <li>
+                                    <p>The unprocessed result plots are listed in gray text. </p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>Right-click the <b>Factor of Safety</b> plot name and choose <b>View</b>.</p>
+                              <p>Notice that the Factor of Safety plot is displayed using the <b>Spotlight</b> color spectrum (red, yellow, green), as well as the <b>All Results Scale</b> (the actual factor of safety values). You can change these and other settings using
+                                 the <b>Color Bar</b> tab. For example, you can select a <b>User Defined Scale</b>, and enter the minimum and maximum safety factor values applicable to your model.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Factor of safety values are based on material stress values. The higher the value,
+                                    the less likely the material is to fail. For more information, see Factor of safety
+                                    plots in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot2a" rel="plot2a">Stress component plots</a> help topic.</p>
+                              </div>
+                              <p>This result plot indicates you may want to mitigate heat by adding ribs to the pipe
+                                 or by changing material. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple22.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Simulation</b> pane, double-click the plot name, <b>Von Mises Stress</b>, to redisplay it in the graphics window.</p>
+                           </li>
+                           <li>
+                              <p>Select <b>Home</b> tab→<b>Display Options</b> <img class="img-fluid" style="max-height: 2.5rem;" src="../../../../common/nonLocalized/se/simulation/result/result_ui/sesim_display_options_button.gif">, and then select the <b>Deformation</b> and <b>Undeformed Model</b> check boxes. Click <b>Close</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple23.gif"></p>
+                           </li>
+                           <li>
+                              <p>Expand the <b>Plots</b>→<b>Thermal</b>→<b>Temperature</b> node and the <b>Applied Temperature</b> node. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_couple22.gif"></p>
+                           </li>
+                           <li>
+                              <p>Double-click the <b>Temperature</b> result plot name to process and display the results.</p>
+                              <p>Temperature plots show results on the primary model. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple24a_new.gif"></p>
+                           </li>
+                           <li>
+                              <p>Double-click the <b>Applied Temperature</b> result plot name to both process and display the results. </p>
+                           </li>
+                           <li>
+                              <p>Click <b>Display Options</b> <img class="img-fluid" style="max-height: 2.5rem;" src="../../../../common/nonLocalized/se/simulation/result/result_ui/sesim_display_options_button.gif">, and then select the <b>Deformation</b> check box. Click <b>Close</b>.</p>
+                              <p>Applied temperature plots show results on the deformed model. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_couple25_new.gif"></p>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>To generate the applied temperature plots automatically when you solve the study,
+                                    select the <b>Applied temperature</b> check box in the <b>Results</b> section of the <b>Create Study (or Modify Study)</b> dialog box. </p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Save and close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot2a" rel="plot2a">Stress component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot5a" rel="plot5a">Primary, deformed, and undeformed display</a><br><br></div>
+            <div class="footer-content">Tutorial: Steady state thermal stress analysis, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,287 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Drawing View Creation Wizard (Drawing View Options)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Drawing View Creation Wizard (Drawing View Options)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prtvw6d">
+                     <h1 class="topic-title">Drawing View Creation Wizard (Drawing View Options)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The options available depend upon whether the model is assembly, part, or sheet metal.</p>
+                  <dl>
+                     <dt>Designed part</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of the part as designed. &nbsp;This option
+                           is only available for Part and Sheet Metal files.</p>
+                     </dd>
+                     <dt>Simplified part</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of the simplified version of a part.
+                           This option is only available for Part and Sheet Metal files. It is disabled if a
+                           simplified model does not exist.</p>
+                     </dd>
+                     <dt>Flat pattern</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of the flattened sheet metal part.
+                           This option is only available for sheet metal files that also contain the flattened
+                           model in the file.</p>
+                     </dd>
+                     <dt>PMI model view</dt>
+                     <dd class="ml-3">
+                        <p>For a part or sheet metal model, lists the names of available PMI model views that
+                           can be used to generate a drawing view.</p>
+                     </dd>
+                     <dt>.cfg, PMI model view, or Zone</dt>
+                     <dd class="ml-3">
+                        <p>For an assembly model, lists the names of available display configurations, 3D PMI
+                           model views, and zones that can be used to generate a drawing view.</p>
+                        <ul style="list-style: none">
+                           <li>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/drawings/dvw_create/dvw_create_ui/configname.gif"> – Indicates a display configuration.</p>
+                           </li>
+                           <li>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/drawings/dvw_create/dvw_create_ui/pmimvname.gif"> – Indicates a 3D PMI model view.</p>
+                           </li>
+                           <li>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/drawings/dvw_create/dvw_create_ui/zone_icon.gif"> – Indicates a zone.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <ul>
+                              <li>
+                                 <p>You can hide parts or weld beads in the assembly document, save the display configuration
+                                    to a name you define, then use that display configuration when creating the drawing
+                                    view. For more information, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/config2a" rel="config2a">Using display configurations</a> Help topic.</p>
+                              </li>
+                              <li>
+                                 <p>If you select a PMI model view created with the <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmi3dmv1c" rel="pmi3dmv1c">View command</a>, then the model view controls the display states of parts in an assembly.</p>
+                              </li>
+                              <li>
+                                 <p>If you used the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/zones1c" rel="zones1c">Create Zone command</a> to define a rectangular volume of space based on one or more assembly components,
+                                    then you can create a drawing view of the components that are contained within the
+                                    boundary of the zone.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </dd>
+                     <dt>Include PMI dimensions from model views</dt>
+                     <dd class="ml-3">
+                        <p>Set this option to retrieve the PMI dimensions associated with a model view you have
+                           selected in the PMI Model View list (for part/sheet metal models) or in the Configuration
+                           and PMI Model View list (for assembly models). By default, the copied PMI dimensions
+                           are associative to the drawing view.</p>
+                     </dd>
+                     <dt>Include PMI annotations from model views</dt>
+                     <dd class="ml-3">
+                        <p>Set this option to retrieve the PMI annotations associated with a model view you have
+                           selected in the PMI Model View list (for part/sheet metal models) or the Configuration
+                           and PMI Model View list (for assembly models). By default, the copied PMI annotations
+                           are associative to the drawing view.</p>
+                     </dd>
+                     <dt>Use simplified assemblies</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of an assembly using the simplified
+                           assembly representation. This option is not available for assembly zones.</p>
+                        <dl>
+                           <dt>For all subassemblies</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to create a drawing view that shows all the subassemblies
+                                 as simplified for which a simplified representation exists. &nbsp;This option is only available
+                                 for Assembly files.</p>
+                           </dd>
+                           <dt>Based on configuration</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to create a drawing view that displays the subassemblies as
+                                 simplified or as designed based on the configuration you select. This option is only
+                                 available for Assembly files.</p>
+                           </dd>
+                           <dt>For top assembly</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to create a drawing view that displays only the top level
+                                 assembly as simplified. This option is only available for Assembly files.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Use simplified parts</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of an assembly with simplified models.
+                           This option is only available for assembly files.</p>
+                        <dl>
+                           <dt>For all parts </dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to create a drawing view that shows all the parts as simplified
+                                 for which a simplified model exists. &nbsp;This option is only available for assembly files.</p>
+                           </dd>
+                           <dt>Based on configuration</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to create a drawing view that displays the parts as simplified
+                                 based on the configuration. This option is only available for assembly files.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Create draft quality drawing views</dt>
+                     <dd class="ml-3">
+                        <p>Quickly creates draft-quality drawing views of an assembly. You can use draft quality
+                           views as input for principal views, auxiliary views, cutting planes, and broken-out
+                           section views. You can also add balloons to draft quality views and create parts lists
+                           from them. This option is only available for Assembly files.</p>
+                        <p>To place a 3D cutaway/section view on a drawing sheet, the Create Draft Quality Drawing
+                           Views option must be set. After placing a drawing view, use the Sections page on the
+                           Drawing View Properties dialog box to select and display the 3D cutaway/section view
+                           on the drawing sheet.</p>
+                     </dd>
+                     <dt>View quality</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the quality or resolution when a draft quality drawing view is created or
+                           updated. The resolution defines the pixel range box used to display the draft quality
+                           view. &nbsp;Three is the highest value and provides the best setting. The quality value
+                           is saved with the drawing view.</p>
+                        <p>You can modify the Draft View Quality value on the General page of the Drawing View
+                           Properties dialog box after placing the drawing view. If you modify the value there,
+                           the drawing view will go out-of-date.</p>
+                        <p>This option is only available when Create Draft Quality Drawing Views is also checked.</p>
+                     </dd>
+                     <dt>Activate parts for dimensioning</dt>
+                     <dd class="ml-3">
+                        <p>Activates (loads into memory) the parts in the assembly so that you can use them for
+                           dimensioning and other operations that require precision. You cannot dimension pre-v17
+                           pictorial views. This option is only available when Create Draft Quality Drawing Views
+                           is also checked.</p>
+                     </dd>
+                     <dt>Show tube centerlines</dt>
+                     <dd class="ml-3">
+                        <p>Displays tube centerlines in the drawing view(s). &nbsp;This setting overrides the Show
+                           Tube Centerlines check box on the Edge Display page of the Options dialog box. &nbsp;This
+                           option is not available for Sheet Metal and Weldment files.</p>
+                     </dd>
+                     <dt>Show assembly features</dt>
+                     <dd class="ml-3">
+                        <p>Specifies whether assembly features created in the Assembly environment are shown
+                           in the drawing view. &nbsp;This option applies only to material removal features such as
+                           holes, chamfers, and cutouts. When this box is checked, these types of assembly features
+                           are displayed in the drawing view even if the Use Simplified Parts box is also checked.
+                           This option is only available for Assembly files.</p>
+                        <p>To control the display of material addition features, such as fillet welds and protrusions,
+                           you can use the options on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop3d" rel="dvprop3d">Display page of the Drawing View Properties dialog box</a>. You can also define a display configuration in the assembly with material addition
+                           features hidden, then use the display configuration when placing a drawing view of
+                           the assembly.</p>
+                     </dd>
+                     <dt>Derive "Display as Reference" from assembly</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that the occurrence properties defined in the assembly document determine
+                           whether the occurrence is displayed as a reference part. Reference parts are displayed
+                           using a different line style you can define. You can use the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1c" rel="prtprp1c">Occurrence Properties command</a> on the Assembly PathFinder shortcut menu to specify that an assembly occurrence is
+                           displayed as a reference part in a drawing. You can use the Edge Display page in the
+                           Solid Edge Options dialog box to specify the reference part edge display style you
+                           want to use.</p>
+                     </dd>
+                     <dt>Machined view</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of a machined view of a weldment.
+                           &nbsp;This option is only available for weldment files (.pwd).</p>
+                     </dd>
+                     <dt>Welded view</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of a welded view of a weldment. This
+                           option is only available for Weldment files (.pwd).</p>
+                     </dd>
+                     <dt>Assembly view</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to create a drawing view of an assembly view of a weldment.
+                           This option is only available for Weldment files (.pwd).</p>
+                     </dd>
+                     <dt>Show hidden edges in:</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Orthographic views</dt>
+                           <dd class="ml-3">
+                              <p>Displays the hidden edges on parts in orthographic part views.</p>
+                           </dd>
+                           <dt>Pictorial views</dt>
+                           <dd class="ml-3">
+                              <p>Displays the hidden edges on parts in pictorial part views.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Show tangent edges in:</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Orthographic views</dt>
+                           <dd class="ml-3">
+                              <p>Displays the tangent edges on parts in orthographic part views.</p>
+                           </dd>
+                           <dt>Pictorial views</dt>
+                           <dd class="ml-3">
+                              <p>Displays the tangent edges on parts in pictorial part views.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Show edges of hidden parts in:</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Orthographic views</dt>
+                           <dd class="ml-3">
+                              <p>Displays the parts that are hidden by other parts in orthographic <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/part_view" rel="part_view">part views</a>. The edges are displayed using the hidden edge line style. &nbsp;This option is only available
+                                 for Assembly and Weldment files.</p>
+                           </dd>
+                           <dt>Pictorial views</dt>
+                           <dd class="ml-3">
+                              <p>Displays the parts that are hidden by other parts in pictorial part views. The edges
+                                 are displayed using the hidden edge line style. &nbsp;This option is only available for
+                                 Assembly and Weldment files.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Advanced</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop12d" rel="dvprop12d">Advanced Edge Display Options dialog box</a>.</p>
+                     </dd>
+                     <dt>Drawing View Wizard buttons</dt>
+                     <dd class="ml-3">
+                        <p>The following buttons are not displayed when using the reduced Drawing View Wizard
+                           workflow.</p>
+                        <dl>
+                           <dt>Back</dt>
+                           <dd class="ml-3">
+                              <p>Moves to the previous step in the Drawing View Wizard workflow.</p>
+                           </dd>
+                           <dt>Next</dt>
+                           <dd class="ml-3">
+                              <p>Moves to the next step in the Drawing View Wizard workflow.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid1161626" rel="xid1161626">Change drawing view orientation</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw3d" rel="prtvw3d">Select Model dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop12d" rel="dvprop12d">Advanced Edge Display Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw5d" rel="prtvw5d">Drawing View Layout dialog box (Create or Modify)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw2d" rel="prtvw2d">Custom Orientation dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid506161" rel="xid506161">Drawing View Creation Wizard (Saved Settings)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw11d" rel="prtvw11d">Drawing View Creation Wizard (Select Family of Assembly Member)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid385344" rel="xid385344">Drawing View Creation Wizard (Alternate Position Assembly)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw4d" rel="prtvw4d">Select Attachment dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/getstarteddwg1p" rel="getstarteddwg1p">Drawing production workflows</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/sheetscale1a" rel="sheetscale1a">Sheet scale and drawing view scale</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvscale1h" rel="dvscale1h">Add custom drawing view scales to Solid Edge</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid487376" rel="xid487376">Modifying captions</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/stndrd1a" rel="stndrd1a">Drawing view properties</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop4d" rel="dvprop4d">Drawing View Properties dialog box</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvman1a" rel="dvman1a">Drawing view manipulation</a><br><a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid608261" rel="xid608261">Drawing View Wizard tab (Solid Edge Options dialog box)</a><br><br></div>
+            <div class="footer-content">Drawing View Creation Wizard (Drawing View Options), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

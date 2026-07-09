@@ -1,0 +1,847 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with IGES files in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with IGES files in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="iges1a">
+                     <h1 class="topic-title">Working with IGES files in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Initial Graphic Exchange (IGES) is a neutral file format for storing graphic data
+                     to be exchanged between graphic systems. Solid Edge supports version 5.3 of the IGES
+                     specification.</p>
+                  <p>The IGES file format is a formatted ASCII file with a fixed record length of 80 characters.
+                     The file contains five sections. Column 73 of the file contains a letter to identify
+                     the section. Columns 74 - 80 contain the sequence number within the section.</p>
+                  <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                     <colgroup span="1">
+                        <col span="1" align="left" width="15%">
+                        <col span="1" align="left" width="15%">
+                        <col span="1" align="left" width="70%">
+                     </colgroup>
+                     <tr>
+                        <th rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Section</p>
+                        </th>
+                        <th rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Identification Letter</p>
+                        </th>
+                        <th rowspan="1" align="left" valign="top" colspan="1">
+                           <p>Description</p>
+                        </th>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Start</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>S</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Contains information for the receiving system in free ASCII text format.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Global</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>G</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Contains global information, such as units, IGES version, and file name, about the
+                              sending system.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Directory Entry</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>D</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Contains two lines describing a single entity in the folder sections containing up
+                              to 20 fields separated by commas.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Parameter Data</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>P</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Contains parameter information, such as coordinates and text strings, for the entity.</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Terminate</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>T</p>
+                        </td>
+                        <td rowspan="1" valign="top" colspan="1">
+                           <p>Contains information on how many lines are in the different sections. This is used
+                              to determine if you have a complete IGES file.</p>
+                        </td>
+                     </tr>
+                  </table>
+                  <h4 class="division-title">Japan Automobile Manufacturers Association (JAMA)</h4>
+                  <div>
+                     <p>Japan Automobile Manufacturers Association (JAMA) IGES is a subset of IGES. Therefore
+                        any receiving system, including Solid Edge, will read JAMA IGES files.</p>
+                     <p>While IGES is large and broad in nature, JAMA was designed to be a trimmed back, more
+                        robust version of IGES. Because it is a subset, it does not support some entity types,
+                        such as type 120 Surface of Revolution. This means that almost all surface types in
+                        JAMA will be spline surfaces.</p>
+                  </div>
+                  <h4 class="division-title">Getting the Best IGES Export from Solid Edge Results</h4>
+                  <div>
+                     <p>Before you save Solid Edge files to IGES, you should become familiar with the capabilities
+                        of the receiving system. Review a list of supported entities from the system's translator
+                        documentation, such as a user's manual. Check to see if there are specific entities
+                        that the receiving translator has difficulties reading.</p>
+                     <p>When you create an IGES file, be sure to avoid entities the receiving system cannot
+                        handle. Set options to customize your IGES file for specific entities based on the
+                        capabilities of the receiving system. For example, you may find that the receiving
+                        system does not support the Manifold Solid Brep entity type 186. Therefore, it is
+                        necessary to output the Solid Edge model as trim surfaces.</p>
+                     <p>After you save a file to IGES, review the resulting IGES output and the data in the
+                        log file. Compare the options used in the translation to the options you intended
+                        to set.</p>
+                     <p>Open the resulting IGES file in Solid Edge to see if it contains what you expect.
+                        Request a report, such as a copy of the log file, from the receiving system.</p>
+                     <p>Record the options and maintain these records. They will be useful in future translations.</p>
+                  </div>
+                  <h4 class="division-title">Getting the Best IGES Import into Solid Edge Results</h4>
+                  <div>
+                     <p>It is important that you get the best possible results when you import IGES files
+                        into Solid Edge. To do this, the IGES file must be clean and free from discrepancies
+                        of the sending system.</p>
+                     <p>To ensure that the IGES file is valid for the translation, use proper options when
+                        you transmit the file between systems or from differing media. If the sending system
+                        is able to check or validate its geometry for errors, do so. Fix any existing problems
+                        before translating the file.</p>
+                     <p>You should clean up the file you want to translate before conversion. Delete items
+                        such as associated drawings, annotations, or construction geometry. Keep only the
+                        information that you intend to translate.</p>
+                     <p>When setting the options to export to Solid Edge, the following IGES entities should
+                        be exported:</p>
+                     <ul>
+                        <li>
+                           <p>All Rational B-Spline Surfaces as type 128</p>
+                        </li>
+                        <li>
+                           <p>All Rational B-Spline Curves as type 126</p>
+                        </li>
+                        <li>
+                           <p>All B-Spline surfaces as type 128</p>
+                        </li>
+                        <li>
+                           <p>Trimmed surfaces as type 144</p>
+                        </li>
+                     </ul>
+                     <p>If the above entity options are not available, set the export option to NX if available.</p>
+                  </div>
+                  <h4 class="division-title">Review your resulting output</h4>
+                  <div>
+                     <p>Once the file is translated, be sure to check the output. Review the data in the log
+                        file. Check the options you selected for translation and make sure the results are
+                        correct. If you find errors, investigate the cause.</p>
+                     <p>Save the translated Solid Edge file in IGES (.IGS) format and check the resulting
+                        file to see if it contains what you expect.</p>
+                     <p>Record the options and maintain these records to use in future translations.</p>
+                  </div>
+                  <h4 class="division-title">What to do if you find errors</h4>
+                  <div>
+                     <p>If you discover errors in your translation, you should analyze the problem and determine
+                        where the problem occurred. When analyzing the problem, you should consider:</p>
+                     <ul>
+                        <li>
+                           <p>Are there any errors in the IGES log file?</p>
+                        </li>
+                        <li>
+                           <p>Was there a problem in the loop test back into the sending system?</p>
+                        </li>
+                        <li>
+                           <p>Did you receive errors from the receiving system?</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Error messages in the IGES log file</h4>
+                  <div>
+                     <p>If the log file contains error messages, try to remove the feature causing the problem.
+                        After removing the feature, try to resave the file in IGES format. If this solves
+                        the problem, investigate the geometry in the problem feature. Consider using another
+                        method to construct the feature. If no other creation methods exist and the feature
+                        is not necessary for the translation, remove it. As a general rule, the problem must
+                        be resolved before you can continue with the translation.</p>
+                  </div>
+                  <h4 class="division-title">Errors in the loop test</h4>
+                  <div>
+                     <p>Although this is not always a conclusive test, it does serve as a good indicator that
+                        you are on the right track. If this process fails to read the file correctly, investigate
+                        the failed features. Determine if the failed features are necessary for the translation,
+                        and if they can be created with less complexity.</p>
+                  </div>
+                  <h4 class="division-title">Error message in the receiving system</h4>
+                  <div>
+                     <p>The receiving system may complain or list entities that are not supported. Use different
+                        options to change unsupported entities to other corresponding entities. The receiving
+                        system may also report errors and record numbers of the unsupported entities in the
+                        IGES file. These record numbers may be useful when you research the problem.</p>
+                  </div>
+                  <h4 class="division-title">Geometry that fails to stitch</h4>
+                  <div>
+                     <p>Most CAD systems do not support the IGES definition of a Manifold Solid Brep Object
+                        (IGES Type 186). Therefore, they must rely on translating solid models as Trim Surfaces
+                        Type 144. Trim surfaces are simply a surface and a trimming curve. During IGES to
+                        Solid Edge translation, these surfaces are stitched, and the surface normals are then
+                        oriented to form a solid.</p>
+                     <p>Stitching is performed on the entire collection of trim surfaces in the IGES file.
+                        Several passes at stitching are attempted based on a starting and ending tolerance
+                        and a number of attempts value. The following are examples of how these tolerances
+                        are defined.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="320" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="100%">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <pre class="code-text">Start&nbsp;At:1e-006&nbsp;meters&nbsp;<br>End&nbsp;At:&nbsp;0.001&nbsp;meters<br>Number&nbsp;of&nbsp;Attempts:&nbsp;10</pre>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>Beginning with the starting stitch tolerance, Solid Edge attempts to sew the collection
+                        of trim surfaces. If Solid Edge cannot create a valid solid body, it makes a second
+                        attempt by adjusting the stitch tolerance by the predetermined tolerance value. This
+                        process continues until a valid solid body is created or the ending stitch tolerance
+                        is achieved.</p>
+                     <p>Geometry that fails to stitch is usually related to tolerances, poor surface quality,
+                        or an open surface definition.</p>
+                     <p>Geometry that fails to stitch becomes construction geometry. Because it is construction
+                        geometry, you cannot add new features or remove existing features. However, this does
+                        not mean that you cannot use the translated data in Solid Edge.</p>
+                     <p>You can use construction geometry in the following Solid Edge commands:</p>
+                  </div>
+                  <h4 class="division-title">Thicken command</h4>
+                  <div>
+                     <p>If the translated geometry forms a single sheet, you can use the Thicken command to
+                        apply a uniform thickness to the sheet and create a solid from the construction geometry.</p>
+                  </div>
+                  <h4 class="division-title">Save as Flat command</h4>
+                  <div>
+                     <p>If the geometry represents a sheet metal part, such as a flange or tab, you can use
+                        the Save as Flat command in the Sheet Metal environment to flattened and convert it
+                        to a solid. You can use the Save as Flat dialog box to save the geometry as a sheet
+                        metal (.PSM) file. Solid Edge converts the construction geometry to the flat state
+                        of a solid and creates a sheet metal file. The bends are added automatically, and
+                        you can use the Rebend command to fold the file into a 3-D sheet metal model. You
+                        can then add sheet metal features like flanges and dimples to the converted model.</p>
+                  </div>
+                  <h4 class="division-title">Drawing View Wizard command</h4>
+                  <div>
+                     <p>You can use the Drawing View Wizard command to create a drawing view of the construction
+                        geometry. In most cases, you can use this geometry to create a detailed drawing.</p>
+                  </div>
+                  <h4 class="division-title">PathFinder </h4>
+                  <div>
+                     <p>You can use PathFinder to place construction geometry in an assembly just as you would
+                        use solid geometry.</p>
+                  </div>
+                  <h4 class="division-title">Create In-place command</h4>
+                  <div>
+                     <p>Perhaps your workflow only consists of building enclosures or fixtures from the imported
+                        geometry. You can use the Create In-place command to place the construction geometry
+                        in an assembly file and create a new part file. The Create In-place command allows
+                        you to use the Include command to include edges from the construction geometry to
+                        create a new part file.</p>
+                  </div>
+                  <h4 class="division-title">Bulk translations</h4>
+                  <div>
+                     <p>The seiges.exe executable, found in the Solid Edge Program folder, allows you to translate
+                        multiple IGES files for both import and export through a standalone interface. The
+                        executable is not referenced from the Solid Edge product, but it does contain options
+                        similar to the IGES Import and IGES Export Translation Wizards, except it allows you
+                        to specify a list of files to be translated.</p>
+                  </div>
+                  <h4 class="division-title">IGES entities supported by Solid Edge</h4>
+                  <div>
+                     <p>The following is a list of IGES entities that are supported by Parasolid.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="60%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="20%">
+                           <col span="1" align="left" width="20%">
+                           <col span="1" align="left" width="40%">
+                           <col span="1" align="left" width="20%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>IGES Entity #</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Form No.</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>IGES Entity</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Solid Edge Entity</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#100</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Circle Arc</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Circle</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#102</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Composite Curve</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Curve List</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#104</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Conic Arc: General</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Spline Curve</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#104</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Conic Arc: Ellipse</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Ellipse</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#106</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>11</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Copious Data: 2D Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Curve List</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#106</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>12</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Copious Data: 3D Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Curve List</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#106</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>63</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Copious Data: Closed 2D Curve</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Curve List</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#108</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>*Plane Entity: Bounded Plane</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Plane</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#110</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Line</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Line</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#116</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Point</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Point</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#118</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Ruled Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Spline</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#120</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Surface of Revolution</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Spun Surface</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#122</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Tabulated Cylinder</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Swept Surface</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#123</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Direction</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Vector</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#124</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Transformation</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Transf</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#126</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Rational B-Spline Curve</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Spcurve</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#128</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Rational B-Spline Curve</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Spline</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#130</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Offset Curve</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Curve</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#140</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Offset Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Surface</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#141</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Boundary Entity</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Loop</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#142</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Curve on Parametric Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Loop</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#143</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Bounded Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Face</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#144</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Trimmed Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Face</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#186</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>MSBO</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Solid</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#190</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Plane Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Plane</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#192</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Right Circular Cylindrical Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Cylinder</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#194</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Right Circular Conical Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Cone</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#196</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Spherical Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Sphere</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#198</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Toroidal Surface</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Torus</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#308</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Subfigure Definition Entity</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Solid</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#402</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1,7</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>*Associative Instance Entity</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#408</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Subfigure Instance Entity</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Solid</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#502</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Vertex List</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Vertex</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#504</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Edge List</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Edge</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#508</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Loop</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Loop</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#510</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Face</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Face</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>#514</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Shell</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Shell</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <p>*Only for IGES Read </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/openigs1a" rel="openigs1a">Opening IGES Documents in Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz9d" rel="igsimpwiz9d">IGES Import Translation Wizard (Hatchstyle)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz8d" rel="igsimpwiz8d">IGES Import Translation Wizard (Linetype)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz7d" rel="igsimpwiz7d">IGES Import Translation Wizard (Fonts)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz4d" rel="igsimpwiz4d">IGES Import Translation Wizard (General)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz1d" rel="igsimpwiz1d">IGES 2-D Import Translation Wizard</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz5d" rel="igsimpwiz5d">IGES Import Translation Wizard (Final)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz6d" rel="igsimpwiz6d">IGES Import Translation Wizard (Save)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz12d" rel="igsimpwiz12d">IGES Import Translation Wizard (Stitching)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz10d" rel="igsimpwiz10d">IGES Import Translation Wizard (Geometry Types)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz3d" rel="igsimpwiz3d">IGES Import Translation Wizard (Main)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/igsimpwiz2d" rel="igsimpwiz2d">IGES 3-D Import Translation Wizard</a><br><br></div>
+            <div class="footer-content">Working with IGES files in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

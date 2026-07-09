@@ -1,0 +1,142 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tracking dimension and annotation changes</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tracking dimension and annotation changes"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="trdmch1a">
+                     <h1 class="topic-title">Tracking dimension and annotation changes</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Activating the Dimension Tracker</h4>
+                  <div>
+                     <p>In the Solid Edge Draft environment, you can track dimensions and annotations that
+                        have changed when a drawing view is updated. The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/trdmch1d" rel="trdmch1d">Dimension Tracker dialog box</a> reports the changes for you to review and to label.</p>
+                     <ul>
+                        <li>
+                           <p>You can open the Dimension Tracker dialog box at any time by choosing Tools tab→Assistants
+                              group→Track Dimension Changes from the menu. However, the contents of the dialog box
+                              are updated only when dimensions, annotations, or hole table entries have actually
+                              changed.</p>
+                        </li>
+                        <li>
+                           <p>The Dimension Tracker dialog box is opened automatically when you update a drawing
+                              view in which dimensions, annotations, or model-derived table entries have changed.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using the Dimension Tracker</h4>
+                  <div>
+                     <p>On the drawing, every changed dimension, annotation, and model-derived table is flagged
+                        by a balloon. On the Dimension Tracker dialog box, changed items are listed in columnar
+                        format. You can:</p>
+                     <ul>
+                        <li>
+                           <p>Sort the changes by clicking on the column headings: ID, Element, Reason, Previous
+                              (Value), Current (Value), and Sheet. Each number in the ID column corresponds to a
+                              change balloon number on the drawing. The Element column identifies whether the item
+                              is a dimension or an annotation, and what type it is, for example, linear, coordinate,
+                              circular diameter, or balloon/callout.</p>
+                        </li>
+                        <li>
+                           <p>Select one or multiple items and assign a label to the corresponding balloons on the
+                              drawing using the New Revision button on the dialog box.</p>
+                        </li>
+                        <li>
+                           <p>Find a changed item on the drawing by clicking an item listed on the Dimension Tracker.
+                              This highlights the dimension or annotation on the drawing view. For complicated drawings,
+                              you can locate and zoom in on a changed item using the Find button.</p>
+                        </li>
+                        <li>
+                           <p>Remove validated items from the change list—and corresponding balloons from the drawing—using
+                              the Clear Selected or Clear All buttons.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Change reasons</h4>
+                  <div>
+                     <p>The Reason column in the Dimension Tracker dialog box explains how a dimension or
+                        annotation changed when you updated a drawing view.</p>
+                     <ul>
+                        <li>
+                           <h5>Detached – rebind failure.</h5>
+                           <p>Solid Edge was unable to find an eligible geometric element to rebind the item. The
+                              item may have been deleted.</p>
+                        </li>
+                        <li>
+                           <h5>Detached – no edge information.</h5>
+                           <p>The edge of the geometry was not rendered and could not be found.</p>
+                        </li>
+                        <li>
+                           <h5>Value changed.</h5>
+                           <p>The model feature changed size.</p>
+                        </li>
+                        <li>
+                           <h5>Terminator moved.</h5>
+                           <p>The terminator connect point was moved. The Annotation Moved Tolerance option on the
+                              Options tab of the Dimension Tracker dialog box specifies the distance tolerance beyond
+                              which this change is reported.</p>
+                        </li>
+                        <li>
+                           <h5>Geometric rebind – Reattached to available geometry.</h5>
+                           <p>The item was rebound to the nearest eligible geometric element within a preset distance
+                              tolerance.</p>
+                        </li>
+                        <li>
+                           <h5>Content changed.</h5>
+                           <p>A change to dimension text or other content <em>not</em> related to value was made to a PMI dimension. Examples of changes that cause the
+                              Content Changed reason to be displayed include edits to dimension prefix text, a changed
+                              dimension type and tolerance, and the addition of inspection requirements.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Revision balloons</h4>
+                  <div>
+                     <p>To modify the appearance of revision balloons before they are added to the drawing,
+                        you can change these settings on the Options tab of the Dimension Tracker dialog box:
+                        Balloon Shape, Balloon Color, and Number of Sides (for n-sided balloons). Then, update
+                        the drawing view.</p>
+                     <p>To alter the appearance of revision balloons already on the drawing, select the balloon
+                        and then select the Properties command on its shortcut menu. You can then edit the
+                        balloon annotation properties.</p>
+                  </div>
+                  <h4 class="division-title">Using Copy/Paste/Undo</h4>
+                  <div>
+                     <p>You can use the Copy button on the Dimension Tracker dialog box to copy all the information
+                        from the Dimension Tracker list, and then use the Paste command on the shortcut menu
+                        to paste the information to another document.</p>
+                     <p>If you assign a label to a changed item and then want to revise it, you can immediately
+                        select the Edit→Undo command to restore the item to the Dimension Tracker list and
+                        the corresponding balloon to the drawing.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/trdmch1h" rel="trdmch1h">Review changed dimensions and annotations</a><br><br><h5>Learn more</h5><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dim4a" rel="dim4a">Dimensions</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/trdmch1c" rel="trdmch1c">Track Dimension Changes command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/trdmch1d" rel="trdmch1d">Dimension Tracker dialog box</a><br><br></div>
+            <div class="footer-content">Tracking dimension and annotation changes, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

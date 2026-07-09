@@ -1,0 +1,167 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Extract surfaces command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Extract surfaces command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="re_extract_surfaces">
+                     <h1 class="topic-title">Extract surfaces command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Extracting surfaces is part of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering Workflow</a>.</p>
+                  <p><b>Extract </b> surfaces command <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/extract_cmd.png"></p>
+                  <p>The <b>Extract</b> surfaces command assigns one of the recognized geometric surfaces to each contiguous
+                     mesh region based on the color defined for the region. Regions painted in white or
+                     any other non-identifiable color are not extracted. All extractable regions can be
+                     extracted at one time or each region can be extracted individually. </p>
+                  <table style="padding-left: 30px" cellspacing="0" border="0" bgcolor="#FFFFFF" cellpadding="0">
+                     <colgroup span="1">
+                        <col span="1" width="33%">
+                        <col span="1" width="33%">
+                        <col span="1" width="33%">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th rowspan="1" align="left" colspan="1">
+                              <p style="text-align: center;"> Geometric Construction Surface </p>
+                           </th>
+                           <th rowspan="1" align="left" colspan="1">
+                              <p style="text-align: center;"> Region Color </p>
+                           </th>
+                           <th rowspan="1" colspan="1">
+                              <p style="text-align: center;"> Example </p>
+                           </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">Planar</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">yellow</p>
+                           </td>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/color_yellow.png"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">Cylindrical</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">cyan</p>
+                           </td>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/color_cyan.png"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">Conical </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">blue </p>
+                           </td>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/color_blue.png"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">Spherical </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">red </p>
+                           </td>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/color_red.png"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">B spline/Freeform </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">magenta</p>
+                           </td>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/color_magenta.png"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">Non Extractable</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: center;">white </p>
+                           </td>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/color_white.png"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <p>The <b>Extract</b> command is not available until at least one region has been identified as an extractable
+                     surface. Regions are identified using the using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions"><b>Automatic</b> regions command</a> or the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions"><b>Manual</b> regions command</a>. </p>
+                  <p>The associated geometric surface for each extracted geographic region is listed in
+                     the <b>Features</b> collector of the <b>PathFinder</b> in the synchronous environment or simply as a surface in an ordered environment.
+                     </p>
+                  <p>To return any one or all individual surfaces back to the colored geographic region,
+                     delete them from the <b>PathFinder</b>. This allows another type of geometry to be <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry"><b>Fit</b></a> to the colored geographic region.</p>
+                  <p>The <b>Extract</b> command bar has the following options:</p>
+                  <dl>
+                     <dt><b>Extract All </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/extract_all.png"></dt>
+                     <dd class="ml-3">
+                        <p>Attempts to extract a geometric surface based on the color assigned to each region
+                           for all sub-mesh regions. Regions painted in white or in an unrecognizable color are
+                           not extracted. The region colors are identified using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions"><b>Automatic</b></a> or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions"><b>Manual</b></a> commands. Non-extractable regions can be assigned a geometric surface using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry"><b>Fit</b></a> command.</p>
+                     </dd>
+                     <dt><b>Extract </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/extract_selected.png"> </dt>
+                     <dd class="ml-3">
+                        <p>Attempts to extract a single geometric surface based on the selected color region.
+                           The selected region turns green. The command does not become available until a region
+                           of a known color is selected. Regions identified by unrecognized colors or white cannot
+                           be extracted. Non-extractable regions can be assigned a geometric surface using the
+                           <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry"><b>Fit</b></a> command. The region colors are identified using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions"><b>Automatic</b> regions</a> or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions"><b>Manual</b> regions</a> commands.</p>
+                     </dd>
+                     <dt><b>Delete Surfaces</b> </dt>
+                     <dd class="ml-3">
+                        <p>After one or more construction surfaces have been extracted, this lists extracted
+                           surfaces that can be deleted. To delete an extracted surface, right-click on an extracted
+                           surface in the list and select <b>Delete</b>. You can also delete an extracted surface from the <b>Features</b> collector in the <b>PathFinder</b>. </p>
+                     </dd>
+                     <dt><b>Accept </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/accept.png"> </dt>
+                     <dd class="ml-3">
+                        <p>Select this option to accept the selected geometric surfaces that are to be extracted.
+                           You can also right-click or press Enter to accept the selections.</p>
+                     </dd>
+                     <dt><b>Reset </b> <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/reset.png"></dt>
+                     <dd class="ml-3">
+                        <p>If the selection is not wanted, select <b>Reset</b> to restore the original mesh. </p>
+                     </dd>
+                  </dl>
+                  <h4 class="division-title">Next steps</h4>
+                  <div>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry"><b>Fit</b></a> surfaces command</p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_assemble" rel="re_assemble">Reverse engineering workflow example</a></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1673342" rel="xid1673342">Create a sketch from a section curve</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_assemble" rel="re_assemble">Reverse engineering example</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_delete_mesh" rel="re_delete_mesh">Delete Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fill_holes" rel="re_fill_holes">Fill Holes command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_smooth_mesh" rel="re_smooth_mesh">Smooth Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1631462" rel="xid1631462">Align command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661826" rel="xid1661826">Align command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1592006" rel="xid1592006">Remesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1609920" rel="xid1609920">Remesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions">Automatic regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions">Manual regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry">Fit surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851569" rel="xid1851569">Deviation Analysis command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851570" rel="xid1851570">Deviation Analysis command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851593" rel="xid1851593">Deviation Analysis Settings dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661445" rel="xid1661445">Section Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661773" rel="xid1661773">Section Sketches command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661774" rel="xid1661774">Section Sketches Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1664797" rel="xid1664797">Align a mesh body to a coordinate system</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1854027" rel="xid1854027">Analyze the deviation between two objects</a><br><br></div>
+            <div class="footer-content">Extract surfaces command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

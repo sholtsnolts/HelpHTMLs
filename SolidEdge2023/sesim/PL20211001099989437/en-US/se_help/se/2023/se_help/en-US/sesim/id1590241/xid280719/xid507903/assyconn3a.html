@@ -1,0 +1,92 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title> Edge connectors</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title=" Edge connectors"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconn3a">
+                     <h1 class="topic-title"><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_edge_cmd.gif"> Edge connectors</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><h4 class="division-title">When to use Edge connectors</h4>
+                  <div>
+                     <p>Use the Simulation tab→Connectors group→Edge command to create connections where you
+                        want to maintain rigid contact during meshing. You can:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5h" rel="assyconn5h">Create edge-to-edge connections</a>. </p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn8h" rel="assyconn8h">Create edge-to-face connections</a> (or edge-to-surface connections).</p>
+                        </li>
+                     </ul>
+                     <p>Edge connections transfer the load stress from one part to the next. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>You can select the edges and surfaces on two sheet metal parts that meet at a 90 degree
+                           angle to create rigid links between them.</p>
+                        <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_training_act_edge01.gif"></p>
+                     </div>
+                     <p>The Edge connector simulates the functionality of the Femap Closest Link command,
+                        using rigid elements that constrain all six <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/degrees_of_freedom" rel="degrees_of_freedom">degrees of freedom (DOF)</a>.</p>
+                  </div>
+                  <h4 class="division-title">Using the Edge connector command</h4>
+                  <div>
+                     <p>The Edge connector command works like the Manual connector command. It uses the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a> to specify and create the connections, and you are prompted to select elements to
+                        connect from and elements to connect to. </p>
+                     <ul>
+                        <li>
+                           <p>When Connector Type=Rigid, you can create connections between two or more edges. You
+                              also can create a connection between an edge and a surface, or an edge and a face.</p>
+                        </li>
+                        <li>
+                           <p>When Connector Type=Glue, you can enter a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/search_distance" rel="search_distance">search distance</a> and a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/penalty_factor" rel="penalty_factor">penalty factor</a> in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a> before you create connections by: </p>
+                           <ul>
+                              <li>
+                                 <p>Selecting an edge and a face. </p>
+                              </li>
+                              <li>
+                                 <p>Selecting an edge and a surface. </p>
+                              </li>
+                           </ul>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>This differs from the Manual connector command (Glue), which creates connections between
+                                 faces and surfaces.</p>
+                           </div>
+                        </li>
+                     </ul>
+                     <p>The connections are generated automatically. Each node on the <em>From</em> edge is connected to the nearest node on the <em>To</em> edge, face, or surface. </p>
+                     <p>You can edit the selection set to add or remove elements from it by clicking the Edge
+                        Connector 1 label in the graphics window.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5h" rel="assyconn5h">Create edge-to-edge connections</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn8h" rel="assyconn8h">Create edge-to-face connections</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><br></div>
+            <div class="footer-content"> Edge connectors, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

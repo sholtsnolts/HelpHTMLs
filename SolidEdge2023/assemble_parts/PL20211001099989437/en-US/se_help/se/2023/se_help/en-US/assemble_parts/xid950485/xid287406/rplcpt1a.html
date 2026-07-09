@@ -1,0 +1,178 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Replacing parts in assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Replacing parts in assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="rplcpt1a">
+                     <h1 class="topic-title">Replacing parts in assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>At times you may need to replace a part or subassembly in an assembly with a new part
+                     or subassembly. For example, a part may be placed in multiple assemblies, and at a
+                     later time, the part needs to be redesigned for one assembly only. After creating
+                     a new version of the part, you can replace the existing part using the <b>Replace</b> command.</p>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>In the Teamcenter-managed environment, you should use the <b>Revisions</b> command to replace an item with a different revision of the same item.</p>
+                  </div>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/replac2.gif"></p>
+                  <h4 class="division-title">Replacing Parts commands</h4>
+                  <div>
+                     <p>The table below contains different replace part commands, which are designed for specific
+                        functions.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="below">
+                        <colgroup span="1">
+                           <col span="1">
+                           <col span="1">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Replace Part</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Used to replace a part.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Replace Part with Standard Part</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Used to replace an existing part with a standard part.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Replace Part with New Part</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Used to replace an existing part with a part created in the context of an assembly.
+                                    The <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/creatinplace1c" rel="creatinplace1c">Create in Place command</a> is used to construct the new part.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Replace Part with Copy</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Copies the part by doing a Save As, which allows the new part to be renamed.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Replace Part with 3Dfind.it Part</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Used to replace an existing part with a part from the 3Dfind.it parts website that
+                                    searches millions of manufacturer models.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>When replacing a part with a new part or with a copy, if you are a Solid Edge data
+                        management user and you selected the option <b>Automatically name files via Document Number and Revision</b>, the system displays a dialog box where you can assign common properties, such as
+                        document number and revision number, as explained in <a class="xref" data-handle="user_interface" href="/en-US/product/246738425/doc/PL20211001099989437.user_interface/html/xid1356932" rel="xid1356932">Create documents with unique properties</a>. If you also selected the option <b>Automatically revise or copy drawings that use the selected 3D document</b>, Solid Edge automatically copies and revises drawings that use the selected 3D document.
+                        If there are multiple drafts, the system adds an increment ID between the document
+                        number and revision number. For example, <b>test1-1.dft</b>, <b>test1-01-1.dft</b>, <b>test1-02-1.dft</b>, and so on.</p>
+                     <p>To learn more about being a Solid Edge data management user, see <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1329884" rel="xid1329884">Solid Edge data management</a>. </p>
+                  </div>
+                  <h4 class="division-title">Replacing similar parts</h4>
+                  <div>
+                     <p>When you replace a part with a new version of the same part, Solid Edge attempts to
+                        use the existing assembly relationships to position the new version. However, if any
+                        faces used to position the old part were consumed when the part was modified; assembly
+                        relationships can fail. If this occurs, you can delete the affected assembly relationships
+                        using <b>PathFinder</b>, and then apply new relationships to completely position the new part.</p>
+                     <p>You can also use a member of a family of parts as a replacement part. If the current
+                        part is not a family of parts member, and you want to replace it with a family of
+                        parts member, use the <b>Replacement Part</b> dialog box to select a family of parts member as the replacement part.</p>
+                     <p>If the current part is a member of a family of parts, the <b>Family of Parts Member</b> dialog box is automatically displayed when you select the part you want to replace.
+                        You can then specify another family member you want to use as the replacement part.
+                        If you want to replace the family of parts member with any other part, click the <b>Browse</b> button on the <b>Family of Parts Member</b> dialog box to display the <b>Replacement Part</b> dialog box. This allows you to select any part as the replacement part.</p>
+                  </div>
+                  <h4 class="division-title">Replacing dissimilar parts</h4>
+                  <div>
+                     <p>When you replace a part with a different part, one that was created independently
+                        of the part being replaced, Solid Edge compares the geometry of the two parts. If
+                        the geometry matches sufficiently, the replacement part is positioned properly.</p>
+                     <p>When replacing dissimilar parts, the original part and the replacement part are required
+                        to be in the same relative orientation in their respective part files.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/rplc1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Replacing one occurrence of a part</h4>
+                  <div>
+                     <p>If the part you are replacing has been placed more than once in the active assembly,
+                        you can specify whether to replace all occurrences of the part, or only the selected
+                        one.</p>
+                  </div>
+                  <h4 class="division-title">Replacing parts in subassemblies</h4>
+                  <div>
+                     <p>The Replace command can be used to replace parts in a subassembly.</p>
+                  </div>
+                  <h4 class="division-title">Replacing subassemblies</h4>
+                  <div>
+                     <p>When you replace a subassembly, you can replace it with another subassembly or you
+                        can replace it with a part. If the current or replacement subassembly is also a family
+                        of assemblies, you can use the <b>Assembly Member</b> dialog box to specify which family member you want to use as the replacement.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For more information on working with families of assemblies, see the <b>Family of Assemblies</b> and <b>Alternate Position Assemblies</b> topic in online Help.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Failed relationships during part replacement</h4>
+                  <div>
+                     <p>Assembly relationships can fail when you are replacing parts. Normally, this happens
+                        because the assembly cannot locate the faces in the new part that it was connected
+                        to in the old part. When this occurs, a symbol displays to the left of the failed
+                        relationship in the lower pane of the <b>PathFinder</b>.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/failreplace.gif"></p>
+                  </div>
+                  <h4 class="division-title">Replacing renamed occurrences</h4>
+                  <div>
+                     <p>When you replace an assembly occurrence whose default name in <b>PathFinder</b> has been overridden using the <b>Rename</b> or <b>Occurrence Properties</b> commands on the <b>PathFinder</b> shortcut menu, you can control whether the replacement occurrence uses the new document
+                        name or the overridden name in <b>PathFinder</b>.</p>
+                     <p>When you set the <b>Use Default Placement Name During Replace Part</b> option on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/adjust1d" rel="adjust1d">Assembly tab</a> on the <b>Options</b> dialog box, the document name of the replacement occurrence is used. When you clear
+                        this option, the overridden name is maintained.</p>
+                     <p>When you override the name of an assembly occurrence, the actual document name is
+                        not changed.</p>
+                  </div>
+                  <h4 class="division-title">Define Alternate Components</h4>
+                  <div>
+                     <p>Alternate components are a predefined list of components that aid in placement of
+                        replacing parts. The list consists of alternate candidates that can be added or removed
+                        from the list. These lists can originate from related family documents, searched documents,
+                        and browsed documents.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1373710" rel="xid1373710">Create a one body assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1022042" rel="xid1022042">Repair Missing Files</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/rplcpt1h" rel="rplcpt1h">Replace a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1931582" rel="xid1931582">Replace a part with a part from 3Dfind.it</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1046426" rel="xid1046426">Scroll to a part</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1372673" rel="xid1372673">Creating a single design body from an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1021871" rel="xid1021871">Repair Missing Files command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/rplcpt1c" rel="rplcpt1c">Replace Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1925300" rel="xid1925300">Replacing a part with a part from 3Dfind.it</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/rplcpt1d" rel="rplcpt1d">Replacement Part dialog box</a><br><br></div>
+            <div class="footer-content">Replacing parts in assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

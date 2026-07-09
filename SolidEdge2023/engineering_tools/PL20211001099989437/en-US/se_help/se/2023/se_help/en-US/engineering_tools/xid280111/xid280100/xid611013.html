@@ -1,0 +1,127 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Basic 2D goal seeking workflow</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Basic 2D goal seeking workflow"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid611013">
+                     <h1 class="topic-title">Basic 2D goal seeking workflow</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use this goal seeking workflow to solve 2D geometry what-if problems. This
+                     simple draft example uses a circle and a square. The goal is to find the area of the
+                     square given changes in the diameter of the circle.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Draw 2D geometry on the 2D Model sheet, working sheet, profile, or synchronous sketch.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_area_draw.gif"></p>
+                     </li>
+                     <li>
+                        <p>Add geometric relationships to constrain the 2D elements. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_area_rel.gif"></p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>Geometry that is fully constrained is more predictable. This example shows the minimum
+                              number of relationships required for goal seeking to properly manipulate the area
+                              of the rectangle. For more information about geometric relationships, such as how
+                              to recognize them and how to use them, see <a class="xref" data-handle="working_with_2d_geometry" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/geomrel1a" rel="geomrel1a">Geometric relationships</a>.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Add driven and driving dimensions. </p>
+                        <ul>
+                           <li>
+                              <p>In the Draft environment, the default color of driving dimensions is black and for
+                                 driven dimensions it is dark cyan.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/evaluate/calculate/goal_seek/calc_area_dims.gif"></p>
+                           </li>
+                           <li>
+                              <p>In profile and sketch mode and on synchronous models, the default color of unlocked
+                                 (driven) dimensions is blue, and for locked (driving) dimensions it is red.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <ul>
+                              <li>
+                                 <p>The manner in which you add dimensions to 2D elements influences the output of the
+                                    <b>Goal Seek</b> command. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/xid609955" rel="xid609955">Best practices in goal seeking</a>.</p>
+                              </li>
+                              <li>
+                                 <p>Dimensional variables and values are added automatically to, and are accessible in,
+                                    the Variable Table.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <p>In 2D environments, you can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/area1c" rel="area1c">Area command</a> with the <b>Create Area</b> option to create one or more area objects that consists of closed 2D boundaries from
+                           individual geometric elements.</p>
+                        <p>In this example, selecting the area inside the four lines of the square enables goal
+                           seeking to update the area instead of just changing the length of a single line.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/evaluate/calculate/goal_seek/calc_area_filled.gif"></p>
+                     </li>
+                     <li>
+                        <p>Use the <b>Goal Seek</b> command to evaluate the 2D geometry. When goal seeking, Solid Edge changes the value
+                           of a Variable until a specified Target value for a dependent Goal variable is found.
+                           The options on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/calc1d" rel="calc1d">Goal Seek command bar</a> define the Goal, Target, and Variable to change.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>For this example, the goal is to calculate a precise area by changing the diameter.</p>
+                           <ul>
+                              <li>
+                                 <p>The Goal is the variable name of the area object you created in step 4.</p>
+                              </li>
+                              <li>
+                                 <p>The Target is the precise area you want to use. In this example, 140000 mm^2.</p>
+                              </li>
+                              <li>
+                                 <p>The Variable to change is the diameter of the circle.</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/evaluate/calculate/goal_seek/calc_area_anno.gif"></p>
+                        <p>The <b>Goal Seek</b> command modifies the diameter of the circle to arrive at the target area value you
+                           specified. The dimensioned geometry immediately updates to show the results of the
+                           calculation.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_area_goal.gif"></p>
+                        <p>For examples of the goal seeking workflow applied to 3D models, see the following
+                           help topics:</p>
+                        <ul>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/xid610667" rel="xid610667">Reduce the weight of a part by goal seeking</a></p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/xid610720" rel="xid610720">Find a volume by goal seeking</a></p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Basic 2D goal seeking workflow, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,213 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity 3: Work with imperial (English) units </title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity 3: Work with imperial (English) units "></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid849609">
+                     <h1 class="topic-title">Activity 3: Work with imperial (English) units </h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this activity you will learn how Femap handles units when you are working in a
+                     Solid Edge Simulation document that uses an ANSI template with imperial units (English
+                     units).</p>
+                  <p>Femap is configured to handle model files created in an ANSI template as one of its
+                     two default standards. ANSI units are consistent with inches, pound-force, seconds,
+                     slinch (lbm/386.07), and degrees Fahrenheit.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>This activity requires that you have a separate installation and license for Femap.</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Save the Solid Edge part file in imperial units:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Open the Solid Edge Simulation file containing the 10x10x100 mm part you created in
+                                 the first activity. Use the <b>Save As</b> command on the <b>File</b> menu to create a copy of the file and give it a new name, such as <b>part_units_english.par</b>. </p>
+                           </li>
+                           <li>
+                              <p>On the <b>File</b> menu, click <b>Info</b>→<b>File Units</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/user_interface/file_units_command.png"></p>
+                              <p>The <b>Units</b> tab in the <b>Solid Edge Options</b> dialog box is displayed.</p>
+                           </li>
+                           <li>
+                              <p>On the <b>Units</b> tab, under <b>Units System</b>, observe that <b>MMKS (millimeter, kilogram, second)</b> is currently selected, based on the metric template.</p>
+                           </li>
+                           <li>
+                              <p>Select <b>IPS (inch, pound, second)</b> to change to the imperial unit system.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/imperial_units1.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click <b>Yes</b> in the first message box, <em>Unit system is being changed. Customized units for existing unit system will be lost.
+                                    Do you want to continue?</em>. </p>
+                              <p>If a second message about dimension styles is displayed, click <b>OK </b>.</p>
+                              <p>On the <b>Units</b> tab, under <b>Base Units</b>, observe that the model base units are now set to the imperial unit system of in,
+                                 lbm, sec, and Fahrenheit for length, mass, time, and temperature.</p>
+                              <p>Also observe that the units of measure in the <b>Derived Units</b> table also changed.</p>
+                           </li>
+                           <li>
+                              <p>Reprocess the study using the <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve </b> command. </p>
+                              <p>When processing is finished, in the <b>Simulation Results</b> environment, observe that the maximum Von Mises Stress is reported in <em>ksi</em>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/units/training/imperial_units2.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click <b>Close Simulation Results</b> on the ribbon.</p>
+                           </li>
+                           <li>
+                              <p>Close Solid Edge.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Start Femap:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Start the Femap program from the desktop or from the <b>Start</b> menu.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Do not use the <b>Tools</b> tab→<b>Environs</b> group→<b>Femap </b>command. </p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Choose <b>File</b>→<b>Preferences</b>.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Preferences</b> dialog box, click the <b>Geometry/Model</b> tab.</p>
+                              <p>Observe that the option selected by default in the <b>Solid Geometry Scale Factor</b> list is <b>0. Inches</b>. </p>
+                              <p>This is the default unit for working with model geometry in Imperial units (English
+                                 units) in Femap. It applies a scale factor of 39.37 to make the appropriate adjustments
+                                 to Solid Edge files in which the length readout unit is inch.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This sets a value of 39.37 (i.e., inches-to-meters conversion), and this factor is
+                                    applied internally in Femap so that a part of 1.0 on the desktop will be stored as
+                                    0.0254 in the database. The default of 39.37 is chosen since it allows you to import
+                                    a part that was modeled in inches in CAD software, and continue to work in inches
+                                    without manually having to scale the part. You can also choose to set the <b>Solid Geometry Scale Factor</b> to <b>1. Meters</b> (value of 1.0), <b>2. Millimeters</b> (value of 1000.0), or <b>3. Other</b>, which allows you to specify a value of your choice. </p>
+                                 <p>This is a startup preference; therefore, you must save the preference and exit Femap
+                                    for it to take effect.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Close Femap.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Import the Solid Edge part file into Femap:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Restart Femap.</p>
+                           </li>
+                           <li>
+                              <p>Choose <b>File</b>→<b>Import</b>, and then select and open the part file in imperial units, for example, <b>part_units_english.par</b>.</p>
+                           </li>
+                           <li>
+                              <p>Click <b>OK</b> to dismiss the <b>Neutral File Read Options</b> dialog box.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Model Info</b> pane, review the material properties. </p>
+                              <ul>
+                                 <li>
+                                    <p>Observe that the pressure load, which was reported in the Solid Edge Simulation study
+                                       in <em>ksi</em>, is converted to <em>psi</em> In Femap. </p>
+                                 </li>
+                                 <li>
+                                    <p>Also note that the following units are set in Femap, based on the imperial unit standard
+                                       of inch:</p>
+                                    <table cellspacing="1" cellpadding="6" rules="all" width="100%" frame="box">
+                                       <colgroup span="1">
+                                          <col span="1">
+                                          <col span="1">
+                                       </colgroup>
+                                       <thead>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Model data units</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Equivalent Femap model units (based on inch)</p>
+                                             </td>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Length</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>inch</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Force</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>pound-force (lbf).</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Mass</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>slinch (lbm/386.07)</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Temperature</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Fahrenheit (F)</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Stress, pressure</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>pounds/in² (psi)</p>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>Close Femap without saving the file.</p>
+                           </li>
+                        </ol>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Activity 3: Work with imperial (English) units , Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

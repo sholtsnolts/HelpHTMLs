@@ -1,0 +1,203 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<html class="main-html scroll-area">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+  <title>Preparing unmanaged documents for Teamcenter</title>
+ </head>
+ <body>
+  <div class="main content-container"><contenttitle title="Preparing unmanaged documents for Teamcenter"></contenttitle>
+   <div class="container-fluid content-start">
+    <div class="row justify-content-center topic-header">
+     <div class="col-12 content-pad">
+      <div class="topic-header-content" id="addtoteamcenterprep1a">
+       <h1 class="topic-title">Preparing unmanaged documents for Teamcenter</h1>
+      </div>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-12 content-pad">
+      <p>Many times the data that comprises projects consists of individual documents that exist in an unmanaged environment. There are a few things you should do before you add unmanaged documents to Teamcenter.</p>
+      <h4 class="division-title" id="addtoteamcenterprep_checklist">Document preparation</h4>
+      <div>
+       <p>To prepare your unmanaged documents for Teamcenter, you should:</p>
+       <ul>
+        <li><p><a class="xref" href="#remove">Remove documents you do not want to manage</a>.</p></li>
+        <li><p><a class="xref" href="#finddups">Find duplicate document names</a>.</p></li>
+        <li><p><a class="xref" href="#findinvalid">Scan for invalid document names</a>.</p></li>
+        <li><p><a class="xref" href="#attrmap">Map Solid Edge properties to Teamcenter attributes</a>.</p></li>
+        <li><p><a class="xref" href="#custom">Create custom properties</a> to define the Item Revision for non-Solid Edge documents (image files, <b>.pdf</b> documents, and Microsoft Office documents) and to define the properties for non-graphic parts (grease, paint, etc.).</p></li>
+        <li><p>Use the Data Preparation Utility to <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze1h" rel="analyze1h">analyze files</a>, <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/linkfixup1h" rel="linkfixup1h">fix broken links</a>, and <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/modify1h" rel="modify1h">modify properties</a> in your unmanaged data.</p></li>
+       </ul>
+       <p>Watch a short video about the importance of preparing your data before import, and an overview of the data preparation process:</p>
+       <div id="videoContainer" style="max-width: 750px;">
+        <div id="video">
+         <div id="videoPlayer" class="video-player m-b-md"><iframe id="player" src="https://video.sw.siemens.com/embed/18f418cd-1ba8-4a8d-b14f-8fd57d61736e" allowfullscreen scrolling="no" frameborder="0"></iframe>
+         </div>
+        </div>
+       </div>
+      </div>
+      <h4 class="division-title" id="remove">Remove unwanted files</h4>
+      <div>
+       <p>When you add a folder to the library, every document in the folder is added to the library, regardless of whether or not you want to manage them. &nbsp;You should remove any documents that you do not want to manage before adding the folder to the library. These documents might include text or log files that reside in the folder you want to import.</p>
+      </div>
+      <h4 class="division-title" id="finddups">Find duplicate document names</h4>
+      <div>
+       <p>You can add duplicate documents to a managed library, but duplicate document names cannot exist in the same folder. If duplicate document names are found, you should ensure that you are adding the correct document to the library.</p>
+      </div>
+      <h4 class="division-title" id="findinvalid">Find invalid document names</h4>
+      <div>
+       <p>Teamcenter supports the same conventions that the file system supports for naming folders and documents. Folder and document names can consist of all Unicode characters except the following characters: # : \ ? * &lt; &gt; % / | " ~ !</p>
+       <p>Search your local folder for invalid document names before adding them to Teamcenter.</p>
+      </div>
+      <h4 class="division-title" id="attrmap">Map Solid Edge properties to Teamcenter attributes</h4>
+      <div>
+       <p>Attribute mapping defines what document properties you will exchange between Solid Edge and Teamcenter. There are a number of property mapping definitions that are delivered for you.</p>
+       <div>
+        <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+         <colgroup span="1">
+          <col span="1" align="left" width="20%">
+          <col span="1" align="left" width="20%">
+          <col span="1" align="left" width="20%">
+          <col span="1" align="left" width="20%">
+          <col span="1" align="left" width="20%">
+         </colgroup>
+         <tbody>
+          <tr>
+           <td rowspan="1" colspan="1"><p><b>Solid Edge property</b></p></td>
+           <td rowspan="1" colspan="1"><p><b>Teamcenter attribute</b></p></td>
+           <td rowspan="1" colspan="1"><p><b>Required or Optional</b></p></td>
+           <td rowspan="1" colspan="1"><p><b>File Property</b></p></td>
+           <td rowspan="1" colspan="1"><p><b> Maximum character length</b></p></td>
+          </tr>
+          <tr>
+           <td rowspan="1" colspan="1"><p>Teamcenter Item Type</p></td>
+           <td rowspan="1" colspan="1"><p>Item Type</p></td>
+           <td rowspan="1" colspan="1"><p>Required</p></td>
+           <td rowspan="1" colspan="1"><p>Custom (Localized)</p></td>
+           <td rowspan="1" colspan="1"><p>32</p></td>
+          </tr>
+          <tr>
+           <td rowspan="1" colspan="1"><p>Document Number</p></td>
+           <td rowspan="1" colspan="1"><p>Item ID</p></td>
+           <td rowspan="1" colspan="1"><p>Required</p></td>
+           <td rowspan="1" colspan="1"><p>Project</p></td>
+           <td rowspan="1" colspan="1"><p>128</p></td>
+          </tr>
+          <tr>
+           <td rowspan="1" colspan="1"><p>Revision Number</p></td>
+           <td rowspan="1" colspan="1"><p>Revision</p></td>
+           <td rowspan="1" colspan="1"><p>Required</p></td>
+           <td rowspan="1" colspan="1"><p>Project</p></td>
+           <td rowspan="1" colspan="1"><p>128</p></td>
+          </tr>
+          <tr>
+           <td rowspan="1" colspan="1"><p>Project Name</p></td>
+           <td rowspan="1" colspan="1"><p>Item Name</p></td>
+           <td rowspan="1" colspan="1"><p>Required</p></td>
+           <td rowspan="1" colspan="1"><p>Project</p></td>
+           <td rowspan="1" colspan="1"><p>128</p></td>
+          </tr>
+          <tr>
+           <td rowspan="1" colspan="1"><p>Dataset Name</p></td>
+           <td rowspan="1" colspan="1"><p>Dataset Name</p></td>
+           <td rowspan="1" colspan="1"><p>Required</p></td>
+           <td rowspan="1" colspan="1"><p>Custom (English)</p></td>
+           <td rowspan="1" colspan="1"><p>128</p></td>
+          </tr>
+          <tr>
+           <td rowspan="1" colspan="1"><p>TC Engineering Description</p></td>
+           <td rowspan="1" colspan="1"><p>Dataset Description</p></td>
+           <td rowspan="1" colspan="1"><p>Optional</p></td>
+           <td rowspan="1" colspan="1"><p>Custom (Localized)</p></td>
+           <td rowspan="1" colspan="1"><p>140</p></td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+       <div class="attention" type="note">
+        <div class="attention-label">
+         Note:
+        </div>
+        <p>The Dataset Name is not designated as required on common property dialog boxes. However, if no Dataset Name is specified, one will be computed from the Item ID and Revision.</p>
+       </div>
+       <p>In Teamcenter, the key attributes used to track part numbers and revisions are <em>Item ID</em>, <em>Revision</em>, and<em> Item Name</em>. The corresponding Solid Edge properties are displayed in Solid Edge on the Project tab of the Properties dialog box. You can access the <b>Properties</b> dialog box by choosing <b>File</b> menu→<b>Info</b>→<b>File Properties</b>. Defining these properties in Solid Edge before adding the documents to Teamcenter minimizes your future efforts and your Teamcenter database will be more accurately populated from the start.</p>
+       <p>Some things to consider regarding Solid Edge property mapping:</p>
+       <ul>
+        <li><p>If the Solid Edge Document Number property is left blank, an Item ID is automatically generated and assigned for you when you import the data into Teamcenter. You should define the Document Number, Revision Number, and Project Name before loading your data into Teamcenter.</p></li>
+        <li><p>If any of the Solid Edge properties contain more than the maximum character length, or if the Document Number plus the Revision is greater than the maximum character length, you are notified of an error on import into Teamcenter. The error is recorded in the log file generated by the Add to Teamcenter application. Log files are located in <b>\AppData\Roaming\Siemens\Solid Edge\Version 223\Log Files</b>.</p></li>
+        <li><p>In the Teamcenter-managed environment, only one Solid Edge 3D dataset is allowed per Item. However, multiple Drafts can be associated with each item as item revisions. When unmanaged 3D datasets using the same Document Number property are imported into Teamcenter, you must decide to save your Solid Edge Draft documents to the same Item Revision as the Solid Edge 3D content or save your Solid Edge Draft documents to a separate Item.</p></li>
+        <li><p>Solid Edge properties and Teamcenter attributes should match type (For example: String with String, Date with Date and Numeric with Numeric).</p></li>
+        <li><p>When Solid Edge transacts data with Teamcenter, it uses a name that is unaffected by localization. This is referred to as the <em>real name</em>. The <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid386348" rel="xid386348">real name</a> has also been used for the display in the user interface. Beginning with Teamcenter 8.3, a unique prefix is added to all new business objects to guarantee uniqueness. The resulting name is often not desirable for display in the user interface. The use of a <em>display name</em> addresses this issue. The <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid386349" rel="xid386349">display name</a> is used for column headers in common property dialog boxes for mapped properties other than the mandatory properties.</p> <p>Additional information regarding display names can be found in the <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a>.</p></li>
+        <li><p>Mapping the Project ID is not supported.</p></li>
+        <li><p>The Item Type and Dataset Description are localized, while the Dataset Name is English-only.</p></li>
+       </ul>
+       <div class="attention" type="note">
+        <div class="attention-label">
+         Note:
+        </div>
+        <p>The Solid Edge property to Teamcenter attribute mapping is case sensitive.</p>
+       </div>
+      </div>
+      <h4 class="division-title" id="custom">Create custom properties</h4>
+      <div>
+       <p>You can create custom Solid Edge properties to map to Teamcenter attributes. For example, you can create custom properties to define the Item Revision for non-Solid Edge documents including image files, .pdf documents, and Microsoft Office documents (MS Word, MS Excel, MS PowerPoint). You can also create custom properties to define the properties for non-graphic parts.</p>
+       <p>There are three basic steps to creating custom properties:</p>
+       <ul>
+        <li><p>Provide a name for the custom property.</p></li>
+        <li><p>Select the type of property you are creating.</p></li>
+        <li><p>Type a value for the property.</p></li>
+       </ul>
+       <p>For more information regarding custom properties, refer to the Solid Edge Help topic <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/customprop1a" rel="customprop1a">Creating custom document properties</a>.</p>
+      </div>
+      <h4 class="division-title">Automated tools for data preparation</h4>
+      <div>
+       <p>To make the task of preparing unmanaged files easier, the Data Preparation Utility is available to you in Start→Siemens Solid Edge 2023→Data Preparation when you install Solid Edge. This program assists you with:</p>
+       <ul>
+        <li><p>Analyzing your unmanaged files</p></li>
+        <li><p>Fixing broken links</p></li>
+        <li><p>Modifying properties</p></li>
+       </ul>
+       <p>You can read more about the data preparation tool in the Solid Edge Help topic <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/seectools1a" rel="seectools1a">Solid Edge Data Preparation Utility</a></p>
+       <div class="attention" type="note">
+        <div class="attention-label">
+         Note:
+        </div>
+        <p>A supported version of Microsoft Office Professional must be installed on the client to run the programs. The input file must be in <b>.xlsm</b> document format.</p>
+        <p>See <b>readme.htm</b> for supported software information.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+     <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/analyze2h" rel="analyze2h">Define custom properties before analysis</a> <br> <br>
+     <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/customprop1a" rel="customprop1a">Creating custom document properties</a> <br> <br>
+    </div>
+    <div class="footer-content">
+     Preparing unmanaged documents for Teamcenter, Solid Edge 2023 <br>© 2022 Siemens
+    </div>
+   </div>
+  </div>
+  <script>window.mainLanguage="en_US"</script>
+  <script>window.delivId=""</script>
+  <script>window.projectId=""</script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script>
+  <script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script>
+ </body>
+</html>

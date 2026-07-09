@@ -1,0 +1,110 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with non-CAD data</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with non-CAD data"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="ole3a">
+                     <h1 class="topic-title">Working with non-CAD data</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p></p>
+                  <p>You can work with data that was created using other software and systems. There are
+                     several ways to work with this non-CAD data. You can do the following:</p>
+                  <ul>
+                     <li>
+                        <p>Use the Solid Edge <b>Open</b> command to directly translate Parasolid and other document formats into Solid Edge
+                           format. For a list of all available input types, see the <b>Files Of Type</b> box on the <b>Open File</b> dialog box.</p>
+                     </li>
+                     <li>
+                        <p>Import solid and non-solid data such as surfaces and wireframes into Solid Edge with
+                           the <b>Part Copy </b>command.</p>
+                     </li>
+                     <li>
+                        <p>Translate Solid Edge documents into other document formats such as Parasolid and IGES
+                           data formats with the <b>Save As</b> command.</p>
+                     </li>
+                  </ul>
+                  <p>The ability to work with different formats allows you to take advantage of the advanced
+                     Solid Edge capabilities while retaining and using designs from other systems.</p>
+                  <p>Before you can place a part created in another CAD system into a Solid Edge assembly,
+                     you must first convert it to a Solid Edge part.</p>
+                  <h4 class="division-title">INI files</h4>
+                  <div>
+                     <p>During data translation, the options and mapping of elements between Solid Edge and
+                        the non-CAD data system are defined in an external file ending with a .ini extension.
+                        For example, the AutoCAD translator stores parameter settings in the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse5a#seacadini" rel="acse5a">seacad.ini file</a> found in the Solid Edge Preferences\Translators folder.</p>
+                     <p>You should not copy or use a copy of a INI from a previous version of Solid Edge when
+                        you move to a newer version of Solid Edge. Solid Edge occasionally enhances the translation
+                        process in new releases by adding parameters to INI files. If you use an old .ini
+                        file that does not contain these parameters, then Solid Edge uses its default parameters
+                        for the new options, and you lose the ability to control that behavior.</p>
+                  </div>
+                  <h4 class="division-title">Precision in Parasolid files</h4>
+                  <div>
+                     <p>When opening Parasolid files in Solid Edge, precision in the Parasolid files is important.
+                        To handle precision correctly, all parts of a body must lie inside the Parasolid size
+                        box. This is a box that represents model space. It is 500 meters on each side and
+                        centered at the origin, making the total size one kilometer.</p>
+                  </div>
+                  <h4 class="division-title">Detecting geometry flaws in imported models</h4>
+                  <div>
+                     <p>Solid Edge provides options to detect geometry flaws and fix them when you import
+                        non-CAD data. In some cases, you may import data without selecting these options.
+                        The failure to fix some types of geometry or the failure to check the body on import
+                        can lead to problems, including the ability to stitch. You may be unaware of the problem
+                        and unable to identify the start point to solve the problem.</p>
+                     <p>You can use the <b>Geometry Inspector</b> command to check the model and identify geometry that may contain problems. You can
+                        use the <b>Heal Body Fault</b> option on the <b>Geometry Inspector</b> dialog box to resolve most problems that may arise.</p>
+                     <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid280807" rel="xid280807">Optimize command</a> to increase the quality of the imported model by simplifying B-spline definitions
+                        and healing model edges. Even if the model does not contain faults, it is always good
+                        practice to run the <b>Optimize</b> command since it improves the precision and complexity in most imported models. You
+                        can use the <b>Optimize Options</b> dialog box to specify the options for optimizing the model:</p>
+                     <ul>
+                        <li>
+                           <p>Clean body — Cleans the input sheets of self-intersections and loop inconsistencies.
+                              You should always use this option prior to a full body optimization.</p>
+                        </li>
+                        <li>
+                           <p>Full body optimization — Simplifies bodies by replacing B-splines with analytic definitions
+                              if possible, sets edge precision, and merges or removes redundant faces. It also identifies
+                              B-spline surfaces that are blend-like and replaces the B-spline surface with a Parasolid
+                              rolling ball type blend.</p>
+                        </li>
+                        <li>
+                           <p>Simplify body only — Simplifies bodies by replacing B-splines with analytic definitions
+                              if possible, sets edge precision, and merges or removes redundant faces.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/ole3h" rel="ole3h">Translate files into Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid340192" rel="xid340192">Make a base feature</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1967030" rel="xid1967030">Translate files from the command line</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid340191" rel="xid340191">Make Base Feature command</a><br><br></div>
+            <div class="footer-content">Working with non-CAD data, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

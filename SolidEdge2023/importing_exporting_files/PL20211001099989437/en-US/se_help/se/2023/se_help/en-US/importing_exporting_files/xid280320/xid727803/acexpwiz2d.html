@@ -1,0 +1,166 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Solid Edge to AutoCAD Translation Wizard (File Mapping)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Solid Edge to AutoCAD Translation Wizard (File Mapping)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="acexpwiz2d">
+                     <h1 class="topic-title">Solid Edge to AutoCAD Translation Wizard (File Mapping)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Assists in mapping a Solid Edge document to an AutoCAD document.</p>
+                  <dl>
+                     <dt>AutoCAD Version</dt>
+                     <dd class="ml-3">
+                        <p>Displays the version of AutoCAD to which you intend to export. Solid Edge supports
+                           versions 12, 13, 14, 2000, 2004, 2007,2010, and 2013.</p>
+                     </dd>
+                     <dt>Generate Log File</dt>
+                     <dd class="ml-3">
+                        <p>Produces a log file that contains warnings and information about the files involved
+                           in translation.</p>
+                        <p>The log file is named in the standard convention of file_name.log and is named in
+                           the standard convention of file_name.log. It is written to the same folder which Solid
+                           Edge reads or is currently writing the AutoCAD file to. Solid Edge will automatically
+                           overwrite an existing log file is the same name is specified. You must have write
+                           permission for the target folder to be able to create a log file.</p>
+                     </dd>
+                     <dt>Translate Background Sheet on Export</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to translate the background sheets in the Solid Edge document
+                           which you are exporting. The default is to translate the background data.</p>
+                     </dd>
+                     <dt>Translate Part Layer Names as AutoCAD Layer Names</dt>
+                     <dd class="ml-3">
+                        <p>Creates AutoCAD layer names that are derived from part file names contained in a Solid
+                           Edge Draft file you are exporting. The graphics that represent each part are then
+                           placed on these layers in AutoCAD.</p>
+                        <p>This option does not affect draft files created from a single part file. Draft files
+                           that consist of a single part file maintain the same layer naming convention defined
+                           in the draft file.</p>
+                        <p>This option is disabled if you select the Enable Layer and Attribute Mapping option.</p>
+                     </dd>
+                     <dt>Enable Layer and Attribute Mapping</dt>
+                     <dd class="ml-3">
+                        <p>Activates the Layer and Attribute Mapping page of the wizard.</p>
+                        <p>This option is disabled if you select the Translate Part Layer Names as AutoCAD Layer
+                           Names option.</p>
+                     </dd>
+                     <dt id="acexpwiz2d_ExpToPaperSpace">Export to Paper Space</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to export the dimensions, annotations, and other items on
+                           the drawing sheet to AutoCAD paper space and export the drawing view geometry to model
+                           space. &nbsp;This creates an AutoCAD file that contains geometry at a 1:1 scale and a paper
+                           space that reflects the exact drawing of the Solid Edge draft file.</p>
+                        <p>If you do not select this option, everything is exported to model space.</p>
+                        <p>To learn how to do this, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1h" rel="acexpwizms1h">Export one or all sheets to AutoCAD</a>.</p>
+                     </dd>
+                     <dt>Drawing View Border Layer</dt>
+                     <dd class="ml-3">
+                        <p>Displays the name of the layer that the drawing view border is placed on. The layer
+                           name and display value is controlled by the Export Drawing view border layer= parameter
+                           in the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse5a#seacadini" rel="acse5a">seacad.ini file</a>.</p>
+                        <p>Use the ON/OFF option to control the display of the translated layer. This option
+                           is controlled by the Export Drawing view border display= parameter in the secad.ini
+                           file.</p>
+                        <p>These options only apply when exporting to paper space so they are disabled if the
+                           Export to Paper Space option is not checked.</p>
+                     </dd>
+                     <dt>Export Solid Edge Dimensions as AutoCAD Dimensions</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to export the Solid Edge dimensions as AutoCAD dimensions.&nbsp;If
+                           you do not select this option Solid Edge dimensions are exported as simple graphics
+                           and text boxes.</p>
+                     </dd>
+                     <dt>Export Dimension Picture Data</dt>
+                     <dd class="ml-3">
+                        <p>Specifies you want to export the block or picture data to the AutoCAD document, so
+                           the dimensions will appear as they would in Solid Edge. If you export a document with
+                           this option disabled, Solid Edge does not write the block or picture data to the AutoCAD
+                           document. When you open the AutoCAD document, AutoCAD generates its own picture data
+                           to create an AutoCAD like dimension.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If you are exporting to .dxf format, but do not intend to open and save these documents
+                              in AutoCAD, you should enable the Export Dimension Picture Data option. If the target
+                              system is dependent on any of the block or picture data, it cannot successfully read
+                              and display the dimension correctly if the picture data is not exported. The target
+                              CAD system must be able to generate the dimension based only on the dimension object
+                              and dimension style information.</p>
+                        </div>
+                        <p>This option is only available when you are exporting Solid Edge dimensions as AutoCAD
+                           dimensions.</p>
+                     </dd>
+                     <dt>Solid Edge File</dt>
+                     <dd class="ml-3">
+                        <p>Displays the name of the Solid Edge file that you want to export. This file is the
+                           source file for retrieving used fonts, line types, and line widths. This information
+                           populates the remaining dialogs for fonts, line types and line width to color mapping.
+                           This is the name of the active file being saved and is not user-defined.</p>
+                     </dd>
+                     <dt>AutoCAD Configuration File</dt>
+                     <dd class="ml-3">
+                        <p>Displays the name of the AutoCAD configuration file that you want to use for the exported
+                           file. This file contains the user-defined settings, such as font, and line type mapping.
+                           The configuration file used by default is <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse5a#seacadini" rel="acse5a">seacad.ini</a>which is located in the Solid Edge Program folder. This file name and folder are reserved
+                           for Solid Edge Draft and cannot be overwritten.</p>
+                        <p>User-defined configuration files that are used across network drives or defined through
+                           network drives are supported.</p>
+                        <p>You can click the Browse button to select the configuration file that you want to
+                           use.</p>
+                     </dd>
+                     <dt>Reset</dt>
+                     <dd class="ml-3">
+                        <p>Displays a dialog box where you can reset wizard options to their default values.
+                           You can reset options on the active page or you can reset options on all pages in
+                           the wizard. If you select <b>Reset all options</b>, the system resets options for all pages and displays the first page of the wizard.
+                           </p>
+                     </dd>
+                     <dt>Cancel</dt>
+                     <dd class="ml-3">
+                        <p>Discards all input and exits the command.</p>
+                     </dd>
+                     <dt>Back</dt>
+                     <dd class="ml-3">
+                        <p>Moves to the previous dialog box of the Translation Wizard.</p>
+                     </dd>
+                     <dt>Next</dt>
+                     <dd class="ml-3">
+                        <p>Moves to the next dialog box of the Translation Wizard.</p>
+                     </dd>
+                     <dt>Finish</dt>
+                     <dd class="ml-3">
+                        <p>Finishes the wizard and returns to the Save As dialog box.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1h" rel="acexpwizms1h">Export one or all sheets to AutoCAD</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz1d" rel="acexpwiz1d">Solid Edge to AutoCAD Translation Wizard</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1d" rel="acexpwizms1d">Solid Edge to AutoCAD Translation Wizard (Model Space Scaling)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz4d" rel="acexpwiz4d">Solid Edge to AutoCAD Translation Wizard (Line Width Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz3d" rel="acexpwiz3d">Solid Edge to AutoCAD Translation Wizard (Line Type Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexplmwiz1d" rel="acexplmwiz1d">Solid Edge to AutoCAD Translation Wizard (Layer Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz5d" rel="acexpwiz5d">Solid Edge to AutoCAD Translation Wizard (Font Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/achatchexp1d" rel="achatchexp1d">Solid Edge to AutoCAD Translation Wizard (Hatch Style Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz7d" rel="acexpwiz7d">Solid Edge to AutoCAD Translation Wizard (Configuration File Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1d" rel="acexpwizms1d">Solid Edge to AutoCAD Translation Wizard (Model Space Scaling)</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727826" rel="xid727826">Saving to AutoCAD</a><br><br></div>
+            <div class="footer-content">Solid Edge to AutoCAD Translation Wizard (File Mapping), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

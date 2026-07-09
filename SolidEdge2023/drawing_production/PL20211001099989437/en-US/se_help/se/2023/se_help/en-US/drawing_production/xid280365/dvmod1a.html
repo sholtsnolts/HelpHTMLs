@@ -1,0 +1,137 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Drawing view updates</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Drawing view updates"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dvmod1a">
+                     <h1 class="topic-title">Drawing view updates</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you change parts and assemblies depicted in <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/part_view" rel="part_view">part views</a>, you can easily update the views so they match the new model geometry. This works
+                     because part views are <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associative</a> to the 3D part or assembly they were created from. For example, if you add a hole
+                     to a 3D part in the Part environment and then update the part view in the Draft environment,
+                     the hole geometry is added to the 2D drawing.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/drawing_production/dvw_general/detail2a.gif"></p>
+                  <p>When a drawing view is out-of-date with respect to the 3D model, the software displays
+                     a solid border or box around it on the drawing sheet. To update the drawing view display
+                     as well as the retrieved dimensions, use the <a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvupdt1c" rel="dvupdt1c">Update Views command.</a></p>
+                  <h4 class="division-title">Tools for checking drawing view out-of-date status</h4>
+                  <div>
+                     <p>There are several tools that work together to identify drawing view out-of-date status
+                        conditions.</p>
+                     <ul>
+                        <li>
+                           <h5>Drawing View Tracker</h5>
+                           <p> The <a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvtrac1c" rel="dvtrac1c">Drawing View Tracker</a> checks for both out-of-date geometry in part views and out-of-date model status in
+                              the document and provides specific instructions for what to do to update them. When
+                              you open a document with out-of-date part views, <b>Drawing View Tracker</b> displays a warning that the views need to be updated before dimensioning.</p>
+                        </li>
+                        <li>
+                           <h5>Assembly Configuration Changes Make Drawing Views Out-of-Date In This Draft File option</h5>
+                           <p> This option (on the General page of the Solid Edge Options dialog box) is an automatic
+                              check for display configuration changes for all assembly views in the draft document
+                              that have the <b>Configuration Match</b> option enabled. Display configurations store both the show/hide and the simplified/designed
+                              status of the parts in the assembly. When this option is set, changes to an assembly
+                              configuration associated with a drawing view will make the view out-of-date. All drawing
+                              views in the document are checked automatically.</p>
+                        </li>
+                        <li>
+                           <h5>Configuration Check</h5>
+                           <p> This option (on the Display page of the Properties dialog box for a selected drawing
+                              view) is a manual check for display configuration changes for the assembly shown in
+                              the currently selected drawing view.</p>
+                        </li>
+                        <li>
+                           <h5>Configuration Match</h5>
+                           <p> This option (on the Display page of the Properties dialog box for a selected drawing
+                              view) controls whether show/hide part settings in the drawing view match the show/hide
+                              settings within the assembly configuration. Views without this option set will not
+                              be out-of-date after changes are made to an assembly display configuration.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using the Drawing View Tracker</h4>
+                  <div>
+                     <p>The <b>Drawing View Tracker</b> provides specific information on updating both out-of-date part views and out-of-date
+                        models. While a view becomes out-of-date when the 3D model to which it is associative
+                        changes, a model becomes out-of-date when links external to the Draft environment
+                        change. Out-of-date model causes may include, but are not limited to:</p>
+                     <ul>
+                        <li>
+                           <p>A part file modified outside the context of its parent assembly file</p>
+                        </li>
+                        <li>
+                           <p>Broken internal links in a part file</p>
+                        </li>
+                     </ul>
+                     <p>Out-of-date model conditions cannot be resolved inside the Draft environment. Because
+                        different circumstances can cause an out-of-date model condition, the <b>Drawing View Tracker</b> provides step-by-step instructions for updating out-of-date models in the current
+                        document. Solid Edge displays a solid border around an out-of-date view (A), a corner
+                        border around an out-of-date model (B), and both a solid border and a corner border
+                        when both out-of-date view and out-of-date model conditions apply (C).</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/drawing_production/dvw_general/dva.gif"></p>
+                     <p>Correcting an out-of-date model condition usually causes an out-of-date view condition.</p>
+                  </div>
+                  <h4 class="division-title">Failed dimensions after updating part views</h4>
+                  <div>
+                     <p>When you update a part view, a dimension may fail to update because the edge it referred
+                        to is no longer displayed in the part view. For example, if you deleted a hole feature
+                        in the part model, the edge representing the hole will be removed from the part view
+                        when you update it.</p>
+                     <p>When a dimension fails to update, it changes to the "failed" or detached color. The
+                        color change helps you detect failed dimensions easily, so you can edit the drawing.
+                        All failed dimensions for a part view form a single selection set, in case you want
+                        to delete them all at once.</p>
+                  </div>
+                  <h4 class="division-title">Reattaching dimensions</h4>
+                  <div>
+                     <p>Sometimes you may want to reattach failed dimensions in a drawing. For example, if
+                        you delete one of several holes that comprise a single hole feature on a part, and
+                        the edge representing the hole was dimensioned on the drawing, the dimension will
+                        fail. Instead of deleting the dimension and placing a new dimension, you can drag
+                        and drop the dimension line handle point to one of the remaining hole edges on the
+                        part view. This saves time because any prefixes, tolerances, and other formatting
+                        on the failed dimension are applied to the new dimension. You can also drag and drop
+                        the dimension line handle point(s) to different parent object(s), even if they have
+                        not failed.</p>
+                  </div>
+                  <h4 class="division-title">Tracking changed dimensions and annotations</h4>
+                  <div>
+                     <p>Wherever possible, Solid Edge attempts to rebind dimensions and annotations that were
+                        detached after a drawing view update.</p>
+                     <p>All changed dimensions and annotations, whether they have been repaired or not, are
+                        reported in the <b>Dimension Tracker</b> dialog box. To activate this dialog box, select the <b>Tools</b>→<b>Dimensions</b>→<a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/trdmch1c" rel="trdmch1c">Track Dimension Changes</a> command.</p>
+                     <p>To learn more, see <a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/trdmch1a" rel="trdmch1a">Tracking dimensions and annotations</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvtrac1h" rel="dvtrac1h">Track drawing views</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvupdt1h" rel="dvupdt1h">Update part views in a document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/update3h" rel="update3h">Update a drawing view after editing a part or assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/mkgchg3h" rel="mkgchg3h">Open the 3D document that a drawing view references</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid1291310" rel="xid1291310">Undo drawing view changes</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvtrac1c" rel="dvtrac1c">Drawing View Tracker command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvtrac1d" rel="dvtrac1d">Drawing View Tracker dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvtrac2e" rel="dvtrac2e">View out-of-date</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvtrac1e" rel="dvtrac1e">Model out-of-date</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvupdt1c" rel="dvupdt1c">Update Views command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/update2c" rel="update2c">Update Command</a><br><br></div>
+            <div class="footer-content">Drawing view updates, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

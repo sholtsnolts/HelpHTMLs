@@ -1,0 +1,156 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Solid Edge to AutoCAD Translation Wizard (Layer Mapping)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Solid Edge to AutoCAD Translation Wizard (Layer Mapping)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="acexplmwiz1d">
+                     <h1 class="topic-title">Solid Edge to AutoCAD Translation Wizard (Layer Mapping)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Assists in mapping Solid Edge layers and attributes to an AutoCAD layer. This dialog
+                     box is displayed only if you select the Enable Layer and Attribute Mapping control
+                     on the AutoCAD Translation Wizard (File Mapping) dialog box.</p>
+                  <p>This dialog box allows you to map layers from Solid edge to AutoCAD while applying
+                     attributes, such as line type, color, and width, to the layer. The layer mapping dialog
+                     box displays layers from 3 locations:</p>
+                  <ul>
+                     <li>
+                        <p>Current document.</p>
+                     </li>
+                     <li>
+                        <p>Layers saved to the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse5a#seacadini" rel="acse5a">seacad.ini file</a> from previous translations.</p>
+                     </li>
+                     <li>
+                        <p>A special set of layers added to control the export of 3D derived geometries.</p>
+                     </li>
+                  </ul>
+                  <p>The special set of layers added to this list are:</p>
+                  <ul>
+                     <li>
+                        <p>Center Lines—centerlines created from flat patterns, tube centerlines, and any centerlines
+                           that you have created on your draft sheet.</p>
+                     </li>
+                     <li>
+                        <p>Flow Lines—flow lines created from an exploded view.</p>
+                     </li>
+                     <li>
+                        <p>Hatch—hatch derived from a 3-D model such as a section view. This also includes any
+                           hatch that you may have created using the hatch command.</p>
+                     </li>
+                     <li>
+                        <p>Hidden—hidden lines derived from a 3-D model. This does not automatically map dashed
+                           line types you may have added to a view or your working sheet.</p>
+                     </li>
+                     <li>
+                        <p>Visible—visible lines created from a 3-D model. This does not automatically map continuous
+                           line types you may have added to a view or your working sheet.</p>
+                     </li>
+                     <li>
+                        <p>Tangent—tangent lines derived from a 3-D model.</p>
+                     </li>
+                     <li>
+                        <p>Reference—lines created from reference geometry.</p>
+                     </li>
+                  </ul>
+                  <dl>
+                     <dt>Wizard Options</dt>
+                     <dt>Delete Row</dt>
+                     <dd class="ml-3">
+                        <p>Deletes the entire row of layer information for the layers found in the seacad.ini
+                           file. You cannot delete layers found in the active document or the special set of
+                           layers added by Solid Edge. You can only delete layers that were previously defined
+                           and stored in the seacad.ini file. To delete a layer, select the layer to highlight
+                           the entire row, then click Delete Row.</p>
+                     </dd>
+                     <dt>Solid Edge Layer Name</dt>
+                     <dd class="ml-3">
+                        <p>Displays the list of all layers within the active document, along with any layers
+                           that were previously defined and stored in the seacad.ini file. The layers are only
+                           a list and cannot be selected for edit.</p>
+                     </dd>
+                     <dt>AutoCAD Layer Name</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the name of the layer created in the AutoCAD file. By default, this is the
+                           same name as the Solid Edge layer name. You can click the name and type a new layer
+                           name. Multiple Solid Edge layers can be mapped to a single layer in AutoCAD. When
+                           the same AutoCAD name is used more than once the duplicated rows are linked to the
+                           first occurrence of that name. Further edits to change color, line type, or width
+                           can only occur through the master row. To unlink the rows, edit the AutoCAD name to
+                           be unique. The Hide/Show state of this layer is determined by the master row.</p>
+                     </dd>
+                     <dt>Line Type By Layer</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the line type of the AutoCAD layer. To enable this field, click the arrow
+                           to the left of the field. Once enabled, click the pull-down arrow to display a list
+                           of line types defined in the seacad.ini file, from which you can choose. If disabled,
+                           the line type is determined by the object's assigned line type in Solid Edge and the
+                           line type mapping defined in the [Write Linestyles] section of the seacad.ini file.</p>
+                     </dd>
+                     <dt>Color By Layer</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the color of the AutoCAD layer. To enable this field, click the arrow to
+                           the left of the field. If enabled, the color of the AutoCAD object is determined by
+                           the line width of the Solid Edge object specified in the [Write Width] section of
+                           the seacad.ini file. If disabled, the color of the AutoCAD object is determined by
+                           the color of the object in Solid Edge. For example, if the object is red in Solid
+                           Edge, it will be red in AutoCAD. The valid range for AutoCAD colors is 1 - 255.</p>
+                     </dd>
+                     <dt>Width By Layer</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the line width of the AutoCAD layer. To enable this field, click the arrow
+                           to the left of the field. Once enabled, click the pull-down arrow to display a list
+                           of line widths defined in the seacad.ini file, from which you can choose. If disabled,
+                           the line width is determined by the actual line width of the Solid Edge object.</p>
+                     </dd>
+                     <dt>Reset</dt>
+                     <dd class="ml-3">
+                        <p>Displays a dialog box where you can reset wizard options to their default values.
+                           You can reset options on the active page or you can reset options on all pages in
+                           the wizard. If you select <b>Reset all options</b>, the system resets options for all pages and displays the first page of the wizard.
+                           </p>
+                     </dd>
+                     <dt>Cancel</dt>
+                     <dd class="ml-3">
+                        <p>Discards all input and exits the command.</p>
+                     </dd>
+                     <dt>Next</dt>
+                     <dd class="ml-3">
+                        <p>Moves to the next dialog box of the Translation Wizard.</p>
+                     </dd>
+                     <dt>Finish</dt>
+                     <dd class="ml-3">
+                        <p>Finishes the wizard and returns to the Save As dialog box.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1h" rel="acexpwizms1h">Export one or all sheets to AutoCAD</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz1d" rel="acexpwiz1d">Solid Edge to AutoCAD Translation Wizard</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1d" rel="acexpwizms1d">Solid Edge to AutoCAD Translation Wizard (Model Space Scaling)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz4d" rel="acexpwiz4d">Solid Edge to AutoCAD Translation Wizard (Line Width Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz3d" rel="acexpwiz3d">Solid Edge to AutoCAD Translation Wizard (Line Type Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz5d" rel="acexpwiz5d">Solid Edge to AutoCAD Translation Wizard (Font Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/achatchexp1d" rel="achatchexp1d">Solid Edge to AutoCAD Translation Wizard (Hatch Style Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz7d" rel="acexpwiz7d">Solid Edge to AutoCAD Translation Wizard (Configuration File Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz2d" rel="acexpwiz2d">Solid Edge to AutoCAD Translation Wizard (File Mapping)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1d" rel="acexpwizms1d">Solid Edge to AutoCAD Translation Wizard (Model Space Scaling)</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727826" rel="xid727826">Saving to AutoCAD</a><br><br></div>
+            <div class="footer-content">Solid Edge to AutoCAD Translation Wizard (Layer Mapping), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

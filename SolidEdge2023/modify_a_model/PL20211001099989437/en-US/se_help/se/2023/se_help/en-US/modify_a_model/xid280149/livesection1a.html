@@ -1,0 +1,120 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with Live Sections</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with Live Sections"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="livesection1a">
+                     <h1 class="topic-title">Working with Live Sections</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/livesection1c" rel="livesection1c">Live Section command</a> to create a 2D cross-section on a plane through a 3D part. For example, you can select
+                     one of the principal planes on the base coordinate system as the plane for a live
+                     section.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/modify_model/live_section/bj_livesection1.gif"></p>
+                  <p>Live sections can make it easier to visualize and edit certain types of parts, such
+                     as parts that contain revolved features. You can then edit the 2D elements of the
+                     live section to modify 3D model geometry.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/modify_model/live_section/bj_livesection2.gif"></p>
+                  <h4 class="division-title">Creating live sections</h4>
+                  <div>
+                     <p>You can select a planar face, reference plane, or principal plane on a coordinate
+                        system as the plane for the live section. When you select the plane, a live section
+                        is created, similar to a section view in a drawing. When the live section passes through
+                        a procedural feature, such as a hole, an edge set is created.</p>
+                     <p>An entry for the live section is added to the Live Sections collector in PathFinder.</p>
+                  </div>
+                  <h4 class="division-title">Automatic creation of live sections</h4>
+                  <div>
+                     <p>When creating a revolved extrusion or cutout, use the Create Live Section option (A)
+                        to create a live section upon feature completion. The option is on by default.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/icons/part/livesection_revolve.gif"></p>
+                     <p>All sketch dimensions migrate to the live section.</p>
+                  </div>
+                  <h4 class="division-title">Editing live sections</h4>
+                  <div>
+                     <p>You edit a live section using the Select tool and the 2D steering wheel editing handle.
+                        You can edit individual elements or you can edit the entire live section.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Editing 2D elements in a live section to modify the 3D model</h5>
+                           <p>When you select a 2D element in a live section, the 2D steering wheel editing tool
+                              appears. You can use the handles on the 2D steering wheel to move or rotate the live
+                              section element to modify 3D model geometry. If the live section element you select
+                              is an edge set created from a procedural feature, such as a hole, the editing handle
+                              for the procedural feature is also displayed.</p>
+                           <p>You can also place PMI dimensions on the 2D elements of a live section and then edit
+                              the dimension value to modify the model.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When moving a live section element using the 2D steering wheel edit tool or a PMI
+                                 dimension, the relationships identified in the Design Intent panel are used to preserve
+                                 or ignore the design intent you have previously built into the model as you make the
+                                 move.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <h5>Editing the entire live section</h5>
+                           <p>You can select the entire live section using PathFinder or QuickPick. You can then
+                              use the steering wheel to move or rotate the entire live section. When you move or
+                              rotate the entire live section, 3D model geometry is not modified. The live section
+                              recalculates at its new position. This can be useful when you have modified the 3D
+                              model using other methods, such that the live section is no longer positioned where
+                              you want it.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Displaying live sections</h4>
+                  <div>
+                     <p>You can use the check box adjacent to a live section entry in PathFinder to show or
+                        hide a live section in the graphics window. You can use the check box adjacent to
+                        the Live Sections collector to display or hide all the live sections.</p>
+                     <p>You can use the Live Section Colors section on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/color2d" rel="color2d">Colors page</a> of the Solid Edge Options dialog box to specify the colors you want to use for the
+                        edges, centerlines, and regions for live sections.</p>
+                  </div>
+                  <h4 class="division-title">Model editing and live section update</h4>
+                  <div>
+                     <p>The live section automatically updates when you add or remove features, or directly
+                        edit the 3D model. For example, if you add a pattern of holes to a synchronous model,
+                        the live section automatically updates.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/modify_model/live_section/bj_livesection3.gif"></p>
+                  </div>
+                  <h4 class="division-title">Live sections in an assembly</h4>
+                  <div>
+                     <p>You can edit a 2D element on a live section to modify a part in the context of an
+                        assembly. You can use the keypoints on adjacent parts to modify the live section element
+                        with respect to other parts in the assembly.</p>
+                     <p>You can use commands on the shortcut menu to control the display of live sections
+                        on a selected part.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/livesection1h" rel="livesection1h">Create a live section</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/livesection1c" rel="livesection1c">Live Section command</a><br><br></div>
+            <div class="footer-content">Working with Live Sections, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

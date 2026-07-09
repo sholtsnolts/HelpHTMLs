@@ -1,0 +1,634 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Thermal loads</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Thermal loads"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="load4a">
+                     <h1 class="topic-title">Thermal loads</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>The following load types can be used in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">thermal studies</a>, such as steady state or transient heat transfer studies, and in thermal <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">coupled studies</a>:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="#temp">Temperature loads</a>, to apply a constant temperature to individual entities in the model.</p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#heatflux">Heat Flux loads</a>, to conduct heat in a part or sheet metal model.</p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#heatgen">Heat Generation loads</a>, to conduct heat in an assembly model </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#conv">Convection loads</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#rad">Radiation loads</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#constraint">Thermal loads used as constraints</a></p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>For basic information about conduction, convection, and radiation, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1655947#ht_methods" rel="xid1655947">Heat transfer concepts</a> section in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1655947" rel="xid1655947">Thermal analysis</a> help topic.</p>
+                  </div>
+                  <p>The thermal load commands are available in the <b>Thermal Loads</b> group on the ribbon, and on the shortcut menu in the <b>Simulation</b> pane. These commands are used to define all of the boundary conditions—both the loads
+                     and the constraints—in a thermal study.</p>
+                  <p>Before you place a load, you can set options for it using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>. You also can specify advanced options for convection and radiation loads in the
+                     <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a>, and for transient heat transfer studies using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a>.</p>
+                  <h4 class="division-title" id="temp"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_temp_button.gif"> Temperature loads</h4>
+                  <div>
+                     <p>In thermal studies and coupled studies, you can use the <b>Thermal Loads</b> group→<b>Temperature</b> command to study the gradient thermal conditions when a fixed temperature is applied
+                        continuously at equilibrium. </p>
+                     <p>Use the <b>Temperature</b> load command when:</p>
+                     <ul>
+                        <li>
+                           <p>You want to apply different temperature loads.</p>
+                        </li>
+                        <li>
+                           <p>You want to apply a temperature load to selected entities <em>or</em> to an entire body.</p>
+                        </li>
+                        <li>
+                           <p>The time it takes to reach thermal equilibrium <em>is not</em> what you want to study. </p>
+                        </li>
+                     </ul>
+                     <p>A constant temperature can result in an inflow of heat into the model when adjacent
+                        nodes have a lower temperature. It can lead to an outflow of heat from the model when
+                        adjacent nodes have a higher temperature.</p>
+                     <ul>
+                        <li>
+                           <p>Geometry—You can select one or more features, faces, edges, corners, and points. In
+                              assembly models, you also can select bodies. In frame models, you can select nodes
+                              and curves. You can apply the load to entities of the same type, to mixed entities,
+                              and to entities that have other loads applied to them.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_ssht_temp.gif"></p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify a temperature. The default units are degrees
+                              Fahrenheit or Celsius. Zero and negative values are allowed. </p>
+                        </li>
+                        <li>
+                           <p>Load distribution—The temperature load value is not distributed. If you select multiple
+                              entities, the temperature that you specify is applied to each of the selected entities.
+                              </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>If you select two faces and enter a temperature value of 100 degrees, then a 100 degree
+                                 load is applied to each face.</p>
+                           </div>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>When a temperature load is placed on opposing ends (in this example,10 C and 100 C),
+                           the heat energy travels through conduction across the bar. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_temp_conduction.gif"></p>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>This model shows the temperature distribution results from two thermal temperature
+                           loads and one convection load applied to nodes and elements.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_temp2_conv.gif"></p>
+                     </div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You also can use the <b>Body Temperature</b> command in the <b>Body Loads</b> group in heat transfer studies:</p>
+                        <ul>
+                           <li>
+                              <p>To provide an initial temperature estimate to speed calculations in NX Nastran.</p>
+                           </li>
+                           <li>
+                              <p>As a required load for studies involving radiation. </p>
+                           </li>
+                           <li>
+                              <p>As a required load for a transient heat transfer study to define the default initial
+                                 temperature for the analysis. For a part model, a body temperature load is added automatically
+                                 based on the <b>Default Initial Temperature</b> assigned in the <b>Transient Heat Options</b> dialog box. For an assembly model, you must select the <b>Body Temperature</b> command to specify the temperature for the bodies included in the study.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="heatflux"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_heatflux_button.gif"> Heat Flux loads</h4>
+                  <div>
+                     <p>Use the <b>Heat Flux</b> load command to measure the rate at which thermal energy is transferred through a
+                        unit area (surface, curve, edge, node, or point). The <b>Heat Flux</b> command defines a heat power, heat generation, or heat transfer load.</p>
+                     <ul>
+                        <li>
+                           <p>Geometry—In part and sheet metal, you can select faces, surfaces, edges, corners,
+                              points, or features. If you select multiple entities, they must be of the same type.
+                              In a frame model, you can select the lines representing the beams. </p>
+                        </li>
+                        <li>
+                           <p>Load distribution—You can select the <b>Total Load</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_total_button_off.gif"> on the command bar to divide the load value among the entities, instead of applying
+                              the total load value to each entity.</p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify the heat flux value and unit (heat power/unit
+                              area). For total loads, the default units are W. For distributed loads, the units
+                              are based on the entity type you select: </p>
+                           <table cellspacing="1" border="1" cellpadding="4" rules="all" width="100%" frame="box">
+                              <colgroup span="1">
+                                 <col span="1">
+                                 <col span="1">
+                                 <col span="1">
+                              </colgroup>
+                              <thead>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Entity</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Total</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Distributed</p>
+                                    </td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Point </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>W (Watt)</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>W</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Edge </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>W</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>W/m</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Face </p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>W</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>W/m²</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" colspan="1" height="27">
+                                       <p>Feature</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" height="27">
+                                       <p>W</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" height="27">
+                                       <p>W/m²</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                           <p>A positive value indicates heat entering the model entity. A negative value indicates
+                              heat exiting the model entity.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you use a heat flux or heat generation load, you must <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834#study4a_dissipateheat" rel="xid1017834">define a heat dissipation mechanism</a>, such as a convection load or a temperature load. </p>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>A heat flux load is applied to the brake pad surfaces on both sides of this model
+                           of a rotor.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_heatflux.gif"></p>
+                        <p>To dissipate heat, a convection load is applied to all of the surfaces of the brake
+                           rotor except for the surfaces where the heat flux load is applied.</p><img class="img-fluid d-block" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_heatflux_conv.gif"></div>
+                  </div>
+                  <h4 class="division-title" id="heatgen"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_heatgen_button.gif"> Heat Generation loads</h4>
+                  <div>
+                     <p>In an assembly model, use the <b>Heat Generation</b> command in the <b>Thermal Loads</b> group to define a heat power, heat generation, or heat transfer load for whole bodies.
+                        You can apply a heat generation load to bodies or components where another load already
+                        exists. </p>
+                     <p>A heat generation load measures the rate at which thermal energy is transferred through
+                        a unit volume (a body or component). Typically, this heat must be conducted to the
+                        body boundaries and removed by convection or radiation heat transfer. </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—You can select bodies in an assembly. Use QuickPick to select individual
+                              components or design bodies within the assembly.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_heatgen.gif"></p>
+                        </li>
+                        <li>
+                           <p>Load distribution—You can select the <b>Total Load</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_total_button_off.gif"> on the command bar to divide the load value among the entities, instead of applying
+                              the total load value to each entity.</p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify the heat power per unit volume. For total
+                              loads, the default units are W. For distributed loads, the units are Power/Area (W/m³).</p>
+                           <p>A positive value indicates heat entering the model entity. A negative value indicates
+                              heat exiting the model entity.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>This assembly model of an electrical component contains two design bodies: a heat
+                           source (the button in the center) and a heat sink (the body with tabbed fins).</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/heatsink_ssht_res_temp_abc.gif"></p>
+                        <ul>
+                           <li>
+                              <p>A heat generation load is applied to the heat source (A).</p>
+                           </li>
+                           <li>
+                              <p>A heat flux load is applied to the surfaces that reflect the heat from the heat source
+                                 (B).</p>
+                           </li>
+                           <li>
+                              <p>To dissipate heat from the model, a free convection load is applied to the entire
+                                 heat sink (C) using the <b>Selection Type</b>=<b>Feature</b>.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="conv"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_conv_button.gif"> Convection loads</h4>
+                  <div>
+                     <p>A convection load measures the exchange of thermal energy when a gas or fluid moves
+                        from one surface to another surface or to its surroundings due to a temperature differential.
+                        </p>
+                     <p>The <b>Convection</b> command in the <b>Thermal Loads</b> group defines a free convection load. Use a free convection load to evaluate heat
+                        transfer due to natural convection. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p><em>Natural convection</em> occurs when the flow of a gas or liquid is induced by gravitational differences in
+                           densities resulting from temperature changes. An example of a natural convection load
+                           is the exchange of air through a glass window. </p>
+                        <p>When the heat transfer process is forced by some external method, such as by a fan,
+                           it is referred to as <em>forced convection</em>. </p>
+                     </div>
+                     <h5>Free Convection</h5>
+                     <ul>
+                        <li>
+                           <p>Geometry—You can select faces, edges, corners, and features. You can apply the load
+                              to a mix of geometric entities by changing the <b>Selection Type</b> on the command bar.</p>
+                        </li>
+                        <li>
+                           <p>Values—Free convection loads require two values:</p>
+                           <ul id="load4a_filmcoefficient">
+                              <li>
+                                 <p><b>Film Coefficient</b>—Also known as a heat transfer coefficient or a convection coefficient, this value
+                                    represents the rate at which a fluid or gas transfers heat, such as when the top surface
+                                    of a circuit board freely convects to its surroundings. The film coefficient is influenced
+                                    by the density, viscosity, and velocity of the fluid or gas.</p>
+                                 <p>The default units are derived from the units defined in the file properties, for example,
+                                    1 W/m²K. If you type the value using different units, they are converted to the default
+                                    document units.</p>
+                                 <p>Zero and negative values are not allowed. </p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>Film coefficient values vary widely with the surface material that fluids and gases
+                                       pass over or through. The following table illustrates the range of free convection
+                                       values.</p>
+                                 </div>
+                                 <div>
+                                    <table cellspacing="1" border="1" cellpadding="4" width="100%" frame="box">
+                                       <colgroup span="1">
+                                          <col span="1">
+                                          <col span="1" align="left">
+                                          <col span="1">
+                                          <col span="1">
+                                       </colgroup>
+                                       <tbody>
+                                          <tr>
+                                             <td rowspan="2" colspan="1">
+                                                <p><b>Fluid or gas (free convection mode)</b></p>
+                                             </td>
+                                             <td rowspan="2" colspan="1">
+                                                <p><b>Application</b></p>
+                                             </td>
+                                             <td rowspan="1" colspan="2">
+                                                <p><b>Typical coefficient values (units)</b></p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>(BTU / hr-ft²F)</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>(W/m²K)</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Air</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Natural convection</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>N/A</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>5 to 25</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Air</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Forced convection</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>N/A</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>20 to 300</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Air </p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Room to outside air transfer, through a typical glass window </p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>0.1 to 0.5</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>0.5 to 2.5</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Water </p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Flow through a pipe</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>0.5 to 20</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>20 to 100</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Liquids </p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Liquids inside and outside tubes</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>18 to 176</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>50 to 100</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Gases </p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Gases at atmospheric pressure inside and outside tubes in a heat exchanger</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>0.2 to 3.5</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>2 to 25</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="2" colspan="1">
+                                                <p>Boiling water </p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>In a pool or container</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>440 to 6,200</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>2,500 to 3,500</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Flowing through a tube</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>880 to 17,600</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>5,000 to 100,000</p>
+                                             </td>
+                                          </tr>
+                                          <tr>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Condensation of water vapor, at 1 atmosphere</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>Vertical surfaces</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>700 to 2,000</p>
+                                             </td>
+                                             <td rowspan="1" colspan="1">
+                                                <p>4,000 to 11,300</p>
+                                             </td>
+                                          </tr>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p><b>Ambient Temperature</b>—Also referred to as surrounding or bulk temperature. Heat is convected to or from
+                                    the surface toward the specified ambient temperature.</p>
+                                 <p>The default value is 20 degrees Celsius. Zero and negative values are allowed.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Options</p>
+                           <ul>
+                              <li>
+                                 <p>You can specify advanced options for free convection loads in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a>.</p>
+                              </li>
+                              <li>
+                                 <p>You can change the default direction of a convection load using the <b>Flip Direction</b> button on the command bar. A convection load on a solid face or surface is applied
+                                    in the positive normal direction by default. You can use the button to flip the load
+                                    to the negative normal direction (the opposite side). </p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>In this model of a fire pit, a temperature load in the interior surface sets the temperature
+                           for a wood burning fire. Convection loads also are defined for the following:</p>
+                        <ul>
+                           <li>
+                              <p>The two interior surfaces of the chimney.</p>
+                           </li>
+                           <li>
+                              <p>The exterior surfaces of the fire pit.</p>
+                           </li>
+                           <li>
+                              <p>The support legs.</p>
+                           </li>
+                           <li>
+                              <p>The top face of the base plate.</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_convection.gif"></p>
+                        <p>The default direction of the load is normal to the selected surface or face. You can
+                           use the <b>Flip Direction</b> button on the command bar to reverse the load direction.</p>
+                        <p>If a convection load is applied to an edge, the load direction is fixed in the +Z
+                           direction.</p>
+                     </div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Convection loads are not available for beam mesh types in structural frame models.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="rad"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_ssht_rad_button.gif"> Radiation loads</h4>
+                  <div>
+                     <p>Thermal radiation is the heat transfer due to electromagnetic radiation emitted by
+                        the surface of a body. The heat transfer occurs when the emitted radiation strikes
+                        another surface or body and is absorbed, reflected, or transmitted to another entity.</p>
+                     <p>Any body with a temperature above 0 degrees Kelvin emits radiation, as do all heated
+                        solids and liquids, as well as some heated gasses. </p>
+                     <p>Use the <b>Radiation</b> command in the <b>Thermal Loads</b> group to apply either of the following radiation load types: </p>
+                     <dl>
+                        <dt><b>Radiation to Space</b></dt>
+                        <dd class="ml-3">
+                           <p>A radiation load that defines the radiant exchange between a face or surface and infinite
+                              (<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid280905" rel="xid280905">blackbody</a>) space.</p>
+                        </dd>
+                        <dt><b>Enclosure Radiation</b></dt>
+                        <dd class="ml-3">
+                           <p>A radiation load that defines the radiant exchange among a group of surface elements.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Enclosure radiation loads in assemblies can transfer heat even when assembly connectors
+                                 are not defined. </p>
+                           </div>
+                        </dd>
+                     </dl>
+                     <p>Examples of the two types of radiation include a camp fire (radiation to space) or
+                        a microwave (enclosure radiation). </p>
+                     <p>The following information is required to define radiation loads: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—You can use the <b>Selection Type</b> list on the command bar to specify the type of geometry you want to select, and then
+                              select individual faces or surfaces, entire features, edges, or points in the graphics
+                              window. If you are using a surface mesh, you may want to use the <b>Edges/Corners</b> option to select lines and points on the surface.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Radiation loads are not available for beam mesh types in structural frame models.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Radiation Type and Radiation Values—Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a> to choose the radiation load type (<b>Radiation to Space</b> or <b>Enclosure Radiation</b>), and to enter radiation load values (surface emissivity, absorptivity, ambient temperature,
+                              view factor, number of cavities or enclosures, and view factor). </p>
+                           <p>You can open the dialog box using the <b>Options</b> button on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>.</p>
+                           <p>The default radiation load type is <b>Radiation to Space</b>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When solving an enclosure radiation load applied to models with relatively small geometry
+                                 and small mesh elements, the <b>ZTOL</b> option on the <b>Radiation Load Options</b> dialog box enables the study to solve without fatal errors. </p>
+                              <p>For example, use the <b>ZTOL</b> parameter to resolve fatal processing errors similar to the following:</p>
+                              <div class="message-text">*** FATAL*** DIMENSIONAL LENGTH: 9.765587644E-12 IS SMALLER THAN "ZTOL": 1.000000013E-10
+                                 REASSIGN "ZTOL" ON VIEW3D BULK DATA TO BE SMALLER THAN THE DIMENSIONAL LENGTH. </div>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Load distribution—Radiation loads are distributed uniformly across the selected geometry.</p>
+                        </li>
+                        <li>
+                           <p>Body temperature load—This is required for all radiation loads. Use the <b>Body Temperature</b> command in the <b>Body Loads</b> group to specify a base temperature at any time before meshing. This ensures that
+                              all nodes and elements are assigned a default temperature, even when no load is specifically
+                              applied to them.</p>
+                           <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a#bodytemp" rel="load1a">Body Temperature loads</a> in the Structural and body loads help topic.</p>
+                        </li>
+                        <li>
+                           <p>Options—You can specify advanced options for enclosure radiation loads in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a>. </p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>The following loads are applied to this simplified model of an oven. The sides are
+                           removed to better show the interior.</p>
+                        <ul>
+                           <li>
+                              <p>A body temperature load sets the default temperature.</p>
+                           </li>
+                           <li>
+                              <p>A heat flux load applied to the right wall of the oven represents the heat source.</p>
+                           </li>
+                           <li>
+                              <p>An enclosure radiation load applied to the interior walls represents the heated oven
+                                 walls.</p>
+                           </li>
+                           <li>
+                              <p>A second enclosure radiation load applied to the object in the middle of the oven
+                                 represents food cooking and emitting its own heat.</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_rad_heatflux_bodytemp.gif"></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="constraint">Thermal loads used as constraints</h4>
+                  <div>
+                     <p>The commands in the <b>Thermal Loads</b> group also are used as thermal constraints in thermal studies. A thermal constraint
+                        applies a constant temperature to geometry or to nodes. The <b>Temperature</b>, <b>Convection</b>, <b>Heat Flux</b>, and <b>Heat Generation</b> loads can be used as thermal constraints to conduct heat across a model and to dissipate
+                        heat. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>In a steady state heat transfer study, when a thermal load is applied on one entity
+                           (edge, point, surface, component), the results show the part conducting the heat until
+                           it is at thermal equilibrium. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_temp_bar1.gif"></p>
+                        <p>To show a temperature gradient across the part, you can apply a second <b>Temperature</b> load as a thermal constraint, using a different temperature value on an opposite
+                           entity. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_temp_bar2.gif"></p>
+                        <p>To learn how this works, refer to the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834#study4a_defining" rel="xid1017834">Defining thermal studies</a> section, in the Thermal studies help topic.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Thermal loads, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

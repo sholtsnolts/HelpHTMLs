@@ -1,0 +1,85 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Opening ACIS Documents in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Opening ACIS Documents in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="openingacis1a">
+                     <h1 class="topic-title">Opening ACIS Documents in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can open ACIS documents in Solid Edge with the Open command. On the Open File
+                     dialog box, after you select the ACIS (.SAT) document you want to open, click the
+                     Options button to display the Import Options for ACIS dialog box. You can use the
+                     dialog box to control how the ACIS document is opened in Solid Edge.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When importing assemblies containing more than 600 to 700 part files you need to set
+                        the value of the Import DoNotSave=On parameter in the translators ini file to Off.
+                        The Import DoNotSave parameter controls whether the Solid Edge part files are created
+                        during the translation, or on the initial save of the assembly file. Setting this
+                        value to off may take longer to translate but will consume less memory.</p>
+                  </div>
+                  <p>To translate multiple ACIS files in a single session, use the Seacis.exe file, located
+                     in the Solid Edge 2023\program folder. The executable requires Solid Edge be loaded
+                     on the machine where the translation occurs.</p>
+                  <p>Solid Edge assumes SAT files to be in MM format. Solid Edge uses the scale factor
+                     found in the header of the SAT file to determine the scale factor. If the scale factor
+                     is not found, or is unknown, as in the case of older SAT files that do not contain
+                     a scale factor, Solid Edge uses the scale factor specified on the Solid Edge Import
+                     dialog box.</p>
+                  <h4 class="division-title">Sample SAT Header for MM file</h4>
+                  <div>
+                     <p>In a SAT file using millimeters, the scale factor is the first parameter in the third
+                        line of the file. In this case it is 1. 1, which &nbsp;indicates no scaling. In other words
+                        the file is already in mm format.</p>
+                     <pre class="code-text">600&nbsp;0&nbsp;45&nbsp;0&nbsp;<br>4&nbsp;FARO&nbsp;14&nbsp;ACIS&nbsp;11.0.5&nbsp;NT&nbsp;24&nbsp;Tue&nbsp;Feb&nbsp;22&nbsp;07:56:26&nbsp;2005<br>1&nbsp;9.9999999999999995e-007&nbsp;1e-010<br>&nbsp;</pre>
+                  </div>
+                  <h4 class="division-title">Sample SAT Header for Inch file</h4>
+                  <div>
+                     <p>In this sample header the scale value is 25.399999999999999. This indicates that the
+                        intent of this file is Inch units, and the data within the file needs to be scaled
+                        by this factor.</p>
+                     <pre class="code-text">1300&nbsp;0&nbsp;1&nbsp;0&nbsp;<br>34&nbsp;SPATIAL&nbsp;-&nbsp;INTEROP&nbsp;Version&nbsp;-&nbsp;14.0.2&nbsp;14&nbsp;ACIS&nbsp;14.0.2&nbsp;NT&nbsp;24&nbsp;Wed&nbsp;Mar&nbsp;09&nbsp;10:16:53&nbsp;2005&nbsp;<br>25.399999999999999&nbsp;9.9999999999999995e-007&nbsp;1e-010&nbsp;&nbsp;<br></pre>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can override the scale factor found in the header of the file either through the
+                           user interface or the SESAT.ini file. You can use the Apply Scale option on the Import
+                           Options for ACIS (.sat) dialog box to apply an override scale. You can also set the
+                           Import Apply Scale and Import Units parameters in the SESAT.ini file to control the
+                           override factor. Setting the Import Apply Scale parameter to 1 to enables the scale
+                           override and then setting the Import Units parameter specifies the scale factor. You
+                           can set the scale factor to 1, 25.399999999 , or 1000.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acisimp1d" rel="acisimp1d">Import Options for ACIS (.sat) dialog box</a><br><br></div>
+            <div class="footer-content">Opening ACIS Documents in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

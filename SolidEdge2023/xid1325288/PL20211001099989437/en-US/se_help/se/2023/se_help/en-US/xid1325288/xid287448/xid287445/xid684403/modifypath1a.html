@@ -1,0 +1,143 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Modifying path segments</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Modifying path segments"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="modifypath1a">
+                     <h1 class="topic-title">Modifying path segments</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can modify path segments by:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="#movepathsegment">Moving the path segment</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#splitpathsegment">Splitting the path segment</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#createcurvesegment">Creating a 3D curve from the path segment</a></p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title" id="movepathsegment">Moving path segments</h4>
+                  <div>
+                     <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/tube7c" rel="tube7c">Move Segment command</a> to move a path segment along the plane to which it is attached. With the command,
+                        you simply select the segment you want to move, and then drag it to a new position,
+                        then release the mouse button. This command maintains any existing relationships on
+                        the path segment and any of the adjacent tube segments.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/tube5a.gif"></p>
+                     <p>Suppose you place a dimension on a segment and later decide you want to change the
+                        dimension value. All you have to do is select the dimension you want to change, and
+                        type the new value in the <b>Dimension Value</b> on the <b>XpresRoute</b> command bar.</p>
+                  </div>
+                  <h4 class="division-title" id="splitpathsegment">Splitting path segments</h4>
+                  <div>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/spltsgmt1c" rel="spltsgmt1c">Split Path command</a> to split a path segment into two separate segments. With the command, you select
+                        the segment at the point you want to split.</p>
+                     <p> In XpresRoute and Frame, a connect relationship is applied to the split point of
+                        the new segments. </p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/spltseg3.gif"></p>
+                     <p>In Harness Design, the command creates a BlueDot at the connect point.</p><img class="img-fluid d-block" src="../../../../../common/nonLocalized/se/se/spltpath_1.gif"><p>When you split a path that is not consumed by a wire, cable, or bundle, an entry for
+                        the new path is added to PathFinder. When you split a path that is consumed by a wire,
+                        cable, or bundle, no entry is added to PathFinder. </p>
+                     <p>Once created, you can drag the BlueDot to edit the path.</p><img class="img-fluid d-block" src="../../../../../common/nonLocalized/se/se/spltpath_3.gif"><p>You can split a path at an edit point along the path. If the edit point is constrained
+                        to geometry, the split point remains associative to the geometry, but no BlueDot is
+                        created. Also, when you split the path at an edit point constrained to geometry, both
+                        paths have tangency handles at the split point. The existing path remains tangent
+                        to the geometry and the new path is tangent to the existing path. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If the edit point is not constrained to geometry, a BlueDot is created.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Relationships and split segments</h4>
+                  <div>
+                     <p>When you use the <b>Split Path</b> command, the relationships on the split segment are maintained on the new segment.
+                        In addition, a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/connect_relationship" rel="connect_relationship">connect relationship</a> is applied to the split point of the new segments. The following cases describe how
+                        the <b>Split Path</b> command works with relationships.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Segment coaxial relationship with a port</h5>
+                           <p>When you split a segment that is coaxially aligned with a port, the new segment attached
+                              to the port retains the coaxial relationship. The segment that is not directly attached
+                              to the port has no additional relationships other than the connect relationships.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/coax1.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Segment with an axis dimension</h5>
+                           <p>When you split a segment containing an axis dimension relationship, the original axis
+                              dimension is maintained between the endpoints of the segment.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/axis1.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Segment with a planar relationship</h5>
+                           <p>When you split a segment containing a planar relationship, both new segments retain
+                              the planar relationship.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/planeseg1.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Segment with a parallel relationship</h5>
+                           <p>When you split a segment containing a parallel relationship, the new segment maintains
+                              the parallel relationship.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/paralseg.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="createcurvesegment">Creating curve segments</h4>
+                  <div>
+                     <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/curvesegment1c" rel="curvesegment1c">Curve Segment command</a> to create a 3D curve based on a set of endpoint-connected path segments. The curve
+                        is always tangent to the first and last segments in the select set and it passes through
+                        the first and last points of the path. There is an option on the <b>Curve Segment</b> command bar that allows you to define the points for the curve. &nbsp;You can specify
+                        that the curve passes through the</p>
+                     <ul>
+                        <li>
+                           <p>midpoints of the line segments,</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/curvesgmt3.gif"></p>
+                        </li>
+                        <li>
+                           <p>the endpoints of the line segments,</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/curvesgmt4.gif"></p>
+                        </li>
+                        <li>
+                           <p>or all points of the input segments.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/curvesgmt5.gif"></p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can use the <b>Hide Input Path</b> and <b>Show Input Path</b> commands on the shortcut menu to control the display on the path used to create the
+                           curve segment.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/tube9h" rel="tube9h">Move a tube path</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/spltsgmt1h" rel="spltsgmt1h">Split a path segment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/curvesegment1h" rel="curvesegment1h">Create a curve segment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/tube7c" rel="tube7c">Move Segment command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/spltsgmt1c" rel="spltsgmt1c">Split Path command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/curvesegment1c" rel="curvesegment1c">Curve Segment command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/curvesegment1d" rel="curvesegment1d">Curve Segment command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/xid814328" rel="xid814328">Keypoint Curve command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/xid814329" rel="xid814329">Keypoint Curve command bar</a><br><br></div>
+            <div class="footer-content">Modifying path segments, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

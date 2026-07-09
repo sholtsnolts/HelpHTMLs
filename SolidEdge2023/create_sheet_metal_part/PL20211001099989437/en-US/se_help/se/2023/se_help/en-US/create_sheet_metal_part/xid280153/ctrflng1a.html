@@ -1,0 +1,229 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Constructing contour flanges</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Constructing contour flanges"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="ctrflng1a">
+                     <h1 class="topic-title">Constructing contour flanges</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can construct a feature with multiple bends and flats using an open profile with
+                     the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg2c" rel="ctrflg2c">Contour Flange command</a>. </p>
+                  <p>In the synchronous environment, you can construct a contour flange along a linear
+                     edge.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/cntrflnglnr1.gif"></p>
+                  <p>In the ordered environment, you can also construct the contour flange along a curve.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/cntrflngcurve1.gif"></p>
+                  <p>When creating a contour flange along a curve, you can create a small flange with two
+                     parallel side faces,</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/ctrflg14.gif"></p>
+                  <p> and the side faces will remain parallel when you create a flat pattern.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/ctrflg15.gif"></p>
+                  <p>To do this, you must set the Miter on Start End and Finish End options on the Miters
+                     and Corners tab of the Contour Flange dialog box, and set both Miter Angles to 0.0.</p>
+                  <p>You can also use the command to create a tab by drawing a single line segment.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/cntflttab1.gif"></p>
+                  <h4 class="division-title">Constructing contour flanges on an existing contour flange</h4>
+                  <div>
+                     <p>When working in the ordered environment you can construct a contour flange on an existing
+                        contour flange.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/contour_on_contour1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Contour flange types</h4>
+                  <div>
+                     <p>There are two types of contour flanges:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" href="#simplecontourflange">Simple</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="#chainedcontourflange">Chained </a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="simplecontourflange">Simple contour flanges</h4>
+                  <div>
+                     <p>A simple contour flange is created when a sketch is used to create the first feature
+                        in the sheet metal file.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_contoursimple1.gif"></p>
+                     <p>When a simple contour flange is created in the synchronous environment, it contains
+                        a set of tabs and bends that have no relationship to one another. The simple contour
+                        flange is represented in PathFinder as a collection of tabs and flanges.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/se/bj_contoursimple2.gif"></p>
+                     <p>When a simple contour flange is created in the ordered environment, it is represented
+                        in PathFinder as a contour flange.. </p>
+                  </div>
+                  <h4 class="division-title" id="chainedcontourflange">Chained contour flanges</h4>
+                  <div>
+                     <p>A chained contour flange is created when a sketch is used to add a contour flange
+                        to an existing tab or flange. The sketch must be perpendicular to the thickness face
+                        to which it is attached.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_contourcomplex1.gif"></p>
+                     <p>Chained contour flanges create matched rows of flanges.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_contourcomplex2.gif"></p>
+                     <p>Each flange creates a new set of bends,</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_contourcomplex3.gif"></p>
+                     <p>and the flange angle is consistent across all the flanges in the row.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_contourcomplex6.gif"></p>
+                     <p>The elements making up the contour flange are associative so that bend angle, bend
+                        radius, and direction between flanges are always maintained. In other words, if you
+                        change the bend angle, all flanges in the contour flange update to reflect the change.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_contourcomplex5.gif"></p>
+                     <p>Each plate in the contour flange is treated like an instance of a pattern. Any changes
+                        to a bend or plate in the contour flange are applied to all members in the flange.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_ctrflgpartial3.gif"></p>
+                  </div>
+                  <h4 class="division-title">Drawing profiles for contour flanges in the ordered environment</h4>
+                  <div>
+                     <p>When drawing a profile for a contour flange, the profile must be a single, open profile.
+                        All line segments and arcs in the profile must be large enough to create the bend
+                        in the flange. If a line segment or arc is too small to create a bend, an error icon
+                        is displayed adjacent to the contour flange entry in PathFinder. If you pause the
+                        cursor over the contour flange entry, a tool tip displays an explanation of the error.</p>
+                     <p>When using arcs in the profile, all line-to-arc and arc-to-arc relationships must
+                        be tangent. If they are not, the Profile Error Assistant dialog box displays an error
+                        message.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When drawing a profile, set the Orient The Window To The Selected Plane on the General
+                           tab of the Options dialog box to make it easier to visualize the profile geometry.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Constructing wrapped features in the ordered environment</h4>
+                  <div>
+                     <p>In the ordered environment, you can also use the Contour Flange command to construct
+                        features that are wrapped around a cylinder, like in parts made by rolling perforated
+                        material.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/ctrflg3.gif"></p>
+                     <p>To construct a wrapped feature, use a profile arc that has an included angle of slightly
+                        less than 360 degrees. There must be a slight gap where the ends of the rolled material
+                        meet, or else the part will not unbend. Keep this in mind when defining the material
+                        side for the contour flange. Make sure the material thickness does not cause the gap
+                        to close.</p>
+                     <p>After you have constructed the contour flange, you can unroll it using the Unbend
+                        command. You can add features, such as a pattern of holes, to the flattened part,
+                        then use the Rebend command to re-roll the part. Then you can fill the small gap by
+                        adding a protrusion in the Part environment.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you need to produce both rolled and flattened drawings of the part, you should
+                           close the gap by inserting a copy of the part in a Part document, then adding a protrusion
+                           to the copy.</p>
+                     </div>
+                     <p>You can also construct parts where the cylindrical portion is solid by combining the
+                        rolled sheet metal part with a cylindrical part constructed in the Part environment.
+                        Use the following workflow:</p>
+                     <ul>
+                        <li>
+                           <p>Construct a shaft in the Part environment using the Extrude command.</p>
+                        </li>
+                        <li>
+                           <p>Construct a rolled sheet metal part.</p>
+                        </li>
+                        <li>
+                           <p>Place both parts in an assembly document.</p>
+                        </li>
+                     </ul>
+                     <p>Use the Part Copy command to place the assembly into another part document as an associative
+                        part (this combines the two parts in the assembly into one part).</p>
+                  </div>
+                  <h4 class="division-title">Mitering contour flanges</h4>
+                  <div>
+                     <p>You can miter the ends of a contour flange by setting options on the Miters and Corners
+                        tab of the Contour Flange Options dialog box. For example, when constructing two contour
+                        flanges that will overlap, you can miter the ends where the flanges meet.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/ctrflg4.gif"></p>
+                     <p>You can specify which ends of the contour flange you want to miter, the miter angle,
+                        and what face the miter angle is constructed relative to.</p>
+                     <p>You can also miter edges that have a bend radius larger than the default bend radius
+                        (A).</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/cntrflgmtr1.gif"></p>
+                     <p>To do this:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>On the Miters and Corners tab of the Contour Flange Options dialog box, set the Miter
+                              Bend Edges That Are Larger Than Default Bend Radius option.</p>
+                        </li>
+                        <li>
+                           <p>On the Contour Flange command bar, make sure the Select option is set to Chain, and
+                              select the edges.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/ctrflg11.gif"></p>
+                        </li>
+                        <li>
+                           <p>On the Contour Flange command bar, change the Select option to Edge, hold the &lt;Ctrl&gt;
+                              key, and click the edge to deselect it.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/ctrflg12.gif"></p>
+                        </li>
+                        <li>
+                           <p>Click the Accept button and the flange is created and the large bend is mitered.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/ctrflg13.gif"></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Partial flanges</h4>
+                  <div>
+                     <p>You can use the Partial Flange option to create a partial contour flange.</p>
+                     <p>You can select a direction to drag the partial flange,</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_ctrflgpartial1.gif"></p>
+                     <p>or use the Symmetric Option to construct the flange symmetrically around the sketch.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/bj_ctrflgpartial2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Closing three bend corners</h4>
+                  <div>
+                     <p>In the synchronous environment, if you want to use the Close 3 Bend command to close
+                        a contour flange, it is imperative that corner relief be applied to the contour flange.
+                        To apply the corner relief, select the Corner Relief option on the General tab of
+                        the Contour Flange Options dialog box when creating the flange. In the following example,
+                        no corner relief has been applied to the contour flange. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/3-bend3.gif"></p>
+                     <p>Attempting to close this corner with the Close 3 Bend command will fail.</p>
+                     <p>The following example illustrates the same contour flange with corner relief applied.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/3-bend4.gif"></p>
+                     <p>You can use the Close 3 Bend Corner command to successfully close this corner.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/3-bend5.gif"></p>
+                  </div>
+                  <h4 class="division-title">Chaining contour flanges</h4>
+                  <div>
+                     <p>You can construct contour flanges that wrap around corners or bends. This is especially
+                        useful when constructing parts where you need to miter the internal faces of the flange,
+                        but calculating the miter angle is difficult. When you use the chain option, the miter
+                        angle is calculated automatically, and will update if the part changes.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/chain1.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>A contour flange tutorial is available to assist you in learning how to use this command.
+                           </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg3h" rel="ctrflg3h">Construct a contour flange</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg2c" rel="ctrflg2c">Contour Flange command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg1d" rel="ctrflg1d">Contour Flange command bar (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg5d" rel="ctrflg5d">Contour Flange command bar (synchronous)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg2d" rel="ctrflg2d">Contour Flange Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg3d" rel="ctrflg3d">General tab (Contour Flange Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/ctrflg4d" rel="ctrflg4d">Miters and Corners tab</a><br><br></div>
+            <div class="footer-content">Constructing contour flanges, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

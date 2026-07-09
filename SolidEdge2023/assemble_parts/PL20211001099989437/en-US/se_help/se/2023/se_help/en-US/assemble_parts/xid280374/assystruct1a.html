@@ -1,0 +1,158 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly structure synchronization</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly structure synchronization"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assystruct1a">
+                     <h1 class="topic-title">Assembly structure synchronization</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Bill of Materials (BOM) synchronization is a process that considers differences in
+                     product structure and BOM Line properties at all levels. For example, in top-down
+                     design, assembly structures may be modified outside the Solid Edge environment and
+                     then opened in Solid Edge. You expect to see the changes in Solid Edge even though
+                     they were made outside of Solid Edge. The BOM out-of-date check recognizes a change
+                     made in an editor other than Solid Edge that includes either a structure change or
+                     a BOM Line property change. This includes the addition of new or existing items not
+                     yet synchronized. In some cases, the direct document could even be a virtual component,
+                     and all levels of the structure could require synchronization.</p>
+                  <p>When an assembly structure is changed outside of Solid Edge, and then opened in Solid
+                     Edge, you are notified via the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/syncassystruct1d" rel="syncassystruct1d">Structure Synchronization dialog box</a>. The dialog box indicates the top-level assembly that requires structure synchronization,
+                     the candidate assemblies, and unique assemblies found. You have the option to synchronize
+                     the changes, and also whether or not to check out the assemblies. A status message
+                     and a process indicator bar indicates the progress of the overall synchronization
+                     process.</p>
+                  <p>Another example of synchronization occurs when a component of an assembly is revised.
+                     When you open the assembly, if you use the revision rule <em>As Saved</em>, the assembly is opened with the original component. When you open the assembly using
+                     the revision rule <em>Latest</em>, the Structure Synchronization dialog box gives you the opportunity to synchronize
+                     and use the revised component in the assembly.</p>
+                  <p>Teamcenter Product Structure occurrences that have a Solid Edge Assembly Dataset and
+                     include a Solid Edge Assembly document are candidates for BOM synchronization. Even
+                     if the top-level assembly is opened Read Only, you have the option to continue with
+                     synchronization. The subassemblies are checked out with write access even though the
+                     top-level assembly is Read Only.</p>
+                  <h4 class="division-title">Enabling BOM synchronization for the Teamcenter-managed environment</h4>
+                  <div>
+                     <p>Bill of Material synchronization is controlled in Solid Edge Embedded Client with
+                        the Teamcenter Preference SEEC_BOM_Synchronization and is False (off) by default.
+                        To enable BOM synchronization, set the Teamcenter Preference SEEC_BOM_Synchronization=True.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>See the <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a> for details regarding setting Teamcenter Preferences.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="assystruct1a_logfile">Log file</h4>
+                  <div>
+                     <p>A log file captures the specific details of the BOM synchronization. The Log Files
+                        entry in the <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/filelo1d" rel="filelo1d">File Locations page</a> of the Solid Edge Options dialog box determines the location of the log file. The
+                        <em>Enable structure synchronization logging</em> option on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/manage1d" rel="manage1d">Manage page</a> of the Solid Edge Options dialog box turns the logging off or on.</p>
+                     <p>Each log file uses a naming convention consisting of a description, the Item ID and
+                        Revision, and a timestamp followed by the <em>.csv</em> extension. For example, <b>StructureSynch_000303–A_20100730140037.csv</b>. In this example, 000303–A is the Item ID-Revision.</p>
+                     <p>The timestamp is a 14 digit unique identifier using the format YYYYMMDDHHmmss where:</p>
+                     <ul>
+                        <li>
+                           <p><em>YYYY</em> is the year. In the example, 2010.</p>
+                        </li>
+                        <li>
+                           <p><em>MM</em> is the month. In the example, 07 is July.</p>
+                        </li>
+                        <li>
+                           <p><em>DD</em> is the day. In the example, 30 is the 30th.</p>
+                        </li>
+                        <li>
+                           <p><em>HH</em> is the hour using a 24-hour clock beginning at midnight which is 00 and going through
+                              23, which is 11:00pm. In the example, 14 is 2:00 pm.</p>
+                        </li>
+                        <li>
+                           <p><em>mm</em> is the minute. In the example, 00 is 00 minutes past the hour.</p>
+                        </li>
+                        <li>
+                           <p><em>ss</em> is the seconds. In the example, 37 is 37 seconds past the minute.</p>
+                        </li>
+                     </ul>
+                     <p>The log file displays column headings in English followed by the properties of the
+                        parent, children, and children's properties.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If an Item Revision contains a Solid Edge dataset, but the dataset is empty (no file
+                           is contained in the object), it is assumed this is as a result of a failed transaction.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="assystruct1a_occurprop">Assembly Occurrence Property in the Teamcenter-managed environment</h4>
+                  <div>
+                     <p>Solid Edge Embedded Client has the capability to synchronize BOM Line quantity per
+                        occurrence. This is sometimes called <em>quantity override</em>. By default, Solid Edge exchanges integers with Teamcenter. If an item is defined
+                        as a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/non_graphic" rel="non_graphic">non-graphic part</a>, such as grease or paint, you need to be able to represent the quantity as a real
+                        number (4.32 ounces) or set the quantity to <em>A/R</em> (as required).</p>
+                     <p>To support quantity as a real number, Solid Edge part must have the following custom
+                        properties defined and the Teamcenter unit of measure (UOM) must be a non-null value.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Name: SE_ASSEMBLY_QUANTITY_OVERRIDE<br>Type: Number<br>Value: 0</p>
+                        </li>
+                        <li>
+                           <p>Name: SE_ASSEMBLY_QUANTITY_STRING<br>Type: Text<br> Value: &lt;Teamcenter UOM&gt;</p>
+                        </li>
+                     </ul>
+                     <p>The custom property SE_ASSEMBLY_QUANTITY_STRING captures the type of unit and the
+                        number of decimal places you require. For example, Liters;4. You must separate the
+                        unit type and the decimal places with a semi-colon (;).</p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>If the number of decimal places you require is two, there is no need to specify a
+                           value for the decimal places.</p>
+                     </div>
+                     <p>To support quantity as A/R (as required), the custom properties must be defined as
+                        follows:</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Name: SE_ASSEMBLY_QUANTITY_OVERRIDE<br>Type: Number<br>Value: 1</p>
+                        </li>
+                        <li>
+                           <p>Name: SE_ASSEMBLY_QUANTITY_STRING<br>Type: Text<br>Value: A/R</p>
+                        </li>
+                     </ul>
+                     <p>The characters A/R are the only characters accepted by Teamcenter. This is particularly
+                        important when you map properties for adding unmanaged documents to Teamcenter using
+                        Add to Teamcenter. The A/R characters are not localized.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If any BOM lines are set to A/R (as required), the part is considered a non-graphic
+                           part and the custom file properties are set accordingly. While it is possible for
+                           you to override the quantity in Teamcenter and set the quantity to an integer value,
+                           the custom properties are not removed and the part file is considered a non-graphic
+                           part.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1h" rel="prtprp1h">Set part properties in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1h" rel="reprts1h">Create reports</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1h" rel="ngrphc1h">Create a non-graphic part that is unitless</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc2h" rel="ngrphc2h">Create a non-graphic part that uses units and value</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1h" rel="asmstat1h">Display the statistics for an assembly</a><br><a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1291372" rel="xid1291372">Show custom occurrence properties in PMI</a><br><a class="xref" data-handle="parts_lists_tables" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1177387" rel="xid1177387">Example: Show custom occurrence properties in a parts list</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1a" rel="reprts1a">Assembly Reports</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2a" rel="prtprp2a">System occurrence properties in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1a" rel="ngrphc1a">Non-graphic parts in assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1c" rel="prtprp1c">Occurrence Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1d" rel="prtprp1d">Occurrence Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/syncassystruct1d" rel="syncassystruct1d">Structure synchronization dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1c" rel="reprts1c">Reports command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1c" rel="asmstat1c">Assembly Statistics command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1d" rel="reprts1d">Reports dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1d" rel="asmstat1d">Assembly Statistics dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts2d" rel="reprts2d">Format Report dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2d" rel="prtprp2d">Format Columns dialog box (Occurrence Properties)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts4d" rel="reprts4d">Sort dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts5d" rel="reprts5d">Font dialog box (Assembly Reports)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts6d" rel="reprts6d">Select Directory dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts7d" rel="reprts7d">Report Output dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts8d" rel="reprts8d">FOA Member Names dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1759614" rel="xid1759614">End Angle Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts3d" rel="reprts3d">Options dialog box (Assembly Reports)</a><br><br></div>
+            <div class="footer-content">Assembly structure synchronization, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

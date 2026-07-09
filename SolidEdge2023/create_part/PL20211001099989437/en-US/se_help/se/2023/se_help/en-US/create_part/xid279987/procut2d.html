@@ -1,0 +1,275 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Extrude command bar (synchronous)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Extrude command bar (synchronous)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="procut2d">
+                     <h1 class="topic-title">Extrude command bar (synchronous)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><dl>
+                     <dt>Available Actions</dt>
+                     <dd class="ml-3">
+                        <p>Lists alternate actions which are available for the selected element. When you have
+                           selected a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/sketch_region" rel="sketch_region">sketch region</a>, the default action in a new part document is to construct an extruded feature.</p>
+                        <dl> 
+                           <dt>Extrude</dt> 
+                           <dd class="ml-3"> 
+                              <p>Specifies that you want to construct an extruded feature.</p> </dd> 
+                           <dt>Revolve</dt> 
+                           <dd class="ml-3"> 
+                              <p>Specifies that you want to construct a revolved protrusion.</p> </dd> </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Extent Type</dt>
+                     <dd class="ml-3">
+                        <p>Defines the depth of the feature or the distance to extrude the sketch to construct
+                           the feature. You can specify that the feature extends in one direction only or two
+                           directions symmetrically. The extent options are: <b>Finite</b>, <b>Through All</b>, <b>Through Next</b>, and <b>From/To</b> Extent.</p>
+                        <dl>
+                           <dt>Finite</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the sketch is extruded a finite distance to either
+                                 side of the sketch plane, or symmetrically to both sides of the sketch plane. You
+                                 can type the distance into the dynamic input box or click to define the extent.</p>
+                           </dd>
+                           <dt>Through All</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the sketch is extruded through all faces of the part,
+                                 starting at the sketch plane. You can extrude the sketch to either side of the profile
+                                 plane, or to both sides.</p>
+                           </dd>
+                           <dt>Through Next</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the sketch is extruded through only the next closed
+                                 intersection with the part on the selected side. You can extrude the sketch to either
+                                 side of the sketch plane, or to both sides.</p>
+                           </dd>
+                           <dt>From/To</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the sketch is projected from the sketch plane to another
+                                 specified surface. The <b>From</b> extent is automatically set to the sketch plane. The <b>To</b> extent can be any valid surface on the model.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>If the region is selected first, the From extent surface can be redefined be dragging
+                                    the extrude handle origin to another surface or plane. Click the extrude handle. Select
+                                    the To surface or plane. Right-click extrudes to the profile plane. A PMI dimension
+                                    is automatically added for the extent length.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Symmetric</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that the feature extent is to be applied symmetrically about the sketch
+                           plane.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Add/cut</dt>
+                     <dd class="ml-3">
+                        <p>Specifies whether you want to let cursor position determine whether material is added
+                           or removed. When constructing a base feature, only the <b>Extrude</b> option is available.</p>
+                        <dl>
+                           <dt>Automatic</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that material is added or removed from the model based on the current cursor
+                                 position relative to the model.</p>
+                              <p>When constructing the base feature, material is always added to form a solid body.</p>
+                              <p>When constructing additional features, you can use cursor position to dynamically
+                                 define whether material is added or removed. If you position the cursor such that
+                                 the feature is extended away from the enclosed volume of the solid body, material
+                                 is added. If you position the cursor such that the feature is extended toward the
+                                 volume of the solid body, material is removed.</p>
+                              <p>The <b>Automatic</b> option is the preferred option in most cases. For models with complex geometry, you
+                                 may want to specify the <b>Extrude</b> or <b>Cutout</b> options.</p>
+                           </dd>
+                           <dt>Add</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that material is added to the model.</p>
+                           </dd>
+                           <dt>Cut</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that material is removed from the model.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Open/Closed Sketch</dt>
+                     <dd class="ml-3">
+                        <p>Specifies whether adjacent model edges are considered part of the sketch region when
+                           an open sketch is attached to one or more model edges. This allows you to control
+                           how adjacent faces are trimmed in certain situations.</p>
+                        <dl>
+                           <dt>Open</dt>
+                           <dd class="ml-3">
+                              <p>Ignores adjacent model edges. When this option is set, additional faces may be modified,
+                                 such as illustrated in the cutout example below.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/extrusion/bj_extrude_open1.gif"></p>
+                           </dd>
+                           <dt>Closed</dt>
+                           <dd class="ml-3">
+                              <p>Includes adjacent model edges. When this option is set, fewer faces may be modified,
+                                 such as illustrated in the cutout example below.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/extrusion/bj_extrude_closed1.gif"></p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Side Step</dt>
+                     <dd class="ml-3">
+                        <p>Selects the side of the profile on which the feature will be created.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Treatments</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to define draft or crowning for the feature.</p>
+                        <ul>
+                           <li>
+                              <p>When you set this option, you will be prompted to define treatment parameters after
+                                 you define the extent for the feature.</p>
+                           </li>
+                           <li>
+                              <p>When you clear this option, you will not be prompted to define treatment parameters
+                                 after you define the extent for the feature.</p>
+                           </li>
+                        </ul>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Internal Face Loops</dt>
+                     <dd class="ml-3">
+                        <p>Specifies to include or exclude the internal loops of selected faces.</p>
+                        <dl>
+                           <dt>Include Internal Loops</dt>
+                           <dd class="ml-3">
+                              <p>Includes the internal loops of selected faces.</p>
+                           </dd>
+                           <dt>Exclude Internal Loops</dt>
+                           <dd class="ml-3">
+                              <p>Excludes the internal loops of selected faces.</p>
+                           </dd>
+                           <dt>Use Only Internal Loops</dt>
+                           <dd class="ml-3">
+                              <p>Uses only the internal loops of selected faces.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Apply Cut Features</dt>
+                     <dd class="ml-3">
+                        <p>Option only available in a multi-body file with the <b>Cut</b> and <b>Finite</b> extent options set.</p>
+                        <dl>
+                           <dt>Cut Active Body</dt>
+                           <dd class="ml-3">
+                              <p>When you set this option, the cut is only applied to the active design body.</p>
+                           </dd>
+                           <dt>Cut Selected Bodies</dt>
+                           <dd class="ml-3">
+                              <p>When you set this option, the cut is applied to all design bodies that the cut intersects.
+                                 You can deselect intersected design bodies to remove them from the cut operation.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Keypoints</dt>
+                     <dd class="ml-3">
+                        <p>Sets the type of keypoint you can select to define the feature extent. You can define
+                           the feature extent using a keypoint on other existing geometry. The available keypoint
+                           options are specific to the command and workflow you use.</p>
+                        <table cellspacing="2" width="434">
+                           <colgroup span="1">
+                              <col span="1" width="18*">
+                              <col span="1" width="171*">
+                           </colgroup>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/allkypts.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the any keypoint option.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/kypnt1.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the end point option.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/kypnt4.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the midpoint option.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/kypnt2.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the center point option. You can select the center point of an arc or circle.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/kypnt3.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the tangency point option. You can select a tangent point on an analytic curved
+                                    face such as a cylinder, sphere, torus, or cone.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/kypnt5.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the silhouette point option.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/editpoint.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the edit point on a curve option.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature/extrusion/kypntnone.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Sets the no keypoint option.</p>
+                              </td>
+                           </tr>
+                        </table>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat11h" rel="feat11h">Construct a protrusion or cutout (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat18h" rel="feat18h">Define the extent of an extruded feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat4h" rel="feat4h">Construct a base feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/xid1270712" rel="xid1270712">Construct a cutout (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/hole1h" rel="hole1h">Construct a hole</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/holefeat8h" rel="holefeat8h">Construct a hole (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/hole2h" rel="hole2h">Construct a hole on a cylinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/procut1h" rel="procut1h">Construct an extrusion: base feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/procut2h" rel="procut2h">Construct an extrusion or cutout: subsequent features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/procut3h" rel="procut3h">Construct a protrusion or cutout: model face</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/norm_t_fc_p1h" rel="norm_t_fc_p1h">Construct a Normal Protrusion</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/norm_c1h" rel="norm_c1h">Construct a Normal Cutout (Part Environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat25h" rel="feat25h">Finish the Feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat29h" rel="feat29h">Examples: Constructing Protrusions With the Finite Option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat30h" rel="feat30h">Examples: Constructing Protrusions With the Through All Option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat31h" rel="feat31h">Examples: Constructing Protrusions With the Through Next Option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat26h" rel="feat26h">Examples: Constructing Cutouts With the Through All Option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat27h" rel="feat27h">Examples: Constructing Cutouts With the Through Next Option</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat2h" rel="feat2h">Examples: Constructing Cutouts With the Finite Option</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/partworkflow1a" rel="partworkflow1a">Part modeling workflow overview</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/getstarteddmpart1a" rel="getstarteddmpart1a">Part modeling: Tips for getting started</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/procut1c" rel="procut1c">Extrude command (synchronous)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/xid458037" rel="xid458037">Extrude command (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/procut1d" rel="procut1d">Extrude command bar (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat3c" rel="feat3c">Cut command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/feat4d" rel="feat4d">Cut command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/pro-cut2a" rel="pro-cut2a">Demo: Create protrusion or cutout using keypoint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/norm_t_fc_p1c" rel="norm_t_fc_p1c">Normal Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/norm_t_fc_p1d" rel="norm_t_fc_p1d">Normal Protrusion command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/norm_c1c" rel="norm_c1c">Normal Cutout command (Part environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/norm_c1d" rel="norm_c1d">Normal Cutout command bar (Part environment)</a><br><br><h5>Quick links</h5><a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1096431" rel="xid1096431">Multi-body cutouts</a><br><br></div>
+            <div class="footer-content">Extrude command bar (synchronous), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

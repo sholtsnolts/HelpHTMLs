@@ -1,0 +1,536 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Occurrence Properties dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Occurrence Properties dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prtprp1d">
+                     <h1 class="topic-title">Occurrence Properties dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Specifies the values of system occurrence properties and custom occurrence properties
+                     in an assembly.</p>
+                  <dl>
+                     <dt>Translate/Rotate About</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the coordinate system that the origin for an occurrence is based upon. For
+                           grounded occurrences or occurrences that have no positioning relationships, you can
+                           move or rotate a part by specifying a linear or angular offset value in the x, y,
+                           or z axis using the Offset From Assembly Origin columns in the list.</p>
+                        <p>If no user-defined coordinate system exists in the assembly, the only option available
+                           is Model Space. If user-defined coordinate systems exist, you can select a coordinate
+                           system from the list. You can then type a value in the coordinate columns to move
+                           or rotate an occurrence relative to the active coordinate system.</p>
+                     </dd>
+                     <dt>Add Custom Occurrence Properties <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/occurrence_properties/add_custom_occurrence_properties_button.png"></dt>
+                     <dd class="ml-3">
+                        <p>Adds the custom occurrence properties defined in the file <b>C:\Program Files\Siemens\Solid Edge 2023\Preferences\</b><b>CustomOccurrenceProperty.xml</b> to the assembly. These properties can be either local, global, or global+overrides.
+                           You can type or select values for these properties, depending on how they were defined.
+                           For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assembly</a>.</p>
+                     </dd>
+                     <dt>Delete Custom Occurrence Properties <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/occurrence_properties/delete_custom_occurrence_properties_button.png"></dt>
+                     <dd class="ml-3">
+                        <p>Opens the <b>Delete Custom Occurrence Properties</b> dialog box for you to select the check boxes corresponding to the custom occurrence
+                           property columns that you want to remove from the table.</p>
+                     </dd>
+                     <dt>Cut</dt>
+                     <dd class="ml-3">
+                        <p>Cuts the current selection and pastes it to the <b>Clipboard</b>.</p>
+                     </dd>
+                     <dt>Copy</dt>
+                     <dd class="ml-3">
+                        <p>Copies the current selection to the <b>Clipboard</b>.</p>
+                     </dd>
+                     <dt>Paste</dt>
+                     <dd class="ml-3">
+                        <p>Inserts the <b>Clipboard</b> contents at the specified insertion point.</p>
+                     </dd>
+                     <dt>Restore</dt>
+                     <dd class="ml-3">
+                        <p>Restores the table to the previous saved configuration. A dialog box is displayed
+                           to confirm that you want to discard the changes you have made. The <b>Restore</b> option is not available for changes made to the position of an occurrence.</p>
+                     </dd>
+                     <dt>Print</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <b>Print</b> dialog box so you can print the occurrence properties table to a printer you specify.</p>
+                     </dd>
+                     <dt>Synchronize All <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/occurrence_properties/synch_all_occurrence_properties_button.png"></dt>
+                     <dd class="ml-3">
+                        <p>Updates the item number, quantity, and custom occurrence property information with
+                           information from Teamcenter. A .CSV file is generated in the Log Files folder that
+                           contains details of any issues that occur during synchronization.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>System Occurrence Property Columns</dt>
+                     <dd class="ml-3">
+                        <p>The following columns for system occurrence properties are available in the <b>Occurrence Properties</b> dialog box. You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2d" rel="prtprp2d">Columns command</a> on the shortcut menu to control the column display and order.</p>
+                        <dl>
+                           <dt>Placement Name</dt>
+                           <dd class="ml-3">
+                              <p>Specifies a name for the occurrence. You can use the <b>Rename</b> command on the shortcut menu to rename the assembly occurrence. You can also rename
+                                 an occurrence by double-clicking an occurrence in the Placement Name column. When
+                                 you rename an occurrence, the new name is displayed in the <b>Occurrence Properties</b> dialog box and <b>PathFinder</b>. The actual document name on your computer is not changed.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The <b>Rename</b> command is unavailable when the <b>Document Name Formula</b> is defined as anything other than <b>Filename</b>.</p>
+                              </div>
+                           </dd>
+                           <dt>Item Number</dt>
+                           <dd class="ml-3">
+                              <p>The Item Number column is displayed only when the <b>Maintain item numbers</b> check box is selected on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/items1d" rel="items1d">Item Numbers page (Solid Edge Options dialog box)</a>. The item numbers that appear in the assembly <b>Occurrence Properties</b> dialog box are based upon the item numbering schema selected in the <b>Solid Edge Options</b> dialog box. For example, if the <b>Top level only</b> option is selected, then item numbers are not created for subassemblies.</p>
+                              <p>In the <b>Occurrence Properties</b> dialog box, you can select a cell to edit the item number. The item numbers in edited
+                                 cells are underlined.</p>
+                              <p>If you enter a number that is already used by a different part or subassembly, the
+                                 text color in the cell turns red and a popup message notifies you that this is a conflict.
+                                 You can change the item number using the <b>Next Available Number</b> command on the shortcut menu of that cell.</p>
+                              <p>If you change the item numbering schema in the <b>Solid Edge Options</b> dialog box, then you can update all item numbers in the <b>Occurrence Properties</b> dialog box using the <b>Reset Item Numbers</b> command on the shortcut menu in this column.</p>
+                           </dd>
+                           <dt>Filename</dt>
+                           <dd class="ml-3">
+                              <p>Displays the name of the file as found on disk.</p>
+                           </dd>
+                           <dt>User-Defined Quantity</dt>
+                           <dd class="ml-3">
+                              <p>Specifies whether a user-defined quantity is specified for a part. When you set the
+                                 <b>Yes</b> option, you can define a quantity for a part so that it is counted a particular number
+                                 of times. See Quantity, below, to see how this can be useful.</p>
+                              <p>For non-graphic parts that you have defined custom non-graphic part properties, such
+                                 as Liters; or As Required, these custom properties are automatically displayed in
+                                 the cell, and the cell is read-only. For more information, see the help topic, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1a" rel="ngrphc1a">Non-graphic Parts in Assemblies</a>.</p>
+                           </dd>
+                           <dt>Quantity</dt>
+                           <dd class="ml-3">
+                              <p>If User-Defined Quantity column is set to <b>Yes</b>, this is where you enter the number of occurrences. This can be useful if you have
+                                 parts, such as fasteners, which occur numerous times in an assembly, but you placed
+                                 only once. For example, if you place one bolt in an assembly, but want the bolt to
+                                 be counted eight times, you set a user-defined quantity of eight for the bolt. Using
+                                 this approach can reduce design time and file size.</p>
+                              <p>The quantity value you specify for the part is counted in the <b>Parts List Properties</b> dialog box when you create a drawing of the assembly and place a parts list. The
+                                 quantity is determined by collecting the unique parts within the assembly and calculating
+                                 the quantity values assigned to the part. You should use this option if you want a
+                                 part to be counted a certain number of times in the part list.</p>
+                              <p>You can also set this value to zero, which can be useful for parts in the assembly
+                                 that are used for reference purposes. They will still be included in a parts list
+                                 or assembly report, but the quantity value will be zero.</p>
+                              <p>To specify a user-defined quantity of zero for a part, first set the User-Defined
+                                 Quantity option to <b>Yes</b>. You can then set the Quantity column value to zero.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Valid values for a user-defined quantity are zero, and any positive whole number greater
+                                    than one. If you set the <b>Quantity</b>=1, which is the default value, the <b>User-Defined Quantity</b> option will be set back to <b>No</b> when you click <b>OK</b>.</p>
+                              </div>
+                           </dd>
+                           <dt>Offset From Assembly Origin Columns</dt>
+                           <dd class="ml-3">
+                              <p>Specifies a relative location for the selected occurrence. You can define a linear
+                                 or angular offset value in the x, y, or z axis for grounded occurrences or occurrences
+                                 that have no positioning relationships.</p>
+                              <p>In some design scenarios, it can be useful to edit these values gradually to incrementally
+                                 move or rotate an occurrence into position. For example, when you are trying to determine
+                                 the proper position for an occurrence in a cramped location.</p>
+                              <p>In these situations, you can type a value, and then click the <b>Apply</b> button on the dialog box to relocate the occurrence, without dismissing the dialog
+                                 box. When you determine the final location, you can click the <b>OK</b> button to dismiss the dialog box. You can also use the <b>Enter</b> key to update the positional location of an occurrence without dismissing the dialog
+                                 box.</p>
+                              <p>These boxes are read-only for occurrences that are positioned using assembly relationships
+                                 or linked to an assembly sketch.</p>
+                              <dl>
+                                 <dt>X</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the linear offset value in the x direction.</p>
+                                 </dd>
+                                 <dt>Y</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the linear offset value in the y direction.</p>
+                                 </dd>
+                                 <dt>Z</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the linear offset value in the z direction.</p>
+                                 </dd>
+                                 <dt>X degrees</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the rotational offset value in the x axis.</p>
+                                 </dd>
+                                 <dt>Y degrees</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the rotational offset value in the y axis.</p>
+                                 </dd>
+                                 <dt>Z degrees</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the rotational offset value in the z axis.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt>Selectable</dt>
+                           <dd class="ml-3">
+                              <p>Controls whether the occurrence can be selected in the graphics window. When you set
+                                 the Selectable column to <b>No</b> for an occurrence, you can still select it in <b>PathFinder</b>.</p>
+                           </dd>
+                           <dt>Higher Level</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the occurrence is displayed when the current assembly is used in a
+                                 higher-level assembly. When set to <b>No</b>, the occurrence is not displayed in higher-level assemblies and is not included in
+                                 a parts list when the higher-level assembly is placed in a draft document.</p>
+                              <p>A component is set to a construction component by setting the occurrence property
+                                 column Higher Level to <b>No</b>. However, in the Teamcenter-managed environment, a component is considered a construction
+                                 when both the Higher Level and Physical Properties occurrence property values are
+                                 set to <b>No</b>.</p>
+                              <p>For a construction component, the occurrence is only loaded and shown when the assembly
+                                 that the component resides in is opened. If a higher-level assembly is opened, the
+                                 assembly component is not loaded nor displayed in <b>Assembly PathFinder</b> in those occurrences.</p>
+                              <p>By not showing the construction components in lower assemblies, this functionality
+                                 reduces the loading of components when in-place activating and working in the context
+                                 of a higher-level assembly.</p>
+                              <p>If an assembly containing a construction component is in-place activated, the component
+                                 occurrence displays as an unloaded component in <b>PathFinder</b> that must be explicitly loaded if the component is needed.</p>
+                           </dd>
+                           <dt>Draft Reference</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the occurrence is displayed as a reference part in a drawing view.
+                                 Reference parts in drawing views are displayed using a different style.</p>
+                           </dd>
+                           <dt>Reports / Parts List</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the occurrence is included in reports generated for the assembly, such
+                                 as bills of material and parts lists.</p>
+                           </dd>
+                           <dt>Drawing Views</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the occurrence will be displayed in drawing views created of the assembly
+                                 in the Draft environment.</p>
+                           </dd>
+                           <dt>Physical Properties</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the occurrence is included in physical property calculations of the
+                                 assembly.</p>
+                           </dd>
+                           <dt>Interference Analysis</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the occurrence is included in interference analysis calculations of
+                                 the assembly.</p>
+                           </dd>
+                           <dt>Linked To</dt>
+                           <dd class="ml-3">
+                              <p>Displays the name of the assembly to which the part is linked.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Custom Occurrence Property Columns</b></dt>
+                     <dd class="ml-3">
+                        <p>The following default columns for custom occurrence properties are delivered with
+                           Solid Edge in the <b>CustomOccurrenceProperty.xml</b> file.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Your administrator may have removed or renamed these columns or added other custom
+                              occurrence property columns. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assembly</a>.</p>
+                        </div>
+                        <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                           <colgroup span="1">
+                              <col span="1" width="21%">
+                              <col span="1" align="left" valign="top" width="18%">
+                              <col span="1" width="69%">
+                           </colgroup>
+                           <thead>
+                              <tr>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Custom occurrence property name</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Edit behavior</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Definition</p>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td rowspan="1" valign="top" colspan="1">
+                                    <p>BOM ID</p>
+                                 </td>
+                                 <td rowspan="1" valign="top" colspan="1">
+                                    <p>Local</p>
+                                 </td>
+                                 <td rowspan="1" valign="top" colspan="1">
+                                    <p>Unlike item numbers, which are the same for the same part wherever it occurs, a BOM
+                                       ID can be different each time the same part or component is placed.</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Reference ID</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Global</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Reference ID or location designator for a component.</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Maintenance</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Global+Overrides</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Maintenance schedule with predefined options: </p>
+                                    <p>Daily, Weekly, Bi-Weekly, Monthly, Quarterly, or Yearly.</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Notes</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Global+Overrides</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Component placement or assembly instructions.</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Shortcut menu commands</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Cut</b></dt>
+                           <dd class="ml-3">
+                              <p>Cuts the current selection and pastes it to the <b>Clipboard</b>.</p>
+                           </dd>
+                           <dt><b>Copy</b></dt>
+                           <dd class="ml-3">
+                              <p>Copies the current selection to the <b>Clipboard</b>.</p>
+                           </dd>
+                           <dt><b>Paste</b></dt>
+                           <dd class="ml-3">
+                              <p>Inserts the <b>Clipboard</b> contents at the specified insertion point.</p>
+                           </dd>
+                           <dt><b>Columns...</b></dt>
+                           <dd class="ml-3">
+                              <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2d" rel="prtprp2d">Format Columns dialog box</a> so you can set the column display and order options. </p>
+                              <p>By default, all available columns are selected for display in the <b>Occurrence Properties</b> dialog box. You can hide columns, change the column width, and change the column
+                                 data alignment in the <b>Format Columns</b> dialog box.</p>
+                              <p>You can save these changes for reuse by typing a name in the <b>Saved columns setting</b> box and then clicking the <b>Save</b> button. This writes the&nbsp;settings to a text file, <b>OccurrencePropertyColumns.xml</b> in the Solid Edge Preferences folder. </p>
+                           </dd>
+                           <dt><b>Font...</b></dt>
+                           <dd class="ml-3">
+                              <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts5d" rel="reprts5d">Font dialog box</a> so you can select the font, font style, and font size you want.</p>
+                           </dd>
+                           <dt><b>Find... (or Find and Replace)</b></dt>
+                           <dd class="ml-3">
+                              <p>Displays the <b>Replace</b> dialog box for you to find and replace text based on whether a cell is read-only
+                                 or writeable.</p>
+                           </dd>
+                           <dt><b>Freeze Columns</b></dt>
+                           <dd class="ml-3">
+                              <p>Keeps columns visible while scrolling horizontally. The command locks in place the
+                                 selected column and all columns to the left of it. You can resize a column even if
+                                 it is locked.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>To understand how this works, try locking the first three columns so they stay in
+                                    place as you scroll to the last column. </p>
+                              </div>
+                              <ol type="1">
+                                 <li>
+                                    <p>Right-click the third column and select <b>Freeze Columns</b>. The system locks in place the first three columns. </p>
+                                 </li>
+                                 <li>
+                                    <p>Scroll horizontally to the last column. The first three columns remain in view as
+                                       you scroll across the document list. </p>
+                                 </li>
+                                 <li>
+                                    <p>To unlock all columns, right-click any column and select <b>Unfreeze Columns</b>. </p>
+                                 </li>
+                              </ol>
+                           </dd>
+                           <dt><b>Unfreeze Columns</b></dt>
+                           <dd class="ml-3">
+                              <p>Unlocks the columns frozen with the <b>Freeze Columns</b> command. The command unlocks all columns.</p>
+                           </dd>
+                           <dt><b>Sort</b></dt>
+                           <dd class="ml-3">
+                              <p>Provides options for sorting the list in <b>Ascending</b> or <b>Descending</b> order.</p>
+                           </dd>
+                           <dt><b>Expand All</b></dt>
+                           <dd class="ml-3">
+                              <p>Expands the table to show all parts and subassemblies in the currently selected assembly.
+                                 If you select this command on the top-level assembly, then the full structure of all
+                                 of the lower-level assemblies and parts is shown. </p>
+                           </dd>
+                           <dt><b>Rename</b></dt>
+                           <dd class="ml-3">
+                              <p>Renames the selection. The selection is renamed within the <b>Occurrence Properties</b> dialog box and <b>PathFinder</b>, but the actual document name on your hard drive is not changed. This command is
+                                 not available when the <b>Document Name Formula</b> is defined as anything other than <b>Filename</b>.</p>
+                           </dd>
+                           <dt><b>Reset Default Name</b></dt>
+                           <dd class="ml-3">
+                              <p>Restores the occurrence name to its default value effectively removing the overridden
+                                 placement name.</p>
+                           </dd>
+                           <dt><b>Next Available Number</b></dt>
+                           <dd class="ml-3">
+                              <p>Renumbers an item in the assembly with the next available item number. Right-click
+                                 a cell in the Item Number column in the parts list or assembly report to get the next
+                                 available number.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This command is available only when the <b>Maintain item numbers</b> check box is selected on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/items1d" rel="items1d">Item Numbers page (Solid Edge Options dialog box)</a>.</p>
+                              </div>
+                           </dd>
+                           <dt><b>Reset Item Numbers</b></dt>
+                           <dd class="ml-3">
+                              <p>Regenerates all item numbers based on the settings on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/items1d" rel="items1d">Item Numbers page (Solid Edge Options dialog box)</a>.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>When you reset item numbers, any edits you have made are reset, too.</p>
+                              </div>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This command is available only when the <b>Maintain item numbers</b> check box is selected on the <b>Item Numbers</b> page in the <b>Solid Edge Options</b> dialog box.</p>
+                              </div>
+                           </dd>
+                           <dt><b>Add Override</b></dt>
+                           <dd class="ml-3">
+                              <p>Enables you to change the value of a property in a lower-level assembly within the
+                                 context of the active assembly. First select the <b>Add Override</b> command, and then change the value in the cell.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Overridden values display a tooltip indicating where the override was applied. The
+                                    cell color also changes according to where in the assembly structure the value was
+                                    applied.</p>
+                              </div>
+                              <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                                 <colgroup span="1">
+                                    <col span="1" width="15%">
+                                    <col span="1" width="20%">
+                                    <col span="1" width="65%">
+                                 </colgroup>
+                                 <thead>
+                                    <tr align="left" valign="middle">
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Cell color</p>
+                                       </td>
+                                       <th rowspan="1" align="left" colspan="1">
+                                          <p>Edit Behavior</p>
+                                       </th>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Indicates</p>
+                                       </td>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>White</p>
+                                       </td>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Global or Global+Overrides</p>
+                                       </td>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>If you want to change the value of all occurrences of the property in the active document,
+                                             simply type a value in the cell. This pushes the change down to the part level and
+                                             in every assembly the part was used in (unless the other assemblies have an override
+                                             for that part). </p>
+                                          <p>If you only want to change the value at the current level, then use the <b>Add Override</b> command.</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Light Yellow</p>
+                                       </td>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Local</p>
+                                       </td>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Acts like an item number. You can change the value and it applies to lower-level occurrences.
+                                             Values cannot be overridden. The changes are stored in the active document. </p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Dark Yellow</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Global+Overrides</p>
+                                       </td>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>An override was applied in a lower-level assembly with the <b>Add Override</b> command.</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Light Blue</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Global+Overrides</p>
+                                       </td>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>An override was applied in the active assembly with the <b>Add Override</b> command.</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>Gray</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Value is read-only from a read-only assembly. </p>
+                                       </td>
+                                       <td rowspan="1" align="left" valign="top" colspan="1">
+                                          <p>You can override the value in the active assembly.</p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </dd>
+                           <dt><b>Remove Override</b></dt>
+                           <dd class="ml-3">
+                              <p>Removes the override value from the selected property and uses the value defined in
+                                 the subassembly. You can only remove an override at the same level in the assembly
+                                 structure where the override was applied originally using the <b>Add Override</b> command. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>If you are editing an upper-level assembly, you cannot use the <b>Remove Override</b> command to change an override done at a lower level in the assembly structure.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1h" rel="prtprp1h">Set part properties in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1h" rel="reprts1h">Create reports</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1h" rel="ngrphc1h">Create a non-graphic part that is unitless</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc2h" rel="ngrphc2h">Create a non-graphic part that uses units and value</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1h" rel="asmstat1h">Display the statistics for an assembly</a><br><a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1291372" rel="xid1291372">Show custom occurrence properties in PMI</a><br><a class="xref" data-handle="parts_lists_tables" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1177387" rel="xid1177387">Example: Show custom occurrence properties in a parts list</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1a" rel="reprts1a">Assembly Reports</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2a" rel="prtprp2a">System occurrence properties in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1a" rel="ngrphc1a">Non-graphic parts in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/assystruct1a" rel="assystruct1a">Assembly structure synchronization</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1c" rel="prtprp1c">Occurrence Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/syncassystruct1d" rel="syncassystruct1d">Structure synchronization dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1c" rel="reprts1c">Reports command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1c" rel="asmstat1c">Assembly Statistics command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1d" rel="reprts1d">Reports dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1d" rel="asmstat1d">Assembly Statistics dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts2d" rel="reprts2d">Format Report dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2d" rel="prtprp2d">Format Columns dialog box (Occurrence Properties)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts4d" rel="reprts4d">Sort dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts5d" rel="reprts5d">Font dialog box (Assembly Reports)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts6d" rel="reprts6d">Select Directory dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts7d" rel="reprts7d">Report Output dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts8d" rel="reprts8d">FOA Member Names dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1759614" rel="xid1759614">End Angle Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts3d" rel="reprts3d">Options dialog box (Assembly Reports)</a><br><br></div>
+            <div class="footer-content">Occurrence Properties dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

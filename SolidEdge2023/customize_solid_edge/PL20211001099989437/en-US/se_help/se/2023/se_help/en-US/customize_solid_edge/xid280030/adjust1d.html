@@ -1,0 +1,326 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly page (Solid Edge Options dialog box)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly page (Solid Edge Options dialog box)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="adjust1d">
+                     <h1 class="topic-title">Assembly page (Solid Edge Options dialog box)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Assembly</b> page of the <b>Solid Edge Options</b> dialog box contains the user-configurable options specific to building and managing
+                     assemblies in the assembly environment. This option page can only be accessed when
+                     an assembly .asm document is open. See <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/custom1h" rel="custom1h">Open the Solid Edge Options dialog box</a>.</p>
+                  <dl>
+                     <dt><b>Component Placement Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Do not create new window when placing component</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked and the placement part is dragged into the assembly from the <b>Parts Library</b> tab, the placement part is temporarily placed at the position where the mouse button
+                                 was released. If the part is placed by double-clicking the part entry in the <b>Parts Library</b> tab, the part is temporarily placed in the assembly and the zoom level of the assembly
+                                 window is automatically adjusted to see the new part and the assembly. Using either
+                                 method, complete the positioning process by applying assembly relationships. For more
+                                 information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/getstartedasm1p" rel="getstartedasm1p">Assemble parts (workflow)</a>. This is checked by default.</p>
+                              <p>When unchecked, a separate <b>Place</b> part window is displayed until at least one assembly relationship is defined. Then
+                                 the part is shown in the assembly based on the first relationship.</p>
+                              <p>Undo operations are managed differently depending on whether this option is checked
+                                 or unchecked:</p>
+                              <ul>
+                                 <li>
+                                    <p>When checked, placing the part into the assembly and applying relationships are separate
+                                       undo operations. This allows the assembly relationship to be individually undone without
+                                       the part being removed from the assembly.</p>
+                                 </li>
+                                 <li>
+                                    <p>When unchecked, placing the part into the assembly and applying relationships are
+                                       combined into a single undo operation. Clicking undo removes the part from the assembly.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                           <dt><b>Maintain relationships when placing components</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, the relationships required to position the part in the assembly are
+                                 preserved. This is checked by default.</p>
+                              <p>When unchecked, the assembly relationships used to position a part are not preserved
+                                 and a <b>Ground</b> relationship is placed after the part is positioned. Grounded parts do not update
+                                 their positions in the assembly when other parts are modified. For more information,
+                                 see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ground1c" rel="ground1c">About the Ground relationship</a>.</p>
+                           </dd>
+                           <dt><b>Use simplified models when placing parts in assembly</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, the simplified representation of a part is placed if the part has a
+                                 simplified representation. Using simplified parts can improve performance by obscuring
+                                 some complexity and design detail from the model. For more information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpprt1a" rel="smpprt1a">Simplifying parts</a>. </p>
+                              <p>When unchecked, the designed version of the part is displayed in the assembly.</p>
+                           </dd>
+                           <dt><b>Place as Adjustable when this assembly is placed into another assembly</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, this option specifies that placed subassemblies are considered to be
+                                 adjustable assemblies so relationships can be placed to a part in the subassembly
+                                 rather than the whole subassembly. The specific part in the subassembly that is being
+                                 used to form a relationship must not be fully constrained. For more information, see
+                                 <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1a" rel="adjust1a">Adjustable Assemblies</a>.</p>
+                           </dd>
+                           <dt><b>Place tubes in this assembly as adjustable when this assembly is placed into another
+                                 assembly</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, this option specifies that tubes placed in the assembly are considered
+                                 adjustable when the assembly is placed in another assembly. This simplifies the workflow
+                                 of making tubes adjustable when placing assemblies containing tubes. For more information,
+                                 see <a class="xref" data-handle="xid1325288" href="/en-US/product/246738425/doc/PL20211001099989437.xid1325288/html/xid1466660" rel="xid1466660">Adjustable tube design</a>.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt><b>Disperse this assembly when placing</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, the individual parts associated with the subassembly are automatically
+                                 dispersed into the assembly. For more information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/restructure1a" rel="restructure1a">Restructuring assemblies</a>.</p>
+                              <p>This option is typically used when placing a subassembly that contains a component
+                                 that is part of a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/variant" rel="variant">alternate components</a> group. For more information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/variant1c" rel="variant1c">Define Alternate Components command</a>.</p>
+                              <p></p>
+                           </dd>
+                           <dt><b>Use formula for placement name</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, the <b>PathFinder</b> displays the document name and in parentheses the <b>Placement Name</b> if a placement name override exists.</p>
+                              <p>When unchecked, the <b>PathFinder</b> displays only the <b>Placement Name</b> if a placement name override exists. For more information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1c" rel="prtprp1c">Occurrence Properties command</a> and <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/rename1c" rel="rename1c">Rename command</a>.</p>
+                           </dd>
+                           <dt><b>Match click points on the parts when creating first assembly relationship (pre-ST8
+                                 behavior)</b></dt>
+                           <dd class="ml-3">
+                              <p> This option determines the part placement behavior when creating the first assembly
+                                 relationship. When checked, the pre-ST8 relationship behavior is used. When applying
+                                 the relationship, the placement part moves as much as practical to match the click
+                                 point on the surface of the target part. As much as possible, the target part remains
+                                 stationary. Due to this behavior, sometimes the placement part moves when it is not
+                                 required. This often occurs in imported assemblies where the parts are mostly in place
+                                 but do not have some relationships applied.</p>
+                              <p>When unchecked, the placed part only moves the minimum amount to accomplish the relationship.
+                                 Selecting this option can improve placement performance. This is the default setting.</p>
+                              <p>This feature can also be set using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/plprt2d" rel="plprt2d">Assemble command bar Options dialog</a>.</p>
+                           </dd>
+                           <dt><b>Show dynamic movement of component during FlashFit</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, intermediate frames are shown between the start position and the resulting
+                                 position when applying assembly relationships. The slider is used to adjust the number
+                                 of intermediate frames to display. Slower transitions take more time and produce more
+                                 frames while faster transitions produce fewer intermediate frames. This option allows
+                                 the user to control the speed of the transition between the two orientations to accommodate
+                                 slower and faster display configurations and to suit personal preferences. This option
+                                 can also provide a better visual understanding of the relationship being applied.
+                                 This is checked by default.</p>
+                              <p>When unchecked, no intermediate frames are displayed and transition is immediate.</p>
+                              <p>This assembly movement control is independent from the orientation view option set
+                                 using the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/view3d" rel="view3d">View page (Solid Edge Options dialog box, Assembly environment)</a>. </p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Construction Display Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Construction display options when placing components in an assembly:</p>
+                        <dl>
+                           <dt><b>Show coordinate systems of component</b></dt>
+                           <dd class="ml-3">
+                              <p>When unchecked, coordinate systems are not displayed when placing components in an
+                                 assembly.</p>
+                              <p>When checked, the coordinate systems associated with a component being placed in an
+                                 assembly are shown either during and after placement, or only during placement.</p>
+                           </dd>
+                           <dt><b>Show reference planes of component </b></dt>
+                           <dd class="ml-3">
+                              <p>When unchecked, reference planes are not displayed when placing components in an assembly.</p>
+                              <p>When checked, the reference planes associated with a component being placed in an
+                                 assembly are shown either during and after placement, or only during placement.</p>
+                           </dd>
+                           <dt><b>Show construction geometry when placing parts that do not have a design body</b></dt>
+                           <dd class="ml-3">
+                              <p> When checked, display the construction geometry for a part that does not have a design
+                                 body. If there are construction surfaces in the part, show construction surfaces,
+                                 if there are no construction surfaces then show construction curves, if there are
+                                 no construction curves and surfaces then show sketches, and if none of the above,
+                                 then show the co-ordinate system associated with the part (this will override the
+                                 option to show/hide coordinate system). This is checked by default. For more information
+                                 about parts without design bodies, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1a" rel="ngrphc1a">Non-graphic parts in assemblies</a>.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Fast Locate Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Fast locate using box display for parts</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, parts are displayed using a rectangular range box (A) instead of the
+                                 graphic display elements of the geometry (B). Setting this option improves the display
+                                 performance when highlighting and selecting components in an assembly. This setting
+                                 should be considered option when working with large assemblies.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/adjustable/assembly/fastbox2.gif"></p>
+                           </dd>
+                           <dt><b>Fast locate using box display for assemblies</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, subassemblies are displayed using a rectangular range box (A) instead
+                                 of the graphic display elements of the geometry (B). Setting this option improves
+                                 the display performance when highlighting and selecting components in an assembly.
+                                 This setting should be considered option when working with large assemblies.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/adjustable/assembly/fastbox1.gif"></p>
+                           </dd>
+                           <dt><b>Fast locate when over PathFinder</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that when you pass the cursor over components in PathFinder, they do not
+                                 highlight in the graphic window.</p>
+                              <p>When you set this option, the name of the assembly component is still displayed in
+                                 the message field, but it does not highlight in the graphic window. When you click
+                                 the component in PathFinder, it is displayed in the graphic window using the Select
+                                 color. Setting this option improves the performance when moving the cursor within
+                                 PathFinder and can be useful when working with large assemblies.</p>
+                              <p>When you clear this option, components are highlighted in the graphic window when
+                                 you pass the cursor over them in PathFinder. This can slow the performance when moving
+                                 the cursor within PathFinder, especially when working in large assemblies.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Limited Update and Save</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Enable Limited Update command button</b></dt>
+                           <dd class="ml-3">
+                              <p>Controls the availability of the <b>Limited Update</b> command in the assembly environment. When checked, the <b>Limited Update</b> command is enabled and it can be selected from the toolbar. When unchecked, the <b>Limited Update</b> command is disabled and <b>Limited Update</b> is set to off. </p>
+                           </dd>
+                           <dt><b>Enable Limited save command button</b></dt>
+                           <dd class="ml-3">
+                              <p>Controls the availability of the <b>Limited Save</b> command in the assembly environment. When checked, the <b>Limited Save</b> command is enabled and it can be selected from the toolbar. When unchecked, the <b>Limited Save</b> command is disabled and <b>Limited Save</b> is set to off. </p>
+                           </dd>
+                        </dl>
+                     </dd> 
+                     <dt><b>Dynamic Visualization</b></dt> 
+                     <dd class="ml-3"> 
+                        <p>In-memory indexing of property information occurs simultaneously when you start Solid
+                           Edge. Use this option to delay property indexing.</p> 
+                        <dl> 
+                           <dt><b>Enable delayed indexing when Solid Edge starts</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>When set, the in-memory indexing of property information is delayed until you click
+                                 the <b>Dynamic Visualization</b> command. This option is recommended if you rarely use <b>Dynamic Visualization</b>.</p> 
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div> 
+                                 <p>Administrators can use the Solid Edge Administrator option, <b>Enable delayed indexing in Dynamic Visualization</b> to define this behavior.</p> </div> </dd> </dl> </dd>
+                     <dt><b>Miscellaneous Options</b></dt>
+                     <dd class="ml-3">
+                        <div class="row">
+                           <div class="col-3"><b><b>Locate elements in inactive parts</b></b></div>
+                           <div class="col-9">
+                              <p>Historically, parts had to be activated to interact with the geometry of those parts.
+                                 Geometry of inactive parts could not be located. When this option is checked, geometry
+                                 of both active and inactive parts will be located. This is as if all parts are active.
+                                 There can be situations where this is undesirable. If locating faces of inactive parts
+                                 becomes too busy in your workflow and you want to limit the locate to only the active
+                                 parts, disable the option.</p>
+                           </div>
+                           <div class="col-3"><b><b>Use default placement name during Replace Part</b></b></div>
+                           <div class="col-9">
+                              <p>When checked, the document name of the replacement occurrence is used when replacing
+                                 a part or subassembly. This option is useful when the occurrence name within <b>PathFinder</b> has been changed using the <b>Rename</b> command or <b>Occurrence Properties</b> command on the <b>PathFinder</b> shortcut menu. When the name of an assembly occurrence is changed, only its occurrence
+                                 name is changed. The document name is not changed.</p>
+                              <p>When unchecked, the overridden name of the original occurrence is maintained.</p>
+                           </div>
+                        </div>
+                        <dl>
+                           <dt><b>Auto scroll assembly Pathfinder</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, the assembly <b>PathFinder</b> scrolls to the component selected in the assembly window.</p>
+                           </dd>
+                           <dt><b>Auto hide relationship Pathfinder</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, the relationship part (lower part) of the <b>PathFinder</b> is hidden until a component is selected.</p>
+                           </dd>
+                           <dt><b>Dim surrounding components when a selection is made in relationship PathFinder</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, the graphic display of assembly relationships is enhanced by dimming
+                                 the surrounding parts.</p>
+                           </dd>
+                           <dt><b>Maintain assembly display states set when editing parts and subassemblies</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, any changes that occur to the assembly display settings while the user
+                                 edits a Part or Sheet Metal document in place are maintained. This is checked by default.</p>
+                              <p>This setting does not affect in-place subassembly processing as the assembly display
+                                 state has always been preserved in this case. </p>
+                           </dd>
+                           <dt><b>Patterned parts inherit parent part occurrence properties by default</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, patterned parts inherit the occurrence properties of the parent parts.
+                                 For example, if the parent part has the occurrence property <b>Display in Drawing Views</b> set to Yes, the patterned parts would have the same occurrence property setting.</p>
+                              <p>The occurrence properties can still be changed for individual parts in the pattern
+                                 using the <b>Occurrence Properties</b> command.</p>
+                           </dd>
+                           <dt><b>Inactivate hidden and unused components every XXX minutes</b></dt>
+                           <dd class="ml-3">
+                              <p>When checked, components that are hidden or have not been used in the allotted time
+                                 will be automatically inactivated to reduce memory usage. When the Select Tool command
+                                 is clicked after the time limit expires, the components are checked for usage and
+                                 the time limit restarts.</p>
+                              <p>For example, if the timer is set to 120 minutes, then work is performed in the assembly,
+                                 the next time the <b>Select Tool </b>command is clicked after the time limit expires, any components that are hidden or
+                                 have not been used are automatically inactivated. The symbols in <b>PathFinder</b> for the affected components also change to indicate the components are inactive.
+                                 Any components which have been used for the following list of operations are ignored.</p>
+                              <p>To preserve data integrity, certain operations that are performed in an assembly prevent
+                                 parts from being automatically inactivated. For example, if any of the following operations
+                                 occur on a component after the time limit starts, the component will remain active
+                                 when the current time limit expires:</p>
+                              <ul>
+                                 <li>
+                                    <p>Activate a component</p>
+                                 </li>
+                                 <li>
+                                    <p>Apply a relationship using the component.</p>
+                                 </li>
+                                 <li>
+                                    <p>Select the component using the measurement commands on the Inspect menu.</p>
+                                 </li>
+                                 <li>
+                                    <p>Define an associative link using the component.</p>
+                                 </li>
+                                 <li>
+                                    <p>In-place activate a part without saving it.</p>
+                                 </li>
+                              </ul>
+                              <p>This option is useful when working with large assemblies. For more information, see
+                                 <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/assem3a" rel="assem3a">Working with Large Assemblies Efficiently</a>.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>*These options are disabled when using Large Assembly Performance mode.</dt>
+                     <dd class="ml-3">
+                        <p>All options in the dialog that have * after the text are disabled in Large Assembly
+                           Performance mode.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/custom1h" rel="custom1h">Open the Solid Edge Options dialog box</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/options2a" rel="options2a">File locations</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/genopt5d" rel="genopt5d">General tab (Solid Edge Options dialog box, Draft environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/view1d" rel="view1d">View page (Solid Edge Options dialog box, Draft environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/savetab1d" rel="savetab1d">Save page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/filelo1d_2" rel="filelo1d_2">File Locations page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid1182175" rel="xid1182175">Manage tab, Solid Edge Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/user1d" rel="user1d">User Profile page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/manage1d" rel="manage1d">Manage page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/dstab1d" rel="dstab1d">Dimension Style page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/option2d" rel="option2d">Drawing View Style tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid1378852" rel="xid1378852">Generative Design tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid608261" rel="xid608261">Drawing View Wizard tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/helpers1d" rel="helpers1d">Helpers tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/attach1d" rel="attach1d">Attachment Units page (Solid Edge Options dialog box, Draft)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/option5d" rel="option5d">Edge Display tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/option4d" rel="option4d">Drawing Standards tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/option3d" rel="option3d">Annotation tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/genopt3d" rel="genopt3d">General page (Solid Edge Options dialog box, Part environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/genopt4d" rel="genopt4d">General page (Solid Edge Options dialog box, Profile environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/color2d" rel="color2d">Colors tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/color4d" rel="color4d">Colors tab (Solid Edge Options dialog box, Draft)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/view2d" rel="view2d">View page (Solid Edge Options dialog box, Part environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/intopt1d" rel="intopt1d">Inter-Part page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/analysisopt1d" rel="analysisopt1d">Simulation tab (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid386498" rel="xid386498">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/genopt2d" rel="genopt2d">General page (Solid Edge Options dialog box, Assembly environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid833601" rel="xid833601">Units page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/view3d" rel="view3d">View page (Solid Edge Options dialog box, Assembly environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid429230" rel="xid429230">Assembly Open As page (Solid Edge Options dialog box, Assembly environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid1653464" rel="xid1653464">Shape Search page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid1412126" rel="xid1412126">Requirements page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/harnesstab1d" rel="harnesstab1d">Electrical Routing page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/tubprp1d" rel="tubprp1d">Tube Properties page (Solid Edge Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/fltptrn1d" rel="fltptrn1d">Flat Pattern Treatments page (Solid Edge Options dialog box)</a><br><br></div>
+            <div class="footer-content">Assembly page (Solid Edge Options dialog box), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

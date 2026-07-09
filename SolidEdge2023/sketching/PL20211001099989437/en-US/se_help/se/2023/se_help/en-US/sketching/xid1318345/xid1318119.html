@@ -1,0 +1,123 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using sketches in assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using sketches in assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1318119">
+                     <h1 class="topic-title">Using sketches in assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Using an assembly sketch to construct parts and subassemblies</h4>
+                  <div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Assembly sketch geometry can be associatively linked to drive the creation of ordered
+                           part geometry only.</p>
+                     </div>
+                     <p>When you create or modify a part or subassembly in the context of the assembly, you
+                        can use your assembly sketches to construct part profiles and subassembly sketches.
+                        You can also use the sketch elements to construct assembly features. For example,
+                        you can use the <b>Project to Sketch</b> command to include an element from an assembly sketch to a part profile or to include
+                        an edge from a part to the assembly sketch.</p>
+                     <p>To <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associatively</a> include an assembly sketch element, you must first set the following options:</p>
+                     <ul>
+                        <li>
+                           <p>In the <b>Solid Edge Options</b> dialog box, on the <b>Inter-Part</b> tab, select <b>Allow Inter-Part Links Using: Project to Sketch Command In Part and Assembly Sketches</b>. </p>
+                        </li>
+                        <li>
+                           <p>In the <b>Project to Sketch Options</b> dialog box, select the options:</p>
+                           <ul>
+                              <li>
+                                 <p><b>Allow locate of peer assembly parts and assembly sketches</b> </p>
+                              </li>
+                              <li>
+                                 <p><b>Maintain associativity when including geometry from other parts in the assembly</b></p>
+                              </li>
+                           </ul>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>For more information about working with associative links between parts and assemblies
+                                 in Solid Edge, see the<a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt1a" rel="intprt1a"> Inter-Part associativity</a> topic.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Link relationship handle</h4>
+                  <div>
+                     <p>A special <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/relationship_handle_2" rel="relationship_handle_2">relationship handle</a> is added to any linked sketch element (A) to indicate that it is linked to an element
+                        in another document. You can break a link by deleting the relationship handle for
+                        that link.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/assembly/lnksym1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Positioning 3D components using assembly sketches</h4>
+                  <div>
+                     <p>You can position parts and subassemblies with respect to a part or assembly sketch.
+                        You can position 3D components using assembly relationships, such as mate and planar
+                        align; or using 2D dimensions and relationships, such as distance between and connect,
+                        or using the <b>Select</b> command.</p>
+                     <p>In an assembly layout sketch, you can reference and position components defined as
+                        <a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid1175533" rel="xid1175533">blocks</a> using the <b>Duplicate Component</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/patterning/duplicate_component_command.png">. Using the <b>Select From</b> and <b>Select To</b> steps in the command, you can select a block in an assembly or subassembly sketch,
+                        which is then matched to the orientation of the components.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/assembly/patterning/dup_comp_using_sketch_blocks.png"></p>
+                     <p>While editing an assembly sketch, you can use the <b>Parts Library</b> tab to add new components to the assembly.</p>
+                  </div>
+                  <h4 class="division-title">Positioning assembly sketches using 3D components</h4>
+                  <div>
+                     <p>You can also constrain elements on an assembly sketch to a 3D assembly component such
+                        that if the size, shape or position of the 3D component changes, the assembly sketch
+                        updates. When you are editing an assembly sketch, you can select a 3D component and
+                        set the <b>Component Driving</b> option on the <b>Position 3D Component</b> command bar to specify that the 3D component drives the size, shape, and position
+                        of the assembly sketch.</p>
+                  </div>
+                  <h4 class="division-title">Copying sketches</h4>
+                  <div>
+                     <p>Your assembly layout might contain representations of many parts and subassemblies,
+                        and during the course of design you might choose to copy sketches between documents.
+                        You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/pshsktch1c" rel="pshsktch1c">Copy Sketch command</a> to copy assembly and part sketches between documents when working in the context
+                        of an assembly. When copying sketches, you use the <b>Copy Sketch To Target</b> dialog box to specify the target document, and whether the copied sketch is associatively
+                        linked to the original sketch.</p>
+                  </div>
+                  <h4 class="division-title">Tearing-off sketches</h4>
+                  <div>
+                     <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/tearoff1c" rel="tearoff1c">Tear-Off Sketch command</a> to move or copy elements in an assembly sketch to a new reference plane you define.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/assembly/sketch6.gif"></p>
+                     <p>When you copy sketch elements, you can use the options on the <b>Tear-Off Sketch Options</b> dialog box to specify whether the copied elements are associative to the existing
+                        elements.</p>
+                  </div>
+                  <h4 class="division-title">Assembly sketches and alternate assemblies</h4>
+                  <div>
+                     <p>The <b>Sketch</b> and <b>Copy Sketch</b> commands are available only when the <b>Apply Edits to All Members</b> option on the <b>Family of Assemblies</b> tab is set (you are working globally).</p>
+                     <p>For more information, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2a" rel="famasm2a">Alternate Assemblies Impact on Solid Edge Functionality</a> Help topic.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb1h" rel="incldb1h">Project part edges onto a sketch</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/peerloc1h" rel="peerloc1h">Change peer edge locatability</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/silhouetteedge1h" rel="silhouetteedge1h">Change silhouette edge locatability</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching6h" rel="sketching6h">Delete a sketch or sketch elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching9h" rel="sketching9h">Rename a sketch</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/tearoff1h" rel="tearoff1h">Copy or move a sketch to another reference plane</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/pshsktch1h" rel="pshsktch1h">Copy a sketch to another document</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching1a" rel="sketching1a">Drawing synchronous sketches of parts</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sktch1a" rel="sktch1a">Using ordered sketches to create ordered features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318146" rel="xid1318146">Editing sketch elements</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching3c" rel="sketching3c">Rename command</a><br><br></div>
+            <div class="footer-content">Using sketches in assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

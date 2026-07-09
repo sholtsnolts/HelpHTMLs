@@ -1,0 +1,466 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Naming rules and revision naming rules</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Naming rules and revision naming rules"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid384776">
+                     <h1 class="topic-title">Naming rules and revision naming rules</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Teamcenter naming rules define the data entry format for a business object property
+                     when the new object is created, for example, when you create a new revision (Revise)
+                     or copy an existing item. You can attach naming rules to the properties: Item ID,
+                     Item Revision, and Name in Item Types.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>For a complete list of properties to which naming rules can be attached, see the <em>Introduction to naming rules</em> section of Teamcenter’s <em>Business Modeler IDE Guide</em>.</p>
+                  </div>
+                  <p>Naming rules applied to the Item ID are only shown when the item is created (in the
+                     New Document dialog box). Naming rules applied to a revision are shown at creation
+                     (in the New Document dialog box), or when you revise the document (in the Revise Document
+                     dialog box). Naming rules applied to the Item Name are available for edit after the
+                     document is created (in the Upload dialog box) which includes upload and check-in.
+                     </p>
+                  <p>Naming rules consist of two components:</p>
+                  <ul>
+                     <li>
+                        <p>Pattern - Variable that defines the format (example: NNNNN).</p>
+                     </li>
+                     <li>
+                        <p>Counter - Defines the increment each time it is used.</p>
+                     </li>
+                  </ul>
+                  <p>The Item ID Pattern list is populated with patterns that have counters. The custom
+                     property <em>Pattern_ItemID</em> contains the value of the Item ID pattern. The custom property <em>Pattern_Revision</em> contains the value of the Revision pattern.</p>
+                  <p>Both the Item ID and Revision properties are dependent on the selected Item Type.
+                     When naming rules are applied to these two properties:</p>
+                  <ul>
+                     <li>
+                        <p>At least one pattern is defined.</p>
+                     </li>
+                     <li>
+                        <p>The pattern can be conditional.</p>
+                     </li>
+                     <li>
+                        <p>The pattern is governed by a generator.</p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>You have to have more than one pattern with a generator applied to for the pattern
+                        column to display.</p>
+                  </div>
+                  <p>The naming and number pattern list is populated with the applicable value for the
+                     selected Item Type.</p>
+                  <p>The Item Name and Item Revision Name properties can have more than one pattern defined.
+                     The pattern can be conditional, but the pattern is not governed by a generator.</p>
+                  <div class="attention" type="caution">
+                     <div class="attention-label">Caution: </div>
+                     <p>Your input is validated against all available patterns, not just the one you select.
+                        To see a list of patterns, you can click the information button.</p>
+                  </div>
+                  <h4 class="division-title">Naming rule patterns</h4>
+                  <div>
+                     <p>Naming rule patterns are composed of literal strings of characters, lists of patterns
+                        using lists of values (LOVs) as literal variables, and pattern variables composed
+                        of existing naming rules. Each pattern can consist of combinations of the following:</p>
+                     <table border="1" cellpadding="3" rules="groups" width="100%" frame="below">
+                        <colgroup span="1">
+                           <col span="1" width="15%">
+                           <col span="1" width="85%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Character </p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Pattern match</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>&amp;</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Alphanumeric value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>X</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Uppercase alphanumeric value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>x</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Lowercase alphanumeric value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>N</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Numeric value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>n</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Numeric value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>@</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Alphabetic value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>A</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Uppercase alphabetic value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>a</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Lowercase alphabetic value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>“string”</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>String delimiters</p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>If you want the word <em>Part</em> to appear in the naming rule, define it as “Part” in the naming rule pattern.</p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>?</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Any single character value</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>\</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>The next character to have a literal meaning. This character is only required when
+                                    using delimiters inside of other delimiters.</p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>“A\”Special\”Name”, which matches [A “Special” Name].</p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>${system-variable}</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Substitutes the value of a Teamcenter system variable</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>{variable-type:variable-name}</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Literal variable delimiters {Type:Name}</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>[variable-type:pattern-name]</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Pattern variable delimiters [Type:Name]</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Regular expressions</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Allows names to be validated, not generated, using standard regular expressions. This
+                                    delimiter cannot be used in a pattern that automatically generates counters. The regular
+                                    expression delimiter is %, which indicates that the rest of the pattern is a regular
+                                    expression. For example, the pattern for an Item ID with two uppercase alphabetic
+                                    characters followed by one digit is AAn.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>Once a naming rule pattern has been created, it must be attached to the business object
+                        property. The creation and attachment of naming rules is done using the Teamcenter
+                        Business Modeler IDE.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For more information, see the <em>Teamcenter Business Modeler IDE Guide</em>.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Revision naming rules</h4>
+                  <div>
+                     <p>A revision naming rule is a business rule that defines the naming convention and sequence
+                        for the revision property. This functionality is sometimes used to satisfy the strict
+                        naming requirements demanded by some industries. When revision naming rules are created,
+                        you have the option to exclude the characters I, O, Q, S, X, Z from a revision. These
+                        characters are commonly omitted in the aerospace industry.</p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>The list of excluded characters is managed by the <em>TcRevisionSkipLetters</em> List of Values (LOV). You can modify the LOV to meet your requirements.</p>
+                     </div>
+                     <p>The Revision list displays both the revision and description separated by a comma.
+                        Once the revision is selected, the common property dialog box displays only the revision.</p>
+                     <p>Both exhaustive and suggestive lists of values are supported in revision naming rules.
+                        Using the Teamcenter Business Modeler IDE (BMIDE), the revision is configured to be
+                        governed by a revision naming rule. Then a Solid Edge preference determines whether
+                        all revisions are initially available for user input. The preference determines whether
+                        you have to assign the value, choose the value from an exhaustive list, or type a
+                        value from a suggestive list. In the instances of a suggestive list, the value you
+                        type must adhere to the criteria defined as part of the revision naming rule.</p>
+                     <p>For more information about valid combinations of initial, secondary, and supplemental
+                        format types for revision naming, see the <em>Teamcenter Business Modeler IDE Guide</em>.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>An Item Revision can have either a naming rule or a revision naming rule, but not
+                           both.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Using conditions with naming rules</h4>
+                  <div>
+                     <p>You can attach naming rules using conditions to determine when naming rules are applied.
+                        Conditions are statements that resolve to true or false depending on the evaluation
+                        of an expression. Using conditions, multiple naming rules can be attached to the same
+                        property and business object. Conditions are defined at creation using the Teamcenter
+                        Business Modeler IDE.</p>
+                  </div>
+                  <h4 class="division-title">Working with naming rules</h4>
+                  <div>
+                     <p>In common property dialog boxes, the Pattern column is not shown unless the number
+                        of patterns with counters is greater than 1. If multiple documents are displayed,
+                        and one of the documents meets the requirements for presenting the Pattern column
+                        while others do not, the column is displayed. However, documents that do not meet
+                        the requirement display with a Pattern column cell that is read-only and with a null
+                        value.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/doc_mgt/manage_tc/naming_rule.gif"> </p>
+                     <p>Buttons in the cells of common property dialog boxes such as the New Document dialog
+                        box communicate the details of the valid patterns for that row or column.</p>
+                     <table border="1" cellpadding="3" rules="groups" width="100%" frame="below">
+                        <colgroup span="1">
+                           <col span="1" width="6%">
+                           <col span="1" width="25%">
+                           <col span="1" width="69%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Button</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Type</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Definition</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_ui/naming_rule_req.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Naming Rule + Required Property</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Naming rule applied to a required property such as Item ID, Revision, Item Name, or
+                                    Item Revision Name.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_ui/naming_rule_not_req.gif"></p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Naming Rule</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Naming rule applied to a property that is not a required property.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_ui/Revision_req.gif"></p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Revision Naming Rule + Required Property (Exhaustive LOV)</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Only implemented in the Revision column on a required property that is configured
+                                    with a revision naming rule from an exhaustive list of values.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/doc_mgt/manage_tc/manage_tc_ui/rev_naming_rule_suggestive.gif"></p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Revision Naming Rule + Required Property (Suggestive LOV)</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Only implemented in the Revision column on a required property that is configured
+                                    with a revision naming rule from a suggestive list of values.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>When you click the button, a message box is displayed containing the available pattern
+                        details for that row or column.</p>
+                     <p>Three elements are involved in assigning values for Item ID and Revision: generation,
+                        validation, and uniqueness. The following table describes how common property dialog
+                        box cells are populated with values when you interact with common property dialog
+                        boxes and the revision is driven by Naming Rules.</p>
+                     <table border="1" cellpadding="3" rules="groups" width="100%" frame="below">
+                        <colgroup span="1">
+                           <col span="1" width="6%">
+                           <col span="1" width="10%">
+                           <col span="1" width="10%">
+                           <col span="1" width="74%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Case</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Item ID</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Revision</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Comments</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>1</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>&lt;empty&gt;</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>&lt;empty&gt;</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Generate ID and Revision</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>2</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>User defined</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>&lt;empty&gt;</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Validate ID and generate Revision</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>3</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>&lt;empty&gt;</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>User defined</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Generate ID and Revisions; user's value is overriden</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>4</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>User defined</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>User defined</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Validate ID and Revision</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>This information is not applicable when a Revision Naming Rule is used.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid385669" rel="xid385669">Use naming rules</a><br><br></div>
+            <div class="footer-content">Naming rules and revision naming rules, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

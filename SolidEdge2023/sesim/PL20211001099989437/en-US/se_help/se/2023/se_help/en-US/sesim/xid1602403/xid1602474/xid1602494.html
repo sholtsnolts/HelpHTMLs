@@ -1,0 +1,288 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate stress on a sheet metal part</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate stress on a sheet metal part"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1602494">
+                     <h1 class="topic-title">Tutorial: Simulate stress on a sheet metal part</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_static" rel="linear_static">linear static analysis</a> to simulate the stresses on a sheet metal part. Sheet metal and other thin parts
+                     use a mid-surface as the study geometry and a 2D mesh to solve the study.</p>
+                  <p>In this tutorial, you define a mid-surface in a sheet metal part, apply <em>pinned</em> and <em>no rotation</em> constraints, and solve the study. The part acts as the wheel support <em>fork</em> on a riding lawn mower. </p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet01.gif"></p>
+                  <p>The study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Study type=Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Load type=Force</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=2D Surface</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=No Rotation</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Pinned</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Constraint symbols indicate the degrees of freedom (DOF) of a model. The symbols are
+                              comprised of two shapes: a sphere and one or more arrows.</p>
+                           <ul>
+                              <li>
+                                 <p>The sphere indicates no degrees of freedom. It is used by fixed and pinned constraints.
+                                    It also appears in sliding-along-surface constraints, cylindrical constraints, and
+                                    no rotation constraints.</p>
+                              </li>
+                              <li>
+                                 <p>Arrow symbols point in the direction the model is <em>not constrained</em>, with each arrow indicating one DOF.</p>
+                              </li>
+                           </ul>
+                           <table>
+                              <tbody>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1" height="320">
+                                       <p id="norotsym">No Rotation symbol</p><br><p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_dof_norotation.gif"></p>
+                                    </td>
+                                    <td rowspan="1" valign="top" colspan="1" height="320">
+                                       <p>Prevents rotation, yet allows three translational DOF.</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1" height="320">
+                                       <div class="attention" type="example">
+                                          <div class="attention-label">Example: </div>
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_dof_norotation_ex.gif"></p>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Pinned constraint symbol</p><br><p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_dof_pinned.gif"></p>
+                                    </td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Constrains all three translational DOF, yet allows three rotational DOF.</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <div class="attention" type="example">
+                                          <div class="attention-label">Example: </div>
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_training_act_sheet10.gif"></p>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Create a study and define a mid-surface.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Open the file <b>FE_sheet_fork.psm</b>.</p>
+                           <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet02.gif"></p>
+                        </li>
+                        <li>
+                           <p>Create a study:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                              </li>
+                              <li>
+                                 <p> From the <b>Study Type</b> list, choose <b>Linear Static</b>, and click <b>OK</b>. </p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>For a sheet metal model, the <b>Mesh Type</b> defaults to <b>Surface</b>. </p>
+                                 </div>
+                              </li>
+                              <p>You can see the new study name on the <b>Simulation</b> tab→<b>Study</b> group.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_sheet03.gif"></p>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Analysis of a sheet metal part (or any thin part) requires a mid-surface. </p>
+                           <ol type="a">
+                              <li>
+                                 <p>From the <b>Simulation</b> tab→<b>Geometry</b> group, select <b>Mid-Surface</b> <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_midsurface_button_on.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>On the <b>Mid-Surface</b> command bar, do the following:</p>
+                                 <ol type="A">
+                                    <li>
+                                       <p>Click <b>Offset From Side 1</b>.</p>
+                                    </li>
+                                    <li>
+                                       <p>Ensure <b>Offset Ratio </b> is set to <b>0.500</b>.</p>
+                                       <p>You can see that the part is automatically selected, and the mid-surface is displayed
+                                          in green.</p>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet04.gif"></p>
+                                    </li>
+                                    <li>
+                                       <p>Click the <b>Preview</b> button, and then click <b>Finish</b> or right-click to accept.</p>
+                                    </li>
+                                 </ol>
+                              </li>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet05.gif"></p>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Select the mid-surface:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>In the empty space in <b>PathFinder</b>, right-click and select <b>Hide All</b>→<b>Design Body</b>. </p>
+                                 <p>This exposes just the mid-surface.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet07.gif"></p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>Although the mid-surface is shown in the default purple color, the remaining illustrations
+                                       portray a neutral gray color, which makes it easier to see what is selected.</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>From the <b>Simulation</b> tab→<b>Geometry</b> group, select the <b>Define</b> command. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_define_button_on.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Select and accept the mid-surface.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet08.gif"></p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>You also can select the <em>Mid Surface 2</em> node in <b>PathFinder</b>.</p>
+                                 </div>
+                              </li>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Apply pinned and no rotation constraints.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Apply a pinned constraint:</p>
+                           <ol type="a">
+                              <li>
+                                 <p> Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Pinned</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_pinned_button_on.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>Select the top face.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet09.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Right-click in space to accept; left-click to finish the command.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet10.gif"></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Apply a no-rotation constraint:</p>
+                           <ol type="a">
+                              <li>
+                                 <p> Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>No-Rotation</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_norot_button_on.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>Select the two side faces. </p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet11.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Right-click in space to accept; left-click to finish the command.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet12.gif"></p>
+                              </li>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Apply a force load, mesh, and solve.</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Apply a force:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Choose <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                              </li>
+                              <li>
+                                 <p>On the command bar, change the selection criteria to <b>Edge/Corner</b>.</p>
+                              </li>
+                              <li>
+                                 <p>Select the circular edges. In the value edit box, type <b>250 N</b> and press Enter.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_sheet14.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Click to finish.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet15.gif"></p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Simulation</b> pane, turn off the constraints and loads.</p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Mesh the enclosure:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Click the <b>Mesh &amp; Solve</b> button.</p>
+                                 <p>After a short period of time, the enclosure mid-surface displays a surface mesh.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_sheet_metal.png"></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Compare to the undeformed part:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>In the <b>Simulation Results</b> environment, choose <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/sesim_display_options_button.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>Select the <b>Undeformed Model</b> check box.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res5.gif"></p>
+                                 <p>The original, undeformed state of the part is superimposed on the deformed state.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet18.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Select the <b>Plate Thickness</b> check box to display the plate thickness on the mid-surface.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_plate_res_sel.gif"></p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet19.gif"></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Close this file.</p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Tutorial: Simulate stress on a sheet metal part, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

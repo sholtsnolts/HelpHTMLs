@@ -1,0 +1,164 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Body Size dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Body Size dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mesh6d">
+                     <h1 class="topic-title">Body Size dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Body Size</b> dialog box is displayed when you choose the <b>Simulation</b> tab→<b>Mesh</b> group→ <b>Body Size</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_body_size_button.gif"> to refine the mesh applied to an existing body. Not all options are available for
+                     all mesh types.</p>
+                  <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a> to learn about refining the mesh.</p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/mesh_body_size_db.png"></p>
+                  <dl>
+                     <dt>Mesh Size</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Use Subjective</dt>
+                           <dd class="ml-3">
+                              <p>Uses the value set by the slider on the command bar to specify mesh size. Values range
+                                 from 1 through 10; the default value is 3.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Specify Size</dt>
+                           <dd class="ml-3">
+                              <p>Applies the mesh size value specified in the box, using the model units of length.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Mesh Type</dt>
+                     <dd class="ml-3">
+                        <p>Quadrilateral meshes are more accurate than triangle meshes. When meshing a surface
+                           or mid-plane, the default mesh type is <b>Quad elements</b>.</p>
+                        <dl>
+                           <dt>Tri elements</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the mesh be created only from triangles. </p>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>You need a higher density triangle mesh to get the same results as a quad mesh.</p>
+                              </div>
+                           </dd>
+                           <dt>Quad elements</dt>
+                           <dd class="ml-3">
+                              <p>This option will generate quadrilateral elements whenever possible. Triangles are
+                                 created wherever quadrilaterals cannot meet the specified boundary mesh sizes, and
+                                 wherever a quadrilateral would be severely distorted. </p>
+                              <p>You can override the default 60 degree allowable distortion with any value that you
+                                 want. Lower distortion values will result in more triangles.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You always get at least one triangle if you specify an odd number of nodes on the
+                                    surface. </p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Tet Mesh Control</dt>
+                     <dd class="ml-3">
+                        <p>Specifies mesh size options for a tetrahedral mesh.</p>
+                        <dl>
+                           <dt>Tet Growth Ratio ___%</dt>
+                           <dd class="ml-3">
+                              <p>The <b>Tet Growth Ratio</b> is a mesh growth factor that is multiplied by the average size of the elements around
+                                 the perimeter of the surface. This value is used as the target size of all the elements
+                                 in the interior of the surface.</p>
+                              <ul>
+                                 <li>
+                                    <p>To decrease the size of the elements in the interior of the surface, use a number
+                                       between 0.5 and 1. </p>
+                                    <div class="attention" type="example">
+                                       <div class="attention-label">Example: </div>
+                                       <p>Tet Growth Ratio=1.0</p>
+                                       <p>When meshing thin solid bodies, set the Tet Growth Ratio to 1.0 to prevent mesh growth
+                                          towards the interior of the solid.</p>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_growth_factor_1.gif"></p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p>To increase the size of the elements formed in the interior of the surface, use a
+                                       value above 1, with a maximum of 100. </p>
+                                    <div class="attention" type="example">
+                                       <div class="attention-label">Example: </div>
+                                       <p>Tet Growth Ratio=2.0</p>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_growth_factor_2.gif"></p>
+                                    </div>
+                                 </li>
+                              </ul>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>The following illustration compares the resulting mesh element sizes when two different
+                                    mesh growth factors are used: 5.0, and 0.2.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_growth_factors_compared.gif"></p>
+                              </div>
+                              <p>If you need to form larger or smaller tetrahedral elements than this ratio will allow,
+                                 re-mesh the surfaces of the solid with a finer or coarser mesh.</p>
+                           </dd>
+                           <dt>Midside Nodes</dt>
+                           <dd class="ml-3">
+                              <p>Set this option to create mid-side nodes in the tetrahedral mesh. Mid-side nodes provide
+                                 a higher degree of accuracy. </p>
+                              <p>When this option is cleared, linear mesh elements are created.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You should almost always leave this option on. Four-noded tetrahedral elements can
+                                    give inaccurate results. </p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Accept</dt>
+                     <dd class="ml-3">
+                        <p>Applies the current sizing value.</p>
+                        <ul>
+                           <li>
+                              <p>If the model contains a single part or sheet metal body, the geometry is selected
+                                 automatically.</p>
+                           </li>
+                           <li>
+                              <p>In an assembly model, you must select one or more bodies to be sized before you can
+                                 click <b>Apply</b>.</p>
+                           </li>
+                        </ul>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Body Size dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

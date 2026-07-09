@@ -1,0 +1,175 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using connectors</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using connectors"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="connector1a">
+                     <h1 class="topic-title">Using connectors</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">About connectors</h4>
+                  <div>
+                     <p>Connectors are a type of annotation that can be added to blocks and other 2D elements
+                        to create schematic diagrams, flow charts, and other drawings. An efficient way to
+                        use them is to create and arrange the blocks or other 2D objects on the drawing first,
+                        and then add the connectors using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/connector1c" rel="connector1c">Connector command</a>.</p>
+                     <p>You can also modify the appearance, location, and orientation of existing connectors
+                        by selecting a connector in the drawing and making changes on the <b>Connector</b> command bar and on the <b>Connector Properties</b> dialog box.</p>
+                  </div>
+                  <h4 class="division-title">Connector shapes</h4>
+                  <div>
+                     <p>There are five connector shape types: <b>Line</b>, <b>Corner</b>, <b>Jump</b>, <b>Gap</b>, and <b>Step</b>. <b>Line</b> and <b>Corner</b> connectors consist of start and end handles. <b>Jump</b>, <b>Gap</b>, and <b>Step</b> connectors also contain a midpoint handle that defines the center of the step or
+                        arc.</p>
+                     <p>The midpoint of the jump arc or gap span can be connected to another line, such as
+                        a wire, or to another connector segment, so that it moves with the connected element.
+                        </p>
+                     <p>The midpoint of the step can only be snapped to another object, not connected to it.</p>
+                     <p>For more information about these shapes, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/connector1d" rel="connector1d">Connector command bar</a>.</p>
+                  </div>
+                  <h4 class="division-title"> Adding connectors</h4>
+                  <div>
+                     <p>The <b>Connector</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/block_connector_command/connector_command.jpg"> initiates dynamic connector placement mode, in which a continuous series of connectors
+                        can be added to the drawing until you right-click, click the Select tool, or press
+                        the Esc key to exit.</p>
+                     <p>Input to create a connector consists of two points. These two points can be on a block,
+                        another 2D graphic object, on a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/key_point" rel="key_point">keypoint</a>, on a grid, in free space, and even a point on another connector. The eligible points
+                        on a connector include a midpoint or start or end vertex.</p>
+                     <p>Similarly, connectors can be connected to text, dimensions, leader lines, and other
+                        annotations. When you attach a jump connector to another element, both the jump and
+                        the connected element highlight to show they are connected. When the annotation moves,
+                        the connector moves with it.</p>
+                     <p>Connector midpoints can be snapped to a grid during placement and editing.</p>
+                  </div>
+                  <h4 class="division-title">Manipulating connectors</h4>
+                  <div>
+                     <p>Once placed, connectors are driven by the objects they are attached to. If a connected
+                        block, element, or object is moved, the connector end point moves with it, stretching
+                        the connector line segment as needed to maintain connectivity. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/tutorial/seddasc/moveblock2.gif"></p>
+                     <p>For line and jump connectors only, if the other end of the connector is free, then
+                        the entire connector moves with the object.</p>
+                     <p>You can easily align connectors using a grid and the <b>Snap To Grid</b> options on the <b>Grid Options</b> dialog box. You can snap to a point or to a line.</p>
+                     <p>While modifying an existing connector, you can select a handle or the midpoint of
+                        a connector and drag it, and it will snap into position. When you turn off the grid,
+                        you turn off the snap-to-grid feature.</p>
+                  </div>
+                  <h4 class="division-title">Highlight color</h4>
+                  <div>
+                     <p>When you select a connector to edit, connector handles and connected elements are
+                        highlighted. It is helpful to know the default highlight color scheme, as it determines
+                        how connectors and connected elements will behave when you try to modify or move them.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/connseghilite.gif"></p>
+                     <ul>
+                        <li>
+                           <p>The default selected connector color is magenta.</p>
+                        </li>
+                        <li>
+                           <p>The default handle highlight color for the connector start point is light blue. </p>
+                        </li>
+                        <li>
+                           <p>The default handle highlight color for the connector end point is gray.</p>
+                        </li>
+                        <li>
+                           <p>The center point of a Jump, Gap, Step, and Corner connector is black.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The color scheme described above is the default color scheme. You may choose a different
+                           color scheme, which can be implemented through templates or a custom <b>Connector</b> style. See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/connector2a" rel="connector2a">Connector style and properties</a> to learn where these default colors are set and can be changed.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Changing connector shape and orientation</h4>
+                  <div>
+                     <p>You can easily edit an existing connector.</p>
+                     <p>You can change the shape of a selected connector by pressing S on the keyboard or
+                        clicking a different connector type in the <b>Shape</b> list on the command bar. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>You might change a connector shape from a line to a jump where two wires cross in
+                           a diagram:</p>
+                        <p>Line</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/tutorial/seddasc/changeshape1.gif"></p>
+                        <p>Jump</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/tutorial/seddasc/changeshape2.gif"></p>
+                        <p>Or you can use a gap connector (1) instead of a jump connector (2).</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/block_connector_ui/connjumpgap.png"></p>
+                     </div>
+                     <p>You can change the default horizontal or vertical orientation of a jump, corner or
+                        step connector by pressing F on the keyboard or using the <b>Flip</b> button on the command bar.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Corner connector before flip:</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/block_connector_howto/conncorner_flip_before.png"></p>
+                        <p>Corner connector after flip:</p>
+                        <p> <img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/block_connector_howto/conncorner_flip_after.png"></p>
+                     </div>
+                     <p>You can adjust the jump radius of a jump connector by typing a new value in the <b>Jump radius/gap</b> box on the command bar and pressing Tab to update the connector. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/block_connector_ui/connjump_radius_size.png"></p>
+                     </div>
+                     <p>You also can adjust the position of the jump by selecting the middle handle and moving
+                        it along the connector segment.</p>
+                     <p>Only one jump per connector is allowed. However, you can create a string of connectors
+                        with one jump each, which behaves like a single connector with multiple jumps. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Set the start and end terminators of the connectors in the middle to the <b>Blank</b> option. Do the same for the end terminator of the first connector and the start terminator
+                           of the end connector. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/connjumpstring.gif"></p>
+                     </div>
+                     <p>You can create a U-shaped connector by placing a step-type connector, then selecting
+                        the connector middle handle and dragging it.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/block_connector/conn_drag_step_to_u_shape.gif"></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Cut, copy, or paste a connector</h4>
+                  <div>
+                     <p>You can cut, copy, and paste a selected connector using those commands on its shortcut
+                        menu. Press the Ctrl key while you drag the connector to both copy and move the connector.</p>
+                  </div>
+                  <h4 class="division-title">Rotate, mirror, scale, or move a connector</h4>
+                  <div>
+                     <p>Connector annotations can be rotated, mirrored, scaled, and moved using those commands.
+                        If you use these commands on a connected object, the connector segment will change
+                        with it. If you select the connector segment itself, only the connector will change.</p>
+                     <p>To move an individual connector, it is more efficient to move the connected object.
+                        You cannot fence select connectors to move them.</p>
+                  </div>
+                  <h4 class="division-title">Disconnecting a connector</h4>
+                  <div>
+                     <p>To disconnect a connector from an object, select and drag the connector handle off
+                        the object.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Using connectors, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

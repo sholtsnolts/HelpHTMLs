@@ -1,0 +1,72 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Add custom drawing view scales to Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Add custom drawing view scales to Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dvscale1h">
+                     <h1 class="topic-title">Add custom drawing view scales to Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>Predefined drawing view scales are displayed in the Scale list in many different locations
+                     in the user interface, including the Drawing View Wizard, the Drawing View Properties
+                     dialog box, and the Drawing View Selection command bar.</p>
+                  <p>If you want to include a standard set of custom drawing view scales across all of
+                     your draft documents, you can add them to the <b>custom.xml</b> file, which is located in the Preferences folder. All of the default English and
+                     metric drawing view scales that are provided with Solid Edge are read from this file.</p>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Open the <b>custom.xml</b> file in a text editor or XML editor.</p>
+                        <p>The default location of this file is<b> C:\Program Files\Siemens\Solid Edge 2023\Preferences</b>.</p>
+                     </li>
+                     <li>
+                        <p>Scroll to the section of the file that begins with this tag: </p>
+                        <pre class="code-text">&lt;DrawingViewScales&nbsp;version="1"&gt;</pre>
+                        <p>Below this are two sets of predefined drawing view scales, English and metric. They
+                           are formatted like this:</p>
+                        <pre class="code-text">&lt;DVScaleSet&nbsp;name=”English”&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DVScale&nbsp;value=”100:1”/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DVScale&nbsp;value=”80:1”/&gt;<br></pre>
+                        <pre class="code-text">&lt;DVScaleSet&nbsp;name=”Metric”&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DVScale&nbsp;value=”50:1”/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;DVScale&nbsp;value=”20:1”/&gt;<br></pre>
+                     </li>
+                     <li>
+                        <p>Keeping the same format, add your custom drawing view scales to the appropriate list.
+                           Any drawing view scale that employs positive numbers is valid.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>For example, both “3:2” and “2.5:0.5” are valid values. If an entry in is invalid,
+                              it does not appear in the drawing view scale list in Solid Edge.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Save and close the file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/sheetscale1h" rel="sheetscale1h">Set the drawing sheet scale</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/sheetscale1a" rel="sheetscale1a">Sheet scale and drawing view scale</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/sheetscale1c" rel="sheetscale1c">Set Sheet Scale command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/sheetscale1d" rel="sheetscale1d">Set Sheet Scale command bar</a><br><br></div>
+            <div class="footer-content">Add custom drawing view scales to Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

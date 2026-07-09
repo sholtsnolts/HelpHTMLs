@@ -1,0 +1,118 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Example: Show sheet metal material thickness in a parts list</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Example: Show sheet metal material thickness in a parts list"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="varpro2h">
+                     <h1 class="topic-title">Example: Show sheet metal material thickness in a parts list</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can assign material and mechanical properties to a part or assembly in the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material1a" rel="material1a">material table</a>. When working with a sheet metal part, you also can use the material table to define
+                     the properties for the sheet metal stock you are using, such as material thickness,
+                     sheet gage, and bend radius.</p>
+                  <p>You can access variables in the material table by exposing the corresponding variables
+                     in the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1a" rel="equat1a">variable table</a>. For example, to display the sheet metal gage thickness in a parts list on a drawing,
+                     expose the Material Thickness variable in the part.</p>
+                  <h5>Display the sheet metal gage thickness property in a parts list</h5>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Open the sheet metal part and choose the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1c" rel="equat1c">Variables command</a>.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>If there are multiple sheet metal parts in an assembly, then you must do this for
+                              each part that you want to show in the parts list.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>In the <b>Variable Table</b>, select the <b>Expose</b> check box for the Material Thickness variable.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Exposed Name</b> column, review the material thickness variable name. This is the column heading that
+                           will appear in the parts list.</p>
+                        <ul>
+                           <li>
+                              <p>Verify that the exposed name conforms to variable naming conventions.</p>
+                           </li>
+                           <li>
+                              <p>Verify that the exposed name is the same for all the parts.</p>
+                           </li>
+                           <li>
+                              <p>To change the exposed name: Double-click the cell, type a new name, and then press
+                                 Enter.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>For information about what constitutes a valid name, see the help topic, <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1d" rel="equat1d">Variable Table dialog box</a>.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Close the <b>Variable Table</b> dialog box.</p>
+                     </li>
+                     <li>
+                        <p>Open the draft document that contains the parts list.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>If there is no parts list on the drawing, use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1c" rel="prtlst1c">Parts List command</a> <img class="img-fluid" src="../../../common/nonLocalized/se/partlist_tables/table_type/table_type_command/parts_list_cmd.gif"> to generate one. To learn how to create a parts list, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview2h" rel="dview2h">Create a parts list</a>.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Select the parts list, and on the command bar, click <b>Properties</b>.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Parts List Properties</b> dialog box, click the <b>Columns</b> tab.</p>
+                     </li>
+                     <li>
+                        <p>On the <b>Columns</b> page, from the <b>Properties</b> list, select the property labeled <b>Material Thickness (Exposed Variable)</b>.</p>
+                     </li>
+                     <li>
+                        <p>Click <b>Add Column</b> to include the material thickness values in the parts list.</p>
+                     </li>
+                     <li>
+                        <p>Click <b>OK</b> to close the dialog box and update the parts list.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <ul>
+                              <li>
+                                 <p>If no data appears in the <b>Material Thickness</b> column in the parts list, then change the granularity of the parts list. On the <b>List Control</b> tab in the <b>Parts List Properties</b> dialog box, select the option, <b>Atomic list (all parts and subassemblies)</b>.</p>
+                              </li>
+                              <li>
+                                 <p>If you subsequently change the part or assembly document, you must update the parts
+                                    list in the draft document using the <b>Update</b> command on its shortcut menu.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview2h" rel="dview2h">Create a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid969395" rel="xid969395">Create a subassembly parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst6h" rel="prtlst6h">Create an exploded parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst5h" rel="prtlst5h">Create a total length parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1472881" rel="xid1472881">Create a parts list for flexible hoses and tubing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1926173" rel="xid1926173">Create a family of assemblies parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid725042" rel="xid725042">Exclude parts from an exploded parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid732539" rel="xid732539">Open a model from a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1177387" rel="xid1177387">Example: Show custom occurrence properties in a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/varpro3h" rel="varpro3h">Example: Show custom properties and materials in a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1h" rel="prtlst1h">Renumber a parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst4h" rel="prtlst4h">Change the active parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/dview5h" rel="dview5h">Display assembly occurrences in a drawing view or parts list</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst2h" rel="prtlst2h">Convert a parts list to a table</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3h" rel="prtlst3h">Copy a parts list to the clipboard</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1a" rel="prtlst1a">Parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1926828" rel="xid1926828">Family of Assemblies (FOA) parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid973634" rel="xid973634">Assembly part views and parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid984917" rel="xid984917">Subassembly drawing views and parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3a" rel="prtlst3a">Exploded parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1178759" rel="xid1178759">Custom occurrence properties in parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1206783" rel="xid1206783">Occurrence quantity overrides in parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid726732" rel="xid726732">Item numbers in parts lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid969567" rel="xid969567">Saving and reusing the parts list format</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst1c" rel="prtlst1c">Parts List command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst4d" rel="prtlst4d">Parts List command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3d" rel="prtlst3d">Parts List Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst3c" rel="prtlst3c">Copy Contents command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/prtlst2c" rel="prtlst2c">Convert To Table command</a><br><br></div>
+            <div class="footer-content">Example: Show sheet metal material thickness in a parts list, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

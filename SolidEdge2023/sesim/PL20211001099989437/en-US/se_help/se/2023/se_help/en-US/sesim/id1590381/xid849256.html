@@ -1,0 +1,120 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Setting units for files opened in Femap</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Setting units for files opened in Femap"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid849256">
+                     <h1 class="topic-title">Setting units for files opened in Femap</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Units in .modfem files</h4>
+                  <div>
+                     <p>Units written by Solid Edge Simulation to Femap model files <b>(*.modfem)</b> are based on:</p>
+                     <ul>
+                        <li>
+                           <p>Model data, in meters</p>
+                        </li>
+                        <li>
+                           <p>Study data, in SI units (meters, newtons, kilograms, seconds, and degrees Centigrade).
+                              </p>
+                        </li>
+                     </ul>
+                     <p>Femap uses a system of consistent units, which are based on the solid geometry units
+                        in each <b>.modfem</b> file. Then it applies conversion factors, if necessary, to align the analysis units
+                        to the same system. </p>
+                  </div>
+                  <h4 class="division-title">How Femap interprets units from Solid Edge data</h4>
+                  <div>
+                     <p>In the Femap database, solid geometry defaults to inches (for English data) or to
+                        meters (for metric data). </p>
+                     <p>Users working with Solid Edge ANSI template files typically have no issues with units
+                        since Femap is configured to handle this case by default. ANSI units are consistent
+                        with inches, pound-force, seconds, a consistent unit of mass (slinch), and degrees
+                        Fahrenheit. </p>
+                     <p>However, when working with Solid Edge ISO and other metric templates whose length
+                        readout unit is millimeters or meters, you may want to set consistent units in Femap
+                        for your Solid Edge models and simulation data.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Assume that your metric template is based on millimeters, and that you changed the
+                           unit of measure defined for stress and pressure on the <b>Units</b> tab in the Solid Edge Options dialog box to megapascals (MPa). Also assume that you
+                           created a structural study in Solid Edge Simulation and applied a pressure load. </p>
+                        <ul>
+                           <li>
+                              <p>When you save the study as a <b>.modfem </b> file, the model data is converted from millimeters to meters. </p>
+                           </li>
+                           <li>
+                              <p>When Femap reads the Solid Edge <b>.modfem </b> file, it applies the appropriate scale and conversion factors to obtain a consistent
+                                 set of SI units, which is the standard <em>based on meters</em>. Therefore, in a structural study, Femap selects pascal (Pa), not megapascal, as
+                                 the matching SI unit for stress and pressure. This means that you see a numeric discrepancy
+                                 between Solid Edge and Femap analysis results. This is not wrong, but it is different.
+                                 </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Opening Solid Edge Simulation files in Femap</h4>
+                  <div>
+                     <p>When you save a Solid Edge Simulation study using the <b>Save Femap Model File</b> shortcut command, and then import it into Femap:</p>
+                     <ul>
+                        <li>
+                           <p>Femap uses the PLMXML interface and the Solid Edge adapter to read the Solid Edge
+                              model file. </p>
+                        </li>
+                        <li>
+                           <p>Femap converts the data in the <b>*.modfem</b> file to whatever its current settings are. </p>
+                        </li>
+                        <li>
+                           <p>You can use an option inside Femap to apply the appropriate scale factor so that the
+                              units are consistent between Femap and Solid Edge.</p>
+                           <p>For more information about how to do this, see: </p>
+                           <ul>
+                              <li>
+                                 <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid849277" rel="xid849277">Set units for files opened in Femap</a>. </p>
+                              </li>
+                              <li>
+                                 <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/activity1_compare_sesim_femap_units" rel="activity1_compare_sesim_femap_units">Practice: Setting units for files opened in Femap</a>.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Transferring a model from Solid Edge to Femap </h4>
+                  <div>
+                     <p>When you use the <b>Tools</b> tab→<b>Environs</b> group→<b>Femap</b> command on the ribbon in Solid Edge, you are transferring a Solid Edge model via
+                        the Femap API into a Femap session. When opening the file using this method, the API
+                        only informs Femap that objects are certain sizes and values. There is no opportunity
+                        to convert units or adjust the model.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid849277" rel="xid849277">Set units for .modfem files opened in Femap</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1h" rel="savefea1h">Save a study to Femap</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/ref1a" rel="ref1a">FEA processing resources</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feafiles1a" rel="feafiles1a">FEA architecture and files</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1a" rel="nastran1a">NX Nastran processing options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1a" rel="savefea1a">Saving FEA documents</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1d" rel="nastran1d">Simulation Progress dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1d" rel="savefea1d">Save Femap Model File dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/activity1_compare_sesim_femap_units" rel="activity1_compare_sesim_femap_units">Practice: Using Solid Edge Simulation files in Femap</a><br><br></div>
+            <div class="footer-content">Setting units for files opened in Femap, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

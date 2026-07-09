@@ -1,0 +1,596 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Create Study (or Modify Study) dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Create Study (or Modify Study) dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="study1d">
+                     <h1 class="topic-title">Create Study (or Modify Study) dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"> 
+                  <p>This dialog box is displayed when you select the <b>New Study</b> command or the <b>Modify Study</b> command, which is located on the context menu of a selected study. </p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/create_study_dialog_box.png"></p>
+                  <dl>
+                     <dt><b>Study type</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the type of study:</p>
+                        <ul>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a> include linear static, modal, and buckling studies.</p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a> include heat transfer (steady state and transient) and thermal stress analysis.</p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a> apply the results of one study as input to another study. For example, thermal stress
+                                 analysis couples a thermal study with a structural study.</p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a>.</p>
+                           </li>
+                        </ul>
+                        <p>When a study is active, the study type is displayed on the ribbon in the <b>Study</b> group.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Mesh type</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the geometry <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a#mesh1a_type" rel="mesh1a">mesh type</a> to use for the analysis. </p>
+                        <dl>
+                           <dt><b>Tetrahedral</b></dt>
+                           <dd class="ml-3">
+                              <p>This is the default option for part and assembly models. </p>
+                           </dd>
+                           <dt><b>Surface</b></dt>
+                           <dd class="ml-3">
+                              <p>Use a surface mesh for thin wall parts and for sheet metal. This is the default option
+                                 for sheet metal models. </p>
+                           </dd>
+                           <dt><b>General Bodies</b></dt>
+                           <dd class="ml-3">
+                              <p>For part and sheet metal models, use a <b>General Bodies Mesh</b> to create a continuous mesh from the collection of surface bodies and solid bodies
+                                 united with the <b>Unite Bodies</b> command. This is useful for meshing parts with T-shaped junctions.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>T-shaped junctions at (A) and (B).</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/teejunction2.gif"></p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/teejunction1.gif"> </p>
+                              </div>
+                           </dd>
+                           <dt><b>Mixed and General Bodies</b></dt>
+                           <dd class="ml-3">
+                              <p>For assembly models that contain sheet metal and solid parts, design bodies, or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/united_bodies" rel="united_bodies">united bodies</a>, use the <b>Mixed and General Bodies</b> mesh type to create a continuous mesh.</p>
+                           </dd>
+                           <dt><b>Beam</b></dt>
+                           <dd class="ml-3">
+                              <p>Beam meshing is available only for structural frame models.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>OK</b></dt>
+                     <dd class="ml-3">
+                        <p>Creates the study and adds a default study name to the <b>Simulation</b> pane. Whenever possible, geometry is selected and added to the study automatically.
+                           When not, you are prompted to select the geometry to be analyzed. See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a>.</p>
+                        <p>When you use the <b>Modify Study</b> command from the shortcut menu of a study selected in the <b>Simulation</b> pane, the <b>OK</b> button saves the changes that you made in the <b>Modify Study</b> dialog box.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Expands the <b>Create Study</b> dialog box to show the study creation or modification options in the <b>Advanced Options</b>, <b>Connector Options</b>, and <b>Results Options</b> groups.</p>
+                     </dd>
+                  </dl>
+                  <h4 class="division-title" id="adv_opts">Advanced Options</h4>
+                  <div>
+                     <p>Modifies the default Solid Edge Simulation processing settings for creating the specified
+                        study type. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_study_create_adv_opts_all.gif"></p>
+                     <dl>
+                        <dt><b>Iterative solver</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies that the NX Nastran iterative solver is used to solve the analysis. This
+                              efficiently solves large models containing mainly higher-order 3D solid elements.
+                              </p>
+                           <ul>
+                              <li>
+                                 <p>For studies using a tetrahedral mesh, this option is set by default.</p>
+                              </li>
+                              <li>
+                                 <p>For studies using a surface mesh, this option is cleared.</p>
+                              </li>
+                           </ul>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Large Displacement Solve</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies that incremental processing is used to solve a Linear Static study of a
+                              model in which the deflection of the model is large relative to the dimensions of
+                              the model. This produces a more accurate solution. </p>
+                           <p>Consider a sheet metal part that has a very small thickness. Selecting the <b>Large Displacement Solve</b> option ensures that the analysis computes the displacement relative to the thickness
+                              of the part. The incremental processing updates the stiffness matrix of the mesh each
+                              time the part deforms due to the loads applied to it. The resulting mesh is a better
+                              fit by the time a solution is found.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>For assembly models, the NX Nastran does not support <b>Large Displacement Solve</b> option and therefore not available in Solid Edge Simulation.</p>
+                           </div>
+                           <p>Studies solved with this option selected are listed in the Simulation pane like this:</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Static Study 1 (Large Displacement)</p>
+                           </div>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Use multiple processors</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies the number of processors to be used in solving the study. The default value
+                              is the total number of processors.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Using all the processors may impact the performance of other tasks during the processing.</p>
+                           </div>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Use Inertia Relief</b></dt>
+                        <dd class="ml-3">
+                           <p>For structural studies of assemblies in motion, specifies that the study is solved
+                              by calculating the inertia forces required for a balanced-condition static analysis
+                              without the use of constraints. Use this option when you want to obtain a static solution
+                              for a structure that is not stable, but is in a state of equilibrium under loading.
+                              </p>
+                           <p>Inertia relief is an NX Nastran option that simulates unconstrained structures in
+                              a static analysis. Examples of structures in this state are aircraft in flight, cars
+                              in motion, and spacecraft in orbit. Each of these structures has one or more unconstrained,
+                              rigid body motions, which cannot be solved using conventional static analysis. With
+                              inertia relief, the mass of the structure resists the applied loadings. The structure
+                              is in a state of static equilibrium, even though it is unconstrained in any or all
+                              degrees of freedom. </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>The classic use case for inertia relief is an airplane with no rigid body constraints
+                                 and in a steady-state flight condition. You want to apply a set of aerodynamic forces,
+                                 which are to be balanced by the inertia forces of the airplane. Inertia relief is
+                                 the method by which the solver calculates the inertia forces required for a static
+                                 analysis in balanced flight condition. </p>
+                           </div>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Number of modes</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies the default number of modes desired for a normal modes analysis or linear
+                              buckling study. Values must be ≥1 and ≤20. A normal modes analysis is also referred
+                              to as a modal analysis or frequency analysis.</p>
+                           <p>If you change this value, it is applied to new studies, not existing studies.</p>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Frequency range</b></dt>
+                        <dd class="ml-3">
+                           <p>For a normal modes or linear buckling study, you can specify a frequency range of
+                              interest using the <b>Frequency range</b> boxes. Values typed in scientific notation are converted to full decimal format.</p>
+                           <p><b>Lower Frequency</b>—The value in the first box specifies the lower frequency range. Values are ≥0.</p>
+                           <p><b>Upper Frequency</b>—The value in the second box specifies the upper frequency range. This value must
+                              be greater than the value in the lower frequency range. If blank, the value is infinity.
+                              </p>
+                        </dd>
+                     </dl>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>You can solve a normal modes study, review the resulting frequency modes, and then
+                           modify the study to solve for a subset of frequencies identified in the first solution.</p>
+                        <ol type="1" start="1">
+                           <li>
+                              <p>Solve the study first using default study settings to find the natural frequencies
+                                 at four modes:</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/normal_mode_study_results1.png"></p>
+                           </li>
+                           <li>
+                              <p>Change the study inputs to specify a user-defined range within the original results.
+                                 For example, if you enter 2e+4 and 4e+4, the values are converted as shown in this
+                                 example:</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/normal_mode_study_results2.png"></p>
+                           </li>
+                           <li>
+                              <p>Solve the study again to see the modes that fall just within the defined range:</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/normal_mode_study_results3.png"></p>
+                           </li>
+                        </ol>
+                     </div>
+                     <dl>
+                        <dt><b>Geometry check</b></dt>
+                        <dd class="ml-3">
+                           <p>Overrides the NX Nastran quality check threshold and allows solution processing to
+                              continue in cases where the mesh creates less than desirable element shapes. NX Nastran
+                              has default element quality thresholds to evaluate the geometry elements during solution
+                              processing.</p>
+                           <ul>
+                              <li>
+                                 <p>When set to On, NX Nastran uses the default element quality thresholds to evaluate
+                                    the geometry elements during solution processing. This is the default option. </p>
+                              </li>
+                              <li>
+                                 <p>When set to Warning Only, NX Nastran performs the same quality checks, but the checks
+                                    that exceed tolerance values produce informational and warning messages in the NX
+                                    Nastran output files, rather than cause the solution to fail.</p>
+                              </li>
+                           </ul>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <ul>
+                                 <li>
+                                    <p>The Warning Only option controls the severity of informational and warning messages
+                                       produced by geometry checking. These checks are different from a series of mandatory
+                                       system-level checks that NX Nastran always performs. </p>
+                                 </li>
+                                 <li>
+                                    <p>When set to Warning Only, the GEOMCHECK commands are written to the Executive Control
+                                       section of the NX Nastran input file. </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>NX Nastran command line options</b></dt>
+                        <dd class="ml-3">
+                           <p>This box may display a string of default command line options to be used by NX Nastran
+                              when the analysis is solved. These options are stored with the study name and saved
+                              in the Solid Edge Simulation options file. In most cases, this box is blank.</p>
+                           <p>The default options displayed in this box are set on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/analysisopt1d" rel="analysisopt1d">Simulation tab (Solid Edge Options dialog box)</a>. You also can type command line options in the box. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1a" rel="nastran1a">NX Nastran processing options</a>.</p>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Thermal Load Options...</b></dt>
+                        <dd class="ml-3">
+                           <p>Opens the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a> for you to specify advanced options for thermal loads. These include thermal characteristics
+                              for convection, and the type of formulation to use for different types of heat transfer
+                              problems.</p>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>NX Nastran Options...</b></dt>
+                        <dd class="ml-3">
+                           <p>Provides access to all NX Nastran keyword options that are supported by, and made
+                              available in, Solid Edge Simulation. The <b>NX Nastran Options...</b> button displays a multi-tabbed text edit window for advanced users to review default
+                              options and to add and edit user-defined keywords and values.</p>
+                           <p>To learn more, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1a#keyweditor" rel="nastran1a">Using the NX Nastran study keyword editor</a> in NX Nastran processing options.</p>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Transient Heat Options...</b></dt>
+                        <dd class="ml-3">
+                           <p>Defines and modifies the study processing parameters for a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1500743" rel="xid1500743">transient heat transfer study</a>. </p>
+                           <p>When you choose <b>Transient Heat Transfer</b> as the study type, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a> is automatically displayed for you to define the study initial temperature, calculation
+                              time increments, output step, and end time. When you want to modify the study parameters,
+                              select the <b>Transient Heat Options...</b> button to reopen the dialog box. </p>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Harmonic Response Options...</b></dt>
+                        <dd class="ml-3">
+                           <p>Defines and modifies the study processing parameters for <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a>. </p>
+                           <p>When you choose <b>Harmonic Response</b> as the study type, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a> is opened for you to define the study input modal frequencies and structural damping.
+                              When you want to modify the study parameters, select the <b>Harmonic Response Options...</b> button to reopen the dialog box. </p>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title" id="conn_opts">Connector Options</h4>
+                  <div>
+                     <p>For assembly models, you can use the <b>Connector Options</b> section to specify that glue, no penetration contact, or thermal connectors are created
+                        automatically when the study is initiated, based on the mate relationships defined
+                        in the assembly and the type of study. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/create_study_connector_options.png"></p>
+                     <dl>
+                        <dt><b>Create connectors </b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies that assembly connectors are created automatically when you define a new
+                              study. </p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Selecting this option is equivalent to selecting the <b>Simulation</b> tab→<b>Connectors</b> group→<b>Auto</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_auto_cmd.png">.</p>
+                              <p>Similarly, the following options are equivalent to the options on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a>:</p>
+                           </div>
+                           <dl>
+                              <dt><b>Single connection per face pair</b></dt>
+                              <dd class="ml-3">
+                                 <p>Select this option to apply one connector per pair of faces rather than multiple connectors
+                                    per face pair. This results in fewer connections added to the model.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Thermal connectors</b></dt>
+                              <dd class="ml-3">
+                                 <p>Specifies a thermal connection type between assembly faces in a heat transfer study
+                                    and in a thermal coupled study. A thermal coupled study requires two sets of connectors.
+                                    For example, in a Steady State Heat Transfer + Linear Static study, you can specify
+                                    a glue connector for both studies, or you can apply a Thermal connector to the thermal
+                                    study and a Glue connector to the structural study.</p>
+                                 <dl>
+                                    <dt><b>Thermal</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Specifies that thermal connectors are created automatically in a heat transfer study
+                                          or thermal coupled study to conduct heat between two surfaces. </p>
+                                       <p>Use thermal contacts where there are insulated faces and thermal resistance.</p>
+                                    </dd>
+                                 </dl>
+                                 <dl>
+                                    <dt><b>Thermal Glue</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Specifies that glue connectors are created automatically on faces in a heat transfer
+                                          study or thermal coupled study. A glue connector creates a connection like a stiff
+                                          spring. </p>
+                                    </dd>
+                                 </dl>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Other connector type</b></dt>
+                              <dd class="ml-3">
+                                 <p>Specifies the connection type between assembly faces in a structural study and in
+                                    a thermal coupled study.</p>
+                                 <dl>
+                                    <dt><b>Glue</b></dt>
+                                    <dd class="ml-3">
+                                       <p>A glue connector creates a connection like a stiff spring.</p>
+                                    </dd>
+                                 </dl>
+                                 <dl>
+                                    <dt><b>No Penetration</b></dt>
+                                    <dd class="ml-3">
+                                       <p>A no penetration connector prevents faces that touch from penetrating.</p>
+                                       <div class="attention" type="note">
+                                          <div class="attention-label">Note: </div>
+                                          <p>The <b>No Penetration</b> contact connector is equivalent to the NX Nastran Linear Contact connector. </p>
+                                       </div>
+                                    </dd>
+                                 </dl>
+                                 <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a>.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Properties</b></dt>
+                              <dd class="ml-3">
+                                 <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a>, where you can specify additional values for no penetration, glue, and thermal resistance
+                                    connectors.</p>
+                              </dd>
+                           </dl> 
+                           <dl> 
+                              <dt><b>Maximum rigid link length</b></dt> 
+                              <dd class="ml-3"> 
+                                 <p>In a frame assembly with a beam mesh type, the check box specifies that you want to
+                                    generate rigid links automatically between beam curves when the study is created.
+                                    The displayed value defines the maximum length for all rigid links generated automatically
+                                    when the study is created. The default value is equal to the length of the largest
+                                    beam cross-section for coplanar beams. </p> 
+                                 <p>The <b>Maximum rigid link length</b> value is also used:</p> 
+                                 <ul> 
+                                    <li> 
+                                       <p>To generate links automatically when you select the <b>Simulation</b> tab→<b>Rigid Links</b> group→<b>Auto</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/auto_rigid_link_cmd.png"> command. </p> </li> 
+                                    <li> 
+                                       <p>As the default value displayed on the command bar for a rigid link created manually
+                                          between two beam curves using the <b>Manual</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/rigid_link_manual_cmd.png"> command. </p> </li> </ul> 
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div> 
+                                    <p>When creating rigid links automatically, we recommend that you use the default value
+                                       for <b>Maximum rigid link length</b>. If your model is fully constrained using the default maximum rigid link length value,
+                                       do not change the default value. Increasing the default value may create unwanted
+                                       rigid links. For information about how to determine if your model is fully constrained,
+                                       see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973909" rel="xid1973909">Rigid link connectors</a>.</p> </div> 
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div> 
+                                    <p>The <b>Manual</b> and <b>Auto</b> rigid link commands are not available in thermal studies, because rigid links do
+                                       not participate in the transfer of thermal loads. </p> </div> </dd> 
+                              <dt><b></b></dt>  </dl>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title" id="res_opts">Results Options</h4>
+                  <div>
+                     <p>Some post-processing options (contours, displacements, animations) use nodal data,
+                        while others (criteria plots) use elemental data. The result options you select directly
+                        correspond to the result plots that are generated in the study.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_study_create_res_opt.gif"></p>
+                     <p>You can select nodal and elemental output data to produce different results.</p>
+                     <dl>
+                        <dt><b>Generate only Surface results (faster)</b></dt>
+                        <dd class="ml-3">
+                           <p>For tetrahedral meshes and mixed meshes, this option retrieves just the surface results
+                              for display in Solid Edge, resulting in faster processing. If you want to see internal
+                              nodes and elements in the results, clear this option.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <ul>
+                                 <li>
+                                    <p>The <b>Generate only Surface results (faster)</b> option provides an easy method to mesh all of the surfaces related to a solid, but
+                                       not mesh the solid itself. You can then use these surfaces for analysis if you actually
+                                       have a thin part modeled as a solid, or you can review the surface mesh before going
+                                       to a full solid mesh. Simply review and modify the surface mesh as appropriate, and
+                                       then use the <b>Mesh</b> command or <b>Remesh</b> command to create a solid mesh from this modified surface mesh.</p>
+                                 </li>
+                                 <li>
+                                    <p>If this option is not available, it is because the global setting for <b>Generate only Surface Results (Faster)</b> is selected on the <b>Simulation</b> page of the <b>Solid Edge Options</b> dialog box.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Do not process all results after solve (faster)</b></dt>
+                        <dd class="ml-3">
+                           <p>When checked, limits the results plots that are preprocessed to just one plot, which
+                              is displayed automatically in the Simulation Results environment. You can use the
+                              <b>Simulation</b> pane or the command ribbon to choose additional results to process and display on
+                              demand, without having to solve the study again. </p>
+                           <p>When unchecked, Solid Edge Simulation solves and then processes all results at once.
+                              You may want to clear the check box when processing a solution overnight.</p>
+                           <p>The practical effect of using this option is that plots are processed when they are
+                              selected for viewing, rather than having to wait while all results plots are processed
+                              before you can see any of them. It also reduces the size of the results file (.ssd)
+                              that is stored. </p>
+                           <p>This option also can be set on the <b>Simulation</b> tab (<b>Solid Edge Options</b> dialog box).</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Result plots that are not generated when this option is selected still can be processed
+                                 on demand by doing any of the following in the Simulation Results environment:</p>
+                              <ul>
+                                 <li>
+                                    <p>Generate a plot by double-clicking its node in the <b>Simulation</b> pane.</p>
+                                 </li>
+                                 <li>
+                                    <p>Generate a report using the <b>Create Report</b> command.</p>
+                                 </li>
+                                 <li>
+                                    <p>Animate the results using the <b>Animate</b> command.</p>
+                                 </li>
+                              </ul>
+                              <p>To learn more, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot1a" rel="plot1a">Plotting results</a>.</p>
+                           </div>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Ignore element quality</b></dt>
+                        <dd class="ml-3">
+                           <p>Complex geometries and smaller mesh sizes can significantly increase the occurrences
+                              of poor quality mesh elements. Poor quality mesh elements require processing time
+                              to determine. Ignoring poor quality mesh elements is a way to decrease processing
+                              time. </p>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Nodal</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies the types of node-based data plots to generate with the study results. </p>
+                           <dl>
+                              <dt><b>Displacement</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the X, Y, Z displacement magnitude.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Applied load</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the X, Y, Z load magnitude.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Constraint force</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the X, Y, Z constraint force magnitude.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Temperature</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the temperature at each node in the model.</p>
+                                 <p>Temperature plots are the default plots generated for thermal studies; they also are
+                                    generated for thermal coupled studies (thermal stress analysis).</p>
+                                 <p>Temperature plots are shown on the primary model.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Applied temperature</b></dt>
+                              <dd class="ml-3">
+                                 <p>Available only for thermal coupled studies (thermal stress analysis), plots the gradient
+                                    temperature distribution on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot5a" rel="plot5a">primary, deformed, and undeformed display</a> of the model.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Beam end reactions (Frame analysis only)</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the moments, shear forces, axial forces, torque forces and warping torques at
+                                    the end of each beam.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt><b>Elemental</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies the types of element-based data plots to generate with the study results.
+                              </p>
+                           <dl>
+                              <dt><b>Stress</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the XX, YY, ZZ, XY, YX, ZX determinant, mean, maximum shear, minimum principal,
+                                    mid-principal, maximum principal, octahedral, and Von Mises data for stress.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Strain</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the XX, YY, ZZ, XY, YX, ZX determinant, mean, maximum shear, minimum principal,
+                                    mid-principal, maximum principal, octahedral, and Von Mises data for strain.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Force</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the X, Y, Z force magnitude.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>This check box must be selected to generate the stress values (shear, magnitude, axial
+                                       force, and torque) for fasteners and bolt connectors used in a model. After solving
+                                       the study, you can review the information in the <b>Bolt Connector Forces Results</b> table. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/boltconn1a" rel="boltconn1a">Bolt connector simulation results</a>.</p>
+                                 </div>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Strain energy</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots strain energy, strain energy density, and strain energy percent.</p>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt><b>Heat flux</b></dt>
+                              <dd class="ml-3">
+                                 <p>Plots the thermal energy exchange—the heat flux—in the X, Y, Z direction, and the
+                                    total thermal energy exchange. Also plots the temperature gradient in the X, Y, Z
+                                    direction and the total temperature gradient. </p>
+                                 <p>Temperature gradient plots show the change in temperature across an element, per unit
+                                    length. </p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Nodal and elemental plots can be displayed in the Simulation Results when the <b>Contour</b> option is selected from the <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> menu.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Create Study (or Modify Study) dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

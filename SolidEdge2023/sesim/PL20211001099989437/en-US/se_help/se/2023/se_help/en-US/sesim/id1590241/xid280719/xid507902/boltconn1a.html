@@ -1,0 +1,161 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Bolt connector simulation results</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Bolt connector simulation results"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="boltconn1a">
+                     <h1 class="topic-title">Bolt connector simulation results</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>For practice using bolt connectors, try the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy03" rel="fem_assy03">Tutorial: Using bolted connections</a>. </p>
+                  <h4 class="division-title">Reviewing the stress results for bolt connectors</h4>
+                  <div>
+                     <p>You can review the stresses—shear, moment, axial force, and torque—applied on bolted
+                        connectors to determine the safety of different types of fasteners used in the model.
+                        </p>
+                     <ul>
+                        <li>
+                           <p>To generate the results, you must select the <b>Force</b> check box under <b>Results Options</b> in the <b>Create Study</b> dialog box when you define the study. You also can modify the study to select this
+                              option.</p>
+                        </li>
+                        <li>
+                           <p>To review the calculated stress results in the <b>Simulation Results</b> environment, double-click the <b>Bolt Connector Forces</b> node. The stress results data is displayed in table format. </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>This table shows that four separate bolt connectors (Bolt Connection 1, Bolt Connection
+                                 2, Bolt Connection 3, Bolt Connection 4) were created using the <b>Bolt</b> command with the <b>Single Hole</b> option.</p>
+                              <p><img class="img-fluid" src="../../../../../common/graphicLibrary/se/simulation/result/result_training/bolt_connector_force_results_table.png"></p>
+                           </div>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>If you used the <b>Multiple Bolts</b> option to create the connectors for a set of holes with the same diameter, then the
+                                 table lists all four bolts by the same name (Bolt Connection 1), but it reports the
+                                 unique stresses for each of the simulated bolt connections. </p>
+                              <p><img class="img-fluid" src="../../../../../common/graphicLibrary/se/simulation/result/result_training/multiple_bolt_connector_force_results_table.png"></p>
+                           </div>
+                           <ul>
+                              <li>
+                                 <p>You can click a bolt entry in the table to highight the matching bolt connector in
+                                    the graphics window. </p>
+                              </li>
+                              <li>
+                                 <p>You can select the table data and then use shortcut commands to copy and paste the
+                                    information from the table into another document, such as an Excel spreadsheet.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>The bolt connector stress results are also shown in the simulation report when you
+                              select the <b>Create Report</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../../../common/nonLocalized/se/simulation/result/result_ui/create_report_cmd.png">.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Examining rigid spider elements in the results</h4>
+                  <div>
+                     <p>In each of the following illustrations, the <b>Spider</b> option was selected on the <b>Bolt</b> command bar to create a rigid element between the holes in two parts. In the <b>Simulation Results</b> environment, the spider elements are visible on the meshed parts. </p>
+                     <p>Conceptually, the spider elements look like those shown below, based on the current
+                        settings of the <b>Threading</b> option and the value entered in the <b>Nut diameter</b> input box.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" valign="top" width="62*">
+                           <col span="1" width="137*">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>These Bolt command bar settings</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Display this</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Spider=On</p>
+                                 <p>Threading=Off</p>
+                                 <p>Nut diameter=default</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_spider_3holes.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Spider=On</p>
+                                 <p>Threading=On</p>
+                                 <p>Nut diameter=default</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_spider_3holes_tight.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Spider=On</p>
+                                 <p>Threading=On</p>
+                                 <p>Nut diameter=50% larger</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_spider_3holes_tight_50rad.gif"></p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Spider combination considerations</h4>
+                  <div>
+                     <p>The rigid elements of a spider can be connected to your model in different ways. The
+                        simplest example is to connect the rigid elements to the edge of the hole. In most
+                        cases this is sufficient. However, if you have a bolt screwed into a hole, you may
+                        want to connect the rigid elements to the inside of the hole to better simulate the
+                        bolt being connected with the threads. Likewise, you may want to connect rigid elements
+                        to the pad around the hole where the bolt head or washer sits. </p>
+                     <p>As an alternative to defining contact between two parts, you can create rigid elements
+                        where the holes of each part meet to prevent the parts from being pulled into each
+                        other. </p>
+                     <p>It is important to note that the bolt simulation is an approximate solution whose
+                        main advantage is speed and simplicity. Bolted connections can be quite complicated
+                        and depend upon a variety of variables, including how they are connected, thread size,
+                        material, direction of applied forces, and friction between the bolt and part surfaces.
+                        For example, if there is a case where the bolt might shear, then a solution using
+                        a no-penetration (linear contact) connector with a fully tetrahedral mesh would be
+                        a much better solution. Of course, this would greatly increase the solve time. </p>
+                     <p>In addition, too many rigid elements could result in an overly stiff bolt. This could
+                        happen when the bolt and the component(s) it connects are of significantly different
+                        material stiffness. Consult your engineering reference material in these complex situations
+                        to ensure your solution provides the accuracy you want.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4h" rel="assyconn4h">Create bolted connections</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6h" rel="assyconn6h">Edit a bolt connector</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4a" rel="assyconn4a">Bolt connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4d" rel="assyconn4d">Bolt command bar</a><br><br></div>
+            <div class="footer-content">Bolt connector simulation results, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

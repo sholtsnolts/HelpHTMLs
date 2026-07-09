@@ -1,0 +1,208 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Adjustable parts in assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Adjustable parts in assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="adjprt1a">
+                     <h1 class="topic-title">Adjustable parts in assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In some designs, there are parts that must react to changing conditions in the assembly.
+                     For example, a spring that is compressed or uncompressed based on the position of
+                     other parts in the assembly.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt1.gif"></p>
+                  <p>The Adjustable Parts functionality in Solid Edge allows you to define parameters in
+                     a part model that will adjust with respect to corresponding parameters within the
+                     assembly. This allows you to control the size and shape of the part based on parameters
+                     you define in the assembly.</p>
+                  <p>When you specify that a part is adjustable, the design body in the part model does
+                     not change when the assembly parameters change. An associative copy of the design
+                     body in the assembly changes. The associative copy of the design body is placed in
+                     the assembly automatically and is managed by Solid Edge when you specify that a part
+                     is adjustable within the context of the assembly. </p>
+                  <p>This allows you to place several occurrences of an adjustable part into an assembly,
+                     and each occurrence of the adjustable part will conform to the current parameter values
+                     for that occurrence of the part. For example, one occurrence of a spring can be shown
+                     compressed while another occurrence of the spring can be shown uncompressed.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt2.gif"></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Only the design body for an adjustable part is associatively copied to the assembly.
+                        If the adjustable part contains construction bodies, they are not associatively copied
+                        to the assembly.</p>
+                  </div>
+                  <h4 class="division-title">Making a part adjustable</h4>
+                  <div>
+                     <p>To make a part adjustable within the context of an assembly, you first must define
+                        the parameters you want to adjust in the part document. You can then define corresponding
+                        parameters in the Assembly environment.</p>
+                     <p>You can use driving dimensions and variables that control a feature, reference plane,
+                        or construction element as the parameters to define an adjustable part.</p>
+                     <p>When you specify that a part is adjustable, you cannot in-place activate the part
+                        using the Edit command. You can use the Open command to open the part.</p>
+                  </div>
+                  <h4 class="division-title">Defining the part parameters</h4>
+                  <div>
+                     <p>The Adjustable Part command on the Tools tab in the Part or Sheet Metal environments
+                        displays the Adjustable Part dialog box so you can define or edit the adjustable parameters.
+                        </p>
+                     <p>When the Adjustable Part dialog box is displayed, you can select features to display
+                        their dimensions, or you can click the Variable Table button on the Adjustable Part
+                        dialog box to display the variable table.</p>
+                     <p>For example, to make the length of the spring shown adjustable, you can add the variable
+                        which controls spring length: SprLngPrt, to the adjustable parameters list by selecting
+                        the variable in the Variable Table. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt3.gif"></p>
+                     <p>When you add a variable or dimension to the Adjustable Part dialog box, the parameter
+                        name is added to the Variable Name column (A). You can also add text to the Notes
+                        column (B) to make it easier to remember later what aspect of the part the adjustable
+                        parameter controls.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt9.gif"></p>
+                  </div>
+                  <h4 class="division-title">Placing adjustable parts in an assembly</h4>
+                  <div>
+                     <p>When adding an adjustable part to an assembly, you should place and position the parts
+                        which interact with the adjustable part first. This allows you to use the surrounding
+                        parts to define the assembly parameters required to complete the process. You can
+                        specify whether an adjustable part is adjustable or rigid in the assembly when placing
+                        the part or after you position the part in the assembly. </p>
+                     <p>When you drag and drop an adjustable part into an assembly, a dialog box is displayed
+                        that allows you to specify whether the part is rigid or adjustable.</p>
+                     <p>When you set the Place Rigid option, the part placement process proceeds as it would
+                        for a typical part. You can then define assembly relationships to position the part
+                        in the assembly. An adjustable part placed as rigid in an assembly behaves the same
+                        as any other part in an assembly.</p>
+                     <p>When you set the Place Adjustable option, the part placement process is temporarily
+                        suspended so you can define the adjustable parameters in the assembly using the Adjustable
+                        Part dialog box.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When positioning an adjustable part, the option to use a separate Place Part window
+                           is not available. The part is placed in the assembly window so you can define the
+                           adjustable parameters and the assembly relationships in one window.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Defining the assembly parameters</h4>
+                  <div>
+                     <p>In addition to the options for selecting driving dimensions and variables, the Adjustable
+                        Part dialog box in the Assembly environment contains options that allow you to define
+                        a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/measurement_variable" rel="measurement_variable">measurement variable</a>. This allows you to use geometry on other parts in the assembly to define variables
+                        which will control the size and shape of the adjustable part in the assembly.</p>
+                     <p>The measurement variable options activate one of the Measurement commands that are
+                        also available on Inspect→Measure. For example, you can use the Measure Minimum Distance
+                        option to specify that the minimum distance between the two faces shown controls the
+                        height parameter of the part.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt4.gif"></p>
+                     <p>After you select the elements in the assembly that define the distance you want to
+                        measure, an assembly variable is created automatically and added to the Assembly Variable
+                        cell in the Adjustable Part dialog box for the adjustable part you are placing or
+                        editing. </p>
+                     <p>There are three columns in the Adjustable Part dialog box in the Assembly environment:
+                        Part Variable (A) Notes (B), and Assembly Variable (C). In this example, the part
+                        variable SprLngPrt is controlled by the measurement variable SprLngAsm in the assembly.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt5.gif"></p>
+                     <p>In addition to defining measurement variables, you can also use assembly relationship
+                        variables for an adjustable part. For example, you can use the offset value for a
+                        mate or planar align relationship as an assembly variable by selecting the variable
+                        value for the relationship in the Variable Table.</p>
+                     <p>The place like a spring option will use the variable created by measuring a distance
+                        to adjust the length of the corresponding variable in the part or sheet metal document.
+                        The position of the parts attached to the adjustable part determines the length of
+                        the variable defining the distance.</p>
+                     <p>The adjust to fit and allow assembly relationships option will use the variable created
+                        by the measurement to change the length of the adjustable part, and reposition parts
+                        within the assembly that are not constrained. The length of the variable defining
+                        the adjustable part length is used to position the unconstrained parts connected to
+                        the adjustable part.</p>
+                     <p>After you have defined all the parameters in the assembly to control the adjustable
+                        part, click the OK button on the Adjustable Part dialog box to resume the part placement
+                        process. In this example, a mate relationship (A) and an axial align relationship
+                        (B) fully position the part in the assembly (C).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt6.gif"></p>
+                     <p>You can also specify that a part is adjustable after it has been positioned in the
+                        assembly. First, you must define the adjustable parameters for the part in the Part
+                        or Sheet Metal environment. Then, in the assembly, you can use the Adjustable Part
+                        command on the shortcut menu when a part is selected to specify that the part is adjustable
+                        and then define the adjustable parameters.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p> When you specify that a part is adjustable, you cannot in-place activate the part
+                           using the Edit command. You can use the Open command to open the part.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Updating adjustable parts</h4>
+                  <div>
+                     <p>When you edit the assembly such that the adjustable part must change, the size and
+                        shape of the adjustable part updates automatically when the Automatic Update option
+                        is set. For example, in this assembly, if you edit the offset value for the planar
+                        align relationship between the valve and body parts, the valve opens.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt7.gif"></p>
+                     <p>This causes the size and shape of the adjustable part to update automatically.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprt8.gif"></p>
+                  </div>
+                  <h4 class="division-title">Adjustable parts in adjustable subassemblies</h4>
+                  <div>
+                     <p>You can place a subassembly that contains an adjustable part into an assembly, then
+                        make the subassembly adjustable. For example, you may need to place two instances
+                        of a cylinder subassembly, with each subassembly in different positions.</p>
+                     <p>Each cylinder assembly contains a spring that is an adjustable part, which allows
+                        the spring to change length as the cylinder subassemblies change positions.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/adjustable/part/adjprtinsub1.gif"></p>
+                     <p>When you make a subassembly adjustable that contains adjustable parts, the adjustable
+                        part variables are promoted to the current assembly.</p>
+                     <p>For more information on creating and using adjustable assemblies, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1a" rel="adjust1a">Adjustable assemblies</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title">Using reference geometry to constrain adjustable parts</h4>
+                  <div>
+                     <p>You can use part reference planes or construction geometry to define positioning relationships
+                        for an adjustable part in an assembly, but in some cases this can prevent the adjustable
+                        part from reacting properly to assembly changes.</p>
+                     <p>If this occurs, you can edit the positioning relationship to use geometry on the design
+                        body on the adjustable part instead.</p>
+                  </div>
+                  <h4 class="division-title">Adjustable parts and Parts Lists</h4>
+                  <div>
+                     <p>When you place the same adjustable part several times in an assembly in different
+                        states of adjustment, all occurrences have a single part number. If you use several
+                        family of parts members to simulate adjustable parts in different states of adjustment,
+                        you can have more than one part number, because different family of parts members
+                        have unique part numbers. Typically, a single part number is the preferable result.</p>
+                  </div>
+                  <h4 class="division-title">Adjustable parts and alternate assemblies</h4>
+                  <div>
+                     <p>You can use adjustable parts in a family of assemblies and alternate position assemblies.
+                        You can edit the assembly variable used to control an adjustable part on a per member
+                        basis by clearing the Apply Edits to All Members option.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt1h" rel="adjprt1h">Define an adjustable part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1h" rel="adjust1h">Set the adjustable/rigid status of a subassembly</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1a" rel="adjust1a">Adjustable and rigid assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust1c" rel="adjust1c">Adjustable Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt4c" rel="adjprt4c">Adjustable Part command (Part or Sheet Metal environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjust2c" rel="adjust2c">Rigid Assembly command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid376812" rel="xid376812">Rigid Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt3c" rel="adjprt3c">Edit Adjustable Part command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/adjprt1d" rel="adjprt1d">Adjustable Part dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid376796" rel="xid376796">Adjustable Part command (Assembly environment)</a><br><br></div>
+            <div class="footer-content">Adjustable parts in assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

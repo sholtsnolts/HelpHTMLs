@@ -1,0 +1,197 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate stresses on a valve handle</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate stresses on a valve handle"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_assy02">
+                     <h1 class="topic-title">Tutorial: Simulate stresses on a valve handle</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this tutorial, you learn how you can use a cylindrical constraint and a force load
+                     to simulate linear static stresses on a handle.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_valve_handle.asm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy40.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create an analysis study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Tetrahedral</b> mesh type, and then click <b>OK</b>. </p>
+                              <p>The Define command in the Geometry group is active.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy03.gif"></p>
+                              <p>You are prompted to select the occurrences (parts) that you want to include in the
+                                 study. </p>
+                           </li>
+                           <li>
+                              <p>Select the valve handle and valve shaft, and then click <b>Accept</b>.</p>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>To make a part available for selection, you can click it in the graphics window and
+                                    it will activate automatically. You also can use the <b>Home</b> tab→<b>Select</b> group→<b>Activate</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy02.gif"> on the ribbon.</p>
+                              </div>
+                              <p>The new study is listed in the <b>Simulation</b> pane. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy41.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a force on the handle.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/sesim_force_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the side face of the handle.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy43.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Value</b> box, type <em>44482.216 mN</em>. This is the equivalent of a 10 pound force, converted to milliNewtons.</p>
+                           </li>
+                           <li>
+                              <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>, click <b>Flip Direction </b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_flip_button.gif"> to reverse the direction of the force.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy45.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept; click to finish.</p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy47.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a cylindrical constraint to the shaft.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Cylindrical</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_cylindrical_button_on.gif">. </p>
+                           </li>
+                           <li>
+                              <p>Select the cylinder of <em>valve_shaft</em>. Right-click in space to accept it and click to finish.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy49.gif"></p>
+                           </li>
+                           <p>You can see the finished constraint on the model.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy50.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define an assembly connector between the shaft and handle.</p>
+                        <ol type="a">
+                           <li>
+                              <p> Select <b>Simulation</b> tab→<b>Connectors</b> group→<b>Auto</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_assyconn_auto_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a>, do both of the following:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p>Select <b>Glue</b> from the <b>Connector Type</b> list.</p>
+                                 </li>
+                                 <li>
+                                    <p>Verify that <b>One connector per component pair</b> is selected.</p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <li>
+                              <p>Select the shaft and handle. You can do this by selecting them in the graphics window
+                                 or by selecting the <b>Select All </b> button on the command bar.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy55.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click <b>Accept</b> on the command bar. </p>
+                              <p>The <b>Results</b> dialog box lists the connector. </p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Create Connectors</b> button in the <b>Results</b> dialog box to apply it. Click in space to finish.</p>
+                              <p>You can see the connector in the assembly model as well as in the <b>Simulation</b> pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy58.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy59.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the assembly. </p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Mesh</b> command, and in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a>, use the slider to define a subjective mesh size of 3. </p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Mesh</b> button.</p>
+                              <p>The entire assembly is meshed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy60.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b> command. </p>
+                              <p>After a few moments, the results are displayed in the Simulation Results environment.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy61.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Optionally, you can select the <b>Mesh</b> dialog box option, <b>Mesh and Solve</b>, to do both processes in one step. Be aware that the processing time increases.</p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>View the area of maximum stress.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Turn off the loads, constraints, and connectors in the Simulation pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy63.gif"></p>
+                           </li>
+                           <li>
+                              <p>Rotate the view and zoom in so you can see the highest stress on the underside of
+                                 the handle-shaft interface. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy64.gif"></p>
+                           </li>
+                           <li>
+                              <p>The Von Mises stress results are displayed on the deformed model. Change the display
+                                 to show both the deformed and the undeformed model. Choose <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_ui/sesim_display_options_button.gif">, and then select the <b>Undeformed Model </b> check box.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res5.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy61a.gif"></p>
+                           </li>
+                           <li>
+                              <p>From the <b>Color Bar</b> tab→<b>Show</b> group, select the <b>Max Marker</b> check box. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy65.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file. </p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy01" rel="fem_assy01">Tutorial: Simulate stresses on a basketball hoop</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_conn01" rel="fem_conn01">Tutorial: Apply edge connectors to an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy03" rel="fem_assy03">Tutorial: Using bolted connections</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint2a" rel="constraint2a">Creating and using constraints</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a" rel="constraint1a">Constraints</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint3a" rel="constraint3a">Constraint symbols</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint4a" rel="constraint4a">Constraint labels</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><br></div>
+            <div class="footer-content">Tutorial: Simulate stresses on a valve handle, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

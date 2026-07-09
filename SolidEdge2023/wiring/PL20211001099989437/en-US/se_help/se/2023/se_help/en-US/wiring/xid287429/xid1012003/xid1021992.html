@@ -1,0 +1,125 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Route command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Route command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1021992">
+                     <h1 class="topic-title">Route command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Route</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/route.gif"> to reroute an existing wiring or tube path through a circular face on a part. You
+                     select the path, and then select the circular face on the part that the path is to
+                     pass through. When the path reroute is complete, flip the direction of the path through
+                     the circular face by pressing the <b>F</b> key.</p>
+                  <p>The command is available in:</p>
+                  <ul>
+                     <li>
+                        <p>Electrical Routing – To enter the application, open an assembly file and then choose
+                           the <b>Tools</b>→<b>Environs</b> group→<b>Electrical Routing</b> command. </p>
+                     </li>
+                     <li>
+                        <p>XpresRoute – To enter the application, open an assembly file and choose the <b>Tools</b>→<b>Environs</b> group→<b>XpresRoute</b> command.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Routing wires through fixings with the Wire and Route commands</h4>
+                  <div>
+                     <p>The <b>Wire</b> and <b>Route</b> commands calculate the total cross sectional area of all wires routed through a fixing.
+                        The diameter calculation also includes the <b>Clearance through holes</b> tolerance specified in the <b>Properties</b> dialog box. If the total cross sectional area of all wires is greater than the interior
+                        diameter of the fixing, <b>PathFinder</b> indicates a warning message and a red circle appears at the center of the fixing.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The wires should be routed through a fixing, using only the Cylindrical filter in
+                           order for the clearance violation calculation to work properly. Other filters, such
+                           as Center Point, Center, and End Point are supported, but they are not considered
+                           for hole clearance violation calculation.</p>
+                     </div>
+                     <p>In the following example, the inner diameter of the hole is 8 mm. There are two wires
+                        each have a diameter of 4mm so they can be routed through the hole.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance1.png"></p>
+                     <p>If you route a third wire that violates the clearance a red circle is displayed around
+                        the wire that violated the clearance. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance2.png"></p>
+                     <p><b>PathFinder</b> indicates the wire that violated the clearance and a warning message is displayed.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance3.png"></p>
+                     <p>You can edit the clearance values or the outer diameter value from the<b> Properties</b> dialog box to remove the clearance indicator and warning message.</p>
+                     <p>If you route a wire through multiple holes, the outer diameter is calculated after
+                        each hole you are routing through. If the clearance is violated, the red circle is
+                        shown at that hole and <b>PathFinder</b> indicates the clearance violation.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance4.png"></p>
+                  </div>
+                  <h4 class="division-title">Routing bundles through fixings with the Cable, Bundle and Route commands</h4>
+                  <div>
+                     <p>The <b>Cable</b>, <b>Bundle</b> and <b>Route</b> commands calculate the total cross sectional area of all harness entities routed
+                        through a fixing. The calculation also includes the <b>Clearance through holes</b> tolerance specified in the <b>Properties</b> dialog box. If the total cross sectional area of those harness entities is greater
+                        than the interior diameter of the fixing, <b>PathFinder</b> indicates a warning message and a red circle appears at the center of the fixing.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The cables or bundles should be routed through a fixing, using only the Cylindrical
+                           filter in order for the clearance violation calculation to work properly. Other filters,
+                           such as Center Point, Center, and End Point are supported, but they are not considered
+                           for hole clearance violation calculation.</p>
+                     </div>
+                     <p>In the following example, there are three wires routed through a hole with a fourth
+                        wire routed outside the hole.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance5.png"></p>
+                     <p>You can create a bundle consisting of all four wires and route the bundle along a
+                        path created through the center of the fixing. In this example, the bundle diameter
+                        is greater than the capacity of the hole and a red circle is displayed around the
+                        bundle. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance7.png"></p>
+                     <p><b>PathFinder</b> also indicates the bundle violates the clearance and a warning message is displayed.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance6.png"></p>
+                     <p>You can edit the clearance values or outer diameter value from the <b>Properties</b> dialog box to remove the clearance indicator and warning message.</p>
+                     <p>The following example illustrates an existing bundle consisting of two wires.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance8.png"></p>
+                     <p>The bundle diameter is greater than the capacity of the hole so a red circle is displayed
+                        around the bundle. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance9.png"></p>
+                     <p><b>PathFinder</b> also indicates the bundle violates the capacity of fixing and a warning message is
+                        displayed.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/wire_harness/hole_clearance6.png"></p>
+                  </div>
+                  <h4 class="division-title">Collectively computing the cross sectional area</h4>
+                  <div>
+                     <p>After the harness entities are routed through a fixing Solid Edge collectively computes
+                        the cross sectional area. For example, suppose you have wires and bundles routed through
+                        a fixing and then attempt to route a cable through the same fixing. Solid Edge collectively
+                        computes the cross sectional area and clearance values of all three entities. After
+                        the cable is routed, if the capacity of the fixing is exceeded, a warning message
+                        is shown only on the cable. You can modify the outer diameter or clearance of any
+                        of the entities to bring the capacity of fixing within range. After you change the
+                        value, the cross sectional area recomputes and, if everything is under tolerance,
+                        the warning message on the cable goes away. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1850681" rel="xid1850681">Route a harness entity along a surface</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/wheditpath1h" rel="wheditpath1h">Edit the path of a electrical routing conductor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/conpath1h" rel="conpath1h">Construct a path through selected keypoints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/wirepropid" rel="wirepropid">Display Properties for a Harness Element</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/createwire1h" rel="createwire1h">Create a wire</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/createcable1h" rel="createcable1h">Create a cable</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/createbundle1h" rel="createbundle1h">Create a wire harness bundle</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1007079" rel="xid1007079">Add a splice</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/displayharnesselements1h" rel="displayharnesselements1h">Display Harness Elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/crphysconduct1h" rel="crphysconduct1h">Create a harness component solid body</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/delwphysconduct1h" rel="delwphysconduct1h">Delete a wire component solid body</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1012290" rel="xid1012290">Creating the electrical routing manually</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/createharnessbodies1a" rel="createharnessbodies1a">Creating harness component solid bodies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/removingconductors1a" rel="removingconductors1a">Removing conductors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/harnesspath1c" rel="harnesspath1c">Path command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/editpath1c" rel="editpath1c">Edit Path Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/harnesspath1d" rel="harnesspath1d">Path command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1850674" rel="xid1850674">Route along Surface command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1850680" rel="xid1850680">Route along Surface command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/showallpaths1c" rel="showallpaths1c">Show All Paths command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/wire1c" rel="wire1c">Wire command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/wire2d" rel="wire2d">Wire command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/showallwire1c" rel="showallwire1c">Show All Wires command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/hideallwires1c" rel="hideallwires1c">Hide All Wires command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/wireprop1c" rel="wireprop1c">Wire Properties Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/cable1c" rel="cable1c">Cable command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/cabless1d" rel="cabless1d">Cable command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/showallcables1c" rel="showallcables1c">Show All Cables command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/hideallcables1c" rel="hideallcables1c">Hide All Cables command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/bundle1c" rel="bundle1c">Bundle command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/bundless1d" rel="bundless1d">Bundle command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/showallbundles1c" rel="showallbundles1c">Show All Bundles command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/hideallbund1c" rel="hideallbund1c">Hide All Bundles command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1007020" rel="xid1007020">Splice command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1007081" rel="xid1007081">Splice command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1007084" rel="xid1007084">Splice Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1555773" rel="xid1555773">Assign Terminals dialog box (Splice)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/crphycond1c" rel="crphycond1c">Create Physical Conductor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/delphyconduct1c" rel="delphyconduct1c">Delete Physical Conductor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/showdesignbody1c" rel="showdesignbody1c">Show Physical Conductor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/showalldesignbodies1c" rel="showalldesignbodies1c">Show All Physical Conductors command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/hidedesignbody1c" rel="hidedesignbody1c">Hide Physical Conductor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/hidealldb1c" rel="hidealldb1c">Hide All Physical Conductors command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/showallharnesses1c" rel="showallharnesses1c">Show All Harnesses command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/hideallharn1c" rel="hideallharn1c">Hide All Harnesses command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/detach1c" rel="detach1c">Remove command (Electrical Routing)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/wireharnesspathfinder1a" rel="wireharnesspathfinder1a">PathFinder in electrical routing</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1664664" rel="xid1664664">Create a bundle across a splice</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1015769" rel="xid1015769">Add a wire to a splice</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1015776" rel="xid1015776">Remove a wire from a splice</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1015778" rel="xid1015778">Change the splice location</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/xid1015802" rel="xid1015802">Change splice properties</a><br><br></div>
+            <div class="footer-content">Route command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

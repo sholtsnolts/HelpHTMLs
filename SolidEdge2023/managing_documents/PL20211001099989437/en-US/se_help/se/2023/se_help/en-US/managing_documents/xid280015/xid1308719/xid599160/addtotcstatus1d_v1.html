@@ -1,0 +1,210 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Add to Teamcenter Status dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Add to Teamcenter Status dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="addtotcstatus1d">
+                     <h1 class="topic-title">Add to Teamcenter Status dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Provides details regarding the progress of importing unmanaged files into the Teamcenter-managed
+                     environment. Clicking Suspend interrupts processing at the end of a block of files
+                     being imported, so you can choose an action to perform before the next block is imported.</p>
+                  <dl>
+                     <dt>Files Per Block</dt>
+                     <dd class="ml-3">
+                        <p>Displays the maximum number of files that constitute a block for import into Teamcenter.</p>
+                     </dd>
+                     <dt>Current block</dt>
+                     <dd class="ml-3">
+                        <p>Displays file property information regarding the block of files actively loading into
+                           Teamcenter.</p>
+                        <dl>
+                           <dt>File Name</dt>
+                           <dd class="ml-3">
+                              <p>Lists the file name of the documents in the block that is loading into Teamcenter.</p>
+                           </dd>
+                           <dt>Item Number</dt>
+                           <dd class="ml-3">
+                              <p>Displays the document number property of each unmanaged file within the block.</p>
+                           </dd>
+                           <dt>Revision Number</dt>
+                           <dd class="ml-3">
+                              <p>Displays the revision number of each file in the block loading into Teamcenter.</p>
+                           </dd>
+                           <dt>Folder</dt>
+                           <dd class="ml-3">
+                              <p>Displays the unmanaged folder location of each file within the block being imported.</p>
+                           </dd>
+                           <dt>File Size (MB)</dt>
+                           <dd class="ml-3">
+                              <p>Displays the size of each file within the block in megabytes rounded to the nearest
+                                 decimal point.</p>
+                           </dd>
+                           <dt>BOM Links</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of Bill of Material (BOM) links in each file being imported as
+                                 part of the block.</p>
+                           </dd>
+                           <dt>Other Links</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of non–Bill of Material (BOM) links in each file within the block.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Progress Summary</dt>
+                     <dd class="ml-3">
+                        <p>Displays the total number of occurrences at start, the current block number, the number
+                           of files processed, and the number of files remaining to be processed. As each block
+                           of files is loaded, the data displayed is updated to indicate the occurrences of the
+                           following:</p>
+                        <ul>
+                           <li>
+                              <p>Part/Sheet Metal files</p>
+                           </li>
+                           <li>
+                              <p>Assembly files</p>
+                           </li>
+                           <li>
+                              <p>Draft files</p>
+                           </li>
+                           <li>
+                              <p>Other (non-Solid Edge files)</p>
+                           </li>
+                           <li>
+                              <p>BOM Links</p>
+                           </li>
+                           <li>
+                              <p>Other Links</p>
+                           </li>
+                           <li>
+                              <p>File Size (MB)</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The number of each type of link is not stored in <b>PassFail.csv</b> or when you retry loading documents that failed to import. Therefore, when you use
+                              choose either of these as your input, the Totals At Start and Remaining data is not
+                              reported and <em>Unknown</em> is displayed for BOM links and Other Links.</p>
+                        </div>
+                     </dd>
+                     <dt>History</dt>
+                     <dd class="ml-3">
+                        <p>Provides details regarding blocks of files previously loaded into Teamcenter.</p>
+                        <dl>
+                           <dt>Block</dt>
+                           <dd class="ml-3">
+                              <p>Displays the block number of files previously loaded into Teamcenter.</p>
+                           </dd>
+                           <dt>Part/Sheet Metal</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of Part and Sheet Metal files in the block.</p>
+                           </dd>
+                           <dt>Assembly</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of Assemblies in the block.</p>
+                           </dd>
+                           <dt>Draft</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of Drawings in the block.</p>
+                           </dd>
+                           <dt>Other</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of non-Solid Edge files in the block.</p>
+                           </dd>
+                           <dt>New</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number new files processed in the block of files.</p>
+                           </dd>
+                           <dt>Overwrite</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of existing files overwritten during the processing of the block
+                                 of files.</p>
+                           </dd>
+                           <dt>Warnings</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of files that produced warnings while being loaded. You are given
+                                 the opportunity to view a summary of the warnings once the Add to Teamcenter process
+                                 completes.</p>
+                           </dd>
+                           <dt>Errors</dt>
+                           <dd class="ml-3">
+                              <p>Displays the number of files within the block that did not load due to errors. You
+                                 are given the opportunity to view a summary of the errors once the Add to Teamcenter
+                                 process completes.</p>
+                           </dd>
+                           <dt>File Size</dt>
+                           <dd class="ml-3">
+                              <p>Displays the total size of all files in the block in megabytes.</p>
+                           </dd>
+                           <dt>BOM Links</dt>
+                           <dd class="ml-3">
+                              <p>Displays the total number of Bill of Material (BOM) links created for the block of
+                                 files loaded.</p>
+                           </dd>
+                           <dt>Other Links</dt>
+                           <dd class="ml-3">
+                              <p>Displays the total number of other links created for the block of files loaded.</p>
+                           </dd>
+                           <dt>Time</dt>
+                           <dd class="ml-3">
+                              <p>Presents the total time recorded for processing the block of files. The time is presented
+                                 in HH:MM:SS format indicating the hours, minutes, and seconds for processing the files.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Suspend</dt>
+                     <dd class="ml-3">
+                        <p>Interrupts the Add to Teamcenter process once the end of the block being imported
+                           is reached. You are presented the option to resume the process the next time you start
+                           Add to Teamcenter.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If the number of files you are importing is less than the file block size of 100,
+                              the Add to Teamcenter process continues until it reaches the end of the block before
+                              stopping.</p>
+                        </div>
+                     </dd>
+                     <dt>Cancel</dt>
+                     <dd class="ml-3">
+                        <p>Stops further processing and discards any completed actions for the active block of
+                           data.</p>
+                     </dd>
+                     <dt>OK</dt>
+                     <dd class="ml-3">
+                        <p>Dismisses the Add to Teamcenter Status dialog box and returns you to the Add to Teamcenter
+                           dialog box.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid614232" rel="xid614232">Add documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/reimport1h" rel="reimport1h">Reimport documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096228" rel="xid1096228">Use naming rules</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid617976" rel="xid617976">Cut, copy, or paste a row or cell</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcsuspend1h" rel="addtotcsuspend1h">Suspend or pause Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1117432" rel="xid1117432">Sort multiple columns</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/wwadd2tc1a" rel="wwadd2tc1a">Working with Add to Teamcenter Interactive</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/genid_understanding_terms_39_2174" rel="genid_understanding_terms_39_2174">Understanding Teamcenter terms</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/docprop1a" rel="docprop1a">Document properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid760444" rel="xid760444">Reimporting documents using Add to Teamcenter Interactive</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multifieldkey1a" rel="multifieldkey1a">Using multifield keys in the Teamcenter managed environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findlinkeddocs1c" rel="findlinkeddocs1c">Find All Linked Documents command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findrelateddrafts1c" rel="findrelateddrafts1c">Find All Related Drafts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid615683" rel="xid615683">Run Unmanaged Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/savecommand1c" rel="savecommand1c">Save Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/cutcommand1c" rel="cutcommand1c">Cut command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/copycommand1c" rel="copycommand1c">Copy command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/pastecommand1c" rel="pastecommand1c">Paste command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/retrievedata1c" rel="retrievedata1c">Retrieve Data From Teamcenter command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcassignall1c" rel="add2tcassignall1c">Assign All command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/updatestatus1c" rel="updatestatus1c">Update Status Information command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/runtcvalidations1c" rel="runtcvalidations1c">Run Teamcenter Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid613495" rel="xid613495">Set Action command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid733438" rel="xid733438">Save As command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcperformactions1c" rel="add2tcperformactions1c">Perform Actions command</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096063" rel="xid1096063">Naming rules and revision naming rules</a><br><br></div>
+            <div class="footer-content">Add to Teamcenter Status dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

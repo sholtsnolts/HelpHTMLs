@@ -1,0 +1,150 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Moving ordered features to synchronous</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Moving ordered features to synchronous"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="movetosynchronous1a">
+                     <h1 class="topic-title">Moving ordered features to synchronous</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can convert ordered features to synchronous features while in a part or sheet
+                     metal modeling file. The conversion performs by moving ordered features into the synchronous
+                     portion of the <b>PathFinder</b> tree. This move results in the feature geometry consuming into the synchronous body
+                     and therefore available for synchronous editing.</p>
+                  <p>The move to synchronous workflow occurs only when the file is in the ordered environment.
+                     Single features or any number of features can convert with the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/movetosynchronous1c" rel="movetosynchronous1c">Move to Synchronous</a> command.</p>
+                  <p>The ordered conversion is one way only. Synchronous features cannot convert to ordered
+                     features.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>With no documet open in Solid Edge, you can convert ordered features to synchronous
+                        features at a file level using the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1c" rel="converttraditional1c">Convert</a> command. Multiple files can process simultaneously.</p>
+                  </div>
+                  <p>Feature conversion must start at the top of the ordered feature tree and be in a contiguous
+                     order. All features in the tree above the selected feature include in the conversion.
+                     Mirror and pattern features require both child and parent features for conversion
+                     to be successful. If any of the parents in the select set have a child relationship
+                     to either a mirror or pattern feature, all features above these children features
+                     are in the select set.</p>
+                  <p>If a problem occurs in the conversion process, the <b>Undo</b> command is available.</p>
+                  <p>A <b>Move to Synchronous</b> dialog displays to alert the users if additional dependencies are found, and to provide
+                     any warning message that may affect the outcome of the move. This dialog only displays
+                     when warnings exist and/or there are additional dependencies found.</p>
+                  <p><em>Warning message:</em> Feature dependency found. It is recommended that all dependencies be moved with the
+                     selected feature.</p>
+                  <p>You can click the <b>Selection only</b> button in the dialog to exclude the dependencies from the Move operation.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>It is recommended to recompute the ordered node, and resolve any possible warnings
+                        or failures before moving the ordered features to synchronous.</p>
+                  </div>
+                  <h4 class="division-title">Moving local dimensions and sketches</h4>
+                  <div>
+                     <p>When ordered local dimensions move to synchronous, Solid Edge attempts to locate and
+                        bind dimensions to a vertex. If no vertex is found, then the dimensions become dangling
+                        dimensions. Once moved, all ordered dimensions, except for dangling dimensions, display
+                        along with the synchronous dimensions in the Dimensions node of the Synchronous portion
+                        of <b>PathFinder</b>. All ordered dimensions that are driving or driven dimensions move as driven dimensions.
+                        When you do a Move to Sync for a feature at a time,Solid Edge creates a user defined
+                        set each time there are dangling dimensions.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Synchronous does not support dimensions between a part edge and a reference plane.
+                           Therefore, dimensions placed between an ordered part edge and a reference plane move
+                           to synchronous as dangling dimensions.</p>
+                     </div>
+                     <p>Local profile sketches in ordered convert as used sketches when they move to synchronous.
+                        The profile sketch name in synchronous is the same as the ordered feature name.</p>
+                  </div>
+                  <h4 class="division-title">What cannot be converted</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>Ordered sheet metal with complex features such as louvers and dimples.</p>
+                        </li>
+                        <li>
+                           <p>Adjustable Part</p>
+                        </li>
+                        <li>
+                           <p>Family of parts</p>
+                        </li>
+                        <li>
+                           <p>Feature Library</p>
+                        </li>
+                        <li>
+                           <p>Published Multi-body Parts</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">What can be converted with restriction</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>Component having Roll Back Features (Component can be converted; however, rollback
+                              features will not convert).</p>
+                        </li>
+                        <li>
+                           <p>Component having suppressed features (Component can be converted; however, rollback
+                              features will not convert).</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Features/Bodies that cannot be converted</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>Simplified Body</p>
+                        </li>
+                        <li>
+                           <p>Faceted Body</p>
+                        </li>
+                        <li>
+                           <p>Sheet metal features such as louver and dimples. </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Additional conversion information</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>All part copy links are removed on conversion.</p>
+                        </li>
+                        <li>
+                           <p>All features are evaluated for Dependencies to a Mirror or pattern feature. Based
+                              on what is found (dimple/Thread) you may get a warning or error indicating that said
+                              dependency cannot be moved.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/movetosynchronous1h" rel="movetosynchronous1h">Move an ordered feature to synchronous</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1h" rel="converttraditional1h">Convert ordered features to synchronous features</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1a" rel="converttraditional1a">Converting ordered features to synchronous features</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/movetosynchronous1c" rel="movetosynchronous1c">Move to Synchronous command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1c" rel="converttraditional1c">Convert command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional2d" rel="converttraditional2d">Ordered to Synchronous Converter dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1d" rel="converttraditional1d">Select Documents for Conversion dialog box</a><br><br></div>
+            <div class="footer-content">Moving ordered features to synchronous, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,179 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using driving dimensions to control elements</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using driving dimensions to control elements"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1016207">
+                     <h1 class="topic-title">Using driving dimensions to control elements</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>If a dimensioned element is part of a constrained shape (that is, geometric relationships
+                     were applied to it), then the dimensions are driving or driven based on the existing
+                     relationships and how the geometry was created.</p>
+                  <ul>
+                     <li>
+                        <p>You can use a driving dimension to change the size of an element. If the dimensioned
+                           element is on 2D elements that were created with geometric relationships (constraints)
+                           applied to them, then the entire sketch changes size along with it. </p>
+                     </li>
+                     <li>
+                        <p>You can expect a driven dimension to change its value to respond to changes in the
+                           value of driving dimensions.</p>
+                     </li>
+                     <li>
+                        <p>You can use the <b>Driving/Driven Dimension</b> button <img class="img-fluid" src="../../common/nonLocalized/se/icons/tutorials/stppabg/locked.gif"> on the dimension value edit box to switch between driving (locked <img class="img-fluid" src="../../common/nonLocalized/se/whats_new/lock_icon.png">) and driven (unlocked <img class="img-fluid" src="../../common/nonLocalized/se/whats_new/unlock_icon.png">) dimension values. </p>
+                     </li>
+                     <li>
+                        <p>The color of a dimension identifies its behavior when you edit it:</p>
+                        <ul>
+                           <li>
+                              <p>In draft, profile, and sketches, 2D driving (locked) dimensions are black (1); unlocked
+                                 (driven) dimensions are dark cyan (2). </p>
+                              <p><img class="img-fluid" src="../../common/nonLocalized/se/dimension/dim_format/dim_format_command/driving_driven.gif"></p>
+                              <p>You can change the value of a driven dimension, but its value displays the not-to-scale
+                                 symbol (the underline notation).</p>
+                           </li>
+                           <li>
+                              <p>PMI driving dimensions are red. PMI driven dimensions are blue. For information about
+                                 PMI dimensions, see the help topic <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab1a" rel="pmidnab1a">PMI dimensions and annotations</a>.</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Using dimensions to control elements</h4>
+                  <div>
+                     <p>You can place a driving dimension that controls the size or location of the element
+                        that it refers to. If you change the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/dimensional_value" rel="dimensional_value">dimensional value</a> of a driving dimension, the element updates to match the new value.</p>
+                     <p><img class="img-fluid" src="../../common/nonLocalized/se/dimension/dim_format/dim_format_command/driving_example_draft.gif"></p>
+                     <p>The value of a driven dimension is controlled by the element it refers to, or by a
+                        formula or variable you define. If the element, formula, or variable changes, the
+                        dimensional value updates.</p>
+                     <p>Because both driving and driven dimensions are associative to the element they refer
+                        to, you can change the design more easily without having to delete and reapply elements
+                        or dimensions when you update the design.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When the <b> Intersection</b> option in <b>IntelliSketch</b> is set and you select the <b>Distance Between</b>, you can place a <em>driven</em> dimension that measures to the intersection of two elements.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Changing the behavior of driving and driven dimensions</h4>
+                  <div>
+                     <p>In general, you can set or clear the <b>Driving/Driven Dimension</b> option on the <b>Dimension</b> command bar, on the 2D dimension value edit box, or on the model <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/dimvalueedithandle1d" rel="dimvalueedithandle1d">Dimension Value Edit dialog box</a> to specify whether a dimension is a driving dimension or a driven dimension.</p>
+                     <ul>
+                        <li>
+                           <p>When the lock icon is displayed, <img class="img-fluid" src="../../common/nonLocalized/se/whats_new/lock_icon.png">, the dimension is driving. You can edit the value of a driving dimension, but its
+                              dimension value is prevented from being changed when a connected face is moved or
+                              sized.</p>
+                        </li>
+                        <li>
+                           <p>When the unlocked icon is displayed <img class="img-fluid" src="../../common/nonLocalized/se/icons/tutorials/stppabg/unlocked.gif">, the dimension is driven. You cannot directly edit the value of a driven dimension,
+                              but the dimension value is allowed to change when faces connected to the dimensioned
+                              edge are modified.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If the <b>Driving/Driven Dimension</b> button is not available, select the <b>Maintain Relationships</b> command in the <b>Relate</b> group on the <b>Home</b> tab or the <b>Sketching</b> tab.</p>
+                     </div>
+                     <p>In the Draft environment, dimensions can be placed as either driving or driven, depending
+                        upon the setting of the <b>Maintain Relationships</b> command. If <b>Maintain Relationships</b> is on, the dimensions are driving by default. These exceptions apply:</p>
+                     <ul>
+                        <li>
+                           <p>Dimensions placed on part views are always driven.</p>
+                        </li>
+                        <li>
+                           <p>Dimensions placed between a 2D view and an element on the drawing sheet can only be
+                              driven.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Not-to-scale dimensions</h4>
+                  <div>
+                     <p>You can override the value of a driven dimension by setting its dimensional value
+                        to <em>not-to-scale</em>. For example, if you override the dimensional value that is 15 millimeters (A) to
+                        be 30 millimeters, the actual size of the line that you see would still be 15 millimeters
+                        (B). Solid Edge underlines the values of not-to-scale dimensions.</p>
+                     <p><img class="img-fluid" src="../../common/nonLocalized/se/dimensions/nottosc.gif"></p>
+                     <p>The <b>Not To Scale</b> command is available on the context menu when a dimension is selected.</p>
+                     <p>You can change the notation used to identify a not-to-scale dimension using the <b>Symbol</b> option on the <b>Terminator and Symbol</b> tab in the <b>Modify Dimension Style</b> and the <b>Dimension Properties</b> dialog boxes.</p>
+                  </div>
+                  <h4 class="division-title">Placing driving dimensions to an intersection</h4>
+                  <div>
+                     <p>Sometimes you need to place a driving dimension to the intersection of two elements.
+                        You can do this by dimensioning to a profile point you create using the <b>Point</b> command.</p>
+                     <p>For example, you can create a point at the theoretical intersection of two profile
+                        lines, and then use the <b>Distance Between</b> command with the <b>By 2 Points</b> placement option to place a dimension to the point you created. This results in a
+                        driving dimension, which you can use to control distance, size, or shape.</p>
+                     <p><img class="img-fluid" src="../../common/nonLocalized/se/dimensions/drv2int1.gif"></p>
+                     <p><img class="img-fluid" src="../../common/nonLocalized/se/dimensions/drv2int2.gif"></p>
+                     <p>To learn how, see <a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimdrv2int1h" rel="dimdrv2int1h">Place a driving 2D dimension to an intersection</a>.</p>
+                  </div>
+                  <h4 class="division-title">Using expressions in dimensions</h4>
+                  <div>
+                     <p>There are many instances when the dimensions of individual features in a design are
+                        related. For example, the bend radius used to manufacture a sheet metal part is usually
+                        a function of the stock thickness. You can define and automate these types of design
+                        relationships with expressions. You can select a dimension and then use the <b>Variables</b> command on the <b>Tools</b> tab to enter a formula. When the formula is solved, the dimensional value changes
+                        to the value that the formula calculates.</p>
+                     <p>You might want to use dimensions with expressions for the following purposes:</p>
+                     <ul>
+                        <li>
+                           <p>Drive a dimension by another dimension; Dimension A = Dimension B</p>
+                        </li>
+                        <li>
+                           <p>Drive a dimension by a formula; Dimension A = pi * 3.5</p>
+                        </li>
+                        <li>
+                           <p>Drive a dimension by a formula and another dimension; Dimension A = pi * Dimension
+                              B</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using the mouse scroll wheel to change driving dimensions</h4>
+                  <div>
+                     <p>You can use the mouse scroll wheel to change a driving (locked) or system dimension.
+                        As you scroll the wheel, the dimension increases or decreases in 5 percent increments.
+                        For example, if the dimension is 100 mm, the dimension will increase or decrease by
+                        5 mm.</p>
+                     <p>You can use the mouse scroll wheel to change a dimension by selecting the dimension
+                        you want to change, and then scrolling the wheel forward to increase the dimension
+                        or backward to decrease it.</p>
+                     <p>An option on the <b>General</b> page of the <b>Solid Edge Options</b> dialog box controls the mouse scroll wheel function. </p>
+                     <ul>
+                        <li>
+                           <p>If the option <b>Enable value changes using the mouse wheel</b> is unchecked, you can use Ctrl+mouse wheel to change a dimension value. </p>
+                        </li>
+                        <li>
+                           <p>If the option is checked, you can use the mouse wheel to change a dimension value.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Using driving dimensions to control elements, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

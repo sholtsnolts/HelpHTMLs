@@ -1,0 +1,157 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly layouts</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly layouts"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="layout1a">
+                     <h1 class="topic-title">Assembly layouts</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>As you develop the design concepts for a new assembly, it is useful to create a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/layout" rel="layout">layout</a> of the preliminary design. The <b>Sketch</b> command in the Assembly environment allows you to draw 2D sketch geometry on part
+                     or assembly reference planes.</p>
+                  <p>You can draw assembly sketches on the three default assembly reference planes or you
+                     can create new assembly reference planes to draw sketches on.</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/sketching/assembly/layout2.gif"></p>
+                  <p>You can use assembly sketches to do the following:</p>
+                  <ul>
+                     <li>
+                        <p>Create 3D ordered geometry within parts.</p>
+                     </li>
+                     <li>
+                        <p>Create assembly features.</p>
+                     </li>
+                     <li>
+                        <p>Position 3D parts relative to the sketch geometry.</p>
+                     </li>
+                     <li>
+                        <p>Position an assembly sketch relative to a 3D part.</p>
+                     </li>
+                  </ul>
+                  <p>For information about how you can use sketches in your assemblies, see <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318119" rel="xid1318119">Using sketches in assemblies</a>.</p>
+                  <h4 class="division-title">Positioning 3D components using assembly sketches</h4>
+                  <div>
+                     <p>You can position parts and subassemblies with respect to a part or assembly sketch.
+                        You can position 3D components using assembly relationships, such as mate and planar
+                        align; or using 2D dimensions and relationships, such as distance between and connect,
+                        or using the <b>Select</b> command.</p>
+                     <p>While editing an assembly sketch, you can use the <b>Parts Library</b> tab to add new components to the assembly.</p>
+                     <dl>
+                        <dt><b>Positioning 3D components using assembly relationships</b></dt>
+                        <dd class="ml-3">
+                           <p>You can use assembly relationships, such as <b>Mate</b>, <b>Planar Align</b>, <b>Connect</b> and <b>Axial Align</b>, to position a part to a keypoint or a line on a part, subassembly, or top-level
+                              assembly sketch. </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>It can be difficult to position a bolt in a slot using faces. In this example, a bolt
+                                 part is positioned to a point element on a part sketch. An inferred axis that is perpendicular
+                                 to the reference plane of the sketch on which the point lies defines the axis for
+                                 the <b>Axial Align</b> relationship. The arc and point were drawn such that if the size or position of the
+                                 slot changes, the arc and point will also update properly.</p>
+                              <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/sketching/assembly/asmsktch1.gif"></p>
+                           </div>
+                        </dd>
+                        <dt><b>Positioning 3D components using 2D dimensions and relationships</b></dt>
+                        <dd class="ml-3">
+                           <p>While you are editing an assembly sketch, you can use 2D dimensions and relationships
+                              to position a 3D component relative to elements in the sketch. When you edit the assembly
+                              sketch, the position of the roller parts update. This can be useful when creating
+                              a new assembly that uses existing components.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>You can use connect relationships (A) to position roller parts (B) relative to an
+                                 assembly sketch. </p>
+                              <p>In this example the value of the 60 millimeter dimension was edited in the assembly
+                                 sketch to 75 millimeters. Because the roller part was constrained to the assembly
+                                 sketch using a 2D connect relationship, the position of the roller updated when the
+                                 sketch dimension was edited.</p>
+                              <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/sketching/assembly/layout3.gif"></p>
+                           </div>
+                        </dd>
+                        <dt><b>Positioning 3D components using the Duplicate Component command</b></dt>
+                        <dd class="ml-3">
+                           <p>In an assembly layout sketch, you can reference and position components defined as
+                              <a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid1175533" rel="xid1175533">blocks</a> using the <b>Duplicate Component</b> command <img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/patterning/duplicate_component_command.png">. Using the <b>Select From</b> and <b>Select To</b> steps in the command, you can select a block in an assembly or subassembly sketch,
+                              which is then matched to the orientation of the components.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/patterning/dup_comp_using_sketch_blocks.png"></p>
+                        </dd>
+                        <dt><b>Positioning 3D components using Select</b></dt>
+                        <dd class="ml-3">
+                           <p>When a sketch window is active, you can use the <b>Select</b> command and options on the<a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/layout1d" rel="layout1d"> Position 3D Component command bar</a> to specify whether the sketch drives the position of the 3D component or the 3D component
+                              drives the position of the sketch. In the previous example, the <b>Sketch Driving</b> option was set for the roller parts to specify that the sketch drives the position
+                              of the 3D components.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When you set the <b>Sketch Driving</b> option, the component symbol in <b>PathFinder</b> indicates that the component is driven by the assembly sketch.</p>
+                           </div>
+                           <p>You can use the <b>Select</b> command to select the 3D component in <b>PathFinder</b> or you can use the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid307208" rel="xid307208">Component Select Tool command</a> to select the 3D component in the graphics window. </p>
+                           <p></p>
+                        </dd>
+                     </dl>
+                     <p>As you choose which relationships and techniques to use when you position components
+                        in assemblies, keep in mind the following:</p>
+                     <ul>
+                        <li>
+                           <p>That you cannot use 2D dimensions and relationships to position 3D components that
+                              conflict with existing 3D relationships.</p>
+                        </li>
+                        <li>
+                           <p>When you set the <b>Sketch Driving</b> option for a part, it is with respect to the current sketch. If relationships are
+                              available, the part can be driven by or drive another sketch.</p>
+                        </li>
+                        <li>
+                           <p>You can set the <b>Sketch Driving</b> option for a part in more than one sketch and apply 2D relationships in each sketch
+                              until the part is fully positioned. This can make it easy to fully position a part
+                              using two or more sketches.</p>
+                        </li>
+                        <li>
+                           <p>When you set the<b> Lock Alignment</b> option on the <b>Position 3D Component</b> command bar, the part is locked parallel with respect to the sketch plane and the
+                              part face you selected. The part can still move and rotate. This can make it easy
+                              to fully position a part using one sketch.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Positioning assembly sketches using 3D components</h4>
+                  <div>
+                     <p>You can also constrain elements on an assembly sketch to a 3D assembly component such
+                        that if the size, shape or position of the 3D component changes, the assembly sketch
+                        updates. When you are editing an assembly sketch, you can select a 3D component and
+                        set the <b>Component Driving</b> option on the <b>Position 3D Component</b> command bar to specify that the 3D component drives the size, shape, and position
+                        of the assembly sketch.</p>
+                  </div>
+                  <h4 class="division-title">Assembly sketches and alternate assemblies</h4>
+                  <div>
+                     <p>The <b>Sketch</b> and <b>Copy Sketch</b> commands are available only when the <b>Apply Edits to All Members</b> option on the <b>Family of Assemblies</b> tab is set (you are working globally).</p>
+                     <p>For more information, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2a" rel="famasm2a">Alternate Assemblies Impact on Solid Edge Functionality</a> Help topic.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/shwlnk1h" rel="shwlnk1h">Show the Links Between a Profile and an Assembly Layout</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/sketching2a" rel="sketching2a">Drawing sketches in assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/layout1c" rel="layout1c">Sketch command (Assembly environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid307208" rel="xid307208">Component Select Tool command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/layout1d" rel="layout1d">Position 3D Component command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/shwlnk1c" rel="shwlnk1c">Show Links command</a><br><br></div>
+            <div class="footer-content">Assembly layouts, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

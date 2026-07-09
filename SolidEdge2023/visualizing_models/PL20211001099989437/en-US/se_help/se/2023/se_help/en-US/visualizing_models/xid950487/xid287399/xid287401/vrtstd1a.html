@@ -1,0 +1,417 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating assembly animations</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating assembly animations"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="vrtstd1a">
+                     <h1 class="topic-title">Creating assembly animations</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge enables you to create animated presentations of your assemblies. Assembly
+                     animations can be useful for motion studies of mechanisms, visualizing how parts are
+                     assembled into a completed assembly, and vendor or customer presentations. You can
+                     create an unlimited number of animations for an assembly.</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/Motorani1.gif"></p>
+                  <p>Solid Edge provides several ways to produce animations of your assemblies:</p>
+                  <ul>
+                     <li>
+                        <p>The <b>Animation Editor</b> in the <b>Explode-Render-Animate</b> environment (<b>Tools</b> tab→<b>Environs</b> group→<b>ERA</b>) provides an animation timeline editor you can use to coordinate the effects of motors,
+                           camera positions and movement, explosions, material appearances, and motion paths
+                           to create an animation.</p>
+                     </li>
+                     <li>
+                        <p>Using automation objects and methods, you can also write your own programs to create
+                           animations frame-by-frame as you drag or reposition assembly components.</p>
+                     </li>
+                  </ul>
+                  <p>You create assembly animations using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb2d" rel="tmlplb2d">Animation Editor tool</a> (in the ERA environment <b>Home</b> tab→<b>Animate</b> group→<b>Animation</b> Editor) to add animation events to an animation timeline.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>For more information on creating assembly explosions, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xpldas1a" rel="xpldas1a">Creating Exploded Views of Assemblies</a> help topic. </p>
+                  </div>
+                  <h4 class="division-title">Animation Editor tool overview</h4>
+                  <div>
+                     <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb1c" rel="tmlplb1c">Animation Editor command</a> in the <b>Explode-Render-Animate</b> environment provides access to the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb2d" rel="tmlplb2d">Animation Editor tool</a>.</p>
+                     <p>The <b>Animation Editor</b> has a left and right pane, and various options for you to create, edit, view, and
+                        save animations of your Solid Edge assemblies.</p>
+                  </div>
+                  <h4 class="division-title">Adding events to an animation</h4>
+                  <div>
+                     <p>The process for adding events to an assembly animation depends on the type of event
+                        you want to add. This process is described for each event type in the material that
+                        follows.</p>
+                     <p>When you add events to an animation, an event entry (A) is added to the event category
+                        in the left pane, and one or more <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/event_duration_bar" rel="event_duration_bar">event duration bars</a> (B) are added to the right pane. For example, when you add a motor event to an assembly
+                        animation, a motor event entry (A) is added to the <b>Motors</b> category in the left pane, and an event duration bar (B) for the motor event is added
+                        to the right pane.</p>
+                     <p><img class="img-fluid" src="../../../../../common/graphicLibrary/se/se/anievent1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Using the left pane</h4>
+                  <div>
+                     <p>The left pane of the <b>Animation Editor</b> displays the event categories you can include in an assembly animation:</p>
+                     <table cellspacing="2" width="318">
+                        <colgroup span="1">
+                           <col span="1" width="60*">
+                           <col span="1" width="138*">
+                        </colgroup>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/anicam1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Camera Events</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/animotor1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Motor Events</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1" height="29"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/anixpld1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1" height="29">
+                              <p>Explosion Events</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/aniapprn1.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Appearance Events</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/animotion2.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Motion Path Events</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You create and edit <b>Camera</b>, <b>Appearance</b>, and <b>Motion Path</b> events using the options on the<b> Animation Editor</b>. You create <b>Motor</b> and <b>Explosion</b> events outside of the <b>Animation Editor</b>. You can then add motor and explosion events to an animation using the <b>Animation Editor</b>.</p>
+                     </div>
+                     <p>After you have added events to an animation, the events are added to the appropriate
+                        event category, and are displayed in an event tree. When you add an exploded view
+                        configuration to an animation, the exploded view consists of numerous events, which
+                        are also collected into explode groups and event groups. You can expand and collapse
+                        the explode groups and event groups using the left pane in the <b>Animation Editor</b>. This is discussed in more detail later.</p>
+                     <p>You can use the <b>Select</b> command to select one or more events or groups, and the associated parts and subassemblies
+                        highlight in the graphics window, <b>Assembly PathFinder</b>, and<b> Explode PathFinder</b>.</p>
+                  </div>
+                  <h4 class="division-title">Using the right pane</h4>
+                  <div>
+                     <p>The right pane provides an overview of the animation timeline. A series of <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/event_duration_bar" rel="event_duration_bar">event duration bars</a> represent each event in the assembly animation.</p>
+                     <p>The size and placement of an event duration bar indicates when the event occurs in
+                        the animation timeline and how long the event lasts. Some event types support an additional
+                        property, key frames, which is discussed in more detail later.</p>
+                     <p>You can modify these event properties by selecting an event duration bar with the
+                        cursor, or with shortcut menu commands.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/timeline1.gif"></p>
+                     <p>Basic user-interface elements in the right pane, as shown above, include:</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>(A) Frame Scale. You can use the <b>Toggle Scale</b> button to change the scale display between <b>Frames</b> and <b>Seconds</b>.</p>
+                        </li>
+                        <li>
+                           <p>(B) Current Frame Indicator. The current frame is also the frame which is displayed
+                              in the graphic window. You can drag the Current Frame Indicator to another location
+                              to view individual frames in the animation. You can also use the <b>Next Frame</b> and <b>Previous Frame</b> buttons to move forward and back one frame at a time.</p>
+                        </li>
+                        <li>
+                           <p>(C) Event Duration Bars. Notice that different colors are used at the start and end
+                              locations.</p>
+                        </li>
+                        <li>
+                           <p>(D) Selected Event Duration Bar. Notice that a scale is displayed when a duration
+                              bar is selected. This can make it easier to precisely locate a duration bar with respect
+                              to the Frame Scale.</p>
+                        </li>
+                        <li>
+                           <p>(E) Event Duration Bar Key Frame Indicator.</p>
+                        </li>
+                        <li>
+                           <p>(F) Vertical Scroll Bar. Scroll the timeline display up and down.</p>
+                        </li>
+                        <li>
+                           <p>(G) Horizontal Scroll Bar. Scroll the timeline display left and right.</p>
+                        </li>
+                     </ul>
+                     <h5>Editing events with the cursor</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Different cursor shapes are used in the right pane to indicate what type of edit is
+                              possible based on the current cursor position:</p>
+                           <table cellspacing="2" width="318">
+                              <colgroup span="1">
+                                 <col span="1" width="60*">
+                                 <col span="1" width="138*">
+                              </colgroup>
+                              <tr>
+                                 <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/animvstfr1.gif"></td>
+                                 <td rowspan="1" valign="top" colspan="1">
+                                    <p>Move Start Time</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/animvspfr1.gif"></td>
+                                 <td rowspan="1" valign="top" colspan="1">
+                                    <p>Move Stop Time</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" valign="top" colspan="1" height="29"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/animvevent1.gif"></td>
+                                 <td rowspan="1" valign="top" colspan="1" height="29">
+                                    <p>Move Event</p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../../common/nonLocalized/se/se/animvkf1.gif"></td>
+                                 <td rowspan="1" valign="top" colspan="1">
+                                    <p>Move Key Frame</p>
+                                 </td>
+                              </tr>
+                           </table>
+                        </li>
+                        <li>
+                           <h5>Editing events with shortcut menu commands</h5>
+                           <p>When you position the cursor over an event duration bar and right-click shortcut menu
+                              commands are available. The list of shortcut menu commands depends on what type of
+                              event duration bar you have selected. For example, when you select a motor event in
+                              the right pane, you can copy the event to the Clipboard, then paste or mirror the
+                              motor event to another position on the animation timeline.</p>
+                           <p>For more information on the shortcut menu commands, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb2d" rel="tmlplb2d">Animation Editor tool</a> Help topic.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Camera events</h4>
+                  <div>
+                     <p>There are two methods available for defining a new camera path. You can select the
+                        <b>Camera</b> category entry in the left pane, right-click to display the shortcut menu, and then
+                        click <b>Edit Definition</b> to display the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth1c" rel="fltpth1c">Camera Path Wizard</a>. The <b>Camera Path</b> button on the <b>Animation Editor</b> tool also displays the <b>Camera Path Wizard</b>. The wizard guides you through the process of creating a camera path event. You can
+                        only have one camera path event in an assembly. You use the wizard to define the camera
+                        path direction, duration, number of frames per second, and preview the camera path
+                        animation.</p>
+                     <p>Use the first page of the <b>Camera Path Wizard</b> to define the camera path direction. You can specify the direction to be clockwise
+                        or counterclockwise, or you can specify the direction using a series of existing named
+                        views.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Defining camera path by flying around the current view</h5>
+                           <p>When you define a camera path using the <b>Fly Around Current View</b> option, a closed, circular camera path is created. You can use the wizard to specify
+                              whether the camera path is clockwise or counterclockwise, but you cannot control the
+                              zoom level. To control the zoom level for the view you must set the Build Using Named
+                              Views option.</p>
+                        </li>
+                        <li>
+                           <h5>Using named views to specify camera path direction</h5>
+                           <p>When you define a camera path using the <b>Build Using Named Views</b> option, the camera path direction is determined by the order of the named views in
+                              the <b>Key Frames</b> list. For example, if the named views in the <b>Key Frames</b> list are ordered: Top, Front, Right; then the animation would show a gradual transition
+                              from the top view to the front view, then a gradual transition from the front view
+                              to the right view.</p>
+                           <p>You can also create custom named views by first rotating the view of the assembly
+                              using the <b>Rotate</b> command. Then you can save the view orientation to a name using the <b>Named Views</b> command. You can then add the named views to the <b>Key Frames</b> list on page 2 of the <b>Camera Path Wizard</b> to define the direction for a new camera path.</p>
+                        </li>
+                        <li>
+                           <h5>Impact of perspective on camera paths and animations</h5>
+                           <p>The <a class="xref" data-handle="user_interface" href="/en-US/product/246738425/doc/PL20211001099989437.user_interface/html/prspc1c" rel="prspc1c">Perspective command</a> and the <b>Perspective</b> options available with the <a class="xref" data-handle="visualizing_models" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf1c" rel="viewf1c">View command</a> impact both the completed animation and what you see in the Preview window when editing
+                              a camera path. For example, if you do not have perspective applied to the view, you
+                              may see the camera path curve in the Preview window. When you apply perspective to
+                              the view, you will not see the camera path curve.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Although many factors influence the results of an animation, you should explore the
+                                 perspective options to see which gives you the best animation results.</p>
+                           </div>
+                        </li>
+                     </ul>
+                     <p>After you have created a camera path for an animated presentation, you can display
+                        the animation in Solid Edge using the <b>Animation Editor</b>. Use controls on the <b>Animation Editor</b> to play, stop, pause, and move forward or back frames in the animation.</p>
+                     <p>You can also display and edit the camera path curve and camera positions along the
+                        camera path curve using the Animation Editor.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Displaying the camera path curve</h5>
+                           <p>The <b>Show Camera Path</b> button displays the camera path curve (A) in the graphics window. The keypoints (B)
+                              on the curve represent the key frame locations on the camera path. Key frames are
+                              discussed in more detail later. A camera path curve can be open or closed, depending
+                              on how you defined the camera path. When you use the <b>Fly Around Current View</b> option to create a camera path, it is closed. When you use the <b>Build Using Named Views</b>, it is typically open.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/anicamcur1.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Editing camera curve and camera position</h5>
+                           <p>You can edit the camera path curve and camera positions using the <b>Edit Definition</b> command on the shortcut menu. This displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb4d" rel="tmlplb4d">Path Curve command bar</a>. When you click the <b>Draw Path Step</b>, the camera path, camera orientation triad, and a Preview window are displayed. You
+                              can click the keypoints on the camera path curve to display the camera orientation
+                              triad and a preview of the camera display for that particular keyframe.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/anicamcur2.gif"></p>
+                           <p>You can change the length and shape of the camera path by dragging the keypoint and
+                              tangency control handles to different positions. You can select an axis of the camera
+                              orientation triad and type a value on the command bar to change the camera angle.
+                              The Z axis on the orientation triad represents the direction the camera is pointing.
+                              When you click the Finish button on the command bar, changes you made to the camera
+                              curve and camera orientations are reflected in the animation. This provides a capability
+                              similar to raising, lowering, zooming, and changing the camera angle of a physical
+                              camera.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/anicamcur3.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Motor events</h4>
+                  <div>
+                     <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1c" rel="motor1c">Motor command</a> creates a rotary or linear motor to simulate motion on an underconstrained part.
+                        You add motor events to the animation timeline using the <b>Edit Definition</b> command on the shortcut menu when you select the <b>Motor</b> category entry in the left pane on the <b>Animation Editor</b>. The <b>Edit Definition</b> command displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prpmotor1d" rel="prpmotor1d">Motor Group Properties dialog box</a>. Use it to specify which existing motors you want to use in the current animation.
+                        You can also specify other properties for the motor in the animation.</p>
+                     <p>You can define one or more motor events for an assembly animation. You can control
+                        the timing of motor events so that they occur in an ordered fashion.</p>
+                     <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor2c" rel="motor2c">Simulate Motor command</a> displays a subset of the tools available with the <b>Animation Editor</b>. You can view the results of the motors you define outside the context of an animation.</p>
+                  </div>
+                  <h4 class="division-title">Explosion events</h4>
+                  <div>
+                     <p>You create exploded views of your assembly using the commands on the <b>Explode</b> group in the <b>Explode-Render-Animate</b> application. You save an exploded view configuration using the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/config1c" rel="config1c">Display Configurations command</a>.</p>
+                     <p>You add an explosion to an animation using the <b>Edit Definition</b> command on the shortcut menu when you select the <b>Explosion</b> category in the left pane of the <b>Animation Editor</b>. The <b>Edit Definition</b> command displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prpxpld1d" rel="prpxpld1d">Explosion Properties</a> dialog box, which allows you to specify the properties for the explosion event. For
+                        example, you can specify the exploded view configuration you want to use, whether
+                        the animation starts with the assembly collapsed or exploded, the animation order,
+                        and so forth. You can only define one exploded view configuration for an assembly
+                        animation.</p>
+                     <p>When you add an explosion event to the left pane in the <b>Animation Editor</b>, duration bar entries are added for each event in the exploded view. It is not unusual
+                        for dozens of explosion sub-events to exist in the main explosion event. You can also
+                        edit the main explosion event later using the <b>Edit Definition </b>command on the shortcut menu in the left pane. For example, you may want to start
+                        the animation with the parts collapsed instead of exploded.</p>
+                     <p>The event structure that is displayed in the <b>Explode PathFinder</b> tab is also displayed in the left pane of the <b>Animation Editor</b>.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Explode PathFinder and assembly animations</h5>
+                           <p>You can use the <b>Explode PathFinder</b> tab to control how parts move during an animation. For example, you may want all
+                              the fasteners in an assembly to animate at one time, even though the results of the
+                              <b>Automatic Explode</b> command placed them in different explode event groups. You can make these types of
+                              changes using the <b>Explode PathFinder</b> tab shortcut menu commands. For more information on the <b>Explode PathFinder</b> tab and modifying the explode event structure, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/pthfnd5d" rel="pthfnd5d">Explode PathFinder tab</a> topic.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>The <b>Explode</b> commands and modification of the explode event structure using <b>Explode PathFinder</b> cannot be done when the Animation Editor is displayed.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Appearance events</h4>
+                  <div>
+                     <p>You create appearance events using the <b>Appearance</b> button on the <b>Animation Editor</b>. Use appearance events to change part colors and visibility during an animation.
+                        For example, you can create fade in and fade out effects for parts in the animation.</p>
+                     <p>When you click the <b>Appearance</b> button, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb3d" rel="tmlplb3d">Appearance command bar</a> is displayed. Use the command bar to select one or more parts, and then define a
+                        starting and ending face style for the parts. When you click Finish, an appearance
+                        event is added to the left and right panes in the <b>Animation Editor</b>.</p>
+                     <p>You can edit an appearance event using shortcut menu commands in either pane of the
+                        Animation Editor. When you select an appearance event in the left pane, you can use
+                        the <b>Edit Definition</b> command on the shortcut menu to re-display the command bar, so you can edit the selected
+                        parts, and the face styles used for the event.</p>
+                     <p>Use shortcut menu commands in the right pane to add and remove frames from the event,
+                        cut, copy, paste, mirror, and insert events.</p>
+                  </div>
+                  <h4 class="division-title">Motion path events</h4>
+                  <div>
+                     <p>You create motion path events using the <b>Motion Path</b> button on the <b>Animation Editor</b>. When you click the <b>Motion Path</b> button, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb4d" rel="tmlplb4d">Motion Path command bar</a> is displayed. Use the command bar o select one or more parts, and then define a path
+                        curve you want the parts to follow. This can be useful in situations where you want
+                        parts to move along an assembly line or processing stations in an animation. Use options
+                        on the Motion Path command bar to specify whether motion path curve is open or closed,
+                        whether the curve is straight or blended, and so forth.</p>
+                     <p>To edit a motion path event later, select the motion path event entry in the left
+                        pane, and then select the <b>Edit Definition</b> command on the shortcut menu to display the Motion Path command bar.</p>
+                  </div>
+                  <h4 class="division-title">Key frames</h4>
+                  <div>
+                     <p>When you create camera and motion path events, key frame indicators (A) are added
+                        to the event duration bar automatically.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/duration2.gif"></p>
+                     <p>The key frame indicators represent a recorded location in space relative to a position
+                        on the duration bar for a camera or motion path event. For example, when you define
+                        a camera path using the Named Views option, key frame indicators are added to the
+                        duration bar for each named view entry in the list. You can also add and remove key
+                        frames using the shortcut menu when you select an event duration bar for a camera
+                        or motion path event.</p>
+                     <p>For a camera path event, the key frame indicators shows where the camera position
+                        matches the named view orientation at that point in the animation.</p>
+                     <p>For motion path events, the key frame indicator shows where the part is located at
+                        that point in the animation.</p>
+                     <p>You can move the key frame location on the event duration bar by dragging it with
+                        the cursor.</p>
+                  </div>
+                  <h4 class="division-title">Cutting, copying, pasting, mirroring, and inserting animation events</h4>
+                  <div>
+                     <p>In the right pane of the <b>Animation Editor</b>, use shortcut menu commands to cut, copy, paste, mirror, and insert certain types
+                        of events in an animation. For example, you can create an appearance event where a
+                        part changes color from 50% Visible to the Part Style, then copy and mirror the event
+                        so that it changes from the Part Style back to 50% Visible later in the animation.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/fade1.gif"></p>
+                     <p>To copy and mirror an event: </p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Select the event in the right pane (A), and then click <b>Copy</b> on the shortcut menu.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/anicpy1.gif"></p>
+                        </li>
+                        <li>
+                           <p>Position the cursor over the same line in the right pane as the original event, at
+                              the approximate location you want the new event (B). Then click <b>Mirror</b> on the shortcut menu.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/anicpy2.gif"></p>
+                        </li>
+                        <li>
+                           <p>A mirrored copy of the event is created (C). Notice that the start and end point colors
+                              are reversed on the mirrored event. This visual clue can be helpful later.</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/anicpy3.gif"></p>
+                        </li>
+                     </ul>
+                     <p>The same approach is used for pasting and inserting events. You can also cut an event,
+                        and then paste it in a different position. After you paste, mirror, or insert an event,
+                        you can modify the event using the other shortcut menu commands. For example, you
+                        can drag it to a new position on the timeline, and change its duration properties.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Some event types do not support copy, paste, mirror, and insert operations. For these
+                           event types, the shortcut menu commands are not available.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Saving an assembly animation as a movie</h4>
+                  <div>
+                     <p>You can save an assembly animation in avi format with the <b>Save As Movie</b> button on the <b>Animation Editor</b>.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you are working in Solid Edge Embedded Client and save an .avi file, the document
+                           is saved to an unmanaged location. </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Creating animations programmatically</h4>
+                  <div>
+                     <p>The <b>SolidEdgeFramework.View</b> automation object provides several methods and properties you can use to create and
+                        control various properties of animations, such as <b>CreateMovieRecorder</b>, <b>BeginMovieRecording</b>, and <b> AddFrameToMovie</b>. </p>
+                     <p>Use this approach to creating animations when you use techniques other than the <b>Animation Editor</b> to define the motions of assembly components and the camera. For example, you can
+                        use this API to create complex animations that require relationship suppression, view
+                        orientation, and advanced formula computations to get a required animation movement.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth2h" rel="fltpth2h">Create an animation using the Animation Editor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth1h" rel="fltpth1h">Define a Camera Path for an Assembly Animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1h" rel="motor1h">Create a motor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor2h" rel="motor2h">Simulate a Motor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwdrawh" rel="flwdrawh">Modify flow lines in an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb2h" rel="tmlplb2h">Modify an animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd3h" rel="vrtstd3h">Delete an Animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd2h" rel="vrtstd2h">Add frames or time to an animation event</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd4h" rel="vrtstd4h">Remove frames or time from an animation event</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb1h" rel="tmlplb1h">Play back an animation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi1h" rel="svmovi1h">Save a movie</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwlin1h" rel="flwlin1h">Display flow lines in an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/flwtrm2h" rel="flwtrm2h">Display flow line terminators in an exploded assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid1374089" rel="xid1374089">Use a Surface Dial with the Animation Editor</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb2d" rel="tmlplb2d">Animation Editor Tool</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth1d" rel="fltpth1d">Camera Path Wizard</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth3d" rel="fltpth3d">Camera Path Wizard (Page 1)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth4d" rel="fltpth4d">Camera Path Wizard (Page 2)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth2d" rel="fltpth2d">Camera Path Wizard (Page 3)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1c" rel="motor1c">Rotational Motor and Linear Motor commands</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb1c" rel="tmlplb1c">Animation Editor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fltpth1c" rel="fltpth1c">Camera Path Wizard command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor2c" rel="motor2c">Simulate Motor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd3c" rel="vrtstd3c">Delete Animation command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd2c" rel="vrtstd2c">Add Frames Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd4c" rel="vrtstd4c">Remove Frames Command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi1c" rel="svmovi1c">Save As Movie command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd2d" rel="vrtstd2d">Add Frames Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prptmln1d" rel="prptmln1d">Animation Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb3d" rel="tmlplb3d">Appearance command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd3d" rel="vrtstd3d">Delete Animation Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prpdurat1d" rel="prpdurat1d">Duration Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/motor1d" rel="motor1d">Rotational Motor command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid608470" rel="xid608470">Linear Motor command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/prpmotor1d" rel="prpmotor1d">Motor Group Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/tmlplb4d" rel="tmlplb4d">Path command bar (Animation Editor Tool)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd4d" rel="vrtstd4d">Remove Frames Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi1d" rel="svmovi1d">Save As Movie dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/svmovi2d" rel="svmovi2d">Save As Movie Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid996792" rel="xid996792">Variable Table Motor command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/VT_motor_workflow" rel="VT_motor_workflow">Variable Table Motor workflow</a><br><br></div>
+            <div class="footer-content">Creating assembly animations, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

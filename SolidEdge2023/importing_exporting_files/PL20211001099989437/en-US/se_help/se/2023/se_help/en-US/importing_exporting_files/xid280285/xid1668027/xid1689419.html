@@ -1,0 +1,311 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Migrate the hole database from Creo Elements Direct to Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Migrate the hole database from Creo Elements Direct to Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1689419">
+                     <h1 class="topic-title">Migrate the hole database from Creo Elements Direct to Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you migrate any Creo Elements Direct part file, the hole definitions for thread
+                     attributes are migrated. No database for non-threaded holes is migrated. </p>
+                  <p>As part of the Creo Elements Direct data migration software, Solid Edge provides a
+                     tool that converts the Creo Elements Direct hole database, <b>Werkst.csl</b>, to a Solid Edge Holes and pipes Excel spreadsheet (.xls). </p>
+                  <p><b>To run the data migration tool</b></p>
+                  <ol type="1">
+                     <li>
+                        <p>Open a DOS window.</p>
+                     </li>
+                     <li>
+                        <p>Enter the path for the <b>SEHolePipeXMLFromCED.exe</b>. For example, “<b>C:\Program Files\Siemens\Solid Edge 2020\Program\SEHolePipeXMLFromCED.exe</b>.”</p>
+                     </li>
+                     <li>
+                        <p>Set the following:</p>
+                        <ul>
+                           <li>
+                              <p>Argument 1: [PathName] — Location where migrated database must be saved. For example,
+                                 “<b>C:\Program Files\Siemens\Solid Edge 2020\Preferences\Holes</b>.” </p>
+                           </li>
+                           <li>
+                              <p>Argument 2: [Standard]—The unit standards to converted. Available standards include
+                                 Metric, ANSI, British, DIN, Machining_Inch or Machining_Metric.</p>
+                              <p>After the process is complete, for all mentioned inputs, add the standards one at
+                                 a time. All available default standards for threaded holes in Creo Elements Direct
+                                 are migrated and are available in <b>C:\Program Files\Siemens\Solid Edge 2020\Preferences\Holes</b>.</p>
+                              <p>. </p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ol>
+                  <p>After the Solid Edge database is created:</p>
+                  <ol type="1">
+                     <li>
+                        <p>Ensure that the<b> Solid Edge Options\Files locations\Holes database</b> is set properly on the <b>File Locations</b> page of the <b>Solid Edge Options</b> dialog box.</p>
+                     </li>
+                     <li>
+                        <p>Modify the <b>CreoED2SE.ini</b> to include the proper mapping to the Solid Edge hole database you just created.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Migrate the hole database before attempting to migrate the Creo Elements Direct files.
+                              </p>
+                        </div>
+                     </li>
+                  </ol>
+                  <p>Before migrating the Creo Elements Direct files, edit the following options in the
+                     <b>[Hole Table mapping]</b> section of the file <b>$:\Program Files\Siemens\Solid Edge 2020\Preferences\Translators\CeoED2SE.ini</b>.</p>
+                  <table cellspacing="1" border="0" bgcolor="#FFFFFF" cellpadding="2" width=".5">
+                     <colgroup span="1">
+                        <col span="1">
+                        <col span="1" width="100%">
+                     </colgroup>
+                     <tbody>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDMetric=Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDMetricFine=Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDSpecial=Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDButtress=Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p style="text-align: left;"></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDButtressFine=Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDRound=DIN_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDTrapezoidal=DIN_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDTrapezoidalFine=DIN_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDPG(DIN40403)=DIN_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDUNC(ANSI)=ANSI Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDUNF(ANSI)=ANSI Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDUNEF(ANSI)=ANSI Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDWhitworth=DIN_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDWhitworth G=DIN_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDNPT=ANSI Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDNPTF=ANSI Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDBSW=ANSI Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDBSF=ANSI Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDEdison=DIN_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDFlatTrapezoid_machining=Machining_Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDSaw_machining=Machining_Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDMetric_machining=Machining_Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDMetricFine_machining=Machining_Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDInch_machining=Machining_Inch_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDPg_machining=Machining_Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDTrapezoidal_machining=Machining_Metric_CreoED</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>CreoEDRound_machining=Machining_Metric_CreoED</p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1671637" rel="xid1671637">Translate multiple Creo Element Direct documents in Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689423" rel="xid1689423">Creo Elements Direct 3D files migration to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668029" rel="xid1668029">Creo Elements Direct Data Migration Start Page dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668030" rel="xid1668030">Creo Elements Direct File Selection Page dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668028" rel="xid1668028">Creo Elements Direct data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1668032" rel="xid1668032">Creo Elements Direct Saving Changes dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689420" rel="xid1689420">Migrating Creo Elements Direct material definitions to Solid Edge</a><br><br></div>
+            <div class="footer-content">Migrate the hole database from Creo Elements Direct to Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,221 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly Connector command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly Connector command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconnqb1d">
+                     <h1 class="topic-title">Assembly Connector command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Assembly Connector</b> command bar is displayed when you create and edit glue, no penetration contact, thermal,
+                     or edge connectors manually. The available options depend upon connector type.</p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/manual_connector_glue_commandbar.png"></p>
+                  <dl>
+                     <dt>Connector Type</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the connection type between assembly faces or surfaces when creating connectors
+                           using the <b>Manual</b> command. Also specifies the connection type when using the <b>Edge</b> connector command. </p>
+                        <dl>
+                           <dt>Glue</dt>
+                           <dd class="ml-3">
+                              <p>For Manual connectors—Creates a connection like a stiff spring. </p>
+                              <p>For Edge connectors—Creates a rigid connection between nodes on edge-to-face connections.</p>
+                              <p>All <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/glued_connections" rel="glued_connections">glued connections</a> use a search distance and an optional penalty factor.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>No Penetration</dt>
+                           <dd class="ml-3">
+                              <p>For Manual connectors—Prevents faces that touch from penetrating.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Rigid</dt>
+                           <dd class="ml-3">
+                              <p>For Edge connectors—Provides rigid links between nodes on edge-to-edge connections.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Thermal</dt>
+                           <dd class="ml-3">
+                              <p>A thermal connector defines thermal resistance (conductance) between surfaces or faces
+                                 in a heat transfer study or a thermal coupled study, for example, in thermal insulation
+                                 applications. </p>
+                              <p>Select the <b>Properties</b> button to define the <b>Thermal conductance value</b> in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Connector Properties dialog box</a>. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The <b>Thermal conductance value</b> is based on the contact resistance between the faces (such as steel to copper) and
+                                    the surface finish (for example, shiny or dull).</p>
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Thermal Glue</dt>
+                           <dd class="ml-3">
+                              <p>A thermal glue connector defines a glue connector in a heat transfer study or a thermal
+                                 coupled study.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_selmultiple_button.gif"> Select Multiple </dt>
+                     <dd class="ml-3">
+                        <p>Use the <b>Select Multiple</b> button to connect multiple faces or surfaces with a single connector. </p>
+                        <ul>
+                           <li>
+                              <p>When set, creates a connection between multiple faces and surfaces. </p>
+                           </li>
+                           <li>
+                              <p>When cleared, creates a connection between just two faces or surfaces. </p>
+                           </li>
+                        </ul>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_swap_ms_button.gif"> Swap Targets and Sources</dt>
+                     <dd class="ml-3">
+                        <p>For thermal, no penetration, and glue connectors, swaps the face geometry assigned
+                           to the target set and source set. Thus, faces in the second selection set (sources)
+                           become the faces in the first selection set (targets).</p>
+                        <p>Alternatively, you can press the F key. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>You may want to use this option:</p>
+                           <ul>
+                              <li>
+                                 <p>If you meshed the model before creating connectors, you can see where the mesh is
+                                    coarse and fine. It is best to pick the face with the finest mesh as the source side,
+                                    regardless of whether it is a surface or solid face. More elements on the source face
+                                    means that more contact elements are created. This produces a more accurate solution.</p>
+                              </li>
+                              <li>
+                                 <p>When mesh sizing has changed which side of a face pair has denser (finer) mesh.</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <p>This option is not available for edge connectors.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_toggle_ms_button.gif"> Toggle Source/Target Selection</dt>
+                     <dd class="ml-3">
+                        <p>Use this button to change which side of the connection you select first. For glue
+                           and no penetration connectors, this is the <em>source</em> side or the <em>target</em> side. For edge connectors, this is the <em>from </em> side and the <em>to</em> side. </p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_options_button.gif"> Options</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a> for the selected connection type. </p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_target_symbol_color_button.gif"> Target Symbol Color</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a>, so you can change the default assembly connector symbol color assigned to the <em>target</em> faces or surfaces. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The default color is set on the <b>Simulation</b> page of the <b>Solid Edge Options</b> dialog box.</p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_source_symbol_color_button.gif"> Source Symbol Color</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a>, so you can change the default assembly connector symbol color assigned to the <em>source</em> faces or surfaces. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The default color is set on the <b>Simulation</b> page of the <b>Solid Edge Options</b> dialog box.</p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Visibility Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Use the <b>Visibility Options</b> list to review the connected faces in each contact pair. For the currently selected
+                           connector pair, it highlights and shows the target face (red highlight), the source
+                           face (blue highlight), or both faces (green highlight).</p>
+                        <dl>
+                           <dt>Show Both</dt>
+                           <dd class="ml-3">
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_visibility_both.png"></p>
+                           </dd>
+                           <dt>Show Target</dt>
+                           <dd class="ml-3">
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_show_target_cmdbar.png"></p>
+                           </dd>
+                           <dt>Show Source</dt>
+                           <dd class="ml-3">
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_show_source.png"></p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/toggle_hide_transparent_button1.png"> Toggle Hide/Transparent </dt>
+                     <dd class="ml-3">
+                        <p>You can use the <b>Toggle Hide/Transparent</b> control with the <b>Visibility Options</b> list to identify the target and source objects in a connection, and to cycle through
+                           the display of all unconnected parts in transparent mode or in hidden mode. If a model
+                           contains multiple parts, all of the parts that are not involved in the connection
+                           are shown in transparent mode, and then hidden.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>When the <b>Show Source</b> visibility option is selected, and <b>Toggle Hide/Transparent</b> is off, the unconnected part is hidden.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_toggle_hide.png"></p>
+                           <p>When the <b>Show Source</b> visibility option is selected, and <b>Toggle Hide/Transparent</b> is on, the unconnected part is shown in transparent mode.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_toggle_transparent.png"></p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_symbol_size_button.gif"> Symbol Size</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a>, so you can change the default assembly connector symbol size and spacing displayed
+                           in the graphics window. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/connector_colors_visible.png"></p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_label_button.gif"> Show Label</dt>
+                     <dd class="ml-3">
+                        <p>Shows or hides the assembly connector value label in the graphics window. </p>
+                        <p>This option is not available for edge connectors.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/connector_label_glue.png"></p>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1d" rel="assyconn1d">Auto command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><br></div>
+            <div class="footer-content">Assembly Connector command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

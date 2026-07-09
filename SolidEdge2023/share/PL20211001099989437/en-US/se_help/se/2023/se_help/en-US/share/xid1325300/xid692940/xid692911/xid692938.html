@@ -1,0 +1,87 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Example</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Example"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid692938">
+                     <h1 class="topic-title">Example</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Sub webpublish()</p>
+                  <p>Dim objApp As SolidEdgeFramework.Application</p>
+                  <p>Dim objDoc As SolidEdgeAssembly.AssemblyDocument</p>
+                  <p>' Dim objModel As SolidEdgeAssembly.Model</p>
+                  <p>Dim objModelDoc As SolidEdgeAssembly.AssemblyDocument</p>
+                  <p>TESTFILE = "c:\My Documents\Drawing Files\test api\test.asm"</p>
+                  <p>' Report errors</p>
+                  <p>Const PI = 3.14159265358979</p>
+                  <p>' Create/get the application with specific settings</p>
+                  <p>On Error Resume Next</p>
+                  <p>objApp.DisplayAlerts = False</p>
+                  <p>Set objApp = GetObject(, "SolidEdge.AssemblyDocument")</p>
+                  <p>If Err Then</p>
+                  <p>Err.Clear</p>
+                  <p>Set objApp = CreateObject("SolidEdge.Application")</p>
+                  <p>Set objDoc = objApp.Documents.Add("SolidEdge.AssemblyDocument")</p>
+                  <p>objApp.Visible = True</p>
+                  <p>Else</p>
+                  <p>Set objDoc = objApp.ActiveDocument</p>
+                  <p>End If</p>
+                  <p>' Close the part document</p>
+                  <p>Call objDoc.Close</p>
+                  <p>' Open a Testcase</p>
+                  <p>Set objDoc = objApp.Documents.Open(FileName:=TESTFILE)</p>
+                  <p>' Get the model object in the test case</p>
+                  <p></p>
+                  <p>Dim wp As publishLib.SEWebPublisher</p>
+                  <p>Set wp = CreateObject("Publish.SEWebPublisher")</p>
+                  <p></p>
+                  <p>wp.PublishFilename = "test.html"</p>
+                  <p>wp.PublishTemplate = ""</p>
+                  <p>wp.PublishDirectory = "c:\My Documents\Drawing Files\test api"</p>
+                  <p>wp.PublishPageStyle = styleHeaderViewerRight</p>
+                  <p>wp.PublishTitle = "My Test Page"</p>
+                  <p>wp.PublishAuthor = "Joe Engineer"</p>
+                  <p>wp.PublishDate = "Jan. 1, 2000"</p>
+                  <p>wp.PublishAttribute("Company") = "Big Company, Inc."</p>
+                  <p>wp.Generate (1)</p>
+                  <p></p>
+                  <p>Call objDoc.Close</p>
+                  <p>Call objApp.Quit</p>
+                  <p></p>
+                  <p>' USER DISPLAY</p>
+                  <p>' Release objects</p>
+                  <p>Set objApp = Nothing</p>
+                  <p>Set objDoc = Nothing</p>
+                  <p>Set objModel = Nothing</p>
+                  <p>Set objModelDoc = Nothing</p>
+                  <p>End Sub</p>
+               </div>
+            </div>
+            <div class="footer-content">Example, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

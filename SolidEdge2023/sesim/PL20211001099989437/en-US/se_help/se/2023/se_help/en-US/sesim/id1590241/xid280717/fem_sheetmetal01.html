@@ -1,0 +1,159 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Activity: Apply pinned and no rotation constraints</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Activity: Apply pinned and no rotation constraints"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_sheetmetal01">
+                     <h1 class="topic-title">Activity: Apply pinned and no rotation constraints</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this activity, you will apply <em>pinned</em> and <em>no rotation</em> constraints to a sheet metal part. The part functions as the wheel support <em>fork</em> on a riding lawn mower. </p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet01.gif"></p>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>FE_sheet_fork.psm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet02.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p> From the <b>Study Type</b> list, choose <b>Linear Static</b>, and click <b>OK</b>. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>For a sheet metal model, the <b>Mesh Type</b> defaults to <b>Surface</b>. </p>
+                              </div>
+                           </li>
+                           <p>You can see the new study name on the <b>Simulation</b> tab→<b>Study</b> group.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_sheet03.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Analysis of a sheet metal part (or any thin part) requires a mid-surface. </p>
+                        <ol type="a">
+                           <li>
+                              <p>From the <b>Simulation</b> tab→<b>Geometry</b> group, select <b>Mid-Surface</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_midsurface_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <b>Mid-Surface</b> command bar, do the following:</p>
+                              <ol type="A">
+                                 <li>
+                                    <p>Click <b>Offset From Side 1</b>.</p>
+                                 </li>
+                                 <li>
+                                    <p>Ensure <b>Offset Ratio </b> is set to <b>0.500</b>.</p>
+                                    <p>You can see that the part is automatically selected, and the mid-surface is displayed
+                                       in green.</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet04.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p>Click the <b>Preview</b> button, and then click <b>Finish</b>.</p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet05.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Select the mid-surface:</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the empty space in <b>PathFinder</b>, right-click and select <b>Hide All</b>→<b>Design Body</b>. </p>
+                              <p>This exposes just the mid-surface.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet07.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Although the mid-surface is shown in the default purple color, the remaining illustrations
+                                    portray a neutral gray color, which makes it easier to see what is selected.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>From the <b>Simulation</b> tab→<b>Geometry</b> group, select the <b>Define</b> command. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_define_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select and accept the mid-surface.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet08.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You also can select the <em>Mid Surface 2</em> node in <b>PathFinder</b>.</p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Apply a pinned constraint:</p>
+                        <ol type="a">
+                           <li>
+                              <p> Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Pinned</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_pinned_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the top face.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet09.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept; left-click to finish the command.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet10.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Apply a no-rotation constraint:</p>
+                        <ol type="a">
+                           <li>
+                              <p> Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>No-Rotation</b>.</p>
+                              <p> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_norot_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the two side faces. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet11.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept; left-click to finish the command.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_sheet12.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1h" rel="constraint1h">Define a constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint01" rel="fem_constraint01">Activity: Apply a fixed constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint02" rel="fem_constraint02">Activity: Apply a sliding along surface constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_constraint04" rel="fem_constraint04">Activity: Apply a user defined constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint2h" rel="constraint2h">Edit a constraint</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint2a" rel="constraint2a">Creating and using constraints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint1a" rel="constraint1a">Constraints</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint3a" rel="constraint3a">Constraint symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraint4a" rel="constraint4a">Constraint labels</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraintqb1d" rel="constraintqb1d">Constraints command bar</a><br><br></div>
+            <div class="footer-content">Activity: Apply pinned and no rotation constraints, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

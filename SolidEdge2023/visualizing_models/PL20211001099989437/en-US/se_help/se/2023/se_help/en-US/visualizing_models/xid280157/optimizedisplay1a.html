@@ -1,0 +1,134 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Optimizing Solid Edge display performance</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Optimizing Solid Edge display performance"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="optimizedisplay1a">
+                     <h1 class="topic-title">Optimizing Solid Edge display performance</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Displaying 3D data is one of the most intensive operations your computer performs.
+                     With Solid Edge you can find the optimum balance among the factors that influence
+                     display speed and display quality, based on your computer's capabilities.</p>
+                  <p>Solid Edge is designed to use OpenGL(r) for displaying 3D data. Most graphics cards
+                     are designed to accelerate OpenGL(r) based applications with little or no intervention
+                     from the application or user. You should use as much graphics card functionality and
+                     acceleration as possible to optimize both display speed and display quality. As display
+                     technologies and rendering techniques advance, most graphics card vendors take advantage
+                     of them. However it is not always possible for older graphics cards to support new
+                     functionality efficiently.</p>
+                  <p>To accommodate legacy configurations, Solid Edge provides several options to control
+                     the application display methods for 3D data. To modify the method Solid Edge uses
+                     to display graphics, choose <b>File</b> menu→<b>Settings</b>→<b>Options</b>→<b>View</b> tab:</p>
+                  <ul style="list-style: none">
+                     <li>
+                        <h5>Graphics Card Driven (Advanced)</h5>
+                        <p>This option provides full acceleration for all 3D displays and should provide the
+                           smoothest display possible for manipulating graphical objects or editing profiles
+                           and sketches. To achieve this higher quality display, Solid Edge requires a higher
+                           level of graphics card support. Such support may not exist for older graphics cards.
+                           This option is designed specifically for use with the latest mid-range and high-end
+                           graphics cards. This is the only option that supports the <a class="xref" data-handle="visualizing_models" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf5d" rel="viewf5d">HQ setting</a>.</p>
+                     </li>
+                     <li>
+                        <h5>Graphics Card Driven </h5>
+                        <p>This option provides full acceleration for all 3D displays and should provide a stable
+                           display across a wide variety of midrange to high-end graphics cards. While all displays
+                           are hardware accelerated, this option avoids accessing graphics requests that may
+                           not be widely supported. Choose this option if Solid Edge is unable to generate consistent
+                           displays when using the <b>Graphics Card Driven (Advanced) </b>option.</p>
+                     </li>
+                     <li>
+                        <h5>Software Driven (Advanced)</h5>
+                        <p> This option provides support for all general purpose 3D displays and should provide
+                           a stable display for situations where graphics acceleration is unavailable or all
+                           other options produce unacceptable graphic anomalies. This option does not support
+                           shaded highlight or high quality rendering. Choose this option if Solid Edge is unable
+                           to generate consistent displays when using the any other option. </p>
+                     </li>
+                     <li>
+                        <h5>Software Driven</h5>
+                        <p>This option is provided for diagnostic purposes and should not be used for normal
+                           displays. The primary reason for this option is to isolate the source of any graphic
+                           anomaly that might occur. In most cases, the graphics driver contains a flaw or is
+                           out-of-date. This option should only be selected if directed by support to verify
+                           such a condition.</p>
+                     </li>
+                     <li>
+                        <h5>Use Display Buffers</h5>
+                        <p> A display buffer is an OpenGL(r) capability that allows the CAD application to load
+                           geometry and images to the graphics card memory to improve performance and reduce
+                           latency during dynamic view manipulations. Using the dedicated resources of the graphics
+                           card is much faster than using process memory. This option is set by default for graphics
+                           card driven options and is not available for software driven options.</p>
+                     </li>
+                  </ul>
+                  <p>If available, the <b>Graphics Card (Advanced)</b> option provides the best quality display.</p>
+                  <h4 class="division-title">Automatically Selecting Graphics Cards</h4>
+                  <div>
+                     <p>You can improve system display by allowing Solid Edge to automatically select the
+                        appropriate graphics card setting during startup. </p>
+                     <p>Solid Edge delivers the AutoConfigure.txt file to the Solid Edge Program folder. This
+                        file contains information about widely used graphics cards such as the vendor, card
+                        name, driver version, default application display, and maximum application display.
+                        When the <b>Automatic Selection</b> option on the View tab is set, Solid Edge uses the information in the AutoConfigure.txt
+                        file to build the list of display options. For example, if the default setting in
+                        the AutoConfigure.txt file for your installed graphics card is <b>Graphics Card (Advanced)</b>, then the <b>Graphics Card Driven (Advanced)</b> is automatically set.</p>
+                     <p>If your graphics card is not in the list in the AutoConfigure.txt file and the <b>Automatic Selection</b> option is set, the graphics card setting defaults to <b>Software Driven (Advanced)</b>. If your graphics card is not in the list in the AutoConfigure.txt file and the <b>Automatic Selection</b> option is cleared, the graphics card setting list on the View tab contains all available
+                        settings.</p>
+                     <p>If your graphics card is in the list in the AutoConfigure.txt file and the <b>Automatic Selection</b> option is cleared, the graphics card setting list on the View tab contains all settings
+                        up to the maximum value for your card. For example, suppose the maximum value for
+                        you graphics card is <b>Software Driven (Advanced)</b>, the list on the View tab contains <b>Software Driven</b> and <b>Software Driven (Advanced)</b>.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For more information on the contents of the AutoConfigure.txt file, you can use a
+                           text editor to open the AutoConfigure.txt file. However, the settings in this file
+                           are very sensitive and you should not edit them. You should report any graphics card
+                           related problems to Solid Edge Support.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Troubleshooting</h4>
+                  <div>
+                     <p>If you are dissatisfied with Solid Edge graphics display, do the following:</p>
+                     <ul>
+                        <li>
+                           <p>Insure that you have the most recent graphics card driver from the manufacturer.</p>
+                        </li>
+                        <li>
+                           <p>If display is still not optimal, choose a lower Application Display option from the
+                              list above.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf1h" rel="viewf1h">Change the current view settings</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/shrpn1h" rel="shrpn1h">Sharpen a View</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf1a" rel="viewf1a">Formatting views</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf2d" rel="viewf2d">View Overrides dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf1d" rel="viewf1d">Background tab (View Overrides dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf3d" rel="viewf3d">Lights tab (View Overrides dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf4d" rel="viewf4d">Reflection Box tab (View Overrides dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/orient1d" rel="orient1d">Orient Reflection Box dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf5d" rel="viewf5d">Rendering tab (View Overrides dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dropshadow1c" rel="dropshadow1c">Floor Shadow command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dropshadow2c" rel="dropshadow2c">Outline with Drop Shadow command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/view_mirr1c" rel="view_mirr1c">Floor Reflection command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/single_color_ed1c" rel="single_color_ed1c">Single Color Edges command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dirvw4c" rel="dirvw4c">Shaded command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dirvw5c" rel="dirvw5c">Shaded with Visible Edges command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/shrpn1c" rel="shrpn1c">Sharpen command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/viewf1c" rel="viewf1c">View Overrides command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dirvw2c" rel="dirvw2c">Visible and Hidden Edges command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dirvw1c" rel="dirvw1c">Visible Edges command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dirvw3c" rel="dirvw3c">Wire Frame command</a><br><br></div>
+            <div class="footer-content">Optimizing Solid Edge display performance, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

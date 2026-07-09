@@ -1,0 +1,267 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Defining thermal studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Defining thermal studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1017834">
+                     <h1 class="topic-title">Defining thermal studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>Use the following guidelines to choose a thermal study, define thermal loads, and
+                     apply thermal connectors.</p>
+                  <h4 class="division-title" id="study4a_defining">Choose a thermal study type</h4>
+                  <div>
+                     <p>You can define a thermal study by selecting one of the following thermal study types
+                        in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a>:</p>
+                     <ul>
+                        <li>
+                           <p><b>Steady State Heat Transfer</b> (for <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid385724" rel="xid385724">steady state heat transfer analysis</a>)</p>
+                        </li>
+                        <li>
+                           <p>For thermal stress analysis, which couples the results of a heat transfer analysis
+                              with a structural analysis, use one of the following study types:</p>
+                           <ul>
+                              <li>
+                                 <p><b>Steady State Heat Transfer + Linear Static</b></p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>To learn how to define and review a thermal stress analysis on a water pipe, try the
+                                       tutorial, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid453953" rel="xid453953">Perform a thermal stress analysis</a>. </p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p><b>Steady State Heat Transfer + Linear Buckling</b></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p><b>Transient Heat Transfer</b> (for <a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1500743" rel="xid1500743">transient heat transfer analysis</a>)</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>To learn how to define and review a transient heat thermal study using a brake rotor
+                                 part as an example, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat transfer study</a>. </p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Define thermal loads and thermal constraints</h4>
+                  <div>
+                     <p>Unlike other types of studies, you use the commands in the <b>Thermal Loads </b> group on the ribbon to define both thermal loads and thermal constraints in thermal
+                        studies.</p>
+                     <ul>
+                        <li>
+                           <p>Use the <b>Temperature</b> command when you want to apply a fixed temperature continuously to selected entities.
+                              The model is assumed to be at thermal equilibrium. You also can use the <b>Temperature</b> command as a constraint to define known temperature limits of a heat source or heat
+                              sink within the thermal model.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>To apply a fixed temperature to the entire model, use the <b>Body Loads</b> group→<b>Body Temperature</b> command.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Use the following commands to specify thermal energy exchange and heat transfer:</p>
+                           <ul>
+                              <li>
+                                 <p><b>Convection</b></p>
+                              </li>
+                              <li>
+                                 <p><b>Radiation</b> </p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Use the following commands to specify heat power, heat generation, or heat transfer:
+                              </p>
+                           <ul>
+                              <li>
+                                 <p><b>Heat Flux</b> (for faces and surfaces)</p>
+                              </li>
+                              <li>
+                                 <p><b>Heat Generation</b> (for bodies in an assembly) </p>
+                              </li>
+                           </ul>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>You can use the <b>Heat Flux</b> command or the <b>Heat Generation </b> command to study the effects of thermal energy transferred through an insulated wall
+                                 in a building or in a consumer product, such as a refrigerator or freezer. To minimize
+                                 heat transfer, you can determine the optimum wall thickness and the best insulating
+                                 material. </p>
+                           </div>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When you use a heat flux or heat generation load, you need to <a class="xref" href="#study4a_dissipateheat">define a heat dissipation mechanism</a>, such as a convection load or a temperature load. </p>
+                           </div>
+                           <p>For details, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a>.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Define thermal connectors</h4>
+                  <div>
+                     <p>Thermal connectors conduct heat between faces and surfaces where there is no mechanism
+                        in the model to do so. You can use them to define thermal resistance between insulated
+                        faces and surfaces. </p>
+                     <p>For assemblies and multibody parts, you can define thermal connectors using any of
+                        the following commands. </p>
+                     <ul>
+                        <li>
+                           <p>When defining a new thermal study, you can create thermal connectors automatically
+                              using the <b>Connector Options</b> section in the <b>Create Study</b> dialog box: </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/create_study_connector_options_thermal.png"></p>
+                        </li>
+                        <li>
+                           <p>You also can select the <b>Thermal</b> connector type or <b>Thermal Glue</b> connector type when using the following commands in the <b>Connectors</b> group:</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_auto_cmd.png"> <b>Auto command</b></p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_manual_cmd.gif"> <b>Manual command</b></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>If you use the <b>Auto</b> command to define connectors for a thermal coupled study, you must select the command
+                                 twice: Once to define thermal connectors for the thermal analysis, and again to define
+                                 structural connectors for the linear static analysis.</p>
+                           </div>
+                        </li>
+                     </ul>
+                     <p>Steady state thermal studies of an assembly model can be solved without defining assembly
+                        connectors. In this case, non-radiation loads do not transfer heat between bodies.
+                        This produces different results than in a similar study in which connectors are defined.
+                        </p>
+                     <p>Enclosure radiation studies in an assembly model do not require assembly connectors.</p>
+                  </div>
+                  <h4 class="division-title" id="study4a_dissipateheat">Define a heat dissipation mechanism</h4>
+                  <div>
+                     <p>In steady state thermal studies with a heat source, you must define a mechanism for
+                        heat dissipation. You can satisfy this requirement by: </p>
+                     <ul>
+                        <li>
+                           <p>Applying a thermal temperature load at opposite ends of the study geometry to achieve
+                              a temperature gradient.</p>
+                        </li>
+                        <li>
+                           <p>Using a convection load on one end to dissipate a heat load applied to the other end.
+                              </p>
+                        </li>
+                     </ul>
+                     <p>Refer to the following illustrations.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1">
+                           <col span="1">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Thermal loads applied</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Results</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Temperature load=100°C on the left surface.</p>
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/study/thermal_rule1a.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>The entire body is at 100°C. There is no gradient result.</p>
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/study/thermal_rule1b.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1" height="108">
+                                 <p>Temperature load=100°C on the left surface.</p>
+                                 <p>Temperature load=35°C on the right surface.</p>
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/study/thermal_rule2a.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1" height="108">
+                                 <p>Temperature distribution across the body.</p>
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/study/thermal_rule2b.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Heat Generation load=1W on the left surface.</p>
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/study/thermal_rule3.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Temperatures increase without boundary, because a heat source was defined but no offsetting
+                                    thermal load is applied to the right surface.</p>
+                                 <p>No solution is possible; an error message is displayed. </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Heat Generation load=1W on the left surface. </p>
+                                 <p>Convection load on the right surface.</p>
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/study/thermal_rule4a.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Temperature distribution across the body.</p>
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/study/thermal_rule4b.gif"></p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>In a thermal study of a structural frames model, you cannot define thermal loads if
+                           the model contains rigid links. Rigid links are created when the frame path does not
+                           pass through the centroid of the cross section.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="study4a_properties">Materials and units in thermal studies</h4>
+                  <div>
+                     <p>Thermal studies require that you define additional properties for materials in the
+                        <b>Solid Edge Material Table</b>. These include <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid280913" rel="xid280913">thermal conductivity</a>, the thermal expansion coefficient, and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid280916" rel="xid280916">specific heat</a>. The material properties that you need to provide depend on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">thermal loads</a> that you apply. </p>
+                     <p>Thermal load values and material properties use the units shown in the <b>Derived Units</b> table on the <b>Units</b> tab in the <b>Solid Edge Options</b> dialog box.</p>
+                  </div>
+                  <h4 class="division-title" id="study4a_options">Thermal study options</h4>
+                  <div>
+                     <p>You can use the following dialog boxes to specify options for thermal studies:</p>
+                     <ul>
+                        <li>
+                           <p>When you apply a radiation load, you use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a> to choose the type of radiation load, as well as to specify the ambient temperature,
+                              surface emissivity, number of cavities, and shading. You can open this dialog box
+                              using the <b>Options</b> button on the <b>Loads</b> command bar.</p>
+                        </li>
+                        <li>
+                           <p>When you create or modify a study, you can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a> to specify advanced thermal characteristics for free convection and enclosure radiation.
+                              You can open this dialog box by selecting the <b>Thermal Load Options </b> button on the <b>Create Study</b> (or <b>Modify Study</b>) dialog box.</p>
+                        </li>
+                        <li>
+                           <p>When you create a study and select the <b>Transient Heat Transfer</b> study type, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a> is displayed for you to define the duration, time increments, and initial temperature
+                              of the transient heat transfer analysis. </p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Defining thermal studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

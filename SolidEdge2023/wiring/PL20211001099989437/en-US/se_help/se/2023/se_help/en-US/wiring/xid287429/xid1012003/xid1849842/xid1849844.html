@@ -1,0 +1,115 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Outputting to Capital format</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Outputting to Capital format"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1849844">
+                     <h1 class="topic-title">Outputting to Capital format</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can exchange data between Solid Edge and Capital in both connected and disconnected
+                     mode.</p>
+                  <p>To exchange data:</p>
+                  <ul>
+                     <li>
+                        <p>To import wiring CMP and CON data from Capital Logic, on the <b>Harness Wizard – Step 1 of 3</b> dialog box, select <b>Siemens – Capital Logic</b> from the <b>Document format</b> list.</p>
+                     </li>
+                     <li>
+                        <p>To export wiring CMP and CON data to Capital Logic, on the <b><a class="xref" data-handle="wiring" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/saveasecad2d" rel="saveasecad2d">Save as ECAD</a></b> dialog box, select <b>Siemens – Capital Logic</b> from the <b>Document format</b> list. From within Capital Logic, you need to do a bridge in to import the lengths
+                           and wires from Solid Edge.</p>
+                     </li>
+                     <li>
+                        <p>To export wiring harness topology data from Solid Edge Electrical Routing to Capital
+                           HarnessXC, on the <b><a class="xref" data-handle="wiring" href="/en-US/product/246738425/doc/PL20211001099989437.wiring/html/saveasecad2d" rel="saveasecad2d">Save as ECAD</a></b> dialog box, select <b>Siemens – Capital HarnessXC</b> from the <b>Document format</b> list. </p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Exchange data between Solid Edge and Capital in disconnected mode</h4>
+                  <div>
+                     <p>To exchange data in disconnected mode:</p>
+                     <ol type="1">
+                        <li>
+                           <p>In Solid Edge, once you have prepared the harness, on the <b>File</b> menu, point to <b>Save As</b>, then choose <b>Save As ECAD</b>.</p>
+                        </li>
+                        <li>
+                           <p>Do one of the following:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>To transfer only wiring information, on the <b>Save As ECAD</b> dialog box, set the <b>Document</b> field to <b>Siemens – Capital Logic</b> and click <b>OK</b>.</p>
+                              </li>
+                              <li>
+                                 <p>To transfer harness topology, On the <b>Save As ECAD</b> dialog box, set the <b>Document</b> field to <b>Siemens – Capital HarnessXC</b> and click <b>OK</b>.</p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>On the <b>Siemens – Capital Logic</b> dialog box or the <b>Siemens – Capital HarnessXC</b> dialog box, specify a name and location for the file and click<b> Save</b>.</p>
+                           <p>You are now ready to import the harness information into Capital.</p>
+                        </li>
+                        <li>
+                           <p>In Capital Logic, click <b>Workflow</b> → <b>Bridge In</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>File Open</b> dialog box, use the <b>Browse</b> button to locate and select the .xml file and then click <b>Open</b>.</p>
+                           <p>The .xml file is imported and the harness preview displays the 2D representation of
+                              the harness design.</p>
+                        </li>
+                        <li>
+                           <p>Click <b>Process</b> to create the harness drawing.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title" id="exchange_connected_mode">Exchange data between Solid Edge and Capital in connected mode</h4>
+                  <div>
+                     <p>To exchange data in connected mode:</p>
+                     <ol type="1">
+                        <li>
+                           <p>Once you have prepared the harness in Solid Edge, open Capital.</p>
+                        </li>
+                        <li>
+                           <p>In Capital, click the <b>Workflow</b>→<b>Configure</b> button <img class="img-fluid" src="../../../../../common/nonLocalized/se/wire_harness/configure_see1.gif">.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Connection Properties</b> dialog box, enter the appropriate <b>Port</b> name for the <b>Remote Application</b> and <b>Local Application</b>.</p>
+                        </li>
+                        <li>
+                           <p>In Solid Edge <b>Electrical Routing</b>, click the <b>Home</b>→<b>Electrical</b>→<b>Connect</b> <img class="img-fluid" src="../../../../../common/nonLocalized/se/wire_harness/connect_SEE.gif"> button.</p>
+                           <p>A log viewer displays actions and information about the transactions between Solid
+                              Edge and Capital.</p>
+                        </li>
+                        <li>
+                           <p>In Capital, click the <b>Workflow</b>→<b>Solid Edge Connect</b> <img class="img-fluid" src="../../../../../common/nonLocalized/se/wire_harness/connect_SE1.gif"> button.</p>
+                        </li>
+                        <li>
+                           <p>In Capital, click <b>Workflow</b> → <b>Bridge In</b> to display the 2D representation of harness topology created in Solid Edge.</p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Outputting to Capital format, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

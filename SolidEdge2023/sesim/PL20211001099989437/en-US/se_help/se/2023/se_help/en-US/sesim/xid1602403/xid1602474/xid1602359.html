@@ -1,0 +1,135 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate centrifugal forces on a mower blade</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate centrifugal forces on a mower blade"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1602359">
+                     <h1 class="topic-title">Tutorial: Simulate centrifugal forces on a mower blade</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_static" rel="linear_static">linear static analysis</a> to simulate a lawn mower blade at its top speed, at a steady-state condition.</p>
+                  <p> The study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Structural Study type=Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Load type=Centrifugal</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                  </ul>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file named <b>FE_blade.par</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p>In the <b>Simulation</b> pane, notice that a linear static study was already created for this model.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_cent03.gif"></p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_cent02.gif"></p>
+                     </li>
+                     <li>
+                        <p>Define a centrifugal load.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Body Loads</b> group→<b>Centrifugal</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_load_centrifugal_button_on.gif">.</p>
+                              <p></p>
+                           </li>
+                           <li>
+                              <p>Select the origin knob of the steering wheel and drag the steering wheel to align
+                                 it with the axis of the mounting hole. When the inner face of the mounting hole highlights,
+                                 release the mouse button.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_cent04.gif"></p>
+                              <p>The direction of the centrifugal load arrows should match the direction shown in the
+                                 following illustration. If necessary, you can use the <b> Flip Angular Velocity</b> button and the <b>Flip Angular Acceleration</b> button on the command bar to reverse their directions.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_cent05.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Orient the steering wheel</a> to learn more.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Type the following values:</p>
+                              <p>In the <b>Angular Velocity</b> box, type <b>3600 rpm</b>. </p>
+                              <p>In the <b>Angular Acceleration</b> box, type <b>0 rpm ^2</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_cent06.gif"></p>
+                           </li>
+                           <li>
+                              <p>Press Enter. Click to finish.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_cent07.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>If you define an angular acceleration, the finished load symbol displays both arrows.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_cent09.gif"></p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a fixed constraint.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_constraint_fixed_button_notext.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the mounting hole cylindrical face.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_cent10.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept, and click to finish.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_cent12.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study.</p>
+                        <ol type="a">
+                           <li>
+                              <p> In the <b>Simulation</b> pane, turn off loads and constraints by clearing their respective check boxes.</p>
+                           </li>
+                           <li>
+                              <p>Select <b>Mesh</b>. Choose <b>Mesh &amp; Solve</b>.</p>
+                           </li>
+                           <li>
+                              <p>After a few moments, the part is meshed and solved.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_cent01.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Tutorial: Simulate centrifugal forces on a mower blade, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

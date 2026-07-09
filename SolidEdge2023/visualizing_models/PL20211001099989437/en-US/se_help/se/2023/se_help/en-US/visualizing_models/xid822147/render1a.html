@@ -1,0 +1,199 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Rendering parts and assemblies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Rendering parts and assemblies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="render1a">
+                     <h1 class="topic-title">Rendering parts and assemblies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>KeyShot is a standalone rendering application that has been integrated with Solid
+                     Edge since the ST7 release in 2014 (as a replacement of the Virtual Studio renderer).
+                     Since KeyShot is a standalone application, its updates and release cycles are not
+                     tied to the release cycles of Solid Edge.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When updating KeyShot using its update functionality, ensure that Solid Edge is closed
+                        before beginning the KeyShot update process. </p>
+                  </div>
+                  <p>Rendering differs from standard shaded display as the intent is to generate a single
+                     high-quality image rather than a persistent shaded representation of the model. All
+                     the parameters below are used in standard shaded display but are the components that
+                     define the parameters for a rendering as well. Once in the rendering environment,
+                     you should primarily make display settings in that environment. Using view styles
+                     affects the entire view, while using faces styles affects individual parts or single
+                     surfaces.</p>
+                  <p>The other difference between shading and rendering is the method of generating the
+                     display. Shading will rely on the graphics card, whereas KeyShot rendering is strictly
+                     CPU processing.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/render/grinder.jpg"></p>
+                  <p>You can use these styles to add new effects such as:</p>
+                  <ul>
+                     <li>
+                        <p>Anti-aliasing</p>
+                     </li>
+                     <li>
+                        <p>Textures</p>
+                     </li>
+                     <li>
+                        <p>Floor reflection</p>
+                     </li>
+                     <li>
+                        <p>Bump maps</p>
+                     </li>
+                     <li>
+                        <p>Background images and reflections</p>
+                     </li>
+                     <li>
+                        <p>Shadows</p>
+                     </li>
+                     <li>
+                        <p>Light color and angle</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Anti-aliasing</h4>
+                  <div>
+                     <p>Applying anti-aliasing to a part or assembly window reduces or removes the jagged
+                        display of angular edges. You can control the level of anti-aliasing by selecting
+                        high, medium, or low for Solid Edge shading. KeyShot doesn’t use the Solid Edge setting.</p>
+                  </div>
+                  <h4 class="division-title">Textures</h4>
+                  <div>
+                     <p>You can use an image to apply a texture to a part in an assembly. For example, you
+                        can apply texture images that represent material types such as wood, brushed aluminum,
+                        or marble.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you are applying a .jpg texture image, it must be in RGB format. RGB is the only
+                           supported format for .jpg textures.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Floor reflection</h4>
+                  <div>
+                     <p>You can apply a mirror effect on the floor underneath a part or an assembly. This
+                        provides a realistic reflection of the model.</p>
+                  </div>
+                  <h4 class="division-title">Bump maps</h4>
+                  <div>
+                     <p>You can use an image to define a bump map on a part in an assembly. Bump maps add
+                        realism by creating the appearance of surface relief shading on a part. Although both
+                        gray scale and normal formats are supported, normal maps are preferred. Normal maps
+                        provide three times the amount of data as gray scale because they contain RGB information.
+                        The algorithm converts RGB values to XYZ values for defining surface relief. The format
+                        provides for a more refined definition of the surface finish than standard gray scale.
+                        The bump map option is only supported if the High-Quality setting is selected.</p>
+                  </div>
+                  <h4 class="division-title">Background images and reflections</h4>
+                  <div>
+                     <p>You can use background images to make parts and assemblies look more realistic. For
+                        example, you might apply a background image of a road scene or construction site behind
+                        a backhoe assembly. You can also define an image which is reflected off surfaces.
+                        The same image can be used for both the background and the reflection, or separate
+                        images can be used.</p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>Background images will be transferred on the initial creation of the *.bip file. Any
+                           changes to the background need to be done in KeyShot.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Shadows</h4>
+                  <div>
+                     <p>In assemblies, you can define Face styles that define whether a part casts a shadow
+                        onto another part and whether a part accepts shadows from adjacent parts.</p>
+                  </div>
+                  <h4 class="division-title">Light color and angle</h4>
+                  <div>
+                     <p>You can assign color and angle properties to each of the eight individual light sources.</p>
+                  </div>
+                  <h4 class="division-title">Rendering ray traced images</h4>
+                  <div>
+                     <p>Ray traced shading generates part-to-part reflections, whereas standard shading does
+                        not do this. The part reflections in the assembly are reflecting onto themselves or
+                        one another. You can use the <b>KeyShot Render</b> command to create ray traced images of your assemblies.</p>
+                  </div>
+                  <h4 class="division-title">Preparing the assembly</h4>
+                  <div>
+                     <p>You should check to make sure all attributes and styles for the individual parts are
+                        properly set before you ray trace an assembly. You should test the view orientation,
+                        reflection boxes, and shadow settings in a simple view style to make sure the shadows
+                        and background display properly.</p>
+                     <p>Once you have checked the assembly file for appropriate styles and settings, you can
+                        create a ray traced image of the file. If you are unsure about the results, you can
+                        run a small test area in ray trace mode to optimize hardware time.</p>
+                  </div>
+                  <h4 class="division-title" id="render1a_renderprocess">Preparing the view</h4>
+                  <div>
+                     <p>Use following as a checklist for preparing the view for generating an image:</p>
+                     <ul>
+                        <li>
+                           <p>Orient the assembly to the desired view.</p>
+                        </li>
+                        <li>
+                           <p>Decide whether to generate the image in Isometric (default) or a Perspective view
+                              (more realistic).</p>
+                        </li>
+                        <li>
+                           <p>Test the lighting of the assembly. Try to minimize the number of lights required to
+                              produce the preferred result as more lights impact processing time.</p>
+                        </li>
+                        <li>
+                           <p>Evaluate the appearance of the shadows and adjust the lights accordingly.</p>
+                        </li>
+                        <li>
+                           <p>Review the part color and set the attributes for the desired transparency, reflectivity,
+                              and shininess.</p>
+                        </li>
+                        <li>
+                           <p>Define textures and bump patterns.</p>
+                        </li>
+                        <li>
+                           <p>If the product has reflective surfaces, you should set up a reflection box so the
+                              parts have something to reflect.</p>
+                        </li>
+                        <li>
+                           <p>Run sample images using the default quality setting to test lighting, shadows, bump
+                              maps and textures.</p>
+                        </li>
+                        <li>
+                           <p>Render the complete scene with high quality setting.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Saving rendered images</h4>
+                  <div>
+                     <p>To save a ray traced image, use the <b>KeyShot Render</b>, <b>Save As Image</b> or <b>Save As Translated</b> commands. If you want to include animation information, enter the <a class="xref" data-handle="visualizing_models" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xpldani1a" rel="xpldani1a">Explode-Render-Animate</a> environment and then use <b>KeyShot Animate</b> located on the animation menu.</p>
+                     <p>To share a KeyShot rendered model that contains decals, the model must be saved from
+                        KeyShot as a KeyShot Package file (.ksp).</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid821882" rel="xid821882">Render the current view with KeyShot</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid843916" rel="xid843916">Workflow for animating with KeyShot</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid847245" rel="xid847245">KeyShot rendering</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd5c" rel="vrtstd5c">Render Area command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/vrtstd6c" rel="vrtstd6c">Render Scene command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid846915" rel="xid846915">KeyShot Options dialog box</a><br><br></div>
+            <div class="footer-content">Rendering parts and assemblies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

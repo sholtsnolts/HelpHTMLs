@@ -1,0 +1,156 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Import Options for STEP (.stp) dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Import Options for STEP (.stp) dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="stpexp3d">
+                     <h1 class="topic-title">Import Options for STEP (.stp) dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Controls how Solid Edge opens STEP documents. STEP is an international standard that
+                     defines a neutral file format for representing geometric, topological and annotation
+                     data. Solid Edge supports the STEP standards AP203 class II - class VI entities, AP214
+                     class II - class VI entities, AP242 class II - class VI entities, and assemblies.</p>
+                  <p>This dialog box specifies how you want Solid Edge to use imported STEP data. You can
+                     specify that it uses the data as individual features or as a single-body feature</p>
+                  <dl>
+                     <dt>Options</dt>
+                     <dd class="ml-3"> 
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div> 
+                           <p>These options are not available when inserting files with <b>CAD Direct</b>.</p> </div>
+                        <dl>
+                           <dt>Generate Log File</dt>
+                           <dd class="ml-3">
+                              <p>Produces a log file that contains warnings and information about the files involved
+                                 in translation. The name of the file is <b>&lt;filename&gt;.log</b>, and it is located in the same folder as the STEP file.</p>
+                           </dd>
+                           <dt>Simplify Geometry</dt>
+                           <dd class="ml-3">
+                              <p>Replaces the b-spline geometry from the model with simplified analytic geometry, creating
+                                 a smaller and more efficient model. This option also merges half cylinders that share
+                                 a common centerline. </p>
+                              <p>If the system that created the original model used a larger tolerance than the standard
+                                 Parasolid tolerance (1.0e - 8), the translated model often contains a large number
+                                 of tolerant edges and vertices. This simplification routine recalculates the model
+                                 and repairs the edges and vertices to Parasolid precision.</p>
+                           </dd>
+                           <dt>Import PMI</dt>
+                           <dd class="ml-3">
+                              <p>Imports all product manufacturing information (PMI) data from the STEP file into Solid
+                                 Edge.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Actions on Import</dt>
+                     <dd class="ml-3">
+                        <p>Specifies how you want to format the imported file.</p> 
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div> 
+                           <p>Only the <b>Import Curves and points</b> option is available when inserting files with <b>CAD Direct</b>.</p> </div>
+                        <dl>
+                           <dt>Stitch surfaces</dt>
+                           <dd class="ml-3">
+                              <p>Stitch all surfaces and sheet bodies to a tolerance of 1.0e-5 meters. It may be best
+                                 not to stitch the surfaces on import, but to evaluate what needs to be stitched and
+                                 perform the stitch after you import the file. This option is on by default. &nbsp;If the
+                                 stitching operation creates a valid volume, the volume is converted to a solid. </p>
+                           </dd>
+                           <dt>Boolean solids</dt>
+                           <dd class="ml-3">
+                              <p>Booleans all solid bodies together to form a disjoint solid and insert it into <b>PathFinder</b> as a part copy. This option is on by default. &nbsp;If the option is off, all solid bodies
+                                 are added to <b>PathFinder</b> as individual part copies.</p>
+                           </dd>
+                           <dt>Group curves in a single Part Copy</dt>
+                           <dd class="ml-3">
+                              <p>Combines all curve data into a single part copy. Before importing the file, we recommend
+                                 that you identify the curves you do not need and either hide or delete them This option
+                                 is on by default.</p>
+                           </dd>
+                           <dt>Create Internal Components</dt>
+                           <dd class="ml-3">
+                              <p>Imports the non-Solid Edge file to Solid Edge as an internal component when you open
+                                 the file as an assembly. No files are created on disk and the components are embedded
+                                 within the file. </p>
+                           </dd>
+                           <dt>Body check</dt>
+                           <dd class="ml-3">
+                              <p>Performs a full body check on the file. This option is off by default.</p>
+                           </dd>
+                           <dt>Solids as design bodies</dt>
+                           <dd class="ml-3">
+                              <p>Imports the solid body as a design body. If you clear this option, all solid bodies
+                                 contained in the file you are importing are placed in <b>PathFinder</b> as construction solids rather than as design bodies.</p>
+                              <p> When multiple bodies are translated into a single part file, you can use the same
+                                 process in both ordered and synchronous to activate the part. For more information
+                                 on importing multiple bodies into a single part file, see <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid732676" rel="xid732676">Import multiple bodies into a single part file</a>.</p>
+                           </dd>
+                           <dt>Import Curves and Points</dt>
+                           <dd class="ml-3">
+                              <p>Imports 3D points from the STEP document to create 3D points in a single 3D sketch
+                                 in Solid Edge.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Use this option to import a STEP document that contains 3D points.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Output Folder</dt>
+                     <dd class="ml-3">
+                        <p>Specifies an output folder for the documents you are importing. This is very helpful
+                           when you open non-Solid Edge files with an assembly template. When Solid Edge encounters
+                           multiple bodies, the documents for each body are created and written to the specified
+                           folder with a .par extension. &nbsp;If you open single-body non-Solid Edge documents with
+                           a part template, Solid Edge does not automatically save the .par file to this folder.
+                           If, however, the log file is enabled, it is written to this folder.</p> 
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div> 
+                           <p>These options are not available when inserting files with <b>CAD Direct</b>.</p> </div>
+                        <dl>
+                           <dt>Output folder is the same as the input folder</dt>
+                           <dd class="ml-3">
+                              <p>The output folder is the same as the input folder for the documents you are importing.
+                                 If you select this option and import an assembly, the assembly and the individual
+                                 parts in the assembly are imported to the same folder.</p>
+                           </dd>
+                           <dt>Browse</dt>
+                           <dd class="ml-3">
+                              <p>Displays a dialog box where you can specify an existing folder, or create a new output
+                                 folder for the documents you are importing. This option is not available if the <b>Output Folder is the Same as the Input Folder</b> option is selected.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/openstep1a" rel="openstep1a">Opening STEP Documents in Solid Edge</a><br><br></div>
+            <div class="footer-content">Import Options for STEP (.stp) dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

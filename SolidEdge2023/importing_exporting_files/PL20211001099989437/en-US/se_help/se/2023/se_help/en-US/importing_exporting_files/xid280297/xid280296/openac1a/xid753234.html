@@ -1,0 +1,253 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating AutoCAD dimensions in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating AutoCAD dimensions in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid753234">
+                     <h1 class="topic-title">Creating AutoCAD dimensions in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When creating Solid Edge dimensions from an AutoCAD dimension, the AutoCAD dimensions
+                     being translated must contain both the dimension properties, and dimension style objects.
+                     If either set of data is missing or incomplete the Solid Edge dimension created from
+                     this data will take on different characteristics.</p>
+                  <p>In AutoCAD versions 12 and 13, the dimension styles objects were not always defined
+                     as part of the AutoCAD dimension. When importing files created in these versions,
+                     you should not translate the AutoCAD dimensions to Solid Edge as dimensions. Dimensions
+                     without this information are translated to the default Solid Edge dimension style.
+                     However it is possible that the dimension that is translated to Solid Edge will not
+                     reflect the precision, round off, or other style information found in the AutoCAD
+                     dimension.</p>
+                  <p>In the translation of data from one system to another it is not always possible to
+                     support options or work flows from the foreign system in Solid Edge. Therefore the
+                     following assumptions have to be made:</p>
+                  <ul>
+                     <li>
+                        <p>Solid Edge does not support the suppression of the dimension lines.&nbsp;Therefore, regardless
+                           of their state in AutoCAD, in Solid Edge dimension lines are always displayed.</p>
+                     </li>
+                     <li>
+                        <p>For import conversion, the text color of a dimension assigned as a driven or driving
+                           dimension color.</p>
+                     </li>
+                     <li>
+                        <p>Solid Edge does not support extending the dimension line past the projection (extension)
+                           line. When importing AutoCAD files, this parameter is ignored.</p>
+                     </li>
+                     <li>
+                        <p>AutoCAD supports 20 different Arrowhead types and allows you to create user-defined
+                           arrowheads.</p>
+                     </li>
+                     <li>
+                        <p>The Solid Edge arrowhead used during import is defined by the Arrowhead Import Mapping
+                           which becomes part of your configuration file once you finish the AutoCAD Wizard.&nbsp;If
+                           there is no mapping for an AutoCAD Arrowhead, the import defaults to Closed Filled.</p>
+                     </li>
+                     <li>
+                        <p>Since Solid Edge does not support user-defined arrowheads, all AutoCAD user-defined
+                           arrowheads default to a Solid Edge filled arrowhead. In AutoCAD, user-defined arrowheads
+                           are made simply by referencing the name of an existing AutoCAD Block. You can use
+                           the Arrowhead Import Mapping section of the configuration file to map user-defined
+                           arrowheads. To do this, add a line that contains the name of the AutoCAD Block that
+                           defines the arrowhead to the configuration file and then set the value to one of the
+                           eight Solid Edge arrowheads. For example, if you create a block called <em>User Arrowhead 1</em> for your user-defined arrowhead, you will need to add the following line to the configuration
+                           file to map the user-defined arrowhead to the Solid Edge Dot arrowhead.</p>
+                        <pre class="code-text">User&nbsp;Arrowhead&nbsp;1&nbsp;=&nbsp;Dot</pre>
+                     </li>
+                     <li>
+                        <p>Since the number of arrowheads supported by AutoCAD (20) exceeds the number offered
+                           in Solid Edge (8), a section in the AutoCAD configuration file manages the mismatch
+                           between systems.</p>
+                        <pre class="code-text">[Arrowhead&nbsp;Import&nbsp;Mapping]&nbsp;<br>Closed&nbsp;filled&nbsp;=&nbsp;Arrow&nbsp;(filled)&nbsp;<br>Closed&nbsp;blank&nbsp;=&nbsp;Arrow&nbsp;(hollow)&nbsp;<br>Closed&nbsp;=&nbsp;Arrow&nbsp;(hollow)&nbsp;Dot&nbsp;=&nbsp;Dot&nbsp;<br>Architectural&nbsp;tick&nbsp;=&nbsp;Back&nbsp;Slash&nbsp;<br>Oblique&nbsp;=&nbsp;Back&nbsp;Slash&nbsp;<br>Open&nbsp;=&nbsp;Arrow&nbsp;(open)&nbsp;<br>Origin&nbsp;Indicator&nbsp;=&nbsp;Dot&nbsp;<br>Origin&nbsp;Indicator&nbsp;2&nbsp;=&nbsp;Dot&nbsp;<br>Right&nbsp;Angle&nbsp;=&nbsp;Arrow&nbsp;(open)&nbsp;<br>Open&nbsp;30&nbsp;=&nbsp;Arrow&nbsp;(open)&nbsp;<br>Dot&nbsp;small&nbsp;=&nbsp;Dot&nbsp;<br>Dot&nbsp;blank&nbsp;=&nbsp;Dot<br>&nbsp;Dot&nbsp;small&nbsp;blank&nbsp;=&nbsp;Dot&nbsp;<br>Box&nbsp;=&nbsp;Dot&nbsp;Box&nbsp;filled&nbsp;=&nbsp;Dot&nbsp;<br>Datum&nbsp;triangle&nbsp;=&nbsp;Dot&nbsp;<br>Datum&nbsp;triangle&nbsp;filled&nbsp;=&nbsp;Dot&nbsp;<br>Intergral&nbsp;=&nbsp;Back&nbsp;Slash&nbsp;<br>None&nbsp;=&nbsp;Blank&nbsp;<br>Where:&nbsp;<br>The&nbsp;value&nbsp;to&nbsp;the&nbsp;left&nbsp;of&nbsp;the&nbsp;equal&nbsp;sign&nbsp;=&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;built&nbsp;in&nbsp;AutoCAD&nbsp;arrow&nbsp;or&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;user-defined&nbsp;arrow.&nbsp;<br>The&nbsp;value&nbsp;to&nbsp;the&nbsp;right&nbsp;of&nbsp;the&nbsp;equal&nbsp;sign&nbsp;=&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Solid&nbsp;Edge&nbsp;arrowhead&nbsp;to&nbsp;which&nbsp;the&nbsp;AutoCAD&nbsp;arrowhead&nbsp;is&nbsp;being&nbsp;mapped.&nbsp;<br>The&nbsp;only&nbsp;valid&nbsp;inputs&nbsp;for&nbsp;this&nbsp;field&nbsp;are:&nbsp;<br>Arrow&nbsp;(filled)&nbsp;<br>Arrow&nbsp;(hollow)&nbsp;<br>Arrow&nbsp;(open)&nbsp;<br>Back&nbsp;Slash&nbsp;<br>Blank&nbsp;<br>Circle&nbsp;<br>Dot&nbsp;<br>Slash<br>&nbsp;</pre>
+                     </li>
+                     <li>
+                        <p>Solid Edge does not support independent rotation of dimension text. Therefore, dimension
+                           text imports according to its alignment with the dimensions.</p>
+                     </li>
+                     <li>
+                        <p>AutoCAD defines a set of control codes that can be embedded in Dimension Text to alter
+                           the appearance of a subset of the text. &nbsp;Solid Edge does not contain similar functionality.
+                           Therefore, many of these control codes cannot be converted into Solid Edge dimensions.
+                           &nbsp;These include such things as text color, height, and font. &nbsp;The control codes that
+                           are converted to Solid Edge include a subset of the special characters and the new
+                           line command <em>/p</em>.</p>
+                     </li>
+                     <li>
+                        <p>For special character mapping, the AutoCAD control code is extracted from the string
+                           and replaced by the appropriate Solid Edge special character control code.&nbsp;The following
+                           table defines this mapping.</p>
+                        <table cellspacing="1" border="1" cellpadding="6" rules="all" width="40%" frame="border">
+                           <colgroup span="1">
+                              <col span="1" align="left" width="20%">
+                              <col span="1" align="left" width="15%">
+                              <col span="1" align="left" width="30%">
+                              <col span="1" align="left" width="35%">
+                           </colgroup>
+                           <tr valign="top">
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Name</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Symbol</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>AutoCAD Control Code</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Solid Edge Control Code</p>
+                              </th>
+                           </tr>
+                           <tr valign="top">
+                              <td rowspan="1" colspan="1">
+                                 <p>Degrees</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p> </p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%%d</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%DG</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Diameter</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>&nbsp;</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%%c</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%DI</p>
+                              </td>
+                           </tr>
+                           <tr valign="top">
+                              <td rowspan="1" colspan="1">
+                                 <p>Tolerance</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%%p</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%PM</p>
+                              </td>
+                           </tr>
+                           <tr valign="top">
+                              <td rowspan="1" colspan="1">
+                                 <p>Percent</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%%%</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>%</p>
+                              </td>
+                           </tr>
+                        </table>
+                     </li>
+                     <li>
+                        <p>For converting Dimension Text containing the AutoCAD new line control code, the translator
+                           starts with the basic Dimension Text format.</p>
+                     </li>
+                     <li>
+                        <p>For <em>Superfix/pPrefix &lt;&gt; Suffix/pSubfix</em> the angle brackets <em>&lt;&gt;</em> indicate where the Dimension Value of the Dimension Text is placed.</p>
+                     </li>
+                     <li>
+                        <p>From there, the translator parses the Superfix, Prefix, Suffix, and Subfix substring
+                           and assigns them to the corresponding string in the Solid Edge Dimension.</p>
+                     </li>
+                     <li>
+                        <p>If the AutoCAD <em>&lt;&gt;</em> symbol for the location of the dimension text is not found the Solid Edge Dimension
+                           Style <em>blank </em>is created and the Text override string is used as the Solid Edge Dimension value.
+                           The only exception to this rule is when the text override contains the special value
+                           for Stacked dimensions <em>\S</em>. &nbsp;When this condition exists the string is not interpreted by Solid Edge and is displayed
+                           as entered in AutoCAD. If the string is surrounded by (?), it indicates that the dimension
+                           value did not translate.</p>
+                        <p>In the following example:</p>
+                        <pre class="code-text">AutoCAD&nbsp;Text&nbsp;Over&nbsp;ride&nbsp;=&nbsp;10.0&nbsp;\S&nbsp;+.01^&nbsp;-.01</pre>
+                     </li>
+                     <li>
+                        <p>Interpreted as </p>
+                        <pre class="code-text">(?)&nbsp;10.0&nbsp;\S&nbsp;+01&nbsp;^&nbsp;-.01(?)</pre>
+                     </li>
+                     <li>
+                        <p>If this same text override exists with the <em>&lt;&gt;</em> Solid Edge interprets the value and place a stacked dimension rather than the blank
+                           dimension style.</p>
+                     </li>
+                     <li>
+                        <p>AutoCAD uses the Dimension Fit parameter to automatically control when Dimension Text,
+                           Dimension Lines, and Arrowheads are drawn inside or outside of the projection (extension)
+                           lines based on the width of the dimension. Since Solid Edge does not support this
+                           feature, it ignores these AutoCAD parameters during import.</p>
+                     </li>
+                     <li>
+                        <p>The automatic placement of arrowheads inside or outside the projection (extension)
+                           line based on the width of the dimension is not supported by Solid Edge. Therefore,
+                           Solid Edge always places the arrowheads on the inside during import.</p>
+                     </li>
+                     <li>
+                        <p>The Alternate Units section defines the mapping of the AutoCAD Dimension parameters
+                           that enable and define the appearance of alternate or secondary units. Solid Edge
+                           only supports dual units in a stacked display. Therefore, all dual unit AutoCAD Dimensions
+                           import in a stacked display.</p>
+                     </li>
+                     <li>
+                        <p>When dimensions are imported to sketch they are not attached to the line and arc elements.
+                           The lines and arcs of a translated dimension are construction elements that are placed
+                           on the <b>_Translation</b> layer. &nbsp;This layer is Off by default. &nbsp;You must reattach or construct new dimensions
+                           to modify the geometry. &nbsp;In other words these dimensions are simply reference dimensions.
+                           </p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Mapping dissimilar fonts</h4>
+                  <div>
+                     <p>Mapping dissimilar fonts may result in unexpected line breaks during translation.</p>
+                     <p>In AutoCAD, Multi-line text (Mtext) is a single line of text with a specific width.
+                        If the text string is too wide to fit in the specific width, the string is broken
+                        at a space or punctuation mark, and continued on the next line. &nbsp;Since AutoCAD does
+                        not specify where text splits, when displayed, the translator must determine that.
+                        Given the specific width, it computes the width of the string based on the Solid Edge
+                        font in which the string is displayed and breaks the string at a space or punctuation
+                        mark if the string is too wide.</p>
+                     <p>Because of character width differences between different fonts the translator does
+                        not always break a string at the same place AutoCAD does.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Creating AutoCAD dimensions in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

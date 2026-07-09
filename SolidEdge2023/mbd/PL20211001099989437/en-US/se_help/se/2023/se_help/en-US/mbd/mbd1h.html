@@ -1,0 +1,222 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Publish to 3D PDF</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Publish to 3D PDF"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mbd1h">
+                     <h1 class="topic-title">Publish to 3D PDF</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can publish a Solid Edge part or assembly to 3D PDF and to HTML using the <b>Publish to 3D PDF</b> command. A published 3D PDF contains embedded, interactive, 3D representations of
+                     your CAD data within predefined 3D PDF templates. It also includes the 3D PMI model
+                     views, custom properties and exposed variables for the callouts and user defined tables,annotations,
+                     and dimensions from Solid Edge. This format is portable and helps reviewers and vendors
+                     access the interactive 3D data, and to view, mark up, and interrogate the document
+                     without the need for CAD software. You also can publish an HTML format along with
+                     the 3D PDF. The 3D PDF output can be uploaded to Teamcenter as a single document,
+                     but the HTML output cannot due to its folder structure.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <ul>
+                        <li>
+                           <p>The commands on the <b>PMI</b> tab→<b>3D PDF Publishing</b> group are only available with a Solid Edge Model Based Definition license.</p>
+                        </li>
+                        <li>
+                           <p>When publishing a 3D PDF in a Teamcenter-managed environment, the appearance of the
+                              <b>3D PDF Publish</b> dialog box is slightly different. Those differences are not reflected in this procedure.
+                              For details, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/xid1850779" rel="xid1850779">Publish to 3D PDF in Teamcenter-managed Solid Edge</a>. </p>
+                        </li>
+                     </ul>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Open a part, sheet metal, assembly, or weldments model in Solid Edge.</p>
+                     </li>
+                     <li>
+                        <p>Verify that your model contains PMI dimensions, tolerances, and other annotations
+                           that are required to define the product for design review or manufacturing review.
+                           Also verify that it contains one or more PMI model views that enable a reviewer to
+                           see the important areas of your 3D design. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>To learn how to add PMI, see the following help topics:</p>
+                           <ol type="a" start="1">
+                              <li>
+                                 <p>Add <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab1a" rel="pmidnab1a">PMI dimensions and annotations</a>. </p>
+                                 <p>When publishing to 3D PDF, it is important to use the <b>PMI</b> tab→<b>Tools</b> group→<b>Lock Plane</b> command <img class="img-fluid" src="../../common/nonLocalized/se/mbd/lock_plane_cmd.png"> to <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna6h" rel="pmidna6h">set a PMI dimension and annotation plane</a>. Add PMI on the locked plane, and then create the PMI model views you want to publish.
+                                    </p>
+                                 <p>If you <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1673792" rel="xid1673792">select multiple reference elements</a> for a PMI annotation, use the <b>Referenced Geometry</b> option <img class="img-fluid" src="../../common/nonLocalized/se/pmi/referenced_geometry_option.png"> to make them easier to see. You also can control <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab2a" rel="pmidnab2a">PMI text size and color</a>. </p>
+                              </li>
+                              <li>
+                                 <p>Create PMI section views to expose interior portions of the model. You can use the
+                                    <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1683808" rel="xid1683808">Section by Plane command</a> to <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1683919" rel="xid1683919">Create a section view using one or more primary planes</a>. Use the <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy1c" rel="cutawy1c">Section command</a> to create, review, and edit <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy1a" rel="cutawy1a">3D section views of models</a>.</p>
+                              </li>
+                              <li>
+                                 <p>Use the <b>View</b> command to save the model and associated PMI in different view orientations. Consider
+                                    the following guidelines when <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmi3dmv1a" rel="pmi3dmv1a">Creating 3D model views with PMI</a>:</p>
+                                 <ul>
+                                    <li>
+                                       <p>Assign descriptive names to the model views. These appear in the published output.</p>
+                                    </li>
+                                    <li>
+                                       <p>Include section views in your model views. See <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmi3dmv2h" rel="pmi3dmv2h">Use a 3D section view in a PMI model view</a>.</p>
+                                    </li>
+                                    <li>
+                                       <p>All of the PMI dimensions and annotations that were added to the model also appear
+                                          in the model views. You can hide and show PMI dimensions and annotations in different
+                                          model views. For example, you may want to show a dimensioned view named <b>Isometric with Dimensions</b> and an annotated view named <b>Left Side with Annotations</b>.</p>
+                                    </li>
+                                 </ul>
+                              </li>
+                           </ol>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Choose the <b>PMI</b> tab→<b>3D PDF Publishing</b> group→<b>Publish 3D PDF</b> command <img class="img-fluid" src="../../common/nonLocalized/se/pmi/command/pdf_publish3d_cmd.png">.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>3D PDF Publish</b> dialog box, specify the publishing criteria. At a minimum, you must choose a template
+                           and an output folder location.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Template</b> box, browse for and select a <b>3D PDF Template</b> (*.dft). Only eligible draft files with a special 3D PDF template property flag are
+                                 available for selection. </p>
+                              <p>Solid Edge provides sample templates for a part model and for an assembly model. The
+                                 default location for these templates is the <b>\Program Files\Siemens\Solid Edge 2023\Template\3D PDF Publish</b> folder. You can open and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd2h" rel="mbd2h">customize a 3D PDF template</a> in the Template Editor environment. </p>
+                           </li>
+                           <li>
+                              <p>In the <b>Publish to folder</b> box, browse for and select a folder location for the published 3D PDF.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>File name</b> box, enter a descriptive name to easily identify the output 3D PDF file, such as
+                                 Assembly DC25 (<b>MF500-1031.asm</b>) or Fixture Base (<b>MF500-2900.par</b>).</p>
+                           </li>
+                           <li>
+                              <p>To assign an optional password—Click the <b>Password</b> button, and in the <b>Protect with Password</b> dialog box, create and confirm a password that is required for other users to open
+                                 the 3D PDF. The password must be 4-32 characters long.</p>
+                           </li>
+                           <li>
+                              <p>To open the 3D PDF automatically, select <b>After publishing open in 3D PDF viewer</b>.</p>
+                           </li>
+                           <li>
+                              <p>From the <b>PMI Model Views</b> list, select the names of the views to publish. </p>
+                              <p>When the document is published, the view carousel shows a thumbnail preview of each
+                                 PMI model view, with its model display configuration, associated dimensions and annotations,
+                                 and the user-defined model view name below it. </p>
+                           </li>
+                           <li>
+                              <p>From the <b>Apply this User Defined view to 3D views in PDF</b> list, select the PMI model view that you want to appear as the default view in the
+                                 3D View window in the published PDF.</p>
+                           </li>
+                           <li>
+                              <p>Include external files with the published PDF using the options in the <b>Attachments</b> section and the <b>Add Attachments</b> dialog box. </p>
+                              <ul>
+                                 <li>
+                                    <p>To produce a machine-readable STP model with PMI for CAM/CMM applications—Select <b>Generate and attach STEP AP242</b>. </p>
+                                    <p>The STEP AP242 file is created using the default configuration settings in the installation
+                                       folder. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd1d" rel="mbd1d">3D PDF Publish dialog box</a>.</p>
+                                 </li>
+                                 <li>
+                                    <p>To review a published PDF in a JT viewer, such as JT2Go—Select <b>Generate and attach JT file</b>.</p>
+                                    <p>The JT file is created using the default configuration settings in the installation
+                                       folder. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd1d" rel="mbd1d">3D PDF Publish dialog box</a>.</p>
+                                 </li>
+                                 <li>
+                                    <p>To include project data sheets, assembly instructions, images, and reports (such as
+                                       images, Word documents, Excel documents, other PDFs, and text files), click <b>Add</b> and select them.</p>
+                                    <p> The attachments are listed in the <b>Attachments</b> box.</p>
+                                    <p>To remove any attachment, select it and click <b>Remove</b>.</p> </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>Select other options as needed for your published documentation.</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Publish HTML</b>—Select this option to also generate the documentation in HTML format using the file
+                                       name and location specified previously. Published HTML creates the HTML folder structure
+                                       and index page (*.html) shown below. You can open the HTML in a Chrome, Firefox, or
+                                       Safari internet browser. Drag the HTML file into the browser, or use the <b>Open with</b> command on the shortcut menu to choose a web browser.</p>
+                                    <div class="attention" type="example">
+                                       <div class="attention-label">Example: </div>
+                                       <p><img class="img-fluid" src="../../common/nonLocalized/se/mbd/html_output.png"></p>
+                                       <p><img class="img-fluid" src="../../common/nonLocalized/se/mbd/html_ex.png"></p>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <p><b>Add custom properties to PDF document</b>—Reference the model-related properties defined on the <b>Custom</b> tab in the <b>File Properties</b> dialog box. These can include many different properties, such as Teamcenter Item
+                                       Type, part type, vendor information, and BOM information.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Add Next and Previous action buttons in PDF</b>—Adds page navigation controls to a 3D PDF with multiple pages. These controls are
+                                       in addition to the default next and previous page controls in Adobe Acrobat Reader
+                                       DC. </p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>Click <b>Publish</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <p>When processing completes, the published 3D PDF opens in Adobe Acrobat Reader DC.
+                        For a quick tour of what you see and how you can work with the published content,
+                        continue with <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd3h" rel="mbd3h">Review a published 3D PDF</a>.</p>
+                     <p><img class="img-fluid" src="../../common/nonLocalized/se/mbd/mbd_intro.png"></p>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <p>When publishing a 3D PDF in a Teamcenter managed environment:</p>
+                     <ul>
+                        <li>
+                           <p>Only one 3D PDF per Item Revision is allowed, as it overwrites the output created
+                              previously. </p>
+                        </li>
+                        <li>
+                           <p>You can use the <b>Extract Translated Files</b> command to locate related model based designs for an assembly. For more information,
+                              see:</p>
+                           <ul>
+                              <li>
+                                 <p><a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1662014" rel="xid1662014">Managing translated files with Teamcenter</a></p>
+                              </li>
+                              <li>
+                                 <p><a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1661297" rel="xid1661297">Extract Translated files command</a></p>
+                              </li>
+                              <li>
+                                 <p><a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1661290" rel="xid1661290">Extract Translated files dialog box (SEEC)</a></p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/xid1850779" rel="xid1850779">Publish to 3D PDF in Teamcenter-managed Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd3h" rel="mbd3h">Review a published 3D PDF</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd2h" rel="mbd2h">Create a 3D PDF template</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd1a" rel="mbd1a">Solid Edge Model Based Definition (MBD)</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.mbd/html/mbd1d" rel="mbd1d">3D PDF Publish dialog box</a><br><br></div>
+            <div class="footer-content">Publish to 3D PDF, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

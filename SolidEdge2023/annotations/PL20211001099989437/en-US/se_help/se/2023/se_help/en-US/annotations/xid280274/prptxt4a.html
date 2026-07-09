@@ -1,0 +1,558 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Format codes to modify reference and property text output</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Format codes to modify reference and property text output"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prptxt4a">
+                     <h1 class="topic-title">Format codes to modify reference and property text output</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"> 
+                  <p>You can modify the resulting value of a property text string by appending a <em>format code</em>, <span class="code-text">/xx</span>, as defined in the table below. You can apply these format codes by typing them directly
+                     in a property text string, <span class="code-text">%{PropertyText/xx/xx/xx}</span>, or by inserting them using the <b>Format Values</b> dialog box. To learn how to use the dialog box, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid994396" rel="xid994396">Format property text values</a>.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>You can type the <span class="code-text">/ST</span> format code to specify superscript and subscript formatting for plain text or numbers.
+                        See the example in the following table. You cannot apply superscript and subscript
+                        using the dialog box.</p>
+                  </div> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>The format codes <span class="code-text">/F1</span> to <span class="code-text">/F7</span>, <span class="code-text">/UT</span>, and <span class="code-text">/LI</span> specify the class fit and tolerance formatting for values that are retrieved from
+                        features. See the examples in the following table.</p> </div>
+                  <table style="; table-layout: fixed; " cellspacing="1" border="1" bgcolor="#FFFFFF" cellpadding="4" width="100%" frame="box">
+                     <colgroup span="1">
+                        <col span="1" width="20%">
+                        <col span="1" width="35%">
+                        <col span="1" width="20%">
+                        <col span="1" width="25%">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th rowspan="1" colspan="4">
+                              <p style="text-align: left;">Format codes</p>
+                           </th>
+                        </tr>
+                        <tr align="center" valign="top">
+                           <th rowspan="1" colspan="1">
+                              <p style="text-align: left;">Syntax</p>
+                           </th>
+                           <td rowspan="1" colspan="1">
+                              <p>Description</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Example input</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Example output</p>
+                           </td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Format code <span class="code-text">/NU</span></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Not <span class="code-text">/nu</span></p>
+                              </div>
+                              <p>Syntax <span class="code-text">%{PhysicalPropertyName/NU}</span></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>No units</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">%{Density/NU|G}</pre>
+                              </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p><span class="code-text">|G</span> =The source of the property text value. <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1d" rel="prptxt1d">Select Property Text dialog box</a> </p>
+                              </div>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">2712.000</pre>
+                              </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Format code <span class="code-text">/CP</span></p>
+                              <p>Syntax <span class="code-text">%{CustomPropertyName/CP} </span></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Custom file property </p>
+                              <p>Fetches the current value and type for any user-defined properties specified on the
+                                 <b>Custom</b> page of the <b>File Properties</b> dialog box. This value overrides any previously defined value in Solid Edge.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>To display a user-defined %{Title}: </p>
+                              <p>
+                                 <pre class="code-text">%{Title/CP} </pre>
+                              </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">Document AB (approved)</pre>
+                              </p>
+                           </td>
+                        </tr>
+                        <tr align="left" valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Format code <span class="code-text">/OP</span></p>
+                              <p>Syntax <span class="code-text">%{CustomOccurrencePropertyName/OP|G} </span></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/custom_occurrence_property" rel="custom_occurrence_property">Custom occurrence property</a></p>
+                              <p>Fetches the values for the custom properties defined in the <b>Occurrence Properties</b> dialog box in an assembly. </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>To display the different maintenance requirements for a part. </p>
+                              <p>
+                                 <pre class="code-text">%{Maintenance/OP|G}</pre>
+                              </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>When used in a parts list column, shows the union of all values for a custom occurrence
+                                 property in a single cell.</p>
+                              <table cellspacing="1" border="1" bgcolor="#FFFFFF" cellpadding="4">
+                                 <colgroup>
+                                    <col span="1">
+                                 </colgroup>
+                                 <colgroup span="1">
+                                    <col span="1" width="16%">
+                                    <col span="1" width="72%">
+                                    <col span="1" width="12%">
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <th rowspan="1" colspan="1">
+                                          <p>Item Number</p>
+                                       </th>
+                                       <th rowspan="1" colspan="1">
+                                          <p>File Name</p>
+                                       </th>
+                                       <th rowspan="1" colspan="1">
+                                          <p>Maintenance</p>
+                                       </th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>5</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>shift_cap.par</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Bi-Weekly, Monthly, Weekly</p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Format code <span class="code-text">/EV</span></p>
+                              <p>Syntax <span class="code-text">%{VariableTableExposedName/EV} </span></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Exposed variable</p>
+                              <p>Fetches the real value of a variable exposed in the <b>Variable Table</b>.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You can apply number formatting to the exposed variable value when you use the /EV
+                                    format code.</p>
+                              </div>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>To display the precise value (with delimiter) for the height of a part:</p>
+                              <p>
+                                 <pre class="code-text">%{Height/EV}=</pre>
+                              </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">150.345 mm</pre>
+                              </p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" colspan="1">
+                              <p>Format code <span class="code-text">/CM</span></p>
+                              <p>Syntax <span class="code-text">%{CustomMaterialName/CM} </span></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Custom material property</p>
+                              <p>Fetches the current value from any user-defined material property that you add to
+                                 the <b>Material Properties</b> tab in the Solid Edge <b>Material Table</b>.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">%{Material ID/CM|GP} </pre>
+                              </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p><span class="code-text">|GP</span> =The source of the property text value. <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1d" rel="prptxt1d">Select Property Text dialog box</a>. </p>
+                              </div>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">1000</pre>
+                              </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Format code <span class="code-text">/@n</span></p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Round-off</p>
+                              <p>Where integer <span class="code-text">n</span> specifies the number of decimals of round-off for a property text value that starts
+                                 with a number.</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>
+                                 <pre class="code-text">%{%HS/@2}</pre>
+                              </p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>
+                                 <pre class="code-text">12,12</pre>
+                              </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Format code <span class="code-text">/du</span></p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Dual units</p>
+                              <p>Applies only to fields that evaluate to a single united value.</p>
+                              <p>Secondary unit displays (&nbsp;) or [&nbsp;] based on dimension style.</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Dual units only <br><span class="code-text">%DI%{%HS/DU}</span></p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutDU.gif"></p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Format code <span class="code-text">/@</span></p>
+                              <p>Syntax <span class="code-text">&nbsp;%{propertyName/@DateTimeFormat|link}</span></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Date and time</p>
+                              <p>Some year, month, day format options are:</p>
+                              <p><span class="code-text">YYYY</span>→2010</p>
+                              <p><span class="code-text">yy</span>→10</p>
+                              <p><span class="code-text">MMMM</span>→March</p>
+                              <p><span class="code-text">MM</span>→03</p>
+                              <p><span class="code-text">dddd</span>→Monday</p>
+                              <p><span class="code-text">ddd</span>→Mon</p>
+                              <p><span class="code-text">dd</span>→date (1–31)</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">%{Created/@yyyy MMMM}</pre>
+                              </p>
+                              <p> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2d" rel="prptxt2d">Date and time format of property text</a>.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>
+                                 <pre class="code-text">2010 July</pre>
+                              </p>
+                           </td>
+                        </tr> 
+                        <tr valign="top"> 
+                           <td rowspan="4" colspan="1"> 
+                              <p>Format code <span class="code-text">/TCn</span></p> 
+                              <p>where <span class="code-text">n</span> designates a predefined capitalization format.</p> </td> 
+                           <td rowspan="4" colspan="1"> 
+                              <p>Property text string format.</p> 
+                              <p><span class="code-text">TC1</span>→UPPERCASE</p> 
+                              <p><span class="code-text">TC2</span>→lowercase</p> 
+                              <p><span class="code-text">TC3</span>→Sentence case</p> 
+                              <p><span class="code-text">TC4</span>→Title Case</p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>UPPERCASE<br> </p> 
+                              <p>
+                                 <pre class="code-text">%{File name/TC1}</pre>
+                              </p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">FILE NAME</pre>
+                              </p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>lowercase<br></p> 
+                              <p>
+                                 <pre class="code-text">%{File name/TC2}</pre>
+                              </p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">file name</pre>
+                              </p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Sentence case <br></p> 
+                              <p>
+                                 <pre class="code-text">%{File name/TC3}</pre>
+                              </p> </td> 
+                           <td rowspan="1" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">File name</pre>
+                              </p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Title Case<br></p> 
+                              <p>
+                                 <pre class="code-text">%{File name/TC4}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">File Name</pre>
+                              </p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/F1</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Fit</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/F1}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimension/dim_type/dim_type_ui/classfit_fit1.gif"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/F2</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Fit, tolerance only</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/F2}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimension/dim_type/dim_type_ui/classfit_tolonly1.gif"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/F3</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Fit with tolerance</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/F3}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimension/dim_type/dim_type_ui/classfit_withtol1.gif"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/F4</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Fit with limits</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/F4}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimension/dim_type/dim_type_ui/classfit_limits1.gif"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/F5</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Fit Hole/Shaft only</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/F5}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimensions/dim_types/classfit_holeshaft1.gif"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/F6</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Fit Hole/Shaft, tolerance only</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/F6}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimension/dim_type/classfit_holeshaft_tolonly2.gif"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/F7</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Fit Hole/Shaft with tolerance</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/F7}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimension/dim_type/classfit_holeshaft_withtolerance.gif"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/UT</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Unit tolerance</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/UT}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/classfit_unittoll.png"></p> </td> </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Format code <span class="code-text">/LI</span></p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Limit</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>
+                                 <pre class="code-text">%DI %{%HS/LI}</pre>
+                              </p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutLT2.gif"></p> </td> </tr> 
+                        <tr>
+                           <td rowspan="2" valign="top" colspan="1"> 
+                              <p>Format code </p>
+                              <p>
+                                 <pre class="code-text">/STSuperscript^Subscript</pre>
+                              </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>/ST used to format plain text.</p>
+                              </div>
+                           </td>
+                           <td rowspan="2" valign="top" colspan="1">
+                              <p>Applies <span class="code-text">Superscript</span> and <span class="code-text">Subscript</span> format to plain text or numbers typed in either or both of these fields.</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Plain numbers <br><span class="code-text">%{/ST1^2}</span></p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutSTsuper2.gif"></p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Plain text <br><span class="code-text">%{/STYes^No}</span></p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/graphicLibrary/se/annotations/propertytext/calloutSTsuper1.gif"></p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="3" colspan="1"> 
+                              <p>Format code </p>
+                              <p>
+                                 <pre class="code-text">/ST±upper^±lower</pre>
+                              </p>
+                              <p>
+                                 <pre class="code-text">/st±.001^±.002</pre>
+                              </p>
+                              <p>Text height is defined by the active dimension style.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>/ST used to define stack tolerance value.</p>
+                              </div>
+                           </td>
+                           <td rowspan="3" colspan="1">
+                              <p>Stack tolerance, upper and/or lower.</p>
+                              <p>The <span class="code-text">^</span> separates upper tolerance<span class="code-text">±.001</span> from lower tolerance <span class="code-text">±.002</span>.</p>
+                              <p>When <span class="code-text">^</span> is not specified→upper tolerance only.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Upper tolerance only<br><span class="code-text">%{%HS/ST+.02}</span></p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutST1.gif"></p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Lower tolerance only<br><span class="code-text">%{%HS/ST^+.02}</span></p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutST2.gif"></p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Upper and lower tolerance<br><span class="code-text">%{%HS/ST+.02^-.03}</span></p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutST3.gif"></p>
+                           </td>
+                        </tr>
+                        <tr valign="top">
+                           <td rowspan="3" colspan="1"> 
+                              <p>Format code </p>
+                              <p>
+                                 <pre class="code-text">/LT±upper^±lower</pre>
+                              </p>
+                              <p>
+                                 <pre class="code-text">/lt±.001^±.002</pre>
+                              </p>
+                              <p>Text height is defined by the active dimension style.</p>
+                           </td>
+                           <td rowspan="3" colspan="1">
+                              <p>Limit tolerance, upper and/or lower.</p>
+                              <p>The <span class="code-text">^</span> separates the upper limit <span class="code-text">±.001</span> from the lower limit <span class="code-text">±.002</span>.</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>Lower limit only<br><span class="code-text">%DI %{%HS/LT^-.25}</span>. Nominal HS=5.28</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutLT1.gif"></p><br></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Upper and lower limit<br><span class="code-text">%DI %{%HS/LT+.05^+.01}</span> Nominal HS=12.12</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutLT2.gif"></p><br></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Limit tolerance with precision<br><span class="code-text">%DI %{%HS/@4/LT+.05^+.01}</span>. Nominal HS=12.123245</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/annotations/propertytext/calloutLT3.png"></p><br></td>
+                        </tr> </tbody>
+                  </table>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1h" rel="prptxt1h">Create property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/create_reference_text" rel="create_reference_text">Create reference text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid994396" rel="xid994396">Format property text values</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2h" rel="prptxt2h">Update all property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt4h" rel="prptxt4h">Convert property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt3h" rel="prptxt3h">Convert all property text in a drawing or model</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid830908" rel="xid830908">Referencing properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1a" rel="prptxt1a">Using property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid830584" rel="xid830584">Using reference text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid1162538" rel="xid1162538">Using exposed variables in property text</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1d" rel="prptxt1d">Select Property Text dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/symtxt2d" rel="symtxt2d">Select Symbols and Values dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid731496" rel="xid731496">Select Reference Text dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid994105" rel="xid994105">Format Values dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid996556" rel="xid996556">Selecting a property text source</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt3a" rel="prptxt3a">Basic reference and property text rules</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/symtxt1d" rel="symtxt1d">Property text codes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2d" rel="prptxt2d">Date and time format of property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2a" rel="prptxt2a">Property Text source list (Source: From Active Document)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt5a" rel="prptxt5a">Property text from drawing views</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid707883" rel="xid707883">Property text from blocks</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2c" rel="prptxt2c">Property Text command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1c" rel="prptxt1c">Update All Property Text command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt3c" rel="prptxt3c">Convert Property Text command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt4c" rel="prptxt4c">Convert All Property Text command</a><br><br></div>
+            <div class="footer-content">Format codes to modify reference and property text output, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

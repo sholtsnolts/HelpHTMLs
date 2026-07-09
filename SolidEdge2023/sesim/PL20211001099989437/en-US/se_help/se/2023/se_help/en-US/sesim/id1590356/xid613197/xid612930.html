@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Best practices for design optimization</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Best practices for design optimization"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid612930">
+                     <h1 class="topic-title">Best practices for design optimization</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><h4 class="division-title">Verifying model variables and defining limits</h4>
+                  <div>
+                     <p>For part, sheet metal, and assembly models, you should verify that the following properties
+                        are available for optimization: </p>
+                     <ul>
+                        <li>
+                           <p>Verify that the Variable Table contains the design dimensions that you want to change
+                              with design optimization. You can open, review, and edit the Variable Table contents
+                              using the <b>Tools</b> tab→<b>Variables</b> command.</p>
+                        </li>
+                        <li>
+                           <p>You must set upper and lower limits on the domain of possible values for any design
+                              variable that you want to allow to change during optimization. Use the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat5d" rel="equat5d">Variable Rule Editor dialog box</a>, which is available within the Variable Table. You can define a range of values for
+                              a variable. This allows you to restrict design changes to a controlled set of values.</p>
+                           <p>For more information, see <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat10h" rel="equat10h">Define limits for a variable</a>.</p>
+                        </li>
+                        <li>
+                           <p>For the most accurate results, set the precision in the <b>File Properties</b> dialog box to the highest possible value (the most decimal places) on the <b>Units</b> tab and in the <b>Advanced Units</b> dialog box.</p>
+                        </li>
+                        <li>
+                           <p>Verify that the correct material is applied to the model in the File menu→<b>Info</b>→<b>Material Table</b>.</p>
+                        </li>
+                        <li>
+                           <p>For part models, verify that the <b>Physical Properties</b> dialog box contains the updated properties and units that you want to reference in
+                              design optimization. This dialog box is available using the <b>Inspect</b> tab→<b>Physical Properties</b> group→<b>Physical Properties</b> command.</p>
+                        </li>
+                        <li>
+                           <p>For assembly models, you can use the <b>Physical Properties Manager</b> dialog box to access the properties for individual parts. This dialog box is available
+                              using the <b>Inspect</b> tab→<b>Physical Properties </b>group→<b>Physical Properties Manager</b> command.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Specifying the study geometry you want to optimize</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>The geometry that you want to optimize must be included in the solved study.</p>
+                        </li>
+                        <li>
+                           <p>Optimization is supported in synchronous and ordered modes. In synchronous mode, you
+                              need to identify the Design Intent relationships you want to preserve or relax so
+                              that the part geometry can be modified to satisfy the optimization requirements. In
+                              an assembly, you need to identify the Design Intent relationships for all of the parts
+                              that can be modified (due to the inclusion of peer variables) when the optimization
+                              is solved.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Tips for selecting the design variables you want to change</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>Often, changing one design variable automatically results in changes in other quantities.
+                              If design variable A affects both B and C, and you are primarily concerned with A,
+                              then only A should be specified as an optimization variable.</p>
+                        </li>
+                        <li>
+                           <p>To find the best design it is often necessary to change several design features simultaneously.
+                              If several variables need to be changed, then you should specify those variables as
+                              input to a single optimization run. For a part with two design variables A and B,
+                              the best value for variable A often depends on the value of variable B. You should
+                              not try to find the optimum design by first optimizing variable A and then optimizing
+                              variable B, because the value of variable A is liable to be non-optimal when B has
+                              changed.</p>
+                        </li>
+                        <li>
+                           <p>However, if the optimum value for a variable is obvious, then the variable should
+                              be set to its optimum value before optimization, and it should not be entered as an
+                              optimization variable</p>
+                        </li>
+                        <li>
+                           <p>You can specify an arbitrary number of variables, but in practice it is unwise to
+                              use an excessive number of optimization variables. The size of the search space increases
+                              rapidly with the number of variables, and this similarly increases the time required
+                              for optimization. </p>
+                           <p>Secondly, when using a large number of variables (more than ten), it is difficult
+                              to define the variables in such a way that no invalid designs are generated. </p>
+                        </li>
+                        <li>
+                           <p>In situations where a large number of design variables need to be optimized, it may
+                              be beneficial to break the problem down into two optimization runs. Sometimes the
+                              best values for one set of design variables are independent of the best values for
+                              another set of variables. In this situation, the problem is more efficiently solved
+                              by running the optimizer twice. In the first run, only the first set of design variables
+                              should be chosen as optimization variables, and in the second run, only the second
+                              set should be selected.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612963" rel="xid612963">Minimize the mass of a part with design optimization</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610944" rel="xid610944">Optimizing study results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid654835" rel="xid654835">Displaying and modifying the optimization results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613076" rel="xid613076">Defining design optimization parameters</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613006" rel="xid613006">How overriding properties affects design optimization</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610945" rel="xid610945">Design Objective (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610946" rel="xid610946">Design Limits (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610947" rel="xid610947">Design Variables (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610948" rel="xid610948">Control Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610949" rel="xid610949">Convergence Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613198" rel="xid613198">Design Limit/Design Variable Rule Editor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613088" rel="xid613088">Convergence status dialog box</a><br><br></div>
+            <div class="footer-content">Best practices for design optimization, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

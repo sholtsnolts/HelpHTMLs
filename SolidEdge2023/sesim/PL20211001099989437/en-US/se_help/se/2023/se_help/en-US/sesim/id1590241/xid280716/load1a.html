@@ -1,0 +1,531 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Structural and body loads</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Structural and body loads"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="load1a">
+                     <h1 class="topic-title">Structural and body loads</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>The following load types can be used in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">structural studies</a>:</p>
+                  <h5>Structural Loads</h5>
+                  <ul>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#force">Force</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#pressure">Pressure </a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#hydro">Hydrostatic Pressure</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#torque">Torque</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#disp">Displacement</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#bearing">Bearing</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#moment">Moment</a> </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Moment is only available for the <b>Beam</b> mesh type.</p>
+                        </div>
+                     </li>
+                  </ul>
+                  <h5>Body Loads</h5>
+                  <ul>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#bodytemp">Body Temperature</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#centrifugal">Centrifugal</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="sesim" href="#gravity">Gravity</a> </p>
+                     </li>
+                  </ul>
+                  <p>The structural load commands are available in the <b>Structural Loads</b> group on the ribbon, and on the shortcut menu from the Simulation study navigation
+                     pane. Load commands that apply to the entire body are available in the <b>Body Loads</b> group on the ribbon. Before you place a load, you can set options for it using the
+                     <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>.</p>
+                  <h4 class="division-title" id="force"><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/sesim_force_button.gif"> Force loads</h4>
+                  <div>
+                     <p>A force load applies forces and moments uniformly across the geometry. Only one force
+                        load can be applied to each element. </p>
+                     <p>Use the <b>Force</b> command in the <b>Structural Loads</b> group and then provide the following information: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—You can select one or more faces, edges, or vertices. For tetrahedral and
+                              surface mesh types, you also can select face sets and features. For beam mesh types,
+                              you can only select <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430524" rel="xid430524">beam element nodes</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beam_curves" rel="beam_curves">beam curves</a>.</p>
+                        </li>
+                        <li>
+                           <p>Force direction—<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Orient the steering wheel</a> primary axis to specify the direction in which the force load is to be applied. Alternatively,
+                              you can select the <b>Components</b> option on the <b>Loads</b> command bar and then type the X, Y, Z, direction components.</p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify a force value. Default units are force
+                              magnitude, for example, 1 newton. </p>
+                        </li>
+                        <li>
+                           <p>Load distribution—When the entities selected are of the same type, you can use the
+                              <b>Total Load</b> option on the command bar to specify if the value is proportionally distributed or
+                              if it is applied in full to each entity.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_force08.gif"> </p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1601876" rel="xid1601876">Tutorial: Simulate forces on an I-beam</a></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="pressure"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_pressure_button.gif"> Pressure loads</h4>
+                  <div>
+                     <p>Use the <b>Pressure</b> command in the <b>Structural Loads</b> group to apply <em>uniform</em> pressure to faces. A pressure load is similar to a force load, except the value of
+                        the load is measured across smaller areas, and the direction is perpendicular to the
+                        face. For this reason, you can apply both a pressure load and a force load to the
+                        same face. </p>
+                     <p>Pressure loads require the following information: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—Select a face. Only one pressure load can be applied to each face. </p>
+                        </li>
+                        <li>
+                           <p>Load direction—Determined automatically. </p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify a pressure value. Default units are Force/Unit
+                              Area. </p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_press09.gif"> </p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1602236" rel="xid1602236">Tutorial: Simulate pressures in a tank</a></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="hydro"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_hydrostatic_pressure.png"> Hydrostatic Pressure loads</h4>
+                  <div>
+                     <p>Use the <b>Hydrostatic Pressure</b> command in the <b>Structural Loads</b> group to define a <em>nonuniform</em> fluid pressure load. Hydrostatic pressure is the distributed force that a liquid
+                        at equilibrium exerts against the surfaces it is in contact with in a confined space.
+                        It is calculated from a point that defines the maximum height of the fluid. The hydrostatic
+                        properties are nonuniform (variable) due to changes in the density of the fluid and
+                        the gravity within the container.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>A fluid in a container exerts pressure on the walls of the container. The pressure
+                           of the fluid on the bottom of the container is greater than the pressure at the top
+                           due to the effect of gravity. </p>
+                        <p>The formula to calculate the fluid pressure=<em>ρgh</em>, </p>
+                        <p>Where:</p>
+                        <p><em>ρ</em>=Fluid density</p>
+                        <p><em>g</em>=Acceleration of gravity </p>
+                        <p><em>h</em>=Height of fluid from bottom surface</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_pressure_load_tank_sides.png"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_pressure_load_tank_bottom.png"></p>
+                     </div>
+                     <p>In Solid Edge Simulation, hydrostatic pressure loads require the following information:
+                        </p>
+                     <ul>
+                        <li>
+                           <p>Face Selection—Select the faces in the container to apply hydrostatic pressure.</p>
+                        </li>
+                        <li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_freespace_pt_icon.png"> Fluid height—The top level of the fluid in the container, defined by a free space
+                              keypoint and offset, or by <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/xyz_pt_icon.png"> <b>XYZ Point</b> location coordinates.</p>
+                        </li> 
+                        <li>
+                           <p>Load direction—The load symbols indicate the default direction of hydrostatic pressure.
+                              Click the <b>Flip Direction</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_flip_button.gif"> to reverse the direction.</p>
+                        </li>
+                        <li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/hydrostatic_gravity_load_icon.png"> Gravity within the container—How gravity is applied (perpendicular or at an angle)
+                              and the gravity acceleration value. </p>
+                           <p>Use the dynamic input box to specify a gravity acceleration value, as a single magnitude
+                              or as component values. The default units are Length/Time², for example, 981.000 cm/sec².
+                              </p>
+                        </li> 
+                        <li>
+                           <p> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_flip_gravity_direction.png"> Gravity direction—The load symbols indicate the default direction of gravity. Click
+                              the <b>Flip Gravity Direction</b> button to reverse the direction.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>There can be just one gravity acceleration value applied to the study geometry. If
+                                 you previously defined gravity using the <b>Simulation</b> tab—<b>Body Loads</b> group→<b>Gravity</b> command, then that acceleration value is applied automatically to the hydrostatic
+                                 pressure load. To change the acceleration value, edit the gravity load definition.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Fluid Density—Use the <b>Density</b> box on the command bar to enter the density of the fluid in the container. The displayed
+                              value is the density of water. </p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="torque"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_torque_button.gif"> Torque loads</h4>
+                  <div>
+                     <p>Use the <b>Torque</b> command in the <b>Structural Loads</b> group to apply a turning force to one or more faces about an axis of rotation.</p>
+                     <p>Torque loads require the axis about which the torque load is applied, the direction
+                        of rotation, and the torque value. </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—Select one or more faces or surfaces.</p>
+                        </li>
+                        <li>
+                           <p>Rotation axis—<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Orient the steering wheel</a> primary axis to specify the axis of rotation.</p>
+                        </li>
+                        <li>
+                           <p>Load direction—Select a steering wheel cardinal knob to specify the rotation direction.
+                              </p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify a torque value. Default units are Force/Length.
+                              </p>
+                        </li>
+                        <li>
+                           <p>Load distribution—Use the <b>Total Load</b> option on the command bar to specify if the value is distributed proportionally across
+                              all faces or is applied in full to each face.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_torque_ex.gif"> </p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="gravity"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_gravity_button.gif"> Gravity loads</h4>
+                  <div>
+                     <p>You can use the <b>Gravity</b> command in the <b>Body Loads</b> group to apply a gravity load to the entire model selected for the study.</p>
+                     <p>A gravity load is a general translational acceleration load. Solid Edge Simulation
+                        calculates the gravity load by multiplying the specified acceleration of gravity by
+                        the model mass.</p>
+                     <p>Gravity loads require the following information: </p>
+                     <ul>
+                        <li>
+                           <p>Material density—You can set this in the Material Table. The mass is calculated from
+                              the density of the material selected for the model.</p>
+                        </li>
+                        <li>
+                           <p>Geometry—Automatically applied to the entire model. </p>
+                        </li>
+                        <li>
+                           <p>Load direction—Specify gravity direction using either of these methods: </p>
+                           <ul>
+                              <li>
+                                 <p>You can define translation in the X, Y, and Z directions of a coordinate system <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">using the loads directional steering wheel</a>, or by selecting the <b>Components</b> option on the <b>Loads</b> command bar and then typing the X, Y, Z, direction components.</p>
+                              </li>
+                              <li>
+                                 <p>You can define linear acceleration by selecting a straight edge.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify an acceleration value. The default units
+                              are Length/Time², for example, 9.81 m/sec². </p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>For an example of how you can use a gravity load, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid453953" rel="xid453953">Tutorial: Perform a thermal stress analysis</a>.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="centrifugal"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_centrifugal_button.gif"> Centrifugal loads</h4>
+                  <div>
+                     <p>A centrifugal load is generated when a body rotates about an axis. Use the <b>Centrifugal</b> command in the <b>Body Loads</b> group to apply a centrifugal load to a part or an assembly. The load is applied to
+                        the entire model. </p>
+                     <p>The centrifugal load is represented by two direction-of-rotation symbols on the model.
+                        These represent angular velocity and angular acceleration. You can set these independently
+                        to clockwise or counterclockwise, and off.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_centrifugal_model.gif"> </p>
+                     <p>Centrifugal loads require an axis of rotation, the angular acceleration, and the velocity.
+                        Solid Edge Simulation uses these values and the material mass density to calculate
+                        the centrifugal load.</p>
+                     <ul>
+                        <li>
+                           <p>Material density—You can set this in the Material Table. The mass is calculated from
+                              the density of the material selected for the model. </p>
+                        </li>
+                        <li>
+                           <p>Geometry—Automatically applied to the entire model. </p>
+                        </li>
+                        <li>
+                           <p>Rotation axis—<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Orient the steering wheel</a> primary axis to specify the axis of rotation.</p>
+                        </li>
+                        <li>
+                           <p>Values—Centrifugal loads require two separate values. Either value can be zero, but
+                              both cannot be zero at the same time. A zero value turns the load symbol off. </p>
+                           <ul>
+                              <li>
+                                 <p>(Angular velocity) Angular Rotation/Time, for example, rad/sec.</p>
+                                 <p>You can flip the direction by pressing the F key.</p>
+                              </li>
+                              <li>
+                                 <p>(Angular acceleration) Angular Rotation/Time², for example, rad/sec².</p>
+                                 <p>You can flip the direction by pressing the Shift+F keys.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="bodytemp"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_bodytemp_button.gif"> Body Temperature loads</h4>
+                  <div>
+                     <p>Temperature loads applied to the model can be used in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">structural studies</a>, in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">thermal studies</a>, and in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">coupled studies</a>. </p>
+                     <p>In structural studies, you can use the <b>Body Loads</b> group→<b>Body Temperature</b> command to assign a temperature load to study the effect of thermal change on the
+                        model as a whole. You can apply one body temperature load per model. </p>
+                     <p>To define a body temperature load, you provide the following information: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—Automatically applied to the entire model.</p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify a temperature. The default units are degrees
+                              Fahrenheit or Celsius. Zero values are allowed.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <ul>
+                           <li>
+                              <p>A body temperature load is required in thermal studies involving radiation loads.
+                                 </p>
+                           </li>
+                           <li>
+                              <p>A body temperature load is required in transient heat transfer studies to define the
+                                 initial temperature of the study. In a transient heat transfer study of a part model
+                                 with a tetrahedral mesh, this load is created automatically when you initiate the
+                                 study. </p>
+                           </li>
+                           <li>
+                              <p>For other thermal studies and for coupled studies, you optionally can use a body temperature
+                                 load to provide an initial temperature estimate to speed calculations in NX Nastran.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_temp_model.gif"> </p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a></p>
+                        <p>Also see the example, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define a transient heat study</a>.</p>
+                     </div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>In <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">thermal studies</a>, you can use the <b>Thermal Loads</b> group→<b>Temperature</b> command:</p>
+                        <ul>
+                           <li>
+                              <p>To study the gradient thermal conditions on one or more entities at thermal equilibrium.
+                                 Use this load when you are not interested in evaluating the time it takes to reach
+                                 thermal equilibrium.</p>
+                           </li>
+                           <li>
+                              <p>To apply a temperature load to selected geometry entities instead of to the entire
+                                 model.</p>
+                           </li>
+                        </ul>
+                        <p>To learn about this temperature load command, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a>.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="disp"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_displaced_button.gif"> Displacement loads</h4>
+                  <div>
+                     <p>You can apply a known displacement value to one or more faces, features, edges, or
+                        vertices using the <b>Displacement</b> command in the <b>Structural Loads</b> group. This is sometimes referred to as enforced displacement.</p>
+                     <p>Displacement loads require the following information: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—You can select one or more faces, edges, or vertices. For tetrahedral and
+                              surface mesh types, you also can select face sets and features.</p>
+                        </li>
+                        <li>
+                           <p>Load direction—<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Orient the steering wheel</a> primary axis to specify the direction in which the load is to be applied. Alternatively,
+                              you can select the <b>Components</b> option on the <b>Loads</b> command bar and then type the X, Y, Z, direction components.</p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify a displacement value. Default units are
+                              distance, for example, mm.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_disp05.gif"> </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>NX Nastran requires that a displacement load has a matching constraint on the part.
+                           In Solid Edge Simulation, the <b>Displacement</b> command automatically generates the required constraint if you also select the <b>Pinned</b> option on the command bar. </p>
+                     </div>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_disp01" rel="fem_disp01">Tutorial: Compare displacement load results for different materials</a></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="bearing"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_bearing_button.gif"> Bearing loads</h4>
+                  <div>
+                     <p>You can use the <b>Bearing</b> command in the <b>Structural Loads</b> group to model loading conditions on cylindrical and non-cylindrical parts, surfaces,
+                        and structural applications, such as roller bearings, gears, cams, and rolling wheels.
+                        </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_training_act_bearing08.gif"> </p>
+                     <p>Bearing loads require the following information: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—Select one or more faces on solid parts or surfaces on sheet metal parts.
+                              They do not have to be cylindrical elements.</p>
+                        </li>
+                        <li>
+                           <p>Load direction—<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Orient the steering wheel</a> primary axis to specify the direction in which the bearing load is to be applied.
+                              The load direction must point towards a face. </p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify the bearing force value. Default units
+                              are Force Magnitude, for example, 1 newton.</p>
+                        </li>
+                        <li>
+                           <p>Load distribution—Use the <b>Total Load</b> option on the command bar to specify whether the value is distributed proportionally
+                              across all faces or is applied in full to each face.</p>
+                        </li>
+                        <li>
+                           <p>Load angle—The load angle (combined with the load value and the surface normal) determines
+                              the area in which the bearing is in contact with a given surface. Bearing load symbols
+                              are shown only on the area of contact. Use the dynamic input box to enter a value
+                              from 1E-015 to 180 degrees.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can use these options on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a> to change how the bearing load is applied.</p>
+                        <ul>
+                           <li>
+                              <p>The default action for a bearing load is to push on the face, but you can set the
+                                 <b>Traction</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_traction_button.gif"> to pull it. </p>
+                              <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                                 <colgroup span="1">
+                                    <col span="1">
+                                    <col span="1">
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>(A) Traction=on (pull)</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>(B) Traction=off (push)</p>
+                                       </td>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p> <img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_traction_pull.gif"></p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p> <img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_traction_push.gif"></p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </li>
+                           <li>
+                              <p>If you want the resulting bearing load to be normal to the surface, like a pressure
+                                 load, yet still distributed based on the angle, then you can use the <b>Normal to Surface</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_normaltoface.gif"> .</p>
+                              <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                                 <colgroup span="1">
+                                    <col span="1">
+                                    <col span="1">
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>(A) Normal to Surface=on</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>(B) Normal to Surface=off</p>
+                                       </td>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_norm2surf_on.gif"> </p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_load_norm2surf_off.gif"> </p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title" id="moment"><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_moment_button.gif"> Moment loads</h4>
+                  <div>
+                     <p>You can use the <b>Moment</b> command in the <b>Structural Loads</b> group to apply a force to bend a beam. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Moment is only available for the <b>Beam</b> mesh type.</p>
+                     </div>
+                     <p>Moment loads require the following information: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry—Select one or more <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430524" rel="xid430524">beam element nodes</a> or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beam_curves" rel="beam_curves">beam curves</a>. </p>
+                        </li>
+                        <li>
+                           <p>Moment direction—The default axis of rotation is about the beam axis. However, you
+                              can <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a#functions" rel="steeringw2a">Orient the steering wheel</a> primary axis to specify the direction in which the moment is to be applied.</p>
+                        </li>
+                        <li>
+                           <p>Value—Use the dynamic input box to specify a force value. Default units are force
+                              distance, for example, 1 newton meter. </p>
+                        </li>
+                        <li>
+                           <p>Load distribution—Use the <b>Total Load</b> option on the command bar to specify if the moment value is proportionally distributed
+                              or applied in full to each selected beam curve. For a beam curve, the moment is distributed
+                              across its length. </p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_moment_load_symbol.gif"> </p>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>To learn how to create a study for a structural frames model, and to apply forces
+                           along beams at nodes and curves, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_frame01" rel="fem_frame01">Tutorial: Simulate stresses on a bridge</a>.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Structural and body loads, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

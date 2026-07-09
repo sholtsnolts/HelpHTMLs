@@ -1,0 +1,184 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Export Options for STEP (.STP) dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Export Options for STEP (.STP) dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="stpexp2d">
+                     <h1 class="topic-title">Export Options for STEP (.STP) dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Controls how STEP saves Solid Edge documents. STEP is an international standard which
+                     defines a neutral file format for representation of geometric, topological and annotation
+                     data. Solid Edge supports the STEP standards AP203, AP214, and AP242.</p>
+                  <dl>
+                     <dt>Export</dt>
+                     <dd class="ml-3">
+                        <p>Specifies what types of construction geometry you want to export.</p>
+                        <dl>
+                           <dt>Export solids (constructions)</dt>
+                           <dd class="ml-3">
+                              <p>Export any construction geometry that exists as solid bodies.</p>
+                           </dd>
+                           <dt>Export sheets (constructions)</dt>
+                           <dd class="ml-3">
+                              <p>Export any construction geometry that exists as sheet bodies.</p>
+                           </dd>
+                           <dt>Export wires and points</dt>
+                           <dd class="ml-3">
+                              <p>Export any construction geometry that exists as wire bodies.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Use this option to export Solid Edge documents that contain 3D points to STEP.</p>
+                              </div>
+                           </dd>
+                           <dt>Export displayed only</dt>
+                           <dd class="ml-3">
+                              <p>Export only the active model and construction geometry that is visible in the part
+                                 or assembly.</p>
+                           </dd>
+                           <dt>Export PMI</dt>
+                           <dd class="ml-3">
+                              <p>Exports all part level product manufacturing information (PMI) data to the STEP file
+                                 being created. This option is only enabled when the <b>STEP protocol</b> is set to AP242. The AP242 protocol is used to generate machine-readable files.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This option must be selected to use the Solid Edge <b>Publish to 3D PDF</b> command to generate STEP AP242 attachments for machining applications (CAM/CMM),
+                                    such as Solid Edge CAM Pro. </p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Part and Assembly Simplification</dt>
+                     <dd class="ml-3">
+                        <p>When it is available, use a simplified body instead of the design body when creating
+                           the STEP document.</p>
+                        <dl>
+                           <dt>Part simplification</dt>
+                           <dd class="ml-3">
+                              <dl>
+                                 <dt>Use Current Configuration</dt>
+                                 <dd class="ml-3">
+                                    <p>Uses the current configuration to create the STEP document.</p>
+                                 </dd>
+                                 <dt>All Simplified</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each part and uses the simplified body to create the STEP document.</p>
+                                 </dd>
+                                 <dt>All Designed</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each part and uses the design body to create the STEP file. </p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt>Assembly simplification</dt>
+                           <dd class="ml-3">
+                              <dl>
+                                 <dt>Use Current Configuration</dt>
+                                 <dd class="ml-3">
+                                    <p>Uses the current assembly configuration to create the STEP document.</p>
+                                 </dd>
+                                 <dt>Top Level Simplification</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks the top level of the assembly and uses the simplified body to create the STEP
+                                       document.</p>
+                                 </dd>
+                                 <dt>All Simplified</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each subassembly found in the assembly and uses the simplified body to create
+                                       the STEP document.</p>
+                                 </dd>
+                                 <dt>All Designed</dt>
+                                 <dd class="ml-3">
+                                    <p>Checks each part found in the assembly and uses the design body to create the STEP
+                                       document. </p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Translation Options</dt>
+                     <dd class="ml-3">
+                        <p>Various options for defining export units, STEP protocol, and generating log files
+                           during translation.</p>
+                        <dl>
+                           <dt>Export Units</dt>
+                           <dd class="ml-3">
+                              <p>The units of measurement for the part being exported. You can set the units to millimeters,
+                                 centimeters, inches, or meters.</p>
+                           </dd>
+                           <dt>STEP protocol</dt>
+                           <dd class="ml-3">
+                              <p>The STEP format to which you want to export the Solid Edge document. &nbsp;You can set
+                                 the protocol to AP203, AP214, AP242. AP242 is intended to replace STEP AP203 and AP214
+                                 as a single protocol for translating both parts and assemblies. AP242 was released
+                                 in 2014. If you plan to send STEP files defined in this format, be sure that your
+                                 target system supports this protocol.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The STEP protocol must be set to AP242 to use the Solid Edge <b>Publish to 3D PDF</b> command to generate STEP AP242 attachments for machining applications (CAM/CMM),
+                                    such as Solid Edge CAM Pro. </p>
+                              </div>
+                           </dd>
+                           <dt>Generate log file</dt>
+                           <dd class="ml-3">
+                              <p>A log file that contains warnings and information about the files involved in translation.
+                                 The name of the file is the <b>&lt;filename&gt;.log</b> and it is located in the same folder as the STEP file.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>User Info</dt>
+                     <dd class="ml-3">
+                        <p>General user information that you want to include in the Start section of the STEP
+                           file.</p>
+                        <dl>
+                           <dt>Author</dt>
+                           <dd class="ml-3">
+                              <p>The name of the author of the file you want to export.</p>
+                           </dd>
+                           <dt>Organization</dt>
+                           <dd class="ml-3">
+                              <p>The name of the organization of the file you want to export.</p>
+                           </dd>
+                           <dt>Program</dt>
+                           <dd class="ml-3">
+                              <p>The name of the program for the file you want to export.</p>
+                           </dd>
+                           <dt>Description</dt>
+                           <dd class="ml-3">
+                              <p>A description of the file you want to export.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid727836" rel="xid727836">Saving to STEP</a><br><br></div>
+            <div class="footer-content">Export Options for STEP (.STP) dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

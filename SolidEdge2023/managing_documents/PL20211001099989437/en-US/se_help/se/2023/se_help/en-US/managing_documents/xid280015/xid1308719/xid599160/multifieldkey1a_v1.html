@@ -1,0 +1,115 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using multifield keys in the Teamcenter managed environment</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using multifield keys in the Teamcenter managed environment"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="multifieldkey1a">
+                     <h1 class="topic-title">Using multifield keys in the Teamcenter managed environment</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In Teamcenter, the Item ID uniquely identifies an Item. The property used to make
+                     an Item business object unique can be extended to include more than just the Item
+                     ID (for example, Item ID and Type). When this new Teamcenter functionality is deployed,
+                     Solid Edge is able to reuse the Item ID for instances of different Item business objects
+                     (including Item, Design, Drawing, and Document). This functionality enables you to
+                     create multiple related items using the same Item ID, for example, when you want to
+                     refer to a design and drawing using the same Item ID.</p>
+                  <p>Prior to Teamcenter 10, this was not possible because both design and drawing types
+                     are children of the Item type and are both considered items. Now, using the Business
+                     Modeler IDE in Teamcenter, you can create multifield key definitions per domain or
+                     object type.</p>
+                  <p><em>Multifield keys</em> define what makes an object unique in the database. The default multifield key definition
+                     for <em>Item</em> business objects is:</p>
+                  <p><em>Item{item_id}</em></p>
+                  <p>The value of the <em>item_id</em> property is the object’s unique ID. </p>
+                  <p>In the case of design and drawing, you can define the unique key for design business
+                     objects and their children as Design{item_id} and for drawing business objects and
+                     their children as Drawing{item_id}. When these definitions are applied, it results
+                     in a unique key identifier for each instance of an object type in the database, even
+                     though the different object types can share the same Item ID. You can also create
+                     a unique key by adding a property in addition to the item_id property, such as <em>object_type</em>. For example, Design{item_id,object_type}.</p>
+                  <p>You create a business object’s unique key definition using the <em>MultiFieldKey</em> business object constant in Teamcenter. A list of properties available for each business
+                     object type is provided in the Available Properties dialog box when you create a multifield
+                     key. For more information about creating multifield key definitions, refer to the
+                     <em>Configuring business object identifiers with multifield keys</em> portion of the Teamcenter <em>Business Modeler IDE Guide</em>.</p>
+                  <h4 class="division-title">Multifield key domains</h4>
+                  <div>
+                     <p>The multifield key is composed of a domain name (the name of the business object type)
+                        and a combination of one or more of the business object’s properties:</p>
+                     <p><em>domain{properties}</em></p>
+                     <p>For example, in the <em>Design{item_id}</em> key, <em>Design</em> is the domain. </p>
+                     <p>All business object types with the same multifield definition constitute a domain.
+                        Because children business object types (design, drawing) inherit the key definition
+                        from their parent (Item), they belong to the same domain as the parent business object
+                        unless a different multifield key definition is created for a child type. Custom business
+                        objects also inherit the key from their parents.</p>
+                     <p>For more information about multifield key domains, refer to the <em>Multifield key domains</em> portion of the Teamcenter <em>Business Modeler IDE Guide</em>.</p>
+                  </div>
+                  <h4 class="division-title">Multifield keys in Solid Edge</h4>
+                  <div>
+                     <p>Prior to Teamcenter 10, only the Item ID could be used to uniquely identify an item.
+                        By using multifield key definitions, instances of different Item business object types
+                        (such as items, designs, drawings, documents, and specifications) can use the same
+                        item ID. When these definitions are applied, it results in a unique key for each instance
+                        of an object type in the database, even though the different object types can use
+                        the same item ID.</p>
+                     <p>Redefining what makes an object unique in Teamcenter impacts what is required to create
+                        an object though Solid Edge Embedded Client. Properties that comprise the multifield
+                        key are identified in common property dialog boxes such as the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/newdoc1d" rel="newdoc1d">New Document dialog box</a> with a gold asterisk <img class="img-fluid" src="../../../../../common/nonLocalized/se/manage_docs/manage_tc/multifieldkey.gif">. The gold asterisk indicates the property (cell) is an input to the multifield key
+                        and the property is required.</p>
+                     <p>When using multifield keys, your experience with Solid Edge can change from the default
+                        in the following ways:</p>
+                     <ul>
+                        <li>
+                           <p>Common property dialog boxes such as the <b>New Document</b> dialog box may require additional property definition (as indicated by the gold asterisk
+                              <img class="img-fluid" src="../../../../../common/nonLocalized/se/manage_docs/manage_tc/multifieldkey.gif">).</p>
+                        </li>
+                        <li>
+                           <p>The Filename is now the Item ID with a unique system-generated number appended to
+                              it.</p>
+                           <p>&lt;item ID&gt;-&lt;unique number&gt;.extension</p>
+                        </li>
+                        <li>
+                           <p>Searches based on the item ID can now return more than one result. If you search for
+                              an item ID that is used by multiple objects, the <b>Search</b> dialog box displays more than one result so that you can choose the desired object
+                              from the list of all objects with the same item ID.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>As a best practice, do not map the keys that make an object unique when you use the
+                           mapped properties functionality in Solid Edge Embedded Client.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid614232" rel="xid614232">Add documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/reimport1h" rel="reimport1h">Reimport documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096228" rel="xid1096228">Use naming rules</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid617976" rel="xid617976">Cut, copy, or paste a row or cell</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcsuspend1h" rel="addtotcsuspend1h">Suspend or pause Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1117432" rel="xid1117432">Sort multiple columns</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/wwadd2tc1a" rel="wwadd2tc1a">Working with Add to Teamcenter Interactive</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/genid_understanding_terms_39_2174" rel="genid_understanding_terms_39_2174">Understanding Teamcenter terms</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/docprop1a" rel="docprop1a">Document properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid760444" rel="xid760444">Reimporting documents using Add to Teamcenter Interactive</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findlinkeddocs1c" rel="findlinkeddocs1c">Find All Linked Documents command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findrelateddrafts1c" rel="findrelateddrafts1c">Find All Related Drafts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid615683" rel="xid615683">Run Unmanaged Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/savecommand1c" rel="savecommand1c">Save Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/cutcommand1c" rel="cutcommand1c">Cut command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/copycommand1c" rel="copycommand1c">Copy command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/pastecommand1c" rel="pastecommand1c">Paste command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/retrievedata1c" rel="retrievedata1c">Retrieve Data From Teamcenter command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcassignall1c" rel="add2tcassignall1c">Assign All command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/updatestatus1c" rel="updatestatus1c">Update Status Information command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/runtcvalidations1c" rel="runtcvalidations1c">Run Teamcenter Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid613495" rel="xid613495">Set Action command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid733438" rel="xid733438">Save As command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcperformactions1c" rel="add2tcperformactions1c">Perform Actions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcstatus1d" rel="addtotcstatus1d">Add to Teamcenter Status dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096063" rel="xid1096063">Naming rules and revision naming rules</a><br><br></div>
+            <div class="footer-content">Using multifield keys in the Teamcenter managed environment, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

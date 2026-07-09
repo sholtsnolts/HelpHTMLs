@@ -1,0 +1,216 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly best practices for simulation</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly best practices for simulation"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feamodels2a">
+                     <h1 class="topic-title">Assembly best practices for simulation</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When simulating assembly models in Solid Edge Simulation, take advantage of the following
+                     best practices:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="#fea_bestpractices1a_copy">Creating surface geometry in an assembly</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#sim_geo1a">Using Simulation Geometry tab commands</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#fea_bestpractices1a_united">Uniting bodies</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#fea_recover">Recovering bodies</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#fea_bestpractices1a_preunite">Preparing for a united body</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#feamodels2a_ubresults">Displaying results for united bodies </a></p>
+                     </li>
+                  </ul>
+                  <p>In an assembly model, surface features created using the commands on the <b>Simulation Geometry</b> tab are listed on the <b>Simulation</b> pane under the <b>Simulation Geometry</b> node. <b>Simulation Geometry</b> is available only when working in Solid Edge Simulation.</p>
+                  <h4 class="division-title" id="fea_bestpractices1a_copy">Creating surface geometry in an assembly</h4>
+                  <div>
+                     <p>Often you need to simulate a model using surfaces on part or sheet metal components
+                        in an assembly document for which you do not have both read and write permissions.
+                        Also, you need to maintain associativity between the surfaces and the part faces from
+                        which they were created.</p>
+                     <p>In the Assembly environment, you can use the <b>Simulation Geometry</b> tab→<b>Surfaces</b> group→<b>Copy Surface</b> command to copy faces from part and sheet metal components.</p>
+                     <p>You can manipulate the surfaces created in the assembly model, so that they can be
+                        stitched together, or appropriate boundary conditions can be applied to them. These
+                        surfaces can then be stitched together into one continuous surface.</p>
+                     <p>Also, you can create mid-surfaces for sheet metal components in the Assembly environment,
+                        even when you do not have write access to the sheet metal document. This mid-surface
+                        is associative to the sheet metal model.</p>
+                  </div>
+                  <h4 class="division-title" id="sim_geo1a">Using Simulation Geometry tab commands</h4>
+                  <div>
+                     <p>In the Assembly environment, you can use the following commands on the <b>Simulation Geometry</b> tab→<b>Surfaces</b> group to modify surfaces copied within the assembly.</p>
+                     <ul>
+                        <li>
+                           <h5>Mid-Surface</h5>
+                           <p>Creates a mid-surface on any sheet metal part within the assembly. This works the
+                              same as the command in Sheet Metal; see <a class="xref" data-handle="create_sheet_metal_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/midsurface1c" rel="midsurface1c">Mid-surface command</a>. </p>
+                        </li>
+                        <li>
+                           <h5>Copy</h5>
+                           <p>Creates a copy of any surface from parts and subassemblies. This works similar to
+                              the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featmod1a" rel="featmod1a">Copy Surface command</a> in the Part environment.</p>
+                        </li>
+                        <li>
+                           <h5>Offset Surface</h5>
+                           <p>Creates a construction surface by offsetting a face from parts and subassemblies.
+                              This works similar to the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur8c" rel="consur8c">Offset Surface command</a> in the Part environment.</p>
+                        </li>
+                        <li>
+                           <h5>Trim Surface</h5>
+                           <p>Trims one or more surfaces along the input element you define. This works similar
+                              to the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surftrim1c" rel="surftrim1c">Trim Surface command</a> in the Part environment.</p>
+                           <p>To learn how to trim sheet metal, see the tutorial,<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sm-assy01" rel="fem_sm-assy01">Simplify a sheet metal assembly</a>.</p>
+                        </li>
+                        <li>
+                           <h5>Extend Surface</h5>
+                           <p>Extends a surface along one or more edges you select. This works similar to the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surfextnd1c" rel="surfextnd1c">Extend Surface command</a> in the Part environment.</p>
+                           <p>To learn how to extend sheet metal, see the tutorial,<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sm-assy01" rel="fem_sm-assy01">Simplify a sheet metal assembly</a>.</p>
+                        </li>
+                        <li>
+                           <h5>Split Face</h5>
+                           <p>Splits one or more surfaces using an element you define. This works similar to <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/splitface1c" rel="splitface1c">Split Face command</a> in the Part environment.</p>
+                        </li>
+                        <li>
+                           <h5>Offset Edge</h5>
+                           <p>Offsets the selected edges to create an imprint of them on a part or surface by a
+                              given distance and direction. This works similar to the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/offsetedge1c" rel="offsetedge1c">Offset Edge command</a> in the Part environment.</p>
+                        </li>
+                        <li>
+                           <h5>Stitched Surface</h5>
+                           <p>Stitches together multiple, adjacent construction surfaces to form a single construction
+                              surface feature. This works similar to the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/stitched1c" rel="stitched1c">Stitched Surface command</a> in the Part environment.</p>
+                        </li>
+                        <li>
+                           <h5>Show Non-Stitched Edges</h5>
+                           <p>Temporarily highlights the edges on a construction surface which have not been stitched
+                              to an adjacent surface. This works similar to the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/shwedges1c" rel="shwedges1c">Show Non-stitched Edges command</a> in the Part environment.</p>
+                        </li>
+                        <li>
+                           <h5>Unite Bodies</h5>
+                           <p>Combines surfaces, solids, and design bodies within an assembly, document into one
+                              body. Also joins disjoint geometry in a part or sheet metal document. See <a class="xref" href="#fea_bestpractices1a_united">Uniting bodies</a>.</p>
+                           <p>To learn how to use united bodies, see the tutorial,<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sm-assy01" rel="fem_sm-assy01">Simplify a sheet metal assembly</a>.</p>
+                        </li>
+                        <li>
+                           <h5>Recover Bodies</h5>
+                           <p>Separates the surfaces and solids in a united body into their original elements. See
+                              <a class="xref" href="#fea_recover">Recovering bodies</a>.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="fea_bestpractices1a_united">Uniting bodies</h4>
+                  <div>
+                     <p>A united body produces a continuous mesh. You can use the <b>Unite Bodies</b> command in assemblies as well as in part and sheet metal documents.</p>
+                     <ul>
+                        <li>
+                           <p>In an assembly document, the <b>Simulation Geometry</b> tab→<b>Surfaces</b> group→<b>Unite Bodies</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/icons/sim/unite_bodies.gif"> combines the surfaces, solids, and design bodies into one body. United bodies eliminate
+                              the need to define the assembly connectors that produce a continuous mesh.</p>
+                        </li>
+                        <li>
+                           <p>The <b>Unite Bodies</b> command also is available on the <b>Simulation</b> tab→<b>Define</b> group in part and sheet metal models to create a single merged body from the individual
+                              surfaces and solids. When you create a new study in a part or sheet metal document
+                              that contains disjoint bodies, you can use the <b>United Bodies</b> command to join the bodies for analysis.</p>
+                        </li>
+                     </ul>
+                     <p>You can create a united body from geometry that consists of manifold (unshared) topology,
+                        such as weldment assemblies, as well as non-manifold (shared) topology. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/optimize/unite_bodies.gif"></p>
+                     <p>United bodies can be very useful when creating mid-surface models with T-shaped junctions
+                        that result in non-manifold (shared) topology. These are models where shell elements
+                        (2D) and solid elements (3D) need to be connected, and portions of the shell mesh
+                        are embedded in the solid mesh.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <ul>
+                           <li>
+                              <p>To learn how to use united bodies, see the tutorial <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sm-assy01" rel="fem_sm-assy01">Simplify a sheet metal assembly</a>.</p>
+                           </li>
+                           <li>
+                              <p>Because united bodies cannot be modified, you should create them as the last step
+                                 in geometry simplification. If you subsequently need to modify a united body, use
+                                 the <b>Recover Bodies</b> command, modify the parts as appropriate, and then recreate the united body. </p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>You can change the default color used to display bodies on the <b>Colors</b> page (<b>Solid Edge Options</b> dialog box). The united body color does not override a face style color applied to
+                        the model.</p>
+                  </div>
+                  <h4 class="division-title" id="fea_recover">Recovering bodies</h4>
+                  <div>
+                     <p>The <b>Simulation Geometry</b> tab→<b>Surfaces</b> group→<b>Recover Bodies</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/icons/sim/recover_bodies.gif"> reverses the results of the <b>Unite Bodies</b> command, resulting in the recovery of original bodies and surfaces. </p>
+                     <p>The <b>Recover Bodies</b> command is best used when a united body needs to be modified.</p>
+                  </div>
+                  <h4 class="division-title" id="fea_bestpractices1a_preunite">Preparing for a united body</h4>
+                  <div>
+                     <p>Before creating a united body from a surface and a solid, you should first extend
+                        the surface into the solid. This is because the node of a 2D element has 6 <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/degrees_of_freedom" rel="degrees_of_freedom">DOF</a> (3 translational and 3 rotational), and the node of a 3D element has 3 DOF (3 translational
+                        only). For this reason, geometry created without an extension (1) will not produce
+                        merged coincident nodes. This can result in inaccurate results. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/optimize/sesim_assy_geom2.gif"> </p>
+                     <p>A mesh on surfaces extended into the solid is shown in (2); observe that the mesh
+                        elements from the solid and surfaces have coincident nodes.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/optimize/sesim_assy_geom1.gif"> </p>
+                  </div>
+                  <h4 class="division-title">Meshing models with united bodies</h4>
+                  <div>
+                     <p>When creating a study for a model that contains united bodies, use the following mesh
+                        types: </p>
+                     <ul>
+                        <li>
+                           <p><b>Mixed and General Bodies</b> (assemblies)</p>
+                        </li>
+                        <li>
+                           <p><b>General Bodies</b> (part and sheet metal)</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="feamodels2a_ubresults">Displaying results for united bodies</h4>
+                  <div>
+                     <p>In the Simulation Results environment, you can display results for the 2D shell geometry
+                        or the solid geometry, but not both at the same time.&nbsp;The default results display
+                        is to show Von Mises stress for the solid elements.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/icons/sim/united_body_plot_vonmises.gif"></p>
+                     <p>To display the results for the shell geometry, you can change the selection in the
+                        <b>Results Component</b> list to <b>Plate Top Von Mises Stress</b>. </p>
+                     <p> <img class="img-fluid" src="../../../common/nonLocalized/se/icons/sim/united_body_plot_platetop.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1h" rel="meshprops1h">Override mesh properties</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels4a" rel="feamodels4a">Using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels6a" rel="feamodels6a">Specifying material properties accurately</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels5a" rel="feamodels5a">Offsetting edges around holes, openings, and fasteners</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels3a" rel="feamodels3a">Removing geometry flaws and small entities</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610944" rel="xid610944">Optimizing study results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feaprops1a" rel="feaprops1a">Simulation materials and properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1a" rel="meshprops1a">Mesh material properties</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshpropsqb1d" rel="meshpropsqb1d">Override Property command bar</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a><br><br></div>
+            <div class="footer-content">Assembly best practices for simulation, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

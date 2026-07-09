@@ -1,0 +1,113 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Fastener System command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Fastener System command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fastener1c">
+                     <h1 class="topic-title">Fastener System command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Fastener System</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/fastener_system/fastener.gif"> places fasteners, such as bolts, washers, and nuts into an assembly. The fastener
+                     diameter and orientation is determined by the elements you select in the <b>Top Hole</b> and <b>Bottom Hole</b> steps. You can then select the hardware you want from your database of fasteners
+                     using the <b>Fastener Systems</b> dialog box.</p>
+                  <p>The <b>Fastener Systems</b> command requires a connection to the Standard Parts database.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/fastener_system/fastener1.gif"></p>
+                  <h4 class="division-title">Defining the standard parts database location</h4>
+                  <div>
+                     <p>Before you can use the <b>Fastener Systems</b> command, you must define the location of the Standard Parts database using the <b>Solid Edge Options</b> command on the <b>File</b> menu. The <b>File Locations</b> tab on the <b>Options</b> dialog box defines the database location.</p>
+                  </div>
+                  <h4 class="division-title">Determining fastener size and bolt placement direction</h4>
+                  <div>
+                     <p>The elements you select in the <b>Select Top Hole</b> and <b>Select Bottom Hole</b> steps, along with the fasteners stored in your database, determine the fastener sizes
+                        that are displayed in the <b>Fastener Systems</b> dialog box. <b>Fasteners</b> which are too large to fit into the hole are not displayed in the dialog box.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>In some cases, the elements you select in the <b>Select Top Hole</b> and <b>Select Bottom Hole</b> steps can result in no appropriate fasteners being found in the database. When this
+                           occurs, a message is displayed to inform you that the fastener query was unsuccessful.</p>
+                     </div>
+                     <p>The elements you select in the <b>Top Hole</b> step determine the direction that the bolt is placed into the assembly. The head
+                        of the bolt is oriented on the same side of the part as the circular element you select
+                        in the <b>Top Hole</b> step.</p>
+                  </div>
+                  <h4 class="division-title">Defining the fastener standard</h4>
+                  <div>
+                     <p>The <b>Standard</b> list in the <b>Fastener Systems</b> dialog box filters the displayed fasteners according to internationally recognized
+                        standards, such as ANSI, DIN, JIS, and so forth. When you change the active Standard,
+                        you should click the <b>Update</b> button to rerun the database query.</p>
+                  </div>
+                  <h4 class="division-title">Specifying the fasteners</h4>
+                  <div>
+                     <p>After you define the standard, you can finish defining the fasteners you want to use.
+                        You can use the <b>Selection Type</b> settings to specify the fastener you want to place in the assembly. Once selected,
+                        the selection filter displays information for bolts and screws that match the attributes
+                        for the selected hole. After selecting a component, you can use the <b>Add Fastener</b> button to add the fastener component to the <b>Selected bolt</b>, <b>Top stack</b>, or <b>Bottom stack</b> list.</p>
+                  </div>
+                  <h4 class="division-title">Specifying bolt length</h4>
+                  <div>
+                     <p>The bolt length can be defined using one of three methods:</p>
+                     <ul>
+                        <li>
+                           <p>Minimum bolt extension</p>
+                        </li>
+                        <li>
+                           <p>Minimum engagement length</p>
+                        </li>
+                        <li>
+                           <p>User-defined length</p>
+                        </li>
+                     </ul>
+                     <p>The <b>Minimum extension </b>option is displayed when placing a bolt in a through hole that is threaded or non-threaded.
+                        </p>
+                     <p>When you set the <b>Minimum extension</b> option and the design changes such that the bolt length is no longer valid, the bolt
+                        used is updated automatically.</p>
+                     <p>When you set the <b>User-defined length</b> option, and the design changes such that the bolt length is no longer valid, you
+                        must update the <b>User-defined length</b> manually to change the bolt that is selected.</p>
+                  </div>
+                  <h4 class="division-title">Saving the fasteners</h4>
+                  <div>
+                     <p>You can save fasteners to a specified location with the <b>Copy to working folder </b>option. To enable the option, click the check box next to the option</p>
+                  </div>
+                  <h4 class="division-title">Fasteners and PathFinder</h4>
+                  <div>
+                     <p>When you place fasteners in an assembly using the <b>Fastener Systems</b> command, a fastener feature is added to <b><a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmpthfnd1a" rel="asmpthfnd1a">PathFinder</a></b>. If the design changes such that the fastener length is no longer appropriate, the
+                        symbol in <b>PathFinder</b> changes and the <b>Error Assistant</b> command is activated. You can use the <b>Update</b> command on the <b>PathFinder</b> shortcut menu to update the fastener feature or you can click the fastener entry
+                        in <b>PathFinder</b>, and then use the <b>Edit Definition</b> button on the <b>Select</b> tool command bar to redefine the fastener characteristics.</p>
+                  </div>
+                  <h4 class="division-title">Fasteners and alternate assemblies</h4>
+                  <div>
+                     <p>You can define fasteners in a family of assemblies. You can define fasteners on a
+                        per member basis by clearing the <b>Apply Edits to All Members</b> option. The fastener is then automatically excluded from the other family members.</p>
+                     <p>For more information, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/famasm2a" rel="famasm2a">Alternate Assemblies Impact on Solid Edge Functionality</a> Help topic.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/fastener1h" rel="fastener1h">Place fasteners in an assembly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/fastener1d" rel="fastener1d">Fastener System command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/fastener2d" rel="fastener2d">Fastener System dialog box</a><br><br></div>
+            <div class="footer-content">Fastener System command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

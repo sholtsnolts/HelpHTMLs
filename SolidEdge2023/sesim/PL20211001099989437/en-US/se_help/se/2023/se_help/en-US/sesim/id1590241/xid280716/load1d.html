@@ -1,0 +1,163 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Thermal Load Options dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Thermal Load Options dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="load1d">
+                     <h1 class="topic-title">Thermal Load Options dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Thermal Load Options dialog box contains advanced options for creating or modifying
+                     <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">thermal studies</a>. You can open the dialog box using the Thermal Load Options button in the Create
+                     Study (or Modify Study) dialog box. You can set default values for these options using
+                     the Simulation tab in the Solid Edge Options dialog box.</p>
+                  <dl>
+                     <dt>Radiation</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Enclosure Ambient Element</dt>
+                           <dd class="ml-3">
+                              <p>For a radiation enclosure load, specifies the ambient temperature within the enclosure.</p>
+                              <p>Values can be from -1e+09 to 1e+09.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Free Convection</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Alternate Formulation</dt>
+                           <dd class="ml-3">
+                              <p>When checked, specifies that the Alternate method is used to determine the free convection
+                                 exponent. </p>
+                              <p>The Standard method and the Alternate method are defined by the following equations.</p>
+                              <dl>
+                                 <dt>Standard method</dt>
+                                 <dd class="ml-3">
+                                    <p>The Standard method uses this convection exponent: EXPF=0.</p>
+                                    <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/load_freeconv_formula_std.gif"></p>
+                                 </dd>
+                                 <dt>Alternate method</dt>
+                                 <dd class="ml-3">
+                                    <p>Use the Alternate method to specify a different value for the convection exponent.</p>
+                                    <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/load/load_freeconv_formula_alt.gif"></p>
+                                 </dd>
+                              </dl>
+                              <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                                 <colgroup span="1">
+                                    <col span="1" width="23*">
+                                    <col span="1" width="73*">
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Variables</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Definition</p>
+                                       </td>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>q</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Heat transfer rate</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>h</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Free convection heat transfer coefficient</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>u CTRLND</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Temperature (of the control node) for time-dependent heat transfer coefficient</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>T</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Temperature (surface or internal)</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>T AMB</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Temperature (ambient or surrounding)</p>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td rowspan="1" colspan="1">
+                                          <p>EXPF</p>
+                                       </td>
+                                       <td rowspan="1" colspan="1">
+                                          <p>Convection exponent</p>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>These options are used by NX Nastran and MSC.Nastran. To learn more about them, refer
+                                    to the NX Nastran documentation.</p>
+                              </div>
+                           </dd>
+                           <dt>Convection Exponent</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the exponent to use when calculating the alternative convection temperature
+                                 format. </p>
+                              <p>Values can be from -9.99E+30 to 9.99E+30.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The Convection Exponent is the value shown as <em>EXPF</em> in the above equations. </p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Thermal Load Options dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

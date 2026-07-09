@@ -1,0 +1,128 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>(Create) Block command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="(Create) Block command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="block1c">
+                     <h1 class="topic-title">(Create) Block command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Block command <img class="img-fluid" src="../../../common/nonLocalized/se/2d_geometry/block_connector/block_connector_command/blockcreate.gif"> creates a new block that is local to the active document. You are prompted to select
+                     block contents, select an origin point for the block, assign properties, and accept
+                     or edit the default block name.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Connectors and blocks do not require that you maintain relationships, as they have
+                        their own built-in intelligence. For this reason, ensure that these options on the
+                        ribbon are cleared:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" data-handle="working_with_2d_geometry" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/chan15c" rel="chan15c">Maintain Relationships</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" data-handle="working_with_2d_geometry" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/chan11c" rel="chan11c">Relationship Handles</a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Selecting graphical elements</h4>
+                  <div>
+                     <p>A block can contain many different kinds of 2D elements. For example, you can select
+                        block labels, symbols, text, lines, points, circles, arcs, ellipses, and text profiles.
+                        Embedded objects and drawing views cannot be selected. </p>
+                     <p>You can use the Insert Image command to insert logos and other external images into
+                        the graphics, then select the image frame as one of the elements to be included in
+                        the block, or create a block that consists only of the image itself.</p>
+                     <p>You can even select another block occurrence to be included in the new block or in
+                        the block view. If the block occurrence is not selectable, first use the Unblock command
+                        to unblock the occurrence, then fence-select the graphics for the new block or block
+                        view.</p>
+                     <p>When you select an element to be included, the element should highlight to show it
+                        is selected. If it does not, then the element is not eligible for inclusion in the
+                        block graphics.</p>
+                     <p>For information about creating blocks from the contents of existing .dft, .dxf, and
+                        .dwg files, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block1a" rel="block1a">Using Blocks</a>.</p>
+                  </div>
+                  <h4 class="division-title">Block layers</h4>
+                  <div>
+                     <p>The graphics for source blocks can reside on multiple layers. On placement of such
+                        a block into a file, the layers are created as needed in the new file. Any new layers
+                        that are created are displayed. If the layers already exist, then the block elements
+                        are placed on the existing layers. The display status of the existing layer is not
+                        changed. To see the layer definition, click the Layers tab.</p>
+                  </div>
+                  <h4 class="division-title">Selecting a block origin point</h4>
+                  <div>
+                     <p>The elements assigned to a block must have a single origin point, which will be used
+                        to place the block when it is selected from the library. You can click any point on
+                        any of the elements in the block or you can click a point in free space.</p>
+                  </div>
+                  <h4 class="division-title">Block names</h4>
+                  <div>
+                     <p>A default block name is assigned automatically and displayed in the command bar. The
+                        block name is the name used to identify the block in the Block Library. You can change
+                        the default name by typing in the Name box, or you can accept the default name and
+                        change it later using the Rename command from the block shortcut menu.</p>
+                  </div>
+                  <h4 class="division-title">Block options</h4>
+                  <div>
+                     <p>In addition to the required block name, you can assign optional, descriptive information
+                        to the block in the Block Options dialog box. You can assign one or more name-value
+                        pairs that pertain to the general appearance of the block. For example, you can provide
+                        a descriptive name for the type of part the block represents and you can list alternative
+                        model numbers or sizes.</p>
+                     <p>Use the Block Options button on the command bar to open the Block Options dialog box.</p>
+                  </div>
+                  <h4 class="division-title">Making blocks available globally</h4>
+                  <div>
+                     <p>To make this block available outside the active document, drag the block from the
+                        drawing into the Block Library File List, then rename it appropriately.</p>
+                     <ul>
+                        <li>
+                           <p>The drag function from the drawing to the Block Library File List creates a block
+                              file with a default Symbol.dft file name. Even though the block has a default symbol
+                              name, it is still a block. You can select the block in the library, then use the Rename
+                              command on the file's shortcut menu to rename the file. Alternatively, you can use
+                              the Copy To Library function to both create and rename the block, without removing
+                              the geometry from the active document.</p>
+                        </li>
+                        <li>
+                           <p>Dragging the block to the Block Library File List removes the block occurrence geometry
+                              from the drawing sheet. However, the source block is still available in the Block
+                              Selection Pane in the active document. From there, you can drag it back into the document,
+                              creating a new block occurrence, or use the Place Block command from the source block's
+                              shortcut menu.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block1h" rel="block1h">Create a block</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block4h" rel="block4h">Place a block</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block14h" rel="block14h">View and modify block scale</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block7h" rel="block7h">Set a default block view</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid1175533" rel="xid1175533">Blocks</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block1a" rel="block1a">Using blocks</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block2a" rel="block2a">Displaying blocks in the Library pane</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block3a" rel="block3a">Organizing block libraries</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid917740" rel="xid917740">Importing AutoCAD blocks</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid917655" rel="xid917655">Scaling and rotating block graphics</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid917332" rel="xid917332">Adding alternate block views</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid917745" rel="xid917745">Solid Edge block terminology</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block1d" rel="block1d">Block command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block3d" rel="block3d">Block Occurrence Selection command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block4c" rel="block4c">Place Block command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block7d" rel="block7d">Block Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block2c" rel="block2c">Add Block View command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block7c" rel="block7c">Set As Default (Block) command</a><br><br><h5>Quick links</h5><a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid917293" rel="xid917293">Block labels and properties</a><br><a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block4a" rel="block4a">Editing blocks</a><br><a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/connector1a" rel="connector1a">Connectors</a><br><br></div>
+            <div class="footer-content">(Create) Block command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

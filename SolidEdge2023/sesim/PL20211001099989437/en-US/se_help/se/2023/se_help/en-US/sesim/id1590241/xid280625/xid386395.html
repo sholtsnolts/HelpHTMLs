@@ -1,0 +1,149 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Define a coupled study for thermal stress analysis</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Define a coupled study for thermal stress analysis"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid386395">
+                     <h1 class="topic-title">Define a coupled study for thermal stress analysis</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>Thermal stress analysis calculates stresses, strains, and displacements due to thermal
+                     effects caused by conduction, convection and radiation. In Solid Edge Simulation,
+                     thermal stress analysis is performed by a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid280909" rel="xid280909">coupled study</a>, which couples the results of a heat transfer analysis with a structural analysis.
+                     You can define a coupled study using either of the following study types:</p>
+                  <ul>
+                     <li>
+                        <p>Steady State Heat Transfer + Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Steady State Heat Transfer + Linear Buckling</p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Coupled studies require an advanced simulation license.</p>
+                  </div>
+                  <p>Use this process to define a thermal stress analysis. The results of the thermal analysis
+                     are used automatically to thermally load the model for the linear static analysis,
+                     which produces a stress value based on the thermal results. For more information,
+                     see:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a></p>
+                     </li>
+                     <li>
+                        <p> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid453953" rel="xid453953">Activity: Perform a thermal stress analysis </a></p>
+                     </li>
+                  </ul>
+                  <p>The following example is of a transistor (a heat source) and a mounting plate, which
+                     dissipates heat (a heat sink). It can be modeled as a part or as an assembly,</p>
+                  <ol type="1">
+                     <li>
+                        <p>Define a new coupled study. In the <b>Create Study</b> dialog box:</p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>Select the <b>Steady State Heat Transfer + Linear Static</b> study type. </p>
+                           </li>
+                           <li>
+                              <p>If the model is an assembly, you can create the required connectors automatically
+                                 using the <b>Connector Options</b> section of the <b>Create Study</b> dialog box. Alternatively, you can create the connectors later using the commands
+                                 in the <b>Connectors</b> group.</p>
+                              <ul>
+                                 <li>
+                                    <p>For the thermal analysis, connectors transfer heat between bodies. Use the <b>Thermal Glue</b> connector type for non-insulated faces. For connectors between insulated faces, select
+                                       the <b>Thermal</b> connector type, and then modify the properties to specify the thermal conductance
+                                       value.</p>
+                                 </li>
+                                 <li>
+                                    <p>For the linear static analysis, connectors simulate connections between components.
+                                       Use either the <b>Glue</b> or the <b>No Penetration</b> connector type. </p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>Use the <b>Geometry</b> group→<b>Define</b> command to select all of the study geometry.</p>
+                           </li>
+                        </ol>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can apply a thermal connector and a structural connector to the same faces. This
+                              simple assembly uses a <b>Thermal</b> connector type and a <b>Glue</b> connector.</p>
+                        </div>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/coupled_connectors.png"></p>
+                     </li>
+                     <li>
+                        <p>Define the loads and the boundary constraints for the heat transfer analysis using
+                           the commands in the <b>Thermal Loads</b> group:</p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>To specify heat power, heat generation, or heat transfer, use the <b>Heat Generation</b> command (for a body or feature in an assembly) and the <b>Heat Flux</b> command (on selected entities in a part or assembly model). A positive value indicates
+                                 heat entering the model entity. A negative value indicates heat exiting the model
+                                 entity.</p>
+                           </li>
+                           <li>
+                              <p>To specify a heat dissipation mechanism and ambient temperature, use the <b>Convection</b> command. You also can conduct heat across the model using the <b>Temperature</b> command to apply different values to different faces, or you can use the <b>Body Temperature</b> command with the <b>Temperature</b> command.</p>
+                           </li>
+                        </ol>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/coupled_heatgen_load.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/coupled_convection_load.png"></p>
+                     </li>
+                     <li>
+                        <p>Apply a structural constraint to generate a stress value in the linear static analysis
+                           results. For example, use the <b>Constraints</b> group→<b>Fixed</b> command to fully fix the bottom faces of the model. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/coupled_fixed_constraint.png"></p>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study. </p>
+                        <p>The heat transfer analysis is performed first, followed by the structural analysis.
+                           This two-stage processing is performed automatically. The temperature distribution
+                           results are used automatically as an input load to the linear static process.</p>
+                     </li>
+                     <li>
+                        <p>Review the results.</p>
+                        <p>In addition to the thermal distribution plots that are generated by the steady state
+                           heat transfer processing step, a coupled study produces displacement and stress results
+                           caused by the temperature load. A thermal coupled study also shows the X, Y, Z, offset
+                           results of the temperature applied to the deformed model.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/coupled_study_results.png"></p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Define a coupled study for thermal stress analysis, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

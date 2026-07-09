@@ -1,0 +1,148 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Multi-CAD in the Teamcenter managed environment</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Multi-CAD in the Teamcenter managed environment"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="multicad1a">
+                     <h1 class="topic-title">Multi-CAD in the Teamcenter managed environment</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In today's collaborative working environment, it is rare that an entire product is
+                     designed in only one CAD system. The term <em>multi-CAD</em> describes the ability for Solid Edge assemblies to include models in Teamcenter that
+                     were not created or owned by Solid Edge. Using the multi-CAD capability, you can manage
+                     content from multiple CAD sources and then create an integrated single design using
+                     content from more than one CAD authoring system without a translation. Assembly structures
+                     are resolved through Bill of Materials (BOM) or BOM View Revisions in Teamcenter.
+                     Geometry is communicated through DirectModel datasets, using JT, and is updated automatically
+                     providing up to date assembly structures and models.</p>
+                  <p>An example of working in a multi-CAD environment is designing a vehicle in Solid Edge
+                     using an engine designed in another CAD application where the structure is defined
+                     and managed in Teamcenter, the components are defined by JT, and Solid Edge Draft
+                     documents the product. The engine is placed in the vehicle in Solid Edge and assembled
+                     into position. The non-Solid Edge authoring system owns the content placed in the
+                     native Solid Edge design. The Teamcenter preference, <b>SEEC_Foreign_Datasets</b> is used to define the foreign data source.</p>
+                  <p>This workflow introduces the concept of a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/driven_reference" rel="driven_reference">driven reference</a> where a document's geometry is defined by a non-Solid Edge source. The driven reference
+                     is read-only whether opened or in-place activated. The <b>Save As</b> command is available if you want to create a new item and then edit that content
+                     with Solid Edge.</p>
+                  <p>Driven references go through an out-of-date check. If the foreign source changes,
+                     the change is synchronized the next time the file is opened. Driven references are
+                     uniquely identified in Assembly PathFinder by <img class="img-fluid" src="../../../../common/nonLocalized/se/manage_docs/manage_tc/drivenref.gif">. </p>
+                  <h4 class="division-title">Working with multi-CAD documents</h4>
+                  <div>
+                     <p>Product structure is obtained from Teamcenter BOM View and configured per Revision
+                        Rule. The configured structure is evaluated where the BOM lines provide position data
+                        and each unique item revision is queried for geometric information (Dataset). When
+                        the Teamcenter preference for multi-CAD is enabled, Solid Edge considers geometric
+                        content in the following order:</p>
+                     <ul>
+                        <li>
+                           <p>Native Solid Edge content</p>
+                        </li>
+                        <li>
+                           <p>Driven references (foreign data containing a geometric representation)</p>
+                        </li>
+                        <li>
+                           <p>Non–modeled content (no geometric representation exists)</p>
+                        </li>
+                     </ul>
+                     <p>Use Solid Edge Assembly commands to position the content. Use the <b>Open</b> command to search for the Solid Edge assembly and open the document, synchronize
+                        structure changes and check out the assemblies. Use the <b>Assemble</b> command or the <b>Move</b> command to position the foreign assembly in the context of its parent. Then you can
+                        save the Solid Edge assembly to Teamcenter and create a drawing saving the drawing
+                        to the same item revision with the Solid Edge assembly or saving the drawing to a
+                        new item.</p>
+                  </div>
+                  <h4 class="division-title">Save driven references to Teamcenter</h4>
+                  <div>
+                     <p>Since foreign data is expected to change, an ability to track if it is out-of-date
+                        and synchronize product design is required. The Solid Edge option to save Solid Edge
+                        content back to Teamcenter is <b>Save driven references to Teamcenter</b>. The option is available in <b>Solid Edge Options→Manage→General tab</b> when a document is open in Solid Edge. The option is enabled on a per user basis.
+                        Using this option, when an assembly is saved to Teamcenter, Solid Edge creates a Solid
+                        Edge Dataset under the source Item Revision and then uploads the Solid Edge document
+                        into Teamcenter as a driven reference. This option also saves a Solid Edge part file
+                        as a driven reference when the JT file is opened.</p>
+                     <p>There are two things to keep in mind:</p>
+                     <ul>
+                        <li>
+                           <p>Solid Edge Embedded Client requires the structure to configure only one item revision.
+                              There is no support for multiple revisions from the same Item.</p>
+                        </li>
+                        <li>
+                           <p>Solid Edge Embedded Client does not support foreign CAD assembly features.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Enabling multi-CAD in Solid Edge</h4>
+                  <div>
+                     <p>Teamcenter captures JT content in a dataset called <em>DirectModel</em>. The relation that connects a DirectModel Dataset to an Item Revision is IMAN_Rendering.
+                        The JT file is connected with a named reference JTPART.</p>
+                     <p>To use foreign CAD data in Solid Edge, two preferences must be enabled:</p>
+                     <ul>
+                        <li>
+                           <p><b>SEEC_Foreign_Datasets</b></p>
+                        </li>
+                        <li>
+                           <p><b>SEEC_BOM_Synchronize</b></p>
+                        </li>
+                     </ul>
+                     <p>The Teamcenter site preference <b>SEEC_Foreign_Datasets</b> determines what datasets to consider when a Solid Edge 3D dataset is not saved to
+                        the item revision. The preference is False (0) by default. Currently, Solid Edge supports
+                        DirectModel (JT) only.</p>
+                     <p>Teamcenter provides the product structure or BOM view for documents created outside
+                        the Solid Edge environment. BOM synchronization is controlled by the Teamcenter preference
+                        <b>SEEC_BOM_Synchronize</b>. Enabling this preference allows Solid Edge to compare the BOM in Teamcenter with
+                        its own BOM and add or remove based on changes seen in Teamcenter. To enable BOM synchronization,
+                        set the <b>SEEC_BOM_Synchronize</b> preference to true.</p>
+                     <p>The Teamcenter preference <b>SEEC_BOM_Synchronize</b> supports the following search order:</p>
+                     <ul>
+                        <li>
+                           <p>Search for Solid Edge 3D managed content.</p>
+                        </li>
+                        <li>
+                           <p>If the item revision does not include Solid Edge 3D content, then search for an alternate
+                              3D representation, DirectModel (JT).</p>
+                        </li>
+                        <li>
+                           <p>If there is no DirectModel, then consider the item a non-modeled occurrence.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="tip">
+                        <div class="attention-label">Tip: </div>
+                        <p>If your environment has the preference, <b>SEEC_Synchronize_ItemNumbers</b> set to <b>true</b>, we recommend that you create the preference <b>PS_new_seqno_mode</b> and set it to <b>existing</b>. By default, Teamcenter assigns a new Find Number for each item added to the BOM
+                           View Revision. When the same item is added to Structure Manager multiple times, this
+                           preference will cause all entries to be packed or have the same Find Number. Not setting
+                           this preference will cause a conflict with item numbers in Solid Edge resulting in
+                           a warning message.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/takeownership1h" rel="takeownership1h">Take ownership of a foreign CAD document</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/takeownership1c" rel="takeownership1c">Take Ownership command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/takeownership2d" rel="takeownership2d">Take Ownership dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/takeownership1d" rel="takeownership1d">Take Ownership Validation dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multicad1p" rel="multicad1p">Multi-CAD document workflow (SEEC)</a><br><br></div>
+            <div class="footer-content">Multi-CAD in the Teamcenter managed environment, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,120 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Basic reference and property text rules</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Basic reference and property text rules"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prptxt3a">
+                     <h1 class="topic-title">Basic reference and property text rules</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>A <em>property text string</em> begins with <span class="code-text">%{</span> and ends with <span class="code-text">}</span>. The contents inside the curly bracket define what data to extract, where to get
+                     the data, and how to display the data.</p>
+                  <p>Shown below is the basic syntax for property text and reference text. You can use
+                     format codes to modify the resulting value.</p>
+                  <ul>
+                     <li>
+                        <p>The general form of property text is:</p>
+                        <p><i>%{&lt;data item&gt;/&lt;display modifier&gt;|&lt;data source&gt;}</i></p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>The simplest example of general property text is <em>%{MyProp}</em>, where:</p>
+                           <ul>
+                              <li>
+                                 <p><em>MyProp</em> is a custom property in the current document.</p>
+                              </li>
+                              <li>
+                                 <p><em>|&lt;data source&gt;</em> is implied to be the current document.</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><em>%{Density/NU|R1}</em> displays the “Density” property, without units (/NU), from the first linked model
+                              (|R1) to the draft file.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p><em>Reference text</em> is a subset of property text. It references an annotation or drawing view, and displays
+                           the result in another annotation. All of the referenced elements are within the same
+                           file. Reference text uses the general form of property text:</p>
+                        <p><i>%{&lt;data item&gt;/&lt;display modifier&gt;|&lt;data source&gt;}</i></p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><i>%{Balloon Upper|Ref:A669}</i></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p><em>Property text codes</em> insert symbols and values from a predefined set of font-based characters. Property
+                           text codes use the form, <i>%XX</i>, where <i>%XX</i> is defined in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/symtxt1d" rel="symtxt1d">property text codes</a>. Property text codes do not use curly brackets.</p>
+                     </li>
+                     <li>
+                        <p>You can modify the resulting value of a property text string by appending a <em>format code</em>, <span class="code-text">/xx</span>, as defined in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt4a" rel="prptxt4a">format control codes to modify property text</a>.</p>
+                     </li>
+                     <li>
+                        <p>You can specify multiple formatting modifiers for a single text value:</p>
+                        <p><i>%{PropText/xx/xx/xx}</i></p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>The following example strings together three modifiers—precision, stacked tolerance,
+                              dual units—of the hole size value:</p>
+                           <p><i>%DI %{%HS/@2/st+.001^-.002/du}</i></p>
+                           <p>This property text string displays the diameter symbol with [(Hole Size with 2 decimal
+                              places) (stacked tolerances +.001,-.002)] and dual units applied to all.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>White space in property text is ignored.</p>
+                     </li>
+                     <li>
+                        <p>A back slash \ specifies do not evaluate the next character.</p>
+                     </li>
+                     <li>
+                        <p>Format codes <i>/xx</i> can be applied only to property text that resolves to a single united value.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <ul>
+                              <li>
+                                 <p>A format code cannot be applied to the following hole callout, because <i>%HC</i> is expanded to more than one united value: </p>
+                                 <p><i>%HC=%DI%HS%ZH%RT C'BORE %DI%BS-%BD DEEP</i></p>
+                              </li>
+                              <li>
+                                 <p>However, you can modify the string with brackets to apply a format code to an individual
+                                    property:</p>
+                                 <p><i>%HC=%DI%{%HS/DU}%ZH%RT C'BORE %DI%BS-%BD DEEP</i></p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1h" rel="prptxt1h">Create property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/create_reference_text" rel="create_reference_text">Create reference text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid994396" rel="xid994396">Format property text values</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2h" rel="prptxt2h">Update all property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt4h" rel="prptxt4h">Convert property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt3h" rel="prptxt3h">Convert all property text in a drawing or model</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid830908" rel="xid830908">Referencing properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1a" rel="prptxt1a">Using property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid830584" rel="xid830584">Using reference text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid1162538" rel="xid1162538">Using exposed variables in property text</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1d" rel="prptxt1d">Select Property Text dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/symtxt2d" rel="symtxt2d">Select Symbols and Values dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid731496" rel="xid731496">Select Reference Text dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid994105" rel="xid994105">Format Values dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid996556" rel="xid996556">Selecting a property text source</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/symtxt1d" rel="symtxt1d">Property text codes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt4a" rel="prptxt4a">Format codes to modify reference and property text output</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2d" rel="prptxt2d">Date and time format of property text</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2a" rel="prptxt2a">Property Text source list (Source: From Active Document)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt5a" rel="prptxt5a">Property text from drawing views</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/xid707883" rel="xid707883">Property text from blocks</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt2c" rel="prptxt2c">Property Text command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1c" rel="prptxt1c">Update All Property Text command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt3c" rel="prptxt3c">Convert Property Text command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt4c" rel="prptxt4c">Convert All Property Text command</a><br><br></div>
+            <div class="footer-content">Basic reference and property text rules, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

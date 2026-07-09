@@ -1,0 +1,309 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Assembly Relationships Manager</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Assembly Relationships Manager"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1135317">
+                     <h1 class="topic-title">Assembly Relationships Manager</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Overview</h4>
+                  <div>
+                     <p>The <b>Assembly Relationships Manager</b> displays a table of assembly relationships and provides a way to modify relationships.
+                        Starting the command with occurrences selected displays the relationships associated
+                        with those occurrences. If no occurrences are selected, the command shows all of the
+                        relationships for the assembly. The relationships are analyzed and displayed. You
+                        can edit relationship values within the dialog box, such as changing an offset type
+                        from <b>Fixed</b> to <b>Float</b>, and the <b>Offset </b> value as well. If a relationship has an associated variable, that variable name is
+                        displayed instead of the relationship type.</p>
+                     <p>You can use the <b>Relationship Repair</b> button to fix many relationship problems, if there are any. This walks through the
+                        sick relationships, suppressing them one by one until there are no longer any failures
+                        or until all of the sick relationships have been suppressed. After the process is
+                        complete, you are presented with the list of relationships that were suppressed to
+                        fix the problems, and you are given the option to keep them suppressed or delete them.
+                        Since this is an iterative process, it can take some time, especially with large assemblies
+                        with very large numbers of relationships. Because of this, you can press the Esc key
+                        at any time to cancel the process. </p>
+                     <p>You can activate the <b>Assembly Relationships Manager</b> by right-clicking a part or subassembly in <b>Assembly PathFinder</b>. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If a relationship exists that is causing an error condition, you can open the <b>Assembly Relationships Manager</b> using the&nbsp;<b>Tools</b> tab→<b>Assistants</b> group→<b>Errors Assistant</b> command.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Tooltips</h4>
+                  <div>
+                     <p>When moving the mouse over a relationship in the table (and pausing), a tooltip is
+                        displayed. The contents of the tooltip depends on the relationship status. The status
+                        can be:</p>
+                     <ul>
+                        <li>
+                           <p><b>Solved</b>—Displays the occurrence hierarchy for each of the components in the relationship.</p>
+                        </li>
+                        <li>
+                           <p><b>Failed </b>—A failure message suggests repairing, suppressing, or deleting the relationship.</p>
+                        </li>
+                        <li>
+                           <p><b>Out of Date - Status </b>—Displays a message about the relationship status being out of date and suggesting
+                              an update or repair.</p>
+                        </li>
+                        <li>
+                           <p><b>Out of Date - Face </b>—Displays a message about one of the relationship faces being out of date and suggesting
+                              and update or repair.</p>
+                        </li>
+                        <li>
+                           <p><b>Split Face</b>—Displays a message about one of the relationship faces being split.</p>
+                        </li>
+                        <li>
+                           <p><b>Missing Geometry</b>—Displays a message giving the part name from which the geometry is missing.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Split Faces</h4>
+                  <div>
+                     <p>When one of the faces involved in a relationship has been split into multiple faces,
+                        it is not technically a failure but can still lead to undesirable behavior. The relationship
+                        still solves, but it can use any one of the multiple faces resulting from the split,
+                        which could cause one of the parts to jump to an undesired location. In this example,
+                        the two small front faces were a single large face when the relationship was created.</p><img class="img-fluid d-block" src="../../../../common/nonLocalized/se/assembly/relationships/splitface.png"><p>When a relationship has one of these split face scenarios, a gray arrow is displayed
+                        next to the relationship and the group containing the relationship, except when grouped
+                        by status. This shows that there are relationships that could be causing the unexpected
+                        behavior.</p>
+                  </div>
+                  <h4 class="division-title">Highlight and Selection Colors</h4>
+                  <div>
+                     <p>When a relationship is missing geometry, the face is not displayed as highlighted
+                        or selected. Instead, the component name of the missing geometry is displayed in red
+                        when the relationship is highlighted or selected. </p>
+                     <p>When a face is out of date (as opposed to something else with the relationship being
+                        out of date), the face is displayed in a blue color when the relationship is highlighted
+                        or selected.</p>
+                  </div>
+                  <h4 class="division-title">Context menu</h4>
+                  <div>
+                     <p>You can display the relationship search and selection context menu by right-clicking
+                        on the <b>Relationships</b> column header or on empty table space. You can use these commands to modify the font
+                        and font size to make the table easier to read. You can search for text strings. You
+                        can change the table display using the grouping commands.</p>
+                     <p>Options available:</p>
+                     <dl>
+                        <dt>Font</dt>
+                        <dd class="ml-3">
+                           <p>Modifies font and font size for the display.</p>
+                        </dd>
+                        <dt>Find</dt>
+                        <dd class="ml-3">
+                           <p>Searches for a text string in the display.</p>
+                        </dd>
+                        <dt>Expand</dt>
+                        <dd class="ml-3">
+                           <p>Searches for a text string in the display. </p>
+                           <p>Expands the display of selected items.</p>
+                        </dd>
+                        <dt>Expand All</dt>
+                        <dd class="ml-3">
+                           <p>Expands the display of all items.</p>
+                        </dd>
+                        <dt>Collapse All</dt>
+                        <dd class="ml-3">
+                           <p>Collapse the display of all items.</p>
+                        </dd>
+                        <dt>Grouping</dt>
+                        <dd class="ml-3">
+                           <p>Groups the display by:</p>
+                           <ul>
+                              <li>
+                                 <p>None</p>
+                              </li>
+                              <li>
+                                 <p>Type </p>
+                              </li>
+                              <li>
+                                 <p>Component</p>
+                              </li>
+                              <li>
+                                 <p>Status</p>
+                              </li>
+                           </ul>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title">Filters</h4>
+                  <div>
+                     <p>You can further narrow the selection results by clicking the<b> Filters</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/relationships/relationship_manager_filter_button.png">. Results can be filtered by <b>Type</b> or <b>Status</b>.</p>
+                  </div>
+                  <h4 class="division-title">Relationship editing</h4>
+                  <div>
+                     <dl>
+                        <dt>Double-click behavior</dt>
+                        <dd class="ml-3">
+                           <ul>
+                              <li>
+                                 <p>Double-clicking a relationship item starts <b>Edit Definition</b> for that relationship. If the relationship is sick for something such as a missing
+                                    face, the selection step for that face will be available on the command bar.</p>
+                              </li>
+                              <li>
+                                 <p>Double-clicking a component item under a relationship in-place edits the component.
+                                    </p>
+                              </li>
+                           </ul>
+                        </dd>
+                     </dl>
+                     <div class="row">
+                        <div class="col-3"><b>Offset editing </b></div>
+                        <div class="col-9">
+                           <p>For those relationships that support offsets, the following edits can be made: </p>
+                           <ul>
+                              <li>
+                                 <p>The offset value can be modified, unless there is a formula controlling the offset.</p>
+                              </li>
+                              <li>
+                                 <p>Offset type can be changed between <b>fixed</b>, <b>floating</b> and <b>range</b> unless there is a formula controlling the offset.</p>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="col-3"><b>Angle editing</b></div>
+                        <div class="col-9">
+                           <p>For the <b>Angle</b> relationship, the following edits can be made:</p>
+                           <ul>
+                              <li>
+                                 <p>The angle value can be modified, unless there is a formula controlling the angle.
+                                    </p>
+                              </li>
+                              <li>
+                                 <p>Angle type can be changed between <b>fixed</b> and <b>range</b> unless there is a formula controlling the angle. </p>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="col-3"><b>Gear editing</b></div>
+                        <div class="col-9">
+                           <p>For the <b>Gear</b> relationship, the two gear values can be modified, unless there is a formula controlling
+                              them.</p>
+                        </div>
+                        <div class="col-3"><b>Flipping</b></div>
+                        <div class="col-9">
+                           <p>For those relationships that support flipping, they can be flipped using either the
+                              context menu command or using the <b>f</b> key on the keyboard. <b>Flip</b> will work with multiple relationships selected, so several relationships can be flipped
+                              at the same time. </p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Flipping several relationships at the same time is often the only way the relationships
+                                 will successfully flip.</p>
+                           </div>
+                        </div>
+                        <div class="col-3"><b>Locking/unlocking rotation</b></div>
+                        <div class="col-9">
+                           <p>For axial relationships, the rotation can be locked or unlocked using the context
+                              menu command. Locking or unlocking rotation works with multiple relationships selected,
+                              so several relationships can be locked or unlocked at the same time. </p>
+                        </div>
+                        <div class="col-3"><b>Renaming relationship variables </b></div>
+                        <div class="col-9">
+                           <p>If a relationship is associated with a variable (such as offsets or angles), the relationship
+                              variable can be renamed using the <b>Rename Variable</b> command on the context menu.</p>
+                        </div>
+                        <div class="col-3"><b>Undo</b></div>
+                        <div class="col-9">
+                           <p>Undo is supported for most edit operations. </p>
+                        </div>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Accelerator Shortcut Keys</h4>
+                  <div>
+                     <p>The following accelerator shortcut keys are supported:</p>
+                     <table cellspacing="5" border="1" cellpadding="5" rules="all" width="400" frame="box">
+                        <colgroup span="1">
+                           <col span="1" width="1*">
+                           <col span="1" width="2.02*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>F</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Flip selected relationships</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>S</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Suppress selected relationships</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>U</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Unsuppress selected relationships</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>R</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Relationship Repair (Same as button)</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Delete</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Delete selected relationships</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>CTL+A</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Select All</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>CTL+D</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Select None</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mate1h" rel="mate1h">Using the Mate command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmrlt2h" rel="asmrlt2h">Modify the offset value for a Mate relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/align1h" rel="align1h">Using the Planar Align command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/align2h" rel="align2h">Apply an axial align relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/insert1h" rel="insert1h">Insert a part in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/conect1h" rel="conect1h">Apply a connect relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/angle1h" rel="angle1h">Using the Angle command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/tangas1h" rel="tangas1h">Using the Tangent command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/cam1h" rel="cam1h">Place a cam relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid453581" rel="xid453581">Apply a path relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/parall1h" rel="parall1h">Using the Parallel command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/gear1h" rel="gear1h">Apply a gear relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/center_plane1h" rel="center_plane1h">Using the Center-Plane command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid453588" rel="xid453588">Place a Rigid Set relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ground1h" rel="ground1h">Using the Ground command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/update1h" rel="update1h">Update the working environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid961627" rel="xid961627">About the FlashFit relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mate1c" rel="mate1c">About the Mate relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/align1c" rel="align1c">About the Planar Align relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/align2c" rel="align2c">About the Axial Align relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/insert1c" rel="insert1c">About the Insert relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/conect1c" rel="conect1c">About the Connect relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/angle1c" rel="angle1c">About the Angle relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/tangas1c" rel="tangas1c">About the Tangent relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/cam1c" rel="cam1c">About the Cam relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid453577" rel="xid453577">About the Path relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/parall1c" rel="parall1c">About the Parallel relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/gear1c" rel="gear1c">About the Gear relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid300888" rel="xid300888">Position two parts by matching their coordinate systems</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mcordsys1c" rel="mcordsys1c">About the Match Coordinate Systems relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/center_plane1c" rel="center_plane1c">About the Center-Plane relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid453586" rel="xid453586">About the Rigid Set relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ground1c" rel="ground1c">About the Ground relationship</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/update1c" rel="update1c">Update Relationships command</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid961628" rel="xid961628">Using the FlashFit command</a><br><br></div>
+            <div class="footer-content">Assembly Relationships Manager, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

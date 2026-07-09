@@ -1,0 +1,238 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Minimize the mass of a part with design optimization</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Minimize the mass of a part with design optimization"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid612963">
+                     <h1 class="topic-title">Minimize the mass of a part with design optimization</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can refine the results of a structural or heat transfer study using use the <b>New Optimization</b> command in Solid Edge Simulation. Design optimization changes the study geometry
+                     based on simulation variables, such as loads, stress, deformation, strain, and natural
+                     frequency.</p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>You want to minimize the mass of a part to reduce its cost, yet ensure that Von Mises
+                        Stress falls within the Factor of Safety (FOS) design limit. To achieve that objective,
+                        you want to change the dimensions of the cutouts to reduce the surface area (and therefore
+                        the mass) of the part. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/part_not_optimized.gif"></p>
+                     <p>For this optimization scenario, you can define the design objective, design limits,
+                        and design variables as follows in the <b>Optimization</b> dialog box:</p>
+                     <ul>
+                        <li>
+                           <p>Design objective=Reduce the mass by at least 1 lbm. The current value is 7.632 lbm.</p>
+                        </li>
+                        <li>
+                           <p>Design limit=Von Mises Stress&lt;Yield Stress/Factor of Safety (where Yield Stress=4000
+                              psi, FOS=2).</p>
+                        </li>
+                        <li>
+                           <p>Design variables=Height and Angle of the cutout, as defined in the Variable Table.
+                              The current dimension values are shown in the following illustration:</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/procedure_profilestart.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Choose <b>Simulation</b> tab→<b>Study</b> group→<b>New Optimization</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/sesim_new_optimization_command.gif">.</p>
+                        <p>This creates the <b>Optimization</b> collector in the <b>Simulation</b> pane and displays the <b>Optimization</b> dialog box.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>A simulation study must be solved before you can optimize it using simulation result
+                              variables. If the study has been meshed but not solved, you still can optimize it
+                              using only the load variables.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <h5>Define the design objective.</h5>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610945" rel="xid610945">Design Objective (Optimization dialog box)</a> page, click <b>Define Objective</b>.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Define Objective</b> dialog box, select the variable you want to use as the design objective, and click
+                                 <b>OK</b> to close the dialog box.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Expand the <b>Physical Properties</b> list and select <b>Mass</b>.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>On the <b>Design Objective</b> page, from the <b>Objective Type</b> list, select <b>Minimize</b>.</p>
+                              <p>The current value for mass is displayed.</p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Next</b> button, or click <b>Design Limits</b> in the left pane.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <h5>Define the design limits.</h5>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610946" rel="xid610946">Design Limits (Optimization dialog box)</a> page, click <b>Add Limit</b>.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Add Design Limit</b> dialog box, expand the <b>Physical Properties</b> or <b>Simulation Study Results</b> list until you can select the variable you want to use as a design limit. Click <b>OK</b> to close the dialog box.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Expand the <b>Simulation Study Results</b> list and select <b>Von Mises Stress</b>. </p>
+                              </div>
+                              <p>The current value for the selected property or result variable is displayed on the
+                                 <b>Design Limits</b> page.</p>
+                           </li>
+                           <li>
+                              <p>On the <b>Design Limits</b> page, click <b>Rule</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimization_limit_rule_editor_icon.gif">. </p>
+                           </li>
+                           <li>
+                              <p>In the <b>Design Limit Rule Editor</b>, use the <b>Minimum limit</b> list, the <b>Maximum limit</b> list, and the <b>Value</b> boxes to define the acceptable range for the selected design limit variable. Click
+                                 <b>OK</b> to close the dialog box.</p>
+                              <p>The limit parameters are displayed in the <b>Limit Value</b> column on the <b>Design Limits</b> page. If you specified a minimum and a maximum limit, two values are displayed, separated
+                                 by a semicolon. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>To limit Von Mises Stress&lt;4000 psi/2, do the following:</p>
+                                 <ol type="A" start="1">
+                                    <li>
+                                       <p>From the <b>Maximum limit</b> list, select <b>Less than or equal to</b>.</p>
+                                    </li>
+                                    <li>
+                                       <p>In the <b>Value</b> box, type <b>2000</b>.</p>
+                                    </li>
+                                 </ol>
+                                 <p>When you enter a maximum value but not a minimum value, the entry in the <b>Limit Value</b> column looks like this:</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/design_limit_value.gif"></p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Click the <b>Next</b> button, or click <b>Design Variables</b> in the left pane.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <h5>Define the design variables.</h5>
+                        <p>Define the design variables using the limits defined in the <b>Variable Table</b>, or by defining a subset of those limits using the <b>Design Variable Rule Editor</b>.</p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610947" rel="xid610947">Design Variables (Optimization dialog box)</a> page, click <b>Add Model Variable</b>.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Variable Table</b>, select the rows with the corresponding variables that you want to allow to change,
+                                 and then click <b>Add</b>. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Select the Angle dimension variable, press the Shift key, and then select the Height
+                                    dimension variable.</p>
+                              </div>
+                              <p>The selected variables and their current values are displayed on the Design Variables
+                                 page.</p>
+                           </li>
+                           <li>
+                              <p>On the <b>Design Variables</b> page, for each design variable, select the variable name, and then click <b>Rule</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimization_limit_rule_editor_icon.gif">. In the <b>Design Variable Rule Editor</b>, define the acceptable range for the selected design variable. </p>
+                              <p>The minimum and maximum values that you specify for each variable are displayed in
+                                 the <b>Range</b> column on the <b>Design Variables</b> page, separated by a semicolon.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Allow the Angle variable to change so that it is greater than 40 degrees and less
+                                    than 90 degrees. Also allow the Height variable to change so that it is greater than
+                                    or equal to 3 inches and less than or equal to 3.9 inches.</p>
+                                 <p>The resulting entries in the Range column on the Design Variable page look like this:</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/design_variable_range.gif"></p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>The design optimization scenario now is fully defined. In the <b>Optimization</b> dialog box, click the <b>Optimize...</b> button to begin processing. </p>
+                        <p>When optimization finds a solution, the model is updated using the new variable values.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimization_geometry.gif"></p>
+                     </li>
+                     <li>
+                        <p>In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613088" rel="xid613088">convergence status dialog box</a>, click the following buttons to view the graphical and numerical results of the optimization:</p>
+                        <ul>
+                           <li>
+                              <p><b>View Summary</b>—Displays an Excel spreadsheet showing the values of each iteration. It there are
+                                 any values shown in red text, this indicates they exceeded the design limit. </p>
+                              <p>Click the <b>Graph</b> tab at the bottom of the worksheet to see the convergence graph mapping the objective
+                                 across each iteration.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>The design objective of reducing the mass by at least 1 lbm was achieved.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimization_graph_mass_vs_iteration.gif"></p>
+                              </div>
+                           </li>
+                           <li>
+                              <p><b>View Plots</b>—Displays the result plot corresponding to the last optimization iteration.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>The Von Mises Stress result plot shows that the design limit of Von Mises Stress&lt;2000
+                                    psi was maintained.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/optimized_plot_.gif"></p>
+                              </div>
+                           </li>
+                        </ul>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <ul>
+                              <li>
+                                 <p>The values of the variables that have changed can be reset to their initial state
+                                    by selecting the <b>Reset Geometry</b> command from the shortcut menu of the <b>Optimizations</b> collector→<b>Optimization 1</b> node in the <b>Simulation</b> pane.</p>
+                              </li>
+                              <li>
+                                 <p>You can change one or more parameters in the <b>Optimization</b> dialog box by selecting the <b>Edit Optimization</b> command from the shortcut menu of the <b>Optimization 1</b> node in the <b>Simulation</b> pane.</p>
+                              </li>
+                              <li>
+                                 <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610948" rel="xid610948">Control Parameters (Optimization dialog box)</a> limits the number of optimization processing iterations. You can adjust these options
+                                    based on the size and complexity of your model. </p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>You may want to increase the default value for Maximum number of iterations based
+                                       on the status message displayed in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613088" rel="xid613088">convergence status dialog box</a>.</p>
+                                 </div>
+                              </li>
+                              <li>
+                                 <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610949" rel="xid610949">Convergence Parameters (Optimization dialog box)</a> determines when another processing iteration is required. If the calculated values
+                                    of an iteration are within this margin compared to the previous iteration, then the
+                                    optimization is finished.</p>
+                              </li>
+                              <li>
+                                 <p>For more information about these and other optimization commands, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid654835" rel="xid654835">Displaying and modifying the optimization results</a>.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610944" rel="xid610944">Optimizing study results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid654835" rel="xid654835">Displaying and modifying the optimization results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612930" rel="xid612930">Best practices for design optimization</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613076" rel="xid613076">Defining design optimization parameters</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613006" rel="xid613006">How overriding properties affects design optimization</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610945" rel="xid610945">Design Objective (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610946" rel="xid610946">Design Limits (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610947" rel="xid610947">Design Variables (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610948" rel="xid610948">Control Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610949" rel="xid610949">Convergence Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613198" rel="xid613198">Design Limit/Design Variable Rule Editor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613088" rel="xid613088">Convergence status dialog box</a><br><br></div>
+            <div class="footer-content">Minimize the mass of a part with design optimization, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

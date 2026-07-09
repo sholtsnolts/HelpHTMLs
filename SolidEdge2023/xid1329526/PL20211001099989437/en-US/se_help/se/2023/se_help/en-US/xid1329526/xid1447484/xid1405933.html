@@ -1,0 +1,150 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using load cases</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using load cases"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1405933">
+                     <h1 class="topic-title">Using load cases</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Every study must have at least one load case. When you create a study, the loads and
+                     constraints that you defined are displayed in the <b>Generative Design</b> pane as individual objects, as well as under a <b>Load Cases</b> node as <b>Load Case 1</b>. </p>
+                  <p>If your part is likely to undergo different loading conditions during operation, consider
+                     using the <b>Generative Design</b> tab→<b>Generative Study</b> group→<b>Create Load Case</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/load_case_command.png"> to add more load cases to structurally optimize your part. Load cases enable you
+                     to account for different stresses that are applied at different stages of use. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The <b>Create Load Case</b> command is also available on the shortcut menu of the <b>Load Cases</b> node in the <b>Generative Design</b> pane.</p>
+                  </div>
+                  <h4 class="division-title">Use load cases to mimic different operating conditions</h4>
+                  <div>
+                     <p>Most parts are used under varying loads and varying boundary conditions. It is more
+                        realistic to specify as many of these different loads and boundary conditions as are
+                        known, so that the optimized part can work without breaking under any combination
+                        of conditions. </p>
+                     <p>To achieve this in Generative Design, you can group load and constraint boundary conditions
+                        into <em>load cases</em>. This ensures they do not cancel each other out mathematically. You also can specify
+                        the order in which the different combinations of boundary conditions are to be applied
+                        to get a single result file. </p>
+                  </div>
+                  <h4 class="division-title">When should you use load cases?</h4>
+                  <div>
+                     <p>Here are some situations where you can use load cases.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>A part can have opposing forces which may or may not be equal, such as:</p>
+                        <ul>
+                           <li>
+                              <p>Internal pressure and external pressure, like that in a pressure vessel or on a push-pull
+                                 knob.</p>
+                           </li>
+                           <li>
+                              <p>A lever that moves in two opposing directions.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>A part can have opposing torques, which may or may not be equal. An example of this
+                           is a door knob that can be rotated clockwise or counterclockwise.</p>
+                     </div>
+                     <p>You are responsible for ensuring that the loads and constraints within any single
+                        load case do not contradict each other. This requirement does not apply across load
+                        cases. </p>
+                  </div>
+                  <h4 class="division-title">Working with load cases</h4>
+                  <div>
+                     <p>In addition to being listed as individual loads and individual constraints in the
+                        <b>Generative Design</b> pane, the load and constraint boundary conditions that you defined for your study
+                        are grouped together and added to the <b>Load Cases</b> node and labeled <b>Load Case 1</b>. The active load case is shown in blue, just like the study name. </p>
+                     <p>When you select the <b>Create Load Case</b> command, an empty container, for example <b>Load Case 2</b>, is added to the <b>Generative Design</b> pane. You can click+drag an existing load or constraint to reuse it in the current
+                        load case, and you can create entirely new boundary conditions using the commands
+                        on the ribbon.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/gd_load_cases.png"></p>
+                     <p>When you use multiple load cases, they can contain different combinations of the loads
+                        and constraints in the study. The only requirement is that every load case must have
+                        at least one load and one constraint. </p>
+                     <p>Load cases are processed in the order that they appear in the <b>Generative Design</b> pane. By adding, removing, and reordering the load cases, you can mimic the anticipated
+                        real-life operating conditions.</p>
+                     <p>Working in the <b>Generative Design</b> pane, you can:</p>
+                     <ul>
+                        <li>
+                           <p>Review the values and locations of individual loads by clicking the load name once.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>This model has four different force loads applied to it. Click each load name in the
+                                 <b>Generative Design</b> pane to identify its location on the model, as well as its associated value. </p>
+                              <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/gd_force_edit_handle1.png"></p>
+                           </div>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <p>You also can hover over a load name in the <b>Generative Design</b> pane to quickly show the load value in a data tip.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Activate a load case for editing by double-clicking the load case name.</p>
+                        </li>
+                        <li>
+                           <p>Copy (click+drag) individual loads and constraints between load cases within the same
+                              study.</p>
+                        </li>
+                        <li>
+                           <p>Drag the load cases to change the order in which they are applied during processing.</p>
+                        </li>
+                        <li>
+                           <p>Use the <b>Duplicate Load Case</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../common/nonLocalized/se/topology_optimization/duplicate_load_case_cmd.png"> on the shortcut menu of a load case to copy all of the load and constraint objects
+                              and values beneath it. </p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>You also can Ctrl+drag the load case node to duplicate it.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Test the effect of individual loads and constraints in a load case. Use the <b>Suppress</b> and <b>Unsuppress</b> commands on the shortcut menu of individual loads and constraints to temporarily
+                              prevent them from being considered during optimization. </p>
+                        </li>
+                        <li>
+                           <p>Use the <b>Remove From Load Case</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/remove_from_load_case_cmd.png"> on the shortcut menu of a load or constraint to remove it from a load case without
+                              deleting it from the study.</p>
+                        </li>
+                        <li>
+                           <p>Use the <b>Delete</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../common/nonLocalized/se/topology_optimization/delete_cmd_40212.png"> on the shortcut menu of a load case to remove the load case plus its contents from
+                              processing. It does not delete the individual loads and constraints from the study.</p>
+                        </li>
+                        <li>
+                           <p>Use the <b>Delete All Load Cases</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/delete_all_load_cases_cmd.png"> on the shortcut menu of the <b>Load Cases</b> node to delete all of the load cases below it. This also creates a new <b>Load Case 1</b>, because a study must have at least one.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1403832" rel="xid1403832">Modify a generative study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1417637" rel="xid1417637">Add material to a generative result</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/so_print_mesh" rel="so_print_mesh">Print an optimized solid mesh body</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389864" rel="xid1389864">Using Generative Design results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1447067" rel="xid1447067">Use simulation results to inform generative studies</a><br><br></div>
+            <div class="footer-content">Using load cases, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

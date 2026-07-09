@@ -1,0 +1,239 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate stresses on a bridge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate stresses on a bridge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_frame01">
+                     <h1 class="topic-title">Tutorial: Simulate stresses on a bridge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this tutorial, you explore how a load applied to a bridge will affect its structure.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_Bridge.asm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Open the Frame environment: Select <b>Tools</b> tab→<b>Environs</b> group→<b>Frame</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/frames_001.gif">.</p>
+                     </li>
+                     <li>
+                        <p>Create a structural frameworks analysis study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b> command.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Beam</b> mesh type, and then click the <b>Options</b> button. </p>
+                           </li>
+                           <li>
+                              <p>Under <b>Results Options</b>, in the <b>Nodal</b> section, select <b>Beam end reactions</b>.</p>
+                           </li>
+                           <li>
+                              <p>Click <b>OK</b> to close the <b>Create Study</b> dialog box.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>The <b>Define</b> command in the <b>Geometry</b> group is active. Select the bridge frame.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame02.gif"></p>
+                     </li>
+                     <li>
+                        <p>Accept the frame. </p>
+                        <p>The blue curves represent <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beam_curves" rel="beam_curves">beam curves</a>.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame03.gif"></p>
+                     </li>
+                     <li>
+                        <p>Define a force on the top beams.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b> command.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_force_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the command bar, change the selection filter to <b>Curve</b>.</p>
+                           </li>
+                           <li>
+                              <p> Select the four beams on the top of the frame.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame04.gif"></p>
+                           </li>
+                           <li>
+                              <p>The default force direction vector points up. Select the <b>Flip Direction</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_flip_button.gif"> to change the force direction so that it points down onto the frame. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame04a.gif"></p>
+                           </li>
+                           <li>
+                              <p>Type <b>100 kN</b> in the value box. This is equal to a 22481 pound force load. </p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept and click to finish. </p>
+                              <p>The force is placed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame06.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a fixed constraint to the base of the frame.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b> command.</p>
+                           </li>
+                           <li>
+                              <p>On the command bar, change the selection filter to <b>Node</b>.</p>
+                           </li>
+                           <li>
+                              <p>Select the beams shown below, near the end points closest to joints. When you are
+                                 finished, you should see constraint nodes at the six beam joints <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame07a.gif"> along the base of the frame.</p>
+                              <p>When using the <b>Nodes</b> filter, click along a beam and the closest end is selected.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame08.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept, and then click to finish. </p>
+                              <p>You can use the <b>Symbol Size/Spacing</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_symbol_size_button.gif"> on the command bar to increase the constraint symbol size so they are easier to see.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame07.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Simulation</b> pane, turn off loads and constraints.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the frame.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Mesh</b> command, and on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh command bar</a>, use the slider to define a subjective mesh size of <b>3</b> or <b>4</b>. </p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Mesh</b> button.</p>
+                              <p>The entire assembly is meshed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame10.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Solve the study—Select the <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b> command. </p>
+                        <p>After a few moments, the results are displayed in the <b>Simulation Results</b> environment.</p>
+                     </li>
+                     <li>
+                        <p>Display beam cross section properties.</p>
+                        <ol type="a">
+                           <li>
+                              <p>On the <b>Simulation</b> pane, expand the <b>Geometry</b> node.</p>
+                           </li>
+                           <li>
+                              <p>Select a frame component for which you want to display the beam cross section.</p>
+                              <p>Individual beams are highlighted in the graphics window as you hover over frame components
+                                 in the <b>Simulation</b> pane.</p>
+                           </li>
+                           <li>
+                              <p>Right-click and select the <b>View Beam Properties</b> command.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_training/view_beam_props_cmd.png"></p>
+                           </li>
+                           <p>For information about this panel, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beamprops1a" rel="beamprops1a">Beam properties</a>.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/result_training/beam_stress_properties.png"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Display beam end reaction plots.</p>
+                        <ol type="a">
+                           <li>
+                              <p>On the <b>Home</b> tab→<b>Data Selection</b> group, select:</p>
+                              <p><b>Result Type</b>=<b>Beam End Reactions</b></p>
+                              <p><b>Result Component</b>=<b>Beam Plane1 Moment</b>.</p>
+                              <ul style="list-style: none">
+                                 <li>
+                                    <p>The color bar header is turned off in this image.</p>
+                                 </li>
+                                 <li>
+                                    <p>The units for moment values in the image are newton meters.</p>
+                                 </li>
+                              </ul>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame09.gif"></p>
+                           </li>
+                           <li>
+                              <p>Change the <b>Result Component</b> list selection to <b>Beam Pl1 Shear Force</b>.</p>
+                              <p>The units for shear force values in the image are millinewtons. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_frame11.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Display beam diagram plots for beam end reactions and stress.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Home</b> tab→<b>Show</b> group→<b>Display Options</b> command. </p>
+                           </li>
+                           <li>
+                              <p>On the Display Options list, clear the <b>Beam Cross Section</b> check box, and select the <b>Beam Diagram</b> check box.</p>
+                              <p>The beam diagram plot is displayed for <b>Result Component</b>=<b>Beam Pl1 Shear Force</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/beam_diagram_endreaction_shear.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <b>Home</b> tab→<b>Data Selection</b> group, change the following:</p>
+                              <p><b>Result Type</b>=<b>Beam End Reactions</b></p>
+                              <p><b>Result Component</b>=<b>Beam Plane1 Moment</b></p>
+                              <p>The beam diagram plot for <b>Result Component</b>=<b>Beam Plane1 Moment</b> shows the bending moments.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/beam_diagram_endreaction.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <b>Home</b> tab→<b>Data Selection</b> group, change the following:</p>
+                              <p><b>Result Type</b>=<b>Stress</b></p>
+                              <p><b>Result Component</b>=<b>Beam Factor of Safety</b></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/beam_plot_fos.png"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>To learn more about beam plots:</p>
+                                 <ul>
+                                    <li>
+                                       <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beamprops1a" rel="beamprops1a">Beam properties</a></p>
+                                    </li>
+                                    <li>
+                                       <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot8a" rel="plot8a">Beam reaction component plots</a></p>
+                                    </li>
+                                    <li>
+                                       <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid433778" rel="xid433778">Beam stress component plots</a></p>
+                                    </li>
+                                    <li>
+                                       <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid452750" rel="xid452750">Beam diagrams</a></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/analyzeframe1p" rel="analyzeframe1p">Analyze a structural frame model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973886" rel="xid1973886">Define rigid links manually</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/node1h" rel="node1h">Define a node</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/release1h" rel="release1h">Define a release</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430558" rel="xid430558">Display a beam cross section</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_frame02" rel="fem_frame02">Tutorial: Create and simulate a roof truss framework</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973909" rel="xid1973909">Rigid link connectors</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot8a" rel="plot8a">Beam reaction component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid433778" rel="xid433778">Beam stress component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid452750" rel="xid452750">Beam diagrams</a><br><br></div>
+            <div class="footer-content">Tutorial: Simulate stresses on a bridge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

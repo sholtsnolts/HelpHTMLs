@@ -1,0 +1,448 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Flattening sheet metal parts</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Flattening sheet metal parts"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fltptn1a">
+                     <h1 class="topic-title">Flattening sheet metal parts</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>After constructing a sheet metal part, you can use the <b>Flat Pattern</b> and <b>Save As Flat</b> commands to create a flat pattern of a sheet metal part.</p>
+                  <h4 class="division-title">Using the Flat Pattern command</h4>
+                  <div>
+                     <p>Use the <b>Tools</b> tab →<b>Flat</b> group→<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/flatpattern1c" rel="flatpattern1c">Flat Pattern command</a> in the Sheet Metal environment to create a flat pattern in the same file as the formed
+                        sheet metal part.</p>
+                     <p>When you flatten a sheet metal part with the <b>Flat Pattern</b> command, a <b>Flat Pattern</b> feature is added to the <b>PathFinder</b> tab.</p>
+                     <p>If the sheet metal model changes, the flat pattern becomes outdated, as is indicated
+                        by the <img class="img-fluid" src="../../../common/graphicLibrary/se/sheet_metal/save_as_flat_update.png"> symbol next to the <b>Flat Pattern</b> feature in <b>PathFinder</b>. To update the flat pattern, right-click the <b>Flat Pattern</b> feature in <b>PathFinder</b>, then on the shortcut menu click <b>Update</b>.</p>
+                  </div>
+                  <h4 class="division-title">Using the Save As Flat command</h4>
+                  <div>
+                     <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/savflat1c" rel="savflat1c">Save As Flat command</a> flattens a sheet metal part and saves the part as one of the following document types:</p>
+                     <ul>
+                        <li>
+                           <p>Part document (.par)</p>
+                        </li>
+                        <li>
+                           <p>Sheet Metal document (.psm)</p>
+                        </li>
+                        <li>
+                           <p>AutoCAD document (.dxf)</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you use the <b>Save As Flat</b> command, the flattened document is not associative to the folded document.</p>
+                     </div>
+                     <p>You can create the flat pattern definition based on:</p>
+                     <ul>
+                        <li>
+                           <p> An existing flat pattern</p>
+                           <p> Select the <b>Use Existing Flat Pattern (Use Folded Model if Not Defined)</b> option on the <b>Flat Pattern Treatments</b> page of the <b>Solid Edge Options</b> dialog box to create the flat pattern based on an existing flat pattern. Any material
+                              you add or remove in the flat pattern environment is included when the flat is saved.
+                              If no flat pattern exists, the folded model is used to define the pattern. </p>
+                        </li>
+                        <li>
+                           <p>The folded model state</p>
+                           <p>Select the <b>Use Folded Model</b> option on the<b> Flat Pattern Treatments</b> page of the S<b>Solid Edge Options</b> dialog box to create the flat pattern definition based on the folded model state,
+                              even if a flat pattern already exists. Any material you add or remove in the flat
+                              pattern environment is excluded when the flat is saved.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Minimum bend radius</h4>
+                  <div>
+                     <p>To facilitate creation of flat patterns, Solid Edge always creates a minimum bend
+                        radius for flanges, contour flanges, and lofted flanges, even if you specify a bend
+                        radius value of zero (0.00). For metric documents, a zero bend radius is set to a
+                        value of approximately 0.002 millimeters. For English documents, a zero bend radius
+                        is set to a value of approximately 0.0000788 inches. If you need the bend radius to
+                        be exactly zero, you have to create the features in the Part environment.</p>
+                  </div>
+                  <h4 class="division-title">Cleaning up flat patterns</h4>
+                  <div>
+                     <p>When flattening sheet metal parts, the system adds bend relief to the flat pattern.
+                        This system-generated bend relief can cause problems to downstream manufacturing processes
+                        such as punching and nesting. While working in the Sheet Metal environment, you can
+                        set options on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/fltptrn1d" rel="fltptrn1d">Flat Pattern Treatments page</a> of the Options dialog box to automatically clean up the flat pattern.</p>
+                     <p>The options on the <b>Flat Pattern Treatments</b> tab control corner treatments, simplify B-splines in the model to arcs and lines,
+                        and remove the system-generated bend relief.</p>
+                     <p>If you change the options on this tab after a flat pattern is generated the system
+                        recomputes the flat pattern or updates the flat pattern.</p>
+                  </div>
+                  <h4 class="division-title">Managing flat pattern size</h4>
+                  <div>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/flatpattern2d" rel="flatpattern2d">Flat Pattern Options dialog box</a> to set the maximum flat pattern size and issue a warning if that size is violated.
+                        This is useful if a part cannot be manufactured because of sheet size limitations.</p>
+                     <p>The <b>Current Size</b> section of the dialog box displays the length and width of the current flat pattern.
+                        These values are read-only and cannot be changed manually. They are updated when the
+                        values change in the flat model and the model is updated. The <b>Alarm</b> section allows you to specify the maximum length and width values for the flat pattern.
+                        You can specify a maximum length, maximum width, or both. You can either enter these
+                        values or use default values that are specified on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/fltptrn1d" rel="fltptrn1d">Flat Pattern Treatments page</a> on the Options dialog box. If the flat pattern violates these size limitations, the
+                        <img class="img-fluid" src="../../../common/graphicLibrary/se/sheet_metal/save_as_flat_alarm.png">symbol is displayed next to the flat pattern entry in <b>PathFinder</b>. If you hover over the flat pattern entry, a tool tip displays the current flat pattern
+                        size along with the maximum size limitations.</p>
+                     <p>You can use the <b>Show Cut Size Range</b> and <b>Dimensions</b> option to display a range box for the flat pattern along with the dimensions for
+                        the current length and width of the flat pattern. The size of the pattern is determined
+                        when the flat pattern is created and is recalculated when the flat model is updated.</p>
+                  </div>
+                  <h4 class="division-title">Changing flat pattern position and orientation</h4>
+                  <div>
+                     <p>Use the <b>Rotate Face</b> and <b>Move Face</b> commands on the <b>Modify</b> tab in the<b> Flatten</b> environment to change the position or orientation of a flat pattern.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/command/flatpattern_rotate1.gif"></p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/command/flatpattern_move1.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The commands only support the <b>Body</b> selection type.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Flattening deformation features</h4>
+                  <div>
+                     <p>To remove a deformation feature after you flatten a part using the <b>Flat Pattern</b> and <b>Part Copy</b> commands, you can construct a cutout feature that is sized according to the area
+                        the deformation feature occupied. In many cases, you can use the <b>Include</b> command to create a cutout profile that is associatively linked to the edges of the
+                        deformation feature. Later, if the deformation feature changes, the cutouts also update.
+                        This approach maintains the true position for the deformation feature, which can be
+                        useful for creating downstream manufacturing documentation.</p>
+                     <p>Alternatively, you can use the commands on the command bar to remove the deformation
+                        features before to or after you flatten the part. For example, you can use the <b>Delete Faces</b> command to delete a deformation feature. The deformation feature is not physically
+                        deleted from the part, it is still available when working in the Sheet Metal environment.
+                        With this approach, the location of the deformation feature is lost in the flattened
+                        version of the part.</p>
+                  </div>
+                  <h4 class="division-title">Displaying deformation features in the flat pattern</h4>
+                  <div>
+                     <p>You can use the options in the <b>Formed Feature Display</b> section of the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/fltptrn1d" rel="fltptrn1d">Flat Pattern Treatments page</a> to specify how deformation features are displayed in the flat pattern.</p>
+                     <p>You can display the deformation features as a:</p>
+                     <table cellspacing="1" bgcolor="#FFFFFF" cellpadding="2">
+                        <colgroup span="1">
+                           <col span="1" width="50%">
+                           <col span="1" width="50%">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Formed feature</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/se/bj_flatpattern5.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Feature loop</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/se/bj_flatpattern6.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Feature origin</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/se/bj_flatpattern7.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Feature loop and feature origin</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/se/bj_flatpattern8.gif"></p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Saving deformation features to other files</h4>
+                  <div>
+                     <p>The <b>Formed Feature Display</b> section of the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/fltptrn1d" rel="fltptrn1d">Flat Pattern Treatments page</a> specifies how deformation features are exported when you use the <b>Save as Flat</b> to flatten the sheet metal model and save it to another document.</p>
+                     <p>When saving the document to .prn or .psm format:</p>
+                     <ul>
+                        <li>
+                           <p> <b>As Formed Feature</b>—Replaces the deformed feature with a cutout the size of the area consumed by the
+                              feature.</p>
+                        </li>
+                        <li>
+                           <p><b>As Feature Loops</b>—Replaces the loops representing the deformation feature with a curve.</p>
+                        </li>
+                        <li>
+                           <p><b>As Feature Origin</b>—Does not export the deformation feature or the feature origin.</p>
+                        </li>
+                        <li>
+                           <p><b>As Feature Loops and Feature Origin</b>—Replaces the loops representing the deformation feature with a curve and feature
+                              origins are not exported.</p>
+                        </li>
+                     </ul>
+                     <p>When saving the document to .dxf format:</p>
+                     <ul>
+                        <li>
+                           <p> <b>As Formed Feature</b>—Replaces the deformed feature with a 2D wireframe representation as they would appear
+                              in the formed condition.</p>
+                        </li>
+                        <li>
+                           <p><b>As Feature Loops</b>—Replaces the loops representing the deformation feature with a curve and are specified
+                              as either an up or down feature.</p>
+                        </li>
+                        <li>
+                           <p><b>As Feature Origin</b>—Does not export the deformation feature or the feature origin.</p>
+                        </li>
+                        <li>
+                           <p><b>As Feature Loops and Feature Origin</b>—Replaces the loops representing the deformation feature with a curve and are specified
+                              as either an up or down feature. Feature origins are not exported.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Flattening lofted flanges</h4>
+                  <div>
+                     <p>Only lofted flanges that consist of planes, partial cylinders, and partial cones can
+                        be flattened. Lofted flanges that contain ruled surfaces cannot be flattened. The
+                        type of geometry constructed depends upon how you draw the profiles.</p>
+                     <p>A lofted flange is constructed by mapping the faces between corresponding profile
+                        elements. For example, profile lines A1 and B1 are mapped to construct planar faces.
+                        Profile arcs A2 and B2 are mapped to construct conical faces.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/lftflg2.gif"></p>
+                     <p>If the two profiles have the same number and type of elements, and each element on
+                        the first profile maps to the same element type on the second profile (line to line,
+                        or arc to arc), in most cases, you can flatten it.</p>
+                  </div>
+                  <h4 class="division-title">Ruled surface examples</h4>
+                  <div>
+                     <p>Any lofted flange that contains a ruled surface cannot be flattened. The following
+                        examples describe when a ruled surface is constructed:</p>
+                     <ul>
+                        <li>
+                           <p>A face constructed where line A1 has a different angle relative to line B1.</p>
+                        </li>
+                        <li>
+                           <p>A face constructed where arc A2 has a different start angle or included angle relative
+                              to arc B2.</p>
+                        </li>
+                        <li>
+                           <p>A face constructed using an arc and a line.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If the lofted flange contains faces that would prevent it from being flattened, a
+                           gray arrow is displayed next to the feature on the PathFinder tab. If you hover over
+                           the feature in PathFinder, a message describing the problem is displayed in the status
+                           bar.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">PMI dimensions in the flat pattern</h4>
+                  <div>
+                     <p>When a flat pattern is created, PMI dimensions are placed as driven dimensions which
+                        are for reference only and cannot be changed while in the flat pattern. If you select
+                        a PMI dimension in the flat pattern, all fields on the dimension edit control are
+                        disabled. If you make changes to the model, the PMI dimensions are updated when the
+                        flat pattern updates.</p>
+                  </div>
+                  <h4 class="division-title">Adding material to the flat pattern</h4>
+                  <div>
+                     <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/tab1c" rel="tab1c">Tab command</a> to add material to a flat pattern.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/flatpatterntab1.gif"></p>
+                     <p>Any tabs created in the flat pattern are placed in the flat pattern node of <b>PathFinder</b>. Any material added to the flat pattern appears only in the flat pattern state. The
+                        folded model will not reflect the material addition.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/flatpatterntab2.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="creating_relief_patches">Creating relief patches in flat patterns</h4>
+                  <div>
+                     <p>Use the <b>Relief Patch</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/command/relief_patch_1.png"> to remove reliefs in the flat pattern that are not needed in manufacturing.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The command is disabled if no flat pattern exists.</p>
+                     </div>
+                     <p>Reliefs automatically created by lofted flanges are the most common examples for use
+                        of the command, but you can also patch bend and corner reliefs.</p>
+                     <p>You can select the reliefs that you want to patch and you can edit the relief sketch
+                        as needed.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/relief_patch_select1.png"></p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/relief_patch_select2.png"></p>
+                     <p>Bend lines are not affected by the command and remain as they were in the drawing
+                        before the relief patch was applied. Bend tables also remain unchanged after relief
+                        patches are applied.</p>
+                  </div>
+                  <h4 class="division-title" id="saving_dxf_files">Saving sheet metal files as AutoCAD documents (.dxf)</h4>
+                  <div>
+                     <p>When you save a sheet metal part as an AutoCAD document (.dxf), it is saved as 2D.
+                        Collinear and concentric arcs are merged into single elements. Bend lines are added
+                        as wireframe bodies.</p>
+                     <p>Layers are used to separate the various types of information such as bends, etches,
+                        deformation features, and edges. A layer scheme, stored in the sesmf.ini file, defines
+                        the information that is stored on the different layers. The layer name is displayed
+                        on the <b>Save as Flat DXF Options </b>dialog box and you can edit the value for the layer name.</p>
+                     <p>The default layer scheme stored in the <b>sesmf.ini</b> file is:</p>
+                     <table cellspacing="1" bgcolor="#FFFFFF" cellpadding="2">
+                        <colgroup span="1">
+                           <col span="1" width="27%">
+                           <col span="1" width="35%">
+                           <col span="1" width="38%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th rowspan="1" colspan="1">
+                                 <p>Element type</p>
+                              </th>
+                              <th rowspan="1" colspan="1">
+                                 <p>Layer name</p>
+                              </th>
+                              <th rowspan="1" colspan="1">
+                                 <p>Layer details</p>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Default or Normal edges</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>OUTER_LOOP and INTERIOR_LOOPS</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>All edges from flanges, contour flanges, lofted flanges, tabs, cutouts, and sheet
+                                    metal cutouts are placed on these layers. The layers can contain visible and hidden
+                                    edges.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Bend down centerlines</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>DOWN_CENTERLINES</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>This layer contains the bend centerlines of all linear and conical bends that are
+                                    in the down direction relative to the selected output face. These lines are generated
+                                    in the flatten process and do not exist in the model. The line style associated with
+                                    bend down centerlines can be saved to this layer.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Bend up centerlines</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>UP_CENTERLINES</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>This layer contains the bend centerlines of all linear and conical bends that are
+                                    in the up direction relative to the selected output face. These lines are generated
+                                    in the flatten process and do not exist in the model. The line style associated with
+                                    bend up centerlines can be saved to this layer.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Deformation features found on down bends</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>DOWN_FEATURES</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>This layer contains the edges of all deformation features that are in the down direction
+                                    relative to the selected output face. This layer can contain visible and hidden edges.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Deformation features found on the up bends</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>UP_FEATURES</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>This layer contains the edges of all deformation features that are in the up direction
+                                    relative to the selected output face. This layer can contain visible and hidden edges.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Index marks found on the bends of lofted flanges</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>INDEX_MARKS</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>This layer can contain visible and hidden edges.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Etch features found on the down bends</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>DOWN_ETCH</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>This layer can contain visible and hidden edges.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Etch features found on the up bends</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>UP_ETCH.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>This layer can contain visible and hidden edges</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Etches that cannot be classified are placed on the OTHER layer.</p>
+                     </div>
+                     <p>You can use the <b>Export Refined Loops</b> parameter in the <b>sesmf.ini</b> to defines how refined loops are exported to the DXF file when the file is saved
+                        as a sheet metal flat. </p>
+                     <p>Eligible parameter values are:</p>
+                     <ul>
+                        <li>
+                           <p>0 - Default value </p>
+                        </li>
+                        <li>
+                           <p>1 - Creates two additional layers, REFINED_OUTER_LOOP and REFINED_INTERIOR_LOOP in
+                              the DXF file. </p>
+                        </li>
+                     </ul>
+                     <p>The following shows the difference in an outer loop (A) and a refined outer loop (B).</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/command/outer_loop_differences1.png"></p>
+                     <p>The following shows the difference in an inner loop (A) and a refined interior loop
+                        (B)</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/command/inner_loop_differences1.png"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/flatpattern2h" rel="flatpattern2h">Construct a flat pattern in the sheet metal part document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/xid1757479" rel="xid1757479">Apply a patch to relief in a flat pattern</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/savflat2h" rel="savflat2h">Save and flatten a sheet metal part</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/fltptn2a" rel="fltptn2a">Creating flat pattern drawings</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/flatpattern1c" rel="flatpattern1c">Flat Pattern command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/flatpattern1d" rel="flatpattern1d">Flat Pattern command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/flatpattern3d" rel="flatpattern3d">Flat Pattern command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/flatpattern2d" rel="flatpattern2d">Flat Pattern Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/xid1755019" rel="xid1755019">Relief Patch command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/xid1755020" rel="xid1755020">Relief Patch command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/savflat1c" rel="savflat1c">Save As Flat command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/svfltptrn1d" rel="svfltptrn1d">Save as Flat command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/savflat1d" rel="savflat1d">Save As Flat dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/saveasflat3d" rel="saveasflat3d">Save As Flat DXF Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/saveasflat4d" rel="saveasflat4d">Layers tab (Save As Flat DXF Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/saveasflat5d" rel="saveasflat5d">Bend Data tab (Save As Flat DXF Options dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/saveasflat6d" rel="saveasflat6d">Font Mapping tab (Save As Flat DXF Options dialog box)</a><br><br></div>
+            <div class="footer-content">Flattening sheet metal parts, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

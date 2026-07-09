@@ -1,0 +1,141 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Managing document properties</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Managing document properties"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid997143">
+                     <h1 class="topic-title">Managing document properties</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use the Property Manager command to modify existing properties or create new
+                     properties for a document in Solid Edge. The command displays the Property Manager
+                     Select dialog box that allows you to select folders and files that contain properties
+                     that you want to edit. The dialog box reacts differently depending on whether or not
+                     you have an active document.</p>
+                  <p>If you have an active document in Solid Edge, the Property Manager Select dialog box
+                     is not displayed. The Property Manager dialog box is displayed to allow you to edit
+                     the properties of the active document. You can use the No Levels and BOM View options
+                     on the Property Manager dialog box to display the document in a list view with no
+                     levels or a BOM view with levels.</p>
+                  <p>If you have no documents open in Solid Edge, the Property Manager Select dialog box
+                     is displayed. You can click the folders and files that contain properties you want
+                     to edit and click the Add button to add them to the Edit Properties box. You can select
+                     the OK button to display the Property Manager dialog box and edit the properties for
+                     selected documents.</p>
+                  <h4 class="division-title">Editing document properties</h4>
+                  <div>
+                     <p>Once you make selections on the Property Manager Select dialog box and click the OK
+                        button, the Property Manager dialog box is displayed to allow you to edit property
+                        values. Any properties that you cannot edit are disabled and appear in gray.</p>
+                     <p>To edit a value, click on the appropriate property cell and type in the new value.
+                        When you edit a property, the document containing the property is checked out to prevent
+                        others from making changes. After you edit a property value, the property cell is
+                        underlined to indicate that it has been changed. &nbsp;The cell remains underlined until
+                        you click the Save button to save the changes or click the Restore button to set the
+                        value back to the previous value. &nbsp;You can use the Copy, Cut, and Paste buttons to
+                        edit information between cells.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The Save button is disabled when you use the Property Manager command within Solid
+                           Edge. To save your changes, use the Save command on the File menu to maintain assembly
+                           integrity.</p>
+                     </div>
+                     <p>You can use the Show Properties dialog box to specify the properties you want to display
+                        on the Property Manager dialog box. &nbsp;To display the dialog box, in the list of displayed
+                        documents and folders in the Property Manager dialog box, click the right mouse button
+                        on any row containing information, and then click Show Properties on the shortcut
+                        menu.</p>
+                     <p>You can add properties to the list that is displayed on the Property Manager dialog
+                        box. To add a property to the displayed list, on the Show Properties dialog box, select
+                        the property in the Available Properties box and click the Add button to add the property
+                        to the Show These Properties in This Order Box. &nbsp;You can use the Select Available
+                        Properties From pulldown menu to control the list of available properties.</p>
+                     <p>You can remove properties from the list that is displayed on the Property Manager
+                        dialog box. To remove a property from the displayed list, on the Show Properties dialog
+                        box, select the property in the Show These Properties in This Order box, and click
+                        the Remove button.</p>
+                     <p>You can use the Move Up and Move Down buttons to change the display order for the
+                        properties. Use the Move Up button to move the property further to the left in the
+                        list and the Move Down button to move the property further to the right.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can select a column heading in the Property Manager dialog box, then use drag
+                           and drop to change the order of the columns.</p>
+                     </div>
+                     <p>To create new document properties, click the New button to display the New Property
+                        dialog box. After you add the information for the new property and click the OK button,
+                        the property appears in the Show These Properties in This Order box. When you click
+                        the OK button on the Show Properties dialog box, the new property is displayed in
+                        the list.</p>
+                     <p>You can use the Files of Type option to control the types of documents that appear
+                        in the list of documents. You can edit the properties for non-Solid Edge documents.
+                        &nbsp;However, for non-Solid Edge documents, you can only edit profile properties for managed
+                        documents.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The Files of Type option is disabled in the BOM view.</p>
+                     </div>
+                     <p>You can edit the properties for both managed and unmanaged documents. However, you
+                        cannot edit both types at the same time. You determine the type of documents you want
+                        to edit when you select the first folder or document on the Property Manager Select
+                        dialog box. You must be able to check out a managed document to edit the document
+                        properties. &nbsp;If you edit a property for a managed document that is not checked out,
+                        the document is checked out when you make the change, but the cache is not updated
+                        with linked documents. You can change the document profile for a managed document
+                        if you have the Profile property displayed on the Property Manager dialog box.</p>
+                     <p>If a property for a managed document belongs to the workspace, but does not belong
+                        to a profile, then the property is assigned a String data type. For example, suppose
+                        a property, Color, belongs to a workspace named //servername/workspace. The workspace
+                        contains a profile, SampleProfile, that does not contain the property Color. Therefore
+                        none of the documents associated with SampleProfile contain the property. If you use
+                        the Property Manager command and select a managed document that is associated with
+                        SampleProfile, the data type of the selected property for the document is String or
+                        Text. If you edit the property, the Color property is added to the document with a
+                        data type or Text.</p>
+                  </div>
+                  <h4 class="division-title">Property display</h4>
+                  <div>
+                     <p>The display of property values in the list depends on whether or not the property
+                        belongs to the profile. &nbsp;If the property belongs to the profile, the list displays
+                        the property value for managed document. If the property does not belong to the profile,
+                        the property is either a standard or custom property for the document and the list
+                        displays the displays the property value from the unmanaged document.</p>
+                     <p>For example, suppose you use the Property Manager command to change the value of a
+                        profile property named Width from 20 to 25. Then, you save the document, but do not
+                        close it in Solid Edge. If you re-run the Property Manager command, the value displayed
+                        in the list is still 20. Since you have not checked in the document that contains
+                        the changes to the Width property, the value for the property in the library is still
+                        20.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/propman1h" rel="propman1h">Edit document properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/manprop2h" rel="manprop2h">Modify the property display list</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/propertymanager1c" rel="propertymanager1c">Property Manager command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/propmang2d" rel="propmang2d">Property Manager dialog box</a><br><br></div>
+            <div class="footer-content">Managing document properties, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

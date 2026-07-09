@@ -1,0 +1,373 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with Autodesk files in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with Autodesk files in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="acse5a">
+                     <h1 class="topic-title">Working with Autodesk files in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In Solid Edge you can work with files created in Autodesk's 3D solid modeling package,
+                     Mechanical Desktop, or their 2D mechanical drafting package, AutoCAD.</p>
+                  <h4 class="division-title">Using Mechanical Desktop files in the Part environment</h4>
+                  <div>
+                     <p>You can use a Mechanical Desktop solid model in the Part environment by translating
+                        the file into a Solid Edge part document. The solid model becomes a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/base_feature" rel="base_feature">base feature</a>, which you can modify by adding new features. For example, you can add material using
+                        the <b>Extrude</b> command or remove material using the <b>Cutout</b> or <b>Hole</b> commands.</p>
+                     <p>Mechanical Desktop files that have been saved as Solid Edge part documents can be
+                        detailed in the Draft environment.</p>
+                  </div>
+                  <h4 class="division-title">Using Mechanical Desktop files in the Assembly environment</h4>
+                  <div>
+                     <p>You can use a Mechanical Desktop solid model in the Assembly environment by translating
+                        the file into a Solid Edge part document and then placing this part into an assembly.</p>
+                  </div>
+                  <h4 class="division-title">Working with embedded and linked documents</h4>
+                  <div>
+                     <p>With linking and embedding you can insert objects of different file formats directly
+                        into your Solid Edge Draft document.</p>
+                     <p>An <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/embed" rel="embed">embedded</a> document is foreign data that exists solely within its container. In this case, Solid
+                        Edge Draft is the container. An embedded document has no external references and is
+                        displayed by the application that created the data. The display of the embedded data
+                        is done in the background by the application and is displayed in Solid Edge Draft
+                        using a Smart Frame. The Smart Frame technology is a rendering tool. It does not convert
+                        the data; it just displays it using the file's native software.</p>
+                     <p>A <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/link" rel="link">linked</a> document is foreign data that exists external to its container. The linked document
+                        is still foreign data and is displayed similarly to the embedded document. That is,
+                        the application that created the data is running in the background, and it is displayed
+                        using a Smart Frame.</p>
+                     <p>You can import and export embedded or linked documents to an AutoCAD document.</p>
+                     <p>You can translate an AutoCAD file into a native Solid Edge Draft document by selecting
+                        the AutoCAD file in the Solid Edge<b> Open File</b> dialog box and specifying that you want to open it using a draft document template.
+                        After you have translated the AutoCAD file into a draft document, you can copy and
+                        paste 2D wireframe elements from the draft document into a profile window in Solid
+                        Edge Part or Sheet Metal. You can add <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/relationship" rel="relationship">relationships</a> and dimensions or modify the elements. The profile can then be used to construct
+                        a new solid or to add a feature to an existing solid.</p>
+                  </div>
+                  <h4 class="division-title">Layers</h4>
+                  <div>
+                     <p>When you import an AutoCAD file into Solid Edge, a layer is created for each layer
+                        name found in the AutoCAD file. Layer names are not case sensitive, can contain 250
+                        characters, and can include the following characters: ($), (-), and (_). The name
+                        given in the Solid Edge file is the same as the name used in AutoCAD. All of the translated
+                        graphic elements are placed on the corresponding layers in Solid Edge. The same process
+                        is followed when you export a Solid Edge file to AutoCAD.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can use the <b>Delete Empty Layers</b> command on the <b>Layers</b> tab to delete any unused layers that appear in AutoCAD documents that you open in
+                           Solid Edge.</p>
+                     </div>
+                     <p>When you export your Draft document to AutoCAD, any special characters, \ &lt; &gt; / ?
+                        “ : ; * | , = ` are converted to underscores in AutoCAD. Also, even though a layer
+                        can contain 250 characters, only AutoCAD version 2000 supports long layer names.</p>
+                     <p>When you export to any other version of AutoCAD, long layer names are truncated to
+                        26 characters.</p>
+                     <p>Solid Edge Draft documents contain a single set of layers that are used across the
+                        entire document. If a layer is created on Sheet1 the layer name is also available
+                        on all additional sheets, including the Background, 2D Model, and any new sheet you
+                        create. The <b>Hide</b> and <b>Show</b> commands that controls layer display is sheet sensitive. For example, if you create
+                        geometry on layer1 on Sheet1, you cannot display the geometry from layer 1 on Sheet2.</p>
+                     <p>The only exception to this rule is the background sheet. Since it is necessary to
+                        view a single background sheet across multiple drawing sheets, the layer control of
+                        the background sheet determines what you see from the working sheet. In other words,
+                        the layer control from the working sheet has no effect on the display from the background
+                        sheet.</p>
+                     <p>When exporting to dxf or dwg formats, you may have a conflict between the show/hide
+                        state of the background sheet and working sheet. It is important to manage your layers
+                        properly to avoid such collisions. The easiest way to avoid problems is by creating
+                        a special set of layers to be used only for the background information. You might
+                        want to add a prefix or suffix to these layers to set them apart and never use these
+                        layers on the drawing sheet.</p>
+                  </div>
+                  <h4 class="division-title">Mapping AutoCAD fonts in Solid Edge</h4>
+                  <div>
+                     <p>Font mapping between AutoCAD and Solid Edge is critical. When fonts are not mapped
+                        or are mapped incorrectly, the overall accuracy and appearance of the drawings may
+                        be altered. Examples of incorrect mapping problems could include text overruns in
+                        a title box or mechanical symbols, such as diameter and degree symbols, disappearing
+                        or being placed incorrectly.</p>
+                     <p>In most cases, the default settings used in the AutoCAD Translation Wizard will be
+                        sufficient. However, if you want to use special fonts, you must use the wizard to
+                        add them.</p>
+                     <p>If you export a Solid Edge Draft file to AutoCAD (.dwg), the workstation that will
+                        read the .dwg file must have the Solid Edge font loaded for certain symbols to appear
+                        correctly.&nbsp;You can use the AutoCAD Export wizard to map the Solid Edge font to a font
+                        that already exists on the workstation that will read the .dwg file.</p>
+                  </div>
+                  <h4 class="division-title">Exporting Solid Edge files to model space</h4>
+                  <div>
+                     <p>By default, all geometry in the drawing views and annotations found on the active
+                        sheet is exported to AutoCAD model space. Use the <b>Model Space Scaling</b> options on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwizms1d" rel="acexpwizms1d">AutoCAD Translation Wizard (Model Space Scaling)</a> to specify the scale factor based on the scales used in the active sheet. You can
+                        use the sheet scale, use the base view scale, or specify a selected scale.</p>
+                     <p>If the Draft document contains multiple sheets, use the <b>Model Space Export</b> options to export only the active sheet or all sheets in the document to AutoCAD
+                        model space.</p>
+                     <p>Use the <b>Export to Paper Space</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acexpwiz1d" rel="acexpwiz1d"> AutoCAD Translation Wizard</a> to export the dimensions, annotations, and other items on the drawing sheet in AutoCAD
+                        paper space and export the drawing view geometry to model space. This creates an AutoCAD
+                        file that contains geometry at a 1:1 scale and a paper space that reflects the exact
+                        drawing of the Solid Edge draft file.</p>
+                  </div>
+                  <h4 class="division-title" id="seacadini">The seacad.ini file</h4>
+                  <div>
+                     <p>The <b>seacad.ini</b> file, located in the Solid Edge Preferences\Translators folder, is used to store
+                        the settings selected from the user interface. When you make a change to a parameter
+                        in the options form, a new value is saved to the <b>seacad.ini</b> file.</p>
+                     <p>There are some parameters that are not exposed through the user interface. You can
+                        use a text editor, such as Notepad, to set these parameters. However, if you edit
+                        this file, use extreme caution in setting these parameters. Errors made to this file
+                        can adversely affect the quality of the translation. The following list describes
+                        parameters that are not exposed through the interface.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="25%">
+                           <col span="1" width="75%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Parameter</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Description</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Enable Logging=0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Turns on or off the creation of the log file. The default is off.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Acis Bodies=1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Determines whether or not ACIS bodies are written to .SAT format. The default is yes.&nbsp;You
+                                 can set the flag to 0 if you do not want to import the ACIS bodies to .SAT format.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Read Default Units=64</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the import unit value. Possible values for units are: 59=meters, 61=millimeters,
+                                 62=centimeters, 63=kilometers, 64=inch, 65=feet, and 66=yards.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Template File =</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Not used.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Write Version=13</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Determines what version of AutoCAD to export to.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Read Default Width=0.000000</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the Default Width parameter from the Import Options/Line Width dialog box.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>MFC Application=0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Not used.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Process PaperSpace=1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Sets flag for translating paper space. If this flag is set to 0, the file will be
+                                 translated as model space even if it was saved in paper space. Setting this flag to
+                                 1 allows paper space to be translated.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export All Graphics to PaperSpace = 0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Sets flag to export DXF/DWG to model space or paper space. The default is AutoCAD
+                                 model space.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Process Multiple Orientation in Viewports=0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls if multiple viewports are translated or not. The default is on.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Part Layers=1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Creates AutoCAD layer names that are derived from part file names that make up a draft
+                                 file from a Solid Edge assembly. The graphics that represent each part are then placed
+                                 on these layers.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Break Dimensions=1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls how a dimension is created during the import process. With this parameter,
+                                 dimensions can be created as graphics or as dimensions. The default is as graphics.
+                                 Dimensions translated as dimensions are no longer supported.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Write Decimal Places = 10</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the accuracy of the .DXF file being created. 10 indicates the number of decimal
+                                 places maintained.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Maximum Number Layer Name Chars=16</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the length of the name used as a layer name in AutoCAD (AutoCAD has a limit
+                                 of 16 characters for layer names). The Maximum Number of Layer Name Chars is used
+                                 along with the Part layer name parameter.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Code Page=0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Enables AutoCAD drawings to be opened both in the language that the drawing was created
+                                 and in the language of a different country to which the drawing might be sent without
+                                 any loss of information. The Code Page parameter is used during the export process.
+                                 This was implemented for the support of the Kanji character set.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Drawing View To Block=1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Works along with the option to Save the Draft file to model space. When set to 1 the
+                                 members of a drawing view are exported as an AutoCAD block. When set to 0, the members
+                                 of a drawing view are exported as individual entities.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Groups As Entities=1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>This option is not found in the SEACAD.ini file but can be added. When you add the
+                                 option to the .ini file, Solid Edge graphic groups are exported as simple elements
+                                 in AutoCAD, instead of blocks. This parameter will also override the parameter Export
+                                 Drawing View To Block=1.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Annotation Color=7</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Defines the color for all annotations. If the Enable Layer and Attribute Mapping parameter
+                                 is on it will over ride this parameter. The possible values are 1–7. The default value
+                                 is 7. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Single Line Text Without Block=0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Exports text and callouts in an unblocked state. The default is 0, which creates blocks
+                                 for all text and callouts. You can set the value to 1 if you want to export text and
+                                 callouts in the unblocked state.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Multiline Text As Multiline Text=0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Exports Solid Edge multiline text boxes as multiline or single line text. The default
+                                 is 1, which exports the text boxes as multiline text boxes. You can set the value
+                                 to 0 if you want to export the text boxes as single line text boxes.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Break BSplines At Duplicate Control Points On Import=1</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Breaks B-spline curves at the point where duplicate control points exist. The default
+                                 value for the parameter is 1, which breaks the B-spline curves at the duplicate control
+                                 points. You can set the value to 0 if you do not want to break B-spline curves at
+                                 the duplicate control points.</p>
+                           </td>
+                        </tr> 
+                        <tr> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Export Watermark As Text=1</p> </td> 
+                           <td rowspan="1" valign="top" colspan="1"> 
+                              <p>Exports watermark annotations as text. This parameter applies to annotations created
+                                 in the draft document using the <b>Watermark</b> command, and to text boxes converted to watermarks using the <b>Set text box as watermark</b> option on the <a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/textpr2d" rel="textpr2d"><b>Info</b> tab (<b>Text Box Properties</b> dialog box)</a>. </p> </td> </tr>
+                     </table>
+                     <p>When you import polylines to Solid Edge, they are translated as a complex string element.
+                        The element will contain lines, arcs, or bspline curves. It is not suitable for placing
+                        dimensions, nor can it be used directly in the Sketch environment.</p>
+                     <p>You can add an <b>Import Polyline Segments</b> parameter to the <b>seacad.ini</b> file and set the value to 1 to import polyline segments as individual lines rather
+                        than grouping them into a line string.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse2d1a" rel="acse2d1a">Quick-Start overview for AutoCAD 2D users</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse1a" rel="acse1a">AutoCAD-based workflow examples</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse3a" rel="acse3a">Trademark Information</a><br><br></div>
+            <div class="footer-content">Working with Autodesk files in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

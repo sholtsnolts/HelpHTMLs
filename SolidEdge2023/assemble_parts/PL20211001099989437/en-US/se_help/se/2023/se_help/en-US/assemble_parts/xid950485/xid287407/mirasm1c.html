@@ -1,0 +1,195 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title> Mirror Components command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title=" Mirror Components command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mirasm1c">
+                     <h1 class="topic-title"><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/mirasm.gif"> Mirror Components command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Mirror Components allows you to mirror selected components about a plane in the active
+                     assembly and are associative to their parent. Mirrored components use the insert assembly
+                     copy and inter-part copy functionality to create associative copies of the mirrored
+                     components.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Associative mirror functionality is available in ST5 and later versions. The old behavior
+                        (non associative mirror) is still available through the application program interface
+                        and delivered in the custom folder in the product directory.</p>
+                  </div>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/mircomp1.gif"></p>
+                  <p>The Mirror command bar guides you through the mirror process:</p>
+                  <ol type="1">
+                     <li>
+                        <p>Select Components Step.</p>
+                     </li>
+                     <li>
+                        <p>Select Mirror Plane Step.</p>
+                     </li>
+                     <li>
+                        <p>Mirror Settings Step in the Mirror Components dialog box.</p>
+                        <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm2d" rel="mirasm2d">Mirror Components dialog box</a> allows you to specify the output options you want.</p>
+                     </li>
+                  </ol>
+                  <h4 class="division-title">Selecting the components</h4>
+                  <div>
+                     <p>After you define the mirror plane, you can select the components to mirror in the
+                        graphic window or Assembly PathFinder. When selecting parts in the graphic window,
+                        you can select individual parts, or you can define a fence to select a set of parts.
+                        You can mirror parts, subassemblies, or the entire assembly. To select an assembly,
+                        you must use Assembly PathFinder. When you finish selecting components, click the
+                        Accept button on the command bar or click the right mouse button.</p>
+                  </div>
+                  <h4 class="division-title">Selecting the mirror plane</h4>
+                  <div>
+                     <p>When mirroring components, you first select an existing assembly reference plane that
+                        defines the mirror plane you want.</p>
+                  </div>
+                  <h4 class="division-title">Defining the mirror settings</h4>
+                  <div>
+                     <p>When you accept the component set, the Mirror Components dialog box is automatically
+                        displayed so you can define the mirror settings you want. A preliminary copy of the
+                        mirrored components is also displayed in the graphic window. The Mirror Components
+                        dialog box allows you to define additional parameters for the set of components you
+                        are mirroring. For components that require a new document you can also define a destination
+                        folder and the template you want to use.</p>
+                  </div>
+                  <h4 class="division-title">Determining component symmetry</h4>
+                  <div>
+                     <p>Solid Edge analyzes each part to determine if it is symmetric or asymmetric. If you
+                        are mirroring a subassembly, the entire subassembly is also analyzed for symmetry.
+                        Components are analyzed for symmetry with respect to the three global and three principal
+                        axes by performing a physical properties calculation.</p>
+                     <p>The results of the symmetry analysis are used to determine the initial settings on
+                        the Mirror Components dialog box. Symmetric components will have the Rotate action
+                        set and asymmetric components will have the Mirror action set. You can change these
+                        settings to get the result you want.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You should evaluate each component you are mirroring to determine whether the symmetry
+                           analysis meets your requirements.</p>
+                     </div>
+                     <p>If a component is symmetric about at least one of the three global reference planes,
+                        or one of the three principal physical properties axes, the component is considered
+                        symmetric for mirroring purposes.</p>
+                     <p>For example, part (A) is considered symmetric because it is symmetric about at least
+                        one of the global reference planes. Part (B) is considered asymmetric because the
+                        small circular protrusion on the side of the part prevents it from being symmetric
+                        about any of the three global reference planes or any of the three principal physical
+                        properties axes.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/mircomp2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Symmetric components</h4>
+                  <div>
+                     <p>When a component is determined to be symmetric, the Action column on the Mirror Settings
+                        dialog box is set to Rotate for the component. The Adjust column specifies which axis
+                        or plane is used to rotate the part into the proper position.</p>
+                     <p>When the Rotate action is set, the original document is reused and a new occurrence
+                        of the original component is placed in the assembly.</p>
+                  </div>
+                  <h4 class="division-title">Asymmetric components</h4>
+                  <div>
+                     <p>When a component is determined to be asymmetric, the Action column on the Mirror Settings
+                        dialog box is set to Mirror for the component. The options in the Adjust column are
+                        unavailable when the Action option is set to Mirror.</p>
+                     <p>When the Mirror action is set, a new document name is specified in the Mirrored Components
+                        column, and a default folder is specified in the Create In column. The filename for
+                        the new document is derived from the original document name. For example, if the original
+                        document name was <b>Part1.par</b>, the new document name is <b>Part1__mir.par</b>.</p>
+                     <p>Part copy technology is used to construct a mirrored copy of the geometry in the new
+                        document, and the mirrored geometry is associative to the original document. If you
+                        make design modifications to the original document, the geometry in the new document
+                        updates.</p>
+                     <p>Although the Adjust options are unavailable when the Action column is set to Mirror,
+                        you can reposition a component manually after completing the mirror operation by applying
+                        assembly relationships.</p>
+                  </div>
+                  <h4 class="division-title">Changing mirror component settings</h4>
+                  <div>
+                     <p>For both symmetric and asymmetric components, you can override the system-applied
+                        settings in the Action and Adjust columns. For example, when mirroring an asymmetric
+                        component, you may want to reuse the original document, rather than a mirrored copy
+                        in a new document. To do this, change the setting in the Action column to Rotate,
+                        which also allows you to specify a plane of rotation in the Adjust column.</p>
+                     <p>Examples of other situations where you may want to override the system-applied settings
+                        for the Mirror and Rotate actions:</p>
+                     <ul>
+                        <li>
+                           <p>Components that have threaded features. When you set the Mirror action for a part
+                              that has threaded features, the thread direction is reversed. You may want to set
+                              the Rotate option, then reposition the part after the mirror operation, if required.</p>
+                        </li>
+                        <li>
+                           <p>Asymmetric components that will be replaced after the mirror operation. If you plan
+                              to immediately replace an asymmetric component with another existing, asymmetric component
+                              after the mirror operation, you can set the Rotate action to avoid creating a new
+                              document that is not required.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Adjusting component position</h4>
+                  <div>
+                     <p>When you set the Action option to Rotate, another occurrence of the original component
+                        is placed in the assembly, and you can select an option in the Adjust column to change
+                        how the component is positioned in the assembly. </p>
+                     <p>For example, you may want to position another occurrence of the asymmetric part (A)
+                        in the assembly by rotating it about reference plane (B), such that it is positioned
+                        as shown at (C).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/mircomp3.gif"></p>
+                     <p>Because the component is asymmetric, the Action option defaults to Mirror, which creates
+                        a new document and positions it as shown. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/mircomp4.gif"></p>
+                     <p>Since you want another occurrence of the original document, and not a new document
+                        with mirrored geometry, you first must change the Action option to Rotate. You can
+                        then set the Adjust options (A), (B) and (C) until the part is in the proper position
+                        (C).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/mircomp5.gif"></p>
+                     <p>To complete the mirror operation, click OK on the Mirror Settings dialog box, then
+                        click the Finish button on the command bar.</p>
+                  </div>
+                  <h4 class="division-title">Drop</h4>
+                  <div>
+                     <p>Selecting a mirror component and clicking drop on the shortcut menu removes the associativity
+                        and the components are placed in the active assembly and no longer a part of the mirrored
+                        component.</p>
+                  </div>
+                  <h4 class="division-title">Virtual components</h4>
+                  <div>
+                     <p>You cannot mirror or rotate virtual components. The Select Step will allow you to
+                        select them, but in the Mirror Settings dialog box, these components will be set to
+                        Omit and the row is disabled.</p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm1d" rel="mirasm1d">Mirror command bar</a></p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm2d" rel="mirasm2d">Mirror Settings dialog box</a></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1h" rel="ptnprt1h">Build a pattern of parts in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/drppat1h" rel="drppat1h">Drop an assembly pattern</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm1h" rel="mirasm1h">Mirror components in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1900654" rel="xid1900654">Copy and paste assembly components</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1a" rel="ptnprt1a">Pattern, mirror, and copy components in assemblies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1c" rel="ptnprt1c">Pattern Parts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptnprt1d" rel="ptnprt1d">Pattern Parts command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptndup1c" rel="ptndup1c">Duplicate Component command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptndup1d" rel="ptndup1d">Pattern Parts command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/drppat1c" rel="drppat1c">Drop Pattern command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm2c" rel="mirasm2c">Remove Override Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm1d" rel="mirasm1d">Mirror Components command bar (Assembly)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/mirasm2d" rel="mirasm2d">Mirror component options (Assembly)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ptncrv1c" rel="ptncrv1c">Pattern Along Curve (assembly)</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1303653" rel="xid1303653">Along Curve pattern parts command (assembly)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1303786" rel="xid1303786">Along Curve pattern features command (assembly)</a><br><br></div>
+            <div class="footer-content"> Mirror Components command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

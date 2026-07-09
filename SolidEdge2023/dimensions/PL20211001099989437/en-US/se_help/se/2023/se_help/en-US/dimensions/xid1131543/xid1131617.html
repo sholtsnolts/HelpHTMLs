@@ -1,0 +1,114 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with dimension alignment sets</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with dimension alignment sets"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1131617">
+                     <h1 class="topic-title">Working with dimension alignment sets</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use the <b>Smart Dimension</b> command and the <b>Distance Between</b> command when aligning dimensions and creating alignment sets. Other dimension commands,
+                     such as <b>Symmetric Diameter</b> and <b>Coordinate Dimension</b>, automatically align and group dimensions as they are created. In all cases, the
+                     <b>Maintain Alignment Set</b> <img class="img-fluid" src="../../../common/nonLocalized/se/dimension/align_dimensions/Maintain_Alignment_Set_icon_ON.png"> must be turned on for dimensions to be added to alignment sets. </p>
+                  <h4 class="division-title">Aligning dimensions</h4>
+                  <div>
+                     <p>Linear dimensions can be aligned during initial placement or modification by using
+                        alignment indicators. The on or off state of <b>Maintain Alignment Set</b> has no affect on this; alignment indicators always display. </p>
+                     <p>Alignment indicators display as dashed lines to show horizontal or vertical alignment
+                        while you create or modify dimensions. Alignment indicators work similarly to IntelliSketch
+                        relationship indicators. If you click when a horizontal or vertical indicator line
+                        is displayed, the element you are drawing or modifying will be horizontally or vertically
+                        aligned with the element the indicator line leads to. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/2d_geometry/tools/tools_command/algnin1.gif"></p>
+                     <p>When creating or modifying dimensions, alignment indicators use the position of the
+                        dimension values along the dimension lines as the basis for alignment. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/dimension/align_dimensions/Maintain_Alignment_AlignmentIndicatorspts.png"></p>
+                     <p>As you position a linear dimension (A), you can move over another dimension (B) to
+                        display the dashed alignment indicator (C). When you click the mouse button, the first
+                        dimension snaps into collinear alignment with the second. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/dimension/align_dimensions/createAlignmentSet_snapDim_1.png"></p>
+                     <p>Dimensions can be stacked using alignment indicators. For stacked dimensions, a perpendicular
+                        dashed line (A) is attached to the parallel dashed line (B). The perpendicular line ascends or descends, based on positioning preference, and
+                        is attached to the dimension being created or modified (C). The distance between stacked
+                        dimensions is set by the stack pitch which is a ratio of the dimension text size.
+                        The stack pitch can be modified in the <b>Lines and Coordinates</b> tab in the <b>Dimension Properties</b> dialog box or the <b>Dimension Style</b> dialog box.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/dimension/align_dimensions/Maintain_Alignment_Stacked.png"></p>
+                  </div>
+                  <h4 class="division-title">Adding a dimension to an existing alignment set</h4>
+                  <div>
+                     <p>A dimension can be added to an existing alignment set while the dimension is being
+                        actively modified. However, the dimension being modified and the alignment set must
+                        be the same type. Parallel dimensions can be added to an alignment set with other
+                        parallel dimensions. An angular dimension with a specific angle can be added to an
+                        alignment set with angular dimensions sharing that specific angle. An angular dimension
+                        with a different angle cannot be added to that group. &nbsp;</p>
+                  </div>
+                  <h4 class="division-title">Manipulating alignment sets</h4>
+                  <div>
+                     <dl>
+                        <dt>Moving an alignment set</dt>
+                        <dd class="ml-3">
+                           <p>Dragging any member dimension of an alignment set moves the entire group.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/dimension/align_dimensions/Maintain_Alignment_MoveGroup.png"></p>
+                        </dd>
+                        <dt>Moving a single dimension while keeping the alignment set intact</dt>
+                        <dd class="ml-3">
+                           <p>Press the Alt key while dragging a single dimension (A) in an alignment set (B) to
+                              move only that dimension. Stack distances (C) are indicated during this process.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/dimension/align_dimensions/Maintain_Alignment_moveSingleDim.png"></p>
+                        </dd>
+                        <dt>Merging alignment sets</dt>
+                        <dd class="ml-3">
+                           <p>Drag any member dimension from one alignment set (A) to another alignment set (B)
+                              to merge the two.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/dimension/align_dimensions/Maintain_Alignment_MergeSets.png"></p>
+                        </dd>
+                     </dl>
+                     <p></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <ul>
+                           <li>
+                              <p>Dimensions in the alignment set flip automatically when the entire set is moved from
+                                 above the drawing to below or from below to above. The dimension being dragged will
+                                 not flip, but the other dimensions in the group will flip at different points. </p>
+                           </li>
+                           <li>
+                              <p>Deleting a member dimension in an alignment set simply removes the dimension from
+                                 that group. The alignment set is not split. </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid2091823" rel="xid2091823">Arrange dimensions automatically</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid603992" rel="xid603992">Arrange dimensions automatically on a drawing</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid603980" rel="xid603980">Arrange Dimensions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid608959" rel="xid608959">Arrange Dimensions command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid609506" rel="xid609506">Maintain Alignment Set command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid609504" rel="xid609504">Remove from Alignment Set command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid610891" rel="xid610891">Break Alignment Set command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid610890" rel="xid610890">Split Alignment Set command</a><br><br></div>
+            <div class="footer-content">Working with dimension alignment sets, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

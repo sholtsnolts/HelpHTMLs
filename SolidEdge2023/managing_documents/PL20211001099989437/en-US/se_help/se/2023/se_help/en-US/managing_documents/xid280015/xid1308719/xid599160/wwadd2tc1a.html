@@ -1,0 +1,267 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with Add to Teamcenter Interactive</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with Add to Teamcenter Interactive"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="wwadd2tc1a">
+                     <h1 class="topic-title">Working with Add to Teamcenter Interactive</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can add documents to the Teamcenter managed environment using Add to Teamcenter
+                     Interactive. The documents that you select to add to the managed library are called
+                     <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/direct_document" rel="direct_document">direct documents</a>. These direct documents may contain links to other documents or reference other documents,
+                     which are known as <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/indirect_document" rel="indirect_document">indirect documents</a>. For example, when you add an assembly to a managed library, all the parts and subassemblies
+                     within the selected assembly are indirect documents. Similarly, a part copy within
+                     a part document or a part referenced within a drawing document are also indirect documents.</p>
+                  <h4 class="division-title">Running Add to Teamcenter Interactive</h4>
+                  <div>
+                     <p>To run Add to Teamcenter Interactive, from the <b>Start</b> menu, choose <b>Siemens Solid Edge 2023</b>→<b>Choose PDM Integration</b>→<b>Add to Teamcenter- Interactive</b>.</p>
+                     <p>You can also start Add to Teamcenter Interactive from Solid Edge by selecting the
+                        <b>File</b> menu→<b>Manage</b>→<b>Add Document to Teamcenter</b>.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Before starting Add to Teamcenter Interactive from Solid Edge, ensure that the application
+                           is not already started.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Revision Rules and Add to Teamcenter Interactive</h4>
+                  <div>
+                     <p>When you add unmanaged documents to a Teamcenter managed environment using Add to
+                        Teamcenter Interactive, you have the option to specify the revision rule used to create
+                        the BOM.</p>
+                     <p>The first time you run Add to Teamcenter Interactive, the <em>Teamcenter default</em> revision rule is used. The Session Settings dialog box defines the Revision Rule
+                        used by the session. </p>
+                  </div>
+                  <h4 class="division-title">Progress Log and log files</h4>
+                  <div>
+                     <p>When you run Add to Teamcenter Interactive, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/progresslog1a" rel="progresslog1a">Progress Log</a> displays vital information so that you do not have to search for it in various log
+                        files. However, if you want to consult the log files for additional information, they
+                        are available to you as well.</p>
+                     <p>Log files are generated that contain errors or warnings occurring during the file
+                        upload transaction. The default location for log files is determined on the File Locations
+                        page of the Solid Edge Options dialog box.</p>
+                     <p>You can use log files to monitor the success or failure of your documents loading
+                        into the Teamcenter database. The log files you will interact with most often are
+                        grouped in the subfolder <em>\Add to Teamcenter</em> that is created when you run Add to Teamcenter Interactive. Each file uses a naming
+                        convention consisting of a description, timestamp, and file extension. For example,
+                        <b>AddToTeamcenter_20180514131232.log</b>. The timestamp is a 14 digit unique identifier using the format YYYYMMDDHHmmss where:</p>
+                     <ul>
+                        <li>
+                           <p><em>YYYY</em> is the year. In the example, 2018.</p>
+                        </li>
+                        <li>
+                           <p><em>MM</em> is the month. In the example, 05 is May.</p>
+                        </li>
+                        <li>
+                           <p><em>DD</em> is the day. In the example, 14 is the 14th.</p>
+                        </li>
+                        <li>
+                           <p><em>HH</em> is the hour using a 24-hour clock beginning at midnight which is 00 and going through
+                              23, which is 11:00pm. In the example, 13 is 1:00pm.</p>
+                        </li>
+                        <li>
+                           <p><em>mm</em> is the minute. In the example, 12 is 12 minutes past the hour.</p>
+                        </li>
+                        <li>
+                           <p><em>ss</em> is the seconds. In the example, 32 is 32 seconds past the minute.</p>
+                        </li>
+                     </ul>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="20%">
+                           <col span="1" align="left" width="80%">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Log File</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Description</b></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>AddToTeamcenter_&lt;timestamp&gt;.log</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Contains all Add to Teamcenter Interactive option settings. The setting names are
+                                    not localized for this development log file.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>ATTHistory_&lt;timestamp&gt;.xml</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Contains information regarding the blocks of data being added to Teamcenter, the number
+                                    of links within the block, and how long each block took to load. The history is only
+                                    reset and cleared if you start a new Add to Teamcenter Interactive process.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>TALLog_&lt;timestamp&gt;.xml</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>The Teamcenter Application Layer log file. Includes a timer so the total time for
+                                    input is measured accurately.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Output files</h4>
+                  <div>
+                     <p>When you run Add to Teamcenter, files are generated as output of the process. All
+                        output files created from one input list have the same timestamp so it is easy to
+                        identify which output file is related to another. The default location for output
+                        files is, <b>C:\Users\&lt;username&gt;\AppData\Roaming\Siemens\Solid Edge\Version 223\Log Files\Add to
+                           Teamcenter</b>.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You must have Microsoft Excel or an equivalent .CSV editor installed to open .CSV
+                           output files.</p>
+                     </div>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="20%">
+                           <col span="1" align="left" width="80%">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Output File</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Description</b></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>BrokenLinkLog_&lt;timestamp&gt;.xml</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Contains information regarding the broken link and the parent document.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Unordered_&lt;timestamp&gt;.CSV</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Lists input files after the completion of the scan for broken links. </p>
+                                 <div class="attention" type="caution">
+                                    <div class="attention-label">Caution: </div>
+                                    <p>This file cannot be used as input to the Add to Teamcenter Interactive process.</p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Ordered_&lt;timestamp&gt;.CSV</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Contains an ordered list of your input files along with their reverse links. If a
+                                    file has a reverse link, it is listed twice with two order numbers and also listed
+                                    twice in the pass/fail log. The ordered list is generated as a result of the pass/fail
+                                    log. This file cannot be used as input to the Add to Teamcenter Interactive process.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>You can rename the <b>Ordered_&lt;timestamp&gt;.CSV</b> file and use it as an input file to Add to Teamcenter; however the format must match
+                                       the expected input. You can only submit one <b>.CSV</b> file for processing at a time.</p>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>SuccessFailureLog_&lt;timestamp&gt;.CSV</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Lists the documents you are importing and provides a summary of success or failure
+                                    of the import process for each file. The log is written once per Add to Teamcenter
+                                    Interactive session even if you elect to suspend or retry the upload process. The
+                                    order number in this file matches the order number from the <b>Ordered_&lt;timestamp&gt;.CSV</b> file so you can match up entries between the two files during troubleshooting.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>All log and output files persist from one Add to Teamcenter Interactive session to
+                           another. Work with your system administrator to develop a schedule to archive the
+                           contents of the <b>C:\Users\&lt;username&gt;\AppData\Roaming\Siemens\Solid Edge\Version 223\Log Files\Add to
+                              Teamcenter</b> folder to manage disk space on your computer.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Resuming Add to Teamcenter</h4>
+                  <div>
+                     <p>When you use the Add to Teamcenter Interactive program, some requested actions may
+                        not complete, or they may complete with warnings. In either case, a notification dialog
+                        box is displayed. You cannot start a new import of files into the Teamcenter database
+                        until the previous one is completed or canceled.</p>
+                     <p>The options on the notification dialog box determine how you proceed. You can view
+                        the log generated by the process, view a summary, continue, cancel, suspend, or view
+                        help regarding the upload process.</p>
+                     <ul>
+                        <li>
+                           <p>View Log —Displays the Add to Teamcenter log file.</p>
+                        </li>
+                        <li>
+                           <p>Summary—Displays the SEEC Information dialog box providing a quick summary of errors
+                              or warnings encountered during the Add to Teamcenter process.</p>
+                        </li>
+                        <li>
+                           <p>Continue—Continues the Add to Teamcenter process and starts loading the files into
+                              the managed environment. This option is disabled if there are errors noted.</p>
+                        </li>
+                        <li>
+                           <p>Cancel—Exits the Add to Teamcenter process so you can start over. Any processing is
+                              discarded and the queue is cleared of documents being loaded into Teamcenter. You
+                              are returned to the Add to Teamcenter dialog box.</p>
+                        </li>
+                        <li>
+                           <p>Suspend—Interrupts processing and exits the Add to Teamcenter program, but leaves
+                              the import queue intact. Data already created in Teamcenter is not deleted. When you
+                              later restart the Add to Teamcenter process using the Retry button, the files resume
+                              loading from this point.</p>
+                        </li>
+                        <li>
+                           <p>Help—Displays help information regarding the dialog box.</p>
+                        </li>
+                     </ul>
+                     <p>If you previously suspended the transaction, the notification dialog box is displayed
+                        automatically when you next start the Add to Teamcenter program.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid614232" rel="xid614232">Add documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/reimport1h" rel="reimport1h">Reimport documents to Teamcenter (workflow)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096228" rel="xid1096228">Use naming rules</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid617976" rel="xid617976">Cut, copy, or paste a row or cell</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcsuspend1h" rel="addtotcsuspend1h">Suspend or pause Add to Teamcenter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1117432" rel="xid1117432">Sort multiple columns</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/genid_understanding_terms_39_2174" rel="genid_understanding_terms_39_2174">Understanding Teamcenter terms</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/docprop1a" rel="docprop1a">Document properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid760444" rel="xid760444">Reimporting documents using Add to Teamcenter Interactive</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/multifieldkey1a" rel="multifieldkey1a">Using multifield keys in the Teamcenter managed environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findlinkeddocs1c" rel="findlinkeddocs1c">Find All Linked Documents command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/findrelateddrafts1c" rel="findrelateddrafts1c">Find All Related Drafts command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid615683" rel="xid615683">Run Unmanaged Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/savecommand1c" rel="savecommand1c">Save Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/cutcommand1c" rel="cutcommand1c">Cut command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/copycommand1c" rel="copycommand1c">Copy command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/pastecommand1c" rel="pastecommand1c">Paste command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/retrievedata1c" rel="retrievedata1c">Retrieve Data From Teamcenter command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcassignall1c" rel="add2tcassignall1c">Assign All command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/updatestatus1c" rel="updatestatus1c">Update Status Information command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/runtcvalidations1c" rel="runtcvalidations1c">Run Teamcenter Validations command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid613495" rel="xid613495">Set Action command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid733438" rel="xid733438">Save As command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/add2tcperformactions1c" rel="add2tcperformactions1c">Perform Actions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/addtotcstatus1d" rel="addtotcstatus1d">Add to Teamcenter Status dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1096063" rel="xid1096063">Naming rules and revision naming rules</a><br><br></div>
+            <div class="footer-content">Working with Add to Teamcenter Interactive, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

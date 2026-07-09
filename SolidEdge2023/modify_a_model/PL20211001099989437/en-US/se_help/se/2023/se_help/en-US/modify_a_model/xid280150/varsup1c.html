@@ -1,0 +1,143 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<html class="main-html scroll-area">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+  <title>Add Suppression Variable command</title>
+ </head>
+ <body>
+  <div class="main content-container"><contenttitle title="Add Suppression Variable command"></contenttitle>
+   <div class="container-fluid content-start">
+    <div class="row justify-content-center topic-header">
+     <div class="col-12 content-pad">
+      <div class="topic-header-content" id="varsup1c">
+       <h1 class="topic-title">Add Suppression Variable command</h1>
+      </div>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-12 content-pad">
+      <p>You can use the <b>Add Suppression Variable</b> command to control part features, assembly features and assembly relationships. The command adds a variable to the Variable Table. You can use the variable to turn on or off a feature or relationship based on a condition being met.</p>
+      <div class="attention" type="example">
+       <div class="attention-label">
+        Example:
+       </div>
+       <p>Two hole features are placed, a large one and a small one. If the width of a certain part becomes wider than a determined value, a larger hole will be needed. At the point where the width exceeds the determined value, the small hole is suppressed and the large hole is unsuppressed.</p>
+      </div>
+      <p>The <b>Add Suppression Variable</b> command is located on the shortcut menu of a feature or relationship selected in <b>PathFinder</b>.</p>
+      <h4 class="division-title">Adding suppression variables to parts</h4>
+      <div>
+       <p>For example, when you add a suppression variable to an extruded cutout in <b>Feature PathFinder</b> a new entry is added to the <b>Name</b> column in the Variable Table named:</p>
+       <p><em>ExtrudedCutout_1_Suppress</em></p>
+       <p>In the Variable Table, you can change the value of the suppression variable to control the feature:</p>
+       <ul>
+        <li><p>0=Unsuppressed</p></li>
+        <li><p>1=Suppressed</p></li>
+       </ul>
+       <div class="attention" type="note">
+        <div class="attention-label">
+         Note:
+        </div>
+        <p>Suppression variables for features only work for ordered features.</p>
+       </div>
+       <p>When you add a suppression variable to the Variable Table, you can also use an external spreadsheet to specify whether a feature is suppressed or unsuppressed. For more information on linking &nbsp;variables to an external spreadsheet, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1a" rel="equat1a">Using variables</a> Help topic.</p>
+      </div>
+      <h4 class="division-title">Adding suppression variables to assembly features</h4>
+      <div>
+       <p>Assembly features can be suppressed in the same manner as ordered part features.</p>
+      </div>
+      <h4 class="division-title">Adding suppression variables to assembly relationships</h4>
+      <div>
+       <p>You can suppress an assembly relationships by adding a suppression variable to an assembly relationship selected in the lower pane of <b>Assembly PathFinder</b>.</p>
+       <p>Watch the following video to see how to add suppression variables to assembly relationships.</p>
+       <div id="videoContainer" style="max-width: 750px;">
+        <div id="video">
+         <div id="videoPlayer" class="video-player m-b-md"><iframe id="player" src="https://video.sw.siemens.com/embed/30c5e845-14af-49a9-b9cd-46c669aca12f" allowfullscreen scrolling="no" frameborder="0"></iframe>
+         </div>
+        </div>
+       </div>
+       <p></p>
+       <p>Conditional statements in the formula field of the Variable Table can control when to suppress or unsuppress an assembly relationship.</p>
+       <p>An example of a conditional statement in a variable table formula is shown below. In the example, if the variable <em>dist</em> is greater than 2000, the <em>mate_1_Suppress</em> value determines if the relationship is suppressed. If the formula returns a 1 (one), the value is suppressed. If the formula returns a value of 0 (zero), the value is unsuppressed. Shown below is the suppression variable when <em>dist</em> is equal to a value of 3000.</p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/variables/sup_var_example.png"></p>
+       <p></p>
+      </div>
+      <h4 class="division-title">Example of suppression variables in assembly relationships</h4>
+      <div>
+       <p>In this example, a motor defined using the Variable Table Motor command is used to increment a distance variable. Relationships are suppressed based on the value of the variable used in the motor.</p>
+       <div class="attention" type="note">
+        <div class="attention-label">
+         Note:
+        </div>
+        <p>The completed assembly in this example can be downloaded for illustration purposes. After download, extract the contents of the compressed file into a folder. The variable formulas are in the variable table and a variable table motor exists in the example.</p>
+        <p><a download="suppression_variable_example.zip" target="_blank" href="../../../common/nonLocalized/courseware_datasets/suppression_variable_example.zip"> Click here to download the compressed file containing the assembly and parts. </a></p>
+       </div>
+       <ul>
+        <li><p>At the start, the side wall of the cart is mated to the face of the mount with a zero offset. The offset of this relationship will control the horizontal distance that positions the cart.</p> <p><img class="img-fluid" src="../../../common/nonLocalized/se/variables/suppression_variables_1.png"></p></li>
+        <li><p>The motion of the blue cart will move the cart to part 2.</p></li>
+        <li><p>Part 2 will lower to the level of part 3, carrying the cart with it. This happens because the mate with part 1 becomes suppressed and the mate with part 2 becomes unsuppressed when the motor variable matches the condition in the variable table formula.</p></li>
+        <li><p>Once at the same level with part 3, the cart will move horizontally to the initial position. The mate relationship with part 2 then becomes suppressed and the mate with part 3 becomes unsuppressed.</p></li>
+        <li><p>The variable table motor will also control the height of part 2 by varying the planar align relationship it has to part 1.</p></li>
+       </ul>
+       <p>Three mate relationships control the part that the cart is attached to. A mate is established between the bottom face of the cart and part 1. The relationship is suppressed by right-clicking the relationship in the lower <b>Assembly PathFinder</b> pane and selecting the <b>Suppress</b> command. By suppressing this relationship, a mate can be established with the same face to part 2. Repeating the process, suppress the mate with part two and create a mate with part 3.</p>
+       <p>To position the cart attached to the first part, suppress the mate relationship with part 3 and unsuppress the relationship with part 1.</p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/variables/suppression_variables_5.png"></p>
+       <p>To establish the suppression variables, select each mate relationship that requires a suppression variable and use the <b>Add Suppression Variable</b> command to add it.</p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/variables/suppression_variables_6.png"></p>
+       <p>As the variable <em>dist</em> is incremented by the variable table motor, formulas control the behavior of the suppression variables and the offsets required to move the parts. Conditional <em>IF</em> statements, similar to those found in <em>Excel</em> are used to control the suppression variables.</p>
+       <p>In this example, there are four places where the suppression variables will need to be changed. They are:</p>
+       <ul style="list-style: none">
+        <li><p>dist=0</p></li>
+        <li><p>dist=5750</p></li>
+        <li><p>dist=10100</p></li>
+        <li><p>dist=15850</p></li>
+       </ul>
+       <p>Shown below is the variable table at each of those values.</p>
+       <p><em>At dist=0</em></p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/variables/suppression_variables_1.png"></p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/variables/suppression_variables_7.png"></p>
+       <p><em>At dist=5750</em></p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/variables/suppression_variables_2.png"></p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/variables/suppression_variables_8.png"></p>
+       <p><em>At dist=10100</em></p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/variables/suppression_variables_3.png"></p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/variables/suppression_variables_9.png"></p>
+       <p><em>At dist=15850</em></p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/variables/suppression_variables_4.png"></p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/assembly/variables/suppression_variables_10.png"></p>
+      </div>
+     </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+     <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat4a" rel="equat4a">Example: Creating relationships between dimensions of several profiles</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat10h" rel="equat10h">Define limits for a variable</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat6h" rel="equat6h">Edit an existing variable</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat2h" rel="equat2h">Create a Variable Using a Function or Subroutine</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat3h" rel="equat3h">Create a variable with a link to a spreadsheet</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat4h" rel="equat4h">Create a Variable with a value or expression</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat5h" rel="equat5h">Display dimensions in the Variable Table</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/varpro1h" rel="varpro1h">Expose a variable</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/prptxt5h" rel="prptxt5h">Extract Variable Table data using property text</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat5a" rel="equat5a">Example: Linking variables to a spreadsheet</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/supvar1h" rel="supvar1h">Suppress a feature using the Variable Table</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat7h" rel="equat7h">Format a Column</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/edform1h" rel="edform1h">Edit a formula</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1h" rel="equat1h">Edit a Formula Containing a Function</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat8h" rel="equat8h">Insert a function into a formula</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/peervariable1h" rel="peervariable1h">Edit an existing variable for a part within an assembly</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat9h" rel="equat9h">Link variables between parts in an assembly</a> <br> <br>
+     <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1a" rel="equat1a">Using variables</a> <br> <br>
+     <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1c" rel="equat1c">Variables command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1d" rel="equat1d">Variable Table dialog box</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat9d" rel="equat9d">Filter dialog box</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat5d" rel="equat5d">Variable Rule Editor dialog box</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/edform1c" rel="edform1c">Edit Formula command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/edform1d" rel="edform1d">Edit Formula command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/peervariable1c" rel="peervariable1c">Peer Variables command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/peervariables1d" rel="peervariables1d">Peer Variables command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat2d" rel="equat2d">Function Wizard Step 1 of 2 dialog box</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat4d" rel="equat4d">Function Wizard Step 2 of 2 dialog box</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat3d" rel="equat3d">Alphabetical List of Functions</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/shwformulas1c" rel="shwformulas1c">Show All Formulas Command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/shwnames1c" rel="shwnames1c">Show All Names Command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/shwvalues1c" rel="shwvalues1c">Show All Values Command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/cpylink1c" rel="cpylink1c">Copy Link command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat5c" rel="equat5c">Clear Contents command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat2c" rel="equat2c">Filter Command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat12c" rel="equat12c">Paste Link Command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat11c" rel="equat11c">Open Source command</a> <br> <br>
+    </div>
+    <div class="footer-content">
+     Add Suppression Variable command, Solid Edge 2023 <br>© 2022 Siemens
+    </div>
+   </div>
+  </div>
+  <script>window.mainLanguage="en_US"</script>
+  <script>window.delivId=""</script>
+  <script>window.projectId=""</script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script>
+ </body>
+</html>

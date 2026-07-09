@@ -1,0 +1,332 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with large assemblies efficiently</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with large assemblies efficiently"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assem3a">
+                     <h1 class="topic-title">Working with large assemblies efficiently</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>There are many ways you can improve interactive performance when working with large
+                     assemblies in Solid Edge. This Help topic describes actions you can take to improve
+                     performance when working with large assemblies.</p>
+                  <h4 class="division-title">How available memory affects performance</h4>
+                  <div>
+                     <p>The amount of physical memory available on your computer affects the performance of
+                        all your Windows applications, not just Solid Edge. When the physical memory is completely
+                        allocated, some operations are swapped to virtual memory. Virtual memory is disk space
+                        on your hard drive allocated for use when physical memory resources are not available.</p>
+                     <p>Virtual memory is much slower than physical memory. When any application has to swap
+                        information between virtual memory and physical memory to complete a task, system
+                        performance slows down considerably. You can improve performance by increasing available
+                        physical memory in the following ways:</p>
+                     <ul>
+                        <li>
+                           <p>Reduce the demand for physical memory</p>
+                        </li>
+                        <li>
+                           <p>Install additional physical memory in your computer</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>See the <b>readme.htm</b> file in the Solid Edge folder for additional information on memory recommendations
+                           for Solid Edge.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Reducing the demand for physical memory</h4>
+                  <div>
+                     <p>The easiest way to reduce the demand for physical memory is to close any applications
+                        you are not using. Doing this can speed up any application, not just Solid Edge.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can use the Windows Task Manager to evaluate both physical and virtual memory
+                           usage.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Improving display performance</h4>
+                  <div>
+                     <p>Display performance in Solid Edge is improved if your computer is equipped with a
+                        graphics board that supports <b>OpenGL</b> acceleration. The shaded display data in Solid Edge is manipulated directly by <b>OpenGL</b> during dynamic view operations. The amount of physical memory on the graphics board
+                        also affects display performance.</p>
+                     <p>The hidden line display mode in Solid Edge supports multiple processors. If your computer
+                        contains multiple processors, hidden line performance is improved.</p>
+                     <p>The <b>Process Hidden Edge During View Manipulations</b> option in the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/view3d" rel="view3d">View tab</a> in the <b>Options</b> dialog box affects interactive performance during dynamic view manipulations, such
+                        as when dynamically rotating a view. Processing edges during dynamic view manipulations
+                        can negatively impact interactive performance when working with complex parts or large
+                        assemblies. When this option is set, the display status of edges (whether they are
+                        visible, hidden, or silhouette) is continuously calculated during dynamic view manipulations.
+                        When you clear this option, the display status of edges is suspended during a dynamic
+                        view manipulation. When the dynamic view manipulation is completed, the edges are
+                        processed. This can significantly improve performance.</p>
+                     <p>You can also improve display performance from within Solid Edge Assembly by controlling
+                        which parts in the assembly use physical memory resources. Hiding and unloading parts
+                        frees up physical memory and improves display performance. Hidden and unloaded parts
+                        place the least demand on computer resources.</p>
+                  </div>
+                  <h4 class="division-title">Using display configurations to hide, unload, and inactivate assembly components</h4>
+                  <div>
+                     <p>When you are building or modifying a large assembly, you often work in a localized
+                        area, or on a limited number of parts for a period of time. You can use the display
+                        configuration control commands in Solid Edge to make it easier to work and to improve
+                        performance in large assemblies.</p>
+                     <p>For example, you can use the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/config1c" rel="config1c"><b>Display Configurations command</b></a> to capture the current display status of the assembly components to a name you define.
+                        After you define a display configuration, you can use the <b>Assembly Configuration</b> list on the Select tool command bar to apply a display configuration. This allows
+                        you to quickly display, hide, inactivate, and unload specific parts and subassemblies.</p>
+                     <p>Each of these display states places a different demand on physical or graphic memory.
+                        Additional configuration control commands are located in several places in Solid Edge.
+                        For example, they are available on the <b>PathFinder</b> shortcut menu and the Home tab in the <b>Configurations</b> group.</p>
+                     <p>You can determine the current display status for parts and subassemblies using <b>PathFinder</b>. Unique symbols indicate whether an assembly component is displayed, hidden, inactive,
+                        or unloaded. For a list of these and other symbols used in <b>PathFinder</b>, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmpthfnd1a" rel="asmpthfnd1a">PathFinder in assemblies</a> Help topic.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Hiding components</h5>
+                           <p>You can hide parts and subassemblies to make it easier to visualize the area you are
+                              working on. This makes your display less cluttered and helps you work more efficiently
+                              because you can locate and select the proper parts quickly. Hiding components also
+                              reduces physical memory demands, which improves performance.</p>
+                        </li>
+                        <li>
+                           <h5>Unloading components</h5>
+                           <p>After the unneeded parts and subassemblies are hidden, you can also unload them from
+                              physical memory with the <b>Unload Hidden Parts</b> command on the<b> Home</b> tab in the <b>Configurations</b> group. Unloading hidden parts from memory frees up memory for other operations, which
+                              speeds up <b>Solid Edge Assembly</b> functions.</p>
+                           <p>It also allows you to work with assemblies with higher component counts and more unique
+                              components. In some cases, unloading hidden parts from memory allows you to open and
+                              work with an assembly that would otherwise exceed the memory limits on your computer.</p>
+                           <p>If you hide and then unload all the parts in a subassembly, the component structure
+                              within the subassembly listing in <b>PathFinder</b> is collapsed. You can use the plus symbol (+) in <b>PathFinder</b>, the <b>Expand</b>, and the <b>Expand All</b> commands to redisplay the assembly structure within <b>PathFinder</b>.</p>
+                        </li>
+                        <li>
+                           <h5>Inactivating components</h5>
+                           <p>You also can improve performance without hiding parts and subassemblies by inactivating
+                              them. When you inactivate components with the Inactivate command, they remain displayed
+                              but use less physical memory.</p>
+                           <p>Inactivating parts unloads all the feature history and mathematical part definition
+                              and leaves only the graphical representation of the part loaded into memory. &nbsp;This
+                              significantly reduces physical memory requirements, which can be useful when working
+                              with large assemblies.</p>
+                           <p>An inactive part is automatically activated when you use it to position another part,
+                              or when you use the <b>Edit</b> or <b>Open</b> commands to open it in the <b>Part</b> environment.</p>
+                           <p>You also can inactivate components automatically by setting the Inactivate <b>Hidden</b> and <b>Unused Components Every XXX Minutes</b> option, which is on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/adjust1d" rel="adjust1d">Assembly tab</a> on the <b>Options</b> dialog box.</p>
+                        </li>
+                        <li>
+                           <h5>Expanding assemblies</h5>
+                           <p>The <b>Expand</b> command expands only the next level of references for a selected subassembly. If
+                              the subassembly also contains nested subassemblies, the structure for the nested subassemblies
+                              is not expanded.</p>
+                           <p>The <b>Expand All</b> command expands the entire structure for a selected subassembly, including any nested
+                              subassemblies.</p>
+                           <p>You can also use the plus (+) and minus (-) symbols in <b>PathFinder</b> to expand or collapse subassembly listings in <b>PathFinder</b>.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Construction components as reference occurrences</h4>
+                  <div>
+                     <p>It is a common workflow for a component to be marked as construction in lower-level
+                        subassemblies and also be placed normally in another branch of the top-level assembly.
+                        </p>
+                     <p>A component is set to a construction component by setting the occurrence property
+                        <b>Higher Level</b> to <b>No</b>.</p>
+                     <p>For a construction component, the occurrence is only loaded and shown when the assembly
+                        that the component resides in is opened. If a higher-level assembly is opened, the
+                        assembly component is not loaded nor displayed in <b>Assembly PathFinder</b> in those occurrences.</p>
+                     <p>By not showing the construction components in lower assemblies, this functionality
+                        reduces the loading of components when in-place activating and working in the context
+                        of a higher-level assembly.</p>
+                     <p>If an assembly containing a construction component is in-place activated, the component
+                        occurrence will show as an unloaded component in <b>PathFinder</b> and will have to explicitly loaded the component if needed.</p>
+                  </div>
+                  <h4 class="division-title">Using simplified assemblies</h4>
+                  <div>
+                     <p>When you work with a large assemblies, you can create and use simplified assembly
+                        representations using the commands in the <b>Simplify</b> group on the <b>Tools</b> tab in the <b>Assembly</b> environment.</p>
+                     <p>A simplified representation of assembly only contains the external shell faces of
+                        the parts in the assembly, or a solid body, which can significantly reduce the memory
+                        requirements required when working with a large, nested assembly. You can then specify
+                        that the simplified representation is used in higher-level assemblies, in drawings,
+                        and when opening assemblies.</p>
+                     <p>When an assembly is opened that contains subassemblies that are opened as simplified
+                        rather than design, the simplified assembly is treated as a part. This means that
+                        only the simplified representation is loaded into memory and none of the design components
+                        are loaded. If the simplified assembly is active, reference planes, sketches and coordinate
+                        systems are available. By not loading the components of the simplified assembly, working
+                        in the higher-level assemblies is more efficient.</p>
+                     <p>When working with large, nested assemblies that contain simplified subassemblies,
+                        you should work with the simplified subassemblies inactive whenever possible. This
+                        can significantly reduce memory requirements.</p>
+                     <p>When you use simplified subassemblies in the <b>Teamcenter</b>-managed environment, set the <b>Teamcenter</b> preference <b>SEEC_ExpandStructure</b> to 1 to expand the product structure of large assemblies level by level. The structure
+                        expansion stops at a subassembly that is simplified and improves performance.</p>
+                     <p>For more information, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/smpsimplifyasm1a" rel="smpsimplifyasm1a">Simplifying assemblies</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title">Using Limited Update and Limited Save</h4>
+                  <div>
+                     <p><b>Limited Update</b> and <b>Limited Save</b> enables you to control update and save operations while working in Solid Edge assembly
+                        and while in-place activated. This functionality:</p>
+                     <ul>
+                        <li>
+                           <p>Must be enabled in Solid Edge Options→Assembly.</p>
+                        </li>
+                        <li>
+                           <p>Acts upon the current assembly and subsequent components contained within. Components
+                              contained above the current assembly in the assembly structure are not affected by
+                              the <b>Limited Update</b> and <b>Limited Save</b> commands.</p>
+                        </li>
+                        <li>
+                           <p>Disables update and recompute of the assembly on file open.</p>
+                        </li>
+                        <li>
+                           <p>Limits update and recompute of the changed items while working on an assembly component
+                              in the context of a higher-level assembly.</p>
+                        </li>
+                        <li>
+                           <p>Limits save operations to only those documents that you have opened and have write
+                              access to.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using zones</h4>
+                  <div>
+                     <p>You can use the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/zones1c" rel="zones1c">Zone command</a> on the <b>Select Tools</b> tab on <b>PathFinder</b> to define a named rectangular volume of space. You can then display, hide, and select
+                        the assembly components which are contained within the zone. For example, you can
+                        select a zone in the <b>Select Tools</b> tab, then use the Hide command on the shortcut menu to hide the assembly components
+                        within the zone.</p><img class="img-fluid d-block mx-auto" src="../../../../common/nonLocalized/se/assembly/large/zones3.gif"><p>When you add new components to the assembly, they are automatically added to the zone(s)
+                        they fall within.</p>
+                     <p>For more information on zones, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/zones1a" rel="zones1a">Using zones in assemblies</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title">Improving performance when opening assemblies</h4>
+                  <div>
+                     <p>You can use the options on the <a class="xref" data-handle="user_interface" href="/en-US/product/246738425/doc/PL20211001099989437.user_interface/html/open1d" rel="open1d">Open File dialog box</a> to improve performance when opening a specific assembly. </p>
+                     <ul>
+                        <li>
+                           <p>You can open the assembly as <em>read-only</em>, then edit only the portion of the document where you have responsibility.</p>
+                        </li>
+                        <li>
+                           <p>You can open an assembly with parameters defined in the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid429230" rel="xid429230">Assembly Open As</a> tab in <b>Solid Edge Options</b> dialog box. Here, open behavior can be defined for small, medium and large assemblies.
+                              The behavior defines part activation, part simplification, subassembly simplification
+                              on open, based on the number of components or the parameters used on the last save.
+                              The number of components defining small, medium and large assemblies can be defined
+                              in <b>Solid Edge Options</b>, and the can be opened using these values with <b>Auto-Select</b>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>It is recommended that you not use the <b>Assembly Open As</b> option, <b>Last Saved</b> when you work with large assemblies. Instead, use <b>Auto-Select</b>.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>You can select a display configuration from the <b>Configuration</b> list when opening an assembly. This can improve performance when the display configuration
+                              specifies that only a subset of the assembly components are displayed.</p>
+                        </li>
+                        <li>
+                           <p>You can select a zone from the <b>Zones</b> list when opening an assembly. This can improve performance when the zone definition
+                              specifies that only a subset of the assembly components are displayed.</p>
+                        </li>
+                     </ul>
+                     <p>When you open an assembly with all parts hidden, only the assembly document you are
+                        opening is loaded into physical memory. In an assembly with thousands of parts and
+                        dozens of subassemblies, this can dramatically reduce the time required to open the
+                        assembly. Because these types of large assemblies are typically shared by many users
+                        who only work on specific subassemblies within the top-level assembly, hiding all
+                        parts when opening the assembly allows you to work efficiently with a very large assembly.</p>
+                     <p>When you open an assembly with all components hidden, the subassembly listings in
+                        <b>PathFinder</b> are collapsed. You can open the next level of documents using the "+" symbol, or
+                        you can expand the subassembly listings using the <b>Expand</b> and <b>Expand All</b> commands on the shortcut menu.</p>
+                     <p>You can expand the listings for only those subassemblies you need, then display or
+                        activate only the parts and subassemblies you need.</p>
+                     <p>When a simplified representation of an assembly exists, using these options improves
+                        file open times.</p>
+                     <p>Use the <b>Save As Default</b> option on the <b>Open File</b> dialog box to specify that assemblies you open using Windows Explorer are opened
+                        with the options you set.</p>
+                  </div>
+                  <h4 class="division-title">Highlighting parts</h4>
+                  <div>
+                     <p>You can improve large assembly performance by setting the <b>Fast Locate Using Box Display</b> option on the <b>Assembly</b> tab on the <b>Options</b> dialog box. When you pause your cursor over a part in the assembly, it will highlight
+                        using a rectangular range box, instead of all of the graphic display elements of the
+                        part. </p>
+                     <p>Setting the <b>Fast Locate When Over PathFinder </b>option on the <b>Assembly</b> tab on the <b>Options</b> dialog box also allows you to improve performance. When you set this option, the
+                        name of the assembly component is displayed in the message field when you pass the
+                        cursor over the component name in <b>PathFinder</b>, but it does not highlight in the graphics window. When you clear this option, the
+                        assembly component highlights in the graphics window when you pass the cursor over
+                        the component name in <b>PathFinder</b>.</p>
+                  </div>
+                  <h4 class="division-title">Selecting parts</h4>
+                  <div>
+                     <p>Solid Edge provides different options for selecting parts in the <b>Assembly</b> environment using the <b>Select Tool</b> command. &nbsp;The following are short descriptions of the selection methods and related
+                        forms.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Selecting parts with the mouse</h5>
+                           <p>The mouse click is the fastest method for selecting single parts. &nbsp;Parts can be selected
+                              either in the graphics window or from <b>PathFinder</b>. &nbsp;To select a part with the mouse, simply click the part in the graphics window or
+                              the part name in <b>PathFinder</b>. &nbsp;To create a select set of parts, hold down the <b>Shift</b> key and select multiple parts with the mouse.</p>
+                        </li>
+                        <li>
+                           <h5>Selection Box</h5>
+                           <p>This command lets you select a group of parts by drawing a dynamic 3D box in the graphics
+                              window. &nbsp;This button is available only when a single part is selected. This command
+                              is used to quickly select parts that are in the proximity of another selected part.
+                              &nbsp;After creating select sets, you can manipulate them as a group. &nbsp;For example, the
+                              <b>Show Only</b> command on the <b>PathFinder</b> shortcut menu can be used to hide all parts not selected, leaving on the select set
+                              in the immediate display.</p>
+                        </li>
+                        <li>
+                           <h5>Select All Identical Parts</h5>
+                           <p>Selects all the parts in the assembly which are identical to the selected part.</p>
+                        </li>
+                        <li>
+                           <h5>Select Subassembly Parts</h5>
+                           <p>Selects all the parts in multiple occurrences of the same subassembly as the selected
+                              part.</p>
+                        </li>
+                        <li>
+                           <h5>Select Parts by Size</h5>
+                           <p>This command is used to select parts based on their comparative size as a percentage
+                              of the whole assembly. Use the <b>Select</b> option to determine if the select set includes parts larger or smaller than the selected
+                              percentage. Use the numeric <b>Part size</b> field or the right and left arrows to increase or decrease the selected set of parts.</p>
+                        </li>
+                        <li>
+                           <h5>Select Visible Parts</h5>
+                           <p>This option selects only those parts that are fully or partially visible in the graphic
+                              window.</p>
+                        </li>
+                        <li>
+                           <h5>Select Parts Constrained To</h5>
+                           <p> Selects parts that are constrained to one or more previously selected parts. This
+                              option is available after you select one or more parts. This can make it easier to
+                              perform operations on a related set of parts. For example, you can select a set of
+                              parts constrained to a part, then use the <b>Show Only</b> option to hide the remaining parts in the assembly.</p>
+                        </li>
+                     </ul>
+                     <p>You can query for an assembly part by name using the select tools tab within <b>PathFinder</b>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1603045" rel="xid1603045">Large Assembly Performance</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid2039804" rel="xid2039804">Assembly Preview</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid2050550" rel="xid2050550">Assembly Load/Update Progress dialog box</a><br><br></div>
+            <div class="footer-content">Working with large assemblies efficiently, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

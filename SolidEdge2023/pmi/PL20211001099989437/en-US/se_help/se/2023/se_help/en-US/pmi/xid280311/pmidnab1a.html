@@ -1,0 +1,382 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>PMI dimensions and annotations</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="PMI dimensions and annotations"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="pmidnab1a">
+                     <h1 class="topic-title">PMI dimensions and annotations</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Creating PMI elements</h4>
+                  <div>
+                     <p>Annotations and dimensions placed on model geometry are PMI elements. They are created
+                        in two ways.</p>
+                     <ul>
+                        <li>
+                           <p>When you use a sketch to construct a feature, the dimensions placed on the sketch
+                              migrate to the appropriate edges on the solid body. These migrated dimensions become
+                              three-dimensional, PMI dimensions. See the Help topic, <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/dimmigrate1h" rel="dimmigrate1h">Create a dimensioned part from a sketch</a>.</p>
+                           <p>Annotations placed on a sketch also are copied to the model.</p>
+                        </li>
+                        <li>
+                           <p>You can place dimensions and annotations directly on model edges at any time using
+                              any of the commands on the ribbon. In addition, the tool set on the PMI tab conveniently
+                              groups all PMI-related functions together in one place.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The commands you use to place dimensions and annotations on sketches and on the model
+                           are the same. However, dimensions and annotations placed on 2D sketch elements and
+                           those placed on 3D model elements behave differently. The differences are most apparent
+                           during editing.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Using driving and driven PMI dimensions</h4>
+                  <div>
+                     <p>In synchronous models, you can use PMI dimensions to modify the model. You control
+                        the effect of model changes by choosing whether a dimension on a model edge is driving
+                        or driven, and by specifying the direction of change.</p>
+                     <ul>
+                        <li>
+                           <p>A driven dimension means that when faces connected to the dimensioned edge are modified,
+                              the dimension value is allowed to change. The default color of a driven dimension
+                              is blue.</p>
+                        </li>
+                        <li>
+                           <p>A driving dimension keeps the dimension value from being changed when a connected
+                              face is moved or sized.</p>
+                           <p>A dimension must be driving before a formula or variable rule can be applied to the
+                              dimension.</p>
+                           <p>The default display color of a driving dimension is red.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/bj_pmidimcolors.gif"></p>
+                           <p>In <b>PathFinder</b>, a driving dimension is easily identified by the lock icon <img class="img-fluid" src="../../../common/nonLocalized/se/pmi/bj_pmi_lock.gif">.</p>
+                        </li>
+                     </ul>
+                     <p>You can edit individual dimensions to lock and unlock them, as needed to modify the
+                        model. Use the <b>Driving/Driven Dimension</b> button on the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/dimvalueedithandle1d" rel="dimvalueedithandle1d">Dimension Value Edit dialog box</a> to change a dimension from driven to driving.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/bj_pmidimlockctrl.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If the <b>Driving/Driven Dimension</b> button is not available, you can select the <b>Maintain Relationships</b> command to enable it.</p>
+                     </div>
+                     <p>To learn how you can modify a model by editing dimension values, see <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/featedit3a" rel="featedit3a">Editing model dimensions</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="pmidna1a_colorsize">PMI dimension colors</h4>
+                  <div>
+                     <p>The following table explains the color codes assigned to dimensions. Dimension colors
+                        indicate whether the dimension value can be modified dynamically.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/pmi_dim_color_codes.gif"></p>
+                     <table cellspacing="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="15%">
+                           <col span="1" width="30%">
+                           <col span="1" width="15%">
+                           <col span="1" width="40%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="4">
+                                 <p>PMI dimension color codes</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Color</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Solve condition</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Dynamic Edit?</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Attached to</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Blue</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimensions/dim_types/edit_dimension_unlock.jpg"> Driven, free to change </p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Yes</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Synchronous elements</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>Red</p>
+                              </td>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/dimensions/dim_types/dimlockon.gif"> Driving, dimension constrained </p>
+                              </td>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>Yes</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Synchronous elements</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>Purple</p>
+                              </td>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>Driven by another dimension or variable</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>No</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Ordered elements or otherwise uneditable PMI</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>Brown</p>
+                              </td>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>Not available</p>
+                              </td>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>No</p>
+                              </td>
+                              <td rowspan="1" colspan="1" height="26">
+                                 <p>Not adequately attached to any element</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Modifying PMI text size and color</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>You can make interactive adjustments to PMI text size so it is easier to read when
+                              you zoom in and out of the model.</p>
+                        </li>
+                        <li>
+                           <p>You can change PMI element color globally by modifying the style.</p>
+                        </li>
+                     </ul>
+                     <p>To learn more, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab2a" rel="pmidnab2a">PMI text size and color</a>.</p>
+                  </div>
+                  <h4 class="division-title">Preselection preview</h4>
+                  <div>
+                     <p>When you place your cursor on a dimension value, you see two preselection preview
+                        features that show you how a dimension value edit will be applied: direction of edit
+                        and model face selection.</p>
+                     <h5>Direction preview</h5>
+                     <ul>
+                        <li>
+                           <p>Where you place your cursor prior to selecting the dimension text influences the direction
+                              in which the edit will be applied.</p>
+                           <ul>
+                              <li>
+                                 <p>If you place the cursor on the left side of the dimension value, in this example the
+                                    number 4, then the direction arrow points left. If you select the dimension value
+                                    by clicking here, the edit will be applied in this direction.</p>
+                              </li>
+                              <li>
+                                 <p>If you place the cursor on the right side of the dimension value, in this example
+                                    the number 5, then the direction arrow will point right. If you select the dimension
+                                    value by clicking here, the edit will be applied in this direction.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/bj_pmieditdirmode1.gif"></p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     <h5>Face selection preview</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>You can preview what model faces will be affected when you edit a dimension value,
+                              by pointing to the dimension text without selecting it. The related model faces are
+                              highlighted for you to review them.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/bj_pmidimedit5.gif"></p>
+                     <p>To change the selection set, you can set and clear relationships using the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/featedit7a" rel="featedit7a">Design Intent panel</a> or the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/relateman1d" rel="relateman1d">Advanced Design Intent panel</a>.</p>
+                     <p>You also can affect the outcome by changing the solve option on the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/featedit3d" rel="featedit3d">Modify Dimension command bar</a>.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/bj_pmidimeditqb1.gif"></p>
+                     <p>To learn more, see these Help topics:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/featedit7a" rel="featedit7a"> Using the Design Intent panel </a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/featedit31h" rel="featedit31h">Select faces to be modified by PMI dimension edits</a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Not-to-scale dimensions</h4>
+                  <div>
+                     <p>You can override the value of a driven dimension by right-clicking the dimension and
+                        selecting <em>Not to Scale</em> from the context menu. Solid Edge underlines the values of not-to-scale dimensions.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/nottosc_dim.gif"></p>
+                     <p>The not-to-scale designation appears in the dimension value edit dialog box.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/nottosc_dec.gif"></p>
+                     <p>You can change the value and the formatting of a not-to-scale dimension by clicking
+                        anywhere on the dimension. If you only want to edit the dimension formatting, you
+                        can Alt+click the dimension text, instead.</p>
+                  </div>
+                  <h4 class="division-title">Using keypoints</h4>
+                  <div>
+                     <p>When placing PMI model dimensions that you want to use to change the model, you can
+                        use the 3D keypoint filter,<b> Center And Endpoints</b> <img class="img-fluid" src="../../../common/nonLocalized/se/pmi/bj_keyptfilter3ddims.gif"> and <b>Midpoint</b> <img class="img-fluid" src="../../../common/nonLocalized/se/pmi/kypnt4.gif">. This ensures that dimensions are placed on keypoints that are valid for modifying
+                        the model. These keypoints are at the centers of circles and arcs and at the midpoints
+                        and endpoints of edges.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The <b>Center and Endpoints</b>, and <b>Midpoint</b> filters use virtual vertices to derive the appropriate keypoint.</p>
+                     </div>
+                     <p>To use either of these keypoint filters during dimension placement, select the <b>Keypoints</b> button on the <b>Dimension</b> command bar, under the <b>Other</b> group button. Then select the desired filter.</p>
+                  </div>
+                  <h4 class="division-title">Using a dimension plane</h4>
+                  <div>
+                     <p>When you add PMI dimensions and annotations to a model, they are aligned parallel
+                        to a dimension plane. The default plane is the base plane most parallel to the screen.
+                        However, you can choose a different plane using the <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna1c" rel="pmidna1c">Lock Dimension Plane</a> option <img class="img-fluid" src="../../../common/nonLocalized/se/pmi/pmidnaplane.gif"> on the command bar. This option is available when you have selected a dimension or
+                        annotation command.</p>
+                     <p>Only planes you set explicitly appear in the graphics window. These are displayed
+                        in red-brown half-highlight.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/pmidnaplanevalve.gif"></p>
+                     <p>To turn off a dimension plane you have set, press F3.</p>
+                  </div>
+                  <h4 class="division-title">Using a dimension axis</h4>
+                  <div>
+                     <p>Sometimes you need to add a PMI element that measures along an axis that is not orthogonal
+                        to the object you are dimensioning. This may be the case when you use the Distance
+                        Between, Angle Between, Coordinate Dimension, or Symmetric Diameter command.</p>
+                     <p>When one of these dimension commands is in progress, you can use the <a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimda1c" rel="dimda1c">Dimension Axis</a> option under the <b>Properties</b> group button on the <b>Dimension</b> command bar to set the dimension axis.</p>
+                  </div>
+                  <h4 class="division-title">Adding PMI dimensions </h4>
+                  <div>
+                     <p>You can use the <b>Smart Dimension</b> command to add dimensions to circles, arcs, and ellipses as well as linear elements.</p>
+                     <dl>
+                        <dt>When adding a dimension that requires two points:</dt>
+                        <dd class="ml-3">
+                           <ul>
+                              <li>
+                                 <p>The first click determines the point to measure from.</p>
+                              </li>
+                              <li>
+                                 <p>The second click specifies the point or element to measure to.</p>
+                              </li>
+                           </ul>
+                        </dd>
+                     </dl>
+                     <dl>
+                        <dt>Dimension stacking and chaining</dt>
+                        <dd class="ml-3">
+                           <ul>
+                              <li>
+                                 <p>Linear dimensions can be stacked or chained using the <b>Distance Between</b> command.</p>
+                              </li>
+                              <li>
+                                 <p>Angular dimensions can be stacked or chained using the <b>Angle Between</b> command.</p>
+                              </li>
+                              <li>
+                                 <p>Symmetric diameter dimensions can form a stack, not a chain.</p>
+                              </li>
+                              <li>
+                                 <p>All dimensions in a stack or chain must be placed with respect to the same active
+                                    dimension plane.</p>
+                              </li>
+                              <li>
+                                 <p>Each stacked or chained dimension has its own entry on <b>PathFinder</b>.</p>
+                              </li>
+                           </ul>
+                        </dd>
+                     </dl>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/pmidnahole.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="pmidna1a_annoadd">Adding PMI annotations</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>You can place annotations in free space.</p>
+                        </li>
+                        <li>
+                           <p>You can attach annotations to model faces, surfaces, curves, edges, and sketch elements.</p>
+                        </li>
+                        <li>
+                           <p>You can attach annotations to existing dimensions and annotations.</p>
+                        </li>
+                     </ul>
+                     <p>Here, the datum annotation is attached to an existing feature control frame.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/pmi/pmidnae2e.gif"></p>
+                     <p>They also can connect to faces.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/pmi/pmidnaface.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="pmidna1a_proptxt">Using property text in PMI elements</h4>
+                  <div>
+                     <p>You can extract and use property text in PMI dimensions and in callout and balloon
+                        annotations.</p>
+                     <ul>
+                        <li>
+                           <p>To use property text in callouts and balloons, select the <b>Property Text</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/pmi/proptext1.gif"> on the annotation dialog box.</p>
+                        </li>
+                        <li>
+                           <p>To use property text in a dimension prefix, suffix, subfix, or superfix, copy and
+                              paste the property text string into the corresponding text box in the <b>Dimension Prefix</b> dialog box. You can open the <b>Dimension Prefix</b> dialog box by clicking the <b>Prefix</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/pmi/dimprfx.gif"> on the command bar.</p>
+                        </li>
+                        <li>
+                           <p>To extract hole information from hole features in a part or assembly, use the Hole
+                              Reference, Smart Depth, or Hole callout property text strings.</p>
+                        </li>
+                        <li>
+                           <p>You can extract bend information—Angle, Radius, and Direction—from a formed part,
+                              but not from a flat pattern.</p>
+                        </li>
+                        <li>
+                           <p>To update property text in PMI elements, use the <b>PMI</b> tab→<b>Property Text</b> group→<b>Update All</b> command.</p>
+                        </li>
+                        <li>
+                           <p>To convert property text strings to plain text for individual annotations and dimensions,
+                              use the <b>Convert Property Text</b> command on the selected element shortcut menu.</p>
+                        </li>
+                        <li>
+                           <p>To convert all strings in the document, you can use the <b>PMI</b> tab→<b>Property Text</b> group→<b>Convert All</b> command.</p>
+                        </li>
+                     </ul>
+                     <p>To learn more about property text, see <a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/prptxt1a" rel="prptxt1a">Using property text</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna2h" rel="pmidna2h">Display and edit PMI elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna1h" rel="pmidna1h">Add PMI dimensions and annotations</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1673792" rel="xid1673792">Select multiple reference elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid611616" rel="xid611616">Create PMI dimensions from the assembly level</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab1h" rel="pmidnab1h">Place a PMI dimension using an intersection point</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna6h" rel="pmidna6h">Set a PMI dimension and annotation plane</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1291372" rel="xid1291372">Show custom occurrence properties in PMI</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna5h" rel="pmidna5h">Move PMI elements in 3D</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna5h_v1" rel="pmidna5h_v1">Reposition PMI text, lines, and arrows</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna4h" rel="pmidna4h">Copy PMI elements from a sketch or feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna3h" rel="pmidna3h">Add or remove PMI elements in a model view</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab3a" rel="pmidnab3a">PMI edit handles and cursors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid720158" rel="xid720158">Placing PMI dimensions using intersection points</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna1c" rel="pmidna1c">Lock Plane command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna2d" rel="pmidna2d">Lock Dimension Plane command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidna3c" rel="pmidna3c">Move Dimension command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmi1c" rel="pmi1c">Add To Model View command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmi2c" rel="pmi2c">Remove From Model View command</a><br><br></div>
+            <div class="footer-content">PMI dimensions and annotations, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

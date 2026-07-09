@@ -1,0 +1,132 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<html class="main-html scroll-area">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+  <title>Using Generative Design results</title>
+ </head>
+ <body>
+  <div class="main content-container"><contenttitle title="Using Generative Design results"></contenttitle>
+   <div class="container-fluid content-start">
+    <div class="row justify-content-center topic-header">
+     <div class="col-12 content-pad">
+      <div class="topic-header-content" id="xid1389864">
+       <h1 class="topic-title">Using Generative Design results</h1>
+      </div>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-12 content-pad">
+      <p>There are many ways to use the stress information and material removal results produced by Generative Design. If you are satisfied with the resulting part, you can submit it for 3D printing directly from Solid Edge. (See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/so_print_mesh" rel="so_print_mesh">Print an optimized solid mesh body</a>.) But if you want to improve on the result, here are some techniques you can use within the same Solid Edge document.</p>
+      <ul>
+       <li><p>Modify the study to see how different boundary conditions applied to different faces affect the resulting body. You also can use the study quality slider or the target mass slider to significantly change the result.</p></li>
+       <li><p>Compare multiple structural optimization studies for the same part, producing a different optimized mesh body each time.</p></li>
+       <li><p>Directly edit the original model, and then regenerate the mesh body.</p></li>
+       <li><p>Create a Solid Edge Simulation study for the original design body to identify high-stress areas, and then compare this to the stresses on the structurally optimized result. To watch a video and learn how to do this, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1447067" rel="xid1447067">Use simulation results to inform generative studies</a>.</p></li>
+      </ul>
+      <h4 class="division-title">Improve the original part design</h4>
+      <div>
+       <p>Based on the results of the structural optimization, you may decide you need to make small changes to the original part before you optimize it again. For example, you may need to simplify the original part, or thicken it, or change the diameter of a hole feature, or add a cutout. You can switch fluidly between making synchronous edits to regenerating and updating your mesh body result.</p>
+       <p>To edit the model, first select the <b>Design Body 1</b> entry in <b>PathFinder</b> to display the original part body, and then modify it using any synchronous modeling commands on the ribbon.</p>
+       <p>To reprocess the generative study using the same loads and constraints, display the <b>Solid Mesh Body 1</b>, under <b>Construction Bodies</b>, and select the <b>Generate</b> command again.</p>
+       <p>To learn more, watch this video:</p>
+       <div id="videoContainer" style="max-width: 640px;">
+        <div id="video">
+         <div id="videoPlayer" class="video-player m-b-md"><iframe id="player" src="https://video.sw.siemens.com/embed/fb5d3ea6-2988-4379-823d-72d38a4695bc" allowfullscreen scrolling="no" frameborder="0"></iframe>
+         </div>
+        </div>
+       </div>
+      </div>
+      <h4 class="division-title">Work with multiple studies</h4>
+      <div>
+       <p>As you work with the study results, you have the option of overwriting existing results or creating new results. To overwrite the generated study result, simply change input values or optimization parameters, and then select the <b>Generate</b> command again.</p>
+       <p>If you do not want to overwrite the original study, you can create new studies in the same document to test alternatives. To preserve the original study inputs and use them as the basis for a new study, you can use the <b>Duplicate Generative Study</b> shortcut command, which copies all of the inputs but not the result. If you want to test different boundary conditions, you can create multiple new studies using the <b>Create Generative Study</b> command on the ribbon, and then add the boundary conditions you want to apply.</p>
+       <div class="attention" type="note">
+        <div class="attention-label">
+         Note:
+        </div>
+        <p>If you are working with multiple studies, ensure that the study you intend to modify is the active study. The active study is indicated by blue text.</p>
+       </div>
+      </div>
+      <h4 class="division-title">Experiment with loads and constraints</h4>
+      <div>
+       <p>If appropriate to the part and how it is intended to operate, you can experiment with different loads and constraints to improve the resulting mesh body. In the following example, you can see how changing the type of load that is applied to a face produces very different results.</p>
+       <ul>
+        <li><p>(1) Torque load</p></li>
+        <li><p>(2) Force load</p></li>
+        <li><p>(3) Pressure load</p></li>
+       </ul>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/compare_load_type_results.png"></p>
+       <p>To add new boundary conditions to an existing mesh body, you must select the faces on the original design space. To do that, use <b>PathFinder</b> check boxes to display <b>Design Bodies</b>→<b>Design Body 1</b>. This is the original design body. You also can make it easier to work with the design body by hiding the mesh body associated with the generative study result. Use the <b>Construction Bodies</b>→<b>Solid Mesh Body 1</b> check box to hide it.</p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/gd_pathfinder_design_and_mesh_bodies.png"></p>
+       <p>To change the values of an existing load on a solid mesh body, double-click the object in the <b>Generative Design</b> pane, for example, <b>Force 1</b>. This displays the load and the command bar in the graphics window.</p>
+       <p><img class="img-fluid" src="../../../common/graphicLibrary/se/topology_optimization/gd_force_load_inputs.png"></p>
+       <p>You can evaluate the effect of individual loads and constraints on study geometry by turning them off and on using the <b>Suppress</b> and <b>Unsuppress</b> shortcut commands. When you solve the study, the boundary conditions that are suppressed are not processed. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a>.</p>
+       <p>To account for a part undergoing different types of loading conditions in a study, but not all at the same time, you can group them in the functional order they occur. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405933" rel="xid1405933">Using load cases</a>.</p>
+      </div>
+      <h4 class="division-title">Compare results to find the best solution</h4>
+      <div>
+       <p>You can compare the solutions resulting from different optimization targets. By changing the settings for study quality, or the target mass reduction, or by optimizing to a factor of safety in the <b>Generate Study</b> dialog box, you can generate different output bodies as the result. A quick visual review of each resulting shape and its associated stress results lets you determine the best result for your needs.</p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/design_space_and_mesh_body.png"></p>
+       <div class="attention" type="example">
+        <div class="attention-label">
+         Example:
+        </div>
+        <p>Compare the following solid mesh bodies optimized using different study quality values. The result on the left was generated using a low study quality value. The result on the right was generated using a medium study quality.</p>
+        <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/compare_study_quality_results_gd.png"></p>
+       </div>
+       <div class="attention" type="example">
+        <div class="attention-label">
+         Example:
+        </div>
+        <p>This view of the part indicates that too much material was removed during optimization. You can use the <b>Preserve Region</b> command to preserve additional material around the top mounting hole where the fixed constraint is applied.</p>
+        <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/result_too_much_material_removed.png"></p>
+       </div>
+       <p>Here are some things to consider as you make changes to the study inputs:</p>
+       <ul>
+        <li><p>Where you apply a load or constraint can have a dramatic effect on the result. For example, you can add a fixed constraint and a force load to the same face.</p></li>
+        <li><p>Preserve any region that includes a face where you apply a load or constraint.</p></li>
+        <li><p>Applying more forces to a part means you need to start with more material on the design body. This gives the optimizer more material with which to work.</p></li>
+        <li><p>While the default offset values are appropriate for many cases, you can increase these values to prevent too much material from being removed.</p></li>
+       </ul>
+      </div>
+      <h4 class="division-title">Add material to the generated mesh body</h4>
+      <div>
+       <p>You can use synchronous Solid Edge solid modeling and surface modeling to add and remove material from the generated solid mesh body using some basic Boolean operation modeling commands. Notice, however, that although the generated body can be selected as a whole, elements such as faces, edges, and nodes are not individually selectable. This is because the body is a mesh of triangles, not a Parasolid body.</p>
+       <p>For information about how to work with the mesh body, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1417637" rel="xid1417637">Add material to a generated mesh body</a>.</p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/add_material.png"></p>
+      </div>
+     </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+     <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1403832" rel="xid1403832">Modify a generative study</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1417637" rel="xid1417637">Add material to a generative result</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/so_print_mesh" rel="so_print_mesh">Print an optimized solid mesh body</a> <br> <br>
+     <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1447067" rel="xid1447067">Use simulation results to inform generative studies</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405933" rel="xid1405933">Using load cases</a> <br> <br>
+    </div>
+    <div class="footer-content">
+     Using Generative Design results, Solid Edge 2023 <br>© 2022 Siemens
+    </div>
+   </div>
+  </div>
+  <script>window.mainLanguage="en_US"</script>
+  <script>window.delivId=""</script>
+  <script>window.projectId=""</script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script>
+ </body>
+</html>

@@ -1,0 +1,304 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Compare Models dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Compare Models dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1666848">
+                     <h1 class="topic-title">Compare Models dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <dl>
+                     <dt>Configure Comparison</dt>
+                     <dd class="ml-3">
+                        <p>Defines the two models to compare.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>In the Teamcenter-managed environment, to compare revisions of the same document,
+                              set the <b>SEEC_Enable_MultipleRevisions</b> preference to True.</p>
+                        </div>
+                        <dl>
+                           <dt>Reference Model</dt>
+                           <dd class="ml-3">
+                              <p>The working model is compared to the reference model. You can <b>Browse</b> to the model location.</p>
+                              <p>If the part is a family of parts, The <b>Family of Parts</b> field is enabled so you can choose the member.</p>
+                           </dd>
+                           <dt>Working Model</dt>
+                           <dd class="ml-3">
+                              <p>Model to check for changes from the reference model. You can <b>Browse</b> to the model location.</p>
+                              <p>If the part is a family of parts, the <b>Family of Parts</b> field is enabled so you can choose the member.</p>
+                           </dd>
+                           <dt>Tolerance (%)</dt>
+                           <dd class="ml-3">
+                              <p>Default tolerance value is 0.1% total volume of the reference model.</p>
+                              <p>When a comparison is performed, before displaying the changes, the ratio of ‘volume
+                                 added’ to ‘total volume’ is checked. This value is compared with the tolerance that
+                                 is specified as the <b>Tolerance</b> value. The change is displayed only if it is larger than the <b>Tolerance</b> value.</p>
+                           </dd>
+                           <dt>Align Parts</dt>
+                           <dd class="ml-3">
+                              <p>Aligns models based on selected coordinate systems. If this option is not selected,
+                                 the models are aligned to the Base coordinate system. If custom coordinate systems
+                                 exist and you want to use them, select the <b>Align</b> option and select coordinate system from the list for each model.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Display Options</dt>
+                     <dd class="ml-3">
+                        <p>Defines how the comparison results display.</p>
+                        <dl>
+                           <dt>Background color</dt>
+                           <dd class="ml-3">
+                              <p>Sets the background color for the viewports.</p>
+                           </dd>
+                           <dt>Volume Changes</dt>
+                           <dd class="ml-3">
+                              <p>Defines what volume changes to display.</p>
+                              <dl>
+                                 <dt>Volume Changes</dt>
+                                 <dd class="ml-3">
+                                    <p>Defines what type of volume changes to display, and the color to use for each.</p>
+                                    <dl>
+                                       <dt>Added volume</dt>
+                                       <dd class="ml-3">
+                                          <p>Displays the volume added to the reference model. Choose the color for added volume.
+                                             The default color is blue.</p>
+                                          <div class="attention" type="note">
+                                             <div class="attention-label">Note: </div>
+                                             <p>For an assembly comparison, this represents components added. Volume added or removed
+                                                to any component is also shown. Assembly features are not detected in an assembly
+                                                comparison. See the comparison report for details.</p>
+                                          </div>
+                                       </dd>
+                                       <dt>Removed volume</dt>
+                                       <dd class="ml-3">
+                                          <p>Displays the volume removed from the reference model. The color is White (glass).
+                                             This color cannot be changed.</p>
+                                          <div class="attention" type="note">
+                                             <div class="attention-label">Note: </div>
+                                             <p>For an assembly comparison, this represents components removed. Volume added or removed
+                                                to any component is also shown. Assembly features are not detected in an assembly
+                                                comparison. See the comparison report for details.</p>
+                                          </div>
+                                       </dd>
+                                       <dt>Volume common to both models</dt>
+                                       <dd class="ml-3">
+                                          <p>Displays the volume common to both models. Choose the color for common volume. The
+                                             default color is green.</p>
+                                       </dd>
+                                       <dt>Changed position</dt>
+                                       <dd class="ml-3">
+                                          <div class="attention" type="note">
+                                             <div class="attention-label">Note: </div>
+                                             <p>For an assembly comparison, this represents components that have changed position.
+                                                See the comparison report for details. The default color is red.</p>
+                                          </div>
+                                       </dd>
+                                    </dl>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt>View Manipulations</dt>
+                           <dd class="ml-3">
+                              <p>Viewports are kept in synchronization for view manipulations (<b>Zoom</b>, <b>Fit</b>, <b>Pan</b>, and <b>Rotate</b>).</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Options</dt>
+                     <dd class="ml-3">
+                        <p>Defines the reporting parameters.</p>
+                        <dl>
+                           <dt>Generate Report</dt>
+                           <dd class="ml-3">
+                              <p>Displays the <b>Save Comparison Report</b> dialog box.</p>
+                              <dl>
+                                 <dt>Report Type</dt>
+                                 <dd class="ml-3">
+                                    <p>Specifies the type of report to create (HTML, 3D PDF, or Word).</p>
+                                 </dd>
+                                 <dt>Report folder path</dt>
+                                 <dd class="ml-3">
+                                    <p>Defines the location to save the report. The report can only be saved to an unmanaged
+                                       location on disk.</p>
+                                 </dd>
+                                 <dt>Open report after saving</dt>
+                                 <dd class="ml-3">
+                                    <p>Use this option to automatically show the report after it is saved.</p>
+                                 </dd>
+                                 <dt>Save Report</dt>
+                                 <dd class="ml-3">
+                                    <p>Generates the report.</p>
+                                 </dd>
+                                 <dt>Close</dt>
+                                 <dd class="ml-3">
+                                    <p>Closes the dialog box.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt>Report Options</dt>
+                           <dd class="ml-3">
+                              <p>Displays the <b>Report Options</b> dialog box.</p>
+                              <dl>
+                                 <dt>Unit</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the units in the report.</p>
+                                    <dl>
+                                       <dt>Linear</dt>
+                                       <dd class="ml-3">
+                                          <p>Sets the length units from the list.</p>
+                                       </dd>
+                                       <dt>Angular</dt>
+                                       <dd class="ml-3">
+                                          <p>Sets the angular units from the list.</p>
+                                       </dd>
+                                    </dl>
+                                 </dd>
+                                 <dt>Views</dt>
+                                 <dd class="ml-3">
+                                    <p>Includes selected views in the report.</p>
+                                    <ul style="list-style: none">
+                                       <li>
+                                          <p>Front View</p>
+                                       </li>
+                                       <li>
+                                          <p>Top View</p>
+                                       </li>
+                                       <li>
+                                          <p>Left Side View</p>
+                                       </li>
+                                       <li>
+                                          <p>Back View</p>
+                                       </li>
+                                       <li>
+                                          <p>Bottom View</p>
+                                       </li>
+                                       <li>
+                                          <p>Right Side View</p>
+                                       </li>
+                                    </ul>
+                                 </dd>
+                                 <dt>Plot</dt>
+                                 <dd class="ml-3">
+                                    <p>Plots views as native.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Compare</dt>
+                     <dd class="ml-3">
+                        <p>Starts the comparison analysis.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Viewports</dt>
+                     <dd class="ml-3">
+                        <p>Displays the compared models and results.</p>
+                        <p>Click <img class="img-fluid" src="../../../common/nonLocalized/se/feature_edit/compare_3d/show_tile_only.png"> to show only that viewport in the dialog box.</p>
+                        <p>Click <img class="img-fluid" src="../../../common/nonLocalized/se/feature_edit/compare_3d/show_3_tiles.png"> to show all three viewports in the dialog box.</p>
+                        <dl>
+                           <dt>Reference Model:</dt>
+                           <dd class="ml-3">
+                              <p>Displays the reference model and the document name, including file extension.</p>
+                           </dd>
+                           <dt>Working Model:</dt>
+                           <dd class="ml-3">
+                              <p>Displays the working model and the document name, including file extension.</p>
+                           </dd>
+                           <dt>Results</dt>
+                           <dd class="ml-3">
+                              <p>Displays the comparison results.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This viewport is blank until a comparison is made.</p>
+                              </div>
+                              <dl>
+                                 <dt>Geometry Comparison</dt>
+                                 <dd class="ml-3">
+                                    <p>This tab in the viewport displays the model showing added volume, removed volume,
+                                       and volume common to both models. The <b>Volume Changes</b> options control the display.</p>
+                                 </dd>
+                                 <dt>Properties Comparison</dt>
+                                 <dd class="ml-3">
+                                    <p>This tab in the viewport displays the following properties for the compared models:</p>
+                                    <ul style="list-style: none">
+                                       <li>
+                                          <p>Summary Information</p>
+                                       </li>
+                                       <li>
+                                          <p>Extended Summary Information</p>
+                                       </li>
+                                       <li>
+                                          <p>Document Summary Information</p>
+                                       </li>
+                                       <li>
+                                          <p>Custom</p>
+                                       </li>
+                                       <li>
+                                          <p>Mechanical Modeling</p>
+                                       </li>
+                                       <li>
+                                          <p>Physical Properties</p>
+                                       </li>
+                                       <li>
+                                          <p>Center of Gravity</p>
+                                       </li>
+                                       <li>
+                                          <p>Center of Volume</p>
+                                       </li>
+                                       <li>
+                                          <p>Global Moments of Inertia</p>
+                                       </li>
+                                       <li>
+                                          <p>Principal Moments of Inertia</p>
+                                       </li>
+                                       <li>
+                                          <p>Principal Axes</p>
+                                       </li>
+                                       <li>
+                                          <p>Radii of Gyration</p>
+                                       </li>
+                                    </ul>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/xid1668135" rel="xid1668135">Compare models</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/xid1666847" rel="xid1666847">Compare Models command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/xid1743780" rel="xid1743780">Comparing assemblies</a><br><br></div>
+            <div class="footer-content">Compare Models dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,123 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Remesh command </title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Remesh command "></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1592006">
+                     <h1 class="topic-title">Remesh command <img class="img-fluid" src="../../../common/nonLocalized/se/se/remesh1.gif"></h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Reverse Engineering tab→Cleanup Mesh Group</b>→<b>Remesh</b> command to improve the overall quality of a meshed body by remeshing the mesh to
+                     a specified uniform size. You can remesh an entire body or fence select a portion
+                     of the body. You can also undo and redo the remesh if you need different results.</p>
+                  <p>The command is useful when working with meshes created from models where the mesh
+                     size is not uniform across the model. It is also useful when working with scanned
+                     models where you want to increase or decrease the mesh density and size.</p>
+                  <p>After setting the appropriate options, select a mesh body or mesh facets to remesh,
+                     and then click Accept <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/accept.png"> to remesh the body or facets.</p>
+                  <p>The <b>Remesh</b> command bar contains the following options.</p>
+                  <dl>
+                     <dt><b>Mesh Selection</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Body/Face</b></dt>
+                           <dd class="ml-3">
+                              <p>The <b>Body/Face</b> method selects bodies or faces to delete.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/body_face_selection.png"></p>
+                           </dd>
+                           <dt><b>Brush</b></dt>
+                           <dd class="ml-3">
+                              <p>The <b>Brush</b> method paints the area to be deleted. Highlighted mesh regions turn green when selected.
+                                 This method is useful when selecting mesh facets in a small irregular area.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/brush_selection1.png"></p>
+                           </dd>
+                           <dt><b>Fence</b></dt>
+                           <dd class="ml-3">
+                              <p>The <b>Fence</b> method defines a selection box (rectangle by 2 points) that identifies the area to
+                                 be deleted. The current view orientation determines the perspective of the selection
+                                 box. Highlighted mesh regions turn green when selected. </p>
+                              <p> <img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/fence_select1.png"></p>
+                           </dd>
+                           <dt><b>Box</b></dt>
+                           <dd class="ml-3">
+                              <p>The <b>Box</b> method defines a 3D selection box with a finite depth that identifies the area to
+                                 be deleted. </p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/box_select1.png"></p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Curvature Refinement </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/refresh_curvature_refinement.gif"> </dt>
+                     <dd class="ml-3">
+                        <p>Creates smaller facets at high curvature areas to maintain the shape.</p><img class="img-fluid d-block mx-auto" src="../../../common/nonLocalized/se/reverse_engineering/curvature_refine1.png"></dd>
+                     <dt><b>Retain Sharp edges </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/refresh_retain_sharp.gif"></dt>
+                     <dd class="ml-3"><img class="img-fluid d-block mx-auto" src="../../../common/nonLocalized/se/reverse_engineering/retain_sharp_edge1.png"><p>When selected, retains the sharp edges.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If <b>Curvature Refinement</b> and <b>Retain Sharp edges</b> are both disabled, there is no mesh refinement and the command creates the same size
+                              mesh facets across the selected bodies or regions. However, the curvature areas and
+                              sharp edges may not be retained if the mesh size is so large that it cannot fit these
+                              areas and edges within the mesh boundary.</p>
+                        </div>
+                     </dd>
+                     <dt><b>Retain boundary </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/refresh_retain_boundary.gif"></dt>
+                     <dd class="ml-3"><img class="img-fluid d-block mx-auto" src="../../../common/nonLocalized/se/reverse_engineering/retain_boundary_1.png"><p>When selected, retains the boundaries of the selected mesh body or regions.</p>
+                     </dd>
+                     <dt><b>Target Size</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the desired facet edge length when no mesh refinement is defined.</p>
+                     </dd>
+                     <dt><b>Minimum Size</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the lower limit of the facet edge lengths on the mesh. Decease the minimum
+                           size for more refinement in areas where the mesher attempts to capture complex features.</p>
+                     </dd>
+                     <dt><b>Chordal Tolerance</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the maximum chordal deviation for areas with high curvature. Decreasing
+                           the value produces a more detailed mesh on a curvature area. </p>
+                     </dd>
+                     <dt><b>Advanced Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1609920" rel="xid1609920"><b>Remesh Options</b></a> dialog box.</p>
+                     </dd>
+                     <dt><b>Accept </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/accept.png"> </dt>
+                     <dd class="ml-3">
+                        <p>Accepts the current remesh settings.</p>
+                     </dd>
+                     <dt><b>Deselect </b><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/deselect.png"> </dt>
+                     <dd class="ml-3">
+                        <p>Deselects the current remesh settings.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1673342" rel="xid1673342">Create a sketch from a section curve</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_assemble" rel="re_assemble">Reverse engineering example</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_delete_mesh" rel="re_delete_mesh">Delete Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fill_holes" rel="re_fill_holes">Fill Holes command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_smooth_mesh" rel="re_smooth_mesh">Smooth Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1631462" rel="xid1631462">Align command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661826" rel="xid1661826">Align command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1609920" rel="xid1609920">Remesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions">Automatic regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions">Manual regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_extract_surfaces" rel="re_extract_surfaces">Extract surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry">Fit surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851569" rel="xid1851569">Deviation Analysis command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851570" rel="xid1851570">Deviation Analysis command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851593" rel="xid1851593">Deviation Analysis Settings dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661445" rel="xid1661445">Section Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661773" rel="xid1661773">Section Sketches command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661774" rel="xid1661774">Section Sketches Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1664797" rel="xid1664797">Align a mesh body to a coordinate system</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1854027" rel="xid1854027">Analyze the deviation between two objects</a><br><br></div>
+            <div class="footer-content">Remesh command , Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

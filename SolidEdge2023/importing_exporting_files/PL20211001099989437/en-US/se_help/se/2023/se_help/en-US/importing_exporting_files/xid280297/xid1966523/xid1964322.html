@@ -1,0 +1,153 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Inserting files using CAD Direct</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Inserting files using CAD Direct"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1964322">
+                     <h1 class="topic-title">Inserting files using CAD Direct</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>CAD Direct</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/cad_direct.png"> to insert non-Solid Edge files directly into Solid Edge assemblies, without translating
+                     the files separately. This eliminates the task of translating non-Solid Edge files
+                     before inserting them into an assembly.</p> 
+                  <p>To insert non-Solid Edge file as a <b>CAD Direct</b> component in the assembly environment, choose <b>Home</b> tab→<b>Components</b> group→<b>Insert Component</b>→<b>CAD Direct </b><img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/create_edit/cad_direct.png">.</p> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>When using the <b>CAD Direct</b> command, you can only insert one file at a time.</p> </div> 
+                  <p>To specify which geometry elements you want to insert from JT and STEP files, you
+                     can use the .ini files or options available in the options dialog box for the type
+                     of file you are inserting.</p>
+                  <p>Links are maintained between the parent non-Solid Edge file and the Solid Edge geometry.
+                     Any changes made to the non-Solid Edge geometry are reflected in the Solid Edge assembly.</p> 
+                  <p>Links are only maintained with the top node, so you must save the top assembly of
+                     the linked non-Solid Edge file. For example, if you insert a non-Solid Edge assembly
+                     as a <b>CAD Direct</b> component and later change a part in that non-Solid Edge assembly, the part is saved,
+                     but the assembly is not saved. Updates will not reflect changes in the part. In this
+                     case you will get a warning about a force update which, when accepted, will re-translate
+                     everything, and reflect changes in part. We recommend that you save the linked top
+                     assembly before updating.</p> 
+                  <p>If you <b>Delete</b> or <b>Move</b> or <b>Rename</b> the parent file from its original location, only the geometry will be maintained
+                     and not the link. When you restore the file to the original location, the link will
+                     be reestablished.</p> 
+                  <p>You can add multiple occurrences of <b>CAD Direct</b> components. Any updates to the geometry are updates for all occurrences.</p>
+                  <p>You can apply constraints or features between different files you have inserted or
+                     between inserted files and Solid Edge files in the assembly. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>This command supports the latest version of NX, SolidWorks, Parasolid (*.x_t; *.x_b),
+                        STEP (*.step; *.stp), and JT files.</p>
+                  </div> 
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div> 
+                     <p>The name of the CAD Direct component indicates the file format of the source file.</p> </div> 
+                  <p>Any features created using <b>CAD Direct</b> geometry are modified based on the changes in the source file and the constraints
+                     are still maintained. Therefore, it is also maintaining downstream features with some
+                     limitations. Associativity is not maintained when there is a change in the position
+                     of a parent geometry.</p> 
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div> 
+                     <p>Cutting of edges—features created on the connected faces/edges are no longer associative.</p> </div>
+                  <p>Each file is inserted as an internal component linked to non-Solid Edge files, so
+                     no files are created on disk. If you need the components on disk, use the <b>Publish Internal Components</b> command. For more information, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1855376" rel="xid1855376">Publishing internal components</a>.</p>
+                  <h4 class="division-title">Updating CAD Direct links</h4>
+                  <div>
+                     <p>There may be cases when changes are made to the linked non-Solid Edge file. You can
+                        replace the older version of the component with a new component with the same name.
+                        To update the changes, right-click the <b>CAD Direct</b> component and choose <b>Update CAD Direct Geometry</b>.</p>
+                     <p>Changes to the <b>CAD Direct</b> geometry include:</p>
+                     <ul>
+                        <li>
+                           <p>Parts added or removed from the parent non-Solid Edge assembly.</p>
+                        </li>
+                        <li>
+                           <p>Subassembly added or removed from the parent non-Solid Edge assembly.</p>
+                        </li>
+                        <li>
+                           <p>Part or subassembly position changed in the parent non-Solid Edge assembly.</p>
+                        </li>
+                        <li>
+                           <p>Body added to the parent non-Solid Edge file.</p>
+                        </li>
+                        <li>
+                           <p>Body position changed in the parent non-Solid Edge file.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p> To update the changes, we recommend you save the parent non-Solid Edge file.</p> </div>
+                  </div>
+                  <h4 class="division-title">Changing the source file</h4>
+                  <div>
+                     <p>You can change the source of a CAD Direct component using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/links1c" rel="links1c"><b>Edit Links</b> command</a>. The link will be replaced with the new non-Solid Edge file. It will maintain downstream
+                        features with some limitations.</p> 
+                     <p>While replacing source file, consider the following instances:</p> 
+                     <dl> 
+                        <dt><b>Selecting a different file with the same name from a different location</b></dt> 
+                        <dd class="ml-3"> 
+                           <p>If the same naming is followed for parts and subassemblies in the source file, changes
+                              will be updated by maintaining downstream features. Otherwise, changes will be updated
+                              without maintaining downstream features.</p> </dd> 
+                        <dt><b>Selecting a new source file with a different name</b></dt> 
+                        <dd class="ml-3"> 
+                           <p>The old CAD Direct component will be replaced with a new one without maintaining downstream
+                              features.</p> </dd> 
+                        <dt><b>Selecting a file of non-supported version</b></dt> 
+                        <dd class="ml-3"> 
+                           <p>The old CAD geometry with downstream features will be maintained.</p> </dd> 
+                        <dt><b>Translation failure</b></dt> 
+                        <dd class="ml-3"> 
+                           <p>The old CAD geometry with downstream features will be maintained.</p> </dd> 
+                        <dt><b>Multiple instances of the same CAD Direct component in the file</b></dt> 
+                        <dd class="ml-3"> 
+                           <p>All the instances will be replaced by the new CAD Direct component.</p> </dd> </dl>
+                  </div>
+                  <h4 class="division-title">Breaking CAD Direct links</h4>
+                  <div>
+                     <p>To break the link between the parent file and any <b>CAD Direct</b> component(s), right-click a <b>CAD Direct</b> component and choose <b>Break CAD Direct Link</b>. This makes the Solid Edge geometry independent of the non-Solid Edge file. If you
+                        break the link, the link cannot be reestablished. To break the link of multiple instances,
+                        hold Ctrl and click the items in <b>PathFinder</b> or in the work area. This command is not available for subnodes.</p>
+                  </div> 
+                  <h4 class="division-title">CAD Direct and document management</h4>
+                  <div>  
+                     <p>Inserting non-Solid Edge files using the <b>CAD Direct</b> command impacts document management as follows:</p> 
+                     <ul> 
+                        <li> 
+                           <p><b>Design Manager</b>—Non-Solid Edge files linked to <b>CAD Direct</b> components are not displayed in Design Manager. For commands located on the <b>Design Manger</b> or <b>Data Management</b> tabs, such as <b>Save As</b>, <b>Pack and Go</b>, and <b>Where Used</b>, links for <b>CAD Direct</b> components are maintained with the source file at the original location. Even after
+                              executing the <b>Pack and Go</b> command, the link to the <b>CAD Direct</b> component is with the original non-Solid Edge file. It is not copied to a new location
+                              or added to a zip file.</p> </li> 
+                        <li> 
+                           <p><b>SEDM</b>—If you try to save an unmanaged file containing a <b>CAD Direct</b> component to a vault location, the <b>CAD Direct</b> source file is not copied to the vault location. The <b>CAD Direct</b> component keeps the link with the original source file at the old location. </p> </li> 
+                        <li> 
+                           <p><b>SEEC</b>—After uploading an unmanaged Solid Edge assembly containing a <b>CAD Direct</b> component, the source file is not uploaded to the <b>SEEC</b> server, but the <b>CAD Direct</b> geometry is available in the uploaded assembly.</p> </li> </ul> </div> 
+                  <h4 class="division-title">CAD Direct impacts on assembly</h4>
+                  <div>  
+                     <p>For the <b>CAD Direct</b> component, the entire structure appears in <b>PathFinder</b>, but only the top node appears in the<b> Internal Components</b> collector.</p> </div>
+               </div>
+            </div>
+            <div class="footer-content">Inserting files using CAD Direct, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

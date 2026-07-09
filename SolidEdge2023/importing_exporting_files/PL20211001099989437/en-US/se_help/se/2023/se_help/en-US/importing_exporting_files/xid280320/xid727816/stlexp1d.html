@@ -1,0 +1,170 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Export Options for STL (.stl) dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Export Options for STL (.stl) dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="stlexp1d">
+                     <h1 class="topic-title">Export Options for STL (.stl) dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Controls how a model document is translated to the .stl file format. STL files are
+                     used in additive manufacturing to produce 3D prototypes of your 3D CAD models.</p>
+                  <dl>
+                     <dt>Output file as</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the format for the output .STL files.</p>
+                        <dl>
+                           <dt>Binary</dt>
+                           <dd class="ml-3">
+                              <p>Stores the STL files in binary format.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Binary STL files are much smaller than ASCII STL files.</p>
+                              </div>
+                           </dd>
+                           <dt>ASCII</dt>
+                           <dd class="ml-3">
+                              <p>Stores the STL files in ASCII format.</p>
+                           </dd>
+                           <dt>Export displayed only</dt>
+                           <dd class="ml-3">
+                              <p>Exports only the active model and construction geometry that is visible in the part
+                                 or assembly.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>If you select this option, only design bodies are exported. Any simplified bodies
+                                    contained in the assembly are not exported.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>STL Document Structure</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the STL document structure.</p>
+                        <dl>
+                           <dt>Single STL document</dt>
+                           <dd class="ml-3">
+                              <p>Creates a single STL document that contains components in the assembly. This option
+                                 is disabled for part documents.</p>
+                           </dd>
+                           <dt>STL document for each component</dt>
+                           <dd class="ml-3">
+                              <p>Creates individual STL documents for each component in the assembly.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Only design bodies are exported to STL format. Construction bodies and simplified
+                                    data is not exported to STL format.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Tolerance Options</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the tessellation of the model document for Stereo Lithography (STL) output.</p>
+                        <dl>
+                           <dt>Custom</dt>
+                           <dd class="ml-3">
+                              <p>Enables the <b>Conversion tolerance</b> and <b>Surface plane angle</b> options so you can specify custom values for these options. You can enter a value
+                                 or use the slider to change the value for the <b>Conversion tolerance</b> or <b>Surface plane angle</b>.</p>
+                              <p>The slider range for the surface plane angle is from 1 to 60 degrees, which Solid
+                                 Edge recommends, but you can key in a value up to 90 degrees. If you enter a value
+                                 that is outside that range, the angle edit field becomes yellow. If you enter an invalid
+                                 value below 0.5 degrees or above 90 degrees, the angle edit field becomes orange.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Lower numbers generate files with greater whole part accuracy,</p>
+                              </div>
+                           </dd>
+                           <dt>Fine</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want the tolerance to be fine. If you select this option, you cannot
+                                 change the values for the <b>Conversion tolerance</b> or <b>Surface plane angle</b>.</p>
+                              <p>Selecting this option sets the <b>Surface plane angle</b> value to 30 degrees.</p>
+                           </dd>
+                        </dl>
+                        <div class="row">
+                           <div class="col-3"><b>Coarse</b></div>
+                           <div class="col-9">
+                              <p>Specifies that you want the tolerance to be coarse. If you select this option, you
+                                 cannot change the values for the <b>Conversion tolerance</b> or <b>Surface plane angle</b>.</p>
+                              <p>Selecting this option sets the <b>Surface plane angle</b> value to 60 degrees.</p>
+                           </div>
+                        </div>
+                        <dl>
+                           <dt>Conversion tolerance</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the conversion tolerance, which is the distance between the surface and
+                                 its facets, in model units. </p>
+                              <p>Conversion tolerance controls the amount of tessellation (facets) on the model. A
+                                 higher tessellation value produces a coarser, more meshed model. A lower tessellation
+                                 value produces a finer, smoother model. </p>
+                              <p>File size decreases as tolerance size increases.</p>
+                              <p>The tolerance range for <b>Millimeters</b> is .001 to 2.5. The tolerance range for <b>Inch</b> is 0.0001 to 0.1. Any value above these ranges is invalid and the tolerance edit
+                                 field becomes orange. We do not recommend any value above these ranges, and the tolerance
+                                 edit field becomes yellow, but 3D print preview and translation options are still
+                                 available in this condition.</p>
+                           </dd>
+                           <dt>Surface plane angle</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the surface angle tolerance, which is the tolerance between the surface
+                                 and its facets. It is the upper bound on the angular deviation between the surface
+                                 normals at any two positions under the facet. </p>
+                              <p>A lower value produces greater accuracy in the model. This is most visible in small
+                                 details. </p>
+                              <p>The slider range for the surface plane angle is from 1 to 60 degrees, but you can
+                                 key in a value up to 90 degrees. If you enter a value that Solid Edge does not recommend,
+                                 the angle edit field becomes yellow and the slider moves to the extreme right, but
+                                 3D print preview and translation options are still available in this condition.</p>
+                              <p>By default, the angle displays in degrees, but you can change the measurement unit
+                                 to radians.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Translation Options</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Export units</dt>
+                           <dd class="ml-3">
+                              <p>The units of measurement for the part being exported. You can set the units to millimeters
+                                 or inches.</p>
+                           </dd>
+                           <dt>Generate Log file</dt>
+                           <dd class="ml-3">
+                              <p>Produces a log file that contains warnings and information about the files involved
+                                 in translation.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1305185" rel="xid1305185">Saving Solid Edge documents to STL format</a><br><br></div>
+            <div class="footer-content">Export Options for STL (.stl) dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

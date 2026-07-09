@@ -1,0 +1,192 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Reviewing the study status</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Reviewing the study status"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="status1a">
+                     <h1 class="topic-title">Reviewing the study status</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title" id="status1a_indicator">Study status indicator <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_mesh_ood.gif"></h4>
+                  <div>
+                     <p>The study status indicator displayed in front of the study name in the <b>Simulation</b> pane indicates the current status of every study defined in the model. Each quadrant
+                        of the study status indicator represents a separate step in <a class="xref" href="#status1a_processes">study definition and process tracking</a>. Each quadrant is color-coded to indicate whether the step was initiated, complete,
+                        or failed. The study status indicator also shows whether the latest analysis solution
+                        is out of date. </p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/analyze/study/sesim_study_status_indicator_treeview.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="status1a_processes">Study definition and process tracking</h4>
+                  <div>
+                     <p>FEA study definition and processing is cyclical, with four different processes that
+                        must complete successfully and in the order shown in the diagram below. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_indicator2.gif"></p>
+                     <p>These processes are represented by the quadrants in the study status indicator.</p>
+                     <dl>
+                        <dt>Processing steps</dt>
+                        <dd class="ml-3">
+                           <ul style="list-style: none">
+                              <li>
+                                 <p>(1) Initial study creation, including geometry selection.</p>
+                              </li>
+                              <li>
+                                 <p>(2) Definition of loads, constraints, and assembly connectors.</p>
+                              </li>
+                              <li>
+                                 <p>(3) Meshing. </p>
+                              </li>
+                              <li>
+                                 <p>(4) Solving. </p>
+                              </li>
+                           </ul>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title" id="status1a_colors">Study status color coding</h4>
+                  <div>
+                     <p>Each processing step in the study status indicator is color coded.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="29*">
+                           <col span="1" width="170*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td bgcolor="gray" rowspan="1" colspan="1"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>(Gray) Undefined or incomplete definition.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td bgcolor="lime" rowspan="1" colspan="1"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>(Green) Good results or successfully completed.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td bgcolor="yellow" rowspan="1" colspan="1"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>(Yellow)</p>
+                                 <ul style="list-style: none">
+                                    <li>
+                                       <p> Outdated.</p>
+                                    </li>
+                                    <li>
+                                       <p>Outdated and incomplete. </p>
+                                       <div class="attention" type="tip">
+                                          <div class="attention-label">Tip: </div>
+                                          <p>This icon <img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/analyze/study/dvderror.gif"> in the Simulation tree-view pane indicates which study component has been modified
+                                             and is out of date.</p>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td bgcolor="red" rowspan="1" colspan="1"></td>
+                              <td rowspan="1" colspan="1">
+                                 <p>(Red) Failed.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>The following table explains how to interpret the study status indicator color coding
+                        with respect to the study processing cycle.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="167">
+                           <col span="1" width="193*">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="2" height="22">
+                              <p>Examples</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_initial.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Status of newly created study.</p>
+                              <p>(1) Geometry selected.</p>
+                              <p>(2)(3)(4) are not defined or are incomplete.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1" height="49"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_solve_success.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1" height="49">
+                              <p>Status of a successfully solved study.</p>
+                              <p>(1)(2)(3)(4) Geometry, loads, constraints, meshing, and solving are complete.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_solve_failure.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>(4) Solve failed.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_geom_change.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>(3)(4) The mesh and results are out of date.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_results_ood.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>(4) Out-of-date results.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/simulation/analyze/study/sesim_study_status_mesh_failure.gif"></td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>(3) Initial meshing failed.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <h4 class="division-title" id="status1a_ood">Out-of-date results</h4>
+                  <div>
+                     <p>Out-of-date study inputs and results are marked in the <b>Simulation</b> pane by this icon: <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/study/dvderror.gif">. Simulation results can become out of date when one or more of the following inputs
+                        to the study have been modified: </p>
+                     <ul>
+                        <li>
+                           <p>Geometry</p>
+                        </li>
+                        <li>
+                           <p>Material</p>
+                        </li>
+                        <li>
+                           <p>Boundary condition, as defined by loads, constraints, or connectors</p>
+                        </li>
+                        <li>
+                           <p>Mesh</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Reviewing the study status, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

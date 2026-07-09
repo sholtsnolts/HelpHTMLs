@@ -1,0 +1,397 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Mesh Options dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Mesh Options dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="meshopts1d">
+                     <h1 class="topic-title">Mesh Options dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Mesh Options</b> dialog box contains options for improving the mesh results using the <b>Mesh</b> command or the mesh sizing commands. Selected options are applied and saved with
+                     the study when you select the <b>Mesh</b> button or the <b>Mesh &amp; Solve</b> button in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a>. </p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="#meshopts1d_body">Body Mesh options</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#meshopts1d_size">Mesh Sizing options</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#meshopts1d_solid">Solid Mesh options</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#meshopts1d_surface">Surface Mesh options</a></p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title" id="meshopts1d_body">Body Mesh options</h4>
+                  <div>
+                     <p><b>Body Mesh</b> options are available only when the <b>Body Mesh</b> check box is selected.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/mesh_body_mesh_opt_db.png"></p>
+                     <dl> 
+                        <dt><b>Mesh Sizing</b></dt> 
+                        <dd class="ml-3"> 
+                           <p>These options described next control the size of the elements being created.</p> 
+                           <dl> 
+                              <dt> <b>Points Around Circle</b> </dt> 
+                              <dd class="ml-3">
+                                 <p>Specifies the number of triangles (edges/faces) used to define a 360 degree cylindrical
+                                    surface. Any other types of cylindrical surfaces use an equivalent number of triangles.
+                                    For example, a half circle uses half of this value and an ellipse would use more faces
+                                    on tighter curvature.</p> 
+                                 <p>The valid range of values is 3 to 128.</p>
+                              </dd> 
+                              <dt> <b>Minimum Element Size Factor</b> </dt> 
+                              <dd class="ml-3">
+                                 <p>When any setting causes mesh refinement to occur, the element face edges do not go
+                                    below the specified value.</p> 
+                                 <p>The valid range of values is 1 to 100.</p> </dd> 
+                              <dt> <b>Growth Factor</b> </dt> 
+                              <dd class="ml-3">
+                                 <p>This control determines the maximum rate at which face edge sizes vary from one face
+                                    to another (or to an adjacent face). The effect is only seen when there is transition
+                                    from an area of refinement to the rest of the surface mesh. For example, the default
+                                    value of 50% means that a face edge can be 1.5 times the length of an adjacent face
+                                    when growing from a short to a long edge length. The recommended range for <b>Growth Factor</b> is from 10% to 60%.</p> 
+                                 <p>The valid range of values is 1.00e-08 to 1.00e+02.</p>
+                              </dd> </dl> </dd> 
+                        <dt><b>Surface Curvature</b></dt>
+                        <dd class="ml-3">
+                           <dl> 
+                              <dt><b>Max Points Around Circle</b></dt> 
+                              <dd class="ml-3">
+                                 <p>Specifies the maximum number of points around a complete circle.</p> 
+                                 <p>The valid range of values is 4 to 128.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><b>Surface Proximity</b></dt>
+                        <dd class="ml-3">
+                           <dl> 
+                              <dt><b>Proximity Refinement</b></dt> 
+                              <dd class="ml-3">
+                                 <p>When <b>Proximity Refinement</b> is activated, the <b>Elements Across</b> option determines the local face size by dividing the distance from one face to another
+                                    across a gap by this value. It is used in conjunction with the <b>Max Search Distance</b> value, which specifies a <em>Search Ceiling</em>.</p> 
+                                 <p>The valid range of values for <b>Elements Across</b> is 2 to 10.</p> 
+                                 <p><b>Max Search Distance</b> specifies the maximum distance that the mesher includes in surface proximity, which
+                                    prevents unwanted refinement. This property is useful if a component has a variable
+                                    thickness and you need an option to locally refine only those areas where the thickness
+                                    is less than a specified value. However, if the gap distance is more than this value,
+                                    there is no refinement.</p> 
+                                 <p>The valid range of values for <b>Max Search Distance</b> is 1.00e-12 to 1.00e+05 in mm units.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title" id="meshopts1d_size">Mesh Sizing options</h4>
+                  <div>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/mesh_sizing_tab_mesh_opt_db.png"></p>
+                     <dl>
+                        <dt><b>Minimum elements on edge</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies the minimum number of elements along any edge on the selected surfaces.
+                              </p>
+                           <p>The default value is 1, and the number of elements are determined by the element size.
+                              Use this option to set higher numbers if you want to force some degree of refinement.
+                              </p> 
+                           <p>The valid range of values is 1 to 9.99e+08.</p>
+                        </dd>
+                        <dt><b>Maximum angle tolerance</b></dt>
+                        <dd class="ml-3">
+                           <p>Specifies the maximum allowable angle between the tangent of a surface boundary curve
+                              at the start of the element edge, and the angle of the free edge of the element (1).
+                              </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/max_ang_tol.gif"></p> 
+                           <p>The valid range of values is 5.73e-07 to 5.73e+03.</p>
+                        </dd>
+                        <dt><b>Maximum elements on small feature</b></dt>
+                        <dd class="ml-3">
+                           <p>Limits the number of elements placed around the perimeter of an interior boundary,
+                              usually around small features, to the value you enter in the <b>Maximum elements on small features</b> box. This prevents a large concentration of elements along small features that may
+                              not be needed and can skew the results for your model.</p>
+                           <p>When this option is set, you can enter a value from 3 to 9.99e+08.</p>
+                        </dd>
+                        <dt><b>Maximum size of small feature</b></dt>
+                        <dd class="ml-3">
+                           <p>Overrides the element size and directly specifies the size of a small feature. This
+                              value is the effective diameter of the interior feature calculated by taking the perimeter
+                              length of the interior feature divided by Pi.</p> 
+                           <p>The valid range of values for <b>Max Search Distance</b> is 1.00e-12 to 1.00e+05 in mm units.</p>
+                        </dd>
+                        <dt><b>Surface Interior Mesh Growth</b></dt>
+                        <dd class="ml-3">
+                           <dl>
+                              <dt><b>Growth factor</b></dt>
+                              <dd class="ml-3">
+                                 <p>Target size of all of the elements in the interior of the surface. It is multiplied
+                                    by the average size of the elements around the perimeter of the surface.</p>
+                                 <p>Growth factor affects mesh quality.</p>
+                                 <div class="attention" type="example">
+                                    <div class="attention-label">Example: </div>
+                                    <p>If you want to decrease the size of the elements in the interior of the surface, use
+                                       a number between 0 and 1; to increase the size, use a value above 1. </p>
+                                    <p>The valid range of values is 1.00e-08 to 1.00e+02.</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/mesh_gro_fact.gif"></p>
+                                 </div>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><b>Curvature-Based Mesh Refinement</b></dt>
+                        <dd class="ml-3">
+                           <p>The <b>Curvature-Based Mesh Refinement</b> options work together to reduce the size of elements in areas of a surface with a
+                              high amount of curvature. </p>
+                           <p>In this process, the surface is meshed first at the initial element size. Then the
+                              ratio of Chord Height to Chord Length is calculated for each element. If this ratio
+                              is larger than the value specified, the element size is automatically reduced and
+                              the surface is meshed again with the new sizing. This continues until all the elements
+                              on that surface do not exceed the Refinement ratio.</p>
+                           <dl>
+                              <dt><b>Refinement ratio</b></dt>
+                              <dd class="ml-3">
+                                 <p>Refinement Ratio≡Chord Height÷Chord Length</p>
+                                 <p>Where Chord Height (1) is the maximum normal distance from the element edge to the
+                                    curve or surface, and Chord Length (2) is the length of the element edge.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/refine_ratio.gif"></p> 
+                                 <p>The valid range of values is 1.00e-08 to 1.00e+02.</p>
+                              </dd>
+                              <dt><b>Refine surface mesh</b></dt>
+                              <dd class="ml-3">
+                                 <p>Refines the surface mesh using the <b>Refinement ratio</b>.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                        <dt><b>Geometry Preparation Options</b></dt>
+                        <dd class="ml-3">
+                           <p>Use the following options to eliminate unnecessary geometry features, such as small
+                              surfaces and short edges. This is based on the global mesh size and active geometries,
+                              so that the meshing process is more robust and generates better quality elements.</p>
+                           <dl>
+                              <dt><b>Prepare geometry for meshing</b></dt>
+                              <dd class="ml-3">
+                                 <p>Specifies that an advanced algorithm is applied to simplify the geometry before mesh
+                                    processing. Use this option when a model contains very small faces or edges that can
+                                    cause meshing to fail. </p>
+                                 <p>This option is off by default in a new study. If mesh and solve fails, then you can
+                                    turn this option on to apply the advanced mesh algorithm, and then try meshing again.</p>
+                              </dd>
+                              <dt><b>Mesh size</b></dt>
+                              <dd class="ml-3">
+                                 <p>Specifies a user-defined value so that the geometry that is required for meshing is
+                                    extracted, and the small facets and slivers below this value are ignored. You can
+                                    try different values and remesh the model to achieve a successful mesh.</p>
+                              </dd>
+                           </dl>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>Before—Sliver geometry is visible.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_slivers_before.gif"></p>
+                              <p>After—Geometry is simplified.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_slivers_after.gif"></p>
+                           </div>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>You also can use the Geometry Inspector to aid in cleaning up complex geometry. For
+                                 more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels3a" rel="feamodels3a">Removing geometry flaws and small entities</a>. </p>
+                           </div>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title" id="meshopts1d_solid">Solid Mesh options</h4>
+                  <div>
+                     <dl>
+                        <dt><b>Midside nodes on surfaces</b></dt>
+                        <dd class="ml-3">
+                           <p>Creates the parabolic surface elements instead of linear surface elements on the individual
+                              faces of the tetrahedral element. Midside node are created only when the <b>Mid side nodes</b> check box in the <b><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size</a></b> dialog box is selected.</p>
+                           <p>It also controls the projection of midside nodes of parabolic surface elements onto
+                              the edges and surfaces of your solid model, or simply created at the geometric center
+                              of the two adjacent corners of the tetrahedral element. This option is an additional
+                              setting for the <b>Mid side nodes</b> option available in the <b><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size</a></b> dialog box.</p> 
+                           <p>The following example demonstrates the effect of the <b>Mid side nodes</b> and <b>Mid side nodes on surfaces</b> options on the cylinder model.</p> 
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/mid_side_nodes_on_surfaces.png"></p> 
+                           <p>Midside nodes are projected onto the surfaces and edge curves. Notice the accurate
+                              representation of the cylindrical portion of this model (2), since the midside nodes
+                              are on the radius of the cylinder. Without midside node projection, the cylindrical
+                              portion is more faceted (3).</p> 
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div> 
+                              <p>You must always select the <b>Mid side nodes</b> check box in the <b><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size</a> </b>dialog box.</p> </div>
+                           <dl>
+                              <dt><b>Limit midside distortion angle</b></dt>
+                              <dd class="ml-3">
+                                 <p>Limits the distortion of parabolic elements created by the <b>Midside nodes on surfaces</b> option.</p>
+                              </dd>
+                              <dt><b>Maximum angle</b></dt>
+                              <dd class="ml-3">
+                                 <p>Specifies the maximum angle of distortion of the parabolic elements.</p>
+                                 <p>If the limit distortion option is on, you must specify an angular limit to the distortion.
+                                    Femap will calculate the position of the midside node on the surface, and then compare
+                                    the resulting angles with the two corner nodes. If either of these angles is above
+                                    the specified limit, Femap will recompute a new position for the node on the line
+                                    between the exact midside position and the position on the surface, which creates
+                                    an angle equal to the limit angle. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/limit_midside_distortion_max_angle.png"></p> 
+                                 <p>The valid range of values is 0.00 to 5.16e+03.</p>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </div>
+                  <h4 class="division-title" id="meshopts1d_surface">Surface Mesh options</h4>
+                  <div>
+                     <dl>
+                        <dt><b>Allow mapped meshing</b></dt>
+                        <dd class="ml-3">
+                           <p>When checked, creates a <em>mapped mesh</em> with regular, structured elements. A mapped mesh uses the values set for <b>Maximum angle tolerance</b> and <b>Minimum elements on edge</b> to determine corners it can use to create surface elements. </p>
+                           <p>When unchecked, the selected surface or surfaces mesh with a <em>free mesh</em>, which consists of elements with random, irregular shapes.</p>
+                        </dd>
+                        <dt><b>Other Meshing Options</b></dt>
+                        <dd class="ml-3">
+                           <dl>
+                              <dt><b>Post-meshing cleanup</b></dt>
+                              <dd class="ml-3">
+                                 <p>Checked by default, attempts to eliminate specific patterns in a mesh in an effort
+                                    to create an overall higher quality mesh. It also does additional element checking
+                                    in an attempt to eliminate meshing situations which may cause problems with surface
+                                    and solid meshing.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>In almost all cases, the <b>Post-meshing cleanup</b> option should be selected, as it usually creates a better overall mesh. The only
+                                       potential drawback to using this option is the possibility that the cleanup will replace
+                                       patterns with fewer elements, and therefore create a slightly coarser mesh than expected.</p>
+                                 </div>
+                                 <p>Additional cleanup includes inserting extra mesh points on long cylindrical surfaces
+                                    with coarse mesh sizing. This eliminates the possibility of elements bridging the
+                                    gap, resulting in a collapsed hole.</p>
+                                 <p>The following example shows mesh patterns and the resulting mesh after using <b>Post-meshing cleanup</b>. In 1, before and after states are presented for patterns; in 2, unwanted diamond-shaped
+                                    elements are eliminated.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/post-mesh_clean.gif"></p>
+                              </dd>
+                              <dt><b>Maximize quad elements</b></dt>
+                              <dd class="ml-3">
+                                 <p>For surface meshes, maximizes the number of quadrilateral elements, and minimizes
+                                    the number of triangular elements. Quadrilateral mesh elements produce more accurate
+                                    solutions.</p>
+                                 <table cellspacing="5" border="1" cellpadding="5" rules="groups" width="100%" frame="below">
+                                    <colgroup span="1">
+                                       <col span="1" width="6%">
+                                       <col span="1" width="25%">
+                                       <col span="1" width="69%">
+                                    </colgroup>
+                                    <thead>
+                                       <tr>
+                                          <td rowspan="1" align="left" valign="top" colspan="2">
+                                             <p>Femap Example</p>
+                                          </td>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr>
+                                          <td rowspan="1" valign="top" colspan="1">
+                                             <p>Off</p>
+                                          </td>
+                                          <td rowspan="1" valign="top" colspan="1">
+                                             <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/surf_mesh_with_triangles.png"></p>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td rowspan="1" align="left" valign="top" colspan="1">
+                                             <p>On</p>
+                                          </td>
+                                          <td rowspan="1" align="left" valign="top" colspan="1">
+                                             <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/surf_mesh_with_quads.png"></p>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </dd>
+                              <dt><b>Quad edge layers</b></dt>
+                              <dd class="ml-3">
+                                 <p>Specifies the number of layers of quadrilateral elements placed around every boundary
+                                    curve on a surface. You can choose to have either 1, 2, or 3 layers of quads around
+                                    each boundary curve of a surface, including internal curves. </p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/quad_layers.gif"></p> 
+                                 <p>The valid range of values is 0 to 25.</p>
+                                 <div class="attention" type="note">
+                                    <div class="attention-label">Note: </div>
+                                    <p>If you enter a number higher than 3 directly into the box, the mesher attempts to
+                                       create the specified number of quad element layers. If there is not enough room for
+                                       the requested number of layers based on the mesh size, as many layers as possible
+                                       are created.</p>
+                                 </div>
+                              </dd>
+                              <dt><b>Smoothing</b></dt>
+                              <dd class="ml-3">
+                                 <p>Adjusts the locations of element corner nodes to reduce distortions in those elements.
+                                    Smoothing is performed automatically by all free-meshing options described above,
+                                    but you also can use it to smooth any planar or solid element mesh manually.</p>
+                                 <dl>
+                                    <dt><b>Laplacian</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Pulls a node toward the center of surrounding nodes directly connected to that node
+                                          along an element edge. </p>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/laplacian-smooth.gif"></p> </dd>
+                                    <dt><b>Centroidal</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Pulls a node toward the element-area-weighted centroid of the surrounding elements.</p>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/centroid-smooth.gif"></p>
+                                       <div class="attention" type="note">
+                                          <div class="attention-label">Note: </div>
+                                          <p>The Laplacian method usually produces the mesh with the least element distortion.
+                                             It is also the faster method. Centroidal smoothing usually produces a mesh that has
+                                             more uniform element sizes.</p>
+                                       </div>
+                                    </dd>
+                                    <dt><b>Max iterations</b></dt>
+                                    <dd class="ml-3">
+                                       <p>For either of the two smoothing methods–Laplacian or Centroidal—specifies the maximum
+                                          number of iterations used to converge toward a smoother mesh. At the conclusion of
+                                          each iteration, the smoothing is reevaluated with the updated nodal locations. This
+                                          process continues until the maximum number of iterations is exceeded, or until no
+                                          node is moved by a greater distance than the tolerance value entered in the <b>Smooth to</b> box.</p> 
+                                       <p>The valid range of values is 0 to 1000.</p>
+                                    </dd>
+                                    <dt><b>Smooth to</b></dt>
+                                    <dd class="ml-3">
+                                       <p>Specifies a maximum distance that an individual node can be moved during smoothing
+                                          iterations.</p> 
+                                       <p>The valid range of values is 0 to 1.00e+05 in mm units.</p>
+                                    </dd>
+                                 </dl>
+                              </dd>
+                           </dl>
+                        </dd>
+                     </dl>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">Meshes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Mesh Options dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

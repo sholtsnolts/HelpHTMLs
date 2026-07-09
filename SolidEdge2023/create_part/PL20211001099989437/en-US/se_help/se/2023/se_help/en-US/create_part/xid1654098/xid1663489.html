@@ -1,0 +1,117 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Add Open in Solid Edge to the Geolus web client</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Add Open in Solid Edge to the Geolus web client"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1663489">
+                     <h1 class="topic-title">Add Open in Solid Edge to the Geolus web client</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Administrators of the Geolus server can use the following steps to configure the Geolus
+                     web client to include the command, <b>Open in Solid Edge</b>.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Determine the values for the protocol, name, port, and context root of the Geolus
+                           server.</p>
+                        <p>&lt;geolus protocol&gt;, &lt;geolus host&gt;, &lt;geolus port&gt;, &lt;geolus&gt;</p>
+                     </li>
+                     <li>
+                        <p>If you are working in a Teamcenter-managed environment, determine the values for the
+                           protocol, name and port of the Teamcenter server.</p>
+                        <p>&lt;tc protocol&gt;, &lt;tc host&gt;, &lt;tc port&gt;</p>
+                     </li>
+                     <li>
+                        <p>Generate the custom URL for the Geolus server configuration.</p>
+                        <ul>
+                           <li>
+                              <p>For Teamcenter-managed users, replace the entries in the following URL with the information
+                                 obtained in steps 1 and 2.</p>
+                              <p>&lt;geolus protocol&gt;://&lt;geolus host&gt;:&lt;geolus port&gt;/&lt;geolus&gt;/geolusCustomAppLauncher?Item
+                                 ID={01}&amp;ItemRevisionUID={00}&amp;Item Name={02}&amp;Item Revision={03}&amp;Owner Username={04}&amp;Server\='&lt;tc
+                                 protocol&gt;://&lt;tc host&gt;:&lt;tc port&gt;/'</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>http://my_geolus:8080/geolus/geolusCustomAppLauncher?ItemID={01}&amp;ItemRevisionUID={00}&amp;Item
+                                    Name={02}&amp;Item Revision={03}&amp;OwnerUsername={04}&amp;Server='http://my_teamcenter:8080/'
+                                    </p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>If your documents are not managed by Teamcenter, replace the entries in the following
+                                 URL with information obtained in step1. </p>
+                              <p>&lt;geolus protocol&gt;://&lt;geolus host&gt;:&lt;geolus port&gt;/&lt;geolus&gt;/geolusCustomAppLauncher?path={&lt;FilePath&gt;}{&lt;DocName&gt;}</p>
+                              <p>For &lt;FilePath&gt; and &lt;DocName&gt;, enter the generic attribute numbers associated with
+                                 the attribute names on the Geolus server.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>http://my_geolus:8080/geolus/geolusCustomAppLauncher?path={00}{17}</p>
+                              </div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>On the Geolus server, run the <b>Server Configuration</b> tool.</p>
+                     </li>
+                     <li>
+                        <p>Navigate to the <b>Web Page Links</b> page.</p>
+                     </li>
+                     <li>
+                        <p>Add a new Text Link with the display name of <b>Open in Solid Edge</b>, or your preferred localized display name.</p>
+                     </li>
+                     <li>
+                        <p>Enter the URL determined in step 3 as the Text Link URL.</p>
+                     </li>
+                     <li>
+                        <p>Save and then exit the <b>Server Configuration</b> tool.</p>
+                     </li>
+                     <li>
+                        <p>Replace the settings in the URL below with the values determined in step 1.</p>
+                        <p>&lt;geolus protocol&gt;://&lt;geolus host&gt;:geolus port&gt;/&lt;geolus&gt;/admin?CMD=REREAD</p>
+                     </li>
+                     <li>
+                        <p>To reread properties on the Geolus server, in your browser, enter the URL determined
+                           in step 9.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You may need to clear your browser cache before the new <b>Open in Solid Edge</b> link is visible in the Geolus web client.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Start the Geolus web client and select the search result you want to open. Click <b>Open in Solid Edge</b>.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The Solid Edge file type <em>.geolusAttributes</em> is downloaded by your browser. Opening this file accesses the document you requested
+                              from Geolus. Refer to your browser's documentation to enable automatic opening of
+                              this file type.</p>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Add Open in Solid Edge to the Geolus web client, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

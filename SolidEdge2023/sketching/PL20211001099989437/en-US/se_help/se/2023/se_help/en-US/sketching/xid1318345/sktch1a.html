@@ -1,0 +1,163 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using ordered sketches to create ordered features</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using ordered sketches to create ordered features"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="sktch1a">
+                     <h1 class="topic-title">Using ordered sketches to create ordered features</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Drawing ordered <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/sketch" rel="sketch">sketches</a> allows you to establish the basic functional requirements of a part before you construct
+                     any features. You can draw a sketch on any reference plane using the <b>Sketch</b> command or a drawing command in the <b>Sketch</b> group in the Part and Sheet Metal environments. Then you can use these sketches to
+                     create sketch-based features.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/sketch1.gif"></p>
+                  <p>Sketching a part before modeling it gives you several advantages:</p>
+                  <ul>
+                     <li>
+                        <p>Draw multiple sketches on one reference plane.</p>
+                     </li>
+                     <li>
+                        <p>Define relationships, such as tangency or equality, between sketches on different
+                           reference planes.</p>
+                     </li>
+                     <li>
+                        <p>Sketch the design first, and create the subsequent features later.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Drawing ordered sketches</h4>
+                  <div>
+                     <p>When you choose the <b>Sketch</b> command or a drawing command such as the <b>Line</b> command, and select a reference plane or planar face, a profile view is displayed
+                        for you to draw 2D geometry.</p>
+                     <p>The sketch elements you draw are assigned to the active <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/layer" rel="layer">layer</a>. For example, when working with a complex sketch that will be used to construct a
+                        lofted feature, you may want to arrange the elements on multiple layers.</p>
+                     <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid2051786" rel="xid2051786"><b>Closed Sketch Indicator</b> command</a> <img class="img-fluid" src="../../../common/en_US/graphics/graphicLibrary/closed_sketch_indicator_icon1.png"> in the sketch environment to indicate that a sketch is geometrically closed. When
+                        you select the command, the inside area of the sketch is shaded. </p>
+                     <p><img class="img-fluid" src="../../../common/en_US/graphics/graphicLibrary/closed_sketch_indicator_example.png"></p>
+                     <p>Nested closed sketches are displayed with a different opacity.</p>
+                     <p><img class="img-fluid" src="../../../common/en_US/graphics/graphicLibrary/closed_sketch_indicator_example3.png"></p>
+                     <p>When you deselect the command, the inside of the closed sketch is not shaded.</p>
+                     <p><img class="img-fluid" src="../../../common/en_US/graphics/graphicLibrary/closed_sketch_indicator_example2.png"></p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>When exiting the sketch environment during feature creation, sketches may appear to
+                           be painted or indicated to be closed, but are reported as open during profile validation.
+                           Most likely, this is because the sketch contains elements that are geometrically closed,
+                           but do not have connect relationships applied to the endpoints. To correct this, apply
+                           connect relationships to the endpoints in the sketch.</p> </div> 
+                     <p>You can use the <b>Closed Sketch</b> option on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/color2d" rel="color2d"><b>Colors</b> tab</a> on the <b>Solid Edge Options</b> dialog box in the sketch environment to set the color and opacity for closed sketches.</p>
+                     <p>You can add dimensions and relationships to control the positions and sizes of the
+                        profiles. You can also define functional relationships using the <b>Variables</b> command. You can use the <b>Save</b> and <b>Save All</b> commands to save the sketches while you create them. When you have finished drawing,
+                        close the profile view using the <b>Close Sketch</b> command on the command menu or click the <b>Close Sketch</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/icons/buttons/close_sketch.gif"> in the window.</p>
+                  </div>
+                  <h4 class="division-title" id="sketching1a_regions">Sketch regions in ordered modeling</h4>
+                  <div>
+                     <p>In a part or sheet metal document, when you draw 2D sketch elements that form a closed
+                        area, the closed area is automatically displayed as a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/sketch_region" rel="sketch_region">sketch region</a> (1). When working in a shaded view, the closed region is also displayed as shaded.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/bj_sketchregion2.gif"></p> 
+                     <p>As with synchronous modeling, you can use the <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/regionenable1h" rel="regionenable1h"><b>Activate Regions</b> command</a> to enable or disable the sketch regions. You can also use the option <b>Activate Regions within sketches</b> on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/genopt3d" rel="genopt3d"><b>General</b> tab</a> on the <b>Solid Edge Options</b> dialog box in the part environment to control the creation of regions in new sketches.
+                        </p>
+                  </div>
+                  <h4 class="division-title">Sketches and PathFinder</h4>
+                  <div>
+                     <p>Sketches are represented in the <b>PathFinder</b> tab just like features are. You can display or hide them from the feature tree with
+                        the <b>PathFinder</b> shortcut command, <b>Display</b>→<b>Sketches</b>. You can use <b>PathFinder</b> to reorder or rename a sketch just as you would any feature.</p>
+                  </div>
+                  <h4 class="division-title">Displaying sketches</h4>
+                  <div>
+                     <p>You can control the display of all the sketches in a document or individual sketches.
+                        To display or hide all sketches, use the <b>Show All: Sketches</b> and <b>Hide All: Sketches</b> commands. To display or hide individual sketches, select a sketch in the application
+                        window or <b>PathFinder</b>, then use the <b>Show</b> and <b>Hide</b> commands on the short cut menu.</p>
+                     <p>You can also control the display of elements in a sketch by assigning the sketch elements
+                        to a logical set of layers, and then display or hide the layers to control the display
+                        of the sketch elements.</p>
+                     <p>When a sketch is active, it is displayed using the Profile color. When a sketch is
+                        not active, it is displayed using the construction color. You can set the colors you
+                        want using the <b>Options</b> command.</p>
+                  </div>
+                  <h4 class="division-title">Using sketches to construct features</h4>
+                  <div>
+                     <p>You can use ordered sketches to construct features in the following ways:</p>
+                     <ul>
+                        <li>
+                           <p>Directly, by clicking the <b>Select From Sketch</b> button on the feature command bar.</p>
+                        </li>
+                        <li>
+                           <p>Indirectly, by clicking the <b>Draw</b> button on the feature command bar and then associatively copying sketch geometry
+                              onto the active sketch plane using the <b>Project to Sketch</b> command.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using sketches directly</h4>
+                  <div>
+                     <p>You can use sketches directly if no modifications to the sketch are required. </p>
+                     <p>When constructing an ordered feature, click the <b>Select From Sketch</b> button on the feature command bar. You can then select one or more sketches. When
+                        you click the <b>Accept</b> button on the command bar, the profiles you selected are checked to make sure they
+                        are valid for the type of feature you are constructing. For example, if you are constructing
+                        an ordered base feature, the profile you select must be closed. If you select an open
+                        profile or more than one profile, an error message is displayed. You can then select
+                        the <b>Deselect (x)</b> button on the command bar to clear the selected profiles.</p>
+                     <p>Ordered features constructed using ordered sketches are associative to the sketch
+                        and update when you edit the sketch.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/sketch3.gif"></p>
+                  </div>
+                  <h4 class="division-title">Using sketches indirectly</h4>
+                  <div>
+                     <p>If the sketch requires modification before using it to construct a feature, you must
+                        first copy it to the active sketch plane. </p>
+                     <p>When you click the <b>Draw Profile</b> button on the feature command bar, and define the sketch plane you want, a profile
+                        view is displayed. You can then use the <b>Project to Sketch</b> command to copy elements from sketch profiles to the active profile plane.</p>
+                     <p>After you have copied sketch elements, you can use the drawing commands to modify
+                        them. For example, you may need to add elements to the profile not contained in the
+                        sketch. You can also add dimensions and relationships between the elements on the
+                        active profile plane and the sketch.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sketching/creating_editing_sketches/sketch2.gif"></p>
+                     <p>The sketched elements you copy are associative to the sketch and will update if the
+                        sketch dimensions are edited.</p>
+                  </div>
+                  <h4 class="division-title">Sketches and revolved features</h4>
+                  <div>
+                     <p>Sketches that are used for constructing revolved ordered features must have an axis
+                        defined in the sketch. If you select a sketch profile that does not have an axis,
+                        an error message is displayed. You will have to cancel the revolved feature you are
+                        constructing, then open the sketch to define the axis.</p>
+                  </div>
+                  <h4 class="division-title">Sketches and the swept and loft commands</h4>
+                  <div>
+                     <p>Drawing sketches can be especially useful when constructing swept and lofted features.
+                        Because the <b>Sketch</b> command allows you to define relationships between sketches on separate planes, you
+                        can more easily define the relationships you need to control these features properly.
+                        Additionally, the ability to exit a sketch window without creating a feature can be
+                        especially useful when drawing the profiles for swept and lofted features.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb1h" rel="incldb1h">Project part edges onto a sketch</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/peerloc1h" rel="peerloc1h">Change peer edge locatability</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/silhouetteedge1h" rel="silhouetteedge1h">Change silhouette edge locatability</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching6h" rel="sketching6h">Delete a sketch or sketch elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching9h" rel="sketching9h">Rename a sketch</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/tearoff1h" rel="tearoff1h">Copy or move a sketch to another reference plane</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/pshsktch1h" rel="pshsktch1h">Copy a sketch to another document</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching1a" rel="sketching1a">Drawing synchronous sketches of parts</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318119" rel="xid1318119">Using sketches in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/xid1318146" rel="xid1318146">Editing sketch elements</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/sketching3c" rel="sketching3c">Rename command</a><br><br></div>
+            <div class="footer-content">Using ordered sketches to create ordered features, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

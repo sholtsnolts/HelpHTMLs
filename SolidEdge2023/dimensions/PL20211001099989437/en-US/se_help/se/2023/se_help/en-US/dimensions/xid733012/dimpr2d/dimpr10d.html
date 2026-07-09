@@ -1,0 +1,334 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Secondary Units tab (Dimension Style and Dimension Properties)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Secondary Units tab (Dimension Style and Dimension Properties)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dimpr10d">
+                     <h1 class="topic-title">Secondary Units tab (Dimension Style and Dimension Properties)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Sets the secondary units for dimensions and for annotations. Also specifies formatting
+                     for secondary units in numeric linear tolerance values.</p>
+                  <p>The Secondary Units tab is available in the <a class="xref" data-handle="styles" href="/en-US/product/246738425/doc/PL20211001099989437.styles/html/dimf2d" rel="dimf2d">Dimension Style dialog box</a> and in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr2d" rel="dimpr2d">Dimension Properties dialog box</a>.</p>
+                  <dl>
+                     <dt>Linear</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the secondary unit settings for a linear dimension.</p>
+                        <dl>
+                           <dt>Units</dt>
+                           <dd class="ml-3">
+                              <p>Sets the secondary units in drawings with dual unit display. For example, the primary
+                                 unit can be inches, while the secondary unit can be millimeters. When you place the
+                                 dimension, it displays both units. The secondary unit is derived by converting the
+                                 primary unit.</p>
+                           </dd>
+                           <dt>Round-off</dt>
+                           <dd class="ml-3">
+                              <p>Sets the round-off value for secondary units in drawings with dual unit display.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>To display fractional dimension round-off, set units to feet, feet-inches, or inches.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_type/dim_type_ui/dim_units_roundoff.png"></p>
+                              </div>
+                           </dd>
+                           <dt>Unit label</dt>
+                           <dd class="ml-3">
+                              <p>Sets the secondary units label in drawings with dual unit display.</p>
+                           </dd>
+                           <dt>Subunit label</dt>
+                           <dd class="ml-3">
+                              <p>Sets the secondary subunit label in drawings with dual unit display.</p>
+                           </dd>
+                           <dt>Fraction separator</dt>
+                           <dd class="ml-3">
+                              <p>For fractional dimension values, specifies the characters displayed between the whole
+                                 number and the fractional part. You can type up to five characters in the Fraction
+                                 Separator box, including spaces, for example, 15 * 2/3. By default, if this field
+                                 is left blank, a space is displayed between the whole number and the fraction, for
+                                 example, 15 2/3.</p>
+                              <ul>
+                                 <li>
+                                    <p>To insert a hyphen between the whole number and the fraction, for example, 15-2/3,
+                                       place the cursor in the box and type a hyphen, or type an em dash to insert a longer
+                                       line.</p>
+                                 </li>
+                                 <li>
+                                    <p>To insert a character with spaces on both sides, for example, 15 * 2/3, press Spacebar,
+                                       type the character, and press Spacebar.</p>
+                                 </li>
+                              </ul>
+                              <p>This option does not apply to dimensions with decimal values. Also, previously placed
+                                 dimensions and annotations are not affected by this setting.</p>
+                           </dd>
+                           <dt>Maximum subunits</dt>
+                           <dd class="ml-3">
+                              <p>Sets the maximum subunits used for secondary subunits in drawings with dual unit display.</p>
+                              <p>Maximum subunits typically are used with Feet-Inch units, where Feet are the primary
+                                 units and Inches are the subunits. Thus, there may be 12 subunits (12 inches) per
+                                 primary unit (1 foot). However, you can enter a value up to 255.</p>
+                              <p>You can use this option to specify a cutoff value for when a dimension or measurement
+                                 is displayed in inches and when it is displayed in feet-inches. </p>
+                              <ul>
+                                 <li>
+                                    <p>When the dimension or measurement value is less than the maximum subunits, then the
+                                       value is displayed in subunits.</p>
+                                 </li>
+                                 <li>
+                                    <p>When the dimension or measurement value exceeds the maximum subunits, both the primary
+                                       units and the subunits are displayed.</p>
+                                 </li>
+                              </ul>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This applies only to the first dimension that exceeds the maximum subunits. After
+                                    that, the display reverts to ft-in, as if the subunit setting is not used.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Fractional Display Style</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the fractional display settings for a linear dimension, in documents using
+                           the <b>ANSI (inch)</b> template.</p>
+                        <p>Fractional display options are only available when you select a fractional round-off.</p>
+                        <dl>
+                           <dt><b>Stacked</b> </dt>
+                           <dd class="ml-3">
+                              <p>Formats the selected fractional value of a linear dimension in stacked format.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_type/linear_dim_fraction_stacked.png"></p>
+                              </div>
+                           </dd>
+                           <dt><b>Skewed</b> </dt>
+                           <dd class="ml-3">
+                              <p>Formats the selected fractional value of a linear dimension in skewed format.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_type/linear_dim_fraction_skewed.png"></p>
+                              </div>
+                           </dd>
+                           <dt><b>Linear</b> </dt>
+                           <dd class="ml-3">
+                              <p>Formats the selected fractional value of a linear dimension inline with the nominal
+                                 value. This is the default option.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_type/linear_dim_fraction_linear.png"></p>
+                              </div>
+                           </dd>
+                           <dt><b>Fraction Size</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies the percentage of dimension font size to apply to the fraction, from <b>50%</b> to<b> 100%</b> (the default).</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Linear Tolerance</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the secondary unit settings for linear tolerance.</p>
+                        <dl>
+                           <dt>Units</dt>
+                           <dd class="ml-3">
+                              <p>Sets the secondary units for linear tolerance with dual unit display. For example,
+                                 the primary unit can be inches, while the secondary unit can be millimeters. When
+                                 you place the dimension, it displays both units. The secondary unit is derived by
+                                 converting the primary unit.</p>
+                           </dd>
+                           <dt>Round-off</dt>
+                           <dd class="ml-3">
+                              <p>Sets the round-off value for linear tolerance secondary units with dual unit display.</p>
+                           </dd>
+                           <dt>Unit label</dt>
+                           <dd class="ml-3">
+                              <p>Sets the secondary units label for linear tolerance with dual unit display.</p>
+                           </dd>
+                           <dt>Subunit label</dt>
+                           <dd class="ml-3">
+                              <p>Sets the secondary subunit label for linear tolerance with dual unit display.</p>
+                           </dd>
+                           <dt>Fraction separator</dt>
+                           <dd class="ml-3">
+                              <p>For fractional dimension values, specifies the characters displayed between the whole
+                                 number (the <b>Unit label</b>) and the fractional part (the <b>Subunit label</b>) when both are displayed in the linear tolerance. You can type up to five keyboard
+                                 characters in the <b>Fraction Separator</b> box, including spaces, for example, 15 * 2/3. By default, if this field is left blank,
+                                 a space is displayed between the whole number and the fraction, for example, 15 2/3.</p>
+                              <p>This option does not apply to dimensions with decimal values. Also, previously placed
+                                 dimensions and annotations are not affected by this setting.</p>
+                           </dd>
+                           <dt>Maximum subunits</dt>
+                           <dd class="ml-3">
+                              <p>Sets the maximum subunits used for linear tolerance secondary subunits in drawings
+                                 with dual unit display.</p>
+                              <p>Maximum subunits typically are used with Feet-Inch units, where Feet are the primary
+                                 units and Inches are the subunits. Thus, there may be 12 subunits (12 inches) per
+                                 primary unit (1 foot). However, you can enter a value up to 255.</p>
+                              <p>You can use this option to specify a cutoff value for when linear tolerance is displayed
+                                 in inches and when it is displayed in feet-inches. </p>
+                              <ul>
+                                 <li>
+                                    <p>When the linear tolerance value is less than the maximum subunits, then the linear
+                                       tolerance is displayed in subunits.</p>
+                                 </li>
+                                 <li>
+                                    <p>When the linear tolerance value exceeds the maximum subunits, both the primary units
+                                       and the subunits are displayed.</p>
+                                 </li>
+                              </ul>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>This applies only to the first dimension that exceeds the maximum subunits. After
+                                    that, the display reverts to ft-in, as if the subunit setting is not used.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Dual Units</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Dual unit display</dt>
+                           <dd class="ml-3">
+                              <p>Displays secondary units for dimensions and annotations with dual unit display. For
+                                 example, the primary unit can be inches, while the secondary unit is millimeters.
+                                 When you place the dimension, it displays both units. The secondary unit is derived
+                                 by converting the primary unit.</p>
+                              <dl>
+                                 <dt>Add parentheses ( )</dt>
+                                 <dd class="ml-3">
+                                    <p>Displays parentheses around the secondary unit dimension text. Parentheses comply
+                                       with ISO standards for secondary units.</p>
+                                 </dd>
+                                 <dt>Add brackets [ ]</dt>
+                                 <dd class="ml-3">
+                                    <p>Displays brackets around the secondary unit dimension text.&nbsp;Brackets comply with ANSI
+                                       standards for secondary units.</p>
+                                 </dd>
+                                 <dt>Add nothing</dt>
+                                 <dd class="ml-3">
+                                    <p>Displays neither parentheses nor brackets around the secondary unit dimension text.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Position</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the layout of primary and secondary units when you use dual dimension units.</p>
+                              <dl>
+                                 <dt>Below primary</dt>
+                                 <dd class="ml-3">
+                                    <p>Specifies that the primary and secondary units in a dual unit dimension are displayed
+                                       vertically, with the secondary units below the primary units.</p>
+                                    <div class="attention" type="example">
+                                       <div class="attention-label">Example: </div>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_format/dim_format_ui/dual_units_vertical.gif"></p>
+                                    </div>
+                                 </dd>
+                                 <dt>Beside primary</dt>
+                                 <dd class="ml-3">
+                                    <p>Specifies that the primary and secondary units in a dual unit dimension are displayed
+                                       horizontally, with the secondary units displayed after the primary units.</p>
+                                    <div class="attention" type="example">
+                                       <div class="attention-label">Example: </div>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_format/dim_format_ui/dual_units_horiz.gif"></p>
+                                    </div>
+                                    <p>You can control the spacing between the primary and secondary units using the <b>Text clearance gap</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr4d" rel="dimpr4d">Spacing tab (Dimension Style and Dimension Properties)</a>.</p>
+                                 </dd>
+                                 <dt>Justification</dt>
+                                 <dd class="ml-3">
+                                    <p>Specifies the horizontal justification of dual dimension units when the primary and
+                                       secondary units are displayed vertically using the Below primary position.</p>
+                                    <p>The horizontal justification options are <b>Left</b>, <b>Center</b>, or <b>Right</b>.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Delimiter</dt>
+                           <dd class="ml-3">
+                              <p>When using dual dimension units, specifies what type of delimiter to display for the
+                                 secondary units.</p>
+                              <dl>
+                                 <dt>Match primary units</dt>
+                                 <dd class="ml-3">
+                                    <p>When set, specifies that the secondary dimension unit delimiter is the same as that
+                                       specified for the primary unit. You define primary dimension units on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr11d" rel="dimpr11d">Units tab</a>.</p>
+                                    <p>To use a different delimiter for secondary dimension units, clear the <b>Match Primary Units</b> option and then choose a delimiter from the options below.</p>
+                                    <dl>
+                                       <dt>. Period</dt>
+                                       <dd class="ml-3">
+                                          <p>Specifies a period (.) as the secondary unit decimal delimiter.</p>
+                                       </dd>
+                                       <dt>, Comma</dt>
+                                       <dd class="ml-3">
+                                          <p>Specifies a comma (,) as the secondary unit decimal delimiter.</p>
+                                       </dd>
+                                       <dt> Space</dt>
+                                       <dd class="ml-3">
+                                          <p>Specifies a space ( ) as the secondary unit decimal delimiter.</p>
+                                       </dd>
+                                    </dl>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Zeros</dt>
+                           <dd class="ml-3">
+                              <p>Specifies whether a zero is on the left or right of the decimal in a dimension.</p>
+                              <dl>
+                                 <dt>Leading</dt>
+                                 <dd class="ml-3">
+                                    <p>Places a zero to the left of the decimal point if there are no numbers to the left.</p>
+                                 </dd>
+                                 <dt>Trailing</dt>
+                                 <dd class="ml-3">
+                                    <p>Places zeros to the right of the decimal point. The number of zeros placed is based
+                                       on the active setting for Round-Off. For example, if the dimensional value is .5,
+                                       and the round-off setting is .1234, the dimensional value appears as .5000.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can select the <b>Advanced Round-off</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/dimension/dim_format/dim_format_howto/dim_roundoff_button.gif"> on the command bar to specify round-off for linear, angular, and tolerance values
+                              in one location, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/xid293025" rel="xid293025">Round-off dialog box</a>.</p>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr2d" rel="dimpr2d">Dimension Properties dialog box</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr6d" rel="dimpr6d">General tab (Dimension Style and Dimension Properties)</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr11d" rel="dimpr11d">Units tab (Dimension Style and Dimension Properties)</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr8d" rel="dimpr8d">Text tab (Dimension Style and Dimension Properties)</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr3d" rel="dimpr3d">Lines and Coordinate tab (Dimension Style and Dimension Properties)</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr4d" rel="dimpr4d">Spacing tab (Dimension Style and Dimension Properties)</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr12d" rel="dimpr12d">Smart Depth tab (Dimension Style, Dimension Properties)</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr5d" rel="dimpr5d">Terminator and Symbol tab (Dimension Style and Dimension Properties)</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dimpr9d" rel="dimpr9d">Annotation tab (Dimension Style and Dimension Properties)</a><br><a class="xref" data-handle="annotations" href="/en-US/product/246738425/doc/PL20211001099989437.annotations/html/holcal1d" rel="holcal1d">Feature Callout tab</a><br><br></div>
+            <div class="footer-content">Secondary Units tab (Dimension Style and Dimension Properties), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

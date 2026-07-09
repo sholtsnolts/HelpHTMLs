@@ -1,0 +1,228 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Using bolted connections</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Using bolted connections"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_assy03">
+                     <h1 class="topic-title">Tutorial: Using bolted connections</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Bolt connectors transfer tensile, bending, and thermal loads from one part to another.
+                     You can use the <b>Simulation</b> tab→<b>Connectors</b> group→<b>Bolt</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_assyconn_bolt_cmd.gif"> to simulate bolted connections between two part faces, without having to model the
+                     fastener itself.</p>
+                  <p>Most of the information required to create a bolt connector is inferred from the elements
+                     you select. If your 3D model contains bolts and other fasteners, you can hide them
+                     in <b>PathFinder</b> and just use the part holes to generate the bolt connectors in the FEA model. Selecting
+                     holes rather than modeled bolt components yields a much faster processing time for
+                     meshing and solving.</p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>If you select a hole, the software determines the connected parts by finding cylindrical
+                        holes along a shared axis in other parts. The top and bottom faces are determined
+                        from the connected face(s) at either end of the hole. The type of bolt defaults to
+                        no-press fit. The diameter of the head and nut are calculated from the diameter of
+                        the selected hole.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_bolt_thrunext.gif"></p>
+                  </div>
+                  <p>In this tutorial, you explore how to apply a bolt connection within an assembly, and
+                     review the stresses associated with the connectors in the Simulation Results environment.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_pipe_connect.asm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Define the study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b> command.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Create Study</b> dialog box, select the following:</p>
+                              <ol type="A" start="1">
+                                 <li>
+                                    <p><b>Study type</b>=<b>Linear Static</b></p>
+                                 </li>
+                                 <li>
+                                    <p><b>Mesh type</b>=<b>Tetrahedral</b> </p>
+                                 </li>
+                                 <li>
+                                    <p>Click <b>Options</b>.</p>
+                                 </li>
+                                 <li>
+                                    <p>In the <b>Results Options</b> section, under <b>Elemental</b>, select <b>Force</b>.</p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <li>
+                              <p>Notice the <b>Define</b> command in the <b>Geometry</b> group is active. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_define_button_only_on.gif"></p>
+                              <ul>
+                                 <li>
+                                    <p>Select both parts and click <b>Accept</b>.</p>
+                                 </li>
+                              </ul>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt02.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a force on the pipe flange.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                           </li>
+                           <li>
+                              <p>Select the end face of the pipe.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Type <b>1334 N</b> for the force value. This is equal to a 300 pounds-force load. </p>
+                              <p>You may need to select the <b>Flip</b> button to ensure the force direction is downward.</p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept and then click to finish. </p>
+                              <p>The force is placed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt05.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add fixed constraints to the flange.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Rotate the view to see the back side of the mating flange.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt07.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>, and then select the outer cylindrical and end faces.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt06.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept, and then click to finish.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt08.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define assembly connectors between the pipe flange and the mating flange.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Connectors</b> group→<b>Manual</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_man_button_on.gif">. </p>
+                           </li>
+                           <li>
+                              <p>On the command bar, select <b>No penetration</b> as the connector type.</p>
+                           </li>
+                           <li>
+                              <p>Use QuickPick to select the front face of the pipe flange in <b>pipe_flange.par </b> as the <em>target</em> face, and then right-click to accept.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt10a.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You also can turn off the display of the mating flange <b>mating_flange.par</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt10.gif"></p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Use QuickPick again to select the inside face of the mating flange in <b>mating_flange.par</b> as the <em>source</em> face, and then right-click to accept. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt11a.gif"></p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You also can turn on the mating flange and turn off the pipe flange <b>pipe_flange.par</b>. Rotate the model so you can view the front face of the mating flange. </p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt11.gif"></p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Click to finish.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt11b.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a bolt connection.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Connectors</b> group→<b>Bolt</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_assyconn_bolt_cmd.gif">.</p>
+                           </li>
+                           <li>
+                              <p>On the command bar, ensure the <b>Selection Type</b> is set to <b>Single Hole</b> <img class="img-fluid" style="max-height: 1.75rem;" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_assyconn_bolttyp_button.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Select the first bolt hole in the pipe flange as shown below. </p>
+                              <p>For this activity, the default values are acceptable for bolt and nut diameter and
+                                 for prestress force. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt13.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the command bar, click <b>Multiple Bolts</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_assyconn_bolt_multiple.gif">.</p>
+                              <p>Select the three remaining holes in the flange.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt14.gif"></p>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>If your part has many holes of the same size, you can use the <b>Multiple Bolts</b> option to select them. This also makes it easy to edit all of the bolt connectors
+                                    at once.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Right-click to accept and click to finish.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the assembly—Select <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b>, and click the <b>Mesh</b> button. </p>
+                        <p>The entire assembly is meshed.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt15.gif"></p>
+                     </li>
+                     <li>
+                        <p>Solve the study—Select the <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b> command. </p>
+                        <p>After a few moments, the results are displayed in the <b>Simulation Results</b> environment.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_bolt16.gif"></p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If the study does not solve and an NX Nastran warning message is displayed, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/editparams1h" rel="editparams1h">edit the study processing parameters</a> using the <b>Modify Study</b> dialog box. Change the <b>Geometry check</b> option to <b>Warning only</b> and then solve again. For more information about this option, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d#adv_opts" rel="study1d">Advanced Options for studies</a>.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Review the bolt connector force results—In the <b>Simulation Results</b> pane, under the <b>Results</b> node, double-click <b>Bolt Connector Forces</b>.</p>
+                        <p>The <b>Bolt Connector Forces Results</b> table is displayed. Because you used the <b>Multiple Bolts</b> option to create the bolted connections, the table identifies all of the bolts in
+                           the <b>Connector Name</b> column as <b>Bolt Connection 1</b>, but it reports the unique stresses for each of the simulated bolt connections.</p>
+                        <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/boltconn1a" rel="boltconn1a">Bolt connector simulation results</a>. </p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/multiple_bolt_connector_force_results_table.png"></p>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy01" rel="fem_assy01">Tutorial: Simulate stresses on a basketball hoop</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy02" rel="fem_assy02">Tutorial: Simulate stresses on a valve handle</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_conn01" rel="fem_conn01">Tutorial: Apply edge connectors to an assembly</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn4h" rel="assyconn4h">Bolt connectors</a><br><br></div>
+            <div class="footer-content">Tutorial: Using bolted connections, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

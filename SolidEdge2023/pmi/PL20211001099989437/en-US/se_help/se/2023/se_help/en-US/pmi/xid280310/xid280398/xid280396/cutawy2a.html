@@ -1,0 +1,133 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Defining 3D sections of models: best practices</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Defining 3D sections of models: best practices"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="cutawy2a">
+                     <h1 class="topic-title">Defining 3D sections of models: best practices</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the following guidelines when drawing and positioning the profile or sketch to
+                     define the shape used to cut the model.</p>
+                  <h4 class="division-title">Drawing a sketch or profile for 3D sections</h4>
+                  <div>
+                     <p>For best results when creating a 3D section, you should create a closed 2D profile
+                        or sketch.</p>
+                     <ul>
+                        <li>
+                           <p>A profile or sketch used to cut the model can consist of single elements and shapes,
+                              such as lines, rectangles, and circles, or of multiple elements, such as lines and
+                              arcs.</p>
+                        </li>
+                        <li>
+                           <p>A closed profile or sketch yields better results than an open profile or sketch.</p>
+                        </li>
+                     </ul>
+                     <p>If you draw a cutting plane that consists of more than one element, the cutting plane
+                        must meet the following requirements:</p>
+                     <ul>
+                        <li>
+                           <p>The elements must meet at their end points.</p>
+                        </li>
+                        <li>
+                           <p>The elements cannot cross each other.</p>
+                        </li>
+                        <li>
+                           <p>Any arcs in the cutting plane cannot be the first or last element.</p>
+                        </li>
+                        <li>
+                           <p>Any arcs must be connected to a line at both ends of the arc.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Sketch or profile position in relation to the model</h4>
+                  <div>
+                     <p>Sketches and profiles that originate outside the model (do not touch the model) yield
+                        better results. In the following example, the top sketch located on an external plane
+                        is better than the sketch located on the model face.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/cutpln_best1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Extent of the cut in relation to the model</h4>
+                  <div>
+                     <p>If the extent of the cut is positioned so that it cuts through and beyond the model
+                        extents, then you get better results. In the following example the taller cutting
+                        shape yields better results.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/cutpln_best2.gif"></p>
+                     <p>Options on the 3D Section command bar specify the extent of the cut. You get the best
+                        results using one of these options:</p>
+                     <ul>
+                        <li>
+                           <p>Finite Extent</p>
+                        </li>
+                        <li>
+                           <p>Symmetric Extent</p>
+                        </li>
+                     </ul>
+                     <p>If you want to use the Through All option, it is best to use a cutting plane shape
+                        that cuts vertically through the model from top to bottom, or from bottom to top.</p>
+                     <p>Do not use a shape that cuts at angles other than 90 degrees.</p>
+                  </div>
+                  <h4 class="division-title">Summary</h4>
+                  <div>
+                     <p>You get the best 3D section results with:</p>
+                     <ul>
+                        <li>
+                           <p>A closed shape,</p>
+                        </li>
+                        <li>
+                           <p>Positioned outside the range of the model,</p>
+                        </li>
+                        <li>
+                           <p>The Finite Extent (or Symmetric Extent) option is selected on the Section command
+                              bar,</p>
+                        </li>
+                        <li>
+                           <p>And the cutting shape extends beyond the model edges.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/cutpln_best3a.gif"></p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/cutpln_best3b.gif"></p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/cutpln_best4.gif"></p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/cutpln_best4a.gif"></p>
+                     <p>You get the worst results with:</p>
+                     <ul>
+                        <li>
+                           <p>An open shape,</p>
+                        </li>
+                        <li>
+                           <p>Positioned completely inside the range of the model,</p>
+                        </li>
+                        <li>
+                           <p>That does not extend the cutting shape beyond the model edges.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Defining 3D sections of models: best practices, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

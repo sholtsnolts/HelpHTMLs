@@ -1,0 +1,526 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with NX files in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with NX files in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="ugse1a">
+                     <h1 class="topic-title">Working with NX files in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge allows you to work with files created in NX. Before opening an NX file
+                     in Solid Edge, it is important that you are familiar with the content of the file.
+                     For example, you need to know if the file is an assembly or a part because both are
+                     opened differently in Solid Edge. You should also think about how you want to use
+                     these files in Solid Edge. If you want to create a model that is associative back
+                     to NX, you should use the Part Copy command to insert an associative copy of the NX
+                     file.</p>
+                  <p>If the model has no significant value, you can always use the Open command to create
+                     a body with no associativity back to the NX file.</p>
+                  <h4 class="division-title">Data types Solid Edge can read from NX</h4>
+                  <div>
+                     <p>Solid Edge can read the following data types from NX files:</p>
+                     <ul>
+                        <li>
+                           <p>Solid bodies</p>
+                        </li>
+                        <li>
+                           <p>Sheet bodies</p>
+                        </li>
+                        <li>
+                           <p>Assembly structure, including occurrence names, occurrence color, and file names.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Solid Edge does not read point and curve data from NX files.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Data types NX can read from Solid Edge</h4>
+                  <div>
+                     <p>NX can read Solid Edge solid part models and assemblies.</p>
+                     <p>Solid Edge will import all geometry from an NX file, even if the geometry is not visible
+                        in NX. This includes geometry that is not displayed in NX, such as objects that are
+                        hidden and objects on layers that have display turned off.</p>
+                     <p>To make all geometry visible in NX so you can see what will be imported, follow these
+                        steps:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Open the part or assembly in NX.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>File</b> menu, click <b>Modeling</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Format</b> menu, click <b>Layer Setting</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Layers</b> dialog box, select <b>All Layers</b> from the pull-down list.</p>
+                        </li>
+                        <li>
+                           <p>Select all of the layers in the list.</p>
+                        </li>
+                        <li>
+                           <p>Click the Selectable button and then click the APPLY button.</p>
+                        </li>
+                        <li>
+                           <p>On the Edit menu, point to Blank and then click Unblank All of Part to unblank all
+                              parts.</p>
+                        </li>
+                        <li>
+                           <p>For assemblies, change all reference sets to entire part.</p>
+                        </li>
+                        <li>
+                           <p>Press Ctrl+F to fit the display.</p>
+                        </li>
+                     </ol>
+                     <p>This is the set of geometry that Solid Edge will read.</p>
+                     <p>After you determine the geometry that will be transferred, you can count the number
+                        of NX bodies.</p>
+                     <p>To do this in NX:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>On the Information menu, click Object.</p>
+                        </li>
+                        <li>
+                           <p>On the Class Selection dialog box, set the Filter Method to Type.</p>
+                        </li>
+                        <li>
+                           <p>On the Select by Type dialog box, select Solid Body and click the OK button.</p>
+                        </li>
+                        <li>
+                           <p>On the Class Selection dialog box, click the Select All button.</p>
+                           <p>You will see a count of the solid bodies at the bottom of the screen.</p>
+                        </li>
+                        <li>
+                           <p>Repeat these steps for determining the number of sheet bodies in the file.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When you open the NX file in Solid Edge, you should see the same number of Solid Bodies.
+                           However, you may see fewer sheet bodies in Solid Edge because coincident sheet bodies
+                           may be sewn together.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Importing JT files into NX</h4>
+                  <div>
+                     <p>JT exported from Solid Edge can be imported into NX where it is real PMI. The following
+                        PMI object types are supported: </p>
+                     <ul>
+                        <li>
+                           <p>Datum Feature Symbol (Datum Frame)</p>
+                        </li>
+                        <li>
+                           <p>Datum Target</p>
+                        </li>
+                        <li>
+                           <p>Simple Dimensions</p>
+                        </li>
+                        <li>
+                           <p>Surface Finish Symbol</p>
+                        </li>
+                        <li>
+                           <p>Feature Control Frames</p>
+                        </li>
+                        <li>
+                           <p>Callouts</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Opening NX files in Solid Edge</h4>
+                  <div>
+                     <p>NX assembly and part files both have the same extension (.PRT). Because of this, you
+                        need to be careful when opening NX files in Solid Edge. The steps are slightly different
+                        depending on the type of file you are opening.</p>
+                  </div>
+                  <h4 class="division-title">To open an NX assembly file:</h4>
+                  <div>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>On the <b>File</b> menu, click <b>Open</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Open File</b> dialog box, in the <b>Files of Type</b> box, set the document format to <b>NX files (*.PRT)</b>.</p>
+                        </li>
+                        <li>
+                           <p>Select the NX assembly file you want to open.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Open File</b> dialog box, click <b>Open</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>New</b> dialog box, select an assembly template and then click <b>OK</b>.</p>
+                        </li>
+                     </ol>
+                     <p>In most large assemblies, it is unlikely that all of the NX files reside in the same
+                        folder as the top-level assembly file. NX creates an external file, <b>load_options.def</b>, which resides in the same folder as the file being opened. The file contains the
+                        rules and folders where the NX component files are located and how they are attached
+                        to the NX assembly file.</p>
+                     <p>Solid Edge uses a similar file during the import operation to locate the NX files.
+                        The search_opt.def file resides in the same folder as the NX assembly file being opened.
+                        It contains a list of search paths to use when opening the NX files. Solid Edge searches
+                        through the specified folder and any subfolders. For example, if you want to search
+                        the UG Assembly Test folder and all subfolders, the search_opt.def file should contain
+                        the entry:</p>
+                     <table cellspacing="1" border="1" cellpadding="2" width="392">
+                        <colgroup span="1" align="left">
+                           <col span="1" width="100*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <pre class="code-text">s:\UG&nbsp;Assembly&nbsp;Test\..\</pre>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Maintaining associativity when opening an NX assembly file</h4>
+                  <div>
+                     <p>To maintain an associative link to an NX assembly, the part body must be placed in
+                        the Ordered mode and recomputed through an update or change of the NX file. NX part
+                        bodies are placed&nbsp;in the Ordered mode automatically regardless of the setting of the
+                        Start Part and Sheet Metal documents using this environment option on the Helpers
+                        page of the Solid Edge Options dialog box..</p>
+                     <p>You can use the CreateAssociativePartsInAssembly parameter in the PSXMT.INI &nbsp;file
+                        to control the associative link to the NX files. The default value is 1, which maintains
+                        the associative link. &nbsp;Set the value to 0 to not maintain an associative link. </p>
+                  </div>
+                  <h4 class="division-title">There are two ways to open an NX part file in Solid Edge:</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>Import the non-associative Parasolid data into Solid Edge.</p>
+                        </li>
+                        <li>
+                           <p>Use associative embedding to create a link between the NX file and Solid Edge model.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">To open a part file non-associatively:</h4>
+                  <div>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>On the File menu, click Open.</p>
+                        </li>
+                        <li>
+                           <p>On the Open File dialog box, in the Files of Type box, set the document format to
+                              NX files (*.PRT).</p>
+                        </li>
+                        <li>
+                           <p>Select the NX part file you want to open.</p>
+                        </li>
+                        <li>
+                           <p>On the Open File dialog box, click Open.</p>
+                        </li>
+                        <li>
+                           <p>On the New dialog box, select a part template and then click OK.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">To open a part file associatively:</h4>
+                  <div>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>On the File menu, click New.</p>
+                        </li>
+                        <li>
+                           <p>On the New dialog box, select a part template and then click OK.</p>
+                        </li>
+                        <li>
+                           <p>On the Insert menu, click Part Copy.</p>
+                        </li>
+                        <li>
+                           <p>On the Select Part Copy dialog box, in the Files of Type box, set the document type
+                              to NX Part Document (*.PRT).</p>
+                        </li>
+                        <li>
+                           <p>Select the file you want to insert and then click Open.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Opening files containing multiple bodies</h4>
+                  <div>
+                     <p>Solid Edge allows you to open NX files that contain multiple solid bodies. You can
+                        use either a Solid Edge assembly or part template when opening the NX file.</p>
+                     <p>If you use a Solid Edge assembly template to open an NX file containing multiple solid
+                        bodies, you can use the Import Multiple Bodies as a Single Part File parameter, found
+                        in the PSXMT.ini file, to specify how the file is opened. If the parameter is set
+                        to On, which is the default value, a part file containing multiple construction bodies
+                        is created and added to the assembly. If the parameter is set to Off, an individual
+                        part file is created for each body contained in the .prt file. A subassembly is then
+                        created, to which the individual part files are added.</p>
+                     <p>If you use a Solid Edge part template to open a NX file containing multiple bodies,
+                        the solid bodies from the NX file are copied into the Solid Edge file and added as
+                        body features. The default names of the features will be "BodyFeature_n" where n represents
+                        the feature number in the Solid Edge part.</p>
+                     <p>If you use the Part Copy command to open a NX file containing multiple solid bodies,
+                        or a combination of solid bodies and construction elements, each body is copied as
+                        a separate part copy feature.</p>
+                     <p>When opening the file through Part Copy, unlike traditional translators such as IGES
+                        or STEP, Solid Edge does not attempt to stitch surfaces or Boolean solids. All of
+                        the bodies in the NX file are shown as construction elements. None are specified as
+                        a base feature, but you can use the Make Base Feature command to convert one of the
+                        bodies to a base feature. The Make Base Feature command is on the shortcut menu for
+                        all construction surface features regardless of how the body is created. The command
+                        is not available if the construction surface is not a solid or if a base feature already
+                        exists.</p>
+                     <p>When updating a part copy feature, the feature will fail if the corresponding body
+                        no longer exists in the NX file. Also, if you add new bodies to the NX file, they
+                        are not added to the Solid Edge file when you update the part copy features. If you
+                        want Solid Edge to recognize additions to the NX file, you must do a separate insert
+                        part copy operation.</p>
+                     <p>Solid Edge determines the out-of-date status for the part copy features based on the
+                        NX file and not on the individual bodies. This means the link status will be the same
+                        for all part copies within a single NX file.</p>
+                  </div>
+                  <h4 class="division-title">Updating NX files in Solid Edge</h4>
+                  <div>
+                     <p>When opening updated NX files in Solid Edge, the Update Part Copies Dialog box displays.
+                        &nbsp;This dialog box allows you to update out-of-date NX files. You do not have to update
+                        out-of-date files when opening them. If you like, you can go back and update them
+                        manually.</p>
+                  </div>
+                  <h4 class="division-title">To manually update an NX file in Solid Edge:</h4>
+                  <div>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>In Feature PathFinder, right-click on the link you want to update.</p>
+                        </li>
+                        <li>
+                           <p>On the shortcut menu, click Update Link.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The NX file can be open while being updated in Solid Edge.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Opening managed NX documents</h4>
+                  <div>
+                     <p>Solid Edge Embedded Client supports interaction with Teamcenter-managed NX documents.
+                        The <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/common_property_dialog" rel="common_property_dialog">common property dialog boxes</a> in Solid Edge are populated with the NX document's property information from Teamcenter.
+                        Then when managed Solid Edge documents are saved, they are saved into the same Item
+                        Revision as the NX document.</p>
+                     <p>When you open an NX managed assembly, Solid Edge queries the Teamcenter preference
+                        TC_NX_View_Type for product structure expansion and uses the view type specified.
+                        A Solid Edge structure saved to the same Item Revision as the NX assembly uses the
+                        view type specified by the SEEC_Default_View_Type preference. As a result, a single
+                        Item Revision can have all the BOM line properties for both Solid Edge and NX. In
+                        this case, the CAD system that last saved the assembly wrote the BOM causing the other
+                        CAD system's data to be out of date. Additionally a single Item Revision could have
+                        two separate view types where each CAD system's structure is managed uniquely. This
+                        option requires an advanced Structure Manager (formerly Product Structure Editor)
+                        license from Teamcenter.</p>
+                  </div>
+                  <h4 class="division-title">Opening Solid Edge files in NX</h4>
+                  <div>
+                     <p>You can open Solid Edge assembly, part, and sheet metal files in NX</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>In NX, on the File menu, click Open.</p>
+                        </li>
+                        <li>
+                           <p>Change the Files of Type filter to .ASM, .PAR, or .PSM.</p>
+                        </li>
+                     </ol>
+                     <p>This assigns a NX part name to the Solid Edge part. For example, Part1.PAR becomes
+                        Part1.PRT. Because of this, you will not be able to open a Solid Edge part (.PAR)
+                        file if a NX (.PRT) file with the same name already exists.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You cannot open a Solid Edge file that has a disjoint body in NX.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Solid Edge and NX version compatibility</h4>
+                  <div>
+                     <p>The following table lists the version compatibility between Solid Edge and NX.</p>
+                     <table rules="all" width="504" frame="box">
+                        <colgroup span="1">
+                           <col span="1" width="52*">
+                           <col span="1" width="46*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>Solid Edge Version</b></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><b>NX Version</b></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>2023 RTM, Version 2210-an update will add support for </p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 2212</p>
+                              </td>
+                           </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>2023, Version 2210 RTM</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>NX 2206</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>2022 MP 4</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>NX 2007</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>2022 RTM</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>NX 1953</p> </td> </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>2021 MP4</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 1953</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>2021 MP1</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 1926</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>2021 MP</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>2020 MP5</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 1899</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>2020 RTM</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 1876</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>2019 RTM</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 12</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST10 MP3</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 12</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST9 MP1</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 11</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST8 MP11</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 11</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST7 MP5</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 10</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST6 MP11</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 9</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST5 MP2</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 8.5</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST4 MP7</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 8</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST3 RTM</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>NX 7.5</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>We recommended that you use the latest update of NX and Solid Edge because each product
+                           has a different delivery schedule and will update the file open tool as required to
+                           resolve compatibility as new release become available. &nbsp;For example, the initial release
+                           of NX 9 can open Solid Edge ST6 files, &nbsp;but ST6MP3 is required to open NX 9 files.
+                           &nbsp;Similar situations can occur with NX depending on delivery cycles and dates.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Working with NX files in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

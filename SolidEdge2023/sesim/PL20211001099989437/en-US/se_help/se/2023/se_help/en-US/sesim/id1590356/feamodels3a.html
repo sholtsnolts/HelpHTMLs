@@ -1,0 +1,97 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Removing geometry flaws and small entities</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Removing geometry flaws and small entities"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feamodels3a">
+                     <h1 class="topic-title">Removing geometry flaws and small entities</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>Parts that contain intricate features defined by very small faces and edges may produce
+                     meshing errors. You can use the <b>Geometry Inspector</b> to detect geometry flaws and to locate small faces, spikes, and slivers of geometry
+                     that cause problems. </p> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>For a part model, you can first try meshing the geometry using the <b>Body Mesh</b> option in the <b>Tetrahedral Mesh</b> dialog box. In most cases, this produces a good quality mesh for a complex part,
+                        and automatically simplifies the small faces and edges.</p> </div>
+                  <h4 class="division-title" id="feamodels1a_inspect">Opening the Geometry Inspector</h4>
+                  <div>
+                     <p>There are two ways to open the <b>Geometry Inspector</b>:</p>
+                     <ul>
+                        <li>
+                           <p>When meshing fails, an error message dialog box is displayed. You can use the <b>Run Geometry Inspector</b> button in the dialog box to open the <b>Geometry Inspector </b> directly from the study. </p>
+                           <p>In an assembly, this has the added advantage of listing the pass-fail state of each
+                              part and component in the study. The parts that failed are selected automatically
+                              for inspection. </p>
+                        </li>
+                        <li>
+                           <p>From the ribbon, you can select the <b>Inspect</b> tab→<b>Evaluate</b> group→<b>Geometry Inspector</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/optimize/sesim_geometry_insp_button.gif">.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When the <b>Use advanced meshing </b>check box is selected in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a> on the <b>Mesh Sizing</b> page, geometry slivers are removed from the model automatically to enable meshing
+                           to complete.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Using the Geometry Inspector for simulation studies</h4>
+                  <div>
+                     <p>For the purpose of finite element analysis, use the following options in the <b>Geometry Inspector</b> dialog box to identify areas of the model that can be optimized.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/simulation/optimize/sesim_geometry_insp_dialog.gif"></p>
+                     <ul>
+                        <li>
+                           <p><b>Geometry from Active Simulation Study</b>—After creating a study and selecting the model geometry, select the <b>Geometry from Active Simulation Study</b> option in the <b>Geometry Inspector</b> dialog box to narrow the focus of the inspection to the current study.</p>
+                        </li>
+                        <li>
+                           <p><b>Small entities</b> check box—Selecting this option enables you to specify the type of geometry to search
+                              for. By default, <b>Faces</b>, <b>Slivers</b>, and <b>Spikes</b> are selected. You also can change the tolerance search value.</p>
+                        </li>
+                        <li>
+                           <p><b>Fit</b>—When the inspection is complete, you can select any of the nodes in the <b>Results</b> area of the dialog box to highlight the matching geometry in the model. You also
+                              can use the <b>Fit</b> button to zoom and highlight all matching entities in the window at once.</p>
+                        </li>
+                        <li>
+                           <p>You can simplify the model by selecting each of the small entities in <b>PathFinder</b>, and then deleting them using shortcut commands.</p>
+                        </li>
+                        <li>
+                           <p>After making changes to the model, the data in the <b>Geometry Inspector </b> goes out of date. You need to select the command again to update the inspection list.
+                              </p>
+                        </li>
+                        <li>
+                           <p>You can validate the improvements by meshing the model again. When you remesh an assembly,
+                              only the parts that failed the first time are reprocessed by the <b>Mesh</b> command.</p>
+                        </li>
+                     </ul>
+                     <p>For information about fault detection, see <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1a" rel="geominspect1a">Using the Geometry Inspector</a> in Solid Edge help.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1h" rel="meshprops1h">Override mesh properties</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels4a" rel="feamodels4a">Using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels6a" rel="feamodels6a">Specifying material properties accurately</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels5a" rel="feamodels5a">Offsetting edges around holes, openings, and fasteners</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610944" rel="xid610944">Optimizing study results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feaprops1a" rel="feaprops1a">Simulation materials and properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1a" rel="meshprops1a">Mesh material properties</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshpropsqb1d" rel="meshpropsqb1d">Override Property command bar</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a><br><br></div>
+            <div class="footer-content">Removing geometry flaws and small entities, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,174 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Transient Heat Options dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Transient Heat Options dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="study4d">
+                     <h1 class="topic-title">Transient Heat Options dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Transient Heat Options</b> dialog box when creating or modifying a transient heat transfer study to define the
+                     time intervals at which you want to see the temperature response of the model. The
+                     purpose is to identify stress results at one or more specific, critical operation
+                     times, before the model reaches a steady state.</p>
+                  <p>You can save your transient heat study definition parameters as global defaults using
+                     the <b>Transient Heat Options.…</b> button on the <b>Solid Edge Options</b> dialog box→<b>Simulation</b> tab.</p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/transient_heat_options_default.png"></p>
+                  <dl>
+                     <dt><b>End Time</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies the total study processing time span, in seconds. The length of the study
+                           is entirely dependent on what operation or process you want to simulate. You can convert
+                           a value from minutes to seconds by typing <b>min</b> after the value, and then pressing Tab. The maximum value is 100,000,000.00 seconds.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Calculation Time Increment</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies how often you want the system to calculate thermal results. You should use
+                           a value that is sufficiently small, so that the results are linear over the time step
+                           interval. This value must be greater than zero and less than the end time. You can
+                           use the default value initially, and then adjust it based on the results. </p>
+                        <p>For guidance from NX Nastran, see the formula for <a class="xref" href="#calc_time_incr">Estimating the time step size (Calculation Time Increment)</a> in this help topic.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Output Time Increment</b></dt>
+                     <dd class="ml-3">
+                        <p>At what time increment in the process you want to begin generating plots. Adjust this
+                           value to directly affect the number of result sets produced. This value must be greater
+                           than or equal to the calculation time increment, and less than the end time. </p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Number of Results</b></dt>
+                     <dd class="ml-3">
+                        <p>This read-only field shows how many result sets will be produced based on your current
+                           input values, plus one more plot as the baseline. This number is affected by the interval
+                           type (constant or adaptive) that you use to process the study. Refer to the examples
+                           below.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The number of results produced by the simulation must always be an integer. This means
+                              that sometimes when you make a small change to one value (for example, to the output
+                              time increment), other values that you entered previously (for example, the end time)
+                              adjust automatically. </p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Interval Type</b></dt>
+                     <dd class="ml-3">
+                        <p>Specifies whether the solver is allowed to adjust the number of result sets generated.</p>
+                        <dl>
+                           <dt><b>Constant</b></dt>
+                           <dd class="ml-3">
+                              <p>Choose the <b>Constant</b> option if it is important to obtain an exact number of result sets.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <ul style="list-style: none">
+                                    <li>
+                                       <p>If <b>End Time</b>=<b>100 sec</b></p>
+                                       <p><b>Output Time Increment</b>=<b>25</b></p>
+                                       <p><b>Interval Type</b>=<b>Constant</b>,</p>
+                                       <p>then result sets are produced at these intervals:</p>
+                                       <p>Number of Result Sets =100/25+1=5</p>
+                                       <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/transient_heat_result_increments.png"></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt><b>Adaptive</b></dt>
+                           <dd class="ml-3">
+                              <p>Allows the solver to adjust the step intervals to provide more accurate calculations
+                                 of transient heat. This means that there may be more or fewer result sets produced
+                                 than is currently indicated in the dialog box. During high change, the step interval
+                                 is low, and during steady change, the interval is larger. An advantage of using the
+                                 adaptive time step algorithm is the potential for significantly reduced run times.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <ul style="list-style: none">
+                                    <li>
+                                       <p>If <b>End Time</b>=<b>5000 sec</b></p>
+                                       <p><b>Output Time Increment</b>=<b>200</b></p>
+                                       <p><b>Interval Type</b>=<b>Adaptive</b>,</p>
+                                       <p>then result sets are produced at irregular intervals. In this case, only four result
+                                          sets, plus the baseline plot, were generated:</p>
+                                       <p><img class="img-fluid" src="../../../../common/en_US/graphics/graphicLibrary/results_node_adaptive_intervals.png"></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Default Initial Temperature</b></dt>
+                     <dd class="ml-3">
+                        <p>A default initial temperature is required in transient heat transfer analysis. The
+                           <b>Default Initial Temperature</b> value applies to <em>all of the bodies</em> in the study as a starting point for calculating temperature at each increment. The
+                           default value is 20 degrees C (or 68 degrees F). </p>
+                        <ul>
+                           <li>
+                              <p>In a part model with a tetrahedral mesh, the <b>Default Initial Temperature</b> value you enter here automatically creates a <b>Body Temperature</b> load in the <b>Simulation</b> pane. </p>
+                           </li>
+                           <li>
+                              <p>For models with a surface mesh (for example, sheet metal) or a general body mesh (for
+                                 example, an assembly), you must select the <b>Body Loads</b> group→<b>Body Temperature</b> command <img class="img-fluid" style="max-height: 1.75rem;" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_bodytemp_cmd.gif"> and assign a default initial temperature to the appropriate geometry.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>To change the default initial temperature after the initial study creation, you must
+                              edit the <b>Body Temperature</b> load value in the <b>Simulation</b> pane→<b>Loads</b> group.</p>
+                        </div>
+                     </dd>
+                  </dl>
+                  <h4 class="division-title" id="calc_time_incr">Estimating the time step size (Calculation Time Increment)</h4>
+                  <div>
+                     <p>You can use this formula from the NX Nastran Thermal Analysis User's Guide to determine
+                        a conservative estimate for a <em>time step size</em>. In Solid Edge Simulation, enter this value in the <b>Calculation Time Increment</b> box.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/heat_transfer_time_step_formula.png"></p>
+                     <p>Where: </p>
+                     <p>Δ<em>t ₀</em>=Initial time step size</p>
+                     <p><em>X</em>=Mesh size (smallest element dimension)</p>
+                     <p><em>α</em>=Largest thermal diffusivity, <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/largest_thermal_diffusivity_formula.png"></p>
+                     <p>And:</p>
+                     <p><em>ρ</em>=Material density</p>
+                     <p><em>Cp</em>=Material specific heat</p>
+                     <p><em>k</em>=Thermal conductivity</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Transient Heat Options dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

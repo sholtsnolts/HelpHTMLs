@@ -1,0 +1,136 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Set a maximum displacement </title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Set a maximum displacement "></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1404299">
+                     <h1 class="topic-title">Set a maximum displacement </h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"> 
+                  <p>You can specify a limit to structural optimization in a generative design study. Use
+                     the <b>Maximum Displacement</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement_cmd_to4d.png"> to define the maximum allowed displacement of a point on a face when loads and constraints
+                     are applied to the design body.</p> 
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement_done.png"></p> 
+                  <ol type="1">  
+                     <li>  
+                        <p>Apply at least one load and one constraint to the geometry in the design space.</p>   
+                        <p>In this example, the following inputs were defined using a material offset value of
+                           1.95 mm:</p> 
+                        <ul> 
+                           <li> 
+                              <p>Force load=50000.000 N</p> </li> 
+                           <li> 
+                              <p>Fixed constraint</p> </li> </ul>  </li> 
+                     <li>  
+                        <p>Choose <b>Generative Design</b> tab→<b>Constraints</b> group→<b>Maximum Displacement</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement_cmd_to4d.png">.</p>  </li> 
+                     <li>  
+                        <p>On the <b>Maximum Displacement</b> command bar, provide the inputs in the order shown. You can change the face selection
+                           or the point location input by clicking the corresponding step buttons on the command
+                           bar.</p>   
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement123.png"></p> 
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement45.png"></p>  </li> </ol> 
+                  <ol type="1"> 
+                     <li>  
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/select_faces.png"> <b>Select Face</b> step—Select a single base face where you want to define maximum displacement.</p>  </li> 
+                     <li>  
+                        <p>In the <b>Value</b> box, enter the maximum displacement distance that the selected face is allowed to
+                           move.</p>  </li> 
+                     <li>  
+                        <p>In the <b>Offset</b> box, specify the additional amount of material to keep. Right-click or press Enter
+                           to continue.</p>   
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div> 
+                           <p>The <b>Offset</b> value that is displayed as a default is the recommended value based on the volume
+                              of the design space and the default study quality.</p> </div>  </li> 
+                     <li>  
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/select_point_location.png"> <b>Point Location Selection</b> step—Click a point on the selected face to define the measure-from point for the
+                           maximum displacement value. Right-click or press Enter to continue.</p>  </li> 
+                     <li>  
+                        <p>From the <b>Direction Type</b> list on the command bar, choose a method to specify displacement direction:</p> 
+                        <dl> 
+                           <dt><b>Absolute Magnitude</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Select this option to apply the specified displacement value equally in all directions:
+                                 X, Y, and Z.</p> </dd> 
+                           <dt><b>X</b>, <b>Y</b>, or <b>Z</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Define displacement direction by specifying one direction vector, X, Y, or Z. The
+                                 displacement value limit is applied only in the selected direction.</p> </dd> </dl>   
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div> 
+                           <ul> 
+                              <li> 
+                                 <p>If you enter a 1.50 mm displacement value and select the <b>Y</b> direction vector, then the selected point will not move by more than 1.50 mm in the
+                                    Y-direction. </p> </li> 
+                              <li> 
+                                 <p>If you select <b>Absolute Magnitude</b> as the direction type, then the selected point will not move by more than 1.50 mm
+                                    in any direction.</p> </li> </ul> </div>  </li> </ol> 
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div> 
+                     <p>Compare the results of solving the study of this design space with and without applying
+                        a displacement limit using the <b>Maximum Displacement</b> command. The results on the right show less material was removed, providing greater
+                        stiffness and support.</p> 
+                     <table class="siemens-table-grid"> 
+                        <colgroup span="1"> 
+                           <col span="1" width="50%"> 
+                           <col span="1" width="50%"> </colgroup> 
+                        <thead> 
+                           <tr> 
+                              <th rowspan="1" colspan="1"> 
+                                 <p>Solution 1 - No Maximum Displacement</p> </th> 
+                              <th rowspan="1" colspan="1"> 
+                                 <p>Solution 2 - Maximum Displacement Applied</p> </th> </tr> </thead> 
+                        <tbody> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement_none.png"></p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement_applied.png"></p> </td> </tr> </tbody> </table> </div>
+                  <h4 class="division-title">Editing maximum displacement</h4>
+                  <div>
+                     <p>The maximum displacement symbol is added to the selected geometry in the design space,
+                        and an edit definition handle is shown on the design space body, with a label such
+                        as <b>Maximum Displacement 1</b>. You can use this handle to edit the inputs.</p>
+                     <p>A corresponding entry is added to the <b>Generative Design</b> pane, under the <b>Constraints</b> node.</p>
+                     <ul>
+                        <li>
+                           <p>To review the maximum displacement values, hover over the label name in the <b>Generative Design</b> pane, or click the label to display the handle on the body.</p>
+                        </li>
+                        <li>
+                           <p>To edit the maximum displacement constraint, double-click the label in the <b>Generative Design</b> pane, or click a displayed handle on the body.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/topology_optimization/max_displacement_edit_handle.png"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1329527" rel="xid1329527">Generative Design workflow</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340170" rel="xid1340170">Generative Design example</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404603" rel="xid1404603">Define a physical load condition</a><br><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1404737" rel="xid1404737">Define an operational constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid2056777" rel="xid2056777">Planar Symmetry</a><br><br><h5>Learn more</h5><a class="xref" data-handle="xid1329526" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405933" rel="xid1405933">Using load cases</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1340178" rel="xid1340178">Fixed constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389708" rel="xid1389708">Pinned constraint</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389141" rel="xid1389141">Graphic Symbol Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389140" rel="xid1389140">Color dialog box</a><br><br></div>
+            <div class="footer-content">Set a maximum displacement , Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

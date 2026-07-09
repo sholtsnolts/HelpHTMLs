@@ -1,0 +1,127 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title> Errors command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title=" Errors command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="todo1c">
+                     <h1 class="topic-title"> Errors command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Errors</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/error/todo.gif"> tracks items in parts and assemblies that have failed to recompute properly so you
+                     can fix them. The <b>Errors</b> command prevents such changes from causing unnoticed problems in your Solid Edge
+                     documents, and makes it easier to find, evaluate, and fix the errors.</p>
+                  <p>As you edit documents, you should periodically check the <b>Errors</b> button to see if errors have occurred. Errors are also indicated using special symbols
+                     within <b>PathFinder</b> in part and assembly documents. The <b>Errors</b> command is not available unless an error occurs.</p>
+                  <p>The following types of errors are tracked by <b>Error Assistant</b>:</p>
+                  <ul>
+                     <li>
+                        <p>In the synchronous <b>Part</b> environment, the <b>Error Assistant</b> tracks features that fail.</p>
+                     </li>
+                     <li>
+                        <p>In the ordered <b>Part</b>, <b>Sheet Metal</b>, and <b>Assembly</b> environments, the <b>Error Assistant</b> tracks features that fail to recompute properly.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Assembly</b> environment, the <b>Error Assistant</b> also tracks under-constrained parts and parts whose positions fail to recompute.</p>
+                     </li>
+                     <li>
+                        <p>When working in <b>Exploded View Mode</b> in the <b>Assembly</b> environment, <b>Error Assistant</b> also tracks parts that have lost their parents. A part will lose its parent if the
+                           parent part is hidden using the <b>Remove</b> command.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Feature errors</h4>
+                  <div>
+                     <p>Ordered feature errors typically occur when making design changes that have unanticipated
+                        effects on your model.</p>
+                     <p>Two common types of errors are:</p>
+                     <ul>
+                        <li>
+                           <p>Editing a cutout feature such that no material is removed.</p>
+                        </li>
+                        <li>
+                           <p>Editing a feature such that <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/non_manifold_topology" rel="non_manifold_topology">non-manifold topology</a> is created.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Cutouts with no material removal</h4>
+                  <div>
+                     <p>If you construct a ordered cutout in a part, then edit the cutout dimensions such
+                        that no material is removed from the model, the feature fails. Solid Edge determines
+                        that this is an invalid condition for a cutout feature, and the <b>Errors</b> command button is activated. For example, if you edit the 10 millimeter dimension
+                        to 120 millimeters, the cutout feature will no longer remove material from the part.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/error/todo1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Non-manifold topology in models</h4>
+                  <div>
+                     <p>If you construct an ordered protrusion in a part, then edit the protrusion dimensions
+                        such that non-manifold topology is constructed, the feature fails. Solid Edge determines
+                        that this is an invalid condition, and the <b>Errors</b> command button is activated.</p>
+                     <p>Non-manifold topology is where two or more faces on a single body are connected at
+                        a theoretical point or line and form a zero thickness edge.</p>
+                     <p>For example, if you edit the 15 millimeter dimension to 28 millimeters, a zero thickness
+                        edge is created where the faces meet.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/error/nonmanif1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Displaying errors</h4>
+                  <div>
+                     <p>When you display the <b>Error Assistant</b> dialog box, a list of errors is displayed, their reasons, and the corrective action
+                        you can take to fix the error. When you click an error in the list, the display in
+                        the graphics window is updated to show you the design elements that are impacted by
+                        the error. </p>
+                     <p>For example in ordered, when non-manifold topology exists, you can click the entry
+                        in <b>Error Assistant</b>, and the display updates to show the model faces (A) (B) which are causing the error.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/error/nonmanif2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Fixing errors</h4>
+                  <div>
+                     <p>You can use the buttons on the dialog box to fix the error or delete the elements.
+                        For example, if you are making a significant design change to an assembly and delete
+                        a part that is no longer needed, other parts that depended on the deleted part could
+                        be affected. You can then use the <b>Error Assistant</b> dialog box to find the problems, and fix them as required.</p>
+                  </div>
+                  <h4 class="division-title">Assembly errors</h4>
+                  <div>
+                     <p>The position for a part in an assembly might fail to recompute because a design change
+                        was made to an adjacent part that prevents an assembly relationship from recomputing
+                        properly.</p>
+                     <p>For example, if you position a part with axial align relationships using cylindrical
+                        faces on an adjacent part, then edit the adjacent part such that the faces between
+                        the two parts can no longer be axially aligned, the relationships will fail to recompute
+                        and the part is then added to the list in <b>Error Assistant.</b></p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/error/todo2.gif"></p>
+                     <p>The position for a part also might fail to recompute because you deleted or suppressed
+                        a feature on an adjacent part that was used to position the part.</p>
+                     <p>When assembly relationship errors exist, you can use the <b>Error Assistant</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/assembly/relationships/errorassistant.png"> on the Error Assistant dialog box to open <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1135317" rel="xid1135317">Assembly Relationship Manager</a>. The <b>Assembly Relationship Manager</b> shows the sick and failed relationships. You can use shortcut commands to suppress,
+                        delete or edit the relationships.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/profileerror1h" rel="profileerror1h">Analyze and edit failed profiles with Profile Error Assistant</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo1h" rel="todo1h">Track and fix failed features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo2h" rel="todo2h">Track and fix failed parts in an assembly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo1d" rel="todo1d">Error Assistant dialog box (Part and Sheet Metal environments)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo2d" rel="todo2d">Error Assistant Dialog Box (Assembly environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo3d" rel="todo3d">Error Assistant Dialog Box (Exploded Views)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/profileerror1d" rel="profileerror1d">Profile Error Assistant dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo2c" rel="todo2c">Investigate Error command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo4d" rel="todo4d">Investigate Error dialog box</a><br><br></div>
+            <div class="footer-content"> Errors command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

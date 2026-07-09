@@ -1,0 +1,165 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Best practices in goal seeking</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Best practices in goal seeking"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid609955">
+                     <h1 class="topic-title">Best practices in goal seeking</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>There are several things you can do to ensure the goal seeking operation succeeds.
+                     </p>
+                  <h4 class="division-title">Creating the 2D geometry and adding dimensions</h4>
+                  <div>
+                     <p>The following best practices apply when drawing, sketching, and dimensioning 2D geometry.</p>
+                     <ul>
+                        <li>
+                           <p>Add geometric relationships—As you draw or sketch, IntelliSketch adds geometric relationships
+                              automatically. You also can use the <a class="xref" data-handle="working_with_2d_geometry" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/atocns1c" rel="atocns1c">Relationship Assistant command</a> to add geometric relationships to profiles so that the geometry is fully constrained.
+                              Fully constrained geometry ensures more predictable results.</p>
+                           <p>The <b>Relationship Assistant</b> is particularly useful when working with geometry that you import from other systems.</p>
+                        </li>
+                        <li>
+                           <p>Add driven variables and dimensions (for the <b>Goal</b>)—For a variable value that you want to be able to modify or calculate, add a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/driven_dimension" rel="driven_dimension">driven dimension</a>, or create a 2D area object with the <b>Area</b> command (but not for synchronous sketches), or define a formula using driven variables.
+                              The value of a driven variable or dimension is controlled by the element it refers
+                              to, or by a formula or variable you define.</p>
+                        </li>
+                        <li>
+                           <p>Add driving variables and dimensions (for the Variable)—For a value that you want
+                              to allow to change, add a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/driving_dimension" rel="driving_dimension">driving dimension</a> or variable. The value of a driving variable or dimension controls the size, orientation,
+                              or location of an element. Changing this variable must cause the <b>Goal</b> to change, too.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <ul>
+                                 <li>
+                                    <p>Driving variables, which are independent, can only be used for the <b>Variable</b> to be changed.</p>
+                                 </li>
+                                 <li>
+                                    <p>Driven variables, which are dependent, can only be used for the <b>Goal</b>.</p>
+                                 </li>
+                                 <li>
+                                    <p>The <b>Variable</b> should be related to the <b>Goal</b>, so that when a change is made to the <b>Variable</b>, it causes the <b>Goal</b> to change through a formula or geometric relationship.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                        <li>
+                           <p>For ordered sketches—Add driven and driving dimensions to sketches created using the
+                              <b>Sketch</b> command in ordered mode that can be used by goal seeking to drive changes to a traditional
+                              part or sheet metal model.</p>
+                        </li>
+                        <li>
+                           <p>For synchronous sketches—Add locked (driving) and unlocked (driven) dimensions to
+                              synchronous sketches before you extrude the shape to create a 3D object. </p>
+                        </li>
+                     </ul>
+                     <p>To learn about the different types of dimensions, how to recognize them, and how they
+                        can be used to control the design, see the following help topics:</p>
+                     <p><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dim4a" rel="dim4a">Dimensioning elements overview</a></p>
+                     <p><a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab1a" rel="pmidnab1a">PMI dimensions and annotations</a></p>
+                  </div>
+                  <h4 class="division-title">Additional considerations for models</h4>
+                  <div>
+                     <p>For part, sheet metal, and assembly models, you should verify the following properties
+                        are available for goal seeking. </p>
+                     <ul>
+                        <li>
+                           <p>For part and sheet metal models, the sketch dimensions convert to PMI dimensions on
+                              faces. You can use the <b>Goal Seek</b> command bar to select PMI dimensions directly on the model.</p>
+                        </li>
+                        <li>
+                           <p>For the most accurate results, set the precision in the <b>File Properties</b> dialog box to the highest possible value (the most decimal places) on the <b>Units</b> tab and in the <b>Advanced Units</b> dialog box.</p>
+                        </li>
+                        <li>
+                           <p>Verify that a material is applied to the model in the File menu→<b>Info</b>→<b>Material Table</b>. </p>
+                        </li>
+                        <li>
+                           <p>For part models, verify that the <b>Physical Properties</b> dialog box contains the updated properties and units that you want to reference in
+                              goal seeking. This dialog box is available using the <b>Inspect</b> tab→<b>Physical Properties</b> group→<b>Physical Properties</b> command.</p>
+                        </li>
+                        <li>
+                           <p>For assembly models, you can use the <b>Physical Properties Manager</b> dialog box to access the properties for individual parts. This dialog box is available
+                              using the <b>Inspect</b> tab→<b>Physical Properties</b> group→<b>Physical Properties Manager</b> command.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Limiting the scope of the problem</h4>
+                  <div>
+                     <p>Sometimes, if the initial conditions set on the command bar are too widespread, goal
+                        seeking cannot find the target value or it may require too many iterations. If you
+                        start the goal seeking operation with the value of the <b>Variable</b> set such that the <b>Goal</b> is close to the <b>Target</b>, the iterative process generally will be faster and more successful.</p>
+                     <p>You can use the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat5d" rel="equat5d">Variable Rule Editor dialog box</a>, which is available within the Variable Table, to set upper and lower limits on the
+                        domain of possible values that can be used for the <b>Variable</b>. You can define a discrete set of values, or a range of values, for a variable. This
+                        allows you to restrict design changes to a controlled set of values.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <ul>
+                           <li>
+                              <p>If you are seeking a value for the diameter of a circle or the length of a line, you
+                                 should set a limit that their value be greater than 0.</p>
+                           </li>
+                           <li>
+                              <p>If you are seeking the diameter of a pipe, then you should set a limit that the outer
+                                 diameter is greater than the inner diameter.</p>
+                           </li>
+                           <li>
+                              <p>If you are seeking an angle, then you should define a rule that limits the possible
+                                 solutions to an acceptable range, such as between 5° and 90°, or between 90° and 180°.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>For more information, see <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat10h" rel="equat10h">Define limits for a variable</a>.</p>
+                  </div>
+                  <h4 class="division-title">Controlling goal seeking attempts</h4>
+                  <div>
+                     <p>The <b>Goal Seek</b> command is an equation-solving algorithm that works through an iterative process
+                        to find the target value for a goal. Numerical solution techniques such as these can
+                        fail to solve the equation or produce numerical instabilities. The <b>Maximum Time</b> and<b> Maximum Number Of Iterations</b> set in the <b>Goal Seek Options</b> dialog box limit the amount of time that goal seeking will run should it fail to
+                        find a solution.</p>
+                     <p>When an equation fails to produce a solution, it may be due to any of these factors:</p>
+                     <ul>
+                        <li>
+                           <p>There may not be a solution for a given set of inputs.</p>
+                        </li>
+                        <li>
+                           <p>The maximum number of iterations was reached before a solution was found.</p>
+                        </li>
+                        <li>
+                           <p>The maximum time limit was reached before a solution was found.</p>
+                        </li>
+                     </ul>
+                     <p>You can adjust the maximum time or maximum number of iterations to suit the needs
+                        of the particular situation you have. Select <b>Goal Seek Options</b> on the <b>Goal Seek</b> command bar to open the <b>Goal Seek Options</b> dialog box.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Quick links</h5><a class="xref" data-handle="working_with_2d_geometry" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/atocns1c" rel="atocns1c">Relationship Assistant command</a><br><a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat5d" rel="equat5d">Variable Rule Editor dialog box</a><br><a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat10h" rel="equat10h">Define limits for a variable</a><br><a class="xref" data-handle="dimensions" href="/en-US/product/246738425/doc/PL20211001099989437.dimensions/html/dim4a" rel="dim4a">Dimensions</a><br><a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmidnab1a" rel="pmidnab1a">PMI dimensions and annotations</a><br><br></div>
+            <div class="footer-content">Best practices in goal seeking, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

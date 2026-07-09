@@ -1,0 +1,225 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Geometry Inspector dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Geometry Inspector dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="geominspect1d">
+                     <h1 class="topic-title">Geometry Inspector dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can inspect part, sheet metal, and assembly documents.</p>
+                  <dl>
+                     <dt>Inspect</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the geometry that you want to inspect. Options vary with model type.</p>
+                        <ul>
+                           <li>
+                              <p>All Active Models—Selects the models you have selected or all active models in the
+                                 document.</p>
+                           </li>
+                           <li>
+                              <p>All Mesh Bodies—Selects all mesh bodies in the document.</p>
+                           </li>
+                           <li>
+                              <p>Select from Active Model—Prompts you to select one or more bodies in the currently
+                                 displayed model.</p>
+                           </li>
+                           <li>
+                              <p>Top level document—Selects the geometry in the top-level assembly.</p>
+                           </li>
+                           <li>
+                              <p>Select occurrences—Prompts you to select one or more occurrences in the assembly.</p>
+                           </li>
+                           <li>
+                              <p>Geometry from Active Simulation Study—Selects the geometry defined for the active
+                                 study in Solid Edge Simulation. </p>
+                           </li>
+                        </ul>
+                     </dd>
+                     <dt>Go</dt>
+                     <dd class="ml-3">
+                        <p>Starts the geometry inspection process.</p>
+                     </dd>
+                     <dt>For</dt>
+                     <dd class="ml-3">
+                        <p>Faults—Detects the geometry flaws listed in the table in <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1a" rel="geominspect1a">Types of faults identified by the Geometry Inspector</a>.</p>
+                        <p>Small entities—Detects very small entities that may cause problems with a model during
+                           finite element processing. </p>
+                        <p>When you select the <b>Small entities</b> check box, you also can select the specific entities to search for, and you can set
+                           the tolerance levels for the search.</p>
+                        <dl>
+                           <dt>Faces</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that model faces are searched using the following type and tolerance criteria.</p>
+                              <dl>
+                                 <dt>Small faces</dt>
+                                 <dd class="ml-3">
+                                    <p>Inspects the model geometry for small faces that completely fit inside a sphere with
+                                       the specified radius.</p>
+                                    <dl>
+                                       <dt>Fit in radius</dt>
+                                       <dd class="ml-3">
+                                          <p>Specifies the radius of the sphere used to find small faces. The value cannot be blank,
+                                             zero, or negative.</p>
+                                       </dd>
+                                    </dl>
+                                 </dd>
+                                 <dt>Slivers </dt>
+                                 <dd class="ml-3">
+                                    <p>Inspects the model geometry for sliver faces, which have a high aspect ratio and a
+                                       small area. The edges in a sliver face form a complete loop.</p>
+                                    <dl>
+                                       <dt>Sliver tolerance</dt>
+                                       <dd class="ml-3">
+                                          <p>Specifies the maximum width of a sliver face. The value cannot be blank, zero, or
+                                             negative.</p>
+                                       </dd>
+                                    </dl>
+                                 </dd>
+                                 <dt>Spikes</dt>
+                                 <dd class="ml-3">
+                                    <p>Inspects the model geometry for spikes, which have a high aspect ratio and a small
+                                       area. Spikes differ from slivers in that only a portion of the face fits these criteria,
+                                       not the entire face. Spike edges do not form a complete loop themselves, although
+                                       they are part of the same loop.</p>
+                                    <dl>
+                                       <dt>Spike width</dt>
+                                       <dd class="ml-3">
+                                          <p>Specifies the maximum width of a spike. The value cannot be blank, zero, or negative.</p>
+                                       </dd>
+                                    </dl>
+                                 </dd>
+                                 <dt>By area</dt>
+                                 <dd class="ml-3">
+                                    <p>Inspects the model geometry for faces that have an area less than the specified size.</p>
+                                    <dl>
+                                       <dt>Area less than</dt>
+                                       <dd class="ml-3">
+                                          <p>Specifies the maximum area to inspect.</p>
+                                          <p>The default value is x², where x is equal to 1 ⁄ 1000 of the model box diagonal.</p>
+                                       </dd>
+                                    </dl>
+                                 </dd>
+                              </dl>
+                           </dd>
+                           <dt>Edges shorter than</dt>
+                           <dd class="ml-3">
+                              <p>When searching for small entities, specifies the maximum length of the edges that
+                                 are searched for.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Results (expand the groups to see the individual nodes)</dt>
+                     <dd class="ml-3">
+                        <p>Displays information about faults and small entities found in the geometry. The information
+                           is stored in groups, which can be expanded in a tree structure for easy viewing.</p>
+                        <p>The results vary with the type of document inspected and the inspection criteria.
+                           They include the document name, the number of faults and small entities, the fault
+                           names found, the types of small entities found, and the feature names where they occur.
+                           </p>
+                        <p>When you select a fault or entity from the list, it is highlighted in the graphics
+                           window. When the model document is an assembly, only one occurrence is highlighted.</p>
+                     </dd>
+                     <dt>Heal Body Faults</dt>
+                     <dd class="ml-3">
+                        <p>Removes faults from the bodies returned by the geometry inspector. This option is
+                           only enabled for body constructions or design bodies that do not have dependent features,
+                           or associative links.</p>
+                        <p>An icon, <img class="img-fluid" src="../../../common/nonLocalized/se/evaluate/faulthealing1.gif">, is displayed next to any faults returned by the Geometry Inspector that are not
+                           valid for healing, along with a description of the problem.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The <b>Heal Body Faults</b> option does not support small entities, so an icon is not displayed next to any small
+                              entities returned by the Geometry Inspector.</p>
+                        </div>
+                     </dd>
+                     <dt>Result description</dt>
+                     <dd class="ml-3">
+                        <p>Displays the description of the geometry fault or small entity. To show this information,
+                           you must first select a fault name or a small entity name from the list.</p>
+                     </dd>
+                     <dt>Fit</dt>
+                     <dd class="ml-3">
+                        <p>Fits the highlighted entities to the graphics window.</p>
+                        <p>You can select a single entity in the <b>Results</b> list, and then use the <b>Fit</b> button to zoom in and fit it to the graphics window. You also can select a high level
+                           node in the <b>Results</b> list, for example, 13 Sliver Faces, and all 13 of the sliver faces are zoomed and
+                           fit to the graphics window.</p>
+                     </dd>
+                     <dt>Save As</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <b>Save As</b> dialog box for you to save the fault information list to an ASCII text file, with
+                           a <b>.txt</b> file extension. </p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Mesh Body Healing Options</dt>
+                     <dd class="ml-3">
+                        <p>Removes defective facets in the meshed body.</p>
+                        <dl>
+                           <dt>Delete Facets</dt>
+                           <dd class="ml-3">
+                              <p>This option deletes facets around fault while healing a faulty mesh. When this option
+                                 is checked and mesh faults are detected, while healing body faults, facets around
+                                 fault are deleted.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Delete facets works only for mesh faults and not topological faults. This option is
+                                    enabled only when mesh faults are identified by <b>Geometry Inspector</b>.</p>
+                              </div>
+                           </dd>
+                           <dt>Fill Holes</dt>
+                           <dd class="ml-3">
+                              <p>This option is enabled only when <b>Delete Facets</b> is enabled. When this option is checked, only the deleted facets around the fault
+                                 get filled. There are four <b>Fill Options</b> to control the way holes are filled. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The behavior of various options in dropdown for <b>Fill Holes</b> is similar to <b>Fill Holes</b> command on the <b>Reverse Engineering</b> tab.</p>
+                              </div>
+                           </dd>
+                           <dt>Fill Options</dt>
+                           <dd class="ml-3">
+                              <p><b>Tangent</b>: Uses a similar method to <b>Refined</b>, but additionally maintains tangency of the mesh around the boundary of each hole.</p>
+                              <p><b>Linear</b>: Fills each hole without creating new mesh vertices in the interior of each hole.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/fill_linear.png"></p>
+                              <p><b>Refined</b>: Produces a similar shape to <b>Linear</b> but may introduce new mesh vertices in the interior of each hole to ensure new facets
+                                 maintain approximately the same size as those nearby.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/fill_refined.png"></p>
+                              <p><b>Curvature</b>: Uses a similar method to <b>Tangent</b> but in addition adjusts the patch to maintain the general curvature of the mesh around
+                                 the boundary of each hole.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/reverse_engineering/fill_curvature.png"></p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1h" rel="geominspect1h">Inspect the geometry of a model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid293066" rel="xid293066">Optimize the quality of a model</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1a" rel="geominspect1a">Using Geometry Inspector</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/geominspect1c" rel="geominspect1c">Geometry Inspector command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid280807" rel="xid280807">Optimize command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid280881" rel="xid280881">Optimize dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid280809" rel="xid280809">Optimize command bar</a><br><br></div>
+            <div class="footer-content">Geometry Inspector dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

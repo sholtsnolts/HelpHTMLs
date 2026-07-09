@@ -1,0 +1,175 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>3D section views of models</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="3D section views of models"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="cutawy1a">
+                     <h1 class="topic-title">3D section views of models</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Overview</h4>
+                  <div>
+                     <p>A 3D section view:</p>
+                     <ul>
+                        <li>
+                           <p>Simulates cutting away material from the model so you can see internal features. This
+                              is useful when you need to create sectioned views of a part or assembly for presentation
+                              or documentation purposes, but you do not want to physically modify the parts.</p>
+                        </li>
+                        <li>
+                           <p>Is created using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy1c" rel="cutawy1c">Section command</a> in the Assembly, Part, and Sheet Metal environments.</p>
+                        </li>
+                        <li>
+                           <p>Can be annotated, measured, and used to provide documentation for Product Manufacturing
+                              Information (PMI) purposes using the commands on the PMI tab. When you change any
+                              of the driving dimensions that control the model, the PMI dimensions update, also.</p>
+                        </li>
+                        <li>
+                           <p>Can be used to generate drawings automatically.</p>
+                        </li>
+                        <li>
+                           <p>Can be saved as a presentation-quality image when you use the <b>Save As Image</b> command.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/se/section3d2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Creating 3D section views in synchronous environments</h4>
+                  <div>
+                     <p>When the synchronous model is displayed, before you select the <b>Section</b> command you must first use the drawing commands on the <b>Sketching</b> tab to define the cutting plane shape. See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy2a" rel="cutawy2a">Defining 3D sections of models: best practices</a>.</p>
+                     <p>Then when you start the <b>Section</b> command, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawyb1d" rel="cutawyb1d">Section View command bar</a> guides you through the steps:</p>
+                     <ul>
+                        <li>
+                           <p>Select Sketch Step: Select the previously created 2D elements to define the cutting
+                              plane.</p>
+                        </li>
+                        <li>
+                           <p>Optional: Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy3d" rel="cutawy3d">Section Options dialog box</a> to edit or confirm the default settings for section caption, dimension style, and
+                              cutting plane annotation.</p>
+                        </li>
+                        <li>
+                           <p>Side Step: Define the side of the model or profile you want to remove material from.</p>
+                        </li>
+                        <li>
+                           <p>Extent Step: Define the thickness of the material you want to remove.</p>
+                        </li>
+                        <li>
+                           <p>Select Parts Step: Choose to cut all the parts in the model, cut only the selected
+                              parts, or cut only the unselected parts.</p>
+                        </li>
+                     </ul>
+                     <p>In assemblies, you do not have to cut every part that the section view profile passes
+                        through.</p>
+                     <ul>
+                        <li>
+                           <p>In the Select Parts Step, you can use the <b>Cut List</b> option on the command bar to specify which parts to cut.</p>
+                        </li>
+                        <li>
+                           <p>After you specify the parts you want to cut, use the <b>Preview</b> button to observe the results.</p>
+                        </li>
+                     </ul>
+                     <p>You can create multiple section views of a part or assembly.</p>
+                  </div>
+                  <h4 class="division-title">Creating 3D section views in ordered environments</h4>
+                  <div>
+                     <p>With the ordered model displayed, the Section command prompts you to select a plane
+                        or model face to draw on, and then displays the 2D drawing tools for you to draw a
+                        2D profile to define the cutting plane shape. See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy2a" rel="cutawy2a">Defining 3D sections of models: best practices</a>.</p>
+                     <p>When you click <b>Close Sketch</b>, the remaining steps on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy1d" rel="cutawy1d">Section View command bar</a> are the same as for synchronous environments.</p>
+                  </div>
+                  <h4 class="division-title">Cutting hardware parts</h4>
+                  <div>
+                     <p>According to industry standards, hardware parts such as bolts, nuts, and washers are
+                        not cut in section views.</p>
+                     <ul>
+                        <li>
+                           <p>In general, parts can be marked as 'hardware' by selecting the <b>Hardware Part</b> check box on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/prop10d" rel="prop10d">Summary group of the File Properties dialog box</a>.</p>
+                        </li>
+                        <li>
+                           <p>When defining or modifying the section view, you can use the <b>Cut Hardware</b> option on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy2d" rel="cutawy2d">Section Options dialog box</a> to specify that hardware is cut in that view.</p>
+                        </li>
+                     </ul>
+                     <p>See the help topic, <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/prop10h" rel="prop10h">Specify hardware parts</a>.</p>
+                  </div>
+                  <h4 class="division-title">Displaying and modifying 3D section views</h4>
+                  <div>
+                     <p>Existing 3D section views are listed on, and controlled from, <b>PathFinder</b>. To modify a section view, you must select it on PathFinder.</p>
+                     <ul>
+                        <li>
+                           <p>To display a section view, click the box next to the section view name on <b>PathFinder</b>.</p>
+                        </li>
+                        <li>
+                           <p>To display more than one section view at a time, click the boxes next to the additional
+                              section view names.</p>
+                        </li>
+                        <li>
+                           <p>To modify an existing section view, use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy2c" rel="cutawy2c">section shortcut commands available from Feature PathFinder</a>. Right-click the section view name you want to modify, and then select the appropriate
+                              edit command on its shortcut menu. For example, you can:</p>
+                           <ul>
+                              <li>
+                                 <p>In the ordered environment, modify the section profile using the <b>Edit Profile</b> command.</p>
+                              </li>
+                              <li>
+                                 <p>In the synchronous environment, modify the section using the <b>Edit Definition</b> command.</p>
+                              </li>
+                              <li>
+                                 <p>Choose different cut parts using the <b>Options</b> command.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Viewing 3D section views of the model</h4>
+                  <div>
+                     <p>For viewing purposes, you can add a 3D section view to a selected 3D model view using
+                        the <b>Add To Model View</b> command on the section view shortcut menu.</p>
+                     <p>For more information, see the help topic, <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmi3dmv2h" rel="pmi3dmv2h">Add section views to a 3D model view</a>.</p>
+                  </div>
+                  <h4 class="division-title">Printing 3D section views</h4>
+                  <div>
+                     <p>You can print a 3D section view of the model displayed in the graphics window using
+                        the <b>Print</b> command on the File menu. If the section annotation is displayed in the view, then
+                        the cutting plane direction arrows are printed with the section view.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If the section is rendered in Visible and Hidden Edges mode in the part, sheet metal,
+                           or assembly document, then you must also set the <b>Print as displayed</b> option on the Print page to print the view in this format.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Using 3D section views in a drawing</h4>
+                  <div>
+                     <p>You can place a 3D section view in a drawing by choosing the <b>New</b>→<b>Drawing View of Active Model</b> command from the File menu in the model document. After placing a drawing view of
+                        the model on a drawing sheet, you can expose the 3D section view you created. To learn
+                        how to do this, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy4h" rel="cutawy4h">Expose a 3D section in a drawing</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawyb1h" rel="cutawyb1h">Create a 3D section view (synchronous environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy1h" rel="cutawy1h">Create a 3D section view (ordered environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy2h" rel="cutawy2h">Edit a 3D section view</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy3h" rel="cutawy3h">Apply or remove a section cut</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy4h" rel="cutawy4h">Expose a 3D section in a drawing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1683919" rel="xid1683919">Create a section view using non-associative planes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1759063" rel="xid1759063">Create a section view using associative planes</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy2c" rel="cutawy2c">3D section view editing commands</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy5c" rel="cutawy5c">Properties command (3D section views)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy4c" rel="cutawy4c">Section Display Options command (3D section views)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy2d" rel="cutawy2d">Section Display Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy3d" rel="cutawy3d">Section Options dialog box (3D sections)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawyb1d" rel="cutawyb1d">Section command bar (synchronous environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy1d" rel="cutawy1d">Section command bar (ordered environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy6c" rel="cutawy6c">Edit Profile command (3D section views)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/cutawy1c" rel="cutawy1c">Section command (Part, Sheet Metal, and Assembly)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1683808" rel="xid1683808">Section by Plane command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1683822" rel="xid1683822">Section by Plane command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1683827" rel="xid1683827">Section by Plane Options dialog box</a><br><br></div>
+            <div class="footer-content">3D section views of models, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

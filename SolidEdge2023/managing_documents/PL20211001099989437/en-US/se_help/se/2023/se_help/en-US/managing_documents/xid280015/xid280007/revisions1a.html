@@ -1,0 +1,152 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Revising managed documents in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Revising managed documents in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="revisions1a">
+                     <h1 class="topic-title">Revising managed documents in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Within Solid Edge, there are two methods for creating revisions of a Solid Edge document:</p>
+                  <ul>
+                     <li>
+                        <p>Direct document revisions</p>
+                     </li>
+                     <li>
+                        <p>In-context revisions</p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p> For both direct document revisions and in-context revisions, Solid Edge searches
+                        for existing revisions. You can create a new revision or use an existing revision.</p>
+                  </div>
+                  <h4 class="division-title">Direct document revisions</h4>
+                  <div>
+                     <p>Direct document revisions create revisions of the active document. You can choose
+                        the <b>Teamcenter tab→Document group→Revisions</b> command for direct document revisions. Direct document revisions create revisions
+                        of Solid Edge part, sheet metal, assembly, or draft files. For example, if you used
+                        the <b>Revisions</b> command to revise an open draft file, Solid Edge:</p>
+                     <ul>
+                        <li>
+                           <p>Searches for existing revisions.</p>
+                        </li>
+                        <li>
+                           <p>Enables you to create a new revision or open an existing revision.</p>
+                        </li>
+                        <li>
+                           <p>Enables you to create a new revision of the draft file.</p>
+                        </li>
+                        <li>
+                           <p>Provides you the opportunity to specify a folder for the new item and item revision.</p>
+                        </li>
+                        <li>
+                           <p>Opens the new revised document, making it the active document.</p>
+                        </li>
+                        <li>
+                           <p>Closes the original document without saving it.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p> You cannot create direct document revisions when you are in-place editing a managed
+                           document.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">In-context revisions</h4>
+                  <div>
+                     <p>With in-context revisions, you select components within an assembly and either replace
+                        the component with an existing revision or create a new revision for the component.
+                        To do this, right-click a component at the current level within an assembly and select
+                        <b>Manage→Revisions</b> from the shortcut menu. For example, if you used the <b>Revisions</b> command on a part within an assembly, Solid Edge:</p>
+                     <ul>
+                        <li>
+                           <p>Automatically searches for existing revisions.</p>
+                        </li>
+                        <li>
+                           <p>Enables you to right-click an existing revision and select the <b>Replace</b> command from the shortcut menu to replace the selected component with the existing
+                              revision.</p>
+                        </li>
+                        <li>
+                           <p>Enables you to create a new revision by creating a copy of the selected component
+                              and replacing it with the new revision of the document.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p> You cannot select components in a subassembly for revision. &nbsp;You have to in-place
+                           edit the subassembly to make revisions to components in the subassembly.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Revising read-only Teamcenter-managed documents</h4>
+                  <div>
+                     <p>Revising a Teamcenter-managed document displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/revisions4d" rel="revisions4d">Revisions dialog box</a>. &nbsp;You can use the dialog box to create a new revision of the selected document or
+                        cancel the operation.</p>
+                     <p>Creating a revision of a document opened read-only copies the file from disk to the
+                        new revision. The new revision has to be upload into Teamcenter before it becomes
+                        your active document. Any in-memory changes must be saved before checking the new
+                        revision into the database, or they may be lost.</p>
+                  </div>
+                  <h4 class="division-title" id="indicators">PathFinder and Cache Assistant indicate a new revision is available </h4>
+                  <div>
+                     <p>Solid Edge Assembly PathFinder provides the following indicators when a new revision
+                        is available:</p>
+                     <ul>
+                        <li>
+                           <p>When the document loaded is the latest version and it is not check out to you, PathFinder
+                              displays <b>New Revision Available</b>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When a document is checked out to you, you are editing the latest version.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>When the document is checked out to you, and there is a new revision available, the
+                              entry in PathFinder is underlined.</p>
+                        </li>
+                        <li>
+                           <p>If the loaded document is not the latest version, and it is also not the latest revision,
+                              <b>New Version Available</b> displays and is underlined.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>In this example, 000114/A indicates there is a <b>New Revision Available</b>, while 000090/A is <b>Checked Out to You</b> <em>and</em> there is a new revision available.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/doc_mgt/manage_tc/manage_tc_ui/new_revision_available.png"></p>
+                           </div>
+                        </li>
+                     </ul>
+                     <p>Similarly, in Cache Assistant when the document loaded in Solid Edge is an old version
+                        and a new revision exists, <b>New Version Available</b> displays in the <b>Cache Status</b> column and the text is underlined to note that there is a new revision.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/doc_mgt/manage_tc/manage_tc_ui/cache_new_revision.png"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/revisions3h" rel="revisions3h">Revise a Teamcenter-managed document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/showrevisons1h" rel="showrevisons1h">Show the Revisions for a Document</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1164168" rel="xid1164168">Revise command (SEEC)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/revisions1c" rel="revisions1c">Revisions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/showrevisions1c" rel="showrevisions1c">Show Revisions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1164345" rel="xid1164345">Replace with Revision command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/revisions4d" rel="revisions4d">Revisions dialog box (SEEC)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/dftrevisions1d" rel="dftrevisions1d">Draft Revisions dialog box</a><br><br></div>
+            <div class="footer-content">Revising managed documents in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

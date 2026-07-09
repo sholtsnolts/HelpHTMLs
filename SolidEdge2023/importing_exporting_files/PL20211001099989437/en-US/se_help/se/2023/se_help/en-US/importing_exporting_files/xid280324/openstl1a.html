@@ -1,0 +1,132 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with .stl documents in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with .stl documents in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="openstl1a">
+                     <h1 class="topic-title">Working with .stl documents in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>STL files only describe the surface geometry of a 3D object. They are unit-less and
+                     have no representation of color, texture or other common model attributes. STL files
+                     are commonly used for rapid prototyping, 3D printing, and computer-aided manufacturing.
+                     </p>
+                  <p>Solid Edge creates meshed data when you import a STL, JT, or IFC file to Solid Edge
+                     part, sheet metal or assembly.</p>
+                  <h4 class="division-title">Opening .stl documents in Solid Edge</h4>
+                  <div>
+                     <p>You can open .stl ASCII or Binary documents in Solid Edge assembly, part, or sheet
+                        metal with the <b>Open</b> command. On the <b>Open File</b> dialog box, after you select the .stl document you want to open, click the <b>Options</b> button to display the <b>STL Import Options</b> dialog box. Since .stl documents are unit-less, use this dialog box to specify the
+                        units for the document.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>A .stl document contains only information about mesh bodies. If you open a .stl document
+                           containing multiple bodies in an assembly template, Solid Edge translates the multiple
+                           bodies into a single part document with a single entry in Feature PathFinder.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Importing mesh bodies</h4>
+                  <div>
+                     <p>.Stl documents contain mesh bodies. A mesh body is a surface representation defined
+                        by triangles.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/translators/conceptual/facet1.gif"></p>
+                     <h5>Rules for mesh bodies</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p> When you import a .stl mesh body, it is stored in Solid Edge as a non-Parasolid body.
+                              The mesh body is displayed in Feature PathFinder as a part copy. However, since the
+                              mesh part copy is a non-Parasolid body, the rules are different than those for a normal
+                              part copy.</p>
+                        </li>
+                     </ul>
+                     <ul>
+                        <li>
+                           <p>When you import a mesh body, it can be placed as a construction or as a base feature.
+                              To place the mesh body as a base feature, select the <b>Make Base Feature</b> option on the <b>STL Import Options</b> dialog box. Even placed as a base feature, it is not considered a design body since
+                              no material can be added or removed from this type of feature.</p>
+                        </li>
+                        <li>
+                           <p>When you import a mesh body, all faces are merged into a single part copy and represented
+                              by a single entry in Feature PathFinder.</p>
+                        </li>
+                        <li>
+                           <p>You cannot modify a mesh part copy.</p>
+                        </li>
+                        <li>
+                           <p>The <b>Insert Part Copy</b> command does not support .stl documents.</p>
+                        </li>
+                        <li>
+                           <p>You you currently cannot locate edges, or vertices of a meshed body. You can only
+                              locate the entire body and some faces, or features depending on the quality of the
+                              mesh data.</p>
+                        </li>
+                        <li>
+                           <p> Commands that require faces, edges, or vertices as input will simply fail when trying
+                              to locate the faces, vertices or edges of a meshed body. For example, when drawing
+                              a sketch, the <b>Sketch</b> command will not locate faces, edge, and vertices of a meshed body. When the Solid
+                              Edge part file contains a mesh body, any commands that only add or removes material
+                              from the base feature are disabled.</p>
+                        </li>
+                        <li>
+                           <p>Commands that calculate physical properties are supported for mesh bodies in a Solid
+                              Edge part document.</p>
+                        </li>
+                        <li>
+                           <p>You can check for interference between mesh bodies in a Solid Edge assembly document.</p>
+                        </li>
+                     </ul>
+                     <h5>Displaying mesh bodies</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>Meshed bodies are represented in Feature PathFinder with a unique icon and name. You
+                              can control the display mode of the mesh body in Solid Edge, as with any other design
+                              bodies. However, when the body is shaded, the edge display is never enabled. You can
+                              use the shortcut menu in either Feature PathFinder or the graphics window to show
+                              or hide the mesh body.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Healing mesh faults</h4>
+                  <div>
+                     <p>You can use the <b>Heal mesh faults</b> option on the <b>STL Import Options</b> dialog box to specify that you want to repair any mesh faults when you open the STL
+                        file.</p>
+                     <p>You can also use the corresponding <b>Heal mesh faults</b> parameter in the <b>SESTL.ini</b> file, which is set to off by default, to repair the mesh faults. Leaving the parameter
+                        set to off only fixes basic faults, such as degenerative facets or duplicate vertices.
+                        Setting the value to on is a time consuming operation that fixes the basic faults,
+                        along with more complex faults, such as self-intersection faults. </p>
+                     <p>You can use the <b>Minimum face number =</b> parameter in the <b>SESTL.ini</b> file to filter out the number of unnecessary meshes generated after the faults are
+                        fixed. By default, the value is 100, which means any meshes with facet numbers below
+                        100 are discarded after the faults are fixed.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/stlimport1d" rel="stlimport1d">STL Import Options Dialog Box</a><br><br></div>
+            <div class="footer-content">Working with .stl documents in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

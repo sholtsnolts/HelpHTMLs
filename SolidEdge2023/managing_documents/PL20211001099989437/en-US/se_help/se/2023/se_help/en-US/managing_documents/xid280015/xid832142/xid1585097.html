@@ -1,0 +1,102 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Define default Item types</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Define default Item types"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1585097">
+                     <h1 class="topic-title">Define default Item types</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can define the default Item type for a Solid Edge document type by editing the
+                     value of the <b>SEEC_Default_Item_Type</b> preference. Some examples of most commonly used Item types are: Item, Design, Document,
+                     and Drawing.</p>
+                  <p>For a full description of the preference, see the Teamcenter Preferences section of
+                     the <a target="_blank" href="/en-US/product/246738425/doc/PL20211001099989437.SEECAdminGuide/pdf">Teamcenter Integration for Solid Edge (SEEC) Guide for Users and Administrators</a>.</p>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Start the Teamcenter rich client and log in with database administrator privileges.</p>
+                     </li>
+                     <li>
+                        <p>Choose <b>Edit</b>→<b>Options</b>→<b>Search</b>.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Search On Keywords</b> box, type <b>SEEC_Default_Item_Type</b>, and then select it from the list.</p>
+                        <p>The preference has a default value of:</p>
+                        <p>Item</p>
+                        <p>Item</p>
+                        <p>The preference must contain a value. If only the first row exists, it defines the
+                           default Item type for <em>all</em> document types used in Solid Edge (3D Solid Edge documents, Solid Edge Draft, and
+                           linked non-Solid Edge document types such as Word, Excel and images). </p>
+                        <p>If the first and second rows exist, the value specified on the first row defines the
+                           default Item type for 3D Solid Edge documents and non-Solid Edge documents. The value
+                           specified on the second row defines the default Item type for draft documents.</p>
+                        <p>If Item is used after the first two rows, it is ignored.</p>
+                     </li>
+                     <li>
+                        <p>For a Solid Edge document type, edit the <b>SEEC_Default_Item_Type</b> preference and specify <em>exceptions</em> to the default value by setting the Solid Edge document type equal to the real Item
+                           type name as seen in BMIDE.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Item</p>
+                           <p>Item</p>
+                           <p>asm=Design</p>
+                           <p>par=custom_item_type1</p>
+                           <p>psm=custom_item_type2</p>
+                           <p>pwd=Item</p>
+                        </div>
+                        <p>If all document types are explicitly defined, the first row defines non-Solid Edge
+                           documents, and the second row is ignored. If an Item type is defined more than once,
+                           only the first occurrence is used. Item type definition is case sensitive. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The Item type you specify must exist in the preference, <b>SEEC_ItemTypeList_</b> for that document type. In this example, <b>SEEC_ItemTypeList_SE Assembly</b> must contain Design.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>To save the edited values, click <b>Save</b>.</p>
+                     </li>
+                     <li>
+                        <p>Close the <b>Options</b> dialog box.</p>
+                     </li>
+                     <li>
+                        <p>Restart Solid Edge to reread the preference values.</p>
+                     </li>
+                  </ol>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When you import unmanaged documents to Teamcenter using Add to Teamcenter, and the
+                        document you are importing has an Item type that is defined with a custom property,
+                        the value of the custom property is used during import.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/limititemtypes1h" rel="limititemtypes1h">Limit the list of available Item types</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1134481" rel="xid1134481">Set the display order in Item type lists</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1133353" rel="xid1133353">Enter descriptive information into Item type lists</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid832143" rel="xid832143">Defining the Teamcenter Item type list</a><br><br></div>
+            <div class="footer-content">Define default Item types, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

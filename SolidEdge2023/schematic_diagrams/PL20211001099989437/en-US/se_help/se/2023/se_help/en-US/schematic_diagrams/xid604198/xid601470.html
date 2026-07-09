@@ -1,0 +1,197 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Display block properties in a callout</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Display block properties in a callout"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid601470">
+                     <h1 class="topic-title">Display block properties in a callout</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>If properties are defined in a block, you can extract their values into a callout,
+                     balloon, or other annotation on the drawing. Adding properties to a source block ensures
+                     they can be referenced in all block occurrences.</p>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>In the Block Library, in the Block Selection Pane, define the block information in
+                           the source block using one of the following methods:</p>
+                        <ul>
+                           <li>
+                              <p>During block creation and placement, select the Block Options button on the Block
+                                 command bar. In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block7d" rel="block7d">Block Options dialog box</a>, type the attribute information in the Name and Value boxes.</p>
+                           </li>
+                           <li>
+                              <p>For an existing block, select the Properties command from the source block shortcut
+                                 menu. In the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block2d" rel="block2d">Block Properties dialog box</a>, in the Properties section, type the attribute information in the Name and Value
+                                 boxes.</p>
+                           </li>
+                           <li>
+                              <p>When creating or modifying a block label, assign block label properties using the
+                                 <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block6d" rel="block6d">Block Label Properties dialog box</a>. </p>
+                              <p>For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block11h" rel="block11h">Define and place a block label</a>.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <ul>
+                              <li>
+                                 <p>You can define properties that identify the physical aspect of the block, such as
+                                    the type of component, part, or element the block represents.</p>
+                              </li>
+                              <li>
+                                 <p>You can define variable properties, such as cost and count.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Place an occurrence of the source block on the drawing.</p>
+                     </li>
+                     <li>
+                        <p>Choose Home tab→Annotation group→Callout <img class="img-fluid" src="../../../common/nonLocalized/se/annotation/anno_type/anno_howto/callout.gif">.</p>
+                     </li>
+                     <li>
+                        <p>In the Callout Properties dialog box, on the General tab, click the Property Text
+                           button <img class="img-fluid" src="../../../common/nonLocalized/se/annotation/anno_type/anno_howto/proptext1.gif">. </p>
+                     </li>
+                     <li>
+                        <p>In the Select Property Text dialog box, do the following:</p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>From the list at top-right in the dialog box, select <em>From graphic connection to block</em> as the source of the property text.</p>
+                           </li>
+                           <li>
+                              <p>From the Properties list, select the block properties that you want to extract. The
+                                 following types of property text may be listed:</p>
+                              <ul>
+                                 <li>
+                                    <p>Block name</p>
+                                 </li>
+                                 <li>
+                                    <p>Block view name</p>
+                                 </li>
+                                 <li>
+                                    <p>Block property names, listed alphabetically. </p>
+                                 </li>
+                                 <li>
+                                    <p>Block label names, listed alphabetically. </p>
+                                 </li>
+                              </ul>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>All block property names and label names that are listed in the Block Selection Pane
+                                    in the current document are listed once in the dialog box. Select the property name
+                                    that pertains to the block.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Click the Select button.</p>
+                              <p>This displays property text code in the Property Text field in the Select Property
+                                 Text dialog box.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>In the Callout Properties dialog box, verify that the Preview pane displays the unresolved
+                           callout text, for example, &lt;Cost&gt;, and that the Callout text box contains the property
+                           text code, for example, %{Cost|GBLK}.</p>
+                     </li>
+                     <li>
+                        <p>(Optional) Add formatting and additional content to the callout text. </p>
+                        <ul>
+                           <li>
+                              <p>Type explanatory text or symbols before or after the property text code in the Callout
+                                 text box. This plain text appears each time the callout is placed.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Type Cost=$ in front of the property text string: Cost=$%{Cost|GBLK}.</p>
+                                 <p>Type Units= in front of the property text string: Units=%{Units|GBLK}.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Insert new lines by pressing the Enter key, or use the Callout text 2 box to define
+                                 additional property text.</p>
+                           </li>
+                           <li>
+                              <p>Use the options on the Text and Leader tab and the Border tab to add font formatting
+                                 and to show a border around the callout.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Locate a keypoint on the block occurrence, and then click to place the callout.</p>
+                        <p>The callout displays all of the plain text content you typed, as well as the values
+                           for the resolved property text.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Cost=$.05</p>
+                           <p>Units=10</p>
+                        </div>
+                     </li>
+                  </ol>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>If the property text does not resolve to display values in the callout, angle brackets
+                        are displayed around the unresolved property text in the Callout Properties dialog
+                        box, and the callout is empty when you place it on the sheet. It is possible that
+                        the requested block property data is not defined in the block for which you are placing
+                        a callout. </p>
+                  </div>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div>
+                     <ul>
+                        <li>
+                           <p>If the drawing callout displays <em>Error: Not Connected</em> instead of a value, then you did not locate a keypoint when you clicked to place
+                              the annotation. Select the annotation, and then use Alt+drag to reconnect the leader
+                              to a point on the block.</p>
+                        </li>
+                        <li>
+                           <p>When referencing property text in callouts, you can use the Saved Settings option
+                              on the General tab to save your property text definitions for reuse.</p>
+                        </li>
+                        <li>
+                           <p>When referencing block properties in a balloon, you can:</p>
+                           <ul>
+                              <li>
+                                 <p>Select the Oblong or Rectangle balloon shape so that the balloon expands with the
+                                    content.</p>
+                              </li>
+                              <li>
+                                 <p>Use the Upper, Lower, Prefix, and Suffix text boxes in the Balloon Properties dialog
+                                    box to define the Block Property strings.</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block12h" rel="block12h">Add a label to a source block or block view</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block11h" rel="block11h">Define and place a block Label</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block13h" rel="block13h">Edit a block label</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block8h" rel="block8h">Edit block properties</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid917293" rel="xid917293">Creating and placing block labels</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid917295" rel="xid917295">Defining block properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid602465" rel="xid602465">Referencing block properties in annotations</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid709927" rel="xid709927">Referencing block properties in tables</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block7d" rel="block7d">Block Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block11c" rel="block11c">Block Label command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block5d" rel="block5d">Block Label command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block6d" rel="block6d">Block Label Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block8c" rel="block8c">Edit Block Properties command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block2d" rel="block2d">Block Properties dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/xid1175533" rel="xid1175533">Creating blocks</a><br><a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/block4a" rel="block4a">Editing blocks</a><br><a class="xref" data-handle="schematic_diagrams" href="/en-US/product/246738425/doc/PL20211001099989437.schematic_diagrams/html/connector1a" rel="connector1a">Connectors</a><br><br></div>
+            <div class="footer-content">Display block properties in a callout, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

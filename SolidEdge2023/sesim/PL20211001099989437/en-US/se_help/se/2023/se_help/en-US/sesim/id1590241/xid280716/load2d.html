@@ -1,0 +1,168 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Radiation Load Options dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Radiation Load Options dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="load2d">
+                     <h1 class="topic-title">Radiation Load Options dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Radiation Load Options</b> dialog box contains advanced options for creating or modifying radiation loads in
+                     thermal studies. You can open the dialog box using the <b>Options</b> button on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>.</p>
+                  <dl>
+                     <dt>Radiation type</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the radiation load type.</p>
+                        <dl>
+                           <dt>Radiation to Space</dt>
+                           <dd class="ml-3">
+                              <p>Defines the radiant exchange between a face or surface and infinite (<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid280905" rel="xid280905">blackbody</a>) space. </p>
+                           </dd>
+                           <dt>Enclosed Radiation</dt>
+                           <dd class="ml-3">
+                              <p>Defines the radiation exchange among a group of surface elements.</p>
+                              <p>You can specify an Enclosure Ambient Element value in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a>.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Ambient temperature</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the surrounding temperature for Radiation to Space loads. Ambient temperature
+                           also is referred to as environment or bulk temperature. </p>
+                        <p>The default temperature is 32.000 degrees F.</p>
+                     </dd>
+                     <dt>Surface emissivity</dt>
+                     <dd class="ml-3">
+                        <p>For radiation to space loads, specifies the ability of a surface to absorb or emit
+                           thermal energy relative to a <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid280905" rel="xid280905">blackbody</a> object. Values can be from 0 to 1.0.</p>
+                        <p>A body with a surface emissivity of 1.0 is capable of absorbing or transmitting 100
+                           percent of radiation. Most physical objects have surface emissivity less than 1.0.</p>
+                     </dd>
+                     <dt>Absorptivity</dt>
+                     <dd class="ml-3">
+                        <p>For radiation to space loads, specifies the ability of a surface to absorb thermal
+                           energy.</p>
+                     </dd>
+                     <dt>View factor</dt>
+                     <dd class="ml-3">
+                        <p>For radiation to space loads, defines the fraction of energy leaving a surface and
+                           reaching another surface or space. Values can be from 0 to 1.0.</p>
+                        <p>For enclosure radiation loads, the view factor is calculated automatically. </p>
+                        <p>When you create a Radiation simulation object within an enclosure, the solver computes
+                           the view or partial view between each element and all other elements.</p>
+                        <ul>
+                           <li>
+                              <p>The black body view factor is the view or partial view an element has of another element.</p>
+                           </li>
+                           <li>
+                              <p>The gray body view factor is the fraction of total energy leaving one element that
+                                 is absorbed by another. It includes the element's emissivity and the effect of reflections.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Two parallel surfaces in close proximity have a view factor that tends to unity. Two
+                              surfaces that are nearly coplanar have a view factor that tends to zero.</p>
+                        </div>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Calculation of the radiation view factors can be the most computer-intensive operation
+                              in thermal analysis. You can use the following shading options to minimize the processing
+                              time.</p>
+                        </div>
+                     </dd>
+                     <dt>ZTOL</dt>
+                     <dd class="ml-3">
+                        <p>For enclosure radiation loads applied to models with relatively small geometry and
+                           small mesh elements, ZTOL enables the study to solve without fatal errors. The ZTOL
+                           value is the assumed level of calculation below which the numbers are considered to
+                           be zero. (Real ≥ 0.0; Default=1e–10) </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Use the ZTOL parameter to resolve processing errors similar to the following:</p>
+                           <div class="message-text">*** FATAL*** DIMENSIONAL LENGTH: 9.765587644E-12 IS SMALLER THAN "ZTOL": 1.000000013E-10
+                              REASSIGN "ZTOL" ON VIEW3D BULK DATA TO BE SMALLER THAN THE DIMENSIONAL LENGTH. </div>
+                        </div>
+                        <p>In NX Nastran, ZTOL invokes the Gaussian integration view factor calculation method
+                           (the adaptive method). It is associated with a cavity ID, and includes fields which
+                           provide calculation control limits. </p>
+                     </dd>
+                     <dt>Cavity #</dt>
+                     <dd class="ml-3">
+                        <p>For enclosure radiation loads, specifies the number of cavities or enclosed spaces.
+                           This is required, even if you are using only a single cavity. Surfaces in each cavity
+                           are totally independent of other cavities. They neither shade nor radiate to any surfaces
+                           other than the ones in their own cavity.</p>
+                        <p>Values are whole numbers. The default (and minimum) is 1.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Cavity #=1</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_radiation_cavity1.gif"></p>
+                           <p>Cavity #=2</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_radiation_cavity2.gif"></p>
+                        </div>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>This value is the cavity where the selected entity resides. Two entities are considered
+                              to be in the same cavity if the cavity number is same for both entities.</p>
+                        </div>
+                     </dd>
+                     <dt>Can shade surfaces</dt>
+                     <dd class="ml-3">
+                        <p>When selected, specifies that a surface can shade other surfaces. This prevents thermal
+                           energy from reaching the other surfaces.</p>
+                        <p>You can use this option to speed up view factor calculations by limiting calculations
+                           to surfaces which can shade other surfaces.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>The green object in this example is set to Can shade surfaces.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_radiation_canshadesurfaces.gif"></p>
+                        </div>
+                     </dd>
+                     <dt>Can be shaded by other surfaces</dt>
+                     <dd class="ml-3">
+                        <p>When selected, specifies that a surface can be shaded by other surfaces. Thermal energy
+                           is not absorbed by the selected surface.</p>
+                        <p>You can use this option to speed up view factor calculations by limiting calculations
+                           to surfaces which can be shaded by other surfaces.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>The four interior walls in this example are set to Can be shaded by other surfaces.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/sesim_ssht_radiation_canbeshadedby.gif"></p>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load3a" rel="load3a">Creating and using loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Radiation Load Options dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

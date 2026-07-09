@@ -1,0 +1,117 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Find a volume by goal seeking</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Find a volume by goal seeking"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid610720">
+                     <h1 class="topic-title">Find a volume by goal seeking</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can apply the <b>Goal Seek</b> command to a model to solve an engineering problem involving volume. For example,
+                     you may need to design several sizes of the same container to contain varying amounts
+                     of liquid. </p>
+                  <div class="attention" type="example">
+                     <div class="attention-label">Example: </div>
+                     <p>This bucket assembly consists of a bucket filled with water. The goal is to find the
+                        volume of water that different sizes of buckets can hold. You can change the bucket
+                        size by adjusting its width or depth or height. You want to find the bucket sizes
+                        required to hold 1 gallon, 3 gallons, and 4 gallons of water. </p>
+                  </div>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_volume_assembly_ex.gif"></p>
+                  <p>The physical property, Volume, is a driven variable in the assembly. The dimension
+                     variables, Width, Height, and Depth, are user-defined variables in the assembly that
+                     drive the dimensions of the bucket. </p>
+                  <ol type="1">
+                     <li>
+                        <p>Choose <b>Inspect</b> tab→<b>Evaluate</b> group→<b>Goal Seek</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/goalseek.gif">.</p>
+                     </li>
+                     <li>
+                        <p>On the <b>Goal Seek</b> command bar, do the following to find the first solution:</p>
+                        <ol type="a">
+                           <li>
+                              <p>From the <b>Goal</b> list, select the variable that you want to calculate.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>Select Volume as the Goal variable. </p>
+                              </div>
+                              <p>The current volume, as defined in the <b>Physical Properties Manager</b> dialog box for the assembly, is displayed on the command bar.</p>
+                           </li>
+                           <li>
+                              <p>In the <b>Target</b> box, type the value (but not the units) that you want the goal to attain and press
+                                 the Tab key. </p>
+                              <p>The units of the Target value must match the units of the selected Goal variable.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>For the first solution, type 1.000 as the Target volume. The units (gallons) are entered
+                                    automatically when you press the Tab key.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>From the Variable list, select the first variable that you want to change. </p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p>For the first solution, select Height. </p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Click the green check mark to begin.</p>
+                              <p>As goal seeking evaluates the solution, changes to the geometry are shown in the graphics
+                                 window. When it finds the best solution, the model is updated and the process duration
+                                 and number of iterations are displayed on the status bar.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_volume_assembly_height.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Find another solution for the Goal by changing the Target value and Variable options
+                           on the command bar, and then selecting Accept to reprocess the solution.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Change the Target volume value to 3.000.</p>
+                           <p>You can use the same Variable (Height), or you can select Depth as the Variable to
+                              change.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/evaluate/calculate/goal_seek/calc_volume_assembly_depth.gif"></p>
+                        </div>
+                        <p>The Variable Table updates with the new value for the Variable you selected to change.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <ul>
+                              <li>
+                                 <p>If you do not like the calculated solution, you can use the <b>Undo</b> command to undo it.</p>
+                              </li>
+                              <li>
+                                 <p>To change the process duration or number of iterations, click the <b>Options</b> button on the command bar and then modify the settings in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.engineering_tools/html/calc2d" rel="calc2d">Goal Seek Options dialog box</a>.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Find a volume by goal seeking, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

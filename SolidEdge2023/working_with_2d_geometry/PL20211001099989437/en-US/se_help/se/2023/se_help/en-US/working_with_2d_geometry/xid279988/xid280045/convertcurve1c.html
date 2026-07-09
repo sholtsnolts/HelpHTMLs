@@ -1,0 +1,138 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Convert To Curve command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Convert To Curve command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="convertcurve1c">
+                     <h1 class="topic-title">Convert To Curve command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Convert To Curve</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/2d_geometry/2ddraw/2ddraw_command/converttocurve1.gif"> converts analytic geometry into a B-spline curve. B-spline curves are typically easier
+                     to use during surface modeling creation than analytic elements. For example, suppose
+                     you create a model with surfaces defined with analytic elements. You can use this
+                     command to convert the analytic elements to B-spline curve to obtain the control provided
+                     by B-spline curves.</p>
+                  <h5>Why convert?</h5>
+                  <ul>
+                     <li>
+                        <p>Analytical elements are often utilized as cross-sections and guide paths during surface
+                           creation. The resulting surface has inherent limitations on how it can be edited,
+                           as lines remain linear and arcs retain their circular definition.</p>
+                     </li>
+                     <li>
+                        <p>Curves provide more control, therefore are easier to use.</p>
+                     </li>
+                     <li>
+                        <p>Increased control facilitates edits.</p>
+                        <ul>
+                           <li>
+                              <p>Allows modification of a curve’s properties.</p>
+                           </li>
+                           <li>
+                              <p>Defaults to a degree of 2. You can increase the degree and add edit points for more
+                                 control.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Once converted, curve shapes will have greater control over associated complex surfaces.</p>
+                        <ul>
+                           <li>
+                              <p>Simplifies the manipulation of a model from initial concept through final production.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Can be used on the following analytics:</p>
+                        <ul>
+                           <li>
+                              <p>Single non-connected analytic element: conversion results in a single non-connected
+                                 B-spline curve.</p>
+                           </li>
+                           <li>
+                              <p>Multiple connected analytic elements.</p>
+                              <ul>
+                                 <li>
+                                    <p>Non-tangent elements: conversion results in multiple connected B-spline curves with
+                                       no cusps.</p>
+                                 </li>
+                                 <li>
+                                    <p>Tangent elements: conversion results in multiple connected and tangent B-spline curves.</p>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <ul>
+                        <li>
+                           <p>You cannot convert B-spline curves to analytic geometry.</p>
+                        </li>
+                        <li>
+                           <p>You can only convert analytics to curves while in the Edit Profile mode.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p></p>
+                  <div>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="40%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="15%">
+                           <col span="1" align="left" width="85%">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/2d_geometry/2ddraw/2ddraw_command/2-36.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Analytic line and arc element</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/2d_geometry/2ddraw/2ddraw_command/2-36a.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Analytic elements converted to curves</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/2d_geometry/2ddraw/2ddraw_command/2-36b.gif"></td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Curve edits</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/draw13h" rel="draw13h">Draw a curve</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/curve1h" rel="curve1h">Display the control polygon for a curve</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/curve2h" rel="curve2h">Insert or remove points on a curve</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/simplifycurve1h" rel="simplifycurve1h">Simplify a curve</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/converttocurve1h" rel="converttocurve1h">Convert analytic geometry to a b-spline curve</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/xid1845272" rel="xid1845272">Draw a conic curve</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/xid1931857" rel="xid1931857">Edit a conic curve</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/dcurv1c" rel="dcurv1c">Curve command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/dcurv1d" rel="dcurv1d">Curve command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/curveoption1d" rel="curveoption1d">Curve Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/xid1759583" rel="xid1759583">Conic command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/xid1759584" rel="xid1759584">Conic command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/simplifycurve1c" rel="simplifycurve1c">Simplify Curve command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.working_with_2d_geometry/html/simplifycurve1d" rel="simplifycurve1d">Simplify Curve dialog box</a><br><br></div>
+            <div class="footer-content">Convert To Curve command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

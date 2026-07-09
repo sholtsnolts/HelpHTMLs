@@ -1,0 +1,212 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Use fluid flow results in a linear static or thermal study</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Use fluid flow results in a linear static or thermal study"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1801603">
+                     <h1 class="topic-title">Use fluid flow results in a linear static or thermal study</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can apply the results from a computational fluid dynamics analysis of your design
+                     as input to a Solid Edge Simulation structural study for finite element analysis.
+                     To do this, you import the flow results file (*.fld) as fluid temperature and pressure
+                     loads, and apply them to the corresponding model in an FEA study. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>This workflow requires Simcenter FLOEFD for Solid Edge. For more information, and
+                        for FLOEFD help and tutorials, see <a class="xref" data-handle="seflow" href="/en-US/product/246738425/doc/PL20211001099989437.seflow/html/xid1554957" rel="xid1554957">Overview of Simcenter FLOEFD for Solid Edge</a>.</p> 
+                     <p>If you want to import a fluid pressure or temperature load from an older version of
+                        Simcenter FLOEFD for Solid Edge (before 2020.1), you need to first recreate the FLD
+                        files. </p>
+                  </div>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>To access the <b>Export Results to Simulation</b> command, the Windows environment variable MGC_SIMULATION must exist and be set to
+                        any non-empty value.</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Open a Solid Edge assembly model.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If you open an assembly containing lid parts (LID*.par) added by Simcenter FLOEFD
+                              for Solid Edge, we recommend that you exclude the lids from the Solid Edge Simulation
+                              study geometry selection set, or suppress the lid parts using the study navigator
+                              pane. Lids do not play a role in the analysis, and they generate a Nastran error message
+                              while solving. </p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/load/external_load_suppress_lid_geometry.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Solve a flow analysis study.</p>
+                        <ul>
+                           <li>
+                              <p>Unless your model contains a family of assemblies (FOA), if you previously solved
+                                 a flow analysis study, you can use the results file (FLD) in your structural analysis.</p>
+                           </li>
+                           <li>
+                              <p>Otherwise, use the commands on the <b>Flow Analysis</b> tab in Solid Edge to define and solve a flow analysis simulation for your assembly
+                                 model. </p>
+                           </li>
+                        </ul>
+                        <p>When the FLOEFD flow analysis completes, the results plot is displayed for you. The
+                           calculated results file (*.fld) associated with the plot is the input to the FEA analysis.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/seflow/fluid_pressure_results.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Transfer the flow mesh and boundary conditions from the solved flow analysis to Solid
+                           Edge Simulation:</p>
+                        <ul>
+                           <li>
+                              <p>Select the <b>Flow Analysis</b> tab→<b>Tools</b> group→<b>Export Results to Simulation</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/seflow/export_results_to_sesim_cmd.png">.</p>
+                           </li>
+                        </ul>
+                        <p>A message box reports when the export is successfully completed. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If your assembly document contains a family of assemblies, you must generate the FLD
+                              files using the <b>Export Results to Simulation</b> command. A FOA has special file naming conventions, which must be accounted for in
+                              the output (*.fld) file names.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>On the <b>Simulation</b> tab, select a previously defined study, or create a new study and make it the active
+                           study. </p> 
+                        <p>In the <b>Create Study</b> dialog box:</p> 
+                        <ol type="a" start="1"> 
+                           <li> 
+                              <p>Choose a <b>Study type</b>—You can apply flow analysis to any of the Solid Edge Simulation study types listed
+                                 below. You cannot use external loads in a <b>Normal Modes</b> study.</p> </li> 
+                           <li> 
+                              <p>Set <b>Mesh type</b>=<b>Tetrahedral</b>.</p> </li> </ol> 
+                        <p>These <b>Study types</b> are eligible for external loads:</p>
+                        <ul> 
+                           <li> 
+                              <p><b>Linear Static</b></p> </li> 
+                           <li> 
+                              <p><b>Linear Buckling</b></p> </li> 
+                           <li> 
+                              <p>Thermal</p> 
+                              <ul> 
+                                 <li> 
+                                    <p><b>Steady State Heat Transfer</b></p> </li> 
+                                 <li> 
+                                    <p><b>Transient Heat Transfer</b></p> </li> </ul> </li> 
+                           <li> 
+                              <p>Coupled</p> 
+                              <ul> 
+                                 <li> 
+                                    <p><b>Steady State Heat Transfer+Linear Static</b></p> </li> 
+                                 <li> 
+                                    <p><b>Steady State Heat Transfer+Linear Buckling</b></p> </li> </ul> </li> 
+                           <li> 
+                              <p><b>Harmonic Response</b> </p> </li> </ul>
+                     </li>
+                     <li>
+                        <p>Loads calculated in the flow analysis, such as fluid pressure and fluid temperature,
+                           are applied as external loads (imported loads) in FEA structural analysis. To add
+                           them to your FEA study:</p>
+                        <ol type="a" start="1">
+                           <li>
+                              <p>Choose one of the following commands from the <b>Simulation</b> tab→<b>External Loads</b> group: </p>
+                              <ul>
+                                 <li>
+                                    <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/load/external_load_import_fluid_pressure.png"> <b>Import Fluid Pressure</b> </p>
+                                 </li>
+                                 <li>
+                                    <p> <img class="img-fluid" src="../../../common/nonLocalized/se/simulation/analyze/load/external_load_import_fluid_temp.png"> <b>Import Fluid Temperature</b> </p>
+                                 </li>
+                              </ul>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>You also can use these shortcut commands on the <b>Simulation</b> study navigator pane→<b>Loads</b> collector:</p>
+                                 <ul>
+                                    <li>
+                                       <p><b>Create External Loads</b>→<b>Import Fluid Pressure</b></p>
+                                    </li>
+                                    <li>
+                                       <p><b>Create External Loads</b>→<b>Import Fluid Temperature</b></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li>
+                              <p>In the <b>Import Solid Edge Flow Results</b> dialog box, click <b>Browse</b> to locate and open the results file (<b>*.fld</b>) for the FloEFD project, and then click <b>OK</b>.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You can select one FLD file per study, even though multiple FLD files may exist for
+                                    a coupled study of an assembly. </p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>On the command bar for the selected external load, click <b>Finish</b>.</p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>The fluid pressure or temperature results from the selected results file are displayed
+                           as highlighted surfaces on the assembly body. You can use the <b>Options</b> button on the command bar to select a different FLD file, or click <b>Finish</b> to continue.</p>
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/seflow/import_fluid_pressure_tube_ex.png"></p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>Fluid pressure is applied as a load normal to the body surface. </p>
+                           <p>Fluid temperature is applied to the entire body.</p>
+                           <p>Similar to structural body loads, you can apply just one external fluid pressure and
+                              one external fluid temperature load per study.</p>
+                        </div>
+                        <p>The <b>Simulation</b> pane→<b>Loads</b> group→<b>Imported Loads</b> container lists the imported flow results, for example, <b>External Pressure 1</b>, <b>External Temperature 1</b>, or both.</p>
+                        <p>You can change the load name using the <b>Rename</b> command on its shortcut menu.</p>
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/seflow/coupled_study_imported_loads_node_expanded.png"></p>
+                     </li>
+                     <li>
+                        <p>Mesh and then solve the static or thermal study.</p>
+                        <p>The flow analysis results are mapped to the body structure during solution processing.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>In the <b>Simulation Results</b> environment:</p>
+                           <ul>
+                              <li>
+                                 <p>Use the options on the <b>Color Bar</b> tab→<b>Show</b> group to display the results report header and minimum and maximum node markers and
+                                    values.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/simulation/seflow/fluid_flow_linear_static_minmax.png"></p>
+                              </li>
+                              <li>
+                                 <p>Use the <b>Home</b> tab→<b>Output Results</b> group→<b>Create Report</b> command to generate a report of the structural analysis results, and to review the
+                                    imported loads information in the <b>Loads</b> section of the report.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <div class="footer-content">Use fluid flow results in a linear static or thermal study, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

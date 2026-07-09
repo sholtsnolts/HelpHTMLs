@@ -1,0 +1,173 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating and using loads</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating and using loads"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="load3a">
+                     <h1 class="topic-title">Creating and using loads</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>An analysis study requires that at least one load or one constraint is defined. Solid
+                     Edge Simulation provides geometry-based load types and a variety of methods for placing
+                     these loads on your FEA model.</p>
+                  <h4 class="division-title">Using loads</h4>
+                  <div>
+                     <p>A static analysis calculates the effects of steady loading conditions on a structure,
+                        while ignoring the effects of loads that vary with time. Common loading conditions
+                        in a linear static analysis include:</p>
+                     <ul>
+                        <li>
+                           <p>Externally applied forces and pressures—An example of a static force is a building's
+                              dead load, which is comprised of the weight of the building, plus the weight of offices,
+                              equipment, and furniture. This dead load is often expressed in terms of lb/sq ft or
+                              N/sq m. Such loads are often defined using a maximum expected load with some factor
+                              of safety applied. </p>
+                        </li>
+                        <li>
+                           <p>Steady-state inertial forces (such as gravity or rotational velocity)</p>
+                        </li>
+                        <li>
+                           <p>Imposed displacements—An enforced displacement can be a static load, such as when
+                              a building foundation that may settle somewhat, inducing static loads. </p>
+                        </li>
+                        <li>
+                           <p>Temperatures (for thermal strain)—For example, a steady-state temperature field. The
+                              applied temperatures cause thermal expansion which, in turn, causes induced forces.
+                              </p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>A linear static study of a wall-mounted pressurized container with nozzle connections
+                           to other pipes might include the following loads:</p>
+                        <ul>
+                           <li>
+                              <p>Internal pressure</p>
+                           </li>
+                           <li>
+                              <p>Support forces</p>
+                           </li>
+                           <li>
+                              <p>Temperature</p>
+                           </li>
+                           <li>
+                              <p>Forces applied at each nozzle location</p>
+                           </li>
+                           <li>
+                              <p>Beam bending moments (only available for Beam mesh types)</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>These loads can be solved at the same time. You also can solve loads one at a time
+                        to compare the effect of each on the model. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1134173" rel="xid1134173">Suppress individual loads to compare results</a>.</p>
+                  </div>
+                  <h4 class="division-title">Defining loads</h4>
+                  <div>
+                     <p>You define loads by first selecting model geometry, and then specifying a direction
+                        to apply the load and a value for the magnitude of the load. When defining some types
+                        of loads, such as a pressure load, geometry selection also defines a load direction
+                        vector, which you can accept or reverse.</p>
+                     <p>The commands in the following <b>Loads</b> groups on the <b>Simulation</b> tab define a variety of loads based on environment, model type, study type, and mesh
+                        type:</p>
+                     <ul>
+                        <li>
+                           <p>In the <b>Structural Loads</b> group, you can select <b>Force</b>, <b>Pressure</b>, <b>Hydrostatic Pressure</b>, <b>Torque</b>, <b>Displacement</b>, and <b>Bearing</b>.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Body Loads</b> group, you can select loads that apply to the entire model at once: <b>Body Temperature</b>, <b>Centrifugal</b>, and <b>Gravity</b>.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Thermal Loads</b> group, you can select loads used in heat transfer analysis:<b> Heat Generation</b>, <b>Heat Flux</b>, <b>Convection</b>, <b>Radiation</b>, and (gradient) <b>Temperature</b>.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>External Loads</b> group, you can apply the results from a Simcenter FLOEFD for Solid Edge analysis
+                              file (*.fld) to an assembly model using the <b>Import Fluid Pressure</b> or <b>Import Fluid Temperature</b> commands.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For <b>Beam</b> mesh types, <b>Force</b>, <b>Moment</b>, and <b>Displacement</b> load types are available.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Selecting geometry</h4>
+                  <div>
+                     <p>The specific load command you choose determines the type of geometry you can select.
+                        </p>
+                     <p>In general, you can select bodies, edges, points, curves, and surfaces to apply the
+                        load to. If you are using a tetrahedral or surface mesh type, you also can select
+                        face sets and features. The structural nodes or elements that are associated with
+                        the selected geometry will have the load applied to them when analysis begins.</p>
+                     <p>You can select geometry from <b>PathFinder</b> or by selecting it in the graphics window.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <ul>
+                           <li>
+                              <p>If possible, avoid applying a load on a point or curve, as it can concentrate stresses.</p>
+                           </li>
+                           <li>
+                              <p>Split surfaces distribute loads and constraints more realistically.</p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Defining load magnitude</h4>
+                  <div>
+                     <p>Every load requires a value to specify the magnitude of the load to apply. A dynamic
+                        input box is displayed for you to enter this value when you create or modify a load.
+                        The default units that are displayed in the box are predefined on the <b>Units</b> tab in the <b>Solid Edge Options</b> dialog box, when you select the <b>Advanced Units</b> button.</p>
+                     <p>You also can enter the load value using different units, and the value converts and
+                        displays in the default units.</p>
+                     <p>For some load types, such as force, torque, bearing, and moment loads, you can select
+                        the <b>Total Load </b>option <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/load/load_total_button_on.gif"> on the command bar to distribute the load value proportionally based upon the area
+                        or length of similar entities. </p>
+                     <p>If the <b>Total Load</b> option is not available, or if you choose not to use it, then the full load value
+                        is applied to each entity.</p>
+                  </div>
+                  <h4 class="division-title">Modifying loads</h4>
+                  <div>
+                     <p>To modify a load, you first select the load name on the <b>Simulation</b> pane or double-click the load handle in the graphics window. </p>
+                     <ul>
+                        <li>
+                           <p>To rename or delete the load, right-click the load name in the Simulation study navigator
+                              pane.</p>
+                        </li>
+                        <li>
+                           <p>To modify the load definition, such as to redefine the load value or direction, use
+                              the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>. You can click the load edit definition handle in the graphics window to display
+                              the command bar.</p>
+                        </li>
+                     </ul>
+                     <p>You also can double-click a load name in the <b>Simulation</b> pane.</p>
+                     <p>See <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/modify1p" rel="modify1p">Modifying and reusing analysis studies</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1h" rel="load1h">Define a load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_bearing01" rel="fem_bearing01">Activity: Apply a bearing load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_centrifugal01" rel="fem_centrifugal01">Activity: Apply a centrifugal load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_torque01" rel="fem_torque01">Activity: Apply a torque load</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_temp01" rel="fem_temp01">Activity: Apply a body temperature load</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2a" rel="load2a">Load labels and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1a" rel="load1a">Structural and body loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load4a" rel="load4a">Thermal loads</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load5a" rel="load5a">External loads (imported loads)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load1d" rel="load1d">Thermal Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/load2d" rel="load2d">Radiation Load Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol1d" rel="symbol1d">Color dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/symbol2d" rel="symbol2d">Graphic Symbol Size dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1965456" rel="xid1965456">Apply a hydrostatic pressure load</a><br><br></div>
+            <div class="footer-content">Creating and using loads, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

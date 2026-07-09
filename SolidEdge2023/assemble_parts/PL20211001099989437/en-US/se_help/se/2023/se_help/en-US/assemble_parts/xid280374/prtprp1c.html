@@ -1,0 +1,299 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Occurrence Properties command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Occurrence Properties command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prtprp1c">
+                     <h1 class="topic-title">Occurrence Properties command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Occurrence Properties</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/icons/buttons/ocrncprops.gif"> on the <b>Assembly PathFinder</b> shortcut menu to specify the characteristics of one or more parts or subassemblies
+                     in an assembly. You can use this command to access both types of occurrence properties:</p>
+                  <ul>
+                     <li>
+                        <p>System occurrence properties—High level properties intrinsic to the model file. These
+                           built-in properties include whether a model is selectable, whether it can be used
+                           to generate a report and bill of materials, and if it is used in interference processing.
+                           For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2a" rel="prtprp2a">System occurrence properties in assemblies</a>.</p>
+                     </li>
+                     <li>
+                        <p>Custom occurrence properties—More granular, custom properties that you define in the
+                           <b>CustomOccurrenceProperty.xml</b> file. You can assign values to these properties at any time in a part, subassembly,
+                           or assembly. Examples of these include Maintenance, Notes, and Reference ID. For more
+                           information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assemblies</a>.</p>
+                     </li>
+                  </ul>
+                  <p>You can use the <b>Occurrence Properties</b> command to define initial custom occurrence property values for selected part, subassembly,
+                     and assembly models. You also can use it to override the values for system and custom
+                     occurrence properties assigned to lower-level models, even when they are read-only.</p>
+                  <h4 class="division-title">Accessing occurrence properties </h4>
+                  <div>
+                     <p>The hierarchical level of the model file in the <b>Assembly PathFinder</b> assembly structure where you select the <b>Occurrence Properties</b> shortcut command affects what you see and to which models you can assign property
+                        values. </p>
+                     <p>We recommend that you right-click the lowest-level assembly in <b>Assembly PathFinder</b> that uses a part, and then select the <b> Open</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/occurrence_properties/open_command.png"> to open it in a new window. Then right-click the assembly in the new window and select
+                        the <b>Occurrence Properties</b> command.</p>
+                     <p>If you want to ensure that a specific custom occurrence property value is shown whenever
+                        a certain part is used in an assembly, assign a custom occurrence property to the
+                        part in that context. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Create a custom occurrence property for Paint with different predefined colors that
+                           can be assigned to a part. Assign the custom occurrence property Paint=Red to the
+                           part by opening the subassembly where it is used. Every time that subassembly is then
+                           used in a higher-level assembly, the predefined paint color for the part is listed
+                           in the <b>Occurrence Properties</b> dialog box.</p>
+                     </div>
+                     <p>You can apply overrides to occurrence property values that were set in lower-level
+                        assemblies and parts by opening an upper-level or top-level assembly. These overrides
+                        appear only in the context of the higher-level assembly. They do not affect the lower-level
+                        models. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>In an upper-level assembly, the details about painting individual items is not important.
+                           You can suppress the detail by opening the assembly and setting the values to blank
+                           or using the <b>Add Override</b> shortcut command. </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Assigning occurrence property values</h4>
+                  <div>
+                     <p>You can assign values and override previously defined values in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1d" rel="prtprp1d">Occurrence Properties dialog box</a> based on the level in the assembly structure where you enter the values and the defined
+                        behavior type of the occurrence property.</p>
+                     <p>To enter property values, you can:</p>
+                     <ul>
+                        <li>
+                           <p>Select a property value from a list and then edit it.</p>
+                        </li>
+                        <li>
+                           <p>Type a value in a box.</p>
+                        </li>
+                        <li>
+                           <p>Copy and paste values into one or more columns from another source, such as an Excel
+                              sheet. </p>
+                        </li>
+                     </ul>
+                     <p>Use the commands on the shortcut menu to:</p>
+                     <ul>
+                        <li>
+                           <p>Expose the full hierarchy of all lower-level parts and subassemblies at once by selecting
+                              the <b>Expand All</b> command from the top-level assembly in the Placement Name column. You also can click
+                              the plus (+) and minus (-) buttons to expand and collapse individual subassemblies
+                              in the structure. </p>
+                        </li>
+                        <li>
+                           <p>Override the current default or read-only value using the <b>Add Override</b> command.</p>
+                           <p>Values that you override using the <b>Add Override</b> command use light blue or yellow colors to indicate where they were overridden. For
+                              more information, see<a class="xref" href="#prtprp1c_color"> Cell override color scheme</a>.</p>
+                        </li>
+                        <li>
+                           <p>Remove the override of a property value using the <b>Remove Override</b> command. This command can be used only at the same hierarchical level where an override
+                              was applied.</p>
+                        </li>
+                        <li>
+                           <p>Reorganize and control the width and display of the columns using the <b>Columns...</b> command. You also can drag a column to change the column order.</p>
+                        </li>
+                        <li>
+                           <p>Prevent values in selected columns from scrolling out of view using the <b>Freeze Columns</b> command.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>To understand how this works, try locking the first three columns so they stay in
+                                 place as you scroll to the last column. </p>
+                              <ol type="1" start="1">
+                                 <li>
+                                    <p>Right-click the third column and select <b>Freeze Columns</b>. The system locks in place the first three columns. </p>
+                                 </li>
+                                 <li>
+                                    <p>Scroll horizontally to the last column. The first three columns remain in view as
+                                       you scroll across the document list. </p>
+                                 </li>
+                                 <li>
+                                    <p>To unlock all columns, right-click any column and select <b>Unfreeze Columns</b>. </p>
+                                 </li>
+                              </ol>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="prtprp1c_color">Cell override color scheme</h4>
+                  <div>
+                     <p>The cell color indicates the status of the occurrence property value in the <b>Occurrence Properties</b> dialog box. The blue and yellow cell color appears only when you override a value
+                        with the <b>Add Override</b> command. Overridden values also display a tooltip indicating where the override was
+                        applied.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="10%">
+                           <col span="1" width="90%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Cell color</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Indicates</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>White</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>The value can be edited. The result varies based on whether the property is a Global
+                                    property or a Global+Overrides.</p>
+                                 <p>To change only the value at the current level, select the <b>Add Override</b> command and then type a value.</p>
+                                 <p>To change the value of all occurrences of the property in the active document, simply
+                                    type a value in the cell. This pushes the change down to the part level and in every
+                                    assembly the part was used in (unless the other assemblies have an override for that
+                                    part). </p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Light Yellow</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>A local property, which can be only be assigned and edited in the active assembly.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Dark Yellow</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Override defined in a lower-level assembly.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Light Blue</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Override defined in the active assembly.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Gray</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Value is read-only from a read-only assembly. You can override the value in the active
+                                    assembly.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For more information about property behavior, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assemblies</a>.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Using occurrence properties in a Teamcenter-managed environment</h4>
+                  <div>
+                     <p>In a Teamcenter-managed environment, Solid Edge Assembly occurrence properties are
+                        written to Teamcenter for the corresponding BOM Line. The <b>CustomOccurrenceProperty.xml</b> file delivers the schema, defining the property name, description, LOV and behavior
+                        that supports this functionality. The CAD document owns the properties and they are
+                        written to Teamcenter. By publishing the assembly occurrence data to Teamcenter, a
+                        Teamcenter report produces the same results as a Solid Edge report such as a Bill
+                        of Material.</p>
+                     <p>Use the <b>Synchronize All</b> command to update the item number, quantity, and custom occurrence property information
+                        with information from Teamcenter. Colors indicates the status of the occurrence property
+                        value in the <b>Occurrence Properties</b> dialog box. </p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="10%">
+                           <col span="1" width="90%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p> Color</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Indicates</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Blue</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Value modified with data from Teamcenter where the cell is writeable and you can apply
+                                    the value.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p> Orange</p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Value modified with data from Teamcenter where the cell is read-only and the value
+                                    cannot be applied. File not checked out.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Red</p>
+                              </td>
+                              <td rowspan="1" align="left" valign="top" colspan="1">
+                                 <p>Item number conflict.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>A .CSV file is generated in the Log Files folder that contains details of any issues
+                        that occur during synchronization. Review the .CSV log file for details regarding
+                        issues with the item number or custom occurrence property. Issues that can occur can
+                        relate to:</p>
+                     <ul>
+                        <li>
+                           <p>Item number conflicts.</p>
+                        </li>
+                        <li>
+                           <p>Custom occurrence properties are modified but cannot be synchronized because the parent
+                              is not checked out.</p>
+                        </li>
+                        <li>
+                           <p>The quantity is modified but cannot be synchronized because the parent is not checked
+                              out. </p>
+                        </li>
+                        <li>
+                           <p>The quantity is modified but cannot be shown because the user defined quantity is
+                              set to No.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1h" rel="prtprp1h">Set part properties in an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1h" rel="reprts1h">Create reports</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1h" rel="ngrphc1h">Create a non-graphic part that is unitless</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc2h" rel="ngrphc2h">Create a non-graphic part that uses units and value</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1h" rel="asmstat1h">Display the statistics for an assembly</a><br><a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/xid1291372" rel="xid1291372">Show custom occurrence properties in PMI</a><br><a class="xref" data-handle="parts_lists_tables" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/xid1177387" rel="xid1177387">Example: Show custom occurrence properties in a parts list</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1a" rel="reprts1a">Assembly Reports</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2a" rel="prtprp2a">System occurrence properties in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1a" rel="prtprp1a">Custom occurrence properties in assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/ngrphc1a" rel="ngrphc1a">Non-graphic parts in assemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/assystruct1a" rel="assystruct1a">Assembly structure synchronization</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp1d" rel="prtprp1d">Occurrence Properties dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/syncassystruct1d" rel="syncassystruct1d">Structure synchronization dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1c" rel="reprts1c">Reports command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1c" rel="asmstat1c">Assembly Statistics command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts1d" rel="reprts1d">Reports dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmstat1d" rel="asmstat1d">Assembly Statistics dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts2d" rel="reprts2d">Format Report dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/prtprp2d" rel="prtprp2d">Format Columns dialog box (Occurrence Properties)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts4d" rel="reprts4d">Sort dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts5d" rel="reprts5d">Font dialog box (Assembly Reports)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts6d" rel="reprts6d">Select Directory dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts7d" rel="reprts7d">Report Output dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts8d" rel="reprts8d">FOA Member Names dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1759614" rel="xid1759614">End Angle Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/reprts3d" rel="reprts3d">Options dialog box (Assembly Reports)</a><br><br></div>
+            <div class="footer-content">Occurrence Properties command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

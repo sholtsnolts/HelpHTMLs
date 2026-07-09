@@ -1,0 +1,280 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Use motion loads in linear static studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Use motion loads in linear static studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="motionload1h">
+                     <h1 class="topic-title">Use motion loads in linear static studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Follow this process to create moving parts directly from your assembly components,
+                     and motion joints directly from assembly constraints. You can then add motion generators
+                     and apply loads. After you run a motion simulation, you can use the motion results
+                     to animate your moving assembly, and to check for interference as the assembly moves
+                     through its full range of simulated motion. </p>
+                  <p>To use Solid Edge Motion as input to Solid Edge Simulation, you transfer the resulting
+                     motion loads at any motion time-step to the corresponding part(s) in a previously
+                     created FEA study. </p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Two versions of motion simulation are available—basic motion and dynamic motion—and
+                        your license type determines which commands are available for use on the command ribbon
+                        in the Motion environment. Basic motion is included in Solid Edge at no charge. Dynamic
+                        motion simulation is included with a Solid Edge Premium license or a Solid Edge Simulation
+                        license. </p>
+                  </div>
+                  <p>This workflow introduces you to the motion simulation interface terminology and the
+                     order in which you define the motion study and the FEA study, so that they can work
+                     together. To open the CHM-format help file and tutorials, see <a class="xref" data-handle="simply_motion" href="/en-US/product/246738425/doc/PL20211001099989437.simply_motion/html/xid1677805" rel="xid1677805">Learn to use Solid Edge Motion</a>. </p>
+                  <h4 class="division-title">Define a motion mechanism</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Open your assembly model in Solid Edge. </p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/se_motion/crank_slider.png"></p>
+                        </li>
+                        <li>
+                           <p>To use the motion results with Solid Edge Simulation—Verify that a <a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">structural study</a> exists in the document, or select the <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b> command to create a new study now. (For example, select the <b>Linear Static</b> study type.) The study does not have to be solved, nor does it need to contain loads
+                              and constraints. You just need to create the study container and select the study
+                              geometry. </p>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <p>The assembly components included in the FEA study geometry must also be included in
+                                 the motion study. </p>
+                              <p>Turn off the display of any assembly connectors, loads, or constraints in the FEA
+                                 study to reduce clutter in the motion study.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Review your product concept. Identify the components of interest, how they are connected,
+                              and what drives the movement of the components. Determine which characteristics of
+                              the product you want to understand. You can use <b>PathFinder</b> to temporarily hide the components that you do not want to include in the motion
+                              simulation.</p>
+                        </li>
+                        <li>
+                           <p>Open the Motion environment—Choose <b>Tools</b> tab→<b>Environs</b> group→<b>Motion</b> <img class="img-fluid" src="../../../common/nonLocalized/se/se_motion/motion_icon34x34.png">.</p>
+                           <ul>
+                              <li>
+                                 <p>The <b>Motion</b> tab is added to <b>Assembly PathFinder</b>. </p>
+                              </li>
+                              <li>
+                                 <p>A <b>Motion Model</b> container is shown in the pane below. This is the <b>Motion</b> browser, which you use to create, edit, and delete objects in the motion study.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/se_motion/motion_model_container1.png"></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Select the parts that participate in the mechanism using any of the following methods.
+                              Parts represent a rigid body whose motion is to be simulated. You designate a part
+                              as a moving part or as a non-moving (ground) part. A moving part has six degrees of
+                              freedom, while a ground part has none. A ground part has a symbol attached to show
+                              that it has been grounded. </p>
+                           <dl>
+                              <dt><b>Automatically</b></dt>
+                              <dd class="ml-3">
+                                 <p>The first time you open an assembly in the Motion environment, a dialog box lists
+                                    all the parts in the assembly, and prompts you to indicate if you want to <b>Automatically add new parts as grounded or moving parts?</b> </p>
+                                 <p>On subsequent file-open, or if you select the <b>New Mechanism</b> command, you can use the <b>Motion-Add New Parts</b> dialog box to achieve the same results. </p>
+                                 <div class="attention" type="tip">
+                                    <div class="attention-label">Tip: </div>
+                                    <p>If you decline the automatic method, all of the parts in the assembly are added to
+                                       the <b>Assembly Components</b> node in the <b>Motion</b> browser. You can then select individual parts and drag them into the <b>Moving Parts</b> or <b>Ground Parts</b> nodes.</p>
+                                 </div>
+                              </dd>
+                              <dt><b>Manually</b></dt>
+                              <dd class="ml-3">
+                                 <p>Select the <b>Home</b> tab→<b>Mechanism</b> group→<b>Builder</b> command, click the <b>Parts</b> tab, and then selectively assign parts as moving parts or grounded parts by dragging
+                                    them to the appropriate list within the <b>Motion Builder</b>. </p>
+                                 <div class="attention" type="tip">
+                                    <div class="attention-label">Tip: </div>
+                                    <p>The <b>Motion Builder</b> is the primary interface in motion simulation. It is a tabbed dialog box and a wizard
+                                       that leads you through the process of creating a motion model from your assembly,
+                                       performing the motion simulation, and viewing the simulation results. To open the
+                                       associated help topic:</p>
+                                    <ol type="a" start="1">
+                                       <li>
+                                          <p>Click <img class="img-fluid" src="../../../common/nonLocalized/se/se_motion/se_motion_builder_help_button.png">.</p>
+                                       </li>
+                                       <li>
+                                          <p>Click a control in the wizard.</p>
+                                       </li>
+                                    </ol>
+                                 </div>
+                              </dd>
+                           </dl>
+                           <p>With the automatic or the manual method, relationships (for example, axial, planar,
+                              symmetric) are detected and are displayed in a message box. These are used to generate
+                              motion constraints automatically. In the <b>Motion</b> browser, expand the <b>Constraints</b>→<b>Joints</b> node to see them in one list. Continue expanding the nodes to identify the constraint
+                              ID and to see the parts where they are applied.</p>
+                           <p><img class="img-fluid" src="../../../common/graphicLibrary/se/se_motion/ddm_motion_browser3.png"><img class="img-fluid" src="../../../common/nonLocalized/se/se_motion/entities_assigned_to_loads_constraints.png"></p>
+                        </li>
+                        <li>
+                           <p>(Optional) In the previous step, constraints were identified in the assembly and created
+                              automatically in the motion model. To <em>add more</em> constraints in your mechanical system to connect the parts, you can:</p>
+                           <ul>
+                              <li>
+                                 <p>Right-click the <b>Constraints</b> node in the <b>Motion</b> browser, select the type of constraint to add, and then select the components on
+                                    the Solid Edge model that you want to constrain.</p>
+                              </li>
+                              <li>
+                                 <p>Use the <b>Joints</b> tab in the <b>Motion Builder</b>. </p>
+                              </li>
+                           </ul>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Any elements that move as a unit are defined as a rigid body. Constraints define how
+                                 rigid bodies are attached and how they move relative to each other. A joint constrains
+                                 the relative movement of a pair of rigid bodies by physically connecting them.</p>
+                              <p>Joints remove degrees of freedom from the parts to which they are attached. You can
+                                 also rigidly connect a part to another part using a fixed joint.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Apply motion to the constraints in your mechanism—You can define a motion generator
+                              directly on a part using shortcut commands on the <b>Constraints</b> node in the <b>Motion</b> browser. You also can use the <b>Motion</b> tab in the <b>Motion Builder</b>. You can provide input to a motion using a built-in function or by creating your
+                              own function.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>A motion can input either rotational or translational motion as a function of time.
+                                 The function, TIME * 360d, defines a motion driver that rotates one body one complete
+                                 revolution (360 degrees) with respect to another body per unit of time.</p>
+                           </div>
+                           <p></p>
+                        </li>
+                        <li>
+                           <p>(For dynamic motion) Add motion loads using shortcut commands on the <b>Forces</b> node in the <b>Motion</b> browser. Loads applied in motion studies are like structural loads in FEA studies:
+                              external forces and torques that act on your mechanism.</p>
+                           <ul>
+                              <li>
+                                 <p>You can define gravitational force, resistance force (springs, dampers, bushings),
+                                    or other loads acting on your mechanism, including applied force, applied moments,
+                                    action/reaction, and impact force.</p>
+                              </li>
+                              <li>
+                                 <p>Each force requires a force direction and a force magnitude. To define a force magnitude,
+                                    you can enter values, use a predefined function (step, harmonic, spline), or create
+                                    an expression function using the <b>Function Builder</b>. </p>
+                              </li>
+                           </ul>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Forces define loads and compliances on parts. Forces do not absolutely prohibit or
+                                 prescribe motion. Therefore, they do not add or remove degrees of freedom from your
+                                 model. Forces may resist motion or they may induce motion.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>(For Solid Edge Simulation) Define the load-bearing faces on which the motion forces
+                              and moments can be distributed.</p>
+                           <ol type="a" start="1">
+                              <li>
+                                 <p>In the <b>Motion</b> browser, right-click a selected force and choose <b>Properties</b>. </p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Edit</b> dialog box, use the <b>FEA</b> tab to assign the load-bearing faces.</p>
+                              </li>
+                           </ol>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Motion simulation calculates the forces and moments on each constraint by using part
+                                 mass, center of mass location, inertia tensors, and constraint locations as the basis
+                                 for its solutions. Think of it as solving a free-body diagram (or skeleton structure),
+                                 showing only these elements. Unless using 3D contacts, it is not concerned with the
+                                 physical geometry. As a result, it resolves these forces and moments at single-point
+                                 locations (the location of the constraints) rather than on geometric surfaces. For
+                                 Solid Edge Simulation to recognize that the resulting forces and moments are distributed
+                                 among specific faces, you must define the faces that will bear the loads.</p>
+                           </div>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title" id="motionload1h_run">Run a motion simulation</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Run the motion simulation—You can do this using the <b>Simulation</b> tab in the <b>Motion Builder</b>, the <b>Simulation</b> command on the command ribbon, or the shortcut commands from the <b>Mechanism</b> node in the <b>Motion</b> browser.</p>
+                           <p>The solver calculates the displacement, velocity, acceleration, and reaction forces
+                              acting on each moving part in the mechanism.</p>
+                        </li>
+                        <li>
+                           <p>Use the <b>Motion Builder</b> to review the motion simulation results.</p>
+                           <ul>
+                              <li>
+                                 <p>On the <b>Animation</b> tab—You can review the motion of the mechanism frame by frame or in set increments.
+                                    You also can display a specific segment of the motion. </p>
+                              </li>
+                              <li>
+                                 <p>On the <b>Interference</b> tab—Check for and show interfering parts. </p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/se_motion/interference_detected.png"></p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title" id="motionload1h_transfer">Transfer the calculated motion loads to your FEA study</h4>
+                  <div>
+                     <p>You can use the numeric output of the motion simulation to better understand the various
+                        characteristics of your mechanism. For example, Solid Edge Motion reports the loads
+                        for each joint and motion. Joint loads can be used as load cases for the structural
+                        analysis of any component in your mechanism.</p>
+                     <p>To continue, the motion simulation results must be available in the document.</p>
+                     <ol type="1">
+                        <li>
+                           <p>On the Motion command ribbon, select the <b>Home</b> tab→<b>Replay</b> group→<b>Player</b> command to reopen the <b>Motion</b> player toolbar to review the motion step-by-step.</p>
+                        </li>
+                        <li>
+                           <p>When you find a step that you want to add to your FEA study, scroll down to the bottom
+                              of the <b>Motion</b> browser, expand the + sign next to the study name (such as <b>Static Study 1</b>), right-click the part name, and choose <b>Add Loads</b>.</p>
+                           <p>When you add loads to a Solid Edge Simulation study that already has loads defined
+                              in it, you are prompted to choose one of the following options:</p>
+                           <ul>
+                              <li>
+                                 <p><b>Delete Loads</b>—Deletes <em>all</em> existing loads in the FEA study before adding the new loads.</p>
+                              </li>
+                              <li>
+                                 <p><b>Add Loads</b>—Adds the new loads to the existing loads.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>Close the Motion environment and click the <b>Simulation</b> tab in <b>PathFinder</b>. In the <b>Simulation</b> study navigator pane, right-click the linear static study name, <b>Static Study 1</b>, and choose <b>Solve</b>.</p>
+                        </li>
+                        <li>
+                           <p>To add motion loads from another time-step in the motion study, return to the Motion
+                              environment. When prompted to delete the motion results, click <b>No</b>. Repeat the previous steps in this section.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The stress analysis results do not change the motion study results.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Use motion loads in linear static studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

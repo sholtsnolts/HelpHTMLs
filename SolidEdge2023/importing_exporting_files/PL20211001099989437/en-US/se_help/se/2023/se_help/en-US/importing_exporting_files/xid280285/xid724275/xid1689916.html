@@ -1,0 +1,84 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Migrate Inventor material definitions to Solid Edge using the DOS window</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Migrate Inventor material definitions to Solid Edge using the DOS window"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1689916">
+                     <h1 class="topic-title">Migrate Inventor material definitions to Solid Edge using the DOS window</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge provides <b>INVmat2SEMat.exe</b> utility to the Solid Edge program folder. The executable creates a new Solid Edge
+                     Material (.mtl) file rather than appending materials in existing <b>Material.mtl</b> file. The category of the material is maintained from Inventor database to Solid
+                     Edge material database.</p>
+                  <p>Before running the utility, consider the following:</p>
+                  <ul>
+                     <li>
+                        <p>We recommend to make a copy of the Solid Edge <b>Material.mtl</b> file.</p>
+                     </li>
+                     <li>
+                        <p>After successfully converting the material table ensure that the <b>Solid Edge\Options\File</b> location pointer is pointing to the appropriate file.</p>
+                     </li> 
+                     <li> 
+                        <p>Before starting a migration ensure that Inventor is pointing to the same material
+                           database folder that was previously converted.</p> </li>
+                  </ul>
+                  <p><b>To migrate the material database:</b></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The material file which user is going to migrate, must be added in <b>Material Library</b> list in active <b>Project</b> file.</p>
+                     <p> You can find the path of the Inventor material library by hovering over that library
+                        name in the <b>Material Browser</b> dialog box or in the <b>Projects</b> dialog box. Only those material libraries can be migrated that can be applied to
+                        Inventor model.</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Open a DOS window.</p>
+                     </li>
+                     <li>
+                        <p>Enter the path for the <b>INVmat2SEMat.exe </b>. For example, “<b>C:\Program Files\Siemens\Solid Edge 2023\Program\INVmat2SEMat.exe </b>.”</p>
+                     </li>
+                     <li>
+                        <p>Set the following:</p>
+                        <ul>
+                           <li>
+                              <p>Path 1 — Location and name of the Inventor materials file in double quotes. </p>
+                              <p>For example, <span class="code-text">C:\&gt;”C:\Program Files\Solid Edge 2023\Program\INVmat2SEMat.exe” "C:\Users\Public\Documents\Autodesk\Inventor
+                                    &lt;Version&gt;\Design Data\Materials\ InventorMaterialLibrary.adsklib"</span>.</p>
+                              <p> </p>
+                           </li>
+                        </ul>
+                        <p>This creates the Inventor materials file(.mtl) and place it in <b>C:\Program Files\Siemens\Solid Edge 2023\Preferences\Materials</b> folder.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1h" rel="inventor1h">Migrate Inventor documents to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057196" rel="xid2057196">Migrate Inventor material definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057197" rel="xid2057197">Migrate Inventor hole definitions to Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057198" rel="xid2057198">Specify the templates to use during Inventor data migration</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2058596" rel="xid2058596">Migrating Inventor material definitions to solid edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057089" rel="xid2057089">Logging for Inventor data migration</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/configureinventordata" rel="configureinventordata">Inventor data migration</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689903" rel="xid1689903">Migrating iAssemblies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor1d" rel="inventor1d">Inventor Data Migration Start page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057093" rel="xid2057093">Inventor Material Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057090" rel="xid2057090">Inventor Hole Database Migration dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057091" rel="xid2057091">Hole Mapping dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057094" rel="xid2057094">Templates dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057095" rel="xid2057095">Folder Selection dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor2d" rel="inventor2d">Inventor File Selection page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057096" rel="xid2057096">Preview Selection page</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid1689917" rel="xid1689917">Migrate the Inventor hole database to Solid Edge using the DOS window</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2058597" rel="xid2058597">Migrating Inventor hole definitions to solid edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/xid2057199" rel="xid2057199">Specify the location of Inventor and Solid Edge folders</a><br><br></div>
+            <div class="footer-content">Migrate Inventor material definitions to Solid Edge using the DOS window, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

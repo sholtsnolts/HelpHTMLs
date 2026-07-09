@@ -1,0 +1,113 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Converting ordered features to synchronous features</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Converting ordered features to synchronous features"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="converttraditional1a">
+                     <h1 class="topic-title">Converting ordered features to synchronous features</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>With no document open in Solid Edge, you can use the <b>File</b> menu→<b>Tools</b>→<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1c" rel="converttraditional1c">Convert</a> command to convert ordered features to synchronous features at a file level. Select
+                     multiple part files to convert simultaneously. Select an assembly file to convert
+                     all parts used in the assembly. </p>
+                  <div class="attention" type="warning">
+                     <div class="attention-label">Warning: </div>
+                     <p>Since the conversion process is irreversible, you should create backup copies of your
+                        documents before starting the conversion.</p>
+                  </div>
+                  <p>The command displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1d" rel="converttraditional1d">Select Documents for Conversion dialog box</a> so you can select the part or assembly documents to convert. After you select the
+                     documents to convert, select the <b>Open </b> button to display the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional2d" rel="converttraditional2d">Ordered to Synchronous dialog box</a>.</p>
+                  <p>The <b>Ordered to Synchronous</b> dialog box displays information about the documents you selected for conversion.
+                     The documents being converted must have write-access.</p>
+                  <p>The conversion is done on an individual part or assembly basis. During the conversion
+                     each document is analyzed and categorized as follows:</p>
+                  <ul style="list-style: none">
+                     <li>
+                        <p>Category 1 – The document is ready for conversion.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If a problem occurs when converting Category 1 documents, you may need to recompute
+                              the document or use the Geometry Inspector command to solve the problem.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Category 2 – The document has an issue you need to consider. For example, it may be
+                           a family of parts child. By default part, sheet metal, and assembly documents that
+                           fall into category 2 are not scheduled for conversion. You must set the Convert value
+                           to Yes to convert these documents.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>If a problem occurs when converting Category 1 or Category 2 documents, you may need
+                              to recompute the document or use the Geometry Inspector command to solve the problem.</p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Category 3 – The document has an issue preventing it from being converted. For example,
+                           it may be a family of parts source. You cannot schedule a category 3 document for
+                           conversion.</p>
+                     </li>
+                     <li>
+                        <p>Category 4 – The document is already a Synchronous document.</p>
+                     </li>
+                  </ul>
+                  <p>Managed files such as those managed by Teamcenter (SEEC) remain checked out after
+                     converting them.</p>
+                  <h4 class="division-title">Feature conversion</h4>
+                  <div>
+                     <p>During the conversion, the feature tree from an ordered document is converted to a
+                        synchronous feature tree. Any features that are fully consumed by another feature
+                        are not converted. Holes come across as manufactured features, including thread information.
+                        Round features are recognized as face sets and can be edited just as if they were
+                        created as a synchronous feature. Patterns come across as patterns.</p>
+                  </div>
+                  <h4 class="division-title">2D element conversion</h4>
+                  <div>
+                     <p>When converting a ordered features to synchronous features, 2D elements such as sketches
+                        and local profiles are also converted. The following rules apply:</p>
+                     <ul>
+                        <li>
+                           <p>Ordered sketches are converted as noncombinable sketches. The show/hide status in
+                              the ordered document is maintained in the converted document.</p>
+                        </li>
+                        <li>
+                           <p>For ordered features constructed using local profiles, the local profiles are converted
+                              as used sketches and are added to the <b>Used Sketches</b> list in <b>PathFinder</b>.</p>
+                        </li>
+                        <li>
+                           <p>For ordered features constructed using an outside sketch, the sketch elements are
+                              converted as unused sketches and are added to the <b>Sketches</b> list in <b>PathFinder</b>.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/movetosynchronous1h" rel="movetosynchronous1h">Move an ordered feature to synchronous</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1h" rel="converttraditional1h">Convert ordered features to synchronous features</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/movetosynchronous1a" rel="movetosynchronous1a">Moving ordered features to synchronous</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/movetosynchronous1c" rel="movetosynchronous1c">Move to Synchronous command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1c" rel="converttraditional1c">Convert command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional2d" rel="converttraditional2d">Ordered to Synchronous Converter dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/converttraditional1d" rel="converttraditional1d">Select Documents for Conversion dialog box</a><br><br></div>
+            <div class="footer-content">Converting ordered features to synchronous features, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

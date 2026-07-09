@@ -1,0 +1,112 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Use simulation results to inform generative studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Use simulation results to inform generative studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1447067">
+                     <h1 class="topic-title">Use simulation results to inform generative studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use the finite element analysis stress results produced by a Solid Edge Simulation
+                     study to inform your structural optimization study inputs in Generative Design. You
+                     can work with both of these types of studies in the same document to produce an optimal
+                     part design.</p>
+                  <ol type="1" start="1">
+                     <li>
+                        <p>Identify the basic design requirements for a part. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>This kitchen requires supports for a granite countertop. What is the optimal material
+                              and shape (mass) needed for the support?</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/identify_design_requirement.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Create a 3D prototype.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>The design body used for this simple support is a metal plate.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/create_basic_part.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Test the prototype for areas of highest stress with a Solid Edge Simulation study.
+                           </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <ul>
+                              <li>
+                                 <p>An XYY <b>Components</b> force load in the -Z direction was applied to the end face that will not be secured.
+                                    A fixed constraint was applied to the face at the opposite end of the support, where
+                                    it is to be fastened to the countertop framing. </p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/add_sesim_boundary_conditions.png"></p>
+                              </li>
+                              <li>
+                                 <p>The stress results show the areas at the fixed end is where more mass is needed to
+                                    support the countertop. </p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/identify_areas_of_stress.png"></p>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Create a generative study to structurally optimize the part using the same force and
+                           fixed constraint boundary conditions on the same faces, with the default offset volume.
+                           The simulation results showed that you also need to preserve sufficient material on
+                           the faces at each end of the support and along the sides to maintain structural integrity.
+                           You can add this with the <b>Preserve Region</b> command.</p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/gd_preserved_regions_and_boundaries.png"></p>
+                           <p>The resulting, structurally optimized part shows how much mass can be removed from
+                              the support based on the material and inputs you specified.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/gd_optimized_support.png"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>You can validate this result using the <b>Show Stress</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/show_stress_command_gd.png"> on the <b>Generative Design</b> tab.</p>
+                        <p>If stress results on the mesh body indicate areas where too much material was removed,
+                           you can change the values for existing load, constraint, or offset volumes. </p>
+                        <p>You also can add or remove boundary conditions. In this case, use <b>PathFinder</b> to display the design body again and turn off the display of the mesh body. You need
+                           to be able to select original faces. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>Consider increasing the offset value of all of the faces in the preserved region.
+                              To keep more material only at the location of high stress, you can preserve two separate
+                              regions with different values.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/topology_optimization/show_gd_stress.png"></p>
+                        </div>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1403832" rel="xid1403832">Modify a generative study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405926" rel="xid1405926">Suppress individual loads to compare results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1417637" rel="xid1417637">Add material to a generative result</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/so_print_mesh" rel="so_print_mesh">Print an optimized solid mesh body</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1389864" rel="xid1389864">Using Generative Design results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.xid1329526/html/xid1405933" rel="xid1405933">Using load cases</a><br><br></div>
+            <div class="footer-content">Use simulation results to inform generative studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

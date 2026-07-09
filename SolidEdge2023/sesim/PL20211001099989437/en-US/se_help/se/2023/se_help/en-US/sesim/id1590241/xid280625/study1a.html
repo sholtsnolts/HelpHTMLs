@@ -1,0 +1,173 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Structural studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Structural studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="study1a">
+                     <h1 class="topic-title">Structural studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><p>In Solid Edge Simulation, you can analyze the structural integrity of your part, sheet
+                     metal, and assembly models using several types of FEA studies.</p>
+                  <p>The following structural study types are available:</p>
+                  <ul>
+                     <li>
+                        <p><a class="xref" href="#study1a_linearstatic">Linear Static studies</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#study1a_buckling">Linear Buckling studies</a> </p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="#study1a_modal">Normal Modes studies</a></p>
+                     </li>
+                     <li>
+                        <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a></p>
+                        <ul>
+                           <li>
+                              <p>Steady State Heat Transfer+Linear Static</p>
+                           </li>
+                           <li>
+                              <p>Steady State Heat Transfer+Linear Buckling</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <h4 class="division-title" id="study1a_linearstatic">Linear Static studies</h4>
+                  <div>
+                     <p>To apply linear static analysis, choose the <b>Linear Static</b> study type in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>. </p>
+                     <p>Use Linear Static studies to calculate displacements, strains, stresses, and reaction
+                        forces under the effect of applied loads.</p>
+                     <p>Linear static analysis represents the most basic type of analysis. The term <em>linear</em> means that the computed response is linearly related to the applied force. The term
+                        <em>static</em> means that the forces do not vary with time, or that the time variation is insignificant
+                        and can therefore be safely ignored. </p>
+                     <p>Linear static analysis assumes that all loads are applied slowly and gradually until
+                        they reach their full magnitudes. After reaching their full magnitudes, loads remain
+                        constant (time-invariant). Time-variant loads that induce considerable inertial or
+                        damping forces may warrant dynamic analysis. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>You can calculate the structural response of bodies spinning with constant velocities
+                           or traveling with constant accelerations, since the generated loads do not change
+                           with time. </p>
+                     </div>
+                     <p>For models that undergo large deflections relative to the actual dimensions of the
+                        part, you can use the <b>Large Displacement Solve</b> check box under <b>Advanced Options</b> in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a> to specify that the model deflection is processed incrementally until a solution
+                        is found.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Consider a sheet metal part with a narrow thickness. If the linear static analysis
+                           results compute the displacement of the part to be a high value relative to the size
+                           or thickness of the part, then a more accurate solution would be produced using the
+                           <b>Large Displacement Solve</b> option.</p>
+                     </div>
+                     <ul>
+                        <li>
+                           <p>Linear static analysis is the most commonly used analysis. To learn how to define
+                              linear static studies for different types of models, you can choose one from the list
+                              of tutorials here:<a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/activity1a" rel="activity1a">Practice creating and using studies</a>.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/linear_static_study.png"></p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/linear_static_study_solved.png"></p>
+                  </div>
+                  <h4 class="division-title" id="study1a_buckling">Linear Buckling studies</h4>
+                  <div>
+                     <p>To apply linear buckling analysis, choose the <b>Linear Buckling</b> study type on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>. </p>
+                     <p>Use buckling analysis to determine the load at which a thin structure or shell becomes
+                        unstable. For example, when a model contains slender parts or an assembly contains
+                        slender components that are loaded in the axial direction, they can buckle under relatively
+                        small axial loads. For such structures, the buckling load becomes a critical design
+                        factor. </p>
+                     <p>Buckling analysis is usually not required for bulky structures, as structural failure
+                        occurs earlier due to high stresses.</p>
+                     <p>A linear buckling study requires one load and one constraint. You also can apply a
+                        preload to a structure, such as to add a load to account for the mass of the part
+                        or assembly. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/linear_buckling_study_ex.png"></p>
+                     <p>Buckling analysis using the default settings solves for four modal eigenvalues, and
+                        the mode shapes that are associated with the buckled form. The eigenvalue is multiplied
+                        by the applied load to give the critical buckling load.</p>
+                     <p>When reviewing the results for this type of study, a designer is usually interested
+                        in the mode associated with the lowest eigenvalue, as this is the first opportunity
+                        for the buckling to occur. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_buck16.gif"></p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/linear_buckling_example.png"></p>
+                     <ul>
+                        <li>
+                           <p>For an example of how to define a linear buckling study, try the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_buckling01" rel="fem_buckling01">Tutorial: Linear buckling analysis</a>.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="study1a_modal">Normal Modes studies</h4>
+                  <div>
+                     <p>To apply normal modes analysis, choose the <b>Normal Modes</b> study type on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study dialog box</a>.</p>
+                     <p>Use a Normal Modes study to find the frequencies at which a part or assembly vibrates
+                        freely. Normal modes analysis forms the foundation for understanding the dynamic characteristics
+                        of an object subject to cyclical forces at periodic intervals. It is affected by the
+                        mass of the part and the stiffness of the design. The results of a normal modes study
+                        identify the natural frequencies (frequencies of free vibration) and mode shapes (the
+                        shapes of deformation) of your design.</p>
+                     <p>The objective of a normal modes analysis is for you to be able to verify that the
+                        natural frequencies and mode shapes will not approach the known critical operating
+                        frequencies required for your design.</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>A sorting machine operates at 60 Hz. Upon startup, the machine cycles from 0 Hz up
+                           to the operating speed. Modal analysis reports that the first two natural frequencies
+                           are 27.5 Hz and 59 Hz. This will cause reliability problems as the loads applied are
+                           amplified at the natural frequency. </p>
+                     </div>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>All rotating components, such as a propeller rotating on a shaft, or blades rotating
+                           on a windmill, can be evaluated with respect to defined limits on their revolutions-per-minute.
+                           If the natural frequency of the supporting structure is close to an operating frequency
+                           of the component, then there can be significant dynamic amplification of the loads.
+                           </p>
+                     </div>
+                     <p>In a normal modes analysis, you apply one or more constraints as boundary conditions.
+                        You do not use the loads commands. The study navigator in the <b>Simulation</b> pane contains a <b>Constraints</b> node, but not a <b>Loads</b> node. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/normal_modes_study_pathfinder.png"></p>
+                     <p>A normal modes analysis solves for the eigenvalues and eigenvectors of the model.
+                        For each eigenvalue (natural frequency), there is a corresponding eigenvector (mode
+                        shape of deformation). </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/sesim_data_sel_res_modes.gif"></p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/result/sesim_normal_modes_shapes.png"></p>
+                     <ul>
+                        <li>
+                           <p>For an example of how to define and review the results of a normal modes study, try
+                              the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_modal01" rel="fem_modal01">Tutorial: Normal modes analysis</a>.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Structural studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

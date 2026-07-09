@@ -1,0 +1,167 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Select Attachment dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Select Attachment dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prtvw4d">
+                     <h1 class="topic-title">Select Attachment dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use the <b>Select Attachment</b> dialog box to create additional drawing views of a model. This dialog box displays
+                     the model documents that are currently placed in the draft document and allows you
+                     to select another part or assembly to use as the basis for the next part view.</p>
+                  <dl>
+                     <dt>Parts</dt>
+                     <dd class="ml-3">
+                        <p>Displays the documents that are currently placed in the drawing view in a folder tree
+                           structure. </p>
+                        <p>As you click a part name in the list of parts, the part model is displayed in the
+                           <b>Preview</b> pane, and all instances of it are highlighted in existing drawing views.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>The list of parts is affected by the current setting of the <b>Create drawing view independent of assembly</b> check box.</p>
+                        </div>
+                     </dd>
+                     <dt>Preview</dt>
+                     <dd class="ml-3">
+                        <p>Displays a bitmap image of the document if a preview image was saved for the file.</p>
+                     </dd>
+                     <dt>Browse</dt>
+                     <dd class="ml-3">
+                        <p>Opens a dialog box that allows you to search for a document.</p>
+                     </dd>
+                     <dt>.cfg, PMI model view, or Zone</dt>
+                     <dd class="ml-3">
+                        <p>For an assembly model, lists the names of available display configurations, 3D PMI
+                           model views, and zones that can be used to generate a drawing view.</p>
+                        <ul style="list-style: none">
+                           <li>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/drawings/dvw_create/dvw_create_ui/configname.gif"> – Indicates a display configuration.</p>
+                           </li>
+                           <li>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/drawings/dvw_create/dvw_create_ui/pmimvname.gif"> – Indicates a 3D PMI model view.</p>
+                           </li>
+                           <li>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/drawings/dvw_create/dvw_create_ui/zone_icon.gif"> – Indicates a zone.</p>
+                           </li>
+                        </ul>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <ul>
+                              <li>
+                                 <p>You can hide parts or weld beads in the assembly document, save the display configuration
+                                    to a name you define, then use that display configuration when creating the drawing
+                                    view. For more information, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/config2a" rel="config2a">Using display configurations</a> Help topic.</p>
+                              </li>
+                              <li>
+                                 <p>If you select a PMI model view created with the <a class="xref" data-handle="pmi" href="/en-US/product/246738425/doc/PL20211001099989437.pmi/html/pmi3dmv1c" rel="pmi3dmv1c">View command</a>, then the model view controls the display states of parts in an assembly.</p>
+                              </li>
+                              <li>
+                                 <p>If you used the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/zones1c" rel="zones1c">Create Zone command</a> to define a rectangular volume of space based on one or more assembly components,
+                                    then you can create a drawing view of the components that are contained within the
+                                    boundary of the zone.</p>
+                              </li>
+                           </ul>
+                        </div>
+                     </dd>
+                     <dt>Create drawing view independent of assembly</dt>
+                     <dd class="ml-3">
+                        <p>When this box is checked, creates a drawing view of the part currently selected in
+                           the <b>Parts</b> pane. This shortens the list of parts to show only one occurrence of each unique
+                           component at each level. In a large assembly, this makes it faster and easier to navigate
+                           the list of parts. </p>
+                        <p>When this box is unchecked, creates an <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid727789" rel="xid727789">assembly part view</a> of multiple selected components, parts, or subassemblies within the context of the
+                           top-level assembly. This ensures that item balloons on the added part views match
+                           the item balloons on the drawing view of the assembly. This is the default mode for
+                           placing additional views. It also produces a full list of all assembly component occurrences
+                           in the <b>Parts</b> pane. Use this list to choose the specific occurrences of parts that you want to
+                           show in the context of the top-level assembly. To learn how to do this, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid608933" rel="xid608933">Create assembly part views with the View Wizard</a>.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can use the following keyboard combinations to view and select multiple parts
+                              in the list:</p>
+                           <table cellspacing="5" cellpadding="5" rules="all" width="%" frame="box">
+                              <colgroup span="1">
+                                 <col span="1">
+                                 <col span="1">
+                              </colgroup>
+                              <thead>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Use these keys</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>To</p>
+                                    </td>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Double-click</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Expand an assembly.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Shift+double-click</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Expand all assemblies within a node in the parts list structure.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Shift+click</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Select additional items.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Ctrl+click</p>
+                                    </td>
+                                    <td rowspan="1" colspan="1">
+                                       <p>Select and deselect items.</p>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid1161626" rel="xid1161626">Change drawing view orientation</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw3d" rel="prtvw3d">Select Model dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw6d" rel="prtvw6d">Drawing View Creation Wizard (Drawing View Options)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop12d" rel="dvprop12d">Advanced Edge Display Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw5d" rel="prtvw5d">Drawing View Layout dialog box (Create or Modify)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw2d" rel="prtvw2d">Custom Orientation dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid506161" rel="xid506161">Drawing View Creation Wizard (Saved Settings)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/prtvw11d" rel="prtvw11d">Drawing View Creation Wizard (Select Family of Assembly Member)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid385344" rel="xid385344">Drawing View Creation Wizard (Alternate Position Assembly)</a><br><br><h5>Quick links</h5><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/getstarteddwg1p" rel="getstarteddwg1p">Drawing production workflows</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/sheetscale1a" rel="sheetscale1a">Sheet scale and drawing view scale</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvscale1h" rel="dvscale1h">Add custom drawing view scales to Solid Edge</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/xid487376" rel="xid487376">Modifying captions</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/stndrd1a" rel="stndrd1a">Drawing view properties</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvprop4d" rel="dvprop4d">Drawing View Properties dialog box</a><br><a class="xref" data-handle="drawing_production" href="/en-US/product/246738425/doc/PL20211001099989437.drawing_production/html/dvman1a" rel="dvman1a">Drawing view manipulation</a><br><a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/xid608261" rel="xid608261">Drawing View Wizard tab (Solid Edge Options dialog box)</a><br><br></div>
+            <div class="footer-content">Select Attachment dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

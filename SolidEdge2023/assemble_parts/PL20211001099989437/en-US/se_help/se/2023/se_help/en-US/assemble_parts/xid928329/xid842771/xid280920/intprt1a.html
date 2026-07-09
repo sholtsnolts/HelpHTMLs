@@ -1,0 +1,181 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Inter-Part associativity</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Inter-Part associativity"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="intprt1a">
+                     <h1 class="topic-title">Inter-Part associativity</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When constructing the parts and assemblies for a design project, you can use the geometry
+                     on other parts in the assembly to help you construct a new part or subassembly. For
+                     example, you can use the <b>Project to Sketch</b> command to create 2D geometry for the base feature of a new part by copying edges
+                     on an existing part.</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/ascpy3.gif"></p>
+                  <p>Depending on the approach you use, the included geometry can be <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associative</a> or nonassociative to the original edges.</p>
+                  <p>When you create new geometry associatively, then modify the original, or parent geometry;
+                     the child geometry also updates. If you change the size of the parent part, the included
+                     child geometry for the base feature also updates.</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/ascpy3b.gif"></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <ul>
+                        <li>
+                           <p>When designing in the context of an assembly, only ordered features can be linked
+                              using <b>Inter-Part</b> relationships. In the synchronous environment faces can be copied, but they are not
+                              linked to geometry contained in the part that the face was copied from.</p>
+                        </li>
+                        <li>
+                           <p>An <b>Inter-Part Associativity</b> tutorial is available that demonstrates how to create associative <b>Inter-Part</b> features.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <p>The following commands and functions in Solid Edge allow you to use existing geometry
+                     associatively:</p>
+                  <ul>
+                     <li>
+                        <p><b>Project to Sketch</b> command</p>
+                     </li>
+                     <li>
+                        <p><b>Inter-Part Copy</b> command</p>
+                     </li>
+                     <li>
+                        <p><b>Assembly-Driven Part Features</b></p>
+                     </li>
+                     <li>
+                        <p><b>Reference Plane Definition</b></p>
+                     </li>
+                     <li>
+                        <p><b>Feature Extent Definition</b></p>
+                     </li>
+                     <li>
+                        <p><b>Variable Table</b></p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Many of these options are available only when you set the proper <b>Inter-Part</b> associativity option on the <b>Inter-Part</b> tab on the <b>Options</b> dialog box.</p>
+                  </div>
+                  <p>When one part is associatively linked to another part in Solid Edge, special symbols
+                     are used to indicate the associative link. For example, when you <b>Project to Sketch</b> an edge from another part in the assembly to define the profile for cutout feature
+                     in the active part, a link symbol <img class="img-fluid" src="../../../../../common/nonLocalized/se/se/pflnk1.gif"> is displayed adjacent to the part feature in <b>PathFinder</b> and adjacent to the part entry in <b>PathFinder</b>.</p>
+                  <p>These associative links between parts are called <b>Inter-Part</b> links to indicate that one part is dependent on another part for the definition of
+                     some of its geometry. The link information is common to both parts, using the higher-level
+                     assembly to interpret the relative orientation of the geometry.</p>
+                  <p>For more information about managing <b>Inter-Part</b> links, see the <b>Managing Inter-Parts Links</b> section of this Help topic.</p>
+                  <h4 class="division-title">Including elements</h4>
+                  <div>
+                     <p>You can use the <b>Project to Sketch</b> command to include edges from the active part, an assembly sketch, or the other parts
+                        in the assembly. When including edges from an assembly sketch or another part in the
+                        assembly, you can control whether the included edges are associative to the parent
+                        element using the <b>Inter-Part Locate</b> options on the <b>Project to Sketch</b> dialog box.</p>
+                     <p>You can only <b>Project to Sketch</b> elements from an assembly sketch or the other parts in an assembly when you are editing
+                        a part in the context of an assembly (you have in-place activated a part or you are
+                        creating a part in place).</p>
+                     <p>When the <b>Allow Locate of Peer Assembly Parts and Assembly Sketches</b> option is set, you can locate and select elements in other parts and assembly sketches.
+                        To copy the elements associatively, you must also set the <b>Maintain Associativity When Including Geometry From Other Parts in the Assembly</b> option. When this option is cleared you can copy elements from other parts and assembly
+                        sketches nonassociatively.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To include elements associatively between documents, set the <b>Allow Inter-Part Links Using: Project to Sketch Command in Part and Assembly Sketches</b> option on the <b>Inter-Part</b> on the <b>Options</b> dialog box.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Inter-Part copies</h4>
+                  <div>
+                     <p>You can use the <b>Inter-Part Copy</b> command in the <b>Part</b> and <b>Sheet Metal</b> environments to associatively copy faces, features, and entire parts into another
+                        part document as construction geometry. You can then use the <b>Project to Sketch</b> command to associatively copy edges from the construction geometry into a profile
+                        for a feature. To ensure that the <b>Project to Sketch</b> command only copies edges from the associative construction geometry, turn off the
+                        assembly display using the<b> Hide Previous Level</b> command on the <b>View</b> tab.</p>
+                     <p>The <b>Inter-Part Copy</b> command is only available when you are editing a part in the context of an assembly
+                        (you have in-place activated a part or you are creating a part in place).</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To copy elements associatively between documents, set the <b>Allow Inter-Part Links Using: Inter-Part Copy Command</b> option on the <b>Inter-Part</b> tab on the <b>Options</b> dialog box.</p>
+                     </div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Earlier versions of Solid Edge created a new link each time a piece of inter-part
+                           geometry was referenced. If the same <b>Inter-Part</b> geometry is referenced more than once in the local document, a single link is used.
+                           If that link is broken, all the children that use that link are affected. Freezing
+                           a link with multiple features referenced freezes all the children of the parent feature.
+                           </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Assembly-Driven part features</h4>
+                  <div>
+                     <p>You can use the assembly feature commands such as <b>Cutout</b>, <b>Hole</b>, and <b>Revolved Cutout</b> in the <b>Assembly</b> environment to construct assembly-driven part features in an assembly. You can specify
+                        which parts in the assembly you want to cut. <b>Assembly-Driven</b> part features are added as a linked feature to each part document.</p>
+                     <p>For more information on <b>Assembly-Driven Part Features</b>, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmfeat1a" rel="asmfeat1a">Assembly-based Features</a> Help topic.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To construct <b>Assembly-Driven Part Features</b> in an assembly, set the <b>Allow Inter-Part Links Using: Assembly-Driven Part Features</b> option on the <b>Inter-Part</b> tab on the <b>Options</b> dialog box.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Reference planes</h4>
+                  <div>
+                     <p>When constructing a feature for a part, you can use an assembly reference plane to
+                        define the new feature. If the assembly reference plane is modified, the feature associatively
+                        updates. To select an assembly reference plane, press the <b>Shift</b> key, then select the assembly reference plane.</p>
+                     <p>You can only use an assembly reference plane when you are editing a part in the context
+                        of an assembly (you have in-place activated a part or you are creating a part in place).</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To use an assembly reference plane while constructing a part feature, set the <b>Allow Inter-Part Links Using: Assembly Reference Planes In Feature</b> option on the <b>Inter-Part</b> tab on the <b>Options</b> dialog box.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Feature extents</h4>
+                  <div>
+                     <p>When working within the context of an assembly, many feature commands allow you to
+                        select a keypoint on another part in the assembly to define the extent for a feature.
+                        For example, when constructing a protrusion in the <b>Part</b> environment, you can select a keypoint (A) on another part in the assembly during
+                        the <b>Extent Step</b>.</p>
+                     <p>The extent for the feature is associative to the keypoint on the part you select.
+                        If the other part is modified (B) such that the keypoint location changes, the extent
+                        for the linked feature also updates.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/se/assocextent1.gif"></p>
+                     <p>You can also use an assembly sketch to define the extent for a feature.</p>
+                  </div>
+                  <h4 class="division-title">Variables</h4>
+                  <div>
+                     <p>You can use the <b>Variable Table</b> in Solid Edge to associatively paste an assembly variable into a part or subassembly.
+                        This allows you to control several parts at once with one variable. For example, you
+                        can create an assembly variable to control the size of a hole in several parts in
+                        the assembly.</p>
+                     <p>For more information on pasting variables between documents, see the <b>Linking Variables Between Parts in an Assembly</b> section of the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/equat1a" rel="equat1a">Variables</a> Help topic.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>To associatively paste variables between documents, set the <b>Allow Inter-Part Links Using: Paste Link To Variable Table</b> option on the <b>Inter-Part</b> tab on the <b>Options</b> dialog box.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt1h" rel="intprt1h">Create an Inter-Part Copy</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid842778" rel="xid842778">Managing Inter-Part links</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt1c" rel="intprt1c">Inter-Part Copy command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt2c" rel="intprt2c">Inter-Part Manager command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt1d" rel="intprt1d">Inter-part Copy command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt2d" rel="intprt2d">Inter-Part Links dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/filesupdate1d" rel="filesupdate1d">File Updates Needed Dialog Box</a><br><br></div>
+            <div class="footer-content">Inter-Part associativity, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

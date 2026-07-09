@@ -1,0 +1,100 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating a terrain model using Virtual Components</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating a terrain model using Virtual Components"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid452143">
+                     <h1 class="topic-title">Creating a terrain model using Virtual Components</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Overview</h4>
+                  <div>
+                     <p>Digital Terrain Models (DTM) are useful for understanding how buildings and equipment
+                        need to be positioned on a building site. Building a solid model of the terrain using
+                        surveying data is beneficial in calculating where earth has to be added or removed
+                        to position new construction components.</p>
+                     <p>Surface elevations are typically stored as a Triangulated Irregular Network (TIN),
+                        which is a digital data structure used in a Geographic Information System (GIS) for
+                        the representation of a surface. A TIN is a vector-based representation of the physical
+                        land surface or sea bottom, made up of irregularly distributed nodes and lines with
+                        three-dimensional coordinates (X, Y, and Z), which are arranged in a network of triangles
+                        that do not overlap. TINs are often derived from the elevation data of a rasterized
+                        Digital Elevation Model (DEM).</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/virtual_terrain/lotsoftriangles.jpg"></p>
+                     <p>TIN data must be converted into .stl (STereoLithography) format in order to be imported
+                        into a Solid Edge part file. The STL data is imported as a design body consisting
+                        of faceted data.</p>
+                  </div>
+                  <h4 class="division-title">Limitations</h4>
+                  <div>
+                     <p>Even though the faceted triangles can cover large areas, many miles or kilometers
+                        in distance, and have very large coordinate values, there is a limit to the size that
+                        a solid body can be within Solid Edge. The limit is approximately the volume contained
+                        within a one kilometer diameter sphere. Because of this limitation, it is necessary
+                        to create a solid representation of a terrain model by placing the faceted data (part
+                        document) into an assembly. Once in the assembly, the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1d" rel="virtualcomp1d">Virtual Component Structure Editor</a> is used to create the part documents containing the solid body representing the digital
+                        terrain model. Assembly sketches used to define the boundaries of the terrain model
+                        must be small enough to fit within a 700 meter diameter circle. Once published, each
+                        sketch defines a subassembly containing the solid body representing the surface. Adjacent
+                        subassemblies can be created if a larger area is needed.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/assembly/virtual_terrain/solid_limitations.jpg"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>For more information on the virtual component editor, see the help topic <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/virtualcomp1a" rel="virtualcomp1a">Creating and publishing Virtual Components</a>.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Units</h4>
+                  <div>
+                     <p>Part and assembly documents should have units compatible with the source data. For
+                        example, use Km for the length readout if DTM (digital terrain model) values are measured
+                        in kilometers, and km^2 if the area measurements are in square kilometers.</p>
+                  </div>
+                  <h4 class="division-title">Process for creating a terrain model using virtual components</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452255" rel="xid452255">Convert the STL document to a part document</a>.</p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452228" rel="xid452228">Create the assembly and sketch defining the boundaries of the terrain model.</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452229" rel="xid452229">Use the virtual component structure editor to define the terrain models.</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452230" rel="xid452230">Publish the terrain model.</a></p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452255" rel="xid452255">Convert an STL document to a part document</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452228" rel="xid452228">Create the assembly and sketch defining the boundaries of the terrain model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452229" rel="xid452229">Use the Virtual Component Structure Editor to define the terrain models</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid452230" rel="xid452230">Publish the terrain model</a><br><br></div>
+            <div class="footer-content">Creating a terrain model using Virtual Components, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

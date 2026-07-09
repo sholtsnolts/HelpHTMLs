@@ -1,0 +1,222 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate stresses on a basketball hoop</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate stresses on a basketball hoop"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_assy01">
+                     <h1 class="topic-title">Tutorial: Simulate stresses on a basketball hoop</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this activity, you explore how a force applied to a basketball hoop or rim affects
+                     the hoop itself.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_Basketball.asm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy80.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create an analysis study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b> command.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Tetrahedral</b> mesh type, and then click <b>OK</b>. </p>
+                              <p>The <b>Define</b> command in the <b>Geometry</b> group is active.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the backboard as well as the hoop. Click <b>Accept</b> on the command bar.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy81.gif"></p>
+                           </li>
+                           <li>
+                              <p>Display the <b>Simulation</b> tab to see the new study. Expand the <b>Geometry</b> node to show the parts you selected.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy82.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define a force on the rim:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_force_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the toroidal face comprising the rim.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy83.gif"></p>
+                           </li>
+                           <li>
+                              <p>You may need to reorient the load arrow. Select the steering wheel origin.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy85.gif"></p>
+                           </li>
+                           <li>
+                              <p>Move the origin to the top face of the hoop support so the major axis points up.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy85A.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Flip</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_flip_button.gif"> on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a> to flip the load direction.</p>
+                           </li>
+                           <li>
+                              <p>Type <b>1001 N</b> in the value box. This is equal to a 225 pound force load. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy84.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept, and then click to finish. </p>
+                           </li>
+                           <p>The force load is placed.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy87.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Add a fixed constraint to the backboard:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Rotate the view to see the back side of the backboard.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy90.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>, and select the rear face.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy88.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept, and then click to finish. </p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy89.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Define assembly connectors between the rim and the backboard.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>For information about assembly connectors, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a>.</p>
+                        </div>
+                        <ol type="a">
+                           <li>
+                              <p>Rotate the model so you can see the rim and front of the backboard.</p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Simulation</b> tab→<b>Connectors</b> group→<b>Manual</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_assyconn_man_button_on.gif">.</p>
+                              <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a> is displayed.</p>
+                           </li>
+                           <li>
+                              <p>Select the front face of the backboard as the <em>target</em> face.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy92.gif"></p>
+                           </li>
+                           <li>
+                              <p>Zoom in around the rim and select the rear face of the rim support as a <em>source</em> face. Use QuickPick if necessary.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>Ensure you select the rear face of the support, not the face on the inside of the
+                                    thin wall portion of the support.</p>
+                              </div>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy93.gif"></p>
+                           </li>
+                           <li>
+                              <p>Accept the source face selection. </p>
+                           </li>
+                           <li>
+                              <p>Zoom in around the rim and backboard area to see the connector symbols.</p>
+                              <p>Also notice the Simulation tree-view pane has been updated with the connector.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy94.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy95.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the assembly:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Mesh</b> command, and on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh command bar</a>, use the slider to define a subjective mesh size of 3. </p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Mesh</b> button.</p>
+                              <p>The entire assembly is meshed.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy96.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Solve the study:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select the <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b> command. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>If a fatal Nastran error message is displayed instead of a solution, change this setting
+                                    in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a>, and then click <b>Solve</b> again:</p>
+                                 <ol type="A" start="1">
+                                    <li>
+                                       <p>Reopen the <b>Mesh</b> dialog box and click the <b>Options</b> button.</p>
+                                    </li>
+                                    <li>
+                                       <p>On the <b>Mesh Sizing</b> page, in the <b>Geometry Preparation Options</b> section, clear the check box, <b>Prepare geometry for meshing</b>.</p>
+                                    </li>
+                                 </ol>
+                              </div>
+                              <p>After a few moments, the results are displayed in the Simulation Results environment.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy97.gif"></p>
+                           </li>
+                           <li>
+                              <p>Turn off the display of loads, constraints, and connectors in the <b>Simulation</b> pane.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy99.gif"></p>
+                           </li>
+                           <li>
+                              <p>Zoom in on the rim to view the high-stress area.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_assy98.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Locate the maximum stress:</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Color Bar</b> tab→<b>Show</b> group→<b>Max Marker</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy28.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_assy100.gif"></p>
+                              <div class="attention" type="tip">
+                                 <div class="attention-label">Tip: </div>
+                                 <p>You can change the text color and text size of the color bar using options in the
+                                    <b>Color Bar</b> tab→<b>Font</b> group.</p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy02" rel="fem_assy02">Tutorial: Simulate stresses on a valve handle</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_conn01" rel="fem_conn01">Tutorial: Apply edge connectors to an assembly</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_assy03" rel="fem_assy03">Tutorial: Using bolted connections</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><br></div>
+            <div class="footer-content">Tutorial: Simulate stresses on a basketball hoop, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

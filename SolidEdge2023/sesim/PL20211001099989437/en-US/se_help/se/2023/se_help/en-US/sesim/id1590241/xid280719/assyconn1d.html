@@ -1,0 +1,200 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Auto command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Auto command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="assyconn1d">
+                     <h1 class="topic-title">Auto command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The Auto command bar is available when you choose the <b>Auto</b> command to specify connected faces or surfaces for thermal, glue, and no penetration
+                     connectors. In creation mode, the command bar looks like this:</p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/auto_connector_cmdbar2.png"></p>
+                  <p>When you edit a connector, the command bar changes to this format, to provide additional
+                     editing options. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a>.</p>
+                  <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/manual_connector_glue_commandbar.png"></p>
+                  <dl>
+                     <dt><b>Connector Type</b> list</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a#assyconn1a_types" rel="assyconn1a">connection type</a> between assembly faces. </p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>A thermal coupled study requires a thermal connector and a structural connector. To
+                              create both types of connectors, select the <b>Auto</b> command twice. Select it once to define thermal connectors for the thermal analysis,
+                              and select it again to define structural connectors for the linear static analysis.
+                              On the second pass, the <b>Connector Type</b> list only shows the connectors for the analysis not yet defined. </p>
+                        </div>
+                        <dl>
+                           <dt>Glue</dt>
+                           <dd class="ml-3">
+                              <p>A glue connector creates a connection like a stiff spring.</p>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>No Penetration</dt>
+                           <dd class="ml-3">
+                              <p>A no penetration connector prevents faces that touch from penetrating.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The No Penetration Contact connector is equivalent to the NX Nastran Linear Contact
+                                    connector. </p>
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Thermal</dt>
+                           <dd class="ml-3">
+                              <p>A thermal connector defines thermal resistance (conductance) between surfaces or faces
+                                 in a heat transfer study or a thermal coupled study, for example, in thermal insulation
+                                 applications. </p>
+                              <p>Select the <b>Properties</b> button to define the <b>Thermal conductance value</b> in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Connector Properties dialog box</a>. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The <b>Thermal conductance value</b> is based on the contact resistance between the faces (such as steel to copper) and
+                                    the surface finish (for example, shiny or dull).</p>
+                              </div>
+                           </dd>
+                        </dl>
+                        <dl>
+                           <dt>Thermal Glue</dt>
+                           <dd class="ml-3">
+                              <p>A thermal glue connector defines a glue connector in a heat transfer study or a thermal
+                                 coupled study.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Search distance</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the maximum distance faces can be for a connector to be created between
+                           them. </p>
+                        <p>If there are no faces within the specified distance, then connectors are not created.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <ul>
+                              <li>
+                                 <p>The default value, which is different for glue and no penetration connectors, is often
+                                    acceptable.</p>
+                              </li>
+                              <li>
+                                 <p>A value of zero is not allowed. </p>
+                              </li>
+                           </ul>
+                        </div>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_1perpair.gif"> Single Connection Per Face Pair</dt>
+                     <dd class="ml-3">
+                        <p>Select this option to apply one connector per pair of faces rather than multiple connectors
+                           per face pair. This results in fewer connections added to the model.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_options_button.gif"> Default Properties</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a>, where you can specify additional values for no penetration, glue, and thermal connectors.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/sesim_assyconn_selall.gif"> Select All</dt>
+                     <dd class="ml-3">
+                        <p>Adds all geometry that is in the active study to the select set. You can deselect
+                           parts, if desired.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Visibility Options</b></dt>
+                     <dd class="ml-3">
+                        <p>Use the <b>Visibility Options</b> list to review the connected faces in each contact pair. For the currently selected
+                           connector pair, it highlights and shows the target face (red highlight), the source
+                           face (blue highlight), or both faces (green highlight).</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_visibility_both.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_show_target_cmdbar.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_show_source.png"></p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/toggle_hide_transparent_button1.png"> Toggle Hide/Transparent </dt>
+                     <dd class="ml-3">
+                        <p>Use <b>Toggle Hide/Transparent</b> with the <b>Visibility Options</b> list to identify the target and source objects in a connection, and to cycle through
+                           the display of all unconnected parts in transparent mode or in hidden mode. </p>
+                        <div class="attention" type="example">
+                           <div class="attention-label">Example: </div>
+                           <p>When the <b>Show Source</b> visibility option is selected, and <b>Toggle Hide/Transparent</b> is off, the unconnected part is hidden.</p>
+                        </div>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_toggle_hide.png"></p>
+                        <p>When the <b>Show Source</b> visibility option is selected, and <b>Toggle Hide/Transparent</b> is on, the unconnected part is shown in transparent mode.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/connector_toggle_transparent.png"></p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Accept</dt>
+                     <dd class="ml-3">
+                        <p>Accepts the current component selection set and advances the process to the Results
+                           step. See the <b>Results</b> dialog box, below.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Deselect</dt>
+                     <dd class="ml-3">
+                        <p>Discards the current component selection set.</p>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Results</b> dialog box</dt>
+                     <dd class="ml-3">
+                        <p>The <b>Results</b> dialog box lists the connectors that will be created. Each numbered connection is
+                           listed along with the two component bodies it connects. You can click a connection
+                           in the list to see the corresponding bodies highlight in the graphics window.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/connector/sesim_training_act_modal09.gif"></p>
+                        <dl>
+                           <dt>Create Connectors</dt>
+                           <dd class="ml-3">
+                              <p>Creates the connections for all connector pairs in the <b>Results</b> list.</p>
+                           </dd>
+                           <dt>Close</dt>
+                           <dd class="ml-3">
+                              <p>Closes the <b>Results</b> dialog box without creating any connections. The Auto command remains active.</p>
+                           </dd>
+                        </dl>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can remove a connection from the list by selecting it in the list and then pressing
+                              the Delete key.</p>
+                        </div>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn9h" rel="assyconn9h">Create connectors based on assembly relationships</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1h" rel="assyconn1h">Create assembly connectors using the Auto command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2h" rel="assyconn2h">Create manual connections between faces or surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn7h" rel="assyconn7h">Replace target and source connection regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn3h" rel="assyconn3h">Change connector region direction</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn1a" rel="assyconn1a">Assembly connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn6a" rel="assyconn6a">Target and source connector regions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2a" rel="assyconn2a">Assembly connector handles, labels, and symbols</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn5a" rel="assyconn5a">Glue and no penetration contact connectors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1661818" rel="xid1661818">Thermal connectors</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconnqb1d" rel="assyconnqb1d">Assembly Connector command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/assyconn2d" rel="assyconn2d">Assembly Connector Properties dialog box</a><br><br></div>
+            <div class="footer-content">Auto command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

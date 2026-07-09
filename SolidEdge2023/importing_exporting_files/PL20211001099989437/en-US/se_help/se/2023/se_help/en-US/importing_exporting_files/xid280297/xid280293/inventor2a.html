@@ -1,0 +1,209 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Importing Inventor part and assembly documents to Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Importing Inventor part and assembly documents to Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="inventor2a">
+                     <h1 class="topic-title">Importing Inventor part and assembly documents to Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can open Inventor part (.ipt ) or assembly (.iam) documents in Solid Edge assembly,
+                     part, or sheet metal with the Open command. On the Open File dialog box, after you
+                     select the Inventor document you want to open, you can click the Options button to
+                     use the Import Options for Inventor (.ipt, and .iam) dialog box to set the appropriate
+                     import options.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Solid Edge does not support the import of Inventor assembly features such as weld
+                        beads.</p>
+                  </div>
+                  <p>To open Inventor documents you must have Autodesk Inventor View installed on the same
+                     machine as Solid Edge. When you install Inventor, Inventor View is automatically installed.
+                     If you do not have Inventor view installed, either standalone or with Inventor, you
+                     should visit the Autodesk website for a free copy.</p> 
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div> 
+                     <p>Solid Edge supports Autodesk Inventor View 2019.</p> </div>
+                  <p> If you encounter problems while importing the Inventor document(s), turn Enable Logging
+                     on to create a log file of the import processes.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Inventor files must be saved in Inventor V6 or greater before they can be opened in
+                        Solid Edge.</p>
+                  </div>
+                  <p>When Inventor assembly documents are imported, Solid Edge tracks instances of individual
+                     parts within the assembly. If there are multiple instances of a part within the Inventor
+                     assembly, Solid Edge creates one instance of the part and references that part rather
+                     than create multiple instances of the part.</p>
+                  <h4 class="division-title">The InventorDirect2SE.ini file</h4>
+                  <div>
+                     <p>The InventorDirect2SE.ini file, in the Solid Edge 2023\Preferences\Translators folder,
+                        stores the dialog box settings. When you change a parameter in the dialog box, a new
+                        value is saved to the InventorDirect2SE.ini file. The following is a list of parameters
+                        found in the InventorDirect2SE.ini file.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="80%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="30%">
+                           <col span="1" align="left" width="70%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Parameter</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Description</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Boolean Solids =On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of Boolean solids in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Check Bodies=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of all curves as a single part copy in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import DoNotSave=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls whether or not assembly components are created on import, or on the initial
+                                 save of the assembly.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Drive=C:</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the drive where the documents for the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Enable Default Output Path=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the enabling of the default output path.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Healing and Sewing=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of heal and sew surfaces in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Imprint Curves=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of all curves as a single part copy in the imported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Make Base Feature=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls if the imported features become the base features in the new file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Multiple Bodies as Single Part</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of multiple solid bodies as a single part in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Output Path=” “</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the path for the output folder of the documents being imported.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Path=" “</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the value for the path where the documents are imported.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Simplify Geometry=Off</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of simplified geometry in the imported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Stitch Surfaces=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of stitch surfaces in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Enable Logging=0</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Turns on or off the creation of the log file.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <h4 class="division-title">File property translation</h4>
+                  <div>
+                     <p>Inventor file properties are mapped to Solid Edge properties when the Inventor document
+                        is imported. Solid Edge does not translate the color in Inventor documents when the
+                        document is imported.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor2h" rel="inventor2h">Open an Inventor document in Solid Edge</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventorimport1d" rel="inventorimport1d">Import Options for Inventor (.ipt and .iam) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/inventor3d" rel="inventor3d">Saving Changes dialog box</a><br><br></div>
+            <div class="footer-content">Importing Inventor part and assembly documents to Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

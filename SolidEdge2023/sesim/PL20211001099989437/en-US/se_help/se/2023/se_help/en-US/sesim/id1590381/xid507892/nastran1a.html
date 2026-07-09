@@ -1,0 +1,223 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>NX Nastran processing options</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="NX Nastran processing options"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="nastran1a">
+                     <h1 class="topic-title">NX Nastran processing options</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">NX Nastran processing options overview</h4>
+                  <div>
+                     <p>Solid Edge Simulation employs the NX Nastran solver to process your finite element
+                        analysis studies. Solid Edge Simulation gives you access to NX Nastran processing
+                        options in several ways: </p>
+                     <ul>
+                        <li>
+                           <p>Solid Edge Simulation automatically appends a set of keywords to a default <b>.rcf</b> file <b>(SENastran*.rcf)</b> provided with the setup. This file is written to the same location as the NX Nastran
+                              <b>.dat</b> file, which is a local .rcf file generated for each study.</p>
+                           <p>To alter the study processing parameters, for example, to increase the memory allocation,
+                              edit the appropriate <b>(SENastran*.rcf)</b> file in the installation directory.</p>
+                           <p>To learn more: <a class="xref" href="#defaultt_rcf">Default SENastran*.rcf files</a>.</p>
+                        </li>
+                        <li>
+                           <p>Advanced users can define default NX Nastran solving options in an <b>nastr.rcf</b> file in their home directory: <b>%HOMEDRIVE%%HOMEPATH%\nastr.rcf</b>.</p>
+                           <p>The local .rcf files are copied from the installation directory. </p>
+                           <p>To learn more: <a class="xref" href="#local_rcf">Local .rcf files</a>.</p>
+                        </li>
+                        <li>
+                           <p>Advanced users can add <a class="xref" href="#commandline_keyw">command line keywords</a> to the command line in the Advanced options (New Study command bar).</p>
+                        </li>
+                     </ul>
+                     <p>You can review and edit some of these processing options in the NX Nastran Keyword
+                        Editor.</p>
+                  </div>
+                  <h4 class="division-title" id="keyweditor">Using the NX Nastran Keyword Editor</h4>
+                  <div>
+                     <p>The NX Nastran Keyword Editor is a multi-tabbed text edit window for advanced users
+                        to review default processing options and to add and edit user-defined keywords and
+                        values to the <b>Study Name.rcx</b> file. This editor displays three tabs:</p>
+                     <ul>
+                        <li>
+                           <p>Study Options tab—Use this tab to enter and modify your own NX Nastran options for
+                              the active study. Keywords access NX Nastran processing options that are not available
+                              through the Solid Edge Simulation user interface. You can click in the box to type
+                              new keywords, and you can cut, copy, and paste using standard keyboard shortcut commands.</p>
+                           <p> An example of how you can use the Study Options tab is to specify that you want the
+                              solver to ignore warning messages during processing. Consult the <b>NX Nastran User Guide.pdf</b> for a list of the keywords and values that are valid in <b>.rc</b> files.</p>
+                        </li>
+                        <li>
+                           <p>Generated Options tab—Displays the options defined in Solid Edge on the New Study
+                              command bar, in the Solid Edge Options dialog box, and by other commands in the Solid
+                              Edge Simulation user interface. This tab is read-only.</p>
+                        </li>
+                        <li>
+                           <p>Default Options tab—Shows the default options provided in the SENastran*.rcx file
+                              for each study type. This tab is read-only.</p>
+                        </li>
+                     </ul>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/processing/sesim_nastran_study_keyword_editor.gif"></p>
+                     <p>These three sets of keywords—Study Options, Generated Options, and Default Options—are
+                        joined to create the <b>Study Name.rcx</b> local file that is used as input when the current study is solved. These options
+                        are saved automatically with the study when you save the file or when NX Nastran runs.
+                        </p>
+                  </div>
+                  <h4 class="division-title" id="commandline_keyw">Command line keywords</h4>
+                  <div>
+                     <p>You can use the NX Nastran Command Line Options box in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d#adv_opts" rel="study1d">Advanced options, Create Study (or Modify Study) dialog box</a> to add keywords that are only permitted on the command line, such as dmparallel.
+                        You also can use the Command Line Options box to add any other supported command line
+                        keyword. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <ul>
+                           <li>
+                              <p><b>memory=</b><i>size</i>, to specify the amount of open core memory to allocate to a processing job. </p>
+                           </li>
+                           <li>
+                              <p><b>sdirectory=</b><i>pathname</i>, to specify the directory to use for temporary scratch files created during the run.
+                                 You must have read, write, and execute privileges to the directory.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>Here are some <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran3a" rel="nastran3a">NX Nastran basic command line keywords</a>.</p>
+                     <p>For information about command line keywords, see Appendix B, Keywords and Environment
+                        Variables, in the <b>NX Nastran Installation and Operations Guide.pdf</b>. This document is not delivered with Solid Edge Simulation.</p>
+                  </div>
+                  <h4 class="division-title" id="defaultt_rcf">Default SENASTRAN*.rcf files</h4>
+                  <div>
+                     <p>Six default SENASTRAN*.rcf files are installed with Solid Edge in the <b>C:/Program Files/Siemens/Solid Edge 2023/Simulation/Common/NXNastranRCFiles</b> directory. These are text files which initially contain default processing parameters,
+                        such as memory allocation, scratch file directory, and whether to delete the database
+                        file after processing. The files in the installation directory are copied to the local
+                        <b>.rcf</b> files in the scratch directory when study processing begins.</p>
+                     <p>If you want to alter the processing parameters, use a text editor to edit the appropriate
+                        SENASTRAN*.rcf file in the installation directory.</p>
+                     <p>The six files are specific to the type of analysis being performed.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="100%" frame="border">
+                        <colgroup span="1">
+                           <col span="1">
+                           <col span="1">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>File name</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Analysis type</p>
+                              </td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SENASTRANBucklingPlate.rcf</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Buckling 2D</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SENASTRANBucklingTet.rcf</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Bucking tetrahedral</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SENASTRANModalPlate.rcf</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Modal 2D</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SENASTRANModalTet.rcf</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Modal tetrahedral</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SENASTRANStressPlate.rcf</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Stress 2D</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SENASTRANStressTet.rcf</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Stress tetrahedral</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title" id="local_rcf">Local .rcf files</h4>
+                  <div>
+                     <p>Advanced users can define their own default NX Nastran options in their local environment:
+                        <b>%HOMEDRIVE%%HOMEPATH%\nastr.rcf</b>. Generally, you should do this to avoid command line strings that are too long to
+                        view and edit.</p>
+                     <p>You can specify a different local file using the <b>rcf</b> command line keyword:</p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p><b>rcf=</b><i>pathname</i> </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Precedence of duplicate keywords</h4>
+                  <div>
+                     <p>If you enter a duplicate keyword with a different value, then the different values
+                        are evaluated in the following order, with number one representing the highest precedence:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>NX Nastran statements in the input file, <b>Study Name.rcx</b>. </p>
+                        </li>
+                        <li>
+                           <p>Keywords on the command line. </p>
+                        </li>
+                        <li>
+                           <p>Local <b>.rcf</b> file. </p>
+                        </li>
+                        <li>
+                           <p>User <b>.rcf</b> file. </p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid849277" rel="xid849277">Set units for .modfem files opened in Femap</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1h" rel="savefea1h">Save a study to Femap</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/ref1a" rel="ref1a">FEA processing resources</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feafiles1a" rel="feafiles1a">FEA architecture and files</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1a" rel="savefea1a">Saving FEA documents</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid849256" rel="xid849256">Setting units for files opened in Femap</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran1d" rel="nastran1d">Simulation Progress dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran3a" rel="nastran3a">NX Nastran basic keywords</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2a" rel="nastran2a">NX Nastran processing errors</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/nastran2d" rel="nastran2d">NX Nastran Solve Error dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/savefea1d" rel="savefea1d">Save Femap Model File dialog box</a><br><br></div>
+            <div class="footer-content">NX Nastran processing options, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

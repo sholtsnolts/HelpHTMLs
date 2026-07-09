@@ -1,0 +1,142 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Optimizing study results</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Optimizing study results"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid610944">
+                     <h1 class="topic-title">Optimizing study results</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><h4 class="division-title">What is design optimization?</h4>
+                  <div>
+                     <p>Design optimization in Solid Edge Simulation refines the results of a structural or
+                        thermal analysis of a part, sheet metal, or assembly model by changing the study geometry.
+                        You can use the <b>Simulation</b> tab→<b>Study</b> group→<b>New Optimization</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/sesim_new_optimization_command.gif"> to:</p>
+                     <ul>
+                        <li>
+                           <p>Solve a linear static study, and then use the Optimize command to optimize the geometry
+                              for stress, displacement, or factor of safety. </p>
+                        </li>
+                        <li>
+                           <p>Solve a steady state heat transfer study, and then optimize it to minimize heat dissipation.</p>
+                        </li>
+                        <li>
+                           <p>Solve a buckling study, and then find the maximum buckling load factor.</p>
+                        </li>
+                        <li>
+                           <p>Solve a modal study, and then optimize it for a maximum or minimum resonant frequency.</p>
+                        </li>
+                     </ul>
+                     <p>Optimization predicts how a design withstands loading conditions as one or more variables
+                        are evaluated across a range of values. The optimum design is one that meets all specified
+                        requirements but with a minimum expense of certain factors such as weight, surface
+                        area, volume, stress, and cost. The optimum design is usually one that is as effective
+                        as possible.</p>
+                     <p>Optimization is useful when:</p>
+                     <ul>
+                        <li>
+                           <p>Some features in the design can be changed and this can be done automatically. </p>
+                        </li>
+                        <li>
+                           <p>An analysis program can determine the merit of the design. In principle, any quantity
+                              that can be calculated from the design can be used as a criterion during optimization.</p>
+                        </li>
+                        <li>
+                           <p>The best values for some of the design variables are not obvious. For example, you
+                              believe that you have the correct design, but you would like to validate it before
+                              proceeding.</p>
+                        </li>
+                     </ul>
+                     <p>It is better to use optimization earlier in the product design process than later.
+                        As designs become more complex, they become more difficult to evaluate.</p>
+                  </div>
+                  <h4 class="division-title">Defining the optimization problem</h4>
+                  <div>
+                     <p>Optimization can be used to solve for a specific value. You also can choose a general
+                        quality that you want to optimize for, such as weight. For both types of problems,
+                        this is the <em>design objective</em>. There can be just one design objective per optimization.</p>
+                     <p>The optimized design should either maximize or minimize the objective by changing
+                        <em>design variables</em>, while keeping critical results within defined <em>design limits</em>. </p>
+                     <ul>
+                        <li>
+                           <p>The design objective is a model property or simulation result (the goal) that you
+                              are trying to affect. This is similar to 3D goal seeking, but design optimization
+                              is only for simulation studies, and it solves more complex what-if scenarios.</p>
+                        </li>
+                        <li>
+                           <p>Design variables are the changeable dimensions or other variables of the model, as
+                              defined in the Variable Table and in the<b> Physical Properties </b>dialog box. </p>
+                        </li>
+                        <li>
+                           <p>A design limit is the condition that the optimization study must satisfy. </p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>Your goal is to reduce the cost to manufacture a part by minimizing its weight (the
+                           design objective). But you also need to maintain a stress level that is less than
+                           yield stress (the conditions which the optimization study must satisfy). To do this,
+                           you want to allow the optimization process to adjust one or more dimensions (the design
+                           variables).</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimization_geometry.gif"></p>
+                     </div>
+                     <p>Virtually any aspect of your design can be optimized to achieve a design objective.</p>
+                  </div>
+                  <h4 class="division-title">Running the design optimization analysis</h4>
+                  <div>
+                     <p>The <b>New Optimization</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/sesim_new_optimization_command.gif"> is available from the ribbon on the <b>Simulation</b> tab→<b>Study</b> group, as well as on the shortcut menu of a selected simulation study. Selecting
+                        this command displays the wizard-like <b>Optimization</b> dialog box, which is where you select the variables to use in the optimization, and
+                        where you launch the optimization process. </p>
+                     <p>If you begin defining optimization parameters but are unable to finish, you can save
+                        the inputs you have defined for use at another time. You can complete the process
+                        using the <b>Edit Optimization</b> shortcut command.</p>
+                     <ul>
+                        <li>
+                           <p>For general information about specifying the variables and the parameters of the design
+                              optimization, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613076" rel="xid613076">Defining design optimization parameters</a>. </p>
+                        </li>
+                        <li>
+                           <p>You can select the <b>Help</b> button on each page of the <b>Optimization</b> dialog box to learn about each of the options on that page.</p>
+                        </li>
+                        <li>
+                           <p>For a step-by-step example of how to define the problem and specify the parameters,
+                              see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612963" rel="xid612963">Minimize the mass of a part with design optimization</a>.</p>
+                        </li>
+                     </ul>
+                     <p>During the optimization analysis, Solid Edge Simulation performs a series of analysis-evaluation
+                        modification cycles. That is, an analysis of the initial design is performed, the
+                        results are evaluated against specified design criteria, and the design is modified
+                        as necessary. This process is repeated until all specified criteria are met.</p>
+                     <p>For postprocessing information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid654835" rel="xid654835">Displaying and modifying the optimization results</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612963" rel="xid612963">Minimize the mass of a part with design optimization</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1h" rel="meshprops1h">Override mesh properties</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels4a" rel="feamodels4a">Using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels6a" rel="feamodels6a">Specifying material properties accurately</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels5a" rel="feamodels5a">Offsetting edges around holes, openings, and fasteners</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels3a" rel="feamodels3a">Removing geometry flaws and small entities</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid654835" rel="xid654835">Displaying and modifying the optimization results</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612930" rel="xid612930">Best practices for design optimization</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613076" rel="xid613076">Defining design optimization parameters</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613006" rel="xid613006">How overriding properties affects design optimization</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feaprops1a" rel="feaprops1a">Simulation materials and properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1a" rel="meshprops1a">Mesh material properties</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610945" rel="xid610945">Design Objective (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610946" rel="xid610946">Design Limits (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610947" rel="xid610947">Design Variables (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610948" rel="xid610948">Control Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid610949" rel="xid610949">Convergence Parameters (Optimization dialog box)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613198" rel="xid613198">Design Limit/Design Variable Rule Editor</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid613088" rel="xid613088">Convergence status dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshpropsqb1d" rel="meshpropsqb1d">Override Property command bar</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a><br><br></div>
+            <div class="footer-content">Optimizing study results, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

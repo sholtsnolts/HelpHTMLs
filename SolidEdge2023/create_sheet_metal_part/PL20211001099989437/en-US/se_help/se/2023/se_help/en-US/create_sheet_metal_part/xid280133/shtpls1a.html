@@ -1,0 +1,141 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Adding sheet metal deformation features</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Adding sheet metal deformation features"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="shtpls1a">
+                     <h1 class="topic-title">Adding sheet metal deformation features</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can model features in the Sheet Metal environment that are manufactured with metal
+                     deformation techniques, such as deep drawing and coining. When parts are manufactured
+                     using deformation techniques, material thinning typically occurs. In Solid Edge, this
+                     material thinning is ignored and deformation features are constructed using the same
+                     material thickness specified for the model.</p>
+                  <h4 class="division-title" id="deformacrossbends">Adding deformation features across bends</h4>
+                  <div>
+                     <p>In the ordered environment, you can add deformation features, such as beads, dimples,
+                        and drawn cutouts across a bend created in version ST6 or later.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend1.gif"></p>
+                     <p>You can also create a louver that lies completely inside a bend region.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend2.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Deformation features can only be created across a bend when the bend is in the unbent
+                           state. Also, if there is a flat in the file then it needs to be deleted and recreated.</p>
+                     </div>
+                     <h5>Adding deformation features across a bend: workflow</h5>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>Unbend the bend or bends that the deformation feature will cross.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend3.gif"></p>
+                        </li>
+                        <li>
+                           <p>Create the deformation feature.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend4.gif"></p>
+                        </li>
+                        <li>
+                           <p>Rebend the unbent portions of the model.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend5.gif"></p>
+                           <p>You can create deformation features across either the inside face (A) or the outside
+                              face (B) of a bend.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/bead_across_bend1.gif"></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>If the deformation feature is a bead, it can be either parallel (A) or nonparallel
+                                 (B).</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend10.gif"></p>
+                           </div>
+                           <p>The deformation feature can also lie completely inside the bend region.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend11.gif"></p>
+                           <p>For deformation features inside the face, the depth of the deformation feature crossing
+                              the bend must be smaller than the associated bend radius. In cases where the deformation
+                              feature crosses multiple bends, the depth of the bead must be smaller than the smallest
+                              bend radius in the group.</p>
+                           <p>For example, if a bead crosses a bend with a bend radius of 6 mm (A) and a bend with
+                              a bend radius of 10 mm (B).<img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend6.gif"></p>
+                           <p> the bead depth must be less than 6 mm. In this case the bead depth is 5 mm.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend7.gif"></p>
+                           <p>For bends outside the face, the depth of the deformation can be greater than the smallest
+                              bend radius in the group. In the following example, the smallest bend radius is 5
+                              mm, but the depth of the drawn cutout is 10 mm.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend8.gif"></p>
+                           <p>When creating a dimple or drawn cutout across a bend, the feature can be created with
+                              either a closed profile,</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend16.gif"></p>
+                           <p>or with an open profile.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend15.gif"></p>
+                        </li>
+                     </ol>
+                     <h5>Editing deformation features across and within bends</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>The Edit Definition, Edit Profile, and Dynamic Edit commands are available for deformation
+                              features that extend across or lie within a bend. The workflow for editing deformation
+                              features does not change for these type of deformation features.</p>
+                        </li>
+                     </ul>
+                     <h5>Inserting bends across deformation features</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>In addition to creating a deformation feature across a bend, you can use the Bend
+                              command to insert a bend across existing deformation features, For example, the following
+                              model consists of three louvers created on a tab.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend13.gif"></p>
+                           <p>Using the Bend command, you can create a bend that crosses the louvers.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend14.gif"></p>
+                           <p>While you cannot insert a deformation feature across a bend created in a version prior
+                              to ST6, you can insert a bend across a deformation feature created prior to 2023.
+                              For example, the model consists of two dimples created on a tab in a version prior
+                              to 2023.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend_17.gif"></p>
+                           <p>Using the Bend command in version 2023 or later, you can create a bend that crosses
+                              the dimples.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheetmetal/feature/procedure/deform_across_bend_18.gif"></p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When creating a bend across a deformation feature, the bend line must extend completely
+                                 across the feature.</p>
+                           </div>
+                        </li>
+                     </ul>
+                     <h5>Flattening deformation features</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>You can also flatten deformation features, such as dimples, on bends.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/flatdimple1.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/xid480715" rel="xid480715">Add a deformation feature across a bend</a><br><br></div>
+            <div class="footer-content">Adding sheet metal deformation features, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

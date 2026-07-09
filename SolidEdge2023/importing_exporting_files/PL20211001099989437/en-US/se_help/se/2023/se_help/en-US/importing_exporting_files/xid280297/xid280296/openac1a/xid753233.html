@@ -1,0 +1,88 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Defining AutoCAD block origins on import</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Defining AutoCAD block origins on import"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid753233">
+                     <h1 class="topic-title">Defining AutoCAD block origins on import</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Blocks in AutoCAD are often created with the AutoCAD default origin of 0,0. Because
+                     of this, when blocks are placed within a drawing file, there may be problems with
+                     the location, relative to the origin of the file. In other words, the blocks may be
+                     placed a great distance from the origin. To solve this problem, you can use the Modify
+                     Block Origins on import parameter, located in the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/acse5a#seacadini" rel="acse5a">seacad.ini file</a> to redefine the block origin based on the range of elements within the block. Setting
+                     the parameter value to 0 does not change the block origin when you import the file.
+                     Setting the parameter value to 1 changes the block origin to the lower left hand corner
+                     of the range.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Changing the block origin does not affect the location of the graphics relative to
+                        the origin of the file.</p>
+                  </div>
+                  <h4 class="division-title">Importing multiline text</h4>
+                  <div>
+                     <p>You can use the Multiline text as Multiline text parameter in the seacad.ini to control
+                        how Solid Edge imports AutoCAD.multiline text. By default, the parameter is set to
+                        1, which imports multiple lines of text within a single text box. When set to 1, the
+                        AutoCAD text string wraps based on the width of the text box. You can set the parameter
+                        to 0 to import multiline text as multiple single line text boxes blocked together.</p>
+                  </div>
+                  <h4 class="division-title">Importing multileader objects</h4>
+                  <div>
+                     <p>You can import multileader objects, which are objects that contain a leader, text,
+                        or block data, into Solid Edge. When imported into Solid Edge the text is imported
+                        as a single text box with a leader grouped within a block.</p>
+                     <p>The following describes how other multileader objects are imported into Solid Edge:</p>
+                     <ul>
+                        <li>
+                           <p>AutoCAD multileader objects that contain predefined or user-defined blocks are translated
+                              to Solid Edge as a leader, block, and block label. The AutoCAD leader is translated
+                              to Solid Edge as a leader. The AutoCAD block geometry is translated Solid Edge as
+                              a block. The AutoCAD attribute is translated to Solid Edge as a draft label. The leader
+                              and block are placed in a graphic group so you can move both objects with one selection.</p>
+                        </li>
+                        <li>
+                           <p>AutoCAD multileader objects that do not reference any geometry or text (leader only)
+                              are translated to Solid Edge as a leader without text.</p>
+                        </li>
+                        <li>
+                           <p>AutoCAD multileader objects with a leader type set to None are translated to Solid
+                              Edge as a text box, or block without a leader.</p>
+                        </li>
+                        <li>
+                           <p>AutoCAD multileader objects that contain more than one leader are translated to Solid
+                              Edge as two or more leaders. All of the leaders are placed in a single graphic group
+                              so that you can move all objects with one selection.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Defining AutoCAD block origins on import, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

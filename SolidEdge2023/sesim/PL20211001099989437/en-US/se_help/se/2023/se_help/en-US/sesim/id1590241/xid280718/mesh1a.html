@@ -1,0 +1,136 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Meshes</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Meshes"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="mesh1a">
+                     <h1 class="topic-title">Meshes</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"><br><h4 class="division-title">Mesh overview</h4>
+                  <div>
+                     <p>A mesh is a complex system of grid points that overlay the model geometry. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/mesh/sesim_mesh_show.gif"></p>
+                     <p>The mesh contains the material and structural properties, which define how the structure
+                        reacts to certain loading conditions. </p>
+                  </div>
+                  <h4 class="division-title" id="mesh1a_define">Defining a mesh</h4>
+                  <div>
+                     <p>To define and generate a mesh, use the <b>Mesh</b> command, which is located in the <b>Mesh</b> group on the <b>Simulation</b> tab, and on the <b>Mesh</b> shortcut menu in the <b>Simulation</b> navigator pane. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/mesh/sesim_mesh_ribbon.gif"></p>
+                     <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a>, displays basic meshing controls appropriate to your mesh type: </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <ul>
+                           <li>
+                              <p>Mesh type is specified when the study is created. </p>
+                           </li>
+                           <li>
+                              <p>You can mesh the model without defining any loads or constraints, but a material must
+                                 be assigned.</p>
+                           </li>
+                        </ul>
+                     </div>
+                     <p>Additional meshing options are available in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a>. Mesh type options specify how the model is meshed, such as providing control on
+                        specific surfaces and edges.</p>
+                  </div>
+                  <h4 class="division-title" id="mesh1a_type">Mesh type</h4>
+                  <div>
+                     <p>Your model geometry largely determines the mesh type that is used to solve the model.
+                        Solid Edge Simulation supports several types of meshing.</p>
+                     <ul>
+                        <li>
+                           <p>Tetrahedral meshing breaks the part into a number of smaller volumes for analysis.
+                              For most models, tetrahedral meshing is appropriate. </p>
+                        </li>
+                        <li>
+                           <p>Surface meshing provides a faster and more accurate analysis when dealing with thin
+                              bodies such as sheet metal and thin wall parts. </p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p><em>Surface meshing</em> is equivalent to <em>shell meshing</em> in NX Nastran and Femap.</p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>The <b>Beam</b> mesh type is available for frames.</p>
+                        </li>
+                        <li>
+                           <p>Assemblies that contain both sheet metal and standard parts or united bodies use a
+                              <b>Mixed and General Bodies</b> mesh type.</p>
+                           <p>General bodies meshing produces a continuous mesh for solids and surfaces united into
+                              single bodies. This is useful for meshing parts with T-shaped junctions.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>T-shaped junctions at (A) and (B).</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/teejunction2.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/teejunction1.gif"> </p>
+                           </div>
+                        </li>
+                     </ul>
+                     <p>When a united body is meshed, the surface bodies receive a 2D mesh and the solids
+                        receive a 3D mesh. You can use the <b>Simulation</b> tab→<b>Geometry</b> group→<b>Override Property</b> command to apply a different material or material thickness to individual faces or
+                        surfaces on a surface body. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshprops1a" rel="meshprops1a">Mesh material properties</a>.</p>
+                  </div>
+                  <h4 class="division-title">Editing a mesh</h4>
+                  <div>
+                     <p>After creating the initial mesh with the <b>Mesh</b> command, you can fine-tune the density, shape, and boundary of the mesh. You can:</p>
+                     <ul>
+                        <li>
+                           <p>Identify areas where the mesh needs to be improved on individual parts and bodies.
+                              For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a>.</p>
+                        </li>
+                        <li>
+                           <p>Make changes in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a>, and then mesh again using the <b>Remesh</b> command.</p>
+                        </li>
+                        <li>
+                           <p>Refine the mesh using the <b>Edge Size</b>, <b>Surface Size</b>, or <b>Body Size</b> commands. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Mesh sizing is not available for a Beam mesh.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title" id="mesh1a_errors">Resolving meshing errors</h4>
+                  <div>
+                     <p>When meshing fails, an error message dialog box is displayed. This dialog box contains
+                        suggestions for simplifying the model to resolve meshing errors. </p>
+                     <p>One way to do this is to adjust the value used by the <b>Prepare geometry for meshing</b> algorithm in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a>, on the <b>Mesh Sizing</b> tab, under <b>Geometry Preparation Options</b>. Because you are only changing the mesh options, you can select the <b>Remesh</b> shortcut command to try meshing again.</p>
+                     <p>When meshing fails on an assembly, the error message dialog box also lists all of
+                        the study geometry preceded by pass or fail icons. The parts that failed are selected
+                        automatically when you open the Geometry Inspector.</p>
+                     <p>After you change the physical model, you must run the <b>Mesh</b> command again. Parts or components that meshed successfully the first time do not
+                        need to be reprocessed. In an assembly, only the parts that were changed are selected
+                        automatically for meshing.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1h" rel="mesh1h">Mesh the model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing01" rel="fem_mesh_sizing01">Activity: Use subjective mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sheetmetal01" rel="fem_mesh_sheetmetal01">Activity: Apply a surface mesh to a sheet metal part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing02" rel="fem_mesh_sizing02">Activity: Size the mesh on an edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_mesh_sizing03" rel="fem_mesh_sizing03">Activity: Size the mesh on a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh2a" rel="mesh2a">Mesh sizing</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid607891" rel="xid607891">Examining the mesh</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid612999" rel="xid612999">Identifying areas of poor mesh quality</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d">Mesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh6d" rel="mesh6d">Body Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh8d" rel="mesh8d">Edge Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh7d" rel="mesh7d">Surface Size dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2062359" rel="xid2062359">Check Element Quality</a><br><br></div>
+            <div class="footer-content">Meshes, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

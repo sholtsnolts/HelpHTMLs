@@ -1,0 +1,180 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simplify a bicycle stem for simulation</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simplify a bicycle stem for simulation"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_simplify01">
+                     <h1 class="topic-title">Tutorial: Simplify a bicycle stem for simulation</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In many instances, you must perform a simulation on a critical part in an assembly.
+                     You could simulate the entire assembly, but that may entail a lot of time and effort
+                     in model setup plus the possibility of a long solve time. A viable alternative may
+                     be to simplify the simulation without compromising the integrity of the results.</p>
+                  <p>You do this by:</p>
+                  <ul>
+                     <li>
+                        <p>Imposing the necessary boundary conditions onto the critical part, not the entire
+                           assembly, thereby saving time and effort.</p>
+                     </li>
+                     <li>
+                        <p>Simplifying the problem by removing features that are not crucial to the physical
+                           behavior of the part under loading. </p>
+                     </li>
+                  </ul>
+                  <p>In this activity, you do both of the above on the stem supporting a bicycle handlebar.
+                     Specifically, you determine the stress on the stem when a force of 667 N (or 150 pounds-force)
+                     is applied to the handlebar, and hence the stem. You can assume that the force is
+                     completely transmitted to the front end of the stem; therefore, the entire handlebar
+                     assembly can be simulated by focusing on the stem itself.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_assy75.gif"></p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp34.gif"></p>
+                  <p>The stem part is an assembly consisting of two pieces. Yet the applied force can be
+                     considered acting upon the rear of the handlebar mount portion of the stem.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp36.gif"></p>
+                  <p>As part of the simplification process, you could remove the bolted features, as these
+                     do not play a role in the study.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp35.gif"></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When doing any simulation, you should look at a part outside of its assembled context,
+                        as well as reduce its geometric complexity. You get accurate results in a shorter
+                        period of time.</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Open <b>FE_bicycle_stem.par</b>. </p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp35.gif"></p>
+                     </li>
+                     <li>
+                        <p>Create a new study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>. </p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>The part has a defined material of <b>Aluminum, 6061–T6</b>.</p>
+                              </div>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Tetrahedral</b> mesh type. </p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Rotate the view so you can see the underside.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp37.gif"></p>
+                     </li>
+                     <li>
+                        <p>Add a force load.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/optimize/optimize_training/sesim_Force_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the underside faces shown.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp38.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the origin of the steering wheel and drag it so that it snaps to the edge of
+                                 the cylinder.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp39.gif"></p>
+                           </li>
+                           <li>
+                              <p>While holding the Shift key, select the steering wheel torus.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp42.gif"></p>
+                           </li>
+                           <li>
+                              <p>Type an angle of <b>150°</b> and click in the upper-left quadrant of the steering wheel torus.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp43.gif"></p>
+                           </li>
+                           <li>
+                              <p>Type <b>667 N</b> (150 pounds-force) for the force value.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/optimize/optimize_training/sesim_training_act_disp44.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept the force, and then click <b>Finish</b>.</p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp45.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Rotate the view so you can see the top of the part.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp46.gif"></p>
+                     </li>
+                     <li>
+                        <p>Define a fixed constraint on several faces.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/optimize/optimize_training/sesim_Constraints_fixed_button.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the top and bottom planar faces, as well as the outer and inner cylindrical
+                                 faces as shown.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp47.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click in space to accept and click to finish. </p>
+                           </li>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp48.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve the study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the <b>Simulation Pane</b>, turn off constraints and loads by clearing their respective boxes.</p>
+                           </li>
+                           <li>
+                              <p>Select the <b>Mesh</b> command, and then select <b>Mesh &amp; Solve</b>.</p>
+                              <p>After a few moments, the part is meshed and solved. Stress results are displayed in
+                                 the <b>Simulation Results</b> environment.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/optimize/optimize_training/sesim_training_act_disp51.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Choose <b>Home</b> tab→<b>Data Selection</b> group→<b>Displacement</b>.</p>
+                        <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/optimize/optimize_training/sesim_training_act_disp52.gif"></p>
+                        <p>Results for displacement are displayed.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_disp53.gif"></p>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_force03" rel="fem_force03">Tutorial: Simplify a model and apply a load using X, Y, Z components</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_sm-assy01" rel="fem_sm-assy01">Tutorial: Simplify a sheet metal assembly</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a><br><br></div>
+            <div class="footer-content">Tutorial: Simplify a bicycle stem for simulation, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

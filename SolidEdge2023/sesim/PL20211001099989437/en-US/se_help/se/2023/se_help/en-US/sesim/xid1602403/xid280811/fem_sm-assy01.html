@@ -1,0 +1,259 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simplify a sheet metal assembly</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simplify a sheet metal assembly"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_sm-assy01">
+                     <h1 class="topic-title">Tutorial: Simplify a sheet metal assembly</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this activity, you use the <b>Mid-Surface</b>, <b>Extend</b>, and <b>Unite Body</b> commands on the <b>Simulation Geometry</b> tab to simplify an assembly for simulation. </p>
+                  <p>For information about these and other techniques, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a>.</p>
+                  <ol type="1">
+                     <li>
+                        <p>Open the file <b>Unite_body.asm</b>.</p>
+                        <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy01.gif"></p>
+                     </li>
+                     <li>
+                        <p>Choose <b>File</b> menu→<b>Save As</b>→<b>Save As</b> command, and give this file a unique name. You will use the saved copy of the file
+                           to create a second study later in this activity.</p>
+                     </li>
+                     <li>
+                        <p>Create mid-surfaces.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>Simulation Geometry</b> tab→<b>Surfaces</b> group→<b>Mid-Surface</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_midsurface_button_on.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select the vertical tab.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy02.gif"></p>
+                           </li>
+                           <li>
+                              <p>On the <b>Mid-Surface</b> command bar, click <b>Offset From Side 1</b>, and ensure <b>Offset Ratio</b> is set to <b>0.500</b>.</p>
+                              <p>You can see that the part is automatically selected, and the mid-surface is displayed
+                                 in green.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Preview</b> button, and then click <b>Finish</b>.</p>
+                           </li>
+                           <li>
+                              <p>Repeat for the other two tabs.</p>
+                           </li>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Several <b>Mid Surface</b> nodes are displayed on the <b>Simulation</b> pane but not on the <b>Assembly PathFinder</b>. </p>
+                           </div>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Expose the mid-surfaces.</p>
+                        <ol type="a">
+                           <li>
+                              <p>In the empty space around the view, right-click and select <b>Show/Hide All Components</b>. </p>
+                           </li>
+                           <li>
+                              <p>In the <b>Show All/Hide All</b> dialog box, select the <b>Show All</b> check box to the right of <b>Surfaces</b>, and select the <b>Hide All</b> check box to the right of <b>Design body</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy04.gif"></p>
+                           </li>
+                           <p>This exposes just the mid-surfaces.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy05.gif"></p>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Extend these surfaces.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Select <b>View</b> tab→<b>Views</b> group→<b>Left View</b> to rotate the view.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy05a.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy06.gif"></p>
+                              <p>Notice the gaps between the mid-surfaces of each tab. You need to extend each mid-surface.</p>
+                           </li>
+                           <li>
+                              <p>Press Ctrl+I to rotate to an isometric view.</p>
+                           </li>
+                           <li>
+                              <p>Choose <b>Simulation Geometry</b> tab→<b>Surfaces</b> group→<b>Extend</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/surfacing/training/extendsurface.gif">.</p>
+                           </li>
+                           <li>
+                              <p>Extend the first edge—</p>
+                              <ol type="A">
+                                 <li>
+                                    <p>Select and accept the edge shown. </p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy07.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p>On the command bar, click <b>Extend to</b>, and then select the vertical face.</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy07_face.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p>Click <b>Finish</b> to complete <b>Extend Surface_1</b>.</p>
+                                 </li>
+                              </ol>
+                           </li>
+                           <li>
+                              <p>Repeat the previous steps to extend the mid-surfaces. Extend the two edges of the
+                                 triangular plate so they intersect the surfaces. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy_ext_surf2.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy_ext_surf3.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click <b>Cancel</b> to end the <b>Extend</b> command.</p>
+                           </li>
+                           <li>
+                              <p>To check your work, rotate the model so you can see all the edges intersect the surfaces
+                                 and leave no gaps.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_extend_surfaces_done.gif"></p>
+                           </li>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Several <b>Extend</b> nodes are displayed on the <b>Simulation</b> pane but not on <b>Assembly PathFinder</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_simplify_assy_extend_surfaces.png"></p>
+                           </div>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <p>If you extend a surface using the <b>Finite Extent</b> option, you can specify the distance to extend it, and then use the <b>Simulation Geometry</b> tab→<b>Surfaces</b> group→<b>Trim</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/surfacing/command/surftrim1.gif"> command to trim away the excess so the surfaces just intersect.</p>
+                           </div>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Create a united body.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation Geometry</b> tab→<b>Surfaces</b> group→<b>Unite Bodies</b>. <img class="img-fluid" src="../../../../common/nonLocalized/se/icons/sim/unite_bodies.gif"></p>
+                           </li>
+                           <li>
+                              <p>Select all three faces.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy16.gif"></p>
+                           </li>
+                           <li>
+                              <p>Right-click to accept.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy17.gif"></p>
+                           </li>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>A <b>Unite Bodies</b> node is displayed in the <b>Simulation</b> pane, but not on the <b>Assembly PathFinder</b>. </p>
+                           </div>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Create a new study.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Choose <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                           </li>
+                           <li>
+                              <p>Choose the <b>Linear Static</b> study type and <b>Mixed and General Bodies</b> mesh type. Select <b>OK</b>.</p>
+                           </li>
+                           <li>
+                              <p>The <b>Define</b> command is active. Select and accept the united body as the geometry to simulate.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy18.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh the model.</p>
+                        <p>Choose <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b>. Using the default mesh size, select the <b>Mesh</b> button.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy19.gif"></p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Notice the consistent, even distribution of nodes and elements between surfaces. Specifically,
+                              note how nodes on each element precisely match up. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy20.gif"></p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>Save and close this file.</p>
+                     </li>
+                     <li>
+                        <p>Create a second study and mesh the model using the separate mid-surfaces as the geometry.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Open the unmodified copy of the original file <b>Unite_body.asm</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy01.gif"></p>
+                           </li>
+                           <li>
+                              <p>As before, select the <b>Save As</b> command and give this file a unique name. </p>
+                           </li>
+                           <li>
+                              <p>Prepare the mid-surfaces.</p>
+                              <ol type="A">
+                                 <li>
+                                    <p>Repeat the previous steps to create, expose, and extend the mid-surfaces.</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy15.gif"></p>
+                                 </li>
+                                 <li>
+                                    <p>Create a new study.</p>
+                                    <ol type="i">
+                                       <li>
+                                          <p>Choose <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                                       </li>
+                                       <li>
+                                          <p>Choose the <b>Linear Static</b> study type and <b>Surface</b> mesh type. Select <b>OK</b>.</p>
+                                       </li>
+                                       <li>
+                                          <p>Select all three surfaces as the geometry to simulate.</p>
+                                          <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy23.gif"></p>
+                                       </li>
+                                    </ol>
+                                 </li>
+                                 <li>
+                                    <p>Select <b>Simulation</b> tab→<b>Mesh</b> group→<b>Mesh</b>. Using the default mesh size, select the <b>Mesh</b> button.</p>
+                                    <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy21.gif"></p>
+                                    <div class="attention" type="note">
+                                       <div class="attention-label">Note: </div>
+                                       <p>Notice the independent element distribution between surfaces. There are inconsistent
+                                          shapes and node mismatches.</p>
+                                       <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/optimize/optimize_training/sesim_training_act_sm_assy22.gif"></p>
+                                    </div>
+                                 </li>
+                              </ol>
+                           </li>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Solving a study using the collection of individual surfaces requires edge connectors
+                                 between the surfaces; this impacts processing time. Also, a less accurate solution
+                                 can result due to inconsistent element distribution and node mismatches. For sheet
+                                 metal parts, the united body method may provide a more accurate set of results in
+                                 less time. </p>
+                           </div>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Close this file.</p>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_simplify01" rel="fem_simplify01">Tutorial: Simplify a bicycle stem for simulation</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_force03" rel="fem_force03">Tutorial: Simplify a model and apply a load using X, Y, Z components</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/steeringw2a" rel="steeringw2a">Loads directional steering wheel</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels2a" rel="feamodels2a">Assembly best practices for simulation</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/feamodels1a" rel="feamodels1a">Optimizing models for finite element analysis</a><br><br></div>
+            <div class="footer-content">Tutorial: Simplify a sheet metal assembly, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

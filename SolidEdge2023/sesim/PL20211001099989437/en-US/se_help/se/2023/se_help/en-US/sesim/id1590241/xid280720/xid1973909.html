@@ -1,0 +1,210 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Rigid link connectors </title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Rigid link connectors "></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1973909">
+                     <h1 class="topic-title">Rigid link connectors </h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Creating rigid links</h4>
+                  <div>
+                     <p>In a frame model, rigid links transfer forces between two beams or between a beam
+                        and a plate, for example. Rigid links are required to connect disjoint beams in a
+                        structural study (linear static, linear buckling, normal modes, or harmonic response)
+                        of a frame assembly. </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The <b>Manual</b> and <b>Auto</b> rigid link connector commands are not available in thermal studies, as rigid links
+                           do not participate in the transfer of thermal loads. </p>
+                     </div>
+                     <ul>
+                        <li>
+                           <p>You can add rigid links automatically when the study is created. </p>
+                        </li>
+                        <li>
+                           <p>You can add rigid links automatically by selecting the <b>Auto</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/auto_rigid_link_cmd.png"> command. </p>
+                        </li>
+                        <li>
+                           <p>You can add individual rigid links manually using the <b>Manual</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/rigid_link_manual_cmd.png"> command.</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <p>For this linear static study of a frame model with a beam mesh type,</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/derrick_model.png"></p>
+                        <p>the top and side views show the beam study inputs: a total force load, fixed constraints,
+                           and automatically generated rigid link beam connectors (identified by magenta circles):</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/manual_rigid_links_model_top.png"></p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/auto_rigid_links_model_front.png"></p>
+                     </div>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Dynamic analysis studies (harmonic response and normal modes studies) do not require
+                           the model to be fully constrained to solve. However, the results are not as reliable
+                           as the results from a determinate linear static study. </p> 
+                        <p>If you create both a harmonic response study (or a normal modes study) and a linear
+                           static study for the beam model, the model must be fully constrained.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Automatic beam connectors in frame models</h4>
+                  <div>
+                     <p>When you create a simulation study for a structural frame model and select the frame
+                        geometry, <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/beam_curves" rel="beam_curves">beam curves</a> are extracted from the intersections of beam paths, and rigid links are applied automatically
+                        where needed. </p>
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div>
+                        <ul>
+                           <li>
+                              <p>Beam curves (light blue)</p>
+                           </li>
+                           <li>
+                              <p>Rigid links (dark blue)</p>
+                           </li>
+                        </ul>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/beam_curve_rigid_link_ex.png"></p>
+                     </div>
+                     <p>Each rigid link is a two-point connection between two beam curves:</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/auto_rigid_links_model_iso.png"></p>
+                     <p>You can create rigid links automatically in your frame assembly using either of these
+                        methods:</p>
+                     <ul>
+                        <li>
+                           <p>When you create a new study for a beam model, you can specify that you want Solid
+                              Edge Simulation to automatically create all the rigid link connectors between beam
+                              curves. You do this in the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d"><b>Create Study</b> dialog box</a>, in the <b>Connector Options</b> section, by selecting the <b>Maximum rigid link length</b> check box. </p> 
+                           <p>The default <b>Maximum rigid link length</b> value that is displayed is equal to the length of the largest beam cross-section
+                              for coplanar beams. </p> 
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div> 
+                              <p>When creating rigid links automatically, either when the study is created or using
+                                 the <b>Auto</b> command, we recommend that you use the default value for <b>Maximum rigid link length</b>. This value is based on the beams used in your frame model. In most cases, it should
+                                 result in a fully constrained model. For more information, see <a class="xref" href="#rigid_link_length">Adjusting the maximum rigid link length to constrain the model</a>.</p> </div>
+                        </li>
+                        <li>
+                           <p>For an existing beam study, you can select the <b>Simulation</b> tab→<b>Rigid Links</b> group→<b>Auto</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/auto_rigid_link_cmd.png">, and then select and accept all the components. </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/auto_rigid_link_define_geometry.png"></p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div> 
+                  <h4 class="division-title" id="rigid_link_length">Adjusting the maximum rigid link length to constrain the model</h4>
+                  <div>  
+                     <p>Rigid link creation should be followed by validating whether the model is fully constrained.</p> 
+                     <p>When generating rigid links automatically, either when the study is created or using
+                        the <b>Auto</b> command, we recommend that you use the default value for <b>Maximum rigid link length</b>. This value is based on the beams in your frame model, and is equal to the length
+                        of the largest beam cross-section for coplanar beams. In most cases, it should result
+                        in a fully constrained model.</p> 
+                     <ol type="1" start="1"> 
+                        <li> 
+                           <p>If your model is fully constrained using the default maximum rigid link length value,
+                              do not change the default value. Increasing the default value may create unwanted
+                              rigid links.</p> </li> 
+                        <li> 
+                           <p>If using the default value does not result in a fully constrained model, then increase
+                              the value by two to three times the current value, and then check whether the model
+                              is completely constrained or not. Continuing to increase the value may lead to unwanted
+                              rigid link creation.</p> </li> 
+                        <li> 
+                           <p>If you do not get a completely constrained model after increasing the default value
+                              by two to three times, then use the methods below to determine where connectors are
+                              needed,</p> </li> </ol> 
+                     <p>There are two ways to check if the model is completely constrained before you try
+                        to solve the study.</p> 
+                     <ul> 
+                        <li> 
+                           <p>Visually inspect the model to check for missing rigid links. </p> </li> 
+                        <li> 
+                           <p>Create and solve a <b>Normal Modes</b> study for the model. When you review the results of the normal modes analysis, use
+                              the <b>Animate</b> command to show the disconnected beam curves with respect to the model. For more
+                              information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/animate1h" rel="animate1h">Animate simulation results</a>.</p> </li> </ul> 
+                     <p>To add the missing rigid link connectors between the disconnected beam curves identified
+                        by visual inspection or through normal modes analysis, use the <b>Manual Rigid Link</b> command to create individual rigid links, until the model is completely constrained.</p> </div>
+                  <h4 class="division-title">Manual rigid link connectors in frame models</h4>
+                  <div>
+                     <p>Automatic link creation does not consider all instances where beam paths do not intersect
+                        (disjoint beam curves). For example, when members are trimmed or when they have different
+                        cross sections, the nodes of members associated with a joint may not coincide. This
+                        can result in an under-constrained study.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/rigid_link_corner_connector_ex.png"></p>
+                     <p>To eliminate under-constrained geometry errors and solve the study, you can create
+                        rigid links manually between disjoint beams using the <b>Simulation</b> tab→<b>Rigid Links</b> group→<b>Manual</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/connector/rigid_link_manual_cmd.png">. </p>
+                     <p>You also can use the manual method to create rigid link connectors between two beams
+                        when you replace beams in your model.</p>
+                     <p>To learn how to use the <b>Manual</b> command, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973886" rel="xid1973886">Define rigid links manually</a>.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/auto_rigid_links_model.png"></p>
+                  </div>
+                  <h4 class="division-title">Modifying rigid link connectors</h4>
+                  <div>
+                     <p>The <b>Rigid Links</b> node in the <b>Simulation</b> study navigator pane lists all automatically and manually created links. Rigid link
+                        connectors are selectable in QuickPick.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/rigid_links_collector.png"></p>
+                     <p>You can highlight and select individual rigid links on the model, and then use shortcut
+                        commands in the <b>Simulation</b> pane to <b>Delete</b> or <b>Rename</b> rigid links.</p>
+                     <p>To select a rigid link on the model:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>In the <b>Simulation</b> pane, click an individual rigid link node to see it highlight on the model.</p>
+                        </li>
+                        <li>
+                           <p>Zoom in and hover over the highlighted link.</p>
+                        </li>
+                        <li>
+                           <p>When the <b>QuickPick</b> indicator is displayed, right-click to display the QuickPick list, and then select
+                              the rigid link from the list.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/edit_rigid_link_qp.png"></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Updating legacy beam studies </h4>
+                  <div>
+                     <p>When you open a beam study of a frame model, notice that rigid links that were generated
+                        previously by the <b>Auto</b> command are displayed in the <b>Simulation</b> pane. </p>
+                     <p>To take advantage of the enhanced rigid link creation algorithm, you can do either
+                        of the following:</p>
+                     <ul>
+                        <li>
+                           <p>Create a new study using the automatic link creation method.</p>
+                        </li>
+                        <li>
+                           <p>Delete the legacy rigid links in your existing study and recreate them using the <b>Auto</b> command.</p>
+                        </li>
+                     </ul>
+                     <p>For example, this type of rigid link between intersecting, extended beam curves is
+                        not required and is no longer created by the <b>Auto</b> command:</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/frame/extended_beam_curve_ex.png"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/analyzeframe1p" rel="analyzeframe1p">Analyze a structural frame model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1973886" rel="xid1973886">Define rigid links manually</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/node1h" rel="node1h">Define a node</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/release1h" rel="release1h">Define a release</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid430558" rel="xid430558">Display a beam cross section</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_frame01" rel="fem_frame01">Tutorial: Simulate stresses on a bridge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_frame02" rel="fem_frame02">Tutorial: Create and simulate a roof truss framework</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/plot8a" rel="plot8a">Beam reaction component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid433778" rel="xid433778">Beam stress component plots</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid452750" rel="xid452750">Beam diagrams</a><br><br></div>
+            <div class="footer-content">Rigid link connectors , Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

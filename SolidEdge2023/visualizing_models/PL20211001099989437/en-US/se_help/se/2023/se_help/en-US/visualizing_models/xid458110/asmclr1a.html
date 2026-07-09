@@ -1,0 +1,119 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Using Color Manager and Part Painter</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Using Color Manager and Part Painter"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="asmclr1a">
+                     <h1 class="topic-title">Using Color Manager and Part Painter</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Solid Edge contains commands that work together to help you manage part colors and
+                     styles.</p>
+                  <p>The <b>Color Manager</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/icons/buttons/color_manager.gif"> provides settings that allow you to manage your color display modes. &nbsp;You can set
+                     the display mode to use the colors defined on the <b>Colors</b> tab In the <b>Solid Edge Options</b> dialog box or you can set the display mode to use the colors of the individual parts.
+                     &nbsp;In the Assembly environment, the <b>Show and Allow Assembly Style Override</b> option is available to allow you to override part styles.</p>
+                  <p>The <b>Part Painter command</b> <img class="img-fluid" src="../../../common/nonLocalized/se/icons/buttons/part_painter.gif"> allows you to apply styles to part faces, features,bodies, and construction elements.
+                     The <b>Part Painter</b> command applies override styles to the base styles that are defined in the <b>Color Manager</b> dialog box.</p>
+                  <h4 class="division-title">Using Color Manager in the Assembly environment</h4>
+                  <div>
+                     <p>In the Assembly environment, Color Manager is set, by default, to use the colors defined
+                        on the <b>Colors</b> tab in the <b>Solid Edge Options</b> dialog box. You can change these colors from the <b>Color Manager</b> dialog box by selecting a color and then selecting the <b>Change</b> button.</p>
+                     <p>If you do not want to display all parts in the same color, you can select the <b>Use Individual Part Styles</b> option. You can then override the style definition for the individual parts in the
+                        assembly with an assembly style definition without changing the part-level style definition.
+                        You also can turn the display of face styles on and off. You can apply unique colors,
+                        textures, and so forth to the parts with the <b>Faces Style</b> option on the <b>Select</b> command bar.</p>
+                     <p>You can make face style assignments to any part at any level in the assembly. &nbsp;You
+                        do not have to in-place activate a part or subassembly to apply color overrides. &nbsp;You
+                        can multi-select parts and subassemblies graphically or through Assembly <b>PathFinder</b>. If you override the style for a subassembly, the new style is assigned to each part
+                        occurrence, including the parts in lower level subassemblies.</p>
+                     <p>You can apply assembly style overrides at or below the highest level within a nested
+                        assembly structure. The assembly color overrides are stored in the top-level assembly.
+                        If you in-place activate into a subassembly, the subassembly will always show the
+                        colors that are stored at the top-level assembly. If you open the subassembly outside
+                        of the context of parent assembly, it becomes the top-most assembly and any assembly
+                        overrides are stored in it. &nbsp;However, when you reopen the parent assembly, the color
+                        overrides that were applied at the subassembly level are not rolled into the parent
+                        assembly. &nbsp;When you place a subassembly into an assembly, the top-level assembly reads
+                        any style overrides for the subassembly and saves any override definitions that have
+                        been applied at the top level.</p>
+                     <p>The style override applies to the whole part. For example, if you apply an assembly
+                        override to a multicolored part, the specified color override applies to the whole
+                        part. Multiple part occurrences at the assembly level can have different assembly
+                        overrides. You can specify whether the override applies to all occurrences of the
+                        part or to individual occurrences.</p>
+                     <p>After you have applied individual colors to the parts in your assembly, you can use
+                        the <b>Color Manager</b> command to control whether the individual colors are displayed or whether all parts
+                        are displayed using the same color.</p>
+                  </div>
+                  <h4 class="division-title">Using Color Manager in the Part environment</h4>
+                  <div>
+                     <p>In the Part environment, Color Manager is set by default to use the individual part
+                        colors. You can select a base style for parts, construction elements, and threaded
+                        cylinders.</p>
+                     <p>The <b>Show and Allow Assembly Style Override</b> option is not available in the Part environment. You can set the display mode to
+                        use the colors defined on the <b>Colors</b> tab on the <b>Solid Edge Options</b> dialog box, or you can set the display mode to use the colors of the individual parts.
+                        The <b>Copy Individual Face Colors</b> option is available to allow styles that have been applied to individual part faces
+                        to be copied when the feature is copied and pasted, smart patterned, smart mirrored,
+                        or copied to a feature library. These styles cannot be copied if the feature is fast
+                        patterned or fast mirrored.</p>
+                     <p>When you set the <b>Use Individual Part Styles</b> option in the <b>Color Manager </b> dialog box, the <b>Part Painter</b> command becomes available. This command allows you to apply style overrides to individual
+                        features and faces.</p>
+                  </div>
+                  <h4 class="division-title">Style results after faces are modified</h4>
+                  <div>
+                     <p>If you apply a face style to an individual face and then split that face, the resulting
+                        faces inherit the face style that is currently applied to the face.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/prtpaint1.gif"></p>
+                     <p>If you merge two individual faces that have separate face styles, the new faces reverts
+                        back to the base part style.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/prtpaint2.gif"></p>
+                     <p>If faces that result from a split face have two different styles are rolled back to
+                        the point before the split, the single face returns to the base part style.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/prtpaint3.gif"></p>
+                     <p>If you add a feature to an existing feature that has an individual face style override,
+                        the new feature carries the base part style. &nbsp;It does not inherit the style of the
+                        parent feature.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/se/prtpaint4.gif"></p>
+                  </div>
+                  <h4 class="division-title">Base styles in different environments</h4>
+                  <div>
+                     <p>In the Simplified mode in the Part environment, the part reverts back to the base
+                        part color and style. You can add colors, but these colors will only display while
+                        you are in the Simplified mode. &nbsp;Within the Simplified mode, the <b>Part Painter</b> command only applies to the faces.</p>
+                     <p>In the Flatten mode in the <b>Sheet Metal</b> environment, the part reverts back to the base part color and style. You can add
+                        colors, but these colors will only display while you are in the Flatten mode.</p>
+                     <p>If you place a cutout in the <b>Assembly</b> environment, the faces on the cutout inherit the base part color that is defined
+                        in the individual part files.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/color1h" rel="color1h">Set the Color Scheme for Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/colormanager1h" rel="colormanager1h">Set the part color display</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/partpainter1h" rel="partpainter1h">Apply an override to the base part style with Part Painter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/sktchrltshpcolor1h" rel="sktchrltshpcolor1h">Display Element Colors Based on Degrees of Freedom</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/dftanl1h" rel="dftanl1h">Display draft face colors on a part</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/color1a" rel="color1a">Using colors in Solid Edge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/xid1171342" rel="xid1171342">Using 3D model colors in drawing views</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/colormanager1c" rel="colormanager1c">Color Manager command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/colormanager1d" rel="colormanager1d">Color Manager dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/partpainter1c" rel="partpainter1c">Part Painter command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/partpainter1d" rel="partpainter1d">Part Painter command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/skchrlshpcolor1c" rel="skchrlshpcolor1c">Relationship Colors command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.visualizing_models/html/fillcl1d" rel="fillcl1d">Color dialog box</a><br><br></div>
+            <div class="footer-content">Using Color Manager and Part Painter, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

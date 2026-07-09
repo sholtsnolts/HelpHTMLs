@@ -1,0 +1,219 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating and using studies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating and using studies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="study2a">
+                     <h1 class="topic-title">Creating and using studies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Creating studies</h4>
+                  <div>
+                     <p>A study is a container that organizes data. The study also is responsible for meshing
+                        and solving an analysis.</p>
+                     <p>You use the <b>New Study</b> command <img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_study_button.gif"> to create a new study from the geometry in the current part, sheet metal, or assembly
+                        model. The <b>New Study</b> command:</p>
+                     <ul>
+                        <li>
+                           <p>Assigns a default name.</p>
+                        </li>
+                        <li>
+                           <p>Specifies a material. </p>
+                        </li>
+                        <li>
+                           <p>Specifies the analysis type—such as linear static, buckling, or modal—to perform on
+                              the model.</p>
+                        </li>
+                        <li>
+                           <p>Specifies the mesh type to be applied to the model.</p>
+                        </li>
+                     </ul>
+                     <p>Each study consists of model geometry, material, one or more load sets, one or more
+                        constraint sets, and a geometry mesh. </p>
+                     <p>You add these to the study using the commands in the <b>Study</b> group, the <b>Loads</b> group, the <b>Constraints</b> group, and the <b>Mesh</b> group on the ribbon.</p>
+                     <p>Once created, a default study name is displayed in tree-view format on the <b>Simulation</b> pane in the lower-left portion of the window. You may want to assign each study a
+                        custom name using the <b>Rename</b> command on its shortcut menu. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_analysisnode.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="study2a_modelstates">Studies and model states</h4>
+                  <div>
+                     <p>You can create studies using synchronous (1), ordered (2) and simplified (3) models.
+                        These model states are defined in the <b>Tools</b> tab→<b>Model</b> group. </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/sesim_sync_ord_simp.gif"></p>
+                     <p>For part and sheet metal models:</p>
+                     <ul>
+                        <li>
+                           <p>Each model state created in <b>PathFinder</b> has its own entry in the <b>Simulation</b> pane. The currently active model state determines where a new study is created.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_sync_ord_simp_PF.gif"></p>
+                           <p>For example, you can create a new study for a simplified part by clicking the <b>Simplified</b> node in <b>PathFinder</b> to activate it, and then selecting the <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b> command.</p>
+                        </li>
+                        <li>
+                           <p>When you select an existing study, the model geometry changes to reflect its associated
+                              state. </p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can define as many studies as you need for each model state.</p>
+                     </div>
+                     <p>Assembly studies that use simplified parts are listed under the top-level Simulation
+                        node in the <b>Simulation</b> pane, just like assembly studies that do not use simplified parts.</p>
+                  </div>
+                  <h4 class="division-title">Selecting geometry for studies</h4>
+                  <div>
+                     <p>When you create a study, you are prompted to select geometry based upon your model
+                        type—assembly, part, sheet metal—and the mesh type you selected.</p>
+                     <p>See the following help topics:</p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry3a" rel="geometry3a">Selecting geometry for studies</a></p>
+                     <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/geometry1h" rel="geometry1h">Add or remove study geometry</a>.</p>
+                  </div>
+                  <h4 class="division-title">Assigning a material to a study</h4>
+                  <div>
+                     <p></p>
+                     <p>You can confirm the default material or assign a new material. </p>
+                     <ul>
+                        <li>
+                           <p>You can assign a material to the model using the <b>Materials</b> list in the <b>Study</b> group. </p>
+                        </li>
+                        <li>
+                           <p>You can modify the properties of a material using the <b>Material Table</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/materialtbl.gif"> command.</p>
+                        </li>
+                     </ul>
+                     <p>To learn more, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a>.</p>
+                  </div>
+                  <h4 class="division-title" id="study2a_active">Identifying the active study</h4>
+                  <div>
+                     <p>Although you can create multiple studies within one Solid Edge document—and multiple
+                        studies within each model state—there can be only one study that is active at any
+                        time. When a study is active, the study name and applied material are displayed in
+                        the <b>Study</b> group on the ribbon. </p>
+                     <table cellspacing="5" cellpadding="5" width="100%" frame="below">
+                        <colgroup span="1">
+                           <col span="1" valign="top" width="28*">
+                           <col span="1" width="171*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="2">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_study_ribbon_ABC.gif"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>(A)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <ul>
+                                    <li>
+                                       <p>Displays the list of studies in the document.</p>
+                                    </li>
+                                    <li>
+                                       <p>Activates the study that you select from the list.</p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>(B)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <ul>
+                                    <li>
+                                       <p>Shows the material currently assigned to the model.</p>
+                                    </li>
+                                    <li>
+                                       <p>Applies a material that you select from the list.</p>
+                                    </li>
+                                 </ul>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>(C)</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Opens the <b>Solid Edge Material Table</b> dialog box.</p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>All studies you have created in the model also are listed in tree-view format on the
+                        <b>Simulation</b> pane. </p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/study/sesim_study_navigator.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <ul>
+                           <li>
+                              <p>The active study is shown in blue text. </p>
+                           </li>
+                           <li>
+                              <p>You can activate a different study in the <b>Simulation</b> pane by clicking the study node. </p>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <h4 class="division-title"> Study definition requirements</h4>
+                  <div>
+                     <p>The <b>Solve</b> command is not available <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/study/sesim_solve_button_off.gif"> until minimum study definition requirements are met and the model is meshed.</p>
+                     <ul>
+                        <li>
+                           <p>At least one load is required when:</p>
+                           <p><b>Study type</b>=<b>Linear Static</b> </p>
+                           <p><b>Study type</b>= <b>Linear Buckling</b>.</p>
+                        </li>
+                        <li>
+                           <p>At least one assembly connector is required for linear static studies of models that
+                              contain more than one part or sheet metal component. </p>
+                        </li>
+                        <li>
+                           <p>At least one constraint is required for:</p>
+                           <p><b>Study type</b>=<b>Linear Static</b> </p>
+                           <p><b>Study type</b>= <b>Linear Buckling</b>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <ul>
+                                 <li>
+                                    <p>When <b>Study type</b>=<b>Normal Modes</b>, no loads or constraints are required to solve it.</p>
+                                 </li>
+                                 <li>
+                                    <p>You can solve a linear static study of an assembly in motion without adding constraints
+                                       to the model by selecting the <b>Use inertia release</b> option in the <b>Create Study</b> dialog box. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d#adv_opts" rel="study1d">Advanced options for studies</a>. </p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1h" rel="studymat1h">Verify simulation material properties</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1h" rel="study1h">Create a study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2h" rel="study2h">Create a study using a simplified model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386395" rel="xid386395">Define a coupled study for thermal stress analysis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid596908" rel="xid596908">Assign units in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4h" rel="study4h">Define and review a transient heat study</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6h" rel="study6h">Define a harmonic frequency response study</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/studymat1a" rel="studymat1a">Using materials in studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study5a" rel="study5a">Modifying studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">Structural studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4a" rel="study4a">Thermal studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386400" rel="xid386400">Using steady state heat transfer studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid386406" rel="xid386406">Coupled studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study6a" rel="study6a">Harmonic response studies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2056411" rel="xid2056411">Create and solve a study using GD optimized model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid2082033" rel="xid2082033">Create and solve a study using an STL model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1017834" rel="xid1017834">Defining thermal studies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d">Create Study (or Modify Study) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study4d" rel="study4d">Transient Heat Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/xid1654044" rel="xid1654044">Options: Harmonic Frequency Analysis dialog box</a><br><br></div>
+            <div class="footer-content">Creating and using studies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

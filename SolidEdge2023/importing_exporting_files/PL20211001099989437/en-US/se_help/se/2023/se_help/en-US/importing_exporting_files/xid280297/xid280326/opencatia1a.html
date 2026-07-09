@@ -1,0 +1,380 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Working with Catia documents in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Working with Catia documents in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="opencatia1a">
+                     <h1 class="topic-title">Working with Catia documents in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can open Catia V4 (.model) and Catia V5 (*.catpart or *.catproduct) documents
+                     in Solid Edge with the Open command. After you select a Catia file to open you use
+                     the Import Options for Catia dialog box to control how the Catia file is opened in
+                     Solid Edge.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The Catia V4 translator provides bi-directional translation capabilities to open Catia
+                        V4 files. The translator is capable of reading CATIA 4.1.9 and 4.2.X [up to 4.2.4]
+                        files. Contact your Solid Edge sales representative to order the Catia V4 translator.
+                        Specify part numbers SE330 for Node Locked, or SE331 for Floating.</p>
+                  </div>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The Catia V5 translator provides bi-directional translation capabilities to open Catia
+                        V5 files. The translator is capable of writing Version 5 Release 14 files. It is capable
+                        of reading CATIA Version 5 files as follows:</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="40%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" width="45%">
+                           <col span="1" width="55%">
+                        </colgroup>
+                        <thead>
+                           <tr>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>SolidEdge version</p>
+                              </th>
+                              <th rowspan="1" align="left" colspan="1">
+                                 <p>Catia version</p>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST5</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R21 and earlier</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST6</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R22 and earlier</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST7</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R23 and earlier</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST8</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R24 and earlier</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST9</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R24 and earlier</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>ST10</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R24 and earlier</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SE2019</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R27 and earlier</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>SE2020 MP 6</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Version R29and earlier</p>
+                              </td>
+                           </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>SE2021</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Version R29 and earlier</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>SE2022</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Version R29 and earlier</p> </td> </tr> 
+                           <tr> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>SE2023</p> </td> 
+                              <td rowspan="1" colspan="1"> 
+                                 <p>Version R31 and earlier</p> </td> </tr>
+                        </tbody>
+                     </table>
+                     <p>Contact your Solid Edge sales representative to order the Catia V5 translator. Specify
+                        part numbers SE337N for Node Locked, or SE337F for Floating.</p>
+                  </div>
+                  <h4 class="division-title">Opening multiple Catia files</h4>
+                  <div>
+                     <p>Multiple Catia files can be opened in a single session with two files: SeCATIA.exe
+                        for Catia V4 files, and SeCATIAV5.exe for Catia V5 files. These files are located
+                        in the Solid Edge 2023\Program folder. These executables require Solid Edge be loaded
+                        on the machine where the translation occurs.</p>
+                  </div>
+                  <h4 class="division-title">Saving Solid Edge documents as Catia documents</h4>
+                  <div>
+                     <p>You can use the Save As command to save Solid Edge assembly, part, and sheet metal
+                        documents in Catia V4 (.model) format or assembly and part documents in Catia V5 (.catpart)
+                        format. On the Save As dialog box, after you select the Solid Edge document you want
+                        to save, click the Options button to display the &nbsp;Export Options for Catia (.model)
+                        or Export Options for Catia V5 dialog box. You can use the dialog box to control how
+                        the Solid Edge document is saved in Catia.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Exporting a Solid Edge assembly creates a single CatiaV5 part (.catpart) file that
+                           contain multiple bodies that represent the parts in the assembly.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">SECatia.ini and SECatiaV5.ini files</h4>
+                  <div>
+                     <p>The settings on the option dialog boxes used when importing or exporting Catia files
+                        are defined in two files. SECatia.ini governs Catia V4 files, and SECatiaV5.ini governs
+                        Catia V5 files. These files are located in the Solid Edge 2023\Preferences\Translators
+                        folder. When you make a change to a parameter in the dialog box, a new value is saved
+                        to the .ini file. You can use a text editor, such as notepad, to set these parameters.
+                        However, if you edit this file, use extreme caution in setting these parameters. Errors
+                        made to this file can adversely affect the quality of the translation. The following
+                        is a list of parameters found in the SECatia.ini or SECatiaV5.ini file.</p>
+                     <table cellspacing="1" border="1" cellpadding="6" rules="all" width="80%" frame="border">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="30%">
+                           <col span="1" align="left" width="70%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Parameter</p>
+                           </th>
+                           <th rowspan="1" align="left" valign="top" colspan="1">
+                              <p>Description</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Drive</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the drive where the documents for the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the path for the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Healing and Sewing</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of heal and sew surfaces in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Stitch Surfaces</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of stitch surfaces in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Multiple Bodies as Single Part</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of multiple solid bodies as a single part in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import DoNotSave</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls whether or not assembly components are created on import, or on the initial
+                                 save of the assembly.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Boolean Solids</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of Boolean solids in the imported file.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Imprint Curves</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of all curves as a single part copy in the imported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Check Bodies</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of all curves as a single part copy in the imported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Make Base Features</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls if the imported features become the base features in the new file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Enable Default Output Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the enabling of the default output path.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Output Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the path for the output folder of the documents being imported.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Internal Healing Enabled=On</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the enabling of internal healing during the data translation.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Import Simplify Geometry</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of simplified geometry in the imported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Drive</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the value for the drive where the documents will be exported.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Path</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Stores the value for the path where the documents will be exported.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Construction Solids</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of construction solids in the exported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Construction Sheets</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of construction sheets in the exported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Construction Wires</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of construction wires in the exported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Export Displayed Parts</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Controls the inclusion of displayed parts in the exported file. </p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Enable Logging</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Turns on or off the creation of the log file. The default is off.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Attribute Transfer</p>
+                           </td>
+                           <td rowspan="1" valign="top" colspan="1">
+                              <p>Turns on or off the transfer of attributes. The default is on.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/catiaimportv51d" rel="catiaimportv51d">Import Options for Catia V5 dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/catiaimport1d" rel="catiaimport1d">Import Options for Catia (.model) dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/catiaexportv51d" rel="catiaexportv51d">Export Options for Catia V5 dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/catiaexport1d" rel="catiaexport1d">Export Options for Catia (.MODEL) Dialog Box</a><br><br></div>
+            <div class="footer-content">Working with Catia documents in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

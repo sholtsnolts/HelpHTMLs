@@ -1,0 +1,132 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Reference a point cloud file</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Reference a point cloud file"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1977408">
+                     <h1 class="topic-title">Reference a point cloud file</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can reference the scanned image in a point cloud file to verify fit, measure,
+                     and orientation of equipment, piping or electrical systems, or of a structural frames
+                     assembly within a large-scale building, facility, site, or environment. The point
+                     cloud file is not stored on disk.</p>
+                  <p>You can adjust the point color of different areas, and you can choose the density
+                     of points to display to improve performance as you rotate, pan, or move the scanned
+                     image.</p>
+                  <ol type="1">
+                     <li>
+                        <p>In an assembly document, choose the <b>Tools</b> tab→<b>Assistants</b> group→<b>Reference Point Cloud</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/assembly/point_clouds/reference_point_cloud_cmd.png">. </p>
+                        <p>The initial <b>Reference Point Cloud</b> command bar is displayed.</p>
+                     </li>
+                     <li>
+                        <p>In the <b>Open File</b> dialog box, set the search filter to <b>All Point Cloud Documents (*.pts,*.ptx,*.asc,*.xyz,*.las,*.stl,*.ply,*.rcs,*.rcp)</b>, and then browse to and open a point cloud file.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>Due to their size and impact on performance, store your point cloud files locally,
+                              not on a network shared drive. </p>
+                        </div>
+                     </li>
+                     <li>
+                        <p>On the <b>Reference Point Cloud</b> command bar, do the following:</p>
+                        <ol type="a">
+                           <li>
+                              <p>From the <b>Density</b> list, select the point density to use. The default is <b>Maximum</b>, which means 100% of the points are displayed.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/assembly/point_clouds/point_cloud_cmdbar1.png"></p>
+                              <p>To reduce the number of points in the point cloud and to improve performance when
+                                 you manipulate it, you can select any of the following:</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Medium</b>—50% density</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Low</b>—25% density</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Minimum</b>—10% density or 10 million points (whichever is less)</p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>You can use the <b>Size</b> list to change the size of the points in the point cloud, from <b>Automatic</b>, which calculates the optimal number of pixels given the specified density, to a
+                                 value from 1 to 10.</p>
+                              <p>A smaller point size produces a crisper image. As the point size increases, details
+                                 are blurrier.</p>
+                           </li>
+                           <li>
+                              <p>Click the <b>Color</b> button <img class="img-fluid" src="../../../common/nonLocalized/se/point_clouds/color_button.png"> to select and apply a single override color for the point cloud display. To define
+                                 a custom color, click <b>More</b> on the color palette.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/point_clouds/color_override_db.png"></p>
+                              <p>If the point cloud file contains no color information, all points are displayed in
+                                 gray. </p>
+                           </li>
+                           <li>
+                              <p>Click <b>Accept</b> to continue.</p>
+                           </li>
+                           <li>
+                              <p>The default name of the point cloud is the file you opened. You can edit the name
+                                 if needed, and then click <b>Finish</b>.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/assembly/point_clouds/point_cloud_cmdbar3.png"></p>
+                              <p>The point cloud is zoomed and displayed at the center of the base coordinate system.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/point_clouds/boiler_room_initial.png"></p>
+                              <p>The newly created point cloud file is listed in <b>PathFinder</b>, in the <b>Point Clouds</b> collector. Hover over the point cloud item to display its name, the file path, the
+                                 file size, and the number of points.</p>
+                              <div class="attention" type="example">
+                                 <div class="attention-label">Example: </div>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/assembly/point_clouds/point_cloud_info_tooltip.png"></p>
+                              </div>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Manipulate the point cloud by doing any of the following:</p>
+                        <ul>
+                           <li>
+                              <p>Resolve the point cloud detail—Select any of the standard Solid Edge zoom, pan, and
+                                 rotate commands. </p>
+                           </li>
+                           <li>
+                              <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1978134" rel="xid1978134">Move a point cloud</a>—In <b>PathFinder</b>, right-click the point cloud file and choose the <img class="img-fluid" src="../../../common/nonLocalized/se/point_clouds/reposition_point_cloud_cmd.png"> <b>Move Point Cloud</b> command. </p>
+                           </li>
+                           <li>
+                              <p>Select these commands on the <b>Inspect</b> tab→<b>3D Measure</b> group to measure from model geometry to points within the point cloud, or from point
+                                 to point within the point cloud itself: <b>3D Measure</b>, <b>Measure Distance</b>, <b>Measure Angle</b>, and <b>Inquire Element</b>.</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ol>
+                  <div class="attention" type="tip">
+                     <div class="attention-label">Tip: </div> 
+                     <p>You can reopen the command bar to reference another point cloud file in the assembly,
+                        or to change the point cloud color, point density, or point size for this point cloud.
+                        For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/xid1980643" rel="xid1980643">Edit a point cloud</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Reference a point cloud file, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

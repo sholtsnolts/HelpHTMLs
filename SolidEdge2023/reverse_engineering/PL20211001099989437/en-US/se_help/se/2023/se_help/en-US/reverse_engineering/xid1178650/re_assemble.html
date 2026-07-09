@@ -1,0 +1,215 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Reverse engineering example</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Reverse engineering example"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="re_assemble">
+                     <h1 class="topic-title">Reverse engineering example</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>This reverse engineering example demonstrates the process of creating a boolean model
+                     from a mesh model. It is an example of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering workflow</a>.</p>
+                  <p></p>
+                  <ol type="1">
+                     <li>
+                        <p>The commands on <b>Reverse Engineering</b> tab do not become available unless there is a mesh body (1) in the current document.</p>
+                        <p>A mesh file document in form of a part or sheet metal file can be initiated by: </p>
+                        <ul>
+                           <li>
+                              <p>Create the initial document by opening an .stl file and identifying the appropriate
+                                 document template from the list of part or sheet metal templates.</p>
+                           </li>
+                           <li>
+                              <p>Already having a mesh body in an open document. </p>
+                           </li>
+                        </ul><img class="img-fluid d-block" src="../../../common/nonLocalized/se/reverse_engineering/reimg_01.png"></li>
+                     <li>
+                        <p>Clean up the mesh.</p>
+                        <p>The mesh workflow generally proceeds by using the <b>Reverse Engineering</b> commands from left to right.</p>
+                        <p>Depending on the source of the mesh body, more or less mesh preparation may have to
+                           be performed to get the best possible results. Mesh preparation consists of the following:</p>
+                        <ul>
+                           <li>
+                              <p>Delete unwanted portions of the mesh file so only the useful part of the mesh can
+                                 be used to extract surfaces (see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_delete_mesh" rel="re_delete_mesh">Delete Mesh</a> command for more information). </p>
+                           </li>
+                           <li>
+                              <p>Fill any holes that can adversely affect the ability to identify and extract surfaces
+                                 (see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fill_holes" rel="re_fill_holes">Fill Holes</a> command for more information) .</p>
+                           </li>
+                           <li>
+                              <p>Smooth the mesh to reduce the amount of imperfections that are created when the source
+                                 file was initially created. The size and amount of imperfections can adversely affect
+                                 the quality of the extracted surfaces (see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_smooth_mesh" rel="re_smooth_mesh">Smooth Mesh</a> command for more information).</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p>Identify regions of the mesh body (2) that will be used to extract the surfaces.</p>
+                        <p>The color of a region is used to identify the type of geometric surface that will
+                           eventually be extracted. There are two ways to identify regions of the mesh body:</p>
+                        <ul>
+                           <li>
+                              <p><b>Automatic</b> - Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions">Automatic command</a> to have Solid Edge attempt to identify different the regions of a mesh body. This
+                                 command has an accuracy control to help you obtain the best possible results. </p>
+                              <p>If this option is selected and all the surfaces are correctly defined, you can continue
+                                 on to step 4 and extract the surfaces. If some mesh regions are not identified they
+                                 can be identified manually. If some regions are not correctly identified, adjust the
+                                 accuracy to try and obtain a better result. If regions still remain unidentified or
+                                 incorrectly identified, use the <b>Manual</b> command to manually identify the missing or incorrect regions.</p>
+                           </li>
+                           <li>
+                              <p><b>Manual</b> - Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions">Manual command</a> to merge or divide regions, or to identify areas of the mesh that are yet to be defined
+                                 as a region. When all the surfaces are correctly defined, you can continue on to step
+                                 4 and extract the surfaces. You do not have to paint a region a specific color according
+                                 to the type of geometric surface you want to assign to the region. Any contiguous
+                                 region of any color can be assigned to any geometric surface using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry">Fit command</a>.</p>
+                           </li>
+                        </ul><img class="img-fluid d-block" src="../../../common/nonLocalized/se/reverse_engineering/reimg_02.png"></li>
+                     <li>
+                        <p>Extract the surfaces.</p>
+                        <p>The objective here is to successfully extract (3) the correct geometric surfaces for
+                           each region of the mesh body based on the color. </p>
+                        <table cellspacing="5" cellpadding="5" rules="all" frame="box">
+                           <colgroup span="1">
+                              <col span="1" width="50 px">
+                              <col span="1" width="150 px">
+                           </colgroup>
+                           <thead>
+                              <tr align="center">
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Color</p>
+                                 </td>
+                                 <td rowspan="1" align="left" valign="top" colspan="1">
+                                    <p>Region geometry</p>
+                                 </td>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_yellow.png"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Planar </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_cyan.png"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Cylindrical </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_blue.png"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Conical </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_orange.png"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Toroidal </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_red.png"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Spherical </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_magenta.png"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>B spline/Freeform </p>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td rowspan="1" colspan="1">
+                                    <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/reverse_engineering/lil_white.png"></p>
+                                 </td>
+                                 <td rowspan="1" colspan="1">
+                                    <p>Non Extractable</p>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <p>There are two command options used to define surface geometry assigned to a colored
+                           region. The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_extract_surfaces" rel="re_extract_surfaces">Extract command</a> automatically assigns a specific region geometry based on the specific color of a
+                           region, and the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry">Fit command</a> that allows the user to assign region geometry to any contiguous region of color.
+                           </p>
+                        <p>After a surface has been extracted for as many regions as possible, use the surfacing
+                           tools to find the intersections, </p><img class="img-fluid d-block" src="../../../common/nonLocalized/se/reverse_engineering/reimg_03.png"></li>
+                     <li>
+                        <p>Derive a solid model from the identified construction surfaces.</p>
+                        <p>After the surfaces of a mesh file have been identified and extracted, the process
+                           of deriving a solid model consists of trimming the intersecting surfaces to size and
+                           stitching them together. This may including <b>Extending</b> surfaces that do not intersect, and creating missing surfaces to be able to enclose
+                           the entire model. The tools used to accomplish this are on the <b>Surfaces</b> group and <b>Modify Surfaces</b> group.</p>
+                        <ul>
+                           <li>
+                              <p>Trim the surfaces to size.</p>
+                              <p>It is easier to trim surfaces to size easier by only showing the surfaces you are
+                                 currently working with (2) instead of looking at all the extracted surfaces at one
+                                 time (1). Uncheck unnecessary surfaces in the <b>PathFinder</b> to only view the surfaces you are trimming.</p><img class="img-fluid d-block" src="../../../common/nonLocalized/se/reverse_engineering/01_assembly.png"><p>In this example the <b>Intersect</b> command is used to identify regions of the surfaces that are to be discarded. The
+                                 sphere surface and the top planar surface are selected (1). The bottom region of the
+                                 sphere is deleted (2) as well as the circular area of the planar surface (3) at the
+                                 intersection of the sphere and the planar surface. These two surfaces now have edge
+                                 conditions that allow them to be stitched together (4).</p><img class="img-fluid d-block" src="../../../common/nonLocalized/se/reverse_engineering/02_assembly.png"></li>
+                           <li>
+                              <p>Stitch the surfaces together.</p>
+                              <p>In this example the <b>Stitched</b> command is used to identify regions of the surfaces that are to be stitched together.
+                                 Only regions that have matching edge conditions can be stitched together. The sphere
+                                 surface (1) and the top planar surface (2) are selected. Select the <b>Preview</b> option to verify that the selected surfaces can successfully be stitched together
+                                 (3). Select the <b>Finish</b> option to complete the action. The successfully stitched surfaces appear in the <b>PathFinder</b> in the <b>Features</b> collector.</p><img class="img-fluid d-block" src="../../../common/nonLocalized/se/reverse_engineering/03_assembly.png"></li>
+                           <li>
+                              <p>Convert the stitched body to a model body.</p>
+                              <p>Continue to trim and stitch the surfaces together until all of the surfaces (1) form
+                                 a complete construction body. In the final stitch operation all remaining surfaces
+                                 and stitched features are selected (2). When the <b>Preview</b> option is selected and the surfaces successfully form a body the model turns blue
+                                 (3). The completed construction body (4) is converted to a model body using the <b>Attach</b> option that is accessed by right-clicking on the <b>Stitched</b> feature in the <b>PathFinder</b>. Right-click on the <b>Solid Body</b> design body in the <b>PathFinder</b> and select the <b>Toggle Design/Construction</b> option to toggle the construction body to a fully manageable model body. </p><img class="img-fluid d-block" src="../../../common/nonLocalized/se/reverse_engineering/04_assembly.png"></li>
+                        </ul>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1673342" rel="xid1673342">Create a sketch from a section curve</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering workflow</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_delete_mesh" rel="re_delete_mesh">Delete Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fill_holes" rel="re_fill_holes">Fill Holes command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_smooth_mesh" rel="re_smooth_mesh">Smooth Mesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1631462" rel="xid1631462">Align command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661826" rel="xid1661826">Align command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1592006" rel="xid1592006">Remesh command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1609920" rel="xid1609920">Remesh Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_automatic_regions" rel="re_automatic_regions">Automatic regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_manual_regions" rel="re_manual_regions">Manual regions command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_extract_surfaces" rel="re_extract_surfaces">Extract surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_fit_geometry" rel="re_fit_geometry">Fit surfaces command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851569" rel="xid1851569">Deviation Analysis command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851570" rel="xid1851570">Deviation Analysis command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1851593" rel="xid1851593">Deviation Analysis Settings dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661445" rel="xid1661445">Section Sketches command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661773" rel="xid1661773">Section Sketches command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1661774" rel="xid1661774">Section Sketches Options dialog box</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1664797" rel="xid1664797">Align a mesh body to a coordinate system</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/xid1854027" rel="xid1854027">Analyze the deviation between two objects</a><br><br></div>
+            <div class="footer-content">Reverse engineering example, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

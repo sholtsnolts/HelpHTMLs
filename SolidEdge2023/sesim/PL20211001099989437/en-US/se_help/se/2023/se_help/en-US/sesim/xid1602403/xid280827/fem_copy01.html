@@ -1,0 +1,125 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Copy and paste simulation items across part files</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Copy and paste simulation items across part files"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="fem_copy01">
+                     <h1 class="topic-title">Tutorial: Copy and paste simulation items across part files</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In this tutorial, you copy a load and a constraint from one part file to another using
+                     Ctrl+C and Ctrl+V. You can use this technique when you want to compare study results
+                     for two parts that are slightly different in size, but otherwise use the same study
+                     boundary conditions and material.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>If you wanted to compare studies for the same model but with slightly different inputs,
+                        use the <b>Duplicate Study</b> shortcut command to duplicate the entire study within the same document. You can
+                        then modify a load or constraint and solve the study with the modified boundary condition.
+                        For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/sesimcopy1h" rel="sesimcopy1h">Copy and paste studies or individual simulation objects</a>.</p>
+                  </div>
+                  <ol type="1">
+                     <li>
+                        <p>Open two model documents.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Open the existing file named <b>FE_support_V1.par</b>.</p>
+                              <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy01.gif"></p>
+                           </li>
+                           <li>
+                              <p>Also open <b>FE_support_V2.par</b>.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy02.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Copy the load and constraint from one file to the other.</p>
+                        <p><b>FE_support_V1.par</b> contains a force load and a fixed constraint. <b>FE_support_V2.par</b> contains a study but no loads and constraints.</p>
+                        <ol type="a">
+                           <li>
+                              <p>Click the document tab containing <b>FE_support_V1.par</b> to make it the active document window.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy02a.png"></p>
+                           </li>
+                           <li>
+                              <p>In the <b>Simulation</b> pane, Ctrl+click the <b>Force 1</b> load and the <b>Fixed 1</b> constraint so that they are both highlighted, and then press Ctrl+C.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_copy03.gif"></p>
+                           </li>
+                           <li>
+                              <p>Click the document tab containing <b>FE_support_V2.par</b> to make it the active document window, and with your cursor on the document tab press
+                                 Ctrl+V.</p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force_study_paste_between_documents.png"></p>
+                              <p>Now you see the load and constraint copied to the part, <b>FE_support_V2.par</b>, and the <b>Simulation</b> pane for <b>FE_support_V2.par</b> shows the copied load and constraint. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy04.gif"></p>
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        <p>Mesh and solve <b>FE_support_V2.par</b>.</p>
+                     </li>
+                     <li>
+                        <p>Select <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b>. </p>
+                        <p>After a few moments, you see the results.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy05.gif"></p>
+                     </li>
+                     <li>
+                        <p>Rotate the model to view the results on the back.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy05a.gif"></p>
+                     </li>
+                     <li>
+                        <p>(Optional) Change the document view back to <b>FE_support_V1.par</b>, and then mesh and solve it.</p>
+                        <p>After a few moments, you see the results.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy06.gif"></p>
+                     </li>
+                     <li>
+                        <p>Rotate the model to view the results on the back. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_copy06a.gif"></p>
+                     </li>
+                     <li>
+                        <p>Notice the results are different for <b>FE_support_V1.par</b> than for <b>FE_support_V2.par</b>. This is due to the structural difference in the support on the back side of the
+                           mount.</p>
+                     </li>
+                     <li>
+                        <p>Save and close each of the files:</p>
+                        <ol type="a">
+                           <li>
+                              <p>On the Quick Access toolbar, click <b>Save</b>.</p>
+                           </li>
+                           <li>
+                              <p>On the document window tab, right-click and choose <b>Close Window</b>, or click the <b>X</b> button.</p>
+                           </li>
+                        </ol>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_disp01" rel="fem_disp01">Tutorial: Compare displacement load results for different materials</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/fem_force02" rel="fem_force02">Tutorial: Create multiple studies</a><br><br><h5>Learn more</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study3a" rel="study3a">Using the Simulation pane</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/status1a" rel="status1a">Reviewing the study status</a><br><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study2a" rel="study2a">Creating and using studies</a><br><br><h5>Look up more details</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a><br><br><h5>Quick links</h5><a class="xref" data-handle="sesim" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/modify1p" rel="modify1p">Modify and reuse analysis studies</a><br><br></div>
+            <div class="footer-content">Tutorial: Copy and paste simulation items across part files, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

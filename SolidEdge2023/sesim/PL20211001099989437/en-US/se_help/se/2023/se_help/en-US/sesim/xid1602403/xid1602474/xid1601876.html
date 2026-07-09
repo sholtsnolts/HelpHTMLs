@@ -1,0 +1,352 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Tutorial: Simulate forces on an I-beam</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Tutorial: Simulate forces on an I-beam"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1601876">
+                     <h1 class="topic-title">Tutorial: Simulate forces on an I-beam</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/linear_static" rel="linear_static">linear static analysis</a> to identify the stresses on an I-beam when a force load is applied to one end. The
+                     study parameters used in this tutorial are:</p>
+                  <ul>
+                     <li>
+                        <p>Study type=Linear Static</p>
+                     </li>
+                     <li>
+                        <p>Load type=Force</p>
+                     </li>
+                     <li>
+                        <p>Constraint type=Fixed</p>
+                     </li>
+                     <li>
+                        <p>Mesh type=Tetrahedral</p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The tutorial is divided into four sections to make it easier to scan. </p>
+                  </div>
+                  <h4 class="division-title">Define a structural study</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Open the file named <b>FE_I-Beam.par</b>.</p>
+                           <p>Simulation models are delivered in the <b>\Program Files\Siemens\Solid Edge 2023\Training\Simulation</b> folder.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force01.gif"></p>
+                        </li>
+                        <li>
+                           <p>Set your force units to newtons:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>On the File menu, click <b>Info</b>→<b>File Units</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force11.gif"></p>
+                                 <p>This displays the <b>Units</b> tab in the <b>Solid Edge Options</b> dialog box.</p>
+                              </li>
+                              <li>
+                                 <p>Observe that the unit system for this model is based on the metric <b>MMKS (millimeter, kilogram, second)</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/metric_units2.gif"></p>
+                                 <p>You can make selective changes to these units using the <b>Base Units</b> table and the <b>Derived Units</b> table in this dialog box.</p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Derived Units</b> table, the analysis properties are listed in the <b>Name</b> column. Scroll down to locate the table row for <b>Force</b>. Click in the <b>Value</b> box, and then choose <b>N</b> (newtons) from the list. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force13.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Click <b>Apply</b> and <b>OK</b>.</p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Increase the font size of load definition handles, which look like text:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Select <b>View</b> tab→<b>Style</b> group→<b>Styles</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/se/style.gif">.</p>
+                              </li>
+                              <li>
+                                 <p>In the <b>Style</b> dialog box:</p>
+                                 <ol type="A">
+                                    <li>
+                                       <p>Select <b>Dimension</b> from the <b>Style type</b> list.</p>
+                                    </li>
+                                    <li>
+                                       <p>Select <b>ANSI (mm)</b> from the <b>Styles</b> list.</p>
+                                    </li>
+                                    <li>
+                                       <p>Click <b>Modify</b>. </p>
+                                    </li>
+                                 </ol>
+                              </li>
+                              <li>
+                                 <p>In the <b>Modify Dimension Style</b> dialog box: </p>
+                                 <ol type="A">
+                                    <li>
+                                       <p>Select the <b>Text</b> tab. </p>
+                                    </li>
+                                    <li>
+                                       <p>Type <b>40.00</b> in the <b>Font Size</b> box. </p>
+                                       <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force14.gif"></p>
+                                    </li>
+                                    <li>
+                                       <p>Click <b>OK</b>, and then click <b>Apply</b>. </p>
+                                    </li>
+                                 </ol>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Create a simulation study. </p>
+                           <ol type="a">
+                              <li>
+                                 <p>On the <b>Simulation</b> tab→<b>Study</b> group, select <b>Steel, structural</b> from the <b>Material List</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force22.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Select <b>Simulation</b> tab→<b>Study</b> group→<b>New Study</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_button.gif"></p>
+                              </li>
+                              <li>
+                                 <p>For this activity, choose the <b>Linear Static</b> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1a" rel="study1a">study type</a> and <b>Tetrahedral</b> <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1a" rel="mesh1a">mesh type</a>, and then click <b>OK</b>. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_type.gif"></p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_study_create_mesh.gif"></p>
+                              </li>
+                              <p>The study is created and is active, as indicated on the ribbon in the <b>Study</b> group on the <b>Simulation</b> tab. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force24.gif"></p>
+                              <p>The new study also is listed on the <b>Simulation</b> tab in <b>PathFinder</b>. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force25.gif"></p>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Rename the study:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Right-click the default study name, and rename it to <b>Force on end</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force26.gif"></p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force27.gif"></p>
+                              </li>
+                              <p>The new name is shown In the <b>Study</b> group on the <b>Simulation</b> tab. </p>
+                              <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force28.gif"></p>
+                           </ol>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Apply a force load</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Define a force load:</p>
+                           <ol type="a">
+                              <li>
+                                 <p>Select <b>Simulation</b> tab→<b>Structural Loads</b> group→<b>Force</b>.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Loads_group.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Change the selection type to <b>Edge/Corner</b>.</p>
+                              </li>
+                              <li>
+                                 <p>Zoom in on the left end of the beam and select the top edge.</p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force03.gif"></p>
+                                 <p>The force directional arrow is displayed.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force04.gif"></p>
+                              </li>
+                              <li>
+                                 <p>On the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/loadqb1d" rel="loadqb1d">Loads command bar</a>, click the <b>Flip Direction</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_flip_button.gif"> to reverse the force direction.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force06.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Enter <b>1000 N</b> in the <b>Value</b> box.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force07.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Click the <b>Symbol Size/Spacing</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_symbol_size_button.gif"> on the <b>Loads</b> command bar.</p>
+                              </li>
+                              <li>
+                                 <p>Move the <b>Symbol Size slider</b> towards <b>Large</b>. Click <b>OK</b>. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force17.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Right-click in space to accept the force load, and click to exit the command. </p>
+                                 <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force08.gif"></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <li>
+                           <p>Rename the force load in the <b>Simulation</b> pane.</p>
+                           <p>Force loads are listed under the <b>Loads</b> collector in the <b>Simulation</b> pane.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force18.gif"></p>
+                           <ol type="a">
+                              <li>
+                                 <p>Right-click the <b> Force 1</b> load and select <b>Rename</b>. </p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force19.gif"></p>
+                              </li>
+                              <li>
+                                 <p>Type <b>End weight</b> for the new load name.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_force20.gif"></p>
+                              </li>
+                           </ol>
+                        </li>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_force16.gif"></p>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Apply a fixed constraint</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>Select <b>Simulation</b> tab→<b>Constraints</b> group→<b>Fixed</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_Constraints_fixed_button.gif"></p>
+                        </li>
+                        <li>
+                           <p>Zoom in on the right end of the beam. Use QuickPick to select the end face.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_training_act_fixed01.gif"></p>
+                           <p>A preview of the fixed constraint appears on the face. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_fixed02.gif"></p>
+                        </li>
+                        <li>
+                           <p>Enlarge the constraint symbol size by selecting the <b>Symbol Size/Spacing</b> button <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/constraint/sesim_symbol_size_button.gif"> on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/constraintqb1d" rel="constraintqb1d">Constraints command bar</a>, and then moving the top slider towards <b>Large</b>. Click <b>OK</b> to update the symbol.</p>
+                        </li>
+                        <li>
+                           <p>To finish placing the constraint, right-click or press Enter.</p>
+                        </li>
+                     </ol>
+                     <ol type="1">
+                        <li>
+                           <p>Click <b>Fit</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/fit.gif"> to see the beam with the fixed constraint as well as the previously applied force.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_fixed03.gif"></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Apply a tetrahedral mesh</h4>
+                  <div>
+                     <p>Use a tetrahedral mesh to mesh an I-beam.</p>
+                     <ol type="1">
+                        <li>
+                           <p>From the <b>Simulation</b> tab→<b>Mesh</b> group, select the <b>Mesh</b> command.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_button.gif"></p>
+                        </li>
+                        <li>
+                           <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/mesh1d" rel="mesh1d">Mesh dialog box</a> displays a <b>Subjective mesh size</b> slider for tetrahedral mesh elements. </p>
+                           <p>Tetrahedral is the default mesh type defined when you created the study.</p>
+                        </li>
+                        <li>
+                           <p>In the <b>Mesh</b> dialog box, click the <b>Mesh</b> button. </p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_tet_cmdbar.gif"></p>
+                           <p>The NX Nastran mesh processing starts and displays a progress meter.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/analyze/analyze_training/sesim_mesh_progress_dialog.png"></p>
+                           <p>After a short period of time, the beam is displayed with a tetrahedral mesh.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/simulation/analyze/analyze_training/sesim_training_act_mesh01.gif"></p>
+                        </li>
+                        <li>
+                           <p>Close the dialog box.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Solve the simulation </h4>
+                  <div>
+                     <p>After solving the study, you can change the appearance of the simulation results color
+                        bar graph, including changing the text size to make it easier to read. </p>
+                     <ol type="1">
+                        <li>
+                           <p>To solve the study, choose <b>Simulation</b> tab→<b>Solve</b> group→<b>Solve</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/sesim_solve_button.gif"></p> 
+                           <p>If the study fails to solve, a message box provides remedial actions. You may be prompted
+                              to do one of the following: </p> 
+                           <ul> 
+                              <li> 
+                                 <p>Use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/study1d" rel="study1d"><b>Modify Study</b> dialog box</a> to select the option, <b>Geometry check: Warning only</b>. </p> </li> 
+                              <li> 
+                                 <p>Open the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/meshopts1d" rel="meshopts1d"><b>Mesh Options</b> dialog box</a>, and on the <b>Mesh Sizing</b> page, under <b>Geometry Preparation Options</b>, select or clear the check box, <b>Prepare geometry for meshing</b>.</p>
+                              </li> </ul>
+                           <p>After a few moments, the solution is displayed in the <b>Simulation Results</b> environment. </p>
+                           <p>The results data are displayed using the <b>Automatic</b> number format, as shown below. The <b>Automatic</b> format selects the best possible numerical format for each of the values, instead
+                              of using the same format for all.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/sesim_training_act_mesh03_automatic.gif"></p>
+                        </li>
+                        <li>
+                           <p>Experiment with changing the formatting of the values displayed on the color bar using
+                              the following options on the <b>Color Bar</b> tab→<b>Format</b> group:</p>
+                           <ul>
+                              <li>
+                                 <p><b>Width</b>—Changes the width of the color bar, without changing the width of the text. To change
+                                    the width of the text, use the options in the <b>Font</b> group.</p>
+                              </li>
+                              <li>
+                                 <p><b>Format</b>—For example, try <b>Scientific</b> or <b>Floating Point</b>.</p>
+                              </li>
+                              <li>
+                                 <p><b>Decimals</b>—Changes the number of decimals displayed in the result values.</p>
+                                 <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/sesim_training_act_mesh03.gif"></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>To change the text size of the values on the color bar, select <b>Color Bar</b> tab→<b>Font</b> group→<b>Font Size</b> list. </p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>Changes made using the controls in the <b>Font</b> group—<b>Font</b>, <b>Font Size</b>, <b>Font Color</b>, <b>Bold</b>, and <b>Italic</b>—affect all of the following in the simulation results:</p>
+                              <ul>
+                                 <li>
+                                    <p>Color bar components: legend values, title, and footer.</p>
+                                 </li>
+                                 <li>
+                                    <p>Descriptive header.</p>
+                                 </li>
+                                 <li>
+                                    <p>Minimum and maximum value markers.</p>
+                                 </li>
+                                 <li>
+                                    <p>Information in the probe data table.</p>
+                                 </li>
+                                 <li>
+                                    <p>The text displayed with images.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>For more information about these options, see:</p>
+                           <ul>
+                              <li>
+                                 <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/colorbar1a" rel="colorbar1a">Using the color bar</a></p>
+                              </li>
+                              <li>
+                                 <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.sesim/html/colorbar1h" rel="colorbar1h">Adjust the color bar</a></p>
+                                 <p></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>On the ribbon, click <b>Close Simulation Results</b>.</p>
+                           <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/simulation/result/result_training/sesim_results_exit_button.gif"></p>
+                        </li>
+                        <li>
+                           <p>Close this file.</p>
+                        </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Tutorial: Simulate forces on an I-beam, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

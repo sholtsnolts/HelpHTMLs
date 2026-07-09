@@ -1,0 +1,112 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Sheet Metal Bend Formulas</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Sheet Metal Bend Formulas"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="cstbnd1a">
+                     <h1 class="topic-title">Sheet Metal Bend Formulas</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you flatten a sheet metal part, Solid Edge uses the active settings for the Bend
+                     Equation on the Gage tab of the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/material1d" rel="material1d">Solid Edge Material Table dialog box</a>. You can use the standard formula delivered with Solid Edge, one of the example formulas
+                     delivered in the Solid Edge/Custom/Sheet Metal folder, or your own custom formulas.</p>
+                  <h4 class="division-title">Standard Bend Formula</h4>
+                  <div>
+                     <p>The standard sheet metal bend formula delivered with Solid Edge is:</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>PZL = <img class="img-fluid" src="../../common/nonLocalized/se/se/pi2.gif"> * (BR + (NF * THK)) * BA / 180</p>
+                           <p>Where:</p>
+                           <p>PZL = Plastic Zone Length</p>
+                           <p>BR = Bend Radius</p>
+                           <p>NF = Neutral Factor</p>
+                           <p>THK = Material Thickness</p>
+                           <p>BA = Bend Angle</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Modifying Example Formulas</h4>
+                  <div>
+                     <p>To modify one of the example formulas delivered with Solid Edge, you must use Visual
+                        Basic 4.0 or higher. The README file provided with each example contains important
+                        information about the program.</p>
+                  </div>
+                  <h4 class="division-title">Developing Custom Formulas</h4>
+                  <div>
+                     <p>To develop your own formulas, you must use a Windows object-oriented programming language
+                        that is capable of creating an OLE server DLL, such as Visual Basic or Visual C++.
+                        The comments contained in the example files can also be useful if you are developing
+                        your own programs.</p>
+                     <p>Before you can use a custom formula you must register the program that contains it.
+                        For example, to register a program named BendMetal.dll, type the following command
+                        at an MS-DOS prompt:</p>
+                     <table cellspacing="1" border="1" bgcolor="#F0F0F0" cellpadding="2" width="392">
+                        <colgroup span="1">
+                           <col span="1" width="100*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <pre class="code-text">regsvr32&nbsp;BendMetal.dll</pre>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>To unregister a program, type the following command at an MS-DOS prompt:</p>
+                     <table cellspacing="1" border="1" bgcolor="#F0F0F0" cellpadding="2" width="392">
+                        <colgroup span="1">
+                           <col span="1" width="100*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <pre class="code-text">regsvr32&nbsp;/u&nbsp;&lt;Program&nbsp;Name&gt;</pre>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p>After you have registered the program you want to use, you must supply the Program
+                        ID and Class Name to the Sheet Metal environment. Use the following syntax in the
+                        ProgramID.ClassName box on the Gage tab of the Solid Edge Material Table dialog box:</p>
+                     <table cellspacing="1" border="1" bgcolor="#F0F0F0" cellpadding="2" width="392">
+                        <colgroup span="1">
+                           <col span="1" width="100*">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <pre class="code-text">ProgramID.ClassName</pre>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Sheet Metal Bend Formulas, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>
