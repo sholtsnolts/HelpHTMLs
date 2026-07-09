@@ -1,0 +1,95 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<html class="main-html scroll-area">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+  <title>Working with subdivision features</title>
+ </head>
+ <body>
+  <div class="main content-container"><contenttitle title="Working with subdivision features"></contenttitle>
+   <div class="container-fluid content-start">
+    <div class="row justify-content-center topic-header">
+     <div class="col-12 content-pad">
+      <div class="topic-header-content" id="xid1913514">
+       <h1 class="topic-title">Working with subdivision features</h1>
+      </div>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-12 content-pad">
+      <h4 class="division-title">Using hybrid modeling mode to edit subdivision features</h4>
+      <div>
+       <p>When you exit the Subdivision Modeling environment, the subdivision model is listed in <b>PathFinder</b> as a subdivision feature, with one or more construction bodies. If multiple cages exist, a subdivision body feature for each cage is added to the Construction Bodies collector.</p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/output_subd_pathfinder.png"></p>
+       <p>If you were working in the Ordered environment, the construction bodies will behave as any other bodies and can be modified by other features. If you return to the Subdivision Modeling environment to edit the subdivision feature, any dependent features will recompute when you return to the modeling environment.</p>
+       <p>If you were working in the Synchronous environment, the resulting subdivision feature can be edited in the Subdivision Modeling environment, but no synchronous features can be applied to the resulting bodies. If you want to modify these bodies outside the Subdivision environment, you can use a hybrid modeling approach. Change to the ordered modeling mode, as described next, and then apply edits to the subdivision body using ordered features.</p>
+       <p>This video shows how you can add finishing features to a subdivision model using hybrid modeling mode.</p>
+       <div id="videoContainer" style="max-width: 50%;">
+        <div id="video">
+         <div id="videoPlayer" class="video-player m-b-md"><iframe id="player" src="https://video.sw.siemens.com/embed/fadce389-4434-4745-882a-66c633f54969" allowfullscreen scrolling="no" frameborder="0"></iframe>
+         </div>
+        </div>
+       </div>
+      </div>
+      <h4 class="division-title">Moving between synchronous and ordered modeling mode</h4>
+      <div>
+       <p>You can easily switch between synchronous and ordered modeling modes by doing any of the following:</p>
+       <ul>
+        <li><p>Right-click in <b>PathFinder</b> or the graphics window to activate the shortcut menu, and then choose either <b>Transition to Synchronous</b> or <b>Transition to Ordered</b>, depending on the environment that is active.</p></li>
+        <li><p>If a model contains both synchronous and ordered features, click the orange <b>Ordered</b> environment bar or the <b>Synchronous</b> environment bar in <b>PathFinder</b>.</p> <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/transition_between_ordered_sync.png"></p></li>
+        <li><p>On the ribbon, from the <b>Tools</b> tab→<b>Model</b> group, choose the modeling environment to transition to.</p></li>
+       </ul>
+      </div>
+      <h4 class="division-title">Making subdivision features available for downstream use</h4>
+      <div>
+       <p>You can disconnect the subdivision feature from its parent cage, so it cannot be edited as a subdivision feature anymore, but it can be used in other applications.</p>
+       <ul>
+        <li><p>In Synchronous mode, right-click the subdivision feature name in <b>PathFinder</b>, and select the <b>Break</b> command on its shortcut menu. For more information, see <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/break1h" rel="break1h">Break a feature into faces</a>.</p> <p>In <b>PathFinder</b>, the name of the subdivision body changes to a regular body name to reflect the link to the cage is disconnected.</p> <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/subd_feature_break.png"></p></li>
+        <li><p>In Ordered mode, use the <b>Drop Parents</b> shortcut command. For information, see <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/drparents1h" rel="drparents1h">Drop the parents on a feature</a>.</p> <p>In Ordered mode, this detached body acts like any other imported body or Part Copy that had its link to the parent part broken. The feature name does not change but its icon updates to show the padlock symbol, indicating the feature link to the cage was broken.</p> <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/subd_ordered_drop_parent.png"></p></li>
+       </ul>
+      </div>
+      <h4 class="division-title">Copying subdivision features</h4>
+      <div>
+       <p>You can copy and paste subdivision features outside the Subdivision Modeling environment, in both Ordered and Synchronous mode. The entire feature is copied as a new <b>Subdivision Feature</b> in <b>PathFinder</b>.</p>
+       <p>Copying <b>Subdivision Feature 1</b> copies the body and the cage, and pastes it as a new <b>Subdivision Feature 2</b>, which can be edited.</p>
+       <p>In Synchronous mode, the steering wheel is displayed to allow it to be moved. In Ordered mode, the body can be moved with direct edit commands, if needed.</p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/subd_copy_feature.png"></p>
+       <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/subd_copy_feature_ex.png"></p>
+       <p>You can store commonly used subdivision shapes in the Feature Library to make them readily available. When adding a subdivision shape to another model, its location can be defined in Synchronous mode, but the feature is placed in the original location automatically in Ordered mode.</p>
+      </div>
+     </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+     <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1875898" rel="xid1875898">Subdivision Modeling workflow</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1908343" rel="xid1908343">Move cage elements</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1905214" rel="xid1905214">Move using Quick Move</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900315" rel="xid1900315">Use symmetric mode in Subdivision Modeling</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900515" rel="xid1900515">Scale a subdivision model</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900768" rel="xid1900768">Split subdivision model faces</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968433" rel="xid1968433">Split faces with offset</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1970216" rel="xid1970216">Offset cage faces</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1969089" rel="xid1969089">Connect cage faces or edges with a bridge</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757078" rel="xid1757078">Delete and fill cage faces</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2010962" rel="xid2010962">Align a shape to a curve</a> <br> <br>
+     <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757104" rel="xid1757104">Introduction to Subdivision Modeling</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1801877" rel="xid1801877">Using PathFinder with subdivision models</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1762080" rel="xid1762080">Working with cage elements</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968554" rel="xid1968554">Creating subdivision features</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1904642" rel="xid1904642">Moving and rotating cage elements</a> <br> <br>
+     <h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757020" rel="xid1757020">Subdivision Modeling command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757053" rel="xid1757053">Box command in Subdivision Modeling</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757097" rel="xid1757097">Box command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757060" rel="xid1757060">Cylinder command in Subdivision Modeling</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757098" rel="xid1757098">Cylinder command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757072" rel="xid1757072">Sphere command in Subdivision Modeling</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757100" rel="xid1757100">Sphere command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757074" rel="xid1757074">Torus command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757101" rel="xid1757101">Torus command bar</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757077" rel="xid1757077">Scale command in Subdivision Modeling</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757079" rel="xid1757079">Blend command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1801694" rel="xid1801694">Show Blend Values command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1787288" rel="xid1787288">Split command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968327" rel="xid1968327">Split with Offset command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968362" rel="xid1968362">Bridge command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2010917" rel="xid2010917">Align to Curve command</a> <br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1848651" rel="xid1848651">Cage Style command</a> <br> <br>
+     <h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1969676" rel="xid1969676">Offset command in Subdivision Modeling</a> <br> <br>
+    </div>
+    <div class="footer-content">
+     Working with subdivision features, Solid Edge 2023 <br>© 2022 Siemens
+    </div>
+   </div>
+  </div>
+  <script>window.mainLanguage="en_US"</script>
+  <script>window.delivId=""</script>
+  <script>window.projectId=""</script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script>
+  <script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script>
+ </body>
+</html>

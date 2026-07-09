@@ -1,0 +1,120 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Bounded Surface command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Bounded Surface command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="surfbnd1c">
+                     <h1 class="topic-title">Bounded Surface command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Bounded</b> surface command <img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/surfbnd1.gif"> to create a construction surface using boundary elements you define. The boundary
+                     elements can be curves or edges and they must define a closed area (1). You can also
+                     specify whether any adjacent faces (2) are used to control tangency on the new bounded
+                     surface (3).</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/bounded1.gif"></p>
+                  <ul>
+                     <li>
+                        <p>The curve/edge set must form a closed loop.</p>
+                     </li>
+                     <li>
+                        <p>Adjacent faces can be used to control tangency on the new bounded surface.</p>
+                     </li>
+                     <li>
+                        <p>The preparation of edges/curves to be utilized may require the use of the derived
+                           curve and split curve commands.</p>
+                     </li>
+                     <li>
+                        <p>The keypoint curve command can be used to generate a boundary curve.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Inserting sketches</h4>
+                  <div>
+                     <p>You can use the <b>Insert Sketch</b> Step on the command bar to add new sketches to a Bounded feature. The geometry for
+                        the new sketch is created by intersecting a reference plane you define with the Bounded
+                        feature. You do not have to create the sketch geometry yourself. When you insert a
+                        sketch, the new geometry is a created as a B-spline curve. If you want the new geometry
+                        to consist of lines, arcs, or circles, you must create the new sketch manually outside
+                        of the <b>Bounded</b> surface command.</p>
+                     <p>When you click the <b>Insert Sketch</b> button on the command bar, plane creation options are added to the command bar so
+                        you can define the position for the new reference plane. For example, you can use
+                        the <b>Parallel Plane</b> option to define an offset reference plane where you want additional control over
+                        the resultant surface.</p>
+                     <p><img class="img-fluid" src="../../../../../common/en_US/graphics/graphicLibrary/boundedsurf2.gif"></p>
+                     <p>You can then edit the sketch to change the surface shape.</p>
+                     <p><img class="img-fluid" src="../../../../../common/en_US/graphics/graphicLibrary/boundedsurf3.gif"></p>
+                     <p>When you add a cross section or guide curve to an existing Bounded Surface feature
+                        using the <b>Insert Sketch</b> option, the new sketch is connected to the cross sections or guide curves. You can
+                        use the <b>Bounded Surface Options</b> dialog box to specify whether Pierce Points or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur15c" rel="consur15c">BlueDots</a> are used to connect new section to the surface.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>BlueDots are only available in the ordered modeling environment</p>
+                     </div>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Pierce points</h5>
+                           <p>When you set the <b>Use Pierce Points</b> option, connect relationships are used to tie the inserted sketch to the cross sections
+                              or guide curves it intersects. When you set the <b>Use BlueDots</b> option, BlueDot elements are used to tie the inserted sketch to the cross sections
+                              or guide curves it intersects. The option you specify also affects how you can edit
+                              the feature later.</p>
+                           <p>When you connect the new sketch using the <b>Use Pierce Points</b> option, you can modify the cross sections or guide curves the new sketch intersects
+                              and the B-spline curve for the inserted sketch will update. The <b>Use Pierce Points</b> option is most suitable for models that must conform to engineering data or dimension-driven
+                              criteria, such as turbine blades, fan housings, and so on. The <b>Use Pierce Points</b> option maintains the existing parent/child history of the model.</p>
+                        </li>
+                        <li>
+                           <h5>BlueDots</h5>
+                           <p>If you are working with a Bounded Surface in the ordered environment, and you insert
+                              a sketch using the <b>Use BlueDots</b> option, you can also modify the Bounded Surface feature by editing the position of
+                              the BlueDots using the Select Tool and the <b>BlueDot Edit</b> command bar. When you move a BlueDot, the portion of the sketches that are controlled
+                              by the BlueDot update, and that portion of the BlueSurf also updates.</p>
+                           <p>The <b>Use BlueDots</b> option is most suitable for ordered models that are driven by esthetic requirements,
+                              such as consumer electronics products, bottle and container design, and so on. When
+                              you use BlueDots to connect an inserted sketch, moving a BlueDot can also change the
+                              location of the reference planes of the sketches it connects.</p>
+                           <p>This is because a BlueDot allows you to override the existing parent/child history
+                              of the model. For example, if you insert a sketch using a parallel reference plane
+                              with an offset value of 25 millimeters, editing the location of the BlueDot can also
+                              change the offset value of the reference plane.</p>
+                           <p>This behavior can be preferable when exploring the esthetic possibilities of a surface,
+                              but can be counter-productive when working with engineered surfaces. In some cases,
+                              using BlueDots can also cause a model to take longer to update, because moving a BlueDot
+                              may require more of the model to recompute than a connect relationship would.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p> When you set the <b>Use BlueDots</b> option on the <b>Bounded Surface Options</b> dialog box, but existing constraints prevent BlueDots from being created, pierce
+                                 points are created instead.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surfbnd1h" rel="surfbnd1h">Construct a bounded surface</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surfbnd1d" rel="surfbnd1d">Bounded Surface command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surfbnd2d" rel="surfbnd2d">Bounded Surface Options</a><br><br></div>
+            <div class="footer-content">Bounded Surface command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

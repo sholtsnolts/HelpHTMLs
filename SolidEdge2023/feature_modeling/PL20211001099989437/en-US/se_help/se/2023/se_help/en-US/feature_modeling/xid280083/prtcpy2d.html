@@ -1,0 +1,207 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Part Copy Parameters dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Part Copy Parameters dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prtcpy2d">
+                     <h1 class="topic-title">Part Copy Parameters dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Sets the part copy options you want.</p>
+                  <dl>
+                     <dt>Link To File</dt>
+                     <dd class="ml-3">
+                        <p>Creates an associative link to the file the part copy is created from. When you make
+                           changes to the original file, you can update the part copy using the Update Link command
+                           on the shortcut menu (ordered environment only).</p>
+                     </dd>
+                     <dt>Update Link Options</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/uplnks1d" rel="uplnks1d">Update Model links dialog box</a> so you can specify how you want the part copy updated when the original document
+                           is modified (ordered environment only).</p>
+                     </dd>
+                     <dt>Copy Colors</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to copy the colors that were used for the original document.
+                           For example, you can use the Part Painter command to apply colors to faces and features
+                           in the original part or sheet metal document. You can use the Copy Colors option to
+                           control whether the colors are copied to the part copy. This option is not available
+                           when creating a part copy of an assembly document (.ASM).</p>
+                     </dd>
+                     <dt>Link to Material</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that the part copy is linked to the material specified in the parent document.
+                           If the material in the parent document is changed, you can update the link in the
+                           child document. This option is useful when creating a part copy of a document where
+                           maintaining the material link between the parent and child documents is important.
+                           This option is available when the part copy is placed as the base feature. In other
+                           words, if other bodies exist in the document before you place the part copy, the Link
+                           to Material option is not available.</p>
+                     </dd>
+                     <dt>Use Geometry-based Naming</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to use geometry-based naming when creating a part copy of
+                           an X_T document. When you set this option, the faces on the part copy are assigned
+                           internal names which can then be used to ensure that the part copy updates properly
+                           if the X_T document is changed.</p>
+                        <p>You should set this option when you use the Part Copy command to import models from
+                           other systems and want to update the Solid Edge file if changes are made to the imported
+                           model. For example, consider the following workflow. Suppose you create a new Solid
+                           Edge part file and then use the Part Copy command, with the Use geometry-based naming
+                           option selected, to import a model from another system. After you save the Solid Edge
+                           part file, you make changes to the source file used as the part copy, Solid Edge can
+                           update any changes to the source file. If the option is not set, any features added
+                           to the part copy will fail.</p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>This open works nicely when the model changes are minimal.</p>
+                        </div>
+                     </dd>
+                     <dt>Family Of Parts Member</dt>
+                     <dd class="ml-3">
+                        <p>Lists the individual members of the family of parts for the part you are inserting.
+                           Select the member name you want from the list. This option is available only if the
+                           part you are inserting has had a family of parts defined.</p>
+                     </dd>
+                     <dt>Coordinate System</dt>
+                     <dd class="ml-3">
+                        <p>Positions the part copy with respect to a coordinate system you define. When you set
+                           this option you can reposition the part copy by changing the offset values for the
+                           coordinate system.</p>
+                     </dd>
+                     <dt>Configuration</dt>
+                     <dd class="ml-3">
+                        <p>Uses the last configuration of the saved assembly. You can change to any any configuration
+                           associated withe assembly. Only the components displayed in the assigned configuration
+                           are used when creating a body.</p>
+                     </dd>
+                     <dt>Copy As Design Body</dt>
+                     <dd class="ml-3">
+                        <p>Creates the copy as a design body. When a part copy is placed as a design body, you
+                           can add features to the part copy.</p>
+                     </dd>
+                     <dt>Merge solid bodies</dt>
+                     <dd class="ml-3">
+                        <p>Merges all bodies that overlap into a single design body.</p>
+                     </dd>
+                     <dt>Adjust non-manifold conditions and merge</dt>
+                     <dd class="ml-3">
+                        <p>The option is off by default. When it is checked and there are multiple bodies created
+                           by the Part Copy feature, Solid Edge will adjust such bodies to remove the non-manifold
+                           conditions and merge into a single design body.</p>
+                     </dd>
+                     <dt>Copy As Construction Body</dt>
+                     <dd class="ml-3">
+                        <p>Creates the copy as a construction body. When a part copy is placed as a construction
+                           body, you can use it to define the From/To extent when creating another feature. You
+                           cannot add features to a part copy placed as a construction element.</p>
+                     </dd>
+                     <dt>Feature Tree List</dt>
+                     <dd class="ml-3">
+                        <p>Displays the list of design and construction bodies in the file from which you are
+                           copying. You specify the bodies you want by setting the check mark adjacent to the
+                           bodies you want to copy. You can also specify that you want all of the bodies of a
+                           certain type copied by setting the check mark adjacent to a body type. For example,
+                           if you want to copy all the surface bodies, you can set the check mark adjacent to
+                           the Surface Bodies entry.</p>
+                        <p>When you want to copy a select set of bodies into the file, copying all the bodies
+                           into the file temporarily makes it easier to find the bodies you want. For example,
+                           if you want to copy a select set of surface bodies, first set the Surface Bodies option,
+                           then click Apply. This copies all the surface bodies into the file. You can then pause
+                           the cursor over each surface body entry in the dialog box and it will highlight in
+                           the graphic window. If it is a surface you want, set the check mark. When you have
+                           set the check mark for all the individual surfaces you want, clear the check mark
+                           for the Surface Bodies entry, then click Apply to update the select set.</p>
+                     </dd>
+                     <dt>Remove voids</dt>
+                     <dd class="ml-3">
+                        <p>Removes voids from all the bodies created in the Part Copy.</p>
+                     </dd>
+                     <dt>Mirror Body</dt>
+                     <dd class="ml-3">
+                        <p>Specifies that you want to mirror the selected bodies about the reference plane you
+                           specify. The reference plane you select in the dialog box also highlights in the application
+                           window.</p>
+                     </dd>
+                     <dt>Flatten Part</dt>
+                     <dd class="ml-3">
+                        <p>Flattens the part onto the reference plane you select. The reference plane you select
+                           in the dialog box also highlights in the application window. This option is available
+                           when creating a part copy using a Solid Edge Sheet Metal file (.PSM). If the Link
+                           to File option is checked, the flattened copy is associative to the original sheet
+                           metal part.</p>
+                        <dl>
+                           <dt>About Top (xy) Plane</dt>
+                           <dd class="ml-3">
+                              <p>Mirrors or flattens the bodies about the Top (xy) reference plane.</p>
+                           </dd>
+                           <dt>About Right (yz) Plane</dt>
+                           <dd class="ml-3">
+                              <p>Mirrors or flattens the bodies about the Right (yz) reference plane.</p>
+                           </dd>
+                           <dt>About Front (xz) Plane</dt>
+                           <dd class="ml-3">
+                              <p>Mirrors or flattens the bodies about the Front (xz) reference plane.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Scale</dt>
+                     <dd class="ml-3">
+                        <p>Specifies how much the software reduces or enlarges the part copy. You can enter different
+                           values in the X, Y, and Z boxes if the Uniform Scale box is cleared.</p>
+                     </dd>
+                     <dt>Use Uniform Scale</dt>
+                     <dd class="ml-3">
+                        <p>Scales the part equally in the x, y, and z axes when checked.</p>
+                     </dd>
+                     <dt>Shrink Factor</dt>
+                     <dd class="ml-3">
+                        <p>Sets the shrink factor for the part copy. The value you type should be greater than
+                           or equal to 0.00, and less than 1.00. (A value of 0.00 would not enlarge the size
+                           of the part and a value of 1.00 is invalid because it would scale the part infinitely.)
+                           The value you type in the Shrink Factor box is used to update the X, Y, and Z Scale
+                           boxes according to the following equation:</p>
+                        <p>SCALEx,y,z=1/(1-shrink factor)</p>
+                        <p>For example, if you type 0.01 in the Shrink Factor box, the value in the Scale boxes
+                           would read 1.0101 and the part would be enlarged by that value.</p>
+                     </dd>
+                     <dt>Apply</dt>
+                     <dd class="ml-3">
+                        <p>Applies the options you have specified. This can be useful when you are copying bodies,
+                           but are not sure if the bodies you selected are the bodies you want to copy. You can
+                           select a body, then click Apply, and the body is displayed in the graphic window.
+                           If you do not want the body, you can deselect the body, then click Apply again.</p>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1h" rel="prtcpy1h">Create a part copy</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/pstspc1h" rel="pstspc1h">Paste an element with a different format</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1a" rel="prtcpy1a">Inserting part copies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1c" rel="prtcpy1c">Part Copy command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1d" rel="prtcpy1d">Part Copy command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy4d" rel="prtcpy4d">Update Part Copies dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy5d" rel="prtcpy5d">Update Part Copies dialog box (Out-of-Date Parts)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy6d" rel="prtcpy6d">Select Part Copy dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/pstspc1c" rel="pstspc1c">Paste Special command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/pstspc1d" rel="pstspc1d">Paste Special dialog box</a><br><br></div>
+            <div class="footer-content">Part Copy Parameters dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

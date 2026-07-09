@@ -1,0 +1,142 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title> Vent command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title=" Vent command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="cvent1c">
+                     <h1 class="topic-title"><img class="img-fluid" src="../../../common/nonLocalized/se/feature/vent/cvent.gif"> Vent command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Constructs a vent. You construct a vent feature by selecting elements from a single,
+                     existing sketch. The sketch defines the exterior boundary element (A), ribs (B), and
+                     spars (C) for the vent feature. The exterior boundary must be a closed element and
+                     cannot pass through any surfaces on the design model. The ribs and spars can be open
+                     or closed elements.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/vent/cvent1.gif"></p>
+                  <p>You can use the <b>Vent Options</b> dialog box to define rib and spar properties, such as thickness, depth, draft and
+                     rounding properties. You can also specify whether the ribs or spars extend past the
+                     opening created by the boundary element, and whether the ribs or spars are offset
+                     from the entrance surface.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>You must have both a solid body and a sketch in a Part document before you can construct
+                        a vent feature.</p>
+                  </div>
+                  <h4 class="division-title">Vent construction details</h4>
+                  <div>
+                     <p>The top and bottom surfaces on the ribs and spars are constructed by offsetting the
+                        first surface (entrance surface) that the boundary element cuts. For example, the
+                        boundary element (A) for the vent shown cuts through a cylindrical surface (B) with
+                        a radius value of 125 millimeters. The top and bottom faces of the ribs and spars
+                        will then also be cylindrical.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/vent/cvent3.gif"></p>
+                     <p>The cylindrical radius value of the top and bottom faces of the ribs and spars is
+                        determined by the values you enter in the <b>Vent Options</b> dialog box for the rib and spar properties for <b>Offset</b> and <b>Depth</b>.</p>
+                     <table cellspacing="1" cellpadding="6" width="30%">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="40%">
+                           <col span="1" align="left" width="30%">
+                           <col span="1" align="left" width="30%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" align="left" colspan="1">
+                              <p>Property</p>
+                           </th>
+                           <th rowspan="1" align="left" colspan="1">
+                              <p>Rib</p>
+                           </th>
+                           <th rowspan="1" align="left" colspan="1">
+                              <p>Spar</p>
+                           </th>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Thickness</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>8 mm</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>5 mm</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Extension</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>8 mm </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>3 mm</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Offset</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>2 mm </p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>6 mm</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1">
+                              <p>Depth</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>8 mm</p>
+                           </td>
+                           <td rowspan="1" colspan="1">
+                              <p>5 mm</p>
+                           </td>
+                        </tr>
+                     </table>
+                     <p>For example, the top face of the rib has a radius value of 123 millimeters because
+                        an offset value of 2 millimeters was specified for the top face of the rib. The radius
+                        value of the bottom face of the rib is determined by the values for the Offset and
+                        Depth property. In this example, the bottom face of the rib has a radius value of
+                        115 millimeters (125 - (8+2)). Similar results are shown for the top and bottom faces
+                        on the spar (119 mm and 114 mm). Also notice the rib extension value of 8 mm.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/vent/cvent4.gif"></p>
+                     <p>Draft angle for a vent feature is defined relative to the sketch and extent direction
+                        for the feature. For the following vent feature, the sketch (A) is positioned above
+                        the part, and the extent (B) is defined downward toward the part. The red faces on
+                        the ribs and spars are then considered outside faces, and the draft direction was
+                        defined as outward, which adds material.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/vent/cvent2.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/cvent1h" rel="cvent1h">Construct a vent feature</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid293193" rel="xid293193">Vent features</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/cvent1d" rel="cvent1d">Vent command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/cvent2d" rel="cvent2d">Vent Options Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/cvent1e" rel="cvent1e">What can go wrong-vent features</a><br><br></div>
+            <div class="footer-content"> Vent command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

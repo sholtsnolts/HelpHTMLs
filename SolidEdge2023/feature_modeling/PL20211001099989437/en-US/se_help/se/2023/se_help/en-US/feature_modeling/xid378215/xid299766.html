@@ -1,0 +1,202 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Slot command bar (synchronous environment)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Slot command bar (synchronous environment)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid299766">
+                     <h1 class="topic-title">Slot command bar (synchronous environment)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <dl>
+                     <dt>Options</dt>
+                     <dd class="ml-3">
+                        <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299767" rel="xid299767">Slot Options dialog box</a>.</p>
+                     </dd>
+                     <dt>Saved Settings</dt>
+                     <dt>Extent Step</dt>
+                     <dd class="ml-3">
+                        <p>Defines the depth of the feature or the distance to extend the profile to construct
+                           the feature. </p>
+                        <dl>
+                           <dt>Through All</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the slot is extended through all faces of the part,
+                                 starting at the profile plane. You can extend the slot in a single direction.</p>
+                              <p>The Move to Synchronous command for slot features converts slots with Through All
+                                 extent types with a both directions direction type as face sets since synchronous
+                                 slots do not support both directions direction type.</p>
+                           </dd>
+                           <dt>Through Next</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the slot is extended through only the next face on
+                                 the selected side. The next face is defined as the closest face where the slot forms
+                                 a closed intersection with the part. You can extend the slot in a single direction.</p>
+                              <p>The Move to Synchronous command for slot features converts slots with Through Next
+                                 extent types with a both directions direction type as face sets since synchronous
+                                 slots do not support both directions direction type.</p>
+                           </dd>
+                           <dt>From/To Extent</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the slot is extended from one face or reference plane
+                                 to another. When locating the To face, only planar elements parallel to the From face
+                                 can be located.</p>
+                              <p>During creation of a Slot with this extent type, the extent type automatically converts
+                                 based on whether or not the slot has a bottom (floor) face.</p>
+                              <ul>
+                                 <li>
+                                    <p>If the slot has a bottom face, the extent type remains From/To, but the To element
+                                       is a face that is penetrated by the slot, which may not be the element located by
+                                       the user as the To element. The To face is determined in the same manner as the To
+                                       face is determined for a Finite slot that does not have a bottom face and is then
+                                       converted to a From/To slot.</p>
+                                 </li>
+                                 <li>
+                                    <p>If a From/To slot does not have a bottom face, the extent type converts to a finite
+                                       extent.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                           <dt>Finite Extent</dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the slot is extended a finite distance to either side
+                                 of the profile plane, or symmetrically to both sides of the profile plane. Type the
+                                 distance into the edit value box.</p>
+                           </dd>
+                           <dt>Options</dt>
+                           <dd class="ml-3">
+                              <p>Displays the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299767" rel="xid299767">Slot Options dialog box</a>.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>More Slots</dt>
+                     <dd class="ml-3">
+                        <p>Adds more occurrences for the selected slot. To add more slot occurrences, click the
+                           edit handle for the slot (1), click the <b>Add More</b> button, click the path for the new slot (2), and click to place the new slot (3).</p>
+                        <p><img class="img-fluid" src="../../../common/graphicLibrary/se/sheet_metal/multi_slot7.gif"></p>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can add more slots one at a time or fence select multiple paths to create multiple
+                              slots at once.</p>
+                        </div>
+                     </dd>
+                     <dt>Keypoints</dt>
+                     <dd class="ml-3">
+                        <p>Sets the type of keypoint you can select to define a feature extent or to position
+                           a new reference plane. This allows you to define the feature extent or the location
+                           of the reference plane using a keypoint on other existing geometry. When you use a
+                           key point to define a finite extent, the key point is only used to define a finite
+                           distance. The extent will not be associative to the key point. The available keypoint
+                           options are specific to the command and workflow you use.</p>
+                        <table cellspacing="1" cellpadding="6" width="100%">
+                           <colgroup span="1">
+                              <col span="1" align="left" width="10%">
+                              <col span="1" align="left" width="90%">
+                           </colgroup>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/icons/buttons/centerendptkypnt1.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects the center and end points.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/surfacing/interface/allkypts.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects any keypoint.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/surfacing/interface/kypnt1.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects an end point.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/surfacing/interface/kypnt2.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects the center point of a circle or arc.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/surfacing/interface/kypnt4.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects a midpoint.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/sheetmetal/features/interface/kypnt3.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects a tangency point on an analytic curved face such as a cylinder, sphere, torus,
+                                    or cone.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/surfacing/interface/kypnt5.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects a silhouette point.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/surfacing/interface/editpoint.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Selects an edit point on a curve.</p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../common/nonLocalized/se/icons/buttons/noptkypnt1.gif"></p>
+                              </td>
+                              <td rowspan="1" valign="top" colspan="1">
+                                 <p>Turns off the keypoint location.</p>
+                              </td>
+                           </tr>
+                        </table>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299768" rel="xid299768">Construct a slot</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1417889" rel="xid1417889">Construct multiple slots</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid381155" rel="xid381155">Move or edit a slot in the synchronous environment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid381218" rel="xid381218">Edit a slot in the ordered environment</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid378214" rel="xid378214">Creating slots</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299765" rel="xid299765">Slot command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid378220" rel="xid378220">Slot command bar (ordered environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299767" rel="xid299767">Slot Options dialog box</a><br><br></div>
+            <div class="footer-content">Slot command bar (synchronous environment), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,153 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Drawing ordered profiles</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Drawing ordered profiles"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="draw2a">
+                     <h1 class="topic-title">Drawing ordered profiles</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Drawing ordered profiles is part of the ordered feature construction process. When
+                     you select a profile-based feature command, the command bar first guides you to define
+                     a plane to draw the profile on, and then displays a view oriented to the profile plane
+                     so that you can draw the 2D geometry easily.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>For more information about 2D drawing in Solid Edge, see the Drawing 2D Elements topic.</p>
+                  </div>
+                  <p>Solid Edge makes it possible for you to design as you draw. Profile modifications
+                     are automatically reflected in the feature to which the profile belongs. Solid Edge
+                     drawing tools make the process of drawing profiles fast and accurate.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/creating_features/draw13.gif"></p>
+                  <h4 class="division-title">Displaying a Profile window</h4>
+                  <div>
+                     <p>You can set options on the General tab of the Options dialog box so you can specify
+                        whether a new window is created when drawing profiles. When you set the Create a New
+                        Window option, a new window is created, which is oriented parallel to the profile
+                        plane. Working in the new window can make it easier for you to draw the profile, especially
+                        if you are a new user. You can draw the profile in the new Profile window or the active
+                        model window.</p>
+                     <p>After you gain experience, you can set the Do Not Create a New Window—Use the Active
+                        Model Window option. When you set this option, the performance of Solid Edge is improved,
+                        since a new window does not have to be created. </p>
+                     <p>When you set the Do Not Create a New Window—Use the Active Model Window option, you
+                        can also set an option that specifies whether the active model window is reoriented
+                        to the profile plane. If you do not want to reorient the window, you can clear the
+                        Orient the Window to the Selected Plane option.</p>
+                  </div>
+                  <h4 class="division-title">Reorienting the Profile window</h4>
+                  <div>
+                     <p>In some situations, reorienting the Profile window can make it is easier to visualize
+                        a complex profile's relationship to the surrounding model geometry. For example, you
+                        can use the Rotate command on the View→Orient group, or the shortcut keys to rotate
+                        the profile view to a different orientation. You can use the Sketch View command on
+                        the View→Views group to quickly rotate the profile view so that it is parallel to
+                        the screen.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/creating_features/sktchvw2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Validating profiles</h4>
+                  <div>
+                     <p>Each type of profile-based feature has a set of requirements for the type of profile
+                        geometry it can use. For example, a protrusion that is the base feature must have
+                        a closed profile, but subsequent features can have open or closed profiles. When you
+                        finish drawing a profile, or accept a profile you select from a sketch, the feature
+                        command checks to make sure the profile is valid for the feature type. If the profile
+                        or sketch used to create the feature is invalid, the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/profileerror1d" rel="profileerror1d">Profile Error Assistant dialog box</a> displays a description of the profile error. When you move the cursor over the description,
+                        the element containing the error highlights in the Profile window. You can click the
+                        error description to select the invalid element and zoom to the element, delete the
+                        element, change the color of the element, change the element to construction geometry,
+                        or save the geometry as a sketch or failed feature. You can make corrections to the
+                        profile and then click the Validate button to re-validate the profile. If the profile
+                        is valid, you are returned to the next feature creation step. If the profile still
+                        contains errors, the description list is updated to display any errors. You can also
+                        save the profile as a failed feature or sketch. Construction and reference elements
+                        are ignored during profile validation.</p>
+                  </div>
+                  <h4 class="division-title">Undoing profiles</h4>
+                  <div>
+                     <p>At some point, you may make modifications to a profile that are undesired. At this
+                        point, you do not want to finish the profile, since closing the Profile window implies
+                        you are satisfied with the profile and want to continue with the feature creation.
+                        The Undo All command lets you reset the profile to the state it was in when you entered
+                        the Profile window. You can then close the profile window without saving any unwanted
+                        changes to the profile.</p>
+                  </div>
+                  <h4 class="division-title">Importing profiles</h4>
+                  <div>
+                     <p>You can paste 2D sketches with relationships, dimensions, and variable expressions
+                        from Solid Edge Part and Draft documents into the Profile window. You can also copy
+                        profiles onto the Clipboard from the Profile window and paste them into the Draft
+                        environment.</p>
+                  </div>
+                  <h4 class="division-title">Saving profiles</h4>
+                  <div>
+                     <p>You can use the Save and Save All commands to save a profile when creating or editing
+                        a profile feature.</p>
+                     <h5>Saving profiles during feature creation</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>When you save a profile during the initial creation of a feature, the feature is saved
+                              as a failed feature. If you save a profile during a feature creation and then delete
+                              all profile elements and attempt to finish the profile without creating the feature,
+                              the feature is listed in PathFinder in a rolled back state. If you cancel the command
+                              before completing the feature, the feature is deleted. If you exit the file without
+                              saving, and then reopen the file, the feature appears in PathFinder as a failed feature.
+                              If you save when exiting the file, the next time you open the file you must delete
+                              the feature.</p>
+                           <p>If you save a profile that would fail profile validation during feature creation,
+                              make corrections to the profile, and then finish the feature, the feature is listed
+                              as a good feature in PathFinder. However, if you exit without saving the profile,
+                              and reopen the file, the feature appears as a failed feature in PathFinder.</p>
+                        </li>
+                     </ul>
+                     <h5>Saving profiles during feature edit</h5>
+                     <ul style="list-style: none">
+                        <li>
+                           <p>If you save a profile when you are editing a feature that was previously created and
+                              saved to a file, the feature appears as a failed feature. The feature is then treated
+                              like a failed feature. If profile validation occurs when you exit a profile after
+                              saving the profile, you will be prompted to save the profile as a failed feature and
+                              the feature will appear as a failed feature in PathFinder.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Saving unfinished profiles</h4>
+                  <div>
+                     <p>If you attempt to finish a profile that is invalid for the feature you are constructing,
+                        you can close the Profile window without losing the profile geometry. If your profile
+                        is invalid, the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/profileerror1d" rel="profileerror1d">Profile Error Assistant dialog box</a> displays a description of the profile error.</p>
+                     <p>If the feature can be saved as a failed feature or can be converted to a sketch, the
+                        Save as Failed Feature and Save as Sketch options are available. With features involving
+                        multiple profiles on separate planes, such as sweep and lofts, the feature cannot
+                        be saved as a failed feature. In these cases, you can only save the profile geometry
+                        as a sketch.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Drawing ordered profiles, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

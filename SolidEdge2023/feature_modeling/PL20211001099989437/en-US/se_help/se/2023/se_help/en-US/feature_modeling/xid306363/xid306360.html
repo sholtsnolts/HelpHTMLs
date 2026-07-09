@@ -1,0 +1,145 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Boolean commands</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Boolean commands"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid306360">
+                     <h1 class="topic-title">Boolean commands</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>3D modeling usually involves the use of solid bodies. At times you may want to do
+                     the following:</p>
+                  <ul>
+                     <li>
+                        <p>Combine multiple bodies into one body.</p>
+                     </li>
+                     <li>
+                        <p>Subtract sections from a body.</p>
+                     </li>
+                     <li>
+                        <p>Work with the intersection of bodies.</p>
+                     </li>
+                     <li>
+                        <p>Split a body.</p>
+                     </li>
+                  </ul>
+                  <p>You use the boolean commands to create the body you need from existing bodies.</p>
+                  <p>The location of the boolean commands are:</p>
+                  <ul>
+                     <li>
+                        <h5>Part environment</h5>
+                        <p>Home tab→Solids group→Add Body list.</p>
+                     </li>
+                     <li>
+                        <h5>Sheet Metal environment</h5>
+                        <p>Home tab→Sheet Metal group→Add Body list</p>
+                     </li>
+                  </ul>
+                  <p>The boolean operation output body type is the same as the target body. As you perform
+                     boolean operations, boolean features appear in PathFinder.</p>
+                  <h4 class="division-title">Types of boolean commands</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <h5>Union</h5>
+                           <p>Combines selected bodies into a single body. The target body consumes all selected
+                              tool bodies.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/union.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Subtract</h5>
+                           <p>Subtracts selected <em>tool</em> bodies from selected <em>target</em> bodies.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/difference.gif"></p>
+                           <p>If you use a reference plane or a surface body as the tool, use the direction handle
+                              to specify the direction to subtract.</p>
+                           <p>For example, the target body (1) has a reference plane (2) as the subtract tool. There
+                              are two solutions and you use the direction handle to specify the solution you want.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/subtract_handle.gif"></p>
+                           <p>When using a solid body or construction body as the tool:</p>
+                           <ul>
+                              <li>
+                                 <p>If the target body only has a portion of its volume removed, then the target body
+                                    remains a single body.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/subtract2.gif"></p>
+                              </li>
+                              <li>
+                                 <p>If the target body has volume removed that completely intersects the body, then the
+                                    target body splits into additional bodies. The target body consumes all selected tool
+                                    bodies.</p>
+                                 <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/subtract3.gif"></p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <h5>Intersect</h5>
+                           <p>Removes all volume that is not common to the selected bodies.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/intersection.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Split</h5>
+                           <p>Splits a target body with a tool body. The tool body can be a solid body, a reference
+                              plane, or a surface.</p>
+                           <p>The result may be one or more additional bodies. If you use a reference plane or surface
+                              body to split a target body, the result is two bodies.</p>
+                           <p>For example, (1) target body, (2) tool body, (3) target body split into six design
+                              bodies, (4) a single design body.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/split.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Dynamic preview</h4>
+                  <div>
+                     <p>After selecting a target body, the boolean command automatically enters a preview
+                        mode. The preview mode:</p>
+                     <ul>
+                        <li>
+                           <p>Display only new faces that are created after the operation.</p>
+                        </li>
+                        <li>
+                           <p>Target body edges displayed in 'half-select' color.</p>
+                        </li>
+                        <li>
+                           <p>Tool bodies are transparent and the edges display in 'select' color.</p>
+                        </li>
+                     </ul>
+                     <p>In the following example, a subtract operation produces a dynamic preview which shows
+                        a target (1) and two tool bodies (2). The new faces display in light blue. This edge
+                        coloration makes it easier to distinguish the tool bodies from the target bodies.
+                        You can deselect a tool or target body by pressing the Ctrl key while selecting the
+                        body.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/dynamic_preview1.gif"></p>
+                     <p>You can switch back to the default shading for selected elements by pressing Ctrl+Shift+D.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/boolean/dynamic_preview2.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306349" rel="xid306349">Union selected bodies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306350" rel="xid306350">Subtract a volume from a body</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306351" rel="xid306351">Intersect selected bodies into a single body</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306352" rel="xid306352">Split a selected body into individual bodies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306341" rel="xid306341">Union command (boolean)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306348" rel="xid306348">Union command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306342" rel="xid306342">Subtract command (boolean)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306347" rel="xid306347">Subtract command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2008954" rel="xid2008954">Assembly Subtract Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306343" rel="xid306343">Intersect command (boolean)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306346" rel="xid306346">Intersect command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1313801" rel="xid1313801">Scale Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1313802" rel="xid1313802">Scale Body command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1315371" rel="xid1315371">Scale Body Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306344" rel="xid306344">Split command (boolean)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306345" rel="xid306345">Split command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid306355" rel="xid306355">Boolean Options dialog box</a><br><br></div>
+            <div class="footer-content">Boolean commands, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,177 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Holes database</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Holes database"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid820456">
+                     <h1 class="topic-title">Holes database</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Hole data is contained in multiple database files. The hole database files are stored
+                     in the <b>C:\Program Files\Siemens\Solid Edge 2023\Preferences\Holes</b> folder. You can change the default location by modifying the <b>File menu</b>→<b>Settings</b>→<b>Options</b>→<b>File Locations</b>→Holes database path.</p>
+                  <p>When defining a hole, you are given a set of hole parameters contained in the hole
+                     database. If you manually enter a value not in the hole database, the value fields
+                     are displayed with a yellow background.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/hole/not_in_database.gif"></p>
+                  <p>Each database file is based on a standard.</p>
+                  <ul style="list-style: none">
+                     <li>
+                        <p>ANSI Inch</p>
+                     </li>
+                     <li>
+                        <p>ANSI Metric</p>
+                     </li>
+                     <li>
+                        <p>DIN Metric</p>
+                     </li>
+                     <li>
+                        <p>GB Metric</p>
+                     </li>
+                     <li>
+                        <p>GOST Metric</p>
+                     </li>
+                     <li>
+                        <p>ISO Metric</p>
+                     </li>
+                     <li>
+                        <p>JIS Metric</p>
+                     </li>
+                     <li>
+                        <p>UNI Metric</p>
+                     </li>
+                  </ul>
+                  <p>The database files are in a Microsoft Excel format. The following Excel formats are
+                     supported:</p>
+                  <ul style="list-style: none">
+                     <li>
+                        <p>.xlsx</p>
+                     </li>
+                     <li>
+                        <p>.xls</p>
+                     </li>
+                     <li>
+                        <p>.xlsm</p>
+                     </li>
+                     <li>
+                        <p>.xlsb</p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>The .xlsx format is supported when Microsoft Excel is not installed. The other formats
+                        are supported only if Excel is installed.</p>
+                  </div>
+                  <h4 class="division-title">Editing the holes database</h4>
+                  <div>
+                     <p>You can edit a hole database by clicking the <b>Open</b> database <img class="img-fluid" src="../../../../common/nonLocalized/se/icons/buttons/open_hole_database.gif"> button in the <b>Hole Options</b> dialog box. You can also open a database file by selecting the file in the Hole database
+                        folder.</p>
+                     <p>For instructions on editing a hole database, open the hole spreadsheet and select
+                        the sheet named <em>Instructions</em>.</p>
+                  </div>
+                  <h4 class="division-title">Validating the holes database</h4>
+                  <div>
+                     <p>You can use <b>HoleDatabaseValidationTool.exe</b>, located in the <b>2023\Program</b> folder to detect errors in the holes database and produce a report listing any errors.</p>
+                     <p>The executable validates that:</p>
+                     <ul>
+                        <li>
+                           <p>No duplicate diameters exist for the same thread family. </p>
+                        </li>
+                        <li>
+                           <p>The column content type is correct. </p>
+                           <ul>
+                              <li>
+                                 <p>The <b>Fit </b>column must have a unique entry for a particular size. </p>
+                              </li>
+                              <li>
+                                 <p>The <b>Thread Type</b>, <b>Sub Type</b>, <b>Size</b>, <b>Thread Family,</b> and <b>Fit</b> columns cannot be empty. </p>
+                              </li>
+                              <li>
+                                 <p>The <b>Thread Type</b> column in the <b>Thread</b> worksheet can only have a value or 1, 2, or 3. </p>
+                              </li>
+                              <li>
+                                 <p>There can only be one <b>Sub Type</b> string associated with the same sub type value. <b>Diameter</b> columns can only contain numeric values greater than 0.</p>
+                              </li>
+                              <li>
+                                 <p>For <b>Angle</b> columns: chamfer angles must be between 0 and 90 degrees, v-bottom angles and countersink
+                                    angles must be greater than or equal to 0 degrees and less than 180 degrees.</p>
+                              </li>
+                              <li>
+                                 <p><b>Units</b> cells can only have values of <b>inch</b> and <b>mm</b>.</p>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           <p>The holes type worksheet is not missing or empty. </p>
+                           <p>The number of worksheets cannot be less than six and the worksheets cannot be empty.</p>
+                        </li>
+                     </ul>
+                     <p><b>To validate a holes database:</b></p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p>From the <b>Solid Edge 2023\Program</b> folder, run <b>HoleDatabaseValidationTool.exe</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Hole Database Validation Tool</b> dialog box, click <b>Add</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Open </b>dialog box, select the hole database you want to validate and then click <b>Open</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Hole Database Validation Tool</b> dialog box, click <b>Browse</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Browse for Folder</b> dialog box, select a folder for the debug report, and then click <b>OK</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Hole Database Validation Tool</b> dialog box, click <b>Debug</b>.</p>
+                        </li>
+                        <li>
+                           <p>On the <b>Hole Database Validation Tool</b> dialog box, click <b>View Report</b> to see if any errors exist.</p>
+                        </li>
+                     </ol>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can select a database from the list of databases you want to debug and click <b>Remove</b> to remove it from the list. </p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Displaying tapered pipe thread size as decimals</h4>
+                  <div>
+                     <p>By default, tapered pipe thread size for the ANSI Inch standard displays as fractions
+                        in the drop-down list on the<b> Holes Options</b> dialog box. </p>
+                     <p>You can edit parameters in the holes database to display the size as decimals. For
+                        example, if you want to display the size 1 1/4 - 11.5 NPT as 1.250 - 11.5 NPT. To
+                        do this you need to set the value to 1.250 - 11.5 NPT for <em>Size</em>, <em>Thread Type External</em>, and <em>Thread Type Internal</em> columns on the <em>Thread</em> sheet of the database. Once you edit these parameters, 1.250 - 11.5 NPT will display
+                        in the drop-down list. Draft callouts will display the size in decimals as well. </p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid723743" rel="xid723743">Hole types</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid723745" rel="xid723745">Hole extents</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid723746" rel="xid723746">V bottom angles</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid723744" rel="xid723744">Threaded holes</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid723749" rel="xid723749">Saving commonly used hole parameters</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/holec3d" rel="holec3d">Hole Options dialog box (Simple)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/holec7d" rel="holec7d">Hole Options dialog box (Threaded)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/holec9d" rel="holec9d">Hole Options dialog box (Counterbore)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/holec10d" rel="holec10d">Hole Options dialog box (Countersink)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/holec8d" rel="holec8d">Hole Options dialog box (Tapered)</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid832487" rel="xid832487">Hole database converter</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2049711" rel="xid2049711">Tolerance dialog box</a><br><br></div>
+            <div class="footer-content">Holes database, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

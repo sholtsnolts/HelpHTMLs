@@ -1,0 +1,105 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Intersect command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Intersect command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid614969">
+                     <h1 class="topic-title">Intersect command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Surfacing</b> tab→<b>Modify Surfaces</b> group→<b>Intersect</b> command <img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/procedure/intersect_surf.gif"> to:</p>
+                  <ul>
+                     <li>
+                        <p>Manually trim and extend surfaces.</p>
+                     </li>
+                     <li>
+                        <p>Create design bodies from intersecting surfaces, intersecting surfaces and solid bodies,
+                           and intersecting solid bodies.</p>
+                     </li>
+                     <li>
+                        <p>Auto-trim surfaces.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Manually trim and extend surfaces</h4>
+                  <div>
+                     <p>You can manually extend or trim surfaces to a common intersection. You can extend
+                        surfaces up to other surface bodies. The trim capabilities support trimming multiple
+                        bodies. The <b>Intersect</b> command can select only surface bodies, and all surface bodies act as both a target
+                        and tool.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When selecting surface bodies, selecting only two bodies enables both Extend and Trim
+                           operations in the next step of the command. Selecting more than two bodies enables
+                           only the Trim operation.</p>
+                     </div>
+                     <p>The example below shows a surface being extended.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/procedure/Intersect-Ext.gif"></p>
+                     <p>The example below shows a surface being trimmed.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/procedure/Intersect-Trim.gif"></p>
+                     <p>The example below shows a surface being trimmed using the region selection.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/Intersect-Trim-Region.gif"></p>
+                  </div>
+                  <h4 class="division-title">Create design bodies from intersecting surfaces, intersecting solid bodies, and/or
+                     a combination of surfaces and solid bodies</h4>
+                  <div>
+                     <p>Use the <b>Create design bodies</b> option on the <b>Intersect</b> command bar to create solid bodies from closed regions formed by intersecting surfaces
+                        and bodies and/or intersecting solid bodies.</p>
+                     <p style="text-align: left;"><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/procedure/solid_region.gif"></p>
+                     <p>Select the surface and/or solid bodies elements and the system returns a list of solid
+                        regions formed by the selected intersecting elements. Use the <b>Volume Regions</b> dialog box to control how the found solid regions are processed. You can deselect
+                        found regions and also invert the checked region list. The displayed (checked) regions
+                        are converted to solid bodies when accepted on the <b>Intersect</b> command bar.</p>
+                     <p>Voids (1) are also detected. Void regions are formed from intersecting surfaces and
+                        solid bodies. They are also formed from intersecting solid bodies.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/void.png"></p>
+                     <p>You can also mark the participating surfaces for consumption (deletion). The solid
+                        regions can be marked to be united into a single solid body.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>This option can be a productive tool when using the <a class="xref" target="_blank" data-handle="reverse_engineering" href="/en-US/product/246738425/doc/PL20211001099989437.reverse_engineering/html/re_workflow" rel="re_workflow">Reverse Engineering</a> functionality.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Auto-trim intersecting surfaces</h4>
+                  <div>
+                     <p>Use the <b>Auto-trim</b> option in the <b>Intersect</b> command to form closed volumes (1), closed surface loops (2), or a continuous chain
+                        of surfaces (3) resulting from intersecting surfaces. The option reduces the amount
+                        of manual surface trimming required to define one of these results.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/auto-trim.gif"></p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/auto-trim2.gif"></p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/auto-trim3.gif"></p>
+                     <p>The <b>Auto-trim</b> option requires three or more surfaces as input to perform the trimming operation.
+                        Use Ctrl+click to add a region of the trimmed surface to the result. To remove a segment
+                        of the trimmed surface, click the segment.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid615088" rel="xid615088">Intersect a surface</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1494242" rel="xid1494242">Create a solid body from intersecting surfaces</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid614996" rel="xid614996">Intersect command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1493886" rel="xid1493886">Volume Regions dialog box</a><br><br></div>
+            <div class="footer-content">Intersect command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

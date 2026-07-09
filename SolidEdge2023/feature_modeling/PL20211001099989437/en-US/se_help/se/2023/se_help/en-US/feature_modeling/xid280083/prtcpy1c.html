@@ -1,0 +1,176 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Part Copy command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Part Copy command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="prtcpy1c">
+                     <h1 class="topic-title">Part Copy command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the Part Copy command <img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/prtcpy.gif"> to insert geometry from another document into the current part or sheet metal document.
+                     The geometry is inserted as a Parasolid body and can be placed <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associatively</a> (if in the ordered environment) or non-associatively. Inserting a part copy in the
+                     synchronous environment is non-associative. You use the Part Copy Parameters dialog
+                     box to specify which geometry you want to copy and whether you want to mirror, scale,
+                     or flatten the copied geometry.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>When naming a document that contains a copied part, you should avoid using the same
+                        name as the original document, as this may cause problems later. For example, if you
+                        place both documents into an assembly, problems can occur during replace operations
+                        or other assembly revisions. Although you can use the same name, a warning dialog
+                        box appears the first time you save the copied part document.</p>
+                  </div>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/prtcpy1.gif"></p>
+                  <p>You can copy geometry from the following file types:</p>
+                  <ul>
+                     <li>
+                        <p>Solid Edge Part (.par)</p>
+                     </li>
+                     <li>
+                        <p>Solid Edge Sheet Metal (.psm)</p>
+                     </li>
+                     <li>
+                        <p>Solid Edge Assembly (.asm)</p>
+                     </li>
+                     <li>
+                        <p>NX Part (.prt)</p>
+                     </li>
+                     <li>
+                        <p>Parasolid documents (.X_B, .X_T)</p>
+                     </li>
+                     <li>
+                        <p>DirectModel (.jt)</p>
+                     </li>
+                  </ul>
+                  <p>The part copy functionality also allows you to use a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/bottomupdesign" rel="bottomupdesign">bottom-up design</a> approach to create and modify related parts outside the context of an assembly.</p>
+                  <h4 class="division-title">Inserting the copy</h4>
+                  <div>
+                     <p>To create a part copy, use the Select Part Copy dialog box to select the parent document
+                        from which you want to copy the geometry. The part copy is converted into a Parasolid
+                        body and is placed into the new document in the same position and orientation it occupies
+                        in the original document.</p>
+                     <p>If you insert the part copy before other <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/design_geometry" rel="design_geometry">design geometry</a> is constructed, you can place the part copy as a base feature or as <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/construction_geometry" rel="construction_geometry">construction geometry</a>. If you insert the part copy after other design geometry is constructed, you can
+                        place the part copy only as construction geometry. For example, if the document in
+                        which you are copying the geometry contains a model that consists of protrusions,
+                        cutouts, holes, and so on, you can only insert the part copy as construction geometry.</p>
+                     <p>If the document in which you are copying the geometry contains only construction geometry,
+                        or is empty, you can insert the part copy as construction geometry or as the base
+                        feature.</p>
+                     <p>Different colors are used to indicate whether the copied geometry was placed as construction
+                        geometry or as a base feature.</p>
+                  </div>
+                  <h4 class="division-title">Setting options</h4>
+                  <div>
+                     <p>When copying geometry from a Part or Sheet Metal document that contains multiple solid,
+                        surface or curve bodies, you can use the Part Copy Parameters dialog box to specify
+                        which bodies you want to copy. Select the bodies you want to copy, then click the
+                        Apply button to display the bodies in the graphic window. You can also use the Part
+                        Copy Parameters dialog box to add or remove bodies from the document later. You can
+                        only copy entire bodies, not portions of bodies.</p>
+                     <p>To specify whether you want the part copy to be associative (ordered environment only),
+                        or to mirror, scale, or flatten the copy, set options on the Part Copy Parameters
+                        dialog box.</p>
+                  </div>
+                  <h4 class="division-title">Moving and rotating part copies</h4>
+                  <div>
+                     <p>If you want to move or rotate the part copy, attach the part copy to a coordinate
+                        system using the Part Copy Parameters dialog box. You can then move and rotate the
+                        part copy by changing the offset values of the coordinate system.</p>
+                  </div>
+                  <h4 class="division-title">Associative part copies and bottom-up design</h4>
+                  <div>
+                     <p>By default, part copies placed in the ordered environment are associative. If you
+                        change the original document, you can update the part copy. Associative part copies
+                        can be useful when using the bottom-up design approach, because you can model a key
+                        component, then use an associative part copy of that component in a new document to
+                        make it easier to design and modify the second component.</p>
+                     <p>Associative part copies are useful when working with tightly related components that
+                        share common characteristics, such as parts that will make up a weldment.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/bottomup1.gif"></p>
+                     <p>After you complete the design of a key component (A.PSM), you can place an associative
+                        part copy of the component into a new document (B.PSM).</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/prtcpy4.gif"></p>
+                     <p>You can then use the part copy to make it easier to design the new component. For
+                        example, you can use the <a class="xref" data-handle="sketching" href="/en-US/product/246738425/doc/PL20211001099989437.sketching/html/incldb1c" rel="incldb1c">Project to Sketch command</a> to associatively copy edges (1) onto the profile plane (2) to create a profile (3)
+                        for the base feature (4) on the new part. You can also add new elements to the profile
+                        and modify the associatively included elements by trimming them where required to
+                        create a closed profile for the base feature.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/prtcpy5.gif"></p>
+                     <p>Later, you can open the original part, make design changes, and save the changes.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/prtcpy6.gif"></p>
+                     <p>You can then open the part where you used the associative part copy (1). You can update
+                        the part copy, and the associative geometry (2) in the part updates.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/prtcpy7.gif"></p>
+                     <p>Using associative design techniques not only allows you to design mating parts more
+                        quickly, it also can ensure that related components continue to fit properly when
+                        design changes are made.</p>
+                  </div>
+                  <h4 class="division-title">Updating part copies</h4>
+                  <div>
+                     <p>When using associative part copies, you can use the Part Copy Parameters dialog box
+                        to specify how the part copy is updated when you open the child document:</p>
+                     <ul>
+                        <li>
+                           <p>Automatically update part copies when you open the child document.</p>
+                        </li>
+                        <li>
+                           <p>Manually update the part copies. You can use the Update Links command on the PathFinder
+                              shortcut menu to manually update a part copy.</p>
+                        </li>
+                        <li>
+                           <p>Prompt for update when you open the child document.</p>
+                        </li>
+                     </ul>
+                     <p>When part copies are not automatically updated, and a part copy is out-of-date with
+                        respect to the parent document, the part copy feature is displayed on the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/todo1d" rel="todo1d">Error Assistant dialog box</a> to warn you that it is out-of-date.</p>
+                     <p>An out-of-date symbol is also be displayed adjacent to the part copy feature in the
+                        PathFinder tab.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/partcopy/ood1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Managing associative part copy data sets</h4>
+                  <div>
+                     <p>When working with associative part copy data sets, you must manage the parent and
+                        child documents as a group or you can break the associative link between the parent
+                        and child documents. For example, if you use the Part Copy command to insert an associative
+                        part copy of a part into another document, then move or rename the parent document
+                        without using <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/non_manifold_topology" rel="non_manifold_topology">Design Manager</a> exists. You can then use the construction body option instead.</p>
+                     <p>If any of the parts in the assembly contain surface or curve bodies, the surface or
+                        curve bodies are not copied. If you make design changes to the assembly, such as adding
+                        or removing parts, the part copy can be updated with the Update Link command.</p>
+                     <p>When creating a part copy using an alternate assembly document, the Assembly Member
+                        dialog box is displayed so you can select the assembly member you want.</p>
+                     <p>If you convert an existing assembly to an alternate assembly, and that assembly was
+                        used as the basis for a part copy document, the default member is used.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1h" rel="prtcpy1h">Create a part copy</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/pstspc1h" rel="pstspc1h">Paste an element with a different format</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1a" rel="prtcpy1a">Inserting part copies</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy1d" rel="prtcpy1d">Part Copy command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy2d" rel="prtcpy2d">Part Copy Parameters dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy4d" rel="prtcpy4d">Update Part Copies dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy5d" rel="prtcpy5d">Update Part Copies dialog box (Out-of-Date Parts)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/prtcpy6d" rel="prtcpy6d">Select Part Copy dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/pstspc1c" rel="pstspc1c">Paste Special command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/pstspc1d" rel="pstspc1d">Paste Special dialog box</a><br><br></div>
+            <div class="footer-content">Part Copy command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

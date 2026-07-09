@@ -1,0 +1,96 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Defining the blend shape</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Defining the blend shape"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="blendshape1a">
+                     <h1 class="topic-title">Defining the blend shape</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Modeling ordered features:</p>
+                  <p>When you set the <b>Blend</b> or <b>Surface Blend</b> options on the <b>Round Options</b> dialog box, you can use the <b>Shape</b> option on the <b>Blend</b> command bar to specify the blend shapes shown below.</p>
+                  <p>Modeling synchronous features:</p>
+                  <p>When you set the <b>Blend</b> or <b>Surface Blend</b> options on the <b>Blend Type Step</b> of the <b>Blend</b> command bar, you can use the <b>Shape</b> option on the <b>Select Step</b> of the <b>Blend</b> command bar to specify the blend shapes shown below.</p>
+                  <h5>Blend shapes</h5>
+                  <ul>
+                     <li>
+                        <p><a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid609398" rel="xid609398">Tangent continuous</a></p>
+                     </li>
+                     <li>
+                        <p>Constant Width</p>
+                     </li>
+                     <li>
+                        <p>Chamfer</p>
+                     </li>
+                     <li>
+                        <p>Bevel</p>
+                     </li>
+                     <li>
+                        <p>Conic</p>
+                     </li>
+                     <li>
+                        <p><a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid609399" rel="xid609399">Curvature continuous</a></p>
+                     </li>
+                  </ul>
+                  <p>These options give you the flexibility you need for a wide variety of design situations.
+                     For example, you can use the <b>Chamfer</b> command to create a chamfer on a solid body, but not on a surface body. To create
+                     a chamfer on a surface body, you must use the blending options within the <b>Round</b> command.</p>
+                  <p>The <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid609398" rel="xid609398">Tangent continuous</a> option constructs a blend with a uniform radius. This option works in a similar fashion
+                     to rounding.</p>
+                  <p>The <b>Constant Width</b> option constructs a blend between two sets of surfaces where the chord width of the
+                     blend is a constant width (A). This option is useful when a surface intersects another
+                     surface at an angle where a constant radius blend (B) might add too much or too little
+                     material.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/rounding_blending/conswidth1.gif"></p>
+                  <p>The <b>Chamfer</b> option constructs a planar blend with an equal setback chamfer. You can use the <b>Setback</b> option to define the chamfer size.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/rounding_blending/chamsurf1.gif"></p>
+                  <p>The <b>Bevel</b> option constructs a blend with a linear cross section that is determined by the bevel
+                     length and ratio you specify. The value you enter in the <b>Setback</b> box determines the length of the new blend face (A). The value you enter in the <b>Value</b> box determines what amount of material to remove from the two adjacent faces (B),
+                     (C).</p>
+                  <p>For example, if you specify a <b>Setback</b> of 30 mm and a <b>Value</b> entry of 0.50, a new blend face that is 30 mm in length is constructed. The <b>Value</b> entry of 0.50 specifies that to position the new blend face (A), twice as much material
+                     is removed from the first face you select (B), than the second face you select (C).
+                     In the case of two planar faces, which are also perpendicular to each other, 26.84
+                     mm is removed from face (B) and 13.42 mm is removed from face (C). You can type a
+                     value that is greater than zero, but less than or equal to 10.0. A <b>Value</b> entry of 1.0 creates a 45 degree bevel.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/rounding_blending/chamsurf2.gif"></p>
+                  <p>The <b>Conic</b> option constructs a constant elliptical cross section blend. When you set this option,
+                     the <b>Radius</b> value defines the width of the cross section and the <b>Value</b> entry you type changes the cross section shape. You can type a <b>Value</b> entry that is greater than but not equal to zero. As the <b>Value</b> entry approaches 0.0, the cross section becomes flatter and more closely resembles
+                     a chamfer (A). As the <b>Value</b> entry increases, the cross section becomes more rounded (B) and then becomes flatter
+                     again (C).</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/rounding_blending/conicsurf1.gif"></p>
+                  <p>You can use the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/xid609399" rel="xid609399">Curvature continuous</a> blend option to control the continuity, or softness, of the blend surface. A <b>Value</b> entry less than 1.0 creates a flatter, more chamfer-like cross-section (A) and (B).
+                     A <b>Value</b> entry greater than 1.0 appears to extend the selected surfaces and creates a smaller
+                     blend radius (C), (D), and (E). Typical values can range from 0.0 to 10.0.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/rounding_blending/g2cont1.gif"></p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/round1h" rel="round1h">Round part edges</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid386214" rel="xid386214">Edit a synchronous round</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid386218" rel="xid386218">Control the edit behavior of a synchronous round</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/reordrnd1h" rel="reordrnd1h">Reorder rounded part edges</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/blendface1h" rel="blendface1h">Blend part faces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surfaceblend1h" rel="surfaceblend1h">Blend surface bodies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/blend1h" rel="blend1h">Construct a variable radius round</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/round1a" rel="round1a">Rounding and blending</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/editingrounds1a" rel="editingrounds1a">Editing rounds</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/roundingorder1a" rel="roundingorder1a">Rounding order</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/roundingoverflow1a" rel="roundingoverflow1a">Rounding overflow options</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/blendingwork1a" rel="blendingwork1a">How does blending work?</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surfaceblends1a" rel="surfaceblends1a">Blends on surface bodies</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/tangenthold1a" rel="tangenthold1a">Tangent hold lines</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/variableradius1a" rel="variableradius1a">Variable radius rounds</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat20c" rel="feat20c">Round command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat23d" rel="feat23d">Round command bar (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/round2d" rel="round2d">Round command bar (synchronous)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat21d" rel="feat21d">Round Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat22d" rel="feat22d">Round Parameters dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/reordrnd1c" rel="reordrnd1c">Reorder Round command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/blend1c" rel="blend1c">Blend command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/blend1d" rel="blend1d">Blend command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat26d" rel="feat26d">Surface Blend Parameters dialog box</a><br><br></div>
+            <div class="footer-content">Defining the blend shape, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

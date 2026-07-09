@@ -1,0 +1,132 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Divide Part command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Divide Part command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="plstc1c">
+                     <h1 class="topic-title">Divide Part command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Divide Part is an ordered modeling command; it does not exist in the synchronous modeling
+                        environment.</p>
+                  </div>
+                  <p>Use the Divide Part command <img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/dvdprt.gif"> to divide one part into multiple parts and saves the new parts as separate documents.
+                     You can use reference planes (A) or construction surfaces (B, C, D) to define how
+                     you want to split the part. The new part documents are associative to the original
+                     part document. Each new part is a base feature in its new document, and the new documents
+                     are associative to the original part.</p>
+                  <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/divide2.gif"></p>
+                  <p>Typically used on molded parts, this command is useful when you model one part and
+                     later want to divide it into separate parts.</p>
+                  <h4 class="division-title">Defining the first division</h4>
+                  <div>
+                     <p>The first step in dividing a part is to select the reference plane or construction
+                        surface that defines where you want to divide it. A dynamic arrow (A) allows you to
+                        define the cutting direction. After you define the cutting direction, the display
+                        changes to show the result (B) of the cutting operation.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/divide3.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>If you intend to divide the part more than once, choose the cutting direction carefully.
+                           The part the arrow points to cannot be divided again. Make sure the arrow is pointing
+                           away from the part you want to divide again.</p>
+                     </div>
+                     <p>After you define the first cut, you can click the Finish button, or the Next Cut button.
+                        If you click the Finish button, the Divide Part dialog box is displayed so you can
+                        define the new document names. To make it easier to define the proper document names,
+                        the display of the model changes as you move your cursor over each row in the dialog
+                        box.</p>
+                     <p>After you type the names for the new part documents in the Divide Part dialog box,
+                        click the Select All button and then the Save Selected Files button to create the
+                        new part documents.</p>
+                  </div>
+                  <h4 class="division-title">Adding divisions</h4>
+                  <div>
+                     <p>After defining the first cut, you can use the Next Cut button on the command bar to
+                        add a new division. To divide the part again later, use the Add button on the Divide
+                        Part dialog box.</p>
+                  </div>
+                  <h4 class="division-title">Inserting divisions</h4>
+                  <div>
+                     <p>To insert a new division between existing ones, click a division on the Divide Part
+                        dialog box and then click the Insert button. The new division is added above the selected
+                        one. If any parts need to be updated after the new division is inserted, this is reflected
+                        in the status column. To update a part, select it and then click the Create/Update
+                        Selected Items button.</p>
+                  </div>
+                  <h4 class="division-title">Copying and updating divided part documents</h4>
+                  <div>
+                     <p>You should use <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1169603" rel="xid1169603">Design Manager</a> to copy and rename the documents that form a divided part. After you copy and rename
+                        the document set, you must manually update links between the new parent and child
+                        documents.</p>
+                     <p>For example, when you use <a class="xref" data-handle="managing_documents" href="/en-US/product/246738425/doc/PL20211001099989437.managing_documents/html/xid1169603" rel="xid1169603">Design Manager</a> to copy an assembly that contains divided parts, you can also specify that you want
+                        to copy and rename the parent and child documents for the divided parts. However,
+                        when you open the new parent document, the child documents listed in the Divide Part
+                        dialog box will be the original documents, not the new copies. The Status column will
+                        contain question marks to show that the child documents cannot be found.</p>
+                     <p>To update links to the new child documents, use the Find command. Select a row in
+                        the dialog box, right-click to display the shortcut menu, and then select the Find
+                        command. You can then use the Select Part Copy dialog box to locate the updated child
+                        document. Repeat this process for each child document listed in the Divide Part dialog
+                        box.</p>
+                  </div>
+                  <h4 class="division-title">Workflow overview </h4>
+                  <div>
+                     <p>The parts shown next were created by following the steps listed below.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/divide1.gif"></p>
+                     <ul>
+                        <li>
+                           <p>Construction surface A is used to create parts A1 and A2 (part A1 cannot be cut again).</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/divstp1.gif"></p>
+                        </li>
+                        <li>
+                           <p>Construction surface B is used to create part B1 and modify A2 (part B1 cannot be
+                              cut again).</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/divstp2.gif"></p>
+                        </li>
+                        <li>
+                           <p>Construction surface C is used to create part C1 and modify part A2 (part C1 cannot
+                              be cut again).</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/divstp3.gif"></p>
+                        </li>
+                        <li>
+                           <p>Reference plane D is used to create part D1 and modify part A2 (part D1 cannot be
+                              cut again).</p>
+                           <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/divstp4.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/plstc3h" rel="plstc3h">Divide a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/plstc4h" rel="plstc4h">Insert a new division into a divided part</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/plstc3d" rel="plstc3d">Divide Part command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/plstc2d" rel="plstc2d">Divide Part dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/divide_a_parts" rel="divide_a_parts">Example: Divide a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/insert_a_new_divisions" rel="insert_a_new_divisions">Example: Insert a new division</a><br><br></div>
+            <div class="footer-content">Divide Part command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

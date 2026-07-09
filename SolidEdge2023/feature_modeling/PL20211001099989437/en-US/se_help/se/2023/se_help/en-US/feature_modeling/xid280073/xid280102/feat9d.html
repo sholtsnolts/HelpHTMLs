@@ -1,0 +1,160 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Helix Options dialog box (synchronous environment)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Helix Options dialog box (synchronous environment)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feat9d">
+                     <h1 class="topic-title">Helix Options dialog box (synchronous environment)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Specifies the options for creating a helical protrusion or cutout.</p>
+                  <dl>
+                     <dt>Helix Method</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the method used to define the helix parameters.</p>
+                        <ul>
+                           <li>
+                              <p>Axis Length &amp; Pitch</p>
+                           </li>
+                           <li>
+                              <p>Axis Length &amp; Turns</p>
+                           </li>
+                           <li>
+                              <p>Pitch &amp; Turns</p>
+                           </li>
+                        </ul>
+                     </dd>
+                     <dt># Turns</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the number of turns for the helix.</p>
+                     </dd>
+                     <dt>Pitch</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the pitch for the helix.</p>
+                     </dd>
+                     <dt>Right-Handed</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the helix to turn in a right-handed manner.</p>
+                     </dd>
+                     <dt>Left-Handed</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the helix to turn in a left-handed manner.</p>
+                     </dd>
+                     <dt>Taper</dt>
+                     <dd class="ml-3">
+                        <p>Specifies information about the helix taper.</p>
+                        <dl>
+                           <dt>Method</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the method used to define the helix taper.</p>
+                              <ul>
+                                 <li>
+                                    <p>None</p>
+                                 </li>
+                                 <li>
+                                    <p>By Angle</p>
+                                 </li>
+                                 <li>
+                                    <p>By Radius</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                           <dt>Angle</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the taper angle. This option is available only when the Method is set to
+                                 By Angle.</p>
+                           </dd>
+                           <dt>Inward</dt>
+                           <dd class="ml-3">
+                              <p>Causes the helix to taper inward. This option is available only when the Method is
+                                 set to By Angle.</p>
+                           </dd>
+                           <dt>Outward</dt>
+                           <dd class="ml-3">
+                              <p>Causes the helix to taper outward. This option is available only when the Method is
+                                 set to By Angle.</p>
+                           </dd>
+                           <dt>Start</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the start radius for the helix taper. This option is available only when
+                                 the Method is set to By Radius.</p>
+                           </dd>
+                           <dt>End</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the ending radius for the helix taper. This option is available only when
+                                 the Method is set to By Radius.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Pitch</dt>
+                     <dd class="ml-3">
+                        <p>Specifies whether the pitch of the helix is Constant or Variable. The Pitch Ratio
+                           and End Pitch options are not available when you set the Constant option. When you
+                           set the Variable option, you can specify whether the variable pitch is defined by
+                           a ratio in relation to the Start Pitch value, or you can specify an End Pitch value.
+                           </p>
+                        <p>When you specify the Start Pitch and End Pitch value for a variable pitch helix, the
+                           measured distance from the start of the helix to the end of the first turn will not
+                           match the Start Pitch value you type, and the measured distance from the start of
+                           the last turn to the end of the helix will not match the value you type for the End
+                           Pitch value. </p>
+                        <p>This is because a variable pitch helix in Solid Edge is calculated as a continuously
+                           variable helix. For example, for a variable pitch helix created using the Pitch and
+                           Turns option, where the Start Pitch (SP) is 20 millimeters, the End Pitch (EP) is
+                           40 millimeters, and the number of Turns (T) is 10, the increase in pitch value (IPV)
+                           for each turn is calculated using the formula: IPV= (EP-SP)/T or IPV=(40-20)/10 or
+                           2.00. Half of this value or IPV/2 (1.00) is added to the Start Pitch value you specified
+                           to calculate the distance between the start point of the helix and the end of the
+                           first turn. IPV/2 (1.00) is subtracted from the End Pitch value you specified to calculate
+                           the distance between the start point of the last turn of the helix and the end of
+                           the helix. The remaining turns are calculated by adding IPV to the value of the previous
+                           turn. So the actual measured pitch value at the end point of each turn would be Turn
+                           1=21, Turn 2=23, Turn 3=25, Turn 4=27, Turn 5= 29, Turn 6=31, Turn 7=33, Turn 8=35,
+                           Turn 9=37, and Turn 10=39. </p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/helical/helix2.gif"></p>
+                        <dl>
+                           <dt>Pitch Ratio</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the variable pitch ratio for a variable pitch helix. </p>
+                           </dd>
+                           <dt>End Pitch</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the ending pitch length for the helix. The actual measured distance for
+                                 the end pitch will not exactly match the value you type. See the explanation above
+                                 for how these values are calculated.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/helical1h" rel="helical1h">Construct a helical protrusion in the synchronous environment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat7h" rel="feat7h">Construct a helical protrusion or cutout in the ordered environment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/helical2h" rel="helical2h">Construct a helical cutout</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/helical3h" rel="helical3h">Move or edit a helix</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/helical1a" rel="helical1a">Constructing helical features</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat8c" rel="feat8c">Helical Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat7c" rel="feat7c">Helical Cutout command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat6d" rel="feat6d">Helical Cutout/Protrusion command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/helicalqb1d" rel="helicalqb1d">Helical command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat8d" rel="feat8d">Helix Options dialog box (ordered environment)</a><br><br></div>
+            <div class="footer-content">Helix Options dialog box (synchronous environment), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

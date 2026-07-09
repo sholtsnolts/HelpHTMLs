@@ -1,0 +1,274 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Families of parts</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Families of parts"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="famprt1a">
+                     <h1 class="topic-title">Families of parts</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>A family of parts is a collection of similar parts in different sizes or with slightly
+                     different detailing features. A family of parts can be defined with both synchronous
+                     and ordered features.</p>
+                  <p> For example, you may use several different electrical terminal blocks in an assembly.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/famprt1.gif"></p>
+                  <p>You can construct one source terminal block in Solid Edge Part, then use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt3d" rel="famprt3d">Family of Parts Edit Table dialog box</a> to specify the terminal configuration for each family member. This allows you to
+                     manage all the necessary information for a part family in one document using a spreadsheet
+                     format. To display the <b>Family of Parts Edit Table</b> dialog box, click the <b>Edit Table</b> button on the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt1d" rel="famprt1d">Family of Parts page</a>.</p>
+                  <p>You can add, remove, rename, copy, and edit members with the <b>Family of Parts Edit Table</b> dialog box.</p>
+                  <p>Individual family members are defined by typing a member name, then suppressing features
+                     or constructions, and setting variable values. To display a family member in the graphic
+                     window, select its column heading on the <b>Family of Parts Edit Table</b> dialog box, then click the <b>Apply</b> button.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>A Family of Parts tutorial is available to help you learn how to create, edit, and
+                        populate a family of parts.</p>
+                  </div>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Family of Parts is not available when more than one design body exists in a part or
+                        sheet metal document.</p>
+                  </div>
+                  <h4 class="division-title" id="famprt1a_using">Using family members in assemblies and drawings</h4>
+                  <div>
+                     <p>When working with families of parts, you should not place the source part document
+                        into an assembly or a drawing. Use the <b>Populate Members</b> button on the <b>Family of Parts Edit Table</b> dialog box to create new documents for individual family members. You can then place
+                        the member documents into an assembly or a drawing.</p>
+                     <p>There are several reasons for not placing the source document into an assembly. The
+                        geometry in the source document can change depending on which family of parts member
+                        is activated. Also, you can define unique file properties for each member document.
+                        This allows you to assign a unique part number, title, project, and so on for each
+                        member which can then be used to populate a parts list or bill of materials.</p>
+                  </div>
+                  <h4 class="division-title">Design Intent</h4>
+                  <div>
+                     <p>You can use Design Intent to control the behavior of the synchronous model when applying
+                        variable edits to synchronous faces. Each member has its own set of Design Intent
+                        relationships.</p>
+                  </div>
+                  <h4 class="division-title">Synchronous constructions</h4>
+                  <div>
+                     <p>Synchronous construction features can be included in a member. If a synchronous construction
+                        feature is displayed when the member is populated, then the construction feature is
+                        included in the populated member. All construction surfaces (synchronous and ordered)
+                        are included together in a constructions part copy feature in the populated member.</p>
+                  </div>
+                  <h4 class="division-title">Suppressing ordered features and constructions</h4>
+                  <div>
+                     <p>You can specify the ordered features and ordered constructions you want to suppress
+                        on individual members without affecting the other members of the family. For example,
+                        a terminal block designed for one pair of wires would not need the pattern of holes
+                        and ribs (1) that terminal blocks for two or more pairs of wires would require.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/famprt2.gif"></p>
+                     <p>The <b>Family of Parts Edit Table</b> dialog box lists all the features and constructions defined for the Source part in
+                        the <b>Features and Constructions</b> sections.</p>
+                     <p>To specify which features or constructions you want to suppress, on the <b>Family of Part Edit Table</b> dialog box, click the cell that aligns with the family member and the feature or
+                        construction you want to suppress, then click the<b> Suppress Features</b> button on the dialog box. To unsuppress a feature, select the appropriate cell, then
+                        click the <b>Unsuppress Features</b> button.</p>
+                     <p>You can also use the shortcut menu commands on the <b>Family of Parts Edit Table</b> dialog box to suppress and unsuppress features.</p>
+                  </div>
+                  <h4 class="division-title">Using variables</h4>
+                  <div>
+                     <p>You can use variables to control feature sizes for individual members of the family.
+                        You can edit the value for graphically displayed variables, such as dimensions, or
+                        non-graphic variables, such as the material thickness and bend radius of a sheet metal
+                        part.</p>
+                     <p>The <b>Family of Parts Edit Table</b> dialog box lists all the variables defined for the Source part in the <b>Variables</b> section. You define a new variable value for a member part by clicking the appropriate
+                        cell, typing a new value and then pressing the <b>Enter</b> key.</p>
+                  </div>
+                  <h4 class="division-title">Suppression variables</h4>
+                  <div>
+                     <p>When you edit the value for a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/suppression_variable" rel="suppression_variable">suppression variable</a>, the current value of the suppression variable takes precedence if you specify the
+                        feature is suppressed for a family member. For example, if the current value of the
+                        suppression variable specifies that the feature is displayed, then the feature is
+                        displayed for the family member, even if you specify the feature is suppressed. For
+                        more information on suppression variables, see the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/varsup1c" rel="varsup1c">Add Suppression Variable command</a> topic.</p>
+                  </div>
+                  <h4 class="division-title">Using unitless variables</h4>
+                  <div>
+                     <p>When you create new variables for part families, be careful to use the correct unit
+                        type. If you need to include a unitless value in the right side of a formula, define
+                        it as a separate, scalar variable first. Then use that scalar variable in your formula
+                        (instead of using the value directly). For example, if you want to set the circumference
+                        of a gear equal to the number of teeth times 4 mm, save the number of teeth as a scalar
+                        variable first:</p>
+                     <p>Number_of_Teeth=40</p>
+                     <p>Then create the circumference formula using the variable name rather than its numeric
+                        value:</p>
+                     <p>Circumference=Number_of_Teeth x 4mm</p>
+                     <p>To change the circumference, simply change the value of the Number_of_Teeth variable.</p>
+                  </div>
+                  <h4 class="division-title">Saving changes to the Family of Parts Edit Table</h4>
+                  <div>
+                     <p>When you define individual member characteristics by editing cell values in the <b>Family of Parts Edit Table</b> dialog box, you must click the <b>Save Table Data</b> button on the dialog box to save the changes you made.</p>
+                  </div>
+                  <h4 class="division-title">Applying a member</h4>
+                  <div>
+                     <p>After a member definition is made, click the <b>Apply</b> button to open a <b>Preview</b> window. The preview window contains a preview icon <img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/fop_preview.gif">. Only one preview window can be open at a time. This allows you to see what the member
+                        looks like and also will provide a warning if the member definition has failed. Close
+                        the preview window when you are finished previewing the member. No member is created
+                        with the <b>Apply</b> button.</p>
+                  </div>
+                  <h4 class="division-title">Setting the folder location for family members</h4>
+                  <div>
+                     <p>The <b>Set Path</b> button on the <b>Family of Parts Edit Table</b> dialog box allows you to specify a folder for each of the member documents. Click
+                        the column heading for &nbsp;one or more members, then click the <b>Set Path</b> button. You can then use the <b>Browse for Folder</b> dialog box to define the folder location.</p>
+                     <p>You can use the Ctrl key on the keyboard to select multiple path cells at one time.
+                        To allow other users access to the family members, place them in a folder on a network
+                        share.</p>
+                  </div>
+                  <h4 class="division-title">Populating member files</h4>
+                  <div>
+                     <p>After you have defined names, feature suppression, and variable values for part family
+                        members, you can use the <b>Populate Members</b> button on the<b> Family of Parts Edit Table</b> dialog box to save each member as a separate document.</p>
+                     <p>To create new part documents for all the family members listed, first click the <b>Select All Members</b> button on the <b>Family of Parts Edit Table</b> dialog box. Then click the <b>Populate Members</b> button to create the member documents. These documents are associative to the source
+                        part.</p>
+                     <p>To create new part documents for one or more family members, click the column heading
+                        for the first family member on the <b>Family of Parts Edit Table</b> dialog box. Hold the Ctrl key down, then select the column headings for the other
+                        family members. Then click the <b>Populate Members</b> button to create the member documents.</p>
+                     <p>You can also select one or more column headings, then click <b>Populate Member</b> on the shortcut menu.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can also use the <b>Part Copy</b> command to place a single family member into a document. Use the <b>Family of Parts Member</b> option on the <b>Part Copy Parameters</b> dialog box to select the family member you want to place.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Family member status</h4>
+                  <div>
+                     <p>The symbols in the <b>Status</b> column in the <b>Family of Parts Edit Table</b> dialog box reflect the current status of each member of the family. The following
+                        table explains the symbols used:</p>
+                     <table cellspacing="1" cellpadding="6" width="50%">
+                        <colgroup span="1">
+                           <col span="1" align="left" width="10%">
+                           <col span="1" align="left" width="90%">
+                        </colgroup>
+                        <tr>
+                           <th rowspan="1" colspan="1">
+                              <p>Legend</p>
+                           </th>
+                           <td rowspan="1" colspan="1"></td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/stntcr1.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>The file has not been created.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/pflnk1.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>The file is up to date.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/stotdt1.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>The file needs updating.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/stflntf1.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>The file cannot be found.</p>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td rowspan="1" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../common/nonLocalized/se/feature_modeling/family_of_parts/pfflft1.gif"></td>
+                           <td rowspan="1" colspan="1">
+                              <p>An error has occurred in the creation or update of the file.</p>
+                           </td>
+                        </tr>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Changing a family of parts</h4>
+                  <div>
+                     <p>To make design changes in a part family, you should edit the source part document
+                        and then update the individual member documents. Select the member documents that
+                        need updating, then click the <b>Save Table Data</b> button.</p>
+                  </div>
+                  <h4 class="division-title">Shortcut menu commands</h4>
+                  <div>
+                     <p>An extensive array of shortcut menu commands are available with the <b>Family of Parts Edit Table</b> dialog box. These commands are context-sensitive. In other words, the commands which
+                        are available depends on what is selected.</p>
+                  </div>
+                  <h4 class="division-title">Family of Parts page functions</h4>
+                  <div>
+                     <p>Many of the same functions that are available in the <b>Family of Parts Edit Table</b> dialog box are also available using the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt1d" rel="famprt1d">Family of Parts page</a> on <b>PathFinder</b>. For example, you can create, copy, rename, and delete family members using the <b>Family of Parts</b> page.</p>
+                     <p>To display a family member in the graphic window, select the member name from the
+                        list in the <b>Family of Parts</b> page, then click the <b>Apply</b> button.</p>
+                     <p>You cannot create the member files using the <b>Family of Parts</b> page.</p>
+                     <p>You can only view the suppressed feature and variable parameters for one family member
+                        at a time using the <b>Family of Parts</b> page. To view feature and variable parameters for a family member, select it from
+                        the list.</p>
+                     <p>The workflow for defining suppressed features and editing variables differs in some
+                        respects from the <b>Family of Parts Edit Table</b> dialog box. Those differences are discussed below.</p>
+                  </div>
+                  <h4 class="division-title">Suppressing features in the Family of Parts page</h4>
+                  <div>
+                     <p>To suppress features for a family member, select the family member from the list,
+                        then select the features in the application window or on <b>PathFinder</b>. Then click the <b>Suppress Features</b> button on the <b>Family of Parts</b> page.</p>
+                     <p>To remove a feature from the <b>Suppressed Features</b> list, select it in the <b>Suppressed Features</b> list, then click the <b>Unsuppress Features</b> button. When you add or remove features from the <b>Suppressed Features</b> list, only the active member is affected.</p>
+                  </div>
+                  <h4 class="division-title">Defining variables in the Family of Parts page</h4>
+                  <div>
+                     <p>To add a variable to the list, select it in the application window or in the <b>Variable Table</b>, then click the <b>Add Variables</b> button on the <b>Family of Parts</b> page.</p>
+                     <p>To remove a variable from the <b>Variables</b> list, select the variable in the list, then click the <b>Remove Variables</b> button. When you add or remove a variable from the <b>Variables</b> list, the variable is added to or removed from all members.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The <b>Family of Parts</b> page and the <b>Family of Parts Edit Table</b> dialog box are automatically synchronized so you make the changes you want in either
+                           location.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Automatic Family of Parts Dimension Tables</h4>
+                  <div>
+                     <p>The <a class="xref" data-handle="parts_lists_tables" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/famtable1c" rel="famtable1c"><b>Family of Parts Table </b>command</a> provides a convenient way to create and manage dimension tables derived from a family
+                        of parts. The drawing table contains the dimensional values associated with all family
+                        members.</p>
+                     <p>The family of parts table lists family member location and size data by row. Family
+                        variable labels are shown as column headings. You can easily customize the table by
+                        making formatting changes, and you can insert user-defined columns into the table
+                        and extract other model information into them.</p>
+                     <p>You also can link the family member variables to dimensions on the drawing. This automatically
+                        copies the dimension variable name to the drawing. It also ensures that the drawing
+                        dimensions are associative to the member data in the family of parts.</p>
+                     <p>To learn more, see <a class="xref" data-handle="parts_lists_tables" href="/en-US/product/246738425/doc/PL20211001099989437.parts_lists_tables/html/famtable1a" rel="famtable1a">Family of parts dimension tables on drawings</a>.</p>
+                  </div>
+                  <h4 class="division-title">Defining unique document properties for family of part members</h4>
+                  <div>
+                     <p>You can use the <b>Property Manager</b> command on the <b>Tools</b> menu to define unique document properties for individual family members in a family
+                        of parts. For example, you may want to define a unique Title, Document Number, or
+                        Material for each family member.</p>
+                     <p>After you populate the member files, you can use the <b>Property Manager</b> command when the source part is open to define and edit the document properties for
+                        individual family members. For more information, see the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/propertymanager1c" rel="propertymanager1c">Property Manager command</a> Help topic.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt1h" rel="famprt1h">Create a family of parts</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt2h" rel="famprt2h">Create a family of parts using the Family of Parts tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt3h" rel="famprt3h">Create a family of parts in Solid Edge Embedded Client</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt4h" rel="famprt4h">Modify a FOP member name or description in SEEC</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt1d" rel="famprt1d">Family Of Parts tab</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/famprt3d" rel="famprt3d">Family of Parts Table dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/rplcpt2d" rel="rplcpt2d">Family of Parts Member dialog box</a><br><br></div>
+            <div class="footer-content">Families of parts, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

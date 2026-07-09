@@ -1,0 +1,114 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Direct Editing in Solid Edge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Direct Editing in Solid Edge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dtmodel1a">
+                     <h1 class="topic-title">Direct Editing in Solid Edge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The direct editing commands in Solid Edge allow you to modify models imported from
+                     other applications that do not have a feature tree, or to modify native Solid Edge
+                     design models without accessing the current feature tree.</p>
+                  <p>The direct editing capability allows you to make design changes to a model by accessing
+                     the existing surface and solid geometry rather than the feature intelligence that
+                     drives the geometry.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>You cannot create new surface topology with the direct editing commands. You can only
+                        manipulate existing faces, features, and bodies.</p>
+                  </div>
+                  <p>Though there are many direct editing commands, their functions typically fall within
+                     the following categories: moving, rotating, resizing, or deleting sets of faces on
+                     a model. For example, you can rotate a set of faces by selecting the faces you want
+                     to rotate and defining a rotation axis. A rotate face feature and a driving dimension
+                     are added to the document to make future edits easier.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/direct_editing/dtrotateface1.gif"></p>
+                  <p>The direct editing capability is especially useful when working with models imported
+                     from other applications that do not have an existing feature tree. Without this capability,
+                     you are limited in the design modifications you can make. For more information on
+                     importing models created in other applications, see the <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/ole3a" rel="ole3a">Working with Foreign Data Overview</a> and <a class="xref" data-handle="importing_exporting_files" href="/en-US/product/246738425/doc/PL20211001099989437.importing_exporting_files/html/open2a" rel="open2a">Opening Foreign Files in Solid Edge</a> Help topics.</p>
+                  <h4 class="division-title">Getting started</h4>
+                  <div>
+                     <p>Direct editing commands are available in both the Part and Sheet Metal environments,
+                        with the available commands tailored for the specific requirements for each model
+                        type. The direct editing commands are available on the Home tab in the Modify group.</p>
+                     <p>When working with a sheet metal model imported from another application, you should
+                        first use the <a class="xref" data-handle="create_sheet_metal_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/cnvrtsm1c" rel="cnvrtsm1c">Convert to Sheet Metal command</a> in the Sheet Metal environment to convert the model to a sheet metal part.</p>
+                     <p>The conversion process adds Solid Edge sheet metal attributes to the model so it behaves
+                        as though it was created using sheet metal features. This ensures that sheet metal
+                        attributes such as material thickness and bend radius are honored during direct editing
+                        operations.</p>
+                  </div>
+                  <h4 class="division-title">Direct editing best practices</h4>
+                  <div>
+                     <p>Because imported models have a limited amount of built-in intelligence, they can be
+                        sensitive to certain types of topological changes. For example, when moving a set
+                        of faces, you will usually get better results if the faces you are moving stay within
+                        the boundaries defined by the original set of adjacent faces.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/direct_editing/dtbestpract1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Editing native Solid Edge models</h4>
+                  <div>
+                     <p>When you use the direct editing commands to modify native Solid Edge models, the direct
+                        editing operations only change the surface topology of the model. The profiles and
+                        sketches for existing profile-based features, and the dimensional values for treatment
+                        features are not modified.</p>
+                     <p>When you use a direct editing command to modify a Solid Edge model, a new feature
+                        is added to the feature tree. The new direct editing feature overrides other features
+                        that occurred before it. For example, if you use the direct editing command Resize
+                        Holes to change the size of an existing hole feature, the resize holes feature then
+                        takes precedence over the size of the hole because it occurs later in the feature
+                        tree. To modify the size of the hole again later, you should edit the resize holes
+                        feature, not the original profile-based hole feature.</p>
+                     <p>Although the direct editing commands are powerful tools, in many cases taking advantage
+                        of the editing capability of an existing profile-based feature or treatment feature
+                        can be the more logical choice when making a design change to a native Solid Edge
+                        model.</p>
+                     <p>In other cases, using a direct editing command to edit the model can be the best choice.
+                        For example, the Resize Holes command allows you to modify multiple hole features
+                        and/or circular cutouts of different sizes to one common size in one operation.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/direct_editing/dtresizeholes2.gif"></p>
+                     <p>Also, when working with a complex part with hundreds of features, it often can be
+                        quicker to use a direct editing feature to make a design change because the feature
+                        tree does not need to recompute.</p>
+                  </div>
+                  <h4 class="division-title">Direct editing and simplifying compared</h4>
+                  <div>
+                     <p>Many of the commands available for directly editing a part are also available when
+                        simplifying a part in the Simplify Model environment. Deciding whether to directly
+                        edit the model or simplify the model is determined by whether you want to have access
+                        to a simplified version of the part in an assembly or when creating a drawing.</p>
+                     <p>If you want to use a simplified version of the part in an assembly or a drawing, you
+                        must use the commands in the Simplify Model environment. No simplified version of
+                        the model is created when you directly edit a model.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Direct Editing in Solid Edge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

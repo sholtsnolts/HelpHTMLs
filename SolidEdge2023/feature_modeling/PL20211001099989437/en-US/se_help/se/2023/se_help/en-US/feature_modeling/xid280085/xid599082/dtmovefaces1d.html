@@ -1,0 +1,277 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Move Faces command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Move Faces command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dtmovefaces1d">
+                     <h1 class="topic-title">Move Faces command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"> 
+                  <dl> 
+                     <dt><b>Connected Faces</b></dt> 
+                     <dd class="ml-3"> 
+                        <p>Specifies how the faces connected to the selection adapt during the modification.
+                           </p> 
+                        <ul style="list-style: none"> 
+                           <li> 
+                              <h5>Extend/Trim</h5> 
+                              <p>Modifies the model by trimming and extending adjacent faces. </p> 
+                              <p>Adjacent faces (A) are extended or trimmed as required, but will maintain their original
+                                 orientation. The size of the selected face can change.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_movesimple1.gif"></p> </li> 
+                           <li> 
+                              <h5>Tip</h5> 
+                              <p>Modifies the model by trimming, extending, or changing the current orientation of
+                                 connected faces. In some situations, this can cause the current orientation of connected
+                                 faces (A) to tip or change their angle with respect to the selected face. The size
+                                 of the selected face does not change.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_moveadapt1.gif"></p> </li> 
+                           <li> 
+                              <h5>Lift</h5> 
+                              <p>Lifts the select set and adds faces to the model. The selected face and adjacent faces
+                                 do not change. </p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_movelift1.gif"></p> </li> </ul> </dd> </dl> 
+                  <dl> 
+                     <dt><b>Precedence</b></dt> 
+                     <dd class="ml-3"> 
+                        <p>Specifies whether the faces in the select set or the unselected faces have precedence
+                           during the modification. Faces that have priority are regenerated last during the
+                           synchronous operation and therefore, tend to be preserved in the resultant model.</p> 
+                        <p>The options which are available can change based on the active environment.</p> 
+                        <ul style="list-style: none"> 
+                           <li> 
+                              <h5>Select Set Priority</h5> 
+                              <p>Specifies that the selected and moving faces have priority over nonmoving faces. Notice
+                                 that the when this option is set, faces adjacent to the face being moved are extended,
+                                 and the nonmoving faces are trimmed.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_move_preced_selected1.gif"></p> </li> 
+                           <li> 
+                              <h5>Model Priority</h5> 
+                              <p>Specifies that the nonmoving faces have priority over selected and moving faces. Notice
+                                 that when this option is set, the face being moved can only be moved until it is coincident
+                                 with the cutout, because the nonmoving faces have priority.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_move_preced_rom1.gif"></p> </li> 
+                           <li> 
+                              <h5>None</h5> 
+                              <p>No face interactions will occur.</p> </li> </ul> </dd> </dl>
+                  <dl>
+                     <dt><b>Main Steps</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Select Faces Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Select the faces, features, or bodies you want to move. Click <b>Accept</b> to confirm your selections and advance to the next step, or click <b>Cancel</b> to discard the current input and start over.</p>
+                           </dd>
+                           <dt><b>Movement Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies how you want to move the selected faces.</p>
+                           </dd>
+                           <dt><b>From Point Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies the first point that defines the distance you want to move the faces.</p>
+                           </dd>
+                           <dt><b>To Point Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies the second point that defines the distance you want to move the faces.</p>
+                           </dd>
+                           <dt><b>Finish/Cancel</b></dt>
+                           <dd class="ml-3">
+                              <p>This button changes function as you move through the feature construction process.
+                                 A preview of your changes is displayed as you complete the <b>To Point</b> step. The <b>Finish</b> button constructs the feature using input provided in the other steps. Once you construct
+                                 the feature, you can edit it by re-selecting the appropriate step on the command bar.
+                                 The <b>Cancel</b> button discards input up to the point of finishing the move function, then exits
+                                 the command. If you already clicked <b>Finish</b>, click <b>Undo</b> on the <b>Edit</b> menu to discard all changes.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Select Faces Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Select</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the faces or bodies you want to move.</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Face</b>—Specifies that you want to select individual faces.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Feature</b>—Specifies that you want to select one or more features.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Body</b>—Specifies that you want to select an entire body. This option is useful when working
+                                       with imported data and you want to reposition it in a precise location. For example,
+                                       you may want to reposition the body with respect to other parts in an assembly.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                           <dt><b>Deselect (x)</b></dt>
+                           <dd class="ml-3">
+                              <p>Clears the selection.</p>
+                           </dd>
+                           <dt><b>Accept (check mark)</b></dt>
+                           <dd class="ml-3">
+                              <p>Accepts the selection.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Movement Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Movement Type</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies how you want to move the selected faces.</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Along 2 Point Vector</b>—Specifies that you want to move the set of faces between two points you define.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Along Edge</b>—Specifies that you want to move the set of faces along a path you select. You can
+                                       select an edge or chain of edges to define the path.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Along Face Normal</b>—Specifies that you want to move the set of faces normal to a face you select.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>In Plane</b>—Specifies that you want to move the set of faces coplanar to a planar face or reference
+                                       plane you select.</p>
+                                 </li> 
+                                 <li> 
+                                    <p><b>Synchronous Move</b>—Specifies that you want to use the steering wheel and <b>Design Intent</b> panel to move the set of faces as you would in synchronous.</p> </li>
+                              </ul>
+                           </dd>
+                           <dt><b>Distance</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the distance to move the faces.</p>
+                           </dd>
+                           <dt><b>Deselect (x)</b></dt>
+                           <dd class="ml-3">
+                              <p>Deselects the selected elements.</p>
+                           </dd>
+                           <dt><b>Accept (check mark)</b></dt>
+                           <dd class="ml-3">
+                              <p>Accepts the selected elements.</p>
+                           </dd>
+                           <dt><b>Vector Start Point</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the first point for the <b>Along 2 Point Vector</b> option. This option is only available when using the <b>Along 2 Point Vector</b> option.</p>
+                           </dd>
+                           <dt><b>Vector To Point</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the second point for the <b>Along 2 Point Vector</b> option. This option is only available when using the <b>Along 2 Point Vector</b> option.</p>
+                           </dd>
+                           <dt><b>Keypoints</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the type of key point you can select. This option is only available when using
+                                 the <b>Along 2 Point Vector</b> option. The available key point options are specific to the command and workflow
+                                 you use.</p> 
+                              <table cellspacing="1" cellpadding="6" width="80%"> 
+                                 <colgroup span="1"> 
+                                    <col span="1" align="left" width="10%"> 
+                                    <col span="1" align="left" width="90%"> </colgroup> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/allkypts.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects any keypoint.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt1.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects an end point.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt4.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects a midpoint.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt2.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects the center point of a circle or arc.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt3.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects a tangency point on an analytic curved face such as a cylinder, sphere, torus,
+                                          or cone.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt5.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects a silhouette point.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/editpoint.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects an edit point on a curve.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/icons/buttons/noptkypnt1.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Turns off the keypoint location.</p> </td> </tr> </table>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Move From Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Keypoints</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the type of key point you can select.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Move To Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Distance</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the distance to extend the feature.</p>
+                           </dd>
+                           <dt><b>Offset</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies the distance to move as an offset from another face or feature. For example,
+                                 you can select a point on a face as the <b>From Point</b> and then specify that the <b>To Point</b> is offset 10 millimeters from the face you selected.</p>
+                           </dd>
+                           <dt><b>Keypoints</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the type of key point you can select.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Other command bar Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Name</b></dt>
+                           <dd class="ml-3">
+                              <p>Displays the feature name. Feature names are assigned automatically. You can edit
+                                 the name by typing a new name in the box on the command bar or by selecting the feature
+                                 and using the <b>Rename</b> command on the shortcut menu.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtmovefaces1h" rel="dtmovefaces1h">Move faces directly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtmovefaces1c" rel="dtmovefaces1c">Move Faces command</a><br><br></div>
+            <div class="footer-content">Move Faces command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

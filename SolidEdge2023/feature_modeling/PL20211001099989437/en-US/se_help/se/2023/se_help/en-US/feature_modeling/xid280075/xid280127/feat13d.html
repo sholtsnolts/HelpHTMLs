@@ -1,0 +1,284 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Pattern command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Pattern command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feat13d">
+                     <h1 class="topic-title">Pattern command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Pattern</b> command bar is available for creating rectangular and circular patterns of 3D objects
+                     in the ordered environment. </p>
+                  <dl>
+                     <dt>Main Steps</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Select Step</dt>
+                           <dd class="ml-3">
+                              <p>Defines the elements you want to pattern. You can select features, edges, surfaces,
+                                 and design bodies.</p>
+                           </dd>
+                           <dt>Plane or Sketch Step</dt>
+                           <dd class="ml-3">
+                              <p>Allows you to draw or select a pattern profile.</p>
+                           </dd>
+                           <dt>Draw Profile Step</dt>
+                           <dd class="ml-3">
+                              <p>Allows you to edit the profile for an existing feature. A profile is a 2D curve that
+                                 defines the shape and location of the feature. To create a base feature by protrusion,
+                                 the profile must be closed. This step is available only when you are editing an existing
+                                 feature.</p>
+                           </dd>
+                           <dt>Select Parts Step</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the parts which are included in the pattern feature. Scope parts for the
+                                 pattern are defined by the scope parts of the parent features. The Select Parts Step
+                                 allows addition of scope parts to the parent features in cases where additional parts
+                                 must be added to the pattern. To remove parts from the pattern, edit the parent features'
+                                 scope parts.</p>
+                              <p>This option is available only in the Assembly environment.</p>
+                           </dd>
+                           <dt>Preview/Finish/Cancel</dt>
+                           <dd class="ml-3">
+                              <p>This button changes function as you move through the feature construction process.
+                                 The Preview button shows what the constructed feature will look like, based on the
+                                 input provided in the other steps. The Finish button constructs the feature. After
+                                 previewing or finishing the feature, you can edit it by re-selecting the appropriate
+                                 step on the command bar. The Cancel button discards all input and exits the command.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Select Step Options</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Smart</dt>
+                           <dd class="ml-3">
+                              <p>Constructs the feature using the Smart option. The Smart option takes longer to process,
+                                 but can handle more cases. The Smart option should be used when individual pattern
+                                 members encounter different geometry than the feature being patterned or mirrored.
+                                 This option is available only when the Select option is set to Feature.</p>
+                              <p>Use a smart pattern where fast patterning is not feasible. For example, you should
+                                 use a smart pattern when the patterned features modify a different set of faces than
+                                 the original feature. The pattern of cutouts shown modifies a different set of faces
+                                 than the original cutout. A fast pattern will not work in this situation, a smart
+                                 pattern should be used.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn8.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn3.gif"></p>
+                           </dd>
+                           <dt>Fast</dt>
+                           <dd class="ml-3">
+                              <p>Constructs the feature using the Fast option. The Fast option processes very quickly,
+                                 but it cannot be used if any members encounter different geometry than the feature
+                                 being patterned or mirrored. If a fast pattern or mirror fails, simply select the
+                                 Smart option and recompute the feature. This option is available only when the Select
+                                 option is set to Feature.</p>
+                              <p>Use a fast pattern when the patterned features modify the same set of faces as the
+                                 original features. The pattern of cutouts shown modifies the same two faces on the
+                                 part as the original cutout feature. A fast pattern is the best choice here.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn7.gif"></p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn4.gif"></p>
+                           </dd>
+                           <dt>Select</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the type of element you want to pattern. The options that are available
+                                 depend on which environment you are in.</p>
+                              <ul>
+                                 <li>
+                                    <p>Single—Allows you to select one or more individual elements, such as features, edges
+                                       or surfaces.</p>
+                                 </li>
+                                 <li>
+                                    <p>Chain—Allows you to select a endpoint connected set of elements by selecting one of
+                                       the elements in the chain. This option is useful when patterning edges or surfaces.</p>
+                                 </li>
+                                 <li>
+                                    <p>Body—In a part or sheet metal document, the Body option allows you to select the following
+                                       types of bodies:</p>
+                                    <ul>
+                                       <li>
+                                          <p>Curve bodies, such as a keypoint curve.</p>
+                                       </li>
+                                       <li>
+                                          <p>Surface bodies, such as a surface body.</p>
+                                       </li>
+                                       <li>
+                                          <p>Design body, which is the entire solid model.</p>
+                                       </li>
+                                    </ul>
+                                    <p>In an assembly document, the Body option allows you to select material addition features
+                                       such as protrusions, when you have specified that the assembly is a weldment assembly.</p>
+                                 </li>
+                                 <li>
+                                    <p>Feature—In a part or sheet metal document, the Feature option allows you to select
+                                       a feature, such as a protrusion, cutout, or hole feature.</p>
+                                    <p>In an assembly document, the Feature option can only be used to pattern material removal
+                                       features.</p>
+                                 </li>
+                              </ul>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>When constructing and editing pattern features, you cannot have more than one element
+                                    type in a single pattern. For example, you cannot pattern a hole feature, a design
+                                    body, and a curve body in one operation. </p>
+                              </div>
+                           </dd>
+                           <dt>Deselect (x)</dt>
+                           <dd class="ml-3">
+                              <p>Clears the selection.</p>
+                           </dd>
+                           <dt>Accept (check mark)</dt>
+                           <dd class="ml-3">
+                              <p>Accepts the selection.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Plane or Sketch Step Options</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Create-From Options</dt>
+                           <dd class="ml-3">
+                              <p>Sets the method of defining the profile plane or specifies that you want to construct
+                                 the feature using an existing sketch. Depending on the model you are constructing,
+                                 some of the options listed may not be available. For example, if no sketches exist
+                                 in the model, the Select From Sketch option is not displayed.</p>
+                              <ul>
+                                 <li>
+                                    <p>Select From Sketch—Specifies that you want to define the profile for the feature using
+                                       an existing sketch.</p>
+                                 </li>
+                                 <li>
+                                    <p>Coincident Plane—Specifies that you want to define a plane that is coincident to an
+                                       existing reference plane or a planar face on the part. When you set this option, a
+                                       default X-axis and direction is applied to the new reference plane. You can use keyboard
+                                       accelerators to define a different X-axis and direction for the new reference plane.</p>
+                                 </li>
+                                 <li>
+                                    <p>Parallel Plane—Specifies that you want to define a plane that is parallel to an existing
+                                       reference plane or a planar face on the part. When you set this option, you can specify
+                                       the parallel offset distance. When you set this option, a default X-axis and direction
+                                       is applied to the new reference plane. You can use keyboard accelerators to define
+                                       a different X-axis and direction for the new reference plane.</p>
+                                 </li>
+                                 <li>
+                                    <p>Angled Plane—Specifies that you want to define a plane that is at an angle to an existing
+                                       reference plane or planar face on the part. When you set this option, you can specify
+                                       the angle value you want.</p>
+                                 </li>
+                                 <li>
+                                    <p>Perpendicular Plane—Specifies that you want to define a plane that is perpendicular
+                                       to an existing reference plane or planar face on the part.</p>
+                                 </li>
+                                 <li>
+                                    <p>Coincident Plane By Axis—Specifies that you want to define a plane that is coincident
+                                       to an existing reference plane or a planar face on the part. When you set this option,
+                                       you define the X-axis and direction for the new reference plane using a linear edge,
+                                       a planar face, or another reference plane.</p>
+                                 </li>
+                                 <li>
+                                    <p>Plane Normal to Curve—Specifies that you want to define a plane that is perpendicular
+                                       to a curve you select. This is the default option when constructing a helix using
+                                       the Perpendicular option.</p>
+                                 </li>
+                                 <li>
+                                    <p>Plane By 3 Points—Specifies that you want to define a plane by three keypoints you
+                                       select.</p>
+                                 </li>
+                                 <li>
+                                    <p>Feature's Plane—Specifies that you want to define a plane that is coincident to a
+                                       reference plane used to define an earlier feature. You can select the feature you
+                                       want using PathFinder or in the graphic window. This option is not available when
+                                       constructing the base feature.</p>
+                                 </li>
+                                 <li>
+                                    <p>Last Plane—Automatically selects the reference plane used for the previous feature.
+                                       This option is not available if the last feature was a pattern or when constructing
+                                       the base feature.</p>
+                                 </li>
+                                 <li>
+                                    <p>Tangent Plane—Specifies that you want to define a plane that is tangent to a curved
+                                       face on the part. You can select a cylinder, cone, sphere, torus, or b-spline surface.
+                                       When you set this option, you can also specify the angular rotation value. When you
+                                       set this option, a default X-axis and direction is applied to the new reference plane.
+                                       You can use keyboard accelerators to define a different X-axis and direction for the
+                                       new reference plane.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                           <dt>Select From Sketch Options</dt>
+                           <dd class="ml-3">
+                              <dl>
+                                 <dt>Select</dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the method of selecting a sketch element.</p>
+                                    <ul>
+                                       <li>
+                                          <p>Single—Allows you to select one or more individual elements.</p>
+                                       </li>
+                                       <li>
+                                          <p>Chain—Allows you to select a endpoint connected set of elements by selecting one of
+                                             the elements in the chain.</p>
+                                       </li>
+                                    </ul>
+                                 </dd>
+                                 <dt>Deselect (x)</dt>
+                                 <dd class="ml-3">
+                                    <p>Clears the selection.</p>
+                                 </dd>
+                                 <dt>Accept (check mark)</dt>
+                                 <dd class="ml-3">
+                                    <p>Accepts the selection.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt>Other Command Bar Options</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Name</dt>
+                           <dd class="ml-3">
+                              <p>Displays the feature name. Feature names are assigned automatically. You can edit
+                                 the name by typing a new name in the box on the command bar or by selecting the feature
+                                 and using the Rename command on the shortcut menu.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat12h" rel="feat12h">Construct an ordered rectangular pattern feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670163" rel="xid1670163">Create a 2D rectangular pattern of sketches</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat6h" rel="feat6h">Construct an ordered circular pattern feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670142" rel="xid1670142">Create a 2D circular pattern of sketches</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/construct_a_fast_patternh" rel="construct_a_fast_patternh">Construct a Fast Pattern</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/construct_a_smart_patternh" rel="construct_a_smart_patternh">Construct a Smart Pattern</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat20h" rel="feat20h">Define the pattern plane</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb3a" rel="featb3a">Pattern features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/rectangular_patterns" rel="rectangular_patterns">Rectangular Pattern (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/circular_patterns" rel="circular_patterns">Circular patterns</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat14c" rel="feat14c">Pattern command (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670164" rel="xid1670164">Rectangular Pattern command bar (ordered sketch)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670166" rel="xid1670166">Circular Pattern command bar (ordered sketch)</a><br><br></div>
+            <div class="footer-content">Pattern command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

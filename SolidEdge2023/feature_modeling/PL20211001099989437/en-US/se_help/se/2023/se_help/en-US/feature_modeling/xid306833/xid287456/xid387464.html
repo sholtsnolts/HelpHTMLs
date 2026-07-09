@@ -1,0 +1,173 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Sheet metal design bodies</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Sheet metal design bodies"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid387464">
+                     <h1 class="topic-title">Sheet metal design bodies</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Sheet metal files support both part and sheet metal design bodies. All synchronous
+                     bodies are held together by geometric relationships and are considered to be one body
+                     in any synchronous editing of the file. Edits made to the active design body also
+                     appear in the other design bodies in the file.</p>
+                  <h4 class="division-title">Adding sheet metal attributes</h4>
+                  <div>
+                     <p>You can add sheet metal attributes to a file by:</p>
+                     <ul>
+                        <li>
+                           <p>Switching to the sheet metal environment</p>
+                        </li>
+                        <li>
+                           <p>Adding a new sheet metal body</p>
+                        </li>
+                     </ul>
+                     <p>Once the sheet metal attributes are added to the file, they are maintained, even if
+                        no sheet metal bodies exist in the file. When you add a sheet metal body to a file,
+                        the sheet metal attribute variables are added to the variable table. If the file previously
+                        contained sheet metal bodies, those sheet metal variables are kept within the variable
+                        table.</p>
+                     <p>All sheet metal design bodies residing in the same file have the same set of attributes:</p>
+                     <ul>
+                        <li>
+                           <p>Material Thickness</p>
+                        </li>
+                        <li>
+                           <p>Bend Radius</p>
+                        </li>
+                        <li>
+                           <p>Neutral Factor</p>
+                        </li>
+                        <li>
+                           <p>Bend Relief Parameter</p>
+                        </li>
+                     </ul>
+                     <p>If you add a sheet metal design body to a part file, the <b>Gage</b> tab appears on the <b>Material</b> dialog box. All sheet metal design bodies share the same gage and bend properties
+                        within the same file. When you select the <b>Apply to Model</b> button on the <b>Material</b> dialog box, all sheet metal bodies in the file recompute to accept the new sheet
+                        metal parameters. </p>
+                     <p>For example, the following file contains two design bodies.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sheetmetal/multibodysm3.gif"></p>
+                     <p>If you change the material type and material thickness in the active body, </p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sheetmetal/multibodysm1.gif"></p>
+                     <p>these attributes change for the other design body in the file.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sheetmetal/multibodysm2.gif"></p>
+                  </div>
+                  <h4 class="division-title">Transforming sheet metal bodies</h4>
+                  <div>
+                     <p>You can import elements into Solid Edge and then convert them on a body by body basis
+                        with the following commands: </p>
+                     <ul>
+                        <li>
+                           <p>Transform to Synchronous Sheet Metal</p>
+                        </li>
+                        <li>
+                           <p>Transform to Sheet Metal (ordered environment)</p>
+                        </li>
+                     </ul>
+                     <p>When you use the <a class="xref" data-handle="create_sheet_metal_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/cnvrtsm3c" rel="cnvrtsm3c">Transform to Synchronous Sheet Metal command</a>, the first transformed body in the file sets the default parameters of the material
+                        table. For example, create a rectangular protrusion that is 3 mm thick in a synchronous
+                        part.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sheetmetal/transformsync1.gif"></p>
+                     <p>When you transform the solid body to synchronous sheet metal, it becomes a tab with
+                        a material thickness of 3 mm. Any subsequent synchronous transformations of sheet
+                        metal bodies use the material setting of 3 mm that was defined by the previous bodies.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/sheetmetal/transformsync2.gif"></p>
+                     <p>The <a class="xref" data-handle="create_sheet_metal_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/cnvrtsm1c" rel="cnvrtsm1c">Transform to Sheet Metal command</a> converts the entire active body, and the transformed feature is added to the last
+                        position in the history tree.</p>
+                  </div>
+                  <h4 class="division-title">Moving to synchronous</h4>
+                  <div>
+                     <p>You can use the <a class="xref" data-handle="create_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_part/html/movetosynchronous1c" rel="movetosynchronous1c">Move to Synchronous command</a> to move the features for multiple bodies at once. If features for more than one design
+                        body are in the selected list of the PathFinder, the move to synchronous operation
+                        maintains the body identity. </p>
+                     <p>When you move multiple bodies to the synchronous environment, the resulting features
+                        are listed in a sequential order that represents the body as it is converted. </p>
+                  </div>
+                  <h4 class="division-title">Flattening multi-body files</h4>
+                  <div>
+                     <p>You can create flat patterns of a multi-body file that contains multiple sheet metal
+                        bodies. The file can contain only one flat pattern at a time. If you need to create
+                        more flat patterns, you can delete the existing flat pattern and then create another
+                        one. You can use the Multi-body Publish command to publish the individual design bodies
+                        to separate files.</p>
+                  </div>
+                  <h4 class="division-title">Switching between part and sheet metal</h4>
+                  <div>
+                     <p>You can create files that contain sheet metal bodies in either the Part or Sheet Metal
+                        environment. You can use the <b>Switch to</b> command to switch between the environments. Switching from Part to Sheet Metal does
+                        not create sheet metal attributes for the active body. If you want to attribute the
+                        active body, use the <b>Transform to Synchronous Sheet Metal</b> command.</p>
+                     <p>If there are no design bodies in the part file when you switch to sheet metal, the
+                        base modeling feature determines the initial body type in the sheet metal file. If
+                        the base feature type is sheet metal, sheet metal attributes are added and the body
+                        becomes a sheet metal body. If the base modeling type is part, no sheet metal attributes
+                        are added and the body remains a part body.</p>
+                     <p>If the part file contains a design body when you switch to sheet metal, the active
+                        body defines the body type in the sheet metal file.</p>
+                  </div>
+                  <h4 class="division-title">Copying sheet metal bodies</h4>
+                  <div>
+                     <p>When you copy a synchronous sheet metal body, the sheet metal attributes are removed
+                        from the body. The copied sheet metal body behaves like a part copy until the attributes
+                        are restored. Copy workflows that result in this attribute removal behavior include:</p>
+                     <ul>
+                        <li>
+                           <p>Manipulate a body or the face sets of a body with the <b>Copy</b> option selected</p>
+                        </li>
+                        <li>
+                           <p>Press Ctrl + C on a body or face sets of a body</p>
+                        </li>
+                     </ul>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Even though the sheet metal attributes are removed during the copy, you can use the
+                           Transform to Synchronous Sheet Metal command to reestablish the plate-connector model
+                           for the body.</p>
+                        <p></p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Editing a multi-bodies file</h4>
+                  <div>
+                     <p>When editing sheet metal features, such as dimples or beads, on design bodies, the
+                        body containing the feature you are editing does not have to be active. You can edit
+                        any feature on any design body.</p>
+                     <p>When you select a synchronous element on either an active or inactive design body,
+                        the steering wheel is displayed and you can move the steering wheel into position
+                        relative to any body.</p>
+                     <p>You can edit common synchronous features on all bodies simultaneously. For example,
+                        if there are synchronous holes on multiple design bodies, the edit is applied to all
+                        of the holes. You can dynamically edit multiple ordered features from different design
+                        bodies simultaneously.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid292844" rel="xid292844">Add a body</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid430244" rel="xid430244">Toggle a solid body type</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid292847" rel="xid292847">Rename a design or construction body</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287369" rel="xid287369">Multi-body modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287470" rel="xid287470">Multi-bodies in PathFinder</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1096431" rel="xid1096431">Multi-body cutouts</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287460" rel="xid287460">Add Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid292843" rel="xid292843">Add Body dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287461" rel="xid287461">Activate Part Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287462" rel="xid287462">Activate Assembly Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287463" rel="xid287463">Toggle Design/Construction Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287464" rel="xid287464">Show Body Features command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287465" rel="xid287465">Show Body Name command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dgnbdy1c" rel="dgnbdy1c">Show All Design Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dgnbdy2c" rel="dgnbdy2c">Hide All Design Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1135020" rel="xid1135020">Show All Ordered Body command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1135021" rel="xid1135021">Hide All Ordered Body command</a><br><br></div>
+            <div class="footer-content">Sheet metal design bodies, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

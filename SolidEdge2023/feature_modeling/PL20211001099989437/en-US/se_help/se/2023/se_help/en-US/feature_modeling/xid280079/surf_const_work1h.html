@@ -1,0 +1,206 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>General surface modeling workflow</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="General surface modeling workflow"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="surf_const_work1h">
+                     <h1 class="topic-title">General surface modeling workflow</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <ol type="1" start="1">
+                     <li>
+                        <p><b>Create control drawings.</b></p>
+                        <p><em>Definition:</em> Control Drawings are 2D drawing views defining the top, side, and end views. Typically
+                           one or two views dominate (define the majority of the shape).</p>
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/phone1.gif"></p>
+                        <p><em>Part environment:</em> You can create control drawings directly by drawing on reference planes. <em>Pierce points</em> aid in connecting curves.</p>
+                        <p><em>Draft environment:</em> You can create control drawings in 2D, and then use Copy and Paste to transfer the
+                           2D elements from Draft into Part. Also, you can use <em>Create 3D</em> or import sketches.</p>
+                        <div class="attention" type="tip">
+                           <div class="attention-label">Tip: </div>
+                           <p>While drawing any sketch element in either the Part or Draft environment, use <em>Line Color</em> to help distinguish edges and construction edges in the control drawing.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/1-08.gif"></p>
+                        </div>
+                        <ul>
+                           <li>
+                              <p>Draw all character curves.</p>
+                           </li>
+                           <li>
+                              <p>Do not over draw. Do not model rounds, ribs, or features best created with solid features.</p>
+                           </li>
+                           <li>
+                              <p>Capture design intent. Add dimensions and constraints.</p>
+                           </li>
+                           <li>
+                              <p>Create simple B-splines with few Edit Points.</p>
+                           </li>
+                           <li>
+                              <p>Make sure view sketches register.</p>
+                           </li>
+                           <li>
+                              <p>Build edge continuity into your sketches.</p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><b>Use 2D geometry to develop 3D curves.</b></p>
+                        <ul>
+                           <li>
+                              <p>Project curves from control drawings.</p>
+                           </li>
+                           <li>
+                              <p>You may need some construction surfaces to generate 3D curves. This is very important
+                                 in reducing modeling steps.</p>
+                           </li>
+                           <li>
+                              <p>3D curves give simplified control over edges.</p>
+                           </li>
+                           <li>
+                              <p>Capture your design intent by using control drawings.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/1-11.gif"></p>
+                           </li>
+                           <li>
+                              <p>Without 3D curves, character edges may not be captured.</p>
+                           </li>
+                           <li>
+                              <p>Lack of 3D edges eliminates design intent and adds more modeling.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/1-12.gif"></p>
+                           </li>
+                           <li>
+                              <p>With 3D curves, design intent is preserved and modeling is reduced.</p>
+                           </li>
+                           <li>
+                              <p>You can easily change the shape by altering the character curves for the respective
+                                 view.</p>
+                           </li>
+                           <li>
+                              <p>Creating 3D edges guarantees an accurate design and reduces modeling steps.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/1-13.gif"></p>
+                           </li>
+                           <li>
+                              <p>Making changes to the 3D curve is simple. Edit the character curve in the control
+                                 drawing.</p>
+                           </li>
+                           <li>
+                              <p>Repeat the process until all 3D curves are created</p>
+                              <ul>
+                                 <li>
+                                    <p>A wireframe representation of the model should result.</p>
+                                 </li>
+                                 <li>
+                                    <p>All 3D curves should be touching.</p>
+                                 </li>
+                              </ul>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/1-14.gif"></p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><b>Use 3D curves to develop surfaces.</b></p>
+                        <ul>
+                           <li>
+                              <p><em>BlueSurf</em> command.</p>
+                              <p>Inputs are guides and sections.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/BlueSurf-1.gif"></p>
+                           </li>
+                           <li>
+                              <p><em>Swept</em> command.</p>
+                              <p>Inputs are guides and sections.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/Sweep1.gif"></p>
+                           </li>
+                           <li>
+                              <p><em>Bounded</em> command</p>
+                              <p>N-sided patch.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/surface_construction/SBB1.gif"></p>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><b>Create a solid and add appropriate solid based features.</b></p>
+                        <ul>
+                           <li>
+                              <p>Stitch together surfaces</p>
+                           </li>
+                           <li>
+                              <p>Add solid-based features</p>
+                              <ul>
+                                 <li>
+                                    <p><em>Thinwall</em></p>
+                                 </li>
+                                 <li>
+                                    <p>Stiffening <em>Rib</em></p>
+                                 </li>
+                                 <li>
+                                    <p><em>Hole</em></p>
+                                 </li>
+                                 <li>
+                                    <p><em>Round</em></p>
+                                 </li>
+                                 <li>
+                                    <p><em>Web network</em></p>
+                                 </li>
+                                 <li>
+                                    <p><em>Lip</em></p>
+                                 </li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <p><b>Tweak.</b></p>
+                        <ul>
+                           <li>
+                              <p>Analyze edge continuity using:</p>
+                              <ul>
+                                 <li>
+                                    <p><em>Curvature Comb</em></p>
+                                 </li>
+                                 <li>
+                                    <p><em>Zebra Stripes</em></p>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li>
+                              <p>Edit character curves</p>
+                           </li>
+                           <li>
+                              <p>Edit tangent vectors</p>
+                           </li>
+                           <li>
+                              <p>Edit vertex mapping</p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ol>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/whysurf1a" rel="whysurf1a">What is surfacing and why use it?</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surf_const_adv1a" rel="surf_const_adv1a">Surface construction advantages</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_using_surfaces_30_1223" rel="genid_using_surfaces_30_1223">Using surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surf_const_over1a" rel="surf_const_over1a">Surface construction overview</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/construct1a" rel="construct1a">Working with points, curves, and surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_displaying_points_curves_and_surfaces_15_1609" rel="genid_displaying_points_curves_and_surfaces_15_1609">Displaying points, curves, and surfaces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_creating_points_curves_and_surfaces_20_782" rel="genid_creating_points_curves_and_surfaces_20_782">Creating points, curves, and surfaces</a><br><br></div>
+            <div class="footer-content">General surface modeling workflow, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,129 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Solid Sweep Cutout command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Solid Sweep Cutout command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1168670">
+                     <h1 class="topic-title">Solid Sweep Cutout command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Solid Sweep Cutout</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweepcuticon.jpg"> creates a cutout in a solid body by moving a spinning revolved tool body along a
+                     path. The revolved tool body removes volume as it moves along the path.</p>
+                  <p></p>
+                  <p>Both 2D and 3D paths are valid. Unless the tool is placed on the path or the <b>Place tool on Path</b> option is selected, the path must be tangent and continuous. </p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweepcutexample.jpg"></p><br><p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweephelixexample.jpg"></p>
+                  <h4 class="division-title">Multi-body</h4>
+                  <div>
+                     <p>Two bodies are required to create a <b>Solid Sweep Cutout</b>. The tool is defined as a separate body. For more information, see <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid287460" rel="xid287460">Add Body command</a>.</p>
+                     <p>Valid tools:</p>
+                     <ul>
+                        <li>
+                           <p>Must be a solid body.</p>
+                        </li>
+                        <li>
+                           <p>The tool axis defines the axis about which to spin the tool body.</p>
+                        </li>
+                        <li>
+                           <p>The cross-section of the spun body obtained by spinning the tool body about the tool
+                              axis must form a single connected set of curves. </p>
+                        </li>
+                        <li>
+                           <p>The tool body must not be disjoint, and it must intersect the axis. </p>
+                        </li>
+                     </ul>
+                     <p>Invalid tools:</p>
+                     <ul>
+                        <li>
+                           <p>Concave and convex.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweepnonanalytic.jpg"></p>
+                        </li>
+                        <li>
+                           <p>Containing holes and cutouts.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweepholesandcutouts.jpg"></p>
+                        </li>
+                        <li>
+                           <p>Non-analytic faces created with b-spline geometry. </p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweepnonanalytic.jpg"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Path options</h4>
+                  <div>
+                     <p>Paths are used to control the tool creating the cutout. </p>
+                     <p>Shown below is a tool that is offset from the path.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweeptoolandpath.jpg"></p>
+                     <p>Options are:</p>
+                     <ul>
+                        <li>
+                           <p><b>Place Tool on Path</b> option selected.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweeptoolonpath.jpg"></p>
+                        </li>
+                        <li>
+                           <p><b>Place Tool on Path</b> option deselected.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweepoffpath.jpg"></p>
+                        </li>
+                     </ul>
+                  </div> 
+                  <h4 class="division-title">Cutouts normal to surface</h4>
+                  <div>  
+                     <p>Use the <b>Place Tool Normal to Surface</b> option <img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/sweep_place_tool_normal.png">on the <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1168670"><b>Solid Sweep</b> command bar</a> to place the sweep tool normal to a surface on the circular or round body while creating
+                        a swept cutout.</p> 
+                     <p>With this option selected, the sweep tool follows the path correctly on the circular
+                        body, which results in a precise swept cutout.</p> 
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/swept_cutout_normal.png"></p> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>You should enable this option while working with circular or cylindrical models.</p> </div> </div>
+                  <h4 class="division-title">Setting the Axis Lock Direction</h4>
+                  <div>
+                     <p>If the tool is perpendicular to a 2D path, the <b>Axis Lock Direction</b> is set by default. For 3D paths and 2D paths where the tool axis is not perpendicular
+                        to the path, the <b>Axis Lock Direction</b> must be defined. <b>Axis Lock Direction</b> can be defined by the direction of edges, feature axes, coordinate system axes, or
+                        planes.</p>
+                     <p>Examples:</p>
+                     <ul>
+                        <li>
+                           <p>In the example below, the tool follows a 3D path. The <b>Axis Lock Direction</b> is represented by the edge of the vertical face of the handle.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweeppartedgelock.jpg"></p>
+                        </li>
+                        <li>
+                           <p>In the example below, the tool follows a 3D path. The <b>Axis Lock Direction</b> is represented by the coordinate axis direction.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweepcoordinateaxislock.jpg"></p>
+                        </li>
+                        <li>
+                           <p>In the example below, the tool follows a 3D path. The <b>Axis Lock Direction</b> is represented by a planar face of a cylinder.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/solidsweephelixplane.jpg"></p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat15h" rel="feat15h">Construct a swept protrusion or cutout</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1219742" rel="xid1219742">Construct a Solid Sweep Protrusion</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1221839" rel="xid1221839">Construct a Solid Sweep Cutout</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/swept1a" rel="swept1a">Constructing swept features</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat22c" rel="feat22c">Swept Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb25d" rel="featb25d">Swept Protrusion command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat17d" rel="feat17d">Sweep Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat21c" rel="feat21c">Swept Cutout command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat24d" rel="feat24d">Swept Cutout command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1162060" rel="xid1162060">Solid Sweep Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1447483" rel="xid1447483">Solid Sweep Cutout command bar</a><br><br></div>
+            <div class="footer-content">Solid Sweep Cutout command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

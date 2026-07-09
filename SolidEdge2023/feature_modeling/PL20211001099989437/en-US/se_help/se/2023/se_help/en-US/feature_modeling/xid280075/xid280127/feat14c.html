@@ -1,0 +1,232 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Pattern command (ordered)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Pattern command (ordered)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feat14c">
+                     <h1 class="topic-title">Pattern command (ordered)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In ordered modeling, use the <b>Home</b> tab→<b>Pattern</b> group→<b>Pattern</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn.gif"> command to construct a rectangular or circular pattern of selected elements.</p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>In the Assembly environment, this command is named <b>Pattern Assembly Feature</b>.</p>
+                  </div>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>You can create a pattern of sketches by editing an existing sketch or by creating
+                        a new sketch. In sketch mode, choose either the <b>Home</b> tab→<b>Features</b> group→<b>Rectangular</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/recpat.gif"> or <b>Circular Pattern</b> <img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/circpat.gif"> command.</p>
+                  </div>
+                  <p>You can select part features, assembly features, edges, surfaces, or design bodies
+                     as the <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/parent_feature" rel="parent_feature">parent elements</a> to pattern. For example, you can construct a hole feature, and then construct a rectangular
+                     pattern of holes using the hole feature as the parent element of the pattern.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn1.gif"></p>
+                  <p>In an assembly, you can pattern <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat1" rel="asmfeat1">assembly features</a>, which allows you to modify two or more parts in one operation.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn6.gif"></p>
+                  <p>You can suppress individual pattern members to define gaps in a pattern to avoid other
+                     features.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pttrn5.gif"></p>
+                  <p>Patterning elements other than features is useful when constructing models that use
+                     free-form surfaces. For example, you can construct a lofted surface, and then construct
+                     a circular pattern of the lofted surface.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/pattern3.gif"></p>
+                  <h4 class="division-title">Steps</h4>
+                  <div>
+                     <p>The basic steps for defining a pattern feature are:</p>
+                     <ul>
+                        <li>
+                           <p>Select the geometry to pattern.</p>
+                        </li>
+                        <li>
+                           <p>Draw the pattern profile or select an existing pattern sketch.</p>
+                        </li>
+                        <li>
+                           <p>Select the parts to be modified by the pattern (assembly documents only).</p>
+                        </li>
+                     </ul>
+                     <p>When constructing a pattern, you can also specify whether the pattern is a fast pattern
+                        or a smart pattern using the <b>Fast</b> and <b>Smart</b> options on the command bar. You can set these options at any point while creating
+                        or editing a pattern.</p>
+                     <p>For more information on smart and fast patterns, see the following Help topics:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb3a" rel="featb3a">Pattern features</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat13d" rel="feat13d">Pattern command bar</a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Selecting the elements to pattern</h4>
+                  <div>
+                     <p>The first step in constructing a pattern is selecting the parent elements. In a part
+                        or sheet metal document, you can pattern features, edges, curves, surfaces, or the
+                        entire design body. In an assembly document, you can pattern <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat1" rel="asmfeat1">assembly features</a>.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When constructing and editing pattern features, you cannot have more than one element
+                           type in a single pattern. For example, you cannot pattern a hole feature, a design
+                           body, and a curve in one operation.</p>
+                     </div>
+                     <p>The <b>Select</b> option allows you to specify what types of elements you want to pattern. To pattern
+                        one or more surfaces or edges (model topology) that are part of a surface or solid
+                        body, you can set the <b>Single</b> or <b>Chain</b> option. To pattern one or more features, such as a cutout or protrusion, set the
+                        <b>Feature</b> option. To pattern a curve, surface, or solid body, set the Body option.</p>
+                     <p>The name in <b>PathFinder</b> indicates whether you constructed a pattern using features, design bodies, or model
+                        topology (surfaces or edges).</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Patterning part and sheet metal features</h5>
+                           <p>You can select part and sheet metal features before or after starting the <b>Pattern</b> command. You can select the features in the graphics window or in <b>PathFinder</b>. You can select profile-based features or treatment features, but special rules apply
+                              when patterning a treatment feature by itself.</p>
+                        </li>
+                        <li>
+                           <h5>Patterning treatment features</h5>
+                           <p>You can pattern treatment features by themselves or in conjunction with a profile-based
+                              feature. To pattern a treatment feature by itself, the part geometry must allow it.</p>
+                        </li>
+                        <li>
+                           <h5>Patterning edges, curves, surfaces, and design bodies</h5>
+                           <p>When patterning other elements, such as edges, surfaces and curves, or design bodies,
+                              you must start the <b>Pattern</b> command, set the <b>Select</b> option on the command bar, and then select the elements you want to pattern in the
+                              graphics window.</p>
+                        </li>
+                        <li>
+                           <h5>Patterning assembly features</h5>
+                           <p>In the Assembly environment, you can pattern <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat1" rel="asmfeat1">assembly features</a> that remove material, such as holes, cutouts, and revolved cutouts. If the assembly
+                              is a weldment assembly, you can also pattern assembly features that add material,
+                              such as fillet welds, groove welds, and protrusion features.</p>
+                           <p>The <b>Select</b> option, available during the Select Features Step, allows you to specify whether
+                              you can select material removal features, or material addition features. The <b>Feature</b> option allows you to select material removal features; the <b>Body</b> option allows you to select material addition features.</p>
+                           <p>You can also specify which parts are included in the pattern feature. If you add parts
+                              to a pattern feature which were not in the parent feature, a message is displayed
+                              to instruct you the parts must also be added to the parent feature.</p>
+                           <p> For more detailed information on constructing assembly-based features, see <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/asmfeat1a" rel="asmfeat1a">Assembly-Based Features</a>.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>You can only pattern assembly features that were created within the current assembly.
+                                 You cannot pattern <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat2" rel="asmfeat2">assembly-driven part features</a>.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Drawing the pattern profile or selecting an existing sketch</h4>
+                  <div>
+                     <p>You can draw a new pattern profile or select an existing pattern profile from a sketch.
+                        If you draw a new profile, you must first specify a plane to draw it on.</p>
+                     <p>Pattern profiles (A) do not have to be drawn such that they are aligned with the parent
+                        feature (B). This makes it possible to reuse pattern profiles.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/ptnaln1.gif"></p>
+                     <p>When working with large or complex patterns, however, you may find it easier to construct
+                        the pattern if you draw the pattern profile so that it is aligned with the parent
+                        elements.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/ptnaln2.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can only reuse pattern profiles that were drawn as sketches.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Controlling the pattern profile</h4>
+                  <div>
+                     <p>A pattern profile is the same as any other profile in Solid Edge. &nbsp;You must apply
+                        relationships and dimensions so it will behave predictably. You can also use the Variable
+                        Table to define variables between pattern profile dimensions and other dimensions
+                        on the model.</p>
+                  </div>
+                  <h4 class="division-title">Specifying the pattern type</h4>
+                  <div>
+                     <p>You can create rectangular and circular patterns with the <b>Pattern</b> command. With the profile window open, select the pattern type by clicking the <b>Rectangular Pattern</b> or <b>Circular Pattern</b> button on the <b>Features</b> tab. You can also draw lines, arcs, and other elements as construction geometry to
+                        help you define the pattern profile.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>Any lines, arcs, and circles you draw will be automatically converted to construction
+                           geometry when you close the profile window.</p>
+                     </div>
+                     <p>For more information, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/circular_patterns" rel="circular_patterns">Circular patterns</a> and <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/rectangular_patterns" rel="rectangular_patterns">Rectangular patterns</a> help topics. </p>
+                  </div>
+                  <h4 class="division-title">Suppressing pattern occurrences</h4>
+                  <div>
+                     <p>You can suppress pattern occurrences in rectangular and circular patterns with the
+                        <b>Suppress Occurrence</b> button on the command bar. With the profile window open, select the pattern profile,
+                        and then click the occurrence symbols to specify which occurrences you want to suppress
+                        (A). The symbols change size and color to indicate that the corresponding occurrences
+                        are suppressed.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/ptnsup1.gif"></p>
+                     <p>You can individually select occurrences to suppress, or drag the cursor to fence any
+                        number of occurrences.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/ptnsup2.gif"></p>
+                     <p>This option is useful for when you need to define gaps in a large pattern, for example,
+                        to leave space for another feature.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/patterning/ptnsup3.gif"></p>
+                     <p>You can also redisplay suppressed pattern occurrences with the <b>Suppress Occurrence</b> button. Click the button and then select the suppressed occurrences you want to redisplay.</p>
+                  </div>
+                  <h4 class="division-title">Suppressing pattern regions</h4>
+                  <div>
+                     <p>You can also suppress a region of pattern occurrences using the <b>Suppress Region</b> option on the command bar. To suppress a region, you must select an existing closed
+                        sketch. The closed sketch can be of any shape. You can use the <b>Flip</b> option on the command bar to specify whether the suppressed occurrences are inside
+                        or outside of the closed sketch.</p>
+                  </div>
+                  <h4 class="division-title">Deleting pattern occurrences</h4>
+                  <div>
+                     <p>When constructing smart patterns, you can also delete pattern occurrences. Position
+                        the cursor over the pattern occurrence you want to delete (A), and then pause. When
+                        the ellipsis is displayed, click the left mouse button to display QuickPick. You can
+                        then use QuickPick to select the pattern occurrence, and then press Delete to delete
+                        it.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/feature/patterning/ptndel1.gif"></p>
+                     <p>When you delete a pattern occurrence, the software is actually suppressing the corresponding
+                        x symbol on the pattern profile. Deleting, rather than suppressing, an occurrence
+                        can be useful when working with large or complex models, because you do not have to
+                        enter the profile window to suppress the occurrence. To restore the deleted occurrence,
+                        you can use the workflow for redisplaying suppressed occurrences.</p>
+                  </div>
+                  <h4 class="division-title">Guidelines for creating pattern features</h4>
+                  <div>
+                     <ul>
+                        <li>
+                           <p>You can pattern multiple elements in one operation.</p>
+                        </li>
+                        <li>
+                           <p>When patterning features, if the Fast option fails, click the Smart option on the
+                              command bar.</p>
+                        </li>
+                        <li>
+                           <p>You can suppress individual feature occurrences in a pattern.</p>
+                        </li>
+                        <li>
+                           <p>You can delete individual feature occurrences in a pattern.</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat12h" rel="feat12h">Construct an ordered rectangular pattern feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670163" rel="xid1670163">Create a 2D rectangular pattern of sketches</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat6h" rel="feat6h">Construct an ordered circular pattern feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670142" rel="xid1670142">Create a 2D circular pattern of sketches</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/construct_a_fast_patternh" rel="construct_a_fast_patternh">Construct a Fast Pattern</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/construct_a_smart_patternh" rel="construct_a_smart_patternh">Construct a Smart Pattern</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat20h" rel="feat20h">Define the pattern plane</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb3a" rel="featb3a">Pattern features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/rectangular_patterns" rel="rectangular_patterns">Rectangular Pattern (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/circular_patterns" rel="circular_patterns">Circular patterns</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670164" rel="xid1670164">Rectangular Pattern command bar (ordered sketch)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1670166" rel="xid1670166">Circular Pattern command bar (ordered sketch)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat13d" rel="feat13d">Pattern command bar</a><br><br></div>
+            <div class="footer-content">Pattern command (ordered), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

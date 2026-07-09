@@ -1,0 +1,157 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>BlueSurf command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="BlueSurf command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="consur16c">
+                     <h1 class="topic-title">BlueSurf command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>BlueSurf</b> command <img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/unisurf.gif"> to construct a surface using existing sketches or part edges. You can use the <b>BlueSurf</b> command to construct complex surfaces that provide many editing options.</p>
+                  <h4 class="division-title">Input requirements</h4>
+                  <div>
+                     <p>The sketches or edges can represent cross sections only (1) or cross sections (1)
+                        and guide curves (2). At a minimum, you must define two cross sections or one cross
+                        section and one guide curve.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/blusurf1.gif"></p>
+                     <p>The sketches or part edges can be open or closed.</p>
+                  </div>
+                  <h4 class="division-title">Mixing open and closed elements</h4>
+                  <div>
+                     <p>When constructing a BlueSurf feature, you can use both open and closed elements in
+                        a single feature. For example, you can construct a BlueSurf feature that uses a line
+                        and a closed element, such as a rectangle or a circle, as cross sections. In some
+                        situations, you may need to split elements or define vertex mapping parameters to
+                        construct the surface you want. For example, to construct a BlueSurf feature using
+                        a line and a circle, you must split the circle into two arcs. You can use the <b>Split</b> command to split the circle into two connected arcs.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/blusurf7.gif"></p>
+                  </div>
+                  <h4 class="division-title">Closing ends</h4>
+                  <div>
+                     <p>When you create a BlueSurf feature using closed cross sections, you can use the <b>End Capping</b> options on the <b>BlueSurf Options</b> dialog box to specify whether the ends of the feature are left open (1) or closed
+                        (2). When you set the <b>Close Ends</b> option, a solid construction body is created.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/blusurf4.gif"></p>
+                  </div>
+                  <h4 class="division-title">Inserting sketches</h4>
+                  <div>
+                     <p>You can use the <b>Insert Sketch</b> Step on the command bar to add new sketches to a BlueSurf feature. The geometry for
+                        the new sketch is created by intersecting a reference plane you define with the BlueSurf
+                        feature. You do not have to create the sketch geometry yourself. When you insert a
+                        sketch, the new geometry is a created as a B-spline curve. If you want the new geometry
+                        to consist of lines, arcs, or circles, you must create the new sketch manually outside
+                        of the <b>BlueSurf</b> command.</p>
+                     <p>When you click the <b>Insert Sketch</b> button on the command bar, plane creation options are added to the command bar so
+                        you can define the position for the new reference plane. For example, you can use
+                        the <b>Parallel Plane</b> option to define an offset reference plane where you want additional control over
+                        the resultant surface.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/blusurf2.gif"></p>
+                     <p>You can then edit the sketch to change the surface shape.</p>
+                     <p><img class="img-fluid" src="../../../../../common/nonLocalized/se/surfacing/command/blusurf3.gif"></p>
+                     <p>When you add a cross section or guide curve to an existing BlueSurf feature using
+                        the <b>Insert Sketch</b> option, the new sketch is connected to the cross sections or guide curves. You can
+                        use the <b>BlueSurf Options</b> dialog box to specify whether Pierce Points or <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur15c" rel="consur15c">BlueDots</a>are used to connect new section to the surface.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>BlueDots are only available in the ordered modeling environment</p>
+                     </div>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Pierce points</h5>
+                           <p>When you set the <b>Use Pierce Points</b> option, connect relationships are used to tie the inserted sketch to the cross sections
+                              or guide curves it intersects. When you set the <b>Use BlueDots</b> option, BlueDot elements are used to tie the inserted sketch to the cross sections
+                              or guide curves it intersects. The option you specify also affects how you can edit
+                              the feature later.</p>
+                           <p>When you connect the new sketch using the <b>Use Pierce Points</b> option, you can modify the cross sections or guide curves the new sketch intersects
+                              and the B-spline curve for the inserted sketch will update. The <b>Use Pierce Points</b> option is most suitable for models that must conform to engineering data or dimension-driven
+                              criteria, such as turbine blades and fan housing. The <b>Use Pierce Points</b> option maintains the existing parent/child history of the model.</p>
+                        </li>
+                        <li>
+                           <h5>BlueDots</h5>
+                           <p>If you are working with a BlueSurf in the ordered environment, and you insert a sketch
+                              using the <b>Use BlueDots</b> option, you can also modify the BlueSurf feature by editing the position of the BlueDots
+                              using the Select Tool and the <b>BlueDot Edit</b> command bar. When you move a BlueDot, the portion of the sketches that are controlled
+                              by the BlueDot update, and that portion of the BlueSurf also updates.</p>
+                           <p>The <b>Use BlueDots</b> option is most suitable for ordered models that are driven by esthetic requirements,
+                              such as consumer electronics products, and bottle and container design. When you use
+                              BlueDots to connect an inserted sketch, moving a BlueDot can also change the location
+                              of the reference planes of the sketches it connects.</p>
+                           <p>This is because a BlueDot allows you to override the existing parent/child history
+                              of the model. For example, if you insert a sketch using a parallel reference plane
+                              with an offset value of 25 millimeters, editing the location of the BlueDot can also
+                              change the offset value of the reference plane.</p>
+                           <p>This behavior can be preferable when exploring the esthetic possibilities of a surface,
+                              but can be counter-productive when working with engineered surfaces. In some cases,
+                              using BlueDots can also cause a model to take longer to update, because moving a BlueDot
+                              may require more of the model to recompute than a connect relationship would.</p>
+                           <div class="attention" type="note">
+                              <div class="attention-label">Note: </div>
+                              <p>When you set the <b>Use BlueDots</b> option on the <b>BlueSurf Options</b> dialog box, but existing constraints prevent BlueDots from being created, then pierce
+                                 points are created instead.</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Creating new sketches manually (ordered modeling)</h4>
+                  <div>
+                     <p>Alternately, you can also create new sketches for a BlueSurf feature using the <b>Sketch</b> command, or you can copy an existing sketch using the <b>Tear-Off Sketch</b> command. You can then edit the BlueSurf feature and add the new sketches as cross
+                        sections or guide curves.</p>
+                     <p>For example, when you add new cross sections, the system adds them after the existing
+                        cross sections, regardless of their physical orientation with respect to the existing
+                        cross sections. You can use the <b>Reorder</b> option on the <b>Advanced</b> tab on the <b>BlueSurf Options</b> dialog box to define the cross section sequence.</p>
+                  </div>
+                  <h4 class="division-title">Cross section and guide curve connectivity</h4>
+                  <div>
+                     <p>If you use a guide curve to construct a BlueSurf feature, the guide curve must intersect
+                        each cross section and be tangent continuous (the curve cannot have any sharp corners).
+                        To ensure that the guide curve stays intersected to the cross sections, you should
+                        add a connect relationship or a BlueDot at each intersection point.</p>
+                  </div>
+                  <h4 class="division-title">End condition control</h4>
+                  <div>
+                     <p>On-screen graphic handles will be displayed during placement and edit workflows to
+                        quickly change the tangency controls for cross sections and guide curve. You can use
+                        the <b>Tangency Control</b> options on the <b>BlueSurf Options</b> dialog box to define the end condition options you want for the resultant surface.
+                        For example, you can specify that the surface is tangent to the adjacent surfaces.</p><img class="img-fluid d-block" src="../../../../../common/en_US/graphics/graphicLibrary/bluetancon1.gif"><p>Many of the end condition options allow you to dynamically adjust the surface using
+                        a graphic handle (1) or by modifying a variable in the variable table. For surfaces
+                        that have several graphic handles or variables for a single cross section, you can
+                        create a master variable for all the variables that control the cross section, and
+                        then use a formula to drive all the variables for that cross section simultaneously.</p><img class="img-fluid d-block" src="../../../../../common/graphicLibrary/se/surfacing/command/bluenormsec1.gif"></div>
+                  <h4 class="division-title">BlueSurf features and lofted features</h4>
+                  <div>
+                     <p>In many respects, a BlueSurf feature is constructed and behaves similarly to a lofted
+                        feature, such as a lofted surface or a lofted protrusion. For example, you can reorder
+                        cross sections, define vertex mapping rules, and define the end section conditions
+                        for a BlueSurf feature and a lofted feature.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur17h" rel="consur17h">Insert sketches into a BlueSurf</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur18h" rel="consur18h">Adding cross sections into a BlueSurf (ordered modeling)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur16h" rel="consur16h">Construct a BlueSurf feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur15h" rel="consur15h">Connect sketch elements with a BlueDot</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/blue_surf" rel="blue_surf">BlueSurf overview</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_end_conditions_34_2721" rel="genid_end_conditions_34_2721">End Conditions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_cross_sections_31_1715" rel="genid_cross_sections_31_1715">Cross sections</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur16d" rel="consur16d">BlueSurf command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur17d" rel="consur17d">BlueSurf Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur15c" rel="consur15c">BlueDot command (ordered modeling)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur15d" rel="consur15d">BlueDot Edit command bar (ordered modeling)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/consur19c" rel="consur19c">Hide All BlueDots command (ordered modeling environment)</a><br><br><h5>Quick links</h5><a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/surf_const_work1h" rel="surf_const_work1h">General surface modeling workflow</a><br><br></div>
+            <div class="footer-content">BlueSurf command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

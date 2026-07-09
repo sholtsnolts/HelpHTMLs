@@ -1,0 +1,179 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Move Faces command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Move Faces command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dtmovefaces1c">
+                     <h1 class="topic-title">Move Faces command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the Move Faces command <img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface.gif"> to move selected faces on a part.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtbestpract1.gif"></p>
+                  <p>There are four main steps to moving faces:</p>
+                  <ul>
+                     <li>
+                        <p>Select the faces</p>
+                     </li>
+                     <li>
+                        <p>Specify the movement method</p>
+                     </li>
+                     <li>
+                        <p>Define the start point</p>
+                     </li>
+                     <li>
+                        <p>Define the destination point</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Select the Faces</h4>
+                  <div>
+                     <p>In the <b>Select Faces</b> step, use the options on the command bar to specify whether you want to move a single
+                        face, a feature, or an entire body. You can select the faces in the graphic window,
+                        or you can use <b>PathFinder</b> when moving a feature or a body.</p>
+                  </div>
+                  <h4 class="division-title">Specify the Movement Method</h4>
+                  <div>
+                     <p>In the <b>Movement</b> step, choose among the following options to specify how you want the selected faces
+                        to move:</p>
+                     <ul>
+                        <li>
+                           <p>Along a two point vector</p>
+                        </li>
+                        <li>
+                           <p>Along an edge</p>
+                        </li>
+                        <li>
+                           <p>Normal to a face</p>
+                        </li>
+                        <li>
+                           <p>Within a plane</p>
+                        </li> 
+                        <li> 
+                           <p>Synchronous move</p> </li>
+                     </ul> 
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div> 
+                        <p>When moving a face, the <b>Design Intent </b> panel displays a list of design intent relationships to assist in moving the selected
+                           face(s). By default, the relationships are unchecked for all movement methods except
+                           for <b>Synchronous Move</b>.</p> </div>
+                  </div>
+                  <h4 class="division-title">Define the Start and Destination Points</h4>
+                  <div>
+                     <p>The start and destination points define the distance you want to move the faces. The
+                        start point must always be a key point, either on the current part or another part
+                        in the assembly.</p>
+                     <p>Depending on the movement method you select, you can define the destination point
+                        using a free space point, a value you type on the command bar, a key point on the
+                        active part, or a key point on another part in the assembly.</p>
+                     <p>When you use a key point to define the destination point, the destination point is
+                        associative to the key point you select. If the element you selected for the destination
+                        key point changes position later, the <b>Move Faces</b> feature will also update.</p>
+                     <p>When you define the destination point using a free space point, a driving dimension
+                        is created, which you can edit later.</p>
+                  </div>
+                  <h4 class="division-title">Movement Methods</h4>
+                  <div>
+                     <h5>Along 2 Point Vector</h5>
+                     <ul style="list-style: none">  
+                        <li> 
+                           <p>The <b>Along 2 Point Vector</b> option allows you to move one or more faces (1) along a vector you define using two
+                              points (2) (3). You define the two points for the movement vector during the Movement
+                              Step. You can select the points using key points on the active part or another part
+                              when working in the context of an assembly.</p> 
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface8.gif"></p> 
+                           <p>After defining the movement vector, you can define the start and destination points.</p> </li> </ul>
+                     <h5>Along Edge</h5>
+                     <ul style="list-style: none">  
+                        <li> 
+                           <p>The <b>Along Edge</b> option allows you to move one or more faces (1) along a selected edge (2). This option
+                              is useful when an edge on the model is aligned with the direction you want to move
+                              the faces.</p> 
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface6.gif"></p> 
+                           <p>If the edge you selected changes orientation later, the Move Faces feature updates
+                              associatively.</p> 
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface7.gif"></p> </li> </ul>
+                     <h5>Along Face Normal</h5>
+                     <ul style="list-style: none">  
+                        <li> 
+                           <p>The <b>Along Face Normal</b> option allows you to move one or more faces normal to a planar face or reference
+                              plane.</p> 
+                           <p>When you select a single planar face to move, the Normal to Face movement method is
+                              set by default, the selected planar face is used to define the normal direction, and
+                              the command automatically advances to the Move To Step option. This can be useful
+                              when you need to change the length of a feature normal to a planar face.</p> 
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface3.gif"></p> 
+                           <p>If you want to select a different movement method, you can click the Movement Step
+                              button on the command bar.</p> 
+                           <p>When you select a single non-planar face, more than one planar face, or a set of planar
+                              and non-planar faces, you must define the movement method you want.</p> </li> </ul>
+                     <h5>In Plane</h5>
+                     <ul style="list-style: none">  
+                        <li> 
+                           <p>The <b>In Plane</b> option allows you to move one or more faces (1) to a new location with respect to
+                              a planar face (2). This can be useful when you want to relocate holes or other features
+                              on a sheet metal part. The <b>Within a Plane</b> option requires that you use a keypoint to define the destination point.</p> 
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface4.gif"></p> </li> </ul> 
+                     <h5>Synchronous Move</h5>
+                     <ul style="list-style: none">  
+                        <li> 
+                           <p>The <b>Synchronous Move</b> option displays the steering wheel so that you can move elements the way you do in
+                              synchronous.</p> 
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface_sync1.gif"></p> 
+                           <p>After you start the movement only the active design rules remain displayed and you
+                              can change them as needed. After you complete the movement, the design rules used
+                              in the movement are available.</p> 
+                           <p>Editing the feature displays the dimension you can edit. Clicking the <b>Movement Step</b> displays the steering wheel in the same location and orientation used during placement.
+                              You can move the steering wheel and redefine the movement, if needed.</p> </li> </ul>
+                  </div>
+                  <h4 class="division-title">Moving Faces in the Context of an Assembly</h4>
+                  <div>
+                     <p>When working in the context of an assembly, you can associatively select keypoints
+                        on other parts in the assembly to define the start and destination points. This can
+                        be useful when you need to reposition faces with respect to another part in the assembly.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface5.gif"></p>
+                  </div>
+                  <h4 class="division-title">Moving Faces on Sheet Metal Parts</h4>
+                  <div>
+                     <p>When moving faces on sheet metal parts, you cannot change the stock thickness or bend
+                        radius of the part. Also, the adjacent faces which are not being moved compensate
+                        for the faces being moved.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtmoveface2.gif"></p>
+                     <p>The <b>Move Faces</b> command is not available when working with the flattened model. The changes you make
+                        to the sheet metal model are reflected in the flattened version of the part.</p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When working with a sheet metal model imported from another application, you should
+                           first use the <a class="xref" data-handle="create_sheet_metal_part" href="/en-US/product/246738425/doc/PL20211001099989437.create_sheet_metal_part/html/cnvrtsm1c" rel="cnvrtsm1c">Transform to Sheet Metal command</a> to transform the model to a sheet metal part.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtmovefaces1h" rel="dtmovefaces1h">Move faces directly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtmovefaces1d" rel="dtmovefaces1d">Move Faces command bar</a><br><br></div>
+            <div class="footer-content">Move Faces command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

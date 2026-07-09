@@ -1,0 +1,329 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Revolve command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Revolve command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feat18d">
+                     <h1 class="topic-title">Revolve command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>The <b>Revolve</b> command bar in the ordered environment guides you through the main steps and step
+                     options, which change with each step and your selections:</p> 
+                  <dl> 
+                     <dt><b>Add/Cut</b></dt> 
+                     <dd class="ml-3"> 
+                        <p>Adds or removes material from the model.</p> 
+                        <ul> 
+                           <li> 
+                              <p><b>Automatic</b>—Adds or removes material from the model based on material detection.</p> </li> 
+                           <li> 
+                              <p><b>Add</b>—Adds material to the model.</p> </li> 
+                           <li> 
+                              <p><b>Cut</b>—Removes material from the model.</p> </li> 
+                           <li> 
+                              <p><b>Add Body</b>—Adds a new body to the model. </p> </li> </ul> </dd> </dl> 
+                  <dl>
+                     <dt><b>Main Steps</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Plane or Sketch Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies whether you construct the feature by drawing a new profile on a reference
+                                 plane or by using an existing sketch. To construct the feature by drawing a new profile,
+                                 on the <b>Create-From Options</b> list, select the reference plane option you want. To construct the feature using
+                                 an existing sketch, select the <b>Select From Sketch</b> option.</p>
+                           </dd>
+                           <dt><b>Draw Profile Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Edits the profile for an existing feature. A profile is a 2D curve that defines the
+                                 shape and location of the feature. To create a base feature by revolved protrusion,
+                                 the profile must be closed. This step is available only when you are editing an existing
+                                 feature.</p>
+                           </dd>
+                           <dt><b>Side Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the side of the profile to which material should be added or from which material
+                                 should be removed to construct the feature. This step is not required when the profile
+                                 is closed.</p>
+                           </dd>
+                           <dt><b>Extent Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the depth of the feature or the distance to extend the profile to construct
+                                 the feature. &nbsp;The extent options are <b>360 Degrees</b> and <b>Finite Extent</b>. When you set the <b>Finite Extent</b> option, you can also specify whether the extent is applied to one side of the profile
+                                 plane, both sides of the profile plane symmetrically, or both sides of the profile
+                                 plane non-symmetrically.</p>
+                           </dd>
+                           <dt><b>Finish/Cancel</b></dt>
+                           <dd class="ml-3">
+                              <p>This button changes function as you move through the feature construction process.
+                                 The <b>Finish</b> button constructs the feature using input provided in the other steps. After you
+                                 construct the feature, you can edit it by re-selecting the appropriate step on the
+                                 command bar. The <b>Cancel</b> button discards any input and exits the command.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+                  <dl>
+                     <dt><b>Plane or Sketch Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Create-From Options</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the method of defining the profile plane or specifies that you want to construct
+                                 the feature using an existing sketch or region. Depending on the model you are constructing,
+                                 some of the options listed may not be available. For example, if no sketches exist
+                                 in the model, the Select From Sketch option is not displayed.</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Select From Sketch</b>—Specifies that you want to define the profile for the feature using an existing sketch
+                                       or region.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Coincident Plane</b>—Specifies that you want to define a plane that is coincident to an existing reference
+                                       plane or a planar face on the part. When you set this option, a default X-axis and
+                                       direction is applied to the new reference plane. You can use keyboard accelerators
+                                       to define a different X-axis and direction for the new reference plane.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Parallel Plane</b>—Specifies that you want to define a plane that is parallel to an existing reference
+                                       plane or a planar face on the part. When you set this option, you can specify the
+                                       parallel offset distance. When you set this option, a default X-axis and direction
+                                       is applied to the new reference plane. You can use keyboard accelerators to define
+                                       a different X-axis and direction for the new reference plane.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Angled Plane</b>—Specifies that you want to define a plane that is at an angle to an existing reference
+                                       plane or planar face on the part. When you set this option, you can specify the angle
+                                       value you want.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Perpendicular Plane</b>—Specifies that you want to define a plane that is perpendicular to an existing reference
+                                       plane or planar face on the part.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Coincident Plane By Axis</b>—Specifies that you want to define a plane that is coincident to an existing reference
+                                       plane or a planar face on the part. When you set this option, you define the X-axis
+                                       and direction for the new reference plane using a linear edge, a planar face, or another
+                                       reference plane.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Plane Normal to Curve</b>—Specifies that you want to define a plane that is perpendicular to a curve you select.
+                                       This is the default option when constructing a helix using the Perpendicular option.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Plane By 3 Points</b>—Specifies that you want to define a plane by three keypoints you select.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Feature's Plane</b>—Specifies that you want to define a plane that is coincident to a reference plane
+                                       used to define an earlier feature. You can select the feature you want using PathFinder
+                                       or in the graphics window. This option is not available when constructing the base
+                                       feature.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Last Plane</b>—Automatically selects the reference plane used for the previous feature. This option
+                                       is not available if the last feature was a pattern or when constructing the base feature.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Tangent Plane</b>—Specifies that you want to define a plane that is tangent to a curved face on the
+                                       part. You can select a cylinder, cone, sphere, torus, or b-spline surface. When you
+                                       set this option, you can also specify the angular rotation value. When you set this
+                                       option, a default X-axis and direction is applied to the new reference plane. You
+                                       can use keyboard accelerators to define a different X-axis and direction for the new
+                                       reference plane.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                           <dt><b>Select From Sketch Options</b></dt>
+                           <dd class="ml-3">
+                              <dl>
+                                 <dt><b>Select</b></dt>
+                                 <dd class="ml-3">
+                                    <p>Sets the method of selecting a sketch element.</p>
+                                    <ul>
+                                       <li>
+                                          <p><b>Single</b>—Allows you to select one or more individual elements.</p>
+                                       </li>
+                                       <li>
+                                          <p><b>Chain</b>—Allows you to select a endpoint connected set of elements by selecting one of the
+                                             elements in the chain.</p>
+                                       </li>
+                                    </ul>
+                                 </dd>
+                                 <dt><b>Deselect (x)</b></dt>
+                                 <dd class="ml-3">
+                                    <p>Clears the selection.</p>
+                                 </dd>
+                                 <dt><b>Accept (check mark)</b></dt>
+                                 <dd class="ml-3">
+                                    <p>Accepts the selection.</p>
+                                 </dd>
+                                 <dt><b>Axis of Revolution</b></dt>
+                                 <dd class="ml-3">
+                                    <p>Specifies the axis of revolution for the profile.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl> 
+                  <dl> 
+                     <dt><b>Internal Face Loops</b></dt> 
+                     <dd class="ml-3"> 
+                        <p>Specifies to include or exclude the internal loops of selected faces.</p> 
+                        <dl> 
+                           <dt><b>Include Internal Loops</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Includes the internal loops of selected faces.</p> </dd> 
+                           <dt><b>Exclude Internal Loops</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Excludes the internal loops of selected faces.</p> </dd> 
+                           <dt><b>Use Only Internal Loops</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Uses only the internal loops of selected faces.</p> </dd> </dl> </dd> </dl>
+                  <dl>
+                     <dt><b>Extent Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>One-Sided Extent</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the feature extent is to be applied in one direction only. </p>
+                           </dd>
+                           <dt><b>Non-Symmetric Extent</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the feature extent is to be applied non-symmetrically about the profile
+                                 plane. When you set the Non-Symmetric Extent option, Direction 1 and Direction 2 options
+                                 are added to the command bar so you can specify the extent options you want for each
+                                 direction. For example, you can type an Angle value of 60 degrees for Direction 1,
+                                 and an Angle value of 20 degrees for Direction 2.</p>
+                           </dd>
+                           <dt><b>Symmetric Extent</b></dt>
+                           <dd class="ml-3">
+                              <p>Applies half the extent distance to each side of the profile when the Finite Extent
+                                 option is set.</p>
+                           </dd>
+                           <dt><b>Direction 1</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the extent options you want for Direction 1.</p>
+                           </dd>
+                           <dt><b>Direction 2</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the extent options you want for Direction 2.</p>
+                           </dd>
+                           <dt><b>Keypoints</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the type of keypoint you can select to define a feature extent or to position
+                                 a new reference plane. This allows you to define the feature extent or the location
+                                 of the reference plane using a keypoint on other existing geometry. The available
+                                 keypoint options are specific to the command and workflow you use.</p> 
+                              <table width="100%"> 
+                                 <colgroup span="1"> 
+                                    <col span="1" width="10%"> 
+                                    <col span="1" width="90%"> </colgroup> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/revolved_extrusion/allkypts.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects any keypoint.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/revolved_extrusion/kypnt1.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects an end point.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/revolved_extrusion/kypnt4.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects a midpoint.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/revolved_extrusion/kypnt2.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects the center point of a circle or arc.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/revolved_extrusion/kypnt3.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects a tangency point on an analytic curved face such as a cylinder, sphere, torus,
+                                          or cone.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/revolved_extrusion/kypnt5.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects a silhouette point.</p> </td> </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/revolved_extrusion/editpoint.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Selects an edit point on a curve.</p> </td> </tr> </table>
+                           </dd>
+                           <dt><b>Revolve 360</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the profile is revolved 360 degrees about the revolution
+                                 axis.</p>
+                           </dd>
+                           <dt><b>Finite Extent</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the feature extent so that the profile is revolved a finite distance to either
+                                 side of the profile plane, symmetrically to both sides of the profile plane, or non-symmetrically
+                                 to both sides of the profile plane. Type the extent value into the Angle box on the
+                                 command bar.</p>
+                           </dd>
+                           <dt><b>Angle</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the radial extent of the revolution.</p>
+                           </dd>
+                           <dt><b>Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the radial angle value to increase or decrease in set increments when you move
+                                 the cursor. For example, typing a step value of 10 degrees and moving the cursor away
+                                 from the profile plane would increment the revolved extent from 0 to 10 degrees, then
+                                 to 20 degrees, and so on.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl> 
+                  <dl> 
+                     <dt><b>Body Selection Step</b> Options</dt> 
+                     <dd class="ml-3"> 
+                        <p>Lists the options for cutting bodies within the model. You can specify <b>Cut Active</b> or <b>Select Cut Bodies</b>. This option is active if the <b>Add/Cut</b> option is set to <b>Automatic</b> or <b>Cut</b>, but is inactive if the option is set to <b>Add</b> or <b>Add Body</b>.</p> 
+                        <dl> 
+                           <dt><b>Cut Active</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Cuts only the active body. </p> </dd> 
+                           <dt><b>Select Cut Bodies</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Selects the bodies that you want to be cut by the feature.</p> </dd> </dl> </dd> </dl> 
+                  <dl> 
+                     <dt><b>Other command bar options</b></dt> 
+                     <dd class="ml-3"> 
+                        <dl> 
+                           <dt><b>Name</b></dt> 
+                           <dd class="ml-3"> 
+                              <p>Displays the feature name. Feature names are assigned automatically. You can edit
+                                 the name by typing a new name in the box on the command bar or by selecting the feature
+                                 and using the Rename command on the shortcut menu.</p> </dd> </dl> </dd> </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/axorv1h" rel="axorv1h">Define an axis of revolution</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat13h" rel="feat13h">Construct a revolved extrusion or cutout</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat16h" rel="feat16h">Define the extent of a revolved feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/refel2h" rel="refel2h">Construct a revolved feature with an existing centerline axis</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/revolvedfeatures1a" rel="revolvedfeatures1a">Constructing revolved ordered features</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat18c" rel="feat18c">Revolve command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat16c" rel="feat16c">Revolved Cut command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat117d" rel="feat117d">Revolved Cut command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/axorv1c" rel="axorv1c">Axis of Revolution command</a><br><br></div>
+            <div class="footer-content">Revolve command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

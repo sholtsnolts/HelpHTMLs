@@ -1,0 +1,112 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Chamfer command (feature)</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Chamfer command (feature)"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feat2c">
+                     <h1 class="topic-title">Chamfer command (feature)</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Chamfer</b> command (feature) <img class="img-fluid" src="../../../../common/nonLocalized/se/feature/chamfer/chamf3.gif"> to construct a chamfer between two faces along their common edge. Typically, you
+                     should construct chamfer features as the model nears completion. On most parts, you
+                     should not include small chamfers when drawing the profile for profile-based features.
+                     This allows you to add the chamfers later as treatment features, which makes changes
+                     faster and easier.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/chamfer/chamft2.gif"></p>
+                  <h4 class="division-title">Chamfer Construction Methods</h4>
+                  <div>
+                     <p>You can use the <b>Chamfer Options</b> dialog box to specify the chamfer construction method you want to use:</p>
+                     <ul>
+                        <li>
+                           <p><a class="xref" href="#equalsetbackchamfer">Equal Setbacks</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="#anglesetbackchamfer">Angle and Setback</a></p>
+                        </li>
+                        <li>
+                           <p><a class="xref" href="#twosetbackchamfer">2 Setbacks</a></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Chamfer Feature Workflow</h4>
+                  <div>
+                     <p>When you select the <b>Chamfer</b> command, the command bar guides you through the following steps:</p>
+                     <ol type="1" start="1">
+                        <li>
+                           <p><b>Face Selection Step</b>—Defines the faces from which you want to measure the setbacks or chamfer angle. This
+                              step is available only when you set the Angle and Setback or the 2 Setbacks options
+                              on the Chamfer Options dialog box.</p>
+                        </li>
+                        <li>
+                           <p><b>Edge Selection Step</b>—Defines the edges you want to chamfer.</p>
+                        </li>
+                        <li>
+                           <p><b>Preview Step</b>—Processes the input and displays the feature.</p>
+                        </li>
+                        <li>
+                           <p><b>Finish Step</b>—Finishes the feature.</p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title" id="equalsetbackchamfer">Equal Setback Chamfers</h4>
+                  <div>
+                     <p>When you construct <b>Equal Setback</b> chamfer features, you only need to select the edges you want to chamfer. You can
+                        chamfer multiple edges in one operation if they have the same setback value. When
+                        constructing chamfers where the setback value is the same, it is usually better to
+                        chamfer as many edges as possible in one operation.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/chamfer/chamfer9.gif"></p>
+                     <p>If you want to apply different setback values to different edges, you must construct
+                        separate chamfer features for each chamfer size.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/chamfer/chamfer10.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="anglesetbackchamfer">Angle and Setback Chamfers</h4>
+                  <div>
+                     <p>When constructing a chamfer feature using the <b>Angle</b> and <b>Setback</b> option, you first select a face (1), and then select the edges to chamfer (2). The
+                        value you type in the <b>Setback</b> box on the command bar applies along the selected face and measures from the selected
+                        edge. For example, a 5 millimeter setback and 60 degree angle chamfer applies as shown
+                        (3).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/chamfer/chamft3.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="twosetbackchamfer">Two Setback Chamfers</h4>
+                  <div>
+                     <p>When constructing a chamfer using the <b>2 Setbacks</b> option, you select a face first. The value you type in the <b>Setback 1</b> box applies to the face you select, and the value you type in the <b>Setback 2</b> box applies to the adjacent face. As in the earlier example, if you select the cylindrical
+                        face and the circular edge at the top of the part, and then specified a <b>Setback 1</b> value of 5 millimeters, and a <b>Setback 2</b> value of 12 millimeters, the 5 millimeter value applies along the cylindrical face,
+                        and the 12 millimeter value applies along the planar face on the top of the part.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/chamfer/chamft5.gif"></p>
+                  </div>
+                  <h4 class="division-title">Chamfers in Assemblies</h4>
+                  <div>
+                     <p>When working in an assembly, you can use this command to construct an <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/asmfeat1" rel="asmfeat1">assembly feature</a>.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat5h" rel="feat5h">Construct a chamfer feature</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamferequal2h" rel="chamferequal2h">Edit or move a chamfer</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamferequal1h" rel="chamferequal1h">Construct a chamfer with equal setbacks</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamferunequal1h" rel="chamferunequal1h">Construct a chamfer with unequal setbacks</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid280123" rel="xid280123">Adding chamfers to part edges</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat3d" rel="feat3d">Chamfer command bar (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamfer3d" rel="chamfer3d">Chamfer command bar (synchronous)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat2d" rel="feat2d">Chamfer Options dialog box (ordered)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamfer2d" rel="chamfer2d">Chamfer Options dialog box (synchronous)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamfer1c" rel="chamfer1c">Chamfer Equal Setbacks command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamfer2c" rel="chamfer2c">Chamfer Unequal Setbacks command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/chamfer1d" rel="chamfer1d">Chamfer Unequal Setbacks command bar</a><br><br></div>
+            <div class="footer-content">Chamfer command (feature), Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,126 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Sketch-based synchronous features</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Sketch-based synchronous features"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="sketchfeat1a">
+                     <h1 class="topic-title">Sketch-based synchronous features</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <h4 class="division-title">Sketch-based feature workflow</h4>
+                  <div>
+                     <p>All sketch-based features are constructed with similar workflows. For example, when
+                        you construct an extrude feature using an open sketch, the <b>Extrude</b> command bar guides you through the steps described below:</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/feature_modeling/creating_features/bj_extrudecmdbar1.gif"></p>
+                     <ul>
+                        <li>
+                           <p>Sketch Step—Select an existing sketch that you drew earlier.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/creating_features/wrkflw2.gif"> </p>
+                        </li>
+                        <li>
+                           <p>Side Step—Define the side of the sketch you want to add material to by positioning
+                              the cursor so that the directional arrow points towards where the material is to be
+                              added. The <b>Side Step</b> is skipped if you use a closed sketch.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/creating_features/wrkflw3.gif"></p>
+                        </li>
+                        <li>
+                           <p>Extent Step—Define the extent of the material to add with the cursor (A) or by typing
+                              a value in the command bar (B). You can also use keypoints on another feature or another
+                              part in the assembly to define the extent for a feature. For details, see the section,
+                              Using Keypoints to Define Extents.</p>
+                           <p><img class="img-fluid" src="../../../common/graphicLibrary/se/feature_modeling/creating_features/wrkflw4.gif"></p>
+                        </li>
+                        <li>
+                           <p>(Optional) Treatment Step—Define the crown or draft angle treatment you want for the
+                              feature. For details, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dftcrwnb1a" rel="dftcrwnb1a">Applying Draft Angle and Crowning to Features</a>.</p>
+                        </li>
+                        <li>
+                           <p>Finish Step—When you define the extent, the feature is automatically constructed.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/creating_features/wrkflw5.gif"></p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Sketch requirements</h4>
+                  <div>
+                     <p>Each type of sketch-based feature has a set of requirements for the type of sketch
+                        geometry it can use. For example, a extrude feature that is the base feature must
+                        have a closed sketch, but subsequent features can have open or closed sketches.</p>
+                  </div>
+                  <h4 class="division-title">Open sketch</h4>
+                  <div>
+                     <p>When you construct a feature with an open-ended sketch, the ends of the sketch are
+                        extended toward intersections with the existing model. Lines are extended linearly
+                        (A); arcs are extended radially (B). Material is added or removed along the full length
+                        of the extended sketch, in the selected direction.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/creating_features/opnprof1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Multiple sketches</h4>
+                  <div>
+                     <p>When constructing a feature using more than one sketch, all the sketches must be closed.
+                        The following feature commands construct features using multiple closed sketches:</p>
+                     <ul>
+                        <li>
+                           <p><b>Extrude</b> command, when constructing a base feature or adding a feature.</p>
+                        </li>
+                        <li>
+                           <p><b>Revolved Protrusion</b> command, when constructing a base feature or adding a feature. All sketches must
+                              share a common axis of revolution.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using keypoints to define feature extent</h4>
+                  <div>
+                     <p>When you use a keypoint on another feature or another part when working in the context
+                        of an assembly, the feature extent is <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associative</a> to the keypoint on the feature or part to selected. If you modify the parent feature
+                        or part, the feature extent updates.</p>
+                     <p>When you select a keypoint on another part, an inter-part link is created between
+                        the current document and the other part in the assembly. For more information on inter-part
+                        links, see the <a class="xref" data-handle="assemble_parts" href="/en-US/product/246738425/doc/PL20211001099989437.assemble_parts/html/intprt1a" rel="intprt1a">Inter-Part Associativity</a> Help topic.</p>
+                  </div>
+                  <h4 class="division-title">Extending features dynamically</h4>
+                  <div>
+                     <p>You can use the <b>Dynamically Preview Feature Creation</b> option on the <a class="xref" data-handle="customize_solid_edge" href="/en-US/product/246738425/doc/PL20211001099989437.customize_solid_edge/html/view2d" rel="view2d">View tab</a> of the <b>Solid Edge Options</b> dialog box to dynamically display a feature during the <b>Extent</b> step of feature creation. You can override this option by pressing Ctrl+Shift+D.</p>
+                     <p>When selected, this option allows you to set the result color and tool body color.
+                        The result color is the color for the resulting feature. The tool body is the color
+                        of a cutout when it is not intersecting model geometry. In the following example,
+                        notice that the area in which the extent does intersect the model is the default tool
+                        body color. Once the extent intersects the model, the portion intersecting the model
+                        changes to the default result color.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature_modeling/creating_features/dynamicext2.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>When working with an assembly, only the Tool Body is shown during feature creation.</p>
+                     </div>
+                     <p>When a feature fails during dynamic feature creation, a warning and tool tip are displayed
+                        to provide information about the failure.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/feature_modeling/creating_features/dynamiccutout1.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <div class="footer-content">Sketch-based synchronous features, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

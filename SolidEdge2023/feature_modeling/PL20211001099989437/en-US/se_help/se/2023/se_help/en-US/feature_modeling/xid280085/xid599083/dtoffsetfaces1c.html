@@ -1,0 +1,105 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Offset Faces command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Offset Faces command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dtoffsetfaces1c">
+                     <h1 class="topic-title">Offset Faces command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Use the <b>Offset Faces</b> command <img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtoffsetface.gif"> to offset selected faces on a part. The faces are offset using the normal vector
+                     of the selected faces. The geometry of adjacent faces is automatically trimmed or
+                     extended to maintain model integrity.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtoffsetface1.gif"></p>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>Hole feature faces cannot be selected for offset.</p>
+                  </div>
+                  <p>You can use the options on the command bar to specify whether you want to offset individual
+                     faces you select, a tangentially continuous chain of faces, the set of faces that
+                     comprise a feature, or an entire body.</p>
+                  <p>You can define the offset distance by typing a value on the command bar, or by selecting
+                     a keypoint.</p>
+                  <h4 class="division-title">Offsetting Faces by Distance and Direction</h4>
+                  <div>
+                     <p>When you offset faces by typing an offset distance on the command bar, you define
+                        the offset direction using the cursor in the graphic window. An offset dimension is
+                        created that you can edit later.</p>
+                  </div>
+                  <h4 class="division-title">Offsetting Faces by Keypoint</h4>
+                  <div>
+                     <p>When you select a keypoint to define the offset distance, you must also &nbsp;select a
+                        reference face to define the normal direction of the offset. The reference face must
+                        be one of the faces you selected to offset. No offset dimension is created with the
+                        keypoint method.</p>
+                  </div>
+                  <h4 class="division-title">Offsetting Multiple Faces</h4>
+                  <div>
+                     <p>You can only define one offset direction per offset faces feature. An arrow is displayed
+                        at the center of the first face you select. </p>
+                     <p>When offsetting multiple faces, this can result in some features on the model getting
+                        larger and some getting smaller. For example, when you select two cylindrical faces,
+                        one that forms a protrusion (A) and one that forms a cutout (B), and then define the
+                        offset direction pointing outwards from the first face (C), the diameter of the protrusion
+                        face gets larger and the diameter of the cutout face gets smaller.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtoffsetface5.gif"></p>
+                  </div>
+                  <h4 class="division-title">Offsetting faces with Synchronous Offset option</h4>
+                  <div>
+                     <p>Use the <b>Synchronous Offset</b> option in the <b>Offset</b> step to use the synchronous technique to offset faces. When you use this option,
+                        the steering wheel and <b>Design Intent</b> dialog box display so that you can directly offset the selected face or body.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/faces/offset_syn1.png"></p>
+                     <p>Because each selected face moves along its normal vector, you can move multiple faces
+                        along different directions. In the following example, notice that the selected faces
+                        move in opposite directions, based on the offset value.</p>
+                     <p><img class="img-fluid" src="../../../../common/graphicLibrary/se/faces/offset_syn2.png"></p>
+                  </div>
+                  <h4 class="division-title">Offsetting Faces in the Context of an Assembly</h4>
+                  <div>
+                     <p>When offsetting faces (A), in the context of an assembly, you can select a keypoint
+                        (B) on another part in the assembly to define the offset distance.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtoffsetface3.gif"></p>
+                     <p>The offset faces feature is <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/associative" rel="associative">associatively</a> linked to the keypoint on the part you selected. If the other part changes, the offset
+                        faces feature updates. You can use the <b>Break Link</b> command on the <b>Feature PathFinder</b> shortcut menu to break the associative link.</p>
+                  </div>
+                  <h4 class="division-title">Defining a Relative Distance From a Keypoint</h4>
+                  <div>
+                     <p>When you use the keypoint method to define the offset distance, you can also define
+                        a relative distance from the selected keypoint.</p>
+                     <p>For example, when working in the context of an assembly, you may want to offset a
+                        face (A) 10 millimeters beyond the keypoint (B) you select. When defining a relative
+                        offset distance, you must also define the relative direction (C) from the keypoint.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/dtoffsetface4.gif"></p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtoffsetfaces1h" rel="dtoffsetfaces1h">Offset faces directly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtoffsetfaces1d" rel="dtoffsetfaces1d">Offset Faces command bar</a><br><br></div>
+            <div class="footer-content">Offset Faces command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

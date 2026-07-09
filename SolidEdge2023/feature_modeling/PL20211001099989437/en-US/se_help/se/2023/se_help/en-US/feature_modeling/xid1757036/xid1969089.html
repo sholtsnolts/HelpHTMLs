@@ -1,0 +1,130 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Connect cage faces or edges with a bridge</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Connect cage faces or edges with a bridge"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid1969089">
+                     <h1 class="topic-title">Connect cage faces or edges with a bridge</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In the Subdivision Modeling environment, you can use the <b>Bridge</b> command to connect faces or edges, for example, to connect two cage bodies or to
+                     add a handle-like feature.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_result.png"></p>
+                  <h4 class="division-title">Define a bridge</h4>
+                  <div>
+                     <ol type="1">
+                        <li>
+                           <p>In the Subdivision Modeling environment, select the <b>Home</b> tab→<b>Modify</b> group→<b>Bridge</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/subd_bridge_cmd.png">.</p>
+                        </li>
+                        <li>
+                           <p>On the command bar, the <b>From Section</b> step is active, so you can define the start section of the bridge. Set the <b>Selection</b> method to <b>Chain</b> or to <b>Single</b>, and then click one or more contiguous edges or faces. Click Accept or right-click
+                              to continue.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_cmdbar.png"></p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_from.png"></p>
+                           <p>If you select edges, they must be endpoint-connected; if you select multiple faces,
+                              they must be connected along one edge.</p>
+                           <p>As the initial edge or face is selected, a vertex point and dashed line indicate the
+                              starting point and direction of the bridge definition. To move the starting point,
+                              click Cancel on the command bar to restart the step, and then click a different vertex.</p>
+                        </li>
+                        <li>
+                           <p>The <b>To Section</b> step is active, so you can define the end section of the bridge. Do either of the
+                              following:</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_to_icon.png"></p>
+                           <ul>
+                              <li>
+                                 <p>To define a single-section bridge that does not connect to a body, right-click or
+                                    press Enter to skip this step.</p>
+                              </li>
+                              <li>
+                                 <p>To define the second bridge section, click a face or one or more contiguous edges.
+                                    Click Accept or right-click or press Enter to continue. </p>
+                              </li>
+                           </ul>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_to.png"></p>
+                           <div class="attention" type="tip">
+                              <div class="attention-label">Tip: </div>
+                              <ul>
+                                 <li>
+                                    <p>You can select edges for one end of the bridge and faces at the other, as long as
+                                       the number of edges to be connected is the same and both sets are either closed or
+                                       open. </p>
+                                 </li>
+                                 <li>
+                                    <p>To avoid creating a twisted bridge, select the ending face or edge so that the direction
+                                       vertex is directly opposite the direction vertex on the start section. </p>
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>A preview of the bridge is displayed showing the inputs to this point.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_preview.png"></p>
+                        </li>
+                        <li>
+                           <p>The <b>Shape Curve</b> step is active, so you can select sketch elements to control the shape of a one-sided
+                              bridge or a two-sided bridge. </p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_cmdbar_shape_curve.png"></p>
+                           <p>To skip this step, right-click or press Enter. Otherwise, select the sketch elements
+                              to define the bridge path. </p>
+                           <ul>
+                              <li>
+                                 <p>To define a curved path, click a single sketch curve element.</p>
+                              </li>
+                              <li>
+                                 <p>To define a linear path, enter the number of segments in the <b>Segments</b> box on the command bar, and then click one or more endpoint-connected linear sketch
+                                    elements, or click the edges of existing body cages. </p>
+                              </li>
+                           </ul>
+                           <p>The shape curve must be connected to an edge or vertex on the face, or face set, or
+                              edge set in the start and at the end sections of the bridge.</p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>This handle was defined using the default value <b>Segments</b>=2 and selecting two linear sketch elements.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_handle_segment.png"></p>
+                              <p>This handle was defined by selecting a single sketch curve.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_handle_curve.png"></p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>To finish the feature, click Accept on the command bar, and then right-click to end
+                              the command. </p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/bridge_result.png"></p>
+                        </li>
+                     </ol>
+                  </div>
+                  <h4 class="division-title">Edit a bridge</h4>
+                  <div>
+                     <p>The <b>Bridge</b> command adds a set of connected faces to the subdivision body it modifies. It does
+                        not create a new feature in <b>PathFinder</b>. To edit the bridge, you can use <b>Undo</b> and <b>Redo</b> commands, or you can select the <b>Delete</b> command on the shortcut menu to delete it, and then recreate it.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1875898" rel="xid1875898">Subdivision Modeling workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1908343" rel="xid1908343">Move cage elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1905214" rel="xid1905214">Move using Quick Move</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900315" rel="xid1900315">Use symmetric mode in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900515" rel="xid1900515">Scale a subdivision model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900768" rel="xid1900768">Split subdivision model faces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968433" rel="xid1968433">Split faces with offset</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1970216" rel="xid1970216">Offset cage faces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757078" rel="xid1757078">Delete and fill cage faces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2010962" rel="xid2010962">Align a shape to a curve</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757104" rel="xid1757104">Introduction to Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1801877" rel="xid1801877">Using PathFinder with subdivision models</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1762080" rel="xid1762080">Working with cage elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968554" rel="xid1968554">Creating subdivision features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1913514" rel="xid1913514">Working with subdivision features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1904642" rel="xid1904642">Moving and rotating cage elements</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757020" rel="xid1757020">Subdivision Modeling command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757053" rel="xid1757053">Box command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757097" rel="xid1757097">Box command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757060" rel="xid1757060">Cylinder command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757098" rel="xid1757098">Cylinder command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757072" rel="xid1757072">Sphere command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757100" rel="xid1757100">Sphere command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757074" rel="xid1757074">Torus command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757101" rel="xid1757101">Torus command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757077" rel="xid1757077">Scale command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757079" rel="xid1757079">Blend command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1801694" rel="xid1801694">Show Blend Values command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1787288" rel="xid1787288">Split command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968327" rel="xid1968327">Split with Offset command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968362" rel="xid1968362">Bridge command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2010917" rel="xid2010917">Align to Curve command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1848651" rel="xid1848651">Cage Style command</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1969676" rel="xid1969676">Offset command in Subdivision Modeling</a><br><br></div>
+            <div class="footer-content">Connect cage faces or edges with a bridge, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

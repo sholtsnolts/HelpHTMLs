@@ -1,0 +1,96 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Vertex Mapping</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Vertex Mapping"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="genid_vertex_mapping_40_2189">
+                     <h1 class="topic-title">Vertex Mapping</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>Vertex mapping allows you to define sets of map points between the cross sections
+                     of a loft or swept feature. A default vertex map set is defined by the start point
+                     for each cross section you select. The Vertex Mapping button, available on the command
+                     bar during the Extent Step, allows you to redefine the start point for a cross section
+                     or to define additional vertex mapping sets.</p>
+                  <p>Defining additional sets of vertex map points can be helpful for lofts and sweeps
+                     where there are different numbers of elements in each cross section. This can sometimes
+                     result in undesirable twisting of the feature or feature failure.</p>
+                  <p>For example, a simple loft between a triangular sketch and a rectangular sketch will
+                     result in twisting (A). Defining additional vertex map sets allows you to eliminate
+                     the twisting (B). Notice that it is valid to use the same sketch vertex in more than
+                     one map set, as in sets 1 and 2.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/loft/startpt2.gif"></p>
+                  <ul style="list-style: none">
+                     <li>
+                        <h5>Vertex Mapping Guidelines</h5>
+                        <p>There are several guidelines that apply to vertex mapping.</p>
+                        <ul>
+                           <li>
+                              <p>A vertex or point can exist in more than one set. Sets 1 and 2 share a common vertex.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/loft/vertex1.gif"></p>
+                           </li>
+                           <li>
+                              <p>Map sets should not cross. This results in an invalid surface or feature failure.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/loft/vertex3.gif"></p>
+                           </li>
+                           <li>
+                              <p>Each cross section with vertices must have a point defined in the vertex map set.
+                                 Cross sections without vertices do not require a point in the vertex map sets. The
+                                 vertex map set shown is valid, but can result in a twisted loft, if the adjacent cross
+                                 sections are not tangent at their endpoints.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/loft/vertex5.gif"></p>
+                           </li>
+                           <li>
+                              <p>You can add point or line elements to a cross section to allow definition of a vertex
+                                 mapping point where no vertex on the cross section exists. These elements are not
+                                 part of the cross section, but allow you to use vertex mapping to refine the loft
+                                 and control twisting. For example, four line elements were added to the circle to
+                                 allow definition of vertex map points on the circle. This eliminated twisting for
+                                 this loft.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/loft/vertex9.gif"></p>
+                           </li>
+                           <li>
+                              <p>When you specify a closed loft, the map sets automatically close. The last vertex
+                                 given will map to the first vertex specified in the set. You will not have to reselect
+                                 the first point to close the set.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/loft/vertex7.gif"></p>
+                           </li>
+                           <li>
+                              <p>When you use a point as a cross section, it must be included in every map set.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/loft/vertex8.gif"></p>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat9h" rel="feat9h">Construct a lofted protrusion or cutout</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/loftb1a" rel="loftb1a">Constructing lofted synchronous features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_cross_sections_31_1715" rel="genid_cross_sections_31_1715">Cross sections</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_end_conditions_34_2721" rel="genid_end_conditions_34_2721">End Conditions</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_guide_curves_29_920" rel="genid_guide_curves_29_920">Guide Curves</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat12c" rel="feat12c">Lofted Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat12d" rel="feat12d">Lofted Protrusion command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat10c" rel="feat10c">Lofted Cutout command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat27d" rel="feat27d">Lofted Cutout command bar</a><br><br></div>
+            <div class="footer-content">Vertex Mapping, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,277 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Sweep Options dialog box</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Sweep Options dialog box"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="feat17d">
+                     <h1 class="topic-title">Sweep Options dialog box</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <dl>
+                     <dt>Sweep Type</dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt>Single Path and Cross Section</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to use a single path and single cross section to create the
+                                 swept feature.</p>
+                              <p>The path and cross section can be open or closed.</p>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You can use the command bar to modify an existing single path and single cross section
+                                    swept feature to add more paths or cross sections. For example, to add a cross section,
+                                    select the feature, go to the Cross Section Step, and then click the Plane or Sketch
+                                    Step button. To add more cross sections, you can then select a reference plane, sketch
+                                    elements, or model edges.</p>
+                              </div>
+                           </dd>
+                           <dt>Multiple Paths and Cross Sections</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to use multiple paths and cross sections to create the swept
+                                 feature. You can use up to three path curves and many cross sections.</p>
+                              <ul>
+                                 <li>
+                                    <p>After you define one or two paths, click the Next button on the ribbon bar to proceed
+                                       to the cross-section step.</p>
+                                 </li>
+                                 <li>
+                                    <p>The cross sections can exist anywhere along the path, be all open or all closed and
+                                       can be planar or non-planar.</p>
+                                 </li>
+                                 <li>
+                                    <p>A sweep path can consist of either tangent or non-tangent elements.</p>
+                                 </li>
+                                 <li>
+                                    <p>If you define a third path, the command automatically proceeds to the cross-section
+                                       step.</p>
+                                 </li>
+                              </ul>
+                              <div class="attention" type="note">
+                                 <div class="attention-label">Note: </div>
+                                 <p>You cannot mix open and closed cross-sections.</p>
+                              </div>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Part and Sheet Metal Dialog Box Options</dt>
+                     <dd class="ml-3">
+                        <p>The following dialog box options are available only when constructing swept features
+                           in the Part and Sheet Metal environments.</p>
+                     </dd>
+                     <dt>Face Merging</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the face merging option you want. If you change the face merging options
+                           on a swept feature after downstream features that depend on the original faces are
+                           constructed, the downstream features may not recompute properly.</p>
+                        <p>The example illustrates no merge (1), full merge (2), and merge along path (3). Part
+                           Painter was used to change the surface color.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/swpmerge1.gif"></p>
+                        <dl>
+                           <dt>No Merge</dt>
+                           <dd class="ml-3">
+                              <p>Does not merge the output faces.</p>
+                           </dd>
+                           <dt>Full Merge</dt>
+                           <dd class="ml-3">
+                              <p>Merges as many faces as possible, given the input geometry.</p>
+                           </dd>
+                           <dt>Along Path</dt>
+                           <dd class="ml-3">
+                              <p>Merges as many faces as possible along the path direction only, given the input geometry.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Section Alignment</dt>
+                     <dd class="ml-3">
+                        <p>Specifies how the cross section profiles are oriented with respect to the path curves.</p>
+                        <dl>
+                           <dt>Normal</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the cross section profiles maintain a fixed relationship with the normal
+                                 plane of the path curve. </p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/swpnorm1.gif"></p>
+                           </dd>
+                           <dt>Parallel</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that the cross section profiles maintain a constant and parallel orientation
+                                 to the cross section profile plane.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/swpara1.gif"></p>
+                           </dd>
+                           <dt>Parametric</dt>
+                           <dd class="ml-3">
+                              <p>Varies the orientation of the cross section profiles so that points on the path curves
+                                 are matched according to the proportional parameter distance of the underlying path
+                                 curve. This option is only available when two or more path curves are defined.</p>
+                              <p>Each path curve must be a single element. If the path curves you are using have more
+                                 than one element, you can use the Single Curve option available with the Derived Curve
+                                 command to create a single element path curve, or you can set the Arc Length option,
+                                 described below.</p>
+                              <p>This option can be useful when constructing swept features with two path curves and
+                                 one cross section and you want the feature to extend to the end of both path curves.
+                                 Notice the Parametric option (1) extends to the ends of both path curves, where the
+                                 Normal option (2) stops short of the end of one of the path curves.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/swparam1.gif"></p>
+                           </dd>
+                           <dt>Arc Length</dt>
+                           <dd class="ml-3">
+                              <p>Varies the orientation of the cross section profiles so that points on the path curves
+                                 are matched according to the proportional arc-length distance along the path curves.
+                                 This option is only available when two or more path curves are defined. You can use
+                                 path curves that consist of a single element or multiple elements.</p>
+                              <p>This option can be useful when constructing swept features with two path curves and
+                                 one cross section and you want the feature to extend to the end of both path curves.
+                                 Notice the Arc Length option (1) extends to the ends of both path curves, where the
+                                 Normal option (2) stops short of the end of one of the path curves.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/swpro9.gif"></p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Face Continuity</dt>
+                     <dd class="ml-3">
+                        <p>Specifies the degree of face continuity required where adjacent segments within a
+                           swept feature meet.</p>
+                        <dl>
+                           <dt>Tangent Continuous</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that adjacent sweep segments are tangent and continuous, but are not required
+                                 to have the same radius of curvature.</p>
+                           </dd>
+                           <dt>Curvature Continuous</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that adjacent sweep segments are tangent, continuous, and have the same
+                                 radius of curvature. This imparts extra smoothness to the surfaces and can be important
+                                 when creating aesthetic surfaces.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Scale</dt>
+                     <dd class="ml-3">
+                        <p>Constructs the swept feature by scaling the cross section curve along the path curve.
+                           These options are available only for single path and cross section sweeps after you
+                           select the path and cross section curves. You can specify a scale value for each end
+                           of the feature.</p>
+                        <p>If you specify a scale value greater than 1, the swept feature is increased in size
+                           at the specified end of the feature. If you specify a scale value less than 1, the
+                           swept feature is decreased in size at the specified end of the feature. If you specify
+                           a scale value of 1, no scale is applied to the specified end of the feature.</p>
+                        <p>The examples below illustrate (1): no scale, (2): start scale of 1 and an end scale
+                           of 1.5, (3): start scale of 0.5 and an end scale of 1.5.</p>
+                        <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/scalesweep1.gif"></p>
+                        <dl>
+                           <dt>Scale Along Path</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that you want to scale the cross section along the path curve.</p>
+                           </dd>
+                           <dt>Start Scale</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the start scale value.</p>
+                           </dd>
+                           <dt>End Scale</dt>
+                           <dd class="ml-3">
+                              <p>Specifies the end scale value.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt>Twist</dt>
+                     <dd class="ml-3">
+                        <p>Constructs the swept feature by twisting the cross section profile around the path
+                           curve. These options are available only for single path and cross section sweeps after
+                           you select the path and cross section curves.</p>
+                        <p>If you specify a number greater than zero, the twist is applied in a clockwise fashion
+                           from the start point of the path curve. If you specify a number less than zero, the
+                           twist is applied in a counter-clockwise fashion from the start point of the path curve.
+                           If you specify zero, no twist is applied.</p>
+                        <dl>
+                           <dt>None</dt>
+                           <dd class="ml-3">
+                              <p>Specifies that no twist is applied to the feature.</p>
+                           </dd>
+                           <dt>Number of Turns</dt>
+                           <dd class="ml-3">
+                              <p>Applies twist to the feature by specifying the number of turns the cross section is
+                                 twisted along the entire path curve. The examples below illustrate (1): no twist,
+                                 (2): 0.25 turns, (3): –0.25 turns.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/twist1.gif"></p>
+                           </dd>
+                           <dt>Turns per Length</dt>
+                           <dd class="ml-3">
+                              <p>Applies twist to the feature by specifying the number of turns the cross section is
+                                 twisted per unit of length of the path curve. The examples below illustrate (1): no
+                                 twist, (2): 0.10 turns per 42 millimeters of path curve, (3): –0.10 turns per 42 millimeters
+                                 of path curve. The overall length of the example path curve is approximately 84 millimeters.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/twist2.gif"></p>
+                           </dd>
+                           <dt>Angle</dt>
+                           <dd class="ml-3">
+                              <p>Applies twist to the feature by specifying the degrees of twist at the path start
+                                 and end points. The examples below illustrate (1): no twist, (2): zero twist at start
+                                 point and 90 degrees twist at end point, (3): zero degrees twist at start point and
+                                 –90 degrees twist at end point.</p>
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/twist3.gif"></p>
+                              <dl>
+                                 <dt>Start Angle</dt>
+                                 <dd class="ml-3">
+                                    <p>Specifies the start twist value.</p>
+                                 </dd>
+                                 <dt>End Angle</dt>
+                                 <dd class="ml-3">
+                                    <p>Specifies the end twist value.</p>
+                                 </dd>
+                              </dl>
+                           </dd>
+                        </dl>
+                        <div class="attention" type="note">
+                           <div class="attention-label">Note: </div>
+                           <p>You can also combine scale and twist options. The examples below illustrate the different
+                              results possible when using (1): scale, (2): twist, (3): scale and twist.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/scaletwist1.gif"></p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/scaletwist2.gif"></p>
+                        </div>
+                     </dd>
+                     <dt>Show This Dialog When The Command Begins</dt>
+                     <dd class="ml-3">
+                        <p>Displays the dialog box every time you select the command. If you do not want to display
+                           the dialog box when you select the command, clear this option.</p>
+                     </dd>
+                  </dl>
+                  <p>
+                     <h5>Additional options</h5>
+                     <p>More options exist for Sweep.</p>
+                  </p>
+                  <p>When you create a swept surface using a closed profile, you can use the Open Ends
+                     and Close Ends options on the Swept command bar to specify whether the ends of the
+                     swept surface are open or closed. <img class="img-fluid" src="../../../../common/nonLocalized/se/feature/swept/openclosedends.gif"> </p>
+                  <p>When you set the Close Ends option, faces are added to the ends of the feature to
+                     create a closed volume.</p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat15h" rel="feat15h">Construct a swept protrusion or cutout</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1219742" rel="xid1219742">Construct a Solid Sweep Protrusion</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1221839" rel="xid1221839">Construct a Solid Sweep Cutout</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/swept1a" rel="swept1a">Constructing swept features</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat22c" rel="feat22c">Swept Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb25d" rel="featb25d">Swept Protrusion command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat21c" rel="feat21c">Swept Cutout command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat24d" rel="feat24d">Swept Cutout command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1162060" rel="xid1162060">Solid Sweep Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1168670" rel="xid1168670">Solid Sweep Cutout command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1447483" rel="xid1447483">Solid Sweep Cutout command bar</a><br><br></div>
+            <div class="footer-content">Sweep Options dialog box, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

@@ -1,0 +1,87 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Evaluating and repairing foreign data</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Evaluating and repairing foreign data"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="genid_evaluating_and_repairing_foreign_data_20_3390">
+                     <h1 class="topic-title">Evaluating and repairing foreign data</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>When you import surfaces that do not form a closed volume, they are imported as construction
+                     geometry. If the imported surfaces form a closed volume, you have the option to create
+                     a solid body. </p>
+                  <p>If the imported surfaces do not form a solid body in Solid Edge, but were created
+                     as a solid body in the other CAD system, the accuracy of the data prevented it from
+                     being converted into a solid body in Solid Edge. Typically, the surface-to-surface
+                     matching tolerances used in the source system were larger than the Parasolid modeling
+                     kernel requires for successful stitching of the surfaces into a solid body. Some CAD
+                     systems allow surface-to-surface matching tolerances that are quite large, in some
+                     cases larger than the manufacturing tolerances of the manufactured part. The surface-to-surface
+                     matching tolerance requirements of the Parasolid modeling kernel are more exacting.</p>
+                  <p>You can use the Geometry Inspector command to determine what problems the model has
+                     and then you can use the construction commands to modify the model to repair the problem
+                     areas. For example, there may be surfaces that did not import correctly, or there
+                     may be gaps or overlaps between individual surfaces in the model. Geometry Inspector
+                     evaluates the model and builds a list of the problem areas and provides suggestions
+                     as to how you can repair the problems.</p>
+                  <p>If there are areas that did not stitch properly, you can use the Show Non-Stitched
+                     Edges command to display the non-stitched areas. You can then use the other commands
+                     on the Surfacing tab to repair the existing surfaces, or create new surfaces and stitch
+                     them into the model. You can also delete surfaces that would be easier to recreate
+                     from scratch than to repair.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/surface_construction/shwstch3.gif"></p>
+                  <p>Both curve and surface manipulation commands are available for creation and modification
+                     of construction elements. You can use the Derived Curve, Split Curve, Project Curve,
+                     and Intersection Curve commands to create new curves or modify existing curves. You
+                     can use the Trim Surface, Extend Surface, and Delete Face commands to modify or delete
+                     construction surfaces. You can use the Extruded Surface, Revolved Surface, Swept Surface,
+                     Lofted Surface, and Bounded Surface commands to create new construction surfaces.
+                     For example, if an imported surface overlaps another surface, you can use the Derived
+                     Curve command to extract a curve from the edge of the surface it overlaps, then use
+                     the new derived curve as input with the Trim Surface command to trim the existing
+                     surface.</p>
+                  <p>If the non-stitched edges are the result of a missing surface, you can use the construction
+                     commands to create a new surface and stitch it into the model. For example, you can
+                     create an extruded, revolved, swept, and lofted construction surface to close a gap
+                     in a model.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/surface_construction/bounded2.gif"></p>
+                  <p>When repairing imported data, you may need to try several approaches before finding
+                     one that succeeds. For example, if you are unsuccessful creating a revolved surface,
+                     try creating an lofted surface. The tolerance issues inherent with imported data can
+                     make model repair difficult.</p>
+                  <p>After you have repaired a surface, or created a new surface, you can then use the
+                     Stitched Surface command to add the new surface to the model. If the stitched surfaces
+                     form a closed volume, you have the option to create a solid body. You can then use
+                     the solid body to complete the modeling process.</p>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/zebra1h" rel="zebra1h">Display zebra stripes on a part</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/crvshd1h" rel="crvshd1h">Display curvature shading on a model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid611126" rel="xid611126">Visualize a surface</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_evaluating_surfaces_10_411" rel="genid_evaluating_surfaces_10_411">Evaluating surfaces</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/zebra1c" rel="zebra1c">Show Zebra Stripes command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/zebra2c" rel="zebra2c">Zebra Stripes Settings command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/crvshd1c" rel="crvshd1c">Show Curvature Shading command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/crvshd2c" rel="crvshd2c">Curvature Shading Settings command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/crvshd1d" rel="crvshd1d">Curvature Shading Settings Dialog Box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dftanl1c" rel="dftanl1c">Show Draft Face Analysis command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dftanl2d" rel="dftanl2d">Draft Face Analysis command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dftanl1d" rel="dftanl1d">Draft Face Analysis dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dftanl2c" rel="dftanl2c">Draft Face Analysis Settings command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid611063" rel="xid611063">Surface Visualization command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid611124" rel="xid611124">Surface Visualization Settings dialog box</a><br><br></div>
+            <div class="footer-content">Evaluating and repairing foreign data, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

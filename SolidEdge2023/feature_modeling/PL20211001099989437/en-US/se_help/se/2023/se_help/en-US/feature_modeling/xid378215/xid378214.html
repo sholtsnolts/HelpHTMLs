@@ -1,0 +1,126 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Creating slots</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Creating slots"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid378214">
+                     <h1 class="topic-title">Creating slots</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299765" rel="xid299765">Slot command</a> to create a slot feature along a tangent continuous sketch in the synchronous or
+                     ordered part and sheet metal environments.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/feature/slot/createslot1.gif"></p>
+                  <p>Once created, the path used to create the slot is exposed in the Assembly environment
+                     to support slot relationships.</p>
+                  <p>When working with the <b>Slot</b> command, you can use:</p>
+                  <ul>
+                     <li>
+                        <p>The <b>Move to Synchronous</b> command to convert an ordered slot feature to the synchronous modeling mode. After
+                           moving the ordered slot feature, you can still edit the feature in the synchronous
+                           modeling mode.</p>
+                     </li>
+                     <li>
+                        <p>The <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299767" rel="xid299767">Slot Options dialog box</a> to specify the definition of the slot. You can control such things as the slot width
+                           and end condition for the slot. You can also specify if you want to create a raised
+                           or recessed counterbore slot, along with the path depth and offset depth for the counterbore
+                           slot.</p>
+                     </li>
+                     <li>
+                        <p>The <b>More Slots</b> button on the command bar to add more occurrences for the selected slot. To add more
+                           slot occurrences, click the edit handle for the slot (1), click the <b>More Slots</b> button, click the path for the new slot (2), and click to place the new slot (3).</p>
+                        <p><img class="img-fluid" src="../../../common/graphicLibrary/se/sheet_metal/multi_slot7.gif"></p>
+                     </li>
+                  </ul>
+                  <div class="attention" type="note">
+                     <div class="attention-label">Note: </div>
+                     <p>You can add more slots one at a time or fence select multiple paths to create multiple
+                        slots at once.</p>
+                  </div>
+                  <h4 class="division-title">Creating multiple slots</h4>
+                  <div>
+                     <p>With a single use of the <b>Slot</b> command, you can select multiple profiles simultaneously, to create multiple slots
+                        that contain identical parameters.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/multi_slot1.gif"></p>
+                     <p>Once created, a group of slots is created in<b> PathFinder</b>.</p>
+                     <p><img class="img-fluid" src="../../../common/graphicLibrary/se/sheet_metal/multi_slot6.gif"></p>
+                     <p>You can select geometry on any plane, but once you select a sketch to define the slot,
+                        you can only select sketches within that plane.</p>
+                     <p>You can select the paths one at a time,</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/multi_slot2.gif"></p>
+                     <p>or you can drag the cursor to fence-select multiple paths at once.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/multi_slot3.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>You can also use the Shift and Ctrl keys to add or remove paths from the set of fenced
+                           paths.</p>
+                     </div>
+                     <p></p>
+                     <p>If you select paths that are continuous and tangent the paths are automatically chained
+                        to create a single path, resulting in the creation of a single slot.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/multi_slot4.gif"></p>
+                     <p>When you select self-intersecting geometry, Solid Edge automatically stops the geometry
+                        selection at the last non self-intersecting segment of the tangent chain. This prevents
+                        you from accidentally creating a disjoint body.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/multi_slot5.gif"></p>
+                     <p>If you select invalid geometry, an error message informs you which selection caused
+                        the error.</p>
+                  </div>
+                  <h4 class="division-title">Editing slots</h4>
+                  <div>
+                     <p>In the synchronous environment, you can move a slot along the face, edit the slot
+                        feature to change such things as slot width or extent, or you can edit the slot profile
+                        to make changes to the sketch element used to create the slot. For more information,
+                        see <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid381155" rel="xid381155">Move or edit a slot in the synchronous environment</a>.</p>
+                     <p>In the ordered environment, you can dynamically edit a slot, edit the slot feature
+                        to change such things as the bead direction and extent, or you can edit the slot profile
+                        to make changes to the sketch element used to create the slot. For more information,
+                        see <a class="xref" data-handle="feature_modeling" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid381218" rel="xid381218">Edit a slot in the ordered environment</a>.</p>
+                  </div>
+                  <h4 class="division-title">Mirroring and patterning slots and slot groups</h4>
+                  <div>
+                     <p>You can use the <b>Mirror</b> command to create a mirror copy of a slot or slot group about a plane.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/slot_mrror1.gif"></p>
+                     <p>You can use the <b>Pattern</b> command to create a pattern of a slot or slot group.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/sheet_metal/slot_pattern1.gif"></p>
+                  </div>
+                  <h4 class="division-title">Attaching, detaching, breaking, and separating slots</h4>
+                  <div>
+                     <p>Slot features support the <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/attach1c" rel="attach1c">Attach</a>, <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/detach2c" rel="detach2c">Detach</a>, <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/break1c" rel="break1c">Break</a>, and <a class="xref" data-handle="modify_a_model" href="/en-US/product/246738425/doc/PL20211001099989437.modify_a_model/html/separate1c" rel="separate1c">Separate</a> commands. You can select a single slot of multiple slots when executing the commands.
+                        </p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The <b>Attach</b> and <b>Break</b> commands are only available after a slot has been detached.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299768" rel="xid299768">Construct a slot</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1417889" rel="xid1417889">Construct multiple slots</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid381155" rel="xid381155">Move or edit a slot in the synchronous environment</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid381218" rel="xid381218">Edit a slot in the ordered environment</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299765" rel="xid299765">Slot command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299766" rel="xid299766">Slot command bar (synchronous environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid378220" rel="xid378220">Slot command bar (ordered environment)</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid299767" rel="xid299767">Slot Options dialog box</a><br><br></div>
+            <div class="footer-content">Creating slots, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

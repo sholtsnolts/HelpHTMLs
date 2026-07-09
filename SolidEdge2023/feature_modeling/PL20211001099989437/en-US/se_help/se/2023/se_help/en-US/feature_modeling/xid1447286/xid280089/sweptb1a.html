@@ -1,0 +1,253 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Constructing swept synchronous features</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Constructing swept synchronous features"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="sweptb1a">
+                     <h1 class="topic-title">Constructing swept synchronous features</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>You can use the Swept Protrusion, Swept Cutout, and Swept Surface commands to create
+                     swept features.</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/procut4.gif"></p>
+                  <p>Swept features are constructed by extruding one or more cross sections (A) along one
+                     or more path curves (B).</p>
+                  <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro1.gif"></p>
+                  <p>You can define the paths and cross sections by:</p>
+                  <ul>
+                     <li>
+                        <p>Selecting elements from an existing <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/sketch" rel="sketch">sketch</a></p>
+                     </li>
+                     <li>
+                        <p>Selecting edges on the model or a construction body</p>
+                     </li>
+                     <li>
+                        <p>Selecting derived elements, such as intersection curves and derived curves.</p>
+                     </li>
+                  </ul>
+                  <h4 class="division-title">Using sketches</h4>
+                  <div>
+                     <p>The ability to define paths and cross sections using sketches is especially useful
+                        when working with swept features and lofted features. Drawing sketches first allows
+                        you to draw the wireframe geometry without constructing the feature. This approach
+                        also allows you to experiment with both swept and lofted features using the same sketch
+                        geometry.</p>
+                     <p>You can also define relationships between sketches on different planes. For example,
+                        you may need to use connect relationships (A) between path and cross section keypoints.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro3.gif"></p>
+                     <p>You can also use the Project to Sketch command to copy part edges into sketch, and
+                        then use the sketch in a swept feature.</p>
+                  </div>
+                  <h4 class="division-title">Using part edges and derived elements</h4>
+                  <div>
+                     <p>You can use edges of existing surface and solid geometry to define path curves or
+                        cross sections. You can also use derived elements, such as intersection curves, contour
+                        curves, cross curves, and wrapped curves, to define path curves or cross sections.</p>
+                  </div>
+                  <h4 class="division-title">Path curves</h4>
+                  <div>
+                     <p>You can define up to three path curves. You can define open or closed path curves.
+                        When constructing swept features with more than one path curve, select the elements
+                        for the first path curve, and then click the Accept button. Repeat this process for
+                        the second path curve. When constructing a swept feature using three paths, after
+                        you define the third path, the command automatically proceeds to the cross section
+                        step.</p>
+                     <p>When using more than one path or cross section, each path curve must be a continuous
+                        set of tangent elements or edges. For example, if you define a path curve using a
+                        sketch, the elements must be tangent at their connect points (A).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro2.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The path curve does not have to be tangent for a swept protrusion constructed with
+                           a single path and a single cross section.</p>
+                     </div>
+                     <p>When using more than one path curve, the order in which you select the path curves
+                        can affect the shape of the feature. A swept feature is allowed to deviate from the
+                        first path curve you select. The swept feature typically will not deviate from subsequent
+                        path curves. Because of this, you can change the shape of a swept feature by changing
+                        the order that you select the path curves. Path selection order can also determine
+                        whether the feature is constructed successfully, or fails to recompute properly.</p>
+                     <p>In some cases, you also may want to consider constructing a loft or BlueSurf feature
+                        instead of a swept feature. For more information, see the section, Comparing swept,
+                        lofted, and BlueSurf features.</p>
+                  </div>
+                  <h4 class="division-title">Cross sections</h4>
+                  <div>
+                     <p id="swept1a_multipath_multixsect">For swept protrusions and cutouts, the cross sections must be closed elements that
+                        can be planar or non-planar and you can place them anywhere along the path. For swept
+                        surfaces, the cross sections can be open or closed.</p>
+                     <p>The cross sections must intersect the paths. If the cross section is a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/non_periodic" rel="non_periodic">non-periodic</a> element, you also must define its start point (A). Position the cursor near the vertex
+                        that you want to use as the start point, and then click.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro4.gif"></p>
+                     <p>You do not have to define the start point for a cross section that is a <a class="xref" data-handle="glossary" href="/en-US/product/246738425/doc/PL20211001099989437.glossary/html/periodic" rel="periodic">periodic</a> element.</p>
+                     <p>When working with swept features that have multiple cross sections, you must select
+                        the start point for all non-periodic cross sections.</p>
+                     <p>Defining appropriate start points allows you to prevent or control twisting. For example,
+                        different results are obtained when you define the starts points as (A) to (A) or
+                        (A) to (B). In some cases, mismatched start points can result in failed features.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro5.gif"></p>
+                  </div>
+                  <h4 class="division-title">Cross section sequence</h4>
+                  <div>
+                     <p>When constructing swept features with multiple cross sections, each cross section
+                        you define adds an entry to the Cross Section Order dialog box.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro6.gif"></p>
+                     <p>When you add new cross sections, the system adds them after the existing cross sections,
+                        regardless of their physical orientation with respect to the path curve and existing
+                        cross sections.</p>
+                     <p>When you modify an existing swept feature by adding new cross sections, you can use
+                        the Cross Section Order dialog box to define the cross section sequence to be used
+                        when the feature is constructed. For example, you can specify that the feature is
+                        constructed using cross section (1) first, then cross section (3), and finally cross
+                        section (2).</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro7.gif"></p>
+                  </div>
+                  <h4 class="division-title" id="clamp_handle_condition">Clamp conditions</h4>
+                  <div>
+                     <p>You can control clamp conditions, the shape of the swept feature where the swept features
+                        meet between multiple cross sections, with the <b>Clamp Control Handle</b>. </p>
+                     <p>The handle has two options:</p>
+                     <table cellspacing="1" border="1" bgcolor="#FFFFFF" cellpadding="2">
+                        <colgroup span="1">
+                           <col span="1" width="22%">
+                           <col span="1" width="46%">
+                           <col span="1" width="25%">
+                        </colgroup>
+                        <tbody>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>No Clamp <img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_modeling/swept/no_clamp1.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Specifies that no constraining condition is enforces on the cross section.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/swept/no_clamp_example1.png"></p>
+                              </td>
+                           </tr>
+                           <tr>
+                              <td rowspan="1" colspan="1">
+                                 <p>Clamp to Section <img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_modeling/swept/clamp_control_section1.png"></p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p>Specifies that the cross section is maintained for a length controlled by its magnitude
+                                    handle.</p>
+                              </td>
+                              <td rowspan="1" colspan="1">
+                                 <p><img class="img-fluid" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature/swept/clamp_to_section_example1.png"></p>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <h4 class="division-title">Sweep Options dialog box</h4>
+                  <div>
+                     <p>For new swept features constructed in version 18 or later, you can use the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat17d" rel="feat17d">Sweep Options dialog box</a> to set options that give you additional control over the shape of the feature. You
+                        can use the dialog box to set options that control section alignment with respect
+                        to the path curve, face merging, and face continuity.</p>
+                     <ul style="list-style: none">
+                        <li>
+                           <h5>Section alignment</h5>
+                           <p>The section alignment options allow you to control how the faces defined by cross
+                              section curves are oriented with respect to the path curves. Depending on the input
+                              curves, some options may provide better results. If one option does not give you the
+                              result you want, experiment with the other options.</p>
+                           <p>For example, using the same input sketches, different results are achieved by changing
+                              the Section Alignment option from Normal (A) to Parallel (B). In this example, the
+                              bottom path curve P1 was selected first. Notice that the feature deviates from the
+                              path curve when using the Normal option with this set of sketches, but does not deviate
+                              from the path curve when using the Parallel option.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpro8.gif"></p>
+                        </li>
+                        <li>
+                           <h5>Face merging</h5>
+                           <p>The face merging options allow you to specify whether or not faces on the feature
+                              are merged. Specifies the face merging option you want. You can specify that faces
+                              are not merged (A), fully merged (B), or merged only along the path (C). This can
+                              be seen more easily if Part Painter is used to change the surface color.</p>
+                           <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/swpmerge1.gif"></p>
+                           <p>If you change the face merging options on a swept feature after downstream features
+                              that depend on the original faces are constructed, the downstream features may not
+                              recompute properly.</p>
+                        </li>
+                        <li>
+                           <h5>Face continuity</h5>
+                           <p>The face continuity options allow you to specify the degree of continuity between
+                              adjacent segments within a swept feature.</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Defining a locking axis</h4>
+                  <div>
+                     <p>When you construct swept features with a non-planar path and one or more cross sections
+                        you can define a locking axis for the cross section profile during the Axis Step.
+                        A locking axis allows you to control twist in a swept feature.</p>
+                     <p>When you select a locking axis (A), the cross section profile and resultant surfaces
+                        maintain a fixed relationship with the plane that is normal to the locking axis direction,
+                        which is constant (B). With no locking axis specified, the cross section profile and
+                        resultant surfaces maintain a fixed relationship with the plane normal to the path,
+                        which varies (C). In this example, you could also use the vertical line (D) in the
+                        cross section profile to define the locking axis.</p>
+                     <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_modeling/swept/lockaxis1.gif"></p>
+                     <div class="attention" type="note">
+                        <div class="attention-label">Note: </div>
+                        <p>The path cannot be parallel to the lock axis at any point.</p>
+                     </div>
+                  </div>
+                  <h4 class="division-title">Comparing swept, lofted, and BlueSurf features</h4>
+                  <div>
+                     <p>When working with models that require complex or free-form geometry, such as those
+                        with multiple paths and cross sections, you may want to experiment with swept, lofted,
+                        and BlueSurf features, and compare the results. Depending on the input geometry and
+                        options you set, one feature type may you give more desirable results than the other.
+                        The following outlines the major differences between these features.</p>
+                     <ul>
+                        <li>
+                           <p>Swept features must always have at least one, but not more than three path curves.
+                              They can have one or more cross sections.</p>
+                        </li>
+                        <li>
+                           <p>Lofted features must have at least two cross sections. They can have no guide curves,
+                              or one or more guide curves.</p>
+                        </li>
+                        <li>
+                           <p>BlueSurf features must have at least one guide curve and one cross section, or at
+                              least two cross sections and no guide curves. You can also create new guide curves
+                              and cross sections dynamically within the command by intersecting a BlueSurf feature
+                              with a plane.</p>
+                        </li>
+                     </ul>
+                     <p>For more information, see the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/loftb1a" rel="loftb1a">Constructing Lofted Features</a> Help topic.</p>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb15h" rel="featb15h">Construct a swept protrusion or cutout</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_comparing_swept_lofted_and_bluesurf_features_18_1119" rel="genid_comparing_swept_lofted_and_bluesurf_features_18_1119">Comparing swept, lofted, and BlueSurf features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_cross_sections_29_1679" rel="genid_cross_sections_29_1679">Cross sections</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_defining_a_locking_axis_12_895" rel="genid_defining_a_locking_axis_12_895">Defining a locking axis</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_path_curves_18_1537" rel="genid_path_curves_18_1537">Path Curves</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_using_sketches_14_1230" rel="genid_using_sketches_14_1230">Using Sketches</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb22c" rel="featb22c">Swept Protrusion command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/feat25d" rel="feat25d">Swept Protrusion command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/featb17d" rel="featb17d">Sweep Options dialog box</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/genid_tips_for_path_and_cross_section_creation_15_711" rel="genid_tips_for_path_and_cross_section_creation_15_711">Tips for path and cross section creation</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/swept1a_optionsdb1" rel="swept1a_optionsdb1">Using the Sweep Options dialog box</a><br><br></div>
+            <div class="footer-content">Constructing swept synchronous features, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

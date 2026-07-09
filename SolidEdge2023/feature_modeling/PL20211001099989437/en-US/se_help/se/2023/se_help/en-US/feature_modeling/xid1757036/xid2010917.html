@@ -1,0 +1,152 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Align to Curve command</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Align to Curve command"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="xid2010917">
+                     <h1 class="topic-title">Align to Curve command</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad">
+                  <p>In the Subdivision Modeling environment, use the <b>Home</b> tab→<b>Modify</b> group→<b>Align to Curve</b> command <img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_to_curve_cmd.png"> to fit the vertices of body cage faces to one or more existing curve sketches or
+                     to free-form curves (gestures) that you interactively sketch. You can undo and redo
+                     each curve edit until you achieve the desired shape. For more information, see <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2010962" rel="xid2010962">Align a shape to a curve</a>.</p>
+                  <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_to_curve_ex.png"></p>
+                  <h4 class="division-title">Defining the basic subdivision shape </h4>
+                  <div>
+                     <p>When defining the initial subdivision shape using the <b>Box</b>, <b>Cylinder</b>, <b>Sphere</b>, or <b>Torus</b> command, consider the following:</p>
+                     <ul>
+                        <li>
+                           <p>For more predictable results, use orthographic views to define the shape, and then
+                              align the vertices to a sketch curve in the same view plane. </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve1.png"></p>
+                           </div>
+                        </li>
+                        <li>
+                           <p>Create a shape with enough cage faces and vertices to provide sufficiently fine control
+                              along the alignment curve. On the <b>Box</b> command bar, for example, the number of XYZ segments you select determines the number
+                              of cage faces in the subdivision shape. The more X, Y, or Z segments in the base shape,
+                              the more vertices you can use to move to the curve.</p>
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve4.png"></p>
+                        </li>
+                        <li>
+                           <p>To achieve a sufficiently smooth subdivision body, you may also want to use the <b>Blend</b> command before you select the <b>Align to Curve</b> command, even if you selected the <b>Smooth Edges</b> option <img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/cmdbar_smooth_option.png"> on the shape command bar. It is easier to round corners by blending. </p>
+                           <div class="attention" type="example">
+                              <div class="attention-label">Example: </div>
+                              <p>A blend value of 3 produced this result.</p>
+                              <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve3.png"></p>
+                           </div>
+                        </li> 
+                        <li> 
+                           <p>If you determine you need more vertices in one area to adjust the shape to the curve,
+                              you can use the <b>Split command</b> with the <b>Chain</b> option to select one or more faces to split, and then select the <b>Align to Curve</b> command again to move the vertices in that area. For an example of this, see the
+                              Tip at the end of the <a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2010962" rel="xid2010962">Align a shape to a curve</a> topic.</p> </li>
+                     </ul>
+                  </div>
+                  <h4 class="division-title">Using the Align to Curve command</h4>
+                  <div>
+                     <p>The step buttons on the <b>Align to Curve</b> command bar let you experiment with different vertex, direction, and curve selections.
+                        Use the <b>Back</b> and <b>Forward</b> buttons to undo each change you make in the <b>Curves</b> step.</p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve_cmdbar_vertex_step.png"></p>
+                     <p>All inputs to the <b>Align to Curve</b> command are shown in this example and explained below. </p>
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve_workflow.png"></p>
+                  </div>
+                  <h4 class="division-title">Selecting vertices </h4>
+                  <div>
+                     <p><b>Vertex</b> step—The vertices you select are highlighted in green. Only the highlighted vertices
+                        will move to the sketch curve. </p> 
+                     <p>Select vertices that lie in the same view plane as the sketch curve, and only select
+                        the vertices that you want to move to the sketch curve. Avoid selecting vertices that
+                        will overlap when moved.</p> 
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve_vertices.png"></p> 
+                     <ul> 
+                        <li> 
+                           <p>Click to select a vertex, and Shift+click to deselect a vertex.</p> </li> 
+                        <li> 
+                           <p>Use click+drag to select multiple vertices. To deselect multiple vertices, use Shift/Ctrl+click+drag.</p> </li> 
+                        <li> 
+                           <p>To aid in selecting multiple vertices on cage faces, click the <b>Select</b> command, and then press Ctrl+Spacebar to cycle through the different selection modes:</p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/select_face_mode.png"> <b>Face Priority</b> </p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/select_edge_mode.png"> <b>Edge Priority</b> </p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/select_vertex_mode.png"> <b>Vertex Priority</b> </p> </li> </ul>
+                  </div>
+                  <h4 class="division-title">Specifying alignment direction</h4>
+                  <div>
+                     <p><b>Alignment Direction</b> step—The selected vertices will move to the sketch curve in the direction indicated
+                        by the red, double-sided vector handle.</p> 
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/vertex_step_select.png"></p> 
+                     <p></p> 
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div> 
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve_vertical_vector.png"></p> </div>
+                     <p>To move the points normal to the sketch curve instead of the shape, press N.</p> 
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div> 
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve_normal.png"></p> </div>
+                  </div>
+                  <h4 class="division-title">Using gestures versus sketches for input curves</h4>
+                  <div>  
+                     <p>When the <b>Curves</b> step begins, the projection plane is locked to the current view plane, as indicated
+                        by the brown plane outline. This is the plane the vertices will move to the alignment
+                        curve. To change to a different plane, press L on the keyboard. </p> 
+                     <p>There are three ways to provide input to the <b>Curves</b> step. You can experiment with different inputs and compare the results using the
+                        <b>Back</b> and <b>Forward</b> buttons on the command bar.</p> 
+                     <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/curves_step_cmdbar.png"></p> 
+                     <ol type="1" start="1"> 
+                        <li> 
+                           <p>From the <b>3D Sketches</b> collector in <b>PathFinder</b>, select an existing sketch or sketch curve, or click linear elements that are available
+                              on another subdivision body cage. Right-click to accept the curves.</p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/curves_step_sel_sketch_lines_in_subd_feature.png"></p> </li> 
+                        <li> 
+                           <p>Click several points to create a curve through them. Right-click finishes the curve.
+                              </p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/curves_step_click_pts.png"></p> </li> 
+                        <li> 
+                           <p>Gestures are a series of free-form sketch curves that you can draw to define a more
+                              fluid subdivision body. </p> 
+                           <p>Click+drag to gesture a curve (just one click+drag per curve). When you release the
+                              mouse button, the curve is created, and the selected, eligible vertices that are in
+                              the vicinity of the curve are moved to the curve along the specified vector. </p> 
+                           <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/curves_step_gesture.png"></p> </li> </ol> 
+                     <div class="attention" type="example">
+                        <div class="attention-label">Example: </div> 
+                        <p>Four separate gestures were used to define the curved shape. You can adjust the vertex
+                           point locations by adding short gestures where needed. </p> 
+                        <p><img class="img-fluid" src="../../../common/nonLocalized/se/subdivision_modeling/align_curve_multiple_gestures.png"></p> </div> 
+                     <p>Gestures are temporary; they are not stored with the subdivision body and cannot be
+                        referenced in <b>PathFinder</b> as sketches are.</p> 
+                     <p>If you are designing a model based on one or more previously created sketches or edges
+                        in a subdivision body, then you can select the sketches one by one from the <b>3D Sketches</b> collector in <b>PathFinder</b> by restarting the <b>Curves</b> step to apply each sketch, or by using the <b>Chain</b> selection option on the command bar instead of the <b>Single</b> selection option.</p> </div>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1875898" rel="xid1875898">Subdivision Modeling workflow</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1908343" rel="xid1908343">Move cage elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1905214" rel="xid1905214">Move using Quick Move</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900315" rel="xid1900315">Use symmetric mode in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900515" rel="xid1900515">Scale a subdivision model</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1900768" rel="xid1900768">Split subdivision model faces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968433" rel="xid1968433">Split faces with offset</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1970216" rel="xid1970216">Offset cage faces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1969089" rel="xid1969089">Connect cage faces or edges with a bridge</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757078" rel="xid1757078">Delete and fill cage faces</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid2010962" rel="xid2010962">Align a shape to a curve</a><br><br><h5>Learn more</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757104" rel="xid1757104">Introduction to Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1801877" rel="xid1801877">Using PathFinder with subdivision models</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1762080" rel="xid1762080">Working with cage elements</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968554" rel="xid1968554">Creating subdivision features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1913514" rel="xid1913514">Working with subdivision features</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1904642" rel="xid1904642">Moving and rotating cage elements</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757020" rel="xid1757020">Subdivision Modeling command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757053" rel="xid1757053">Box command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757097" rel="xid1757097">Box command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757060" rel="xid1757060">Cylinder command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757098" rel="xid1757098">Cylinder command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757072" rel="xid1757072">Sphere command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757100" rel="xid1757100">Sphere command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757074" rel="xid1757074">Torus command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757101" rel="xid1757101">Torus command bar</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757077" rel="xid1757077">Scale command in Subdivision Modeling</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1757079" rel="xid1757079">Blend command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1801694" rel="xid1801694">Show Blend Values command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1787288" rel="xid1787288">Split command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968327" rel="xid1968327">Split with Offset command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1968362" rel="xid1968362">Bridge command</a><br><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1848651" rel="xid1848651">Cage Style command</a><br><br><h5>Related Topics</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/xid1969676" rel="xid1969676">Offset command in Subdivision Modeling</a><br><br></div>
+            <div class="footer-content">Align to Curve command, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>

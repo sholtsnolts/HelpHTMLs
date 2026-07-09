@@ -1,0 +1,232 @@
+<!--
+This software and related documentation are proprietary to Siemens Industry Software
+Inc.
+
+(c) 2022 Siemens Industry Software Inc. All Rights Reserved.
+
+All trademarks belong to their respective holders.
+-->
+<!doctype html>
+<!DOCTYPE HTML><html class="main-html scroll-area">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../../ui/1.0/tdoc/css/tdoc.min.css">
+      <title>Rotate Faces command bar</title>
+   </head>
+   <body>
+      <div class="main content-container">
+         <contenttitle title="Rotate Faces command bar"></contenttitle>
+         <div class="container-fluid content-start">
+            <div class="row justify-content-center topic-header">
+               <div class="col-12 content-pad">
+                  <div class="topic-header-content" id="dtrotatefaces1d">
+                     <h1 class="topic-title">Rotate Faces command bar</h1>
+                  </div>
+               </div>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-12 content-pad"> 
+                  <dl> 
+                     <dt><b>Connected Faces</b></dt> 
+                     <dd class="ml-3"> 
+                        <p>Specifies how the faces connected to the selection adapt during the modification.
+                           </p> 
+                        <ul style="list-style: none"> 
+                           <li> 
+                              <h5>Extend/Trim</h5> 
+                              <p>Modifies the model by trimming and extending adjacent faces. </p> 
+                              <p>Adjacent faces (A) are extended or trimmed as required, but will maintain their original
+                                 orientation. The size of the selected face can change.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_movesimple1.gif"></p> </li> 
+                           <li> 
+                              <h5>Tip</h5> 
+                              <p>Modifies the model by trimming, extending, or changing the current orientation of
+                                 connected faces. In some situations, this can cause the current orientation of connected
+                                 faces (A) to tip or change their angle with respect to the selected face. The size
+                                 of the selected face does not change.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_moveadapt1.gif"></p> </li> 
+                           <li> 
+                              <h5>Lift</h5> 
+                              <p>Lifts the select set and adds faces to the model. The selected face and adjacent faces
+                                 do not change. </p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_movelift1.gif"></p> </li> </ul> </dd> </dl> 
+                  <dl> 
+                     <dt><b>Precedence</b></dt> 
+                     <dd class="ml-3"> 
+                        <p>Specifies whether the faces in the select set or the unselected faces have precedence
+                           during the modification. Faces that have priority are regenerated last during the
+                           synchronous operation and therefore, tend to be preserved in the resultant model.</p> 
+                        <p>The options which are available can change based on the active environment.</p> 
+                        <ul style="list-style: none"> 
+                           <li> 
+                              <h5>Select Set Priority</h5> 
+                              <p>Specifies that the selected and moving faces have priority over nonmoving faces. Notice
+                                 that when this option is set, the faces adjacent to the face being moved are extended,
+                                 and the nonmoving faces are trimmed.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_move_preced_selected1.gif"></p> </li> 
+                           <li> 
+                              <h5>Model Priority</h5> 
+                              <p>Specifies that the nonmoving faces have priority over selected and moving faces. Notice
+                                 that when this option is set, the face being moved can only be moved until it is coincident
+                                 with the cutout, because the nonmoving faces have priority.</p> 
+                              <p><img class="img-fluid" src="../../../../common/nonLocalized/se/feature_edit/edit_dimensions/bj_move_preced_rom1.gif"></p> </li> 
+                           <li> 
+                              <h5>None</h5> 
+                              <p>No face interactions will occur.</p> </li> </ul> </dd> </dl>
+                  <dl>
+                     <dt><b>Main Steps</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Select Faces Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Selects the faces you want to rotate.</p>
+                           </dd>
+                           <dt><b>Select Axis Step</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the axis about which you want to rotate.</p>
+                           </dd>
+                           <dt><b>Finish/Cancel</b></dt>
+                           <dd class="ml-3">
+                              <p>This button changes function as you move through the feature construction process.
+                                 The <b>Finish</b> button constructs the feature using input provided in the other steps. After you
+                                 construct the feature, you can edit it by re-selecting the appropriate step on the
+                                 command bar. The <b>Cancel</b> button discards any input and exits the command.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Select Faces Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Select</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the faces or bodies you want to rotate.</p>
+                              <ul>
+                                 <li>
+                                    <p><b>Face</b>—Specifies that you want to select individual faces.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Feature</b>—Specifies that you want to select one or more features.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>Body</b>—Specifies that you want to select an entire body. This option is useful when working
+                                       with imported data and you want to reposition it in a precise location. For example,
+                                       you may want to reposition the body with respect to other parts in an assembly.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Select Axis Step Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Axis Type</b></dt>
+                           <dd class="ml-3">
+                              <p>Defines the axis about which you want to rotate the faces.</p>
+                              <ul> 
+                                 <li> 
+                                    <p><b>Synchronous Rotate</b>—Specifies that you want to use the steering wheel to define the rotation axis, as
+                                       you do in synchronous. </p> </li>
+                                 <li>
+                                    <p><b>By Geometry</b>—Specifies that you want to select a face on the model to define the rotation axis.
+                                       You can select a cylindrical or conical face.</p>
+                                 </li>
+                                 <li>
+                                    <p><b>By Points</b>—Specifies that you want to use keypoints to define the rotation axis.</p>
+                                 </li>
+                              </ul>
+                           </dd>
+                           <dt><b>Rotation Angle</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the rotation angle.</p>
+                           </dd>
+                           <dt><b>Step Angle</b></dt>
+                           <dd class="ml-3">
+                              <p>Specifies the rotation step angle. The step angle specifies the increments, in degrees,
+                                 that an element rotates along the rotation axis.</p>
+                           </dd>
+                           <dt><b>Keypoints</b></dt>
+                           <dd class="ml-3">
+                              <p>Sets the type of keypoint you can select. This option is only available when using
+                                 the <b>By Points</b> option. The available keypoint options are specific to the command and workflow you
+                                 use.</p>
+                              <table cellspacing="1" cellpadding="6" width="80%">
+                                 <colgroup span="1">
+                                    <col span="1" align="left" width="10%">
+                                    <col span="1" align="left" width="90%">
+                                 </colgroup>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/allkypts.gif"></td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Selects any keypoint.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt1.gif"></td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Selects an end point.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt4.gif"></td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Selects a midpoint.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt2.gif"></td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Selects the center point of a circle or arc.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt3.gif"></td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Selects a tangency point on an analytic curved face such as a cylinder, sphere, torus,
+                                          or cone.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/kypnt5.gif"></td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Selects a silhouette point.</p>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td rowspan="1" valign="top" colspan="1"><img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/feature_edit/direct_editing/editpoint.gif"></td>
+                                    <td rowspan="1" valign="top" colspan="1">
+                                       <p>Selects an edit point on a curve.</p>
+                                    </td>
+                                 </tr> 
+                                 <tr> 
+                                    <td rowspan="1" valign="top" colspan="1"> <img class="img-fluid d-block mx-auto" style="max-width: 100%;" src="../../../../common/nonLocalized/se/icons/buttons/noptkypnt1.gif"> </td> 
+                                    <td rowspan="1" valign="top" colspan="1"> 
+                                       <p>Turns off the keypoint location.</p> </td> </tr>
+                              </table>
+                           </dd>
+                        </dl>
+                     </dd>
+                     <dt><b>Command bar Options</b></dt>
+                     <dd class="ml-3">
+                        <dl>
+                           <dt><b>Name</b></dt>
+                           <dd class="ml-3">
+                              <p>Displays the feature name. Feature names are assigned automatically. You can edit
+                                 the name by typing a new name in the box on the command bar or by selecting the feature
+                                 and using the <b>Rename</b> command on the shortcut menu.</p>
+                           </dd>
+                        </dl>
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+               <h5>How do I</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtrotatefaces1h" rel="dtrotatefaces1h">Rotate faces directly</a><br><br><h5>Look up more details</h5><a class="xref" href="/en-US/product/246738425/doc/PL20211001099989437.feature_modeling/html/dtrotatefaces1c" rel="dtrotatefaces1c">Rotate Faces command</a><br><br></div>
+            <div class="footer-content">Rotate Faces command bar, Solid Edge 2023<br>© 2022 Siemens</div>
+         </div>
+      </div>
+   </body><script>window.mainLanguage="en_US"</script><script>window.delivId=""</script><script>window.projectId=""</script><script src="../../../../../../../../../../ui/1.0/tdoc/js/jquery.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/popper.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/bootstrap.min.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/l10n/en_us.js"></script><script src="../../../../../../../../../../ui/1.0/tdoc/js/tdoc.min.js"></script></html>
