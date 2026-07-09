@@ -2,60 +2,507 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Solid Edge 2023 Help</title>
 <style>
-body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.4; }
-li { margin: 0.5rem 0; }
-.meta { color: #555; }
+:root { --border:#d0d7de; --bg:#f6f8fa; --fg:#24292f; --muted:#57606a; --accent:#0969da; }
+body { font-family: Arial, sans-serif; margin: 0; color: var(--fg); background: white; }
+header { padding: 1.5rem 2rem; background: var(--bg); border-bottom: 1px solid var(--border); }
+h1 { margin: 0 0 .4rem 0; }
+.meta { color: var(--muted); margin: .2rem 0; }
+main { padding: 1.5rem 2rem; }
+.tabs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.tabbtn { border: 1px solid var(--border); background: white; padding: .55rem .8rem; cursor: pointer; border-radius: 8px; }
+.tabbtn.active { background: var(--accent); color: white; border-color: var(--accent); }
+.panel { display: none; }
+.panel.active { display: block; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .8rem; }
+.card { border: 1px solid var(--border); border-radius: 10px; padding: .85rem; background: white; }
+.card a { font-weight: 700; color: var(--accent); text-decoration: none; }
+.card a:hover { text-decoration: underline; }
+.sub { color: var(--muted); font-size: .9rem; margin-top: .4rem; }
+.components { margin-top: .4rem; font-size: .85rem; color: var(--muted); }
+.search { margin: 1rem 0; max-width: 500px; width: 100%; padding: .6rem; border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border-bottom: 1px solid var(--border); padding: .5rem; text-align: left; }
+th { background: var(--bg); }
 </style>
 </head>
 <body>
+<header>
 <h1>Solid Edge 2023 Help</h1>
-<p class="meta">Offline/local index for downloaded Siemens Solid Edge static help pages.</p>
-<h2>Sections</h2>
-<ul>
-<li><a href="annotations/index.html">Annotations</a></li>
-<li><a href="assemble_parts/index.html">Assemble Parts</a></li>
-<li><a href="assistants/index.html">Assistants</a></li>
-<li><a href="create_part/index.html">Create Part</a></li>
-<li><a href="create_sheet_metal_part/index.html">Create Sheet Metal Part</a></li>
-<li><a href="customize_solid_edge/index.html">Customize Solid Edge</a></li>
-<li><a href="dimensions/index.html">Dimensions</a></li>
-<li><a href="drawing_production/index.html">Drawing Production</a></li>
-<li><a href="engineering_tools/index.html">Engineering Tools</a></li>
-<li><a href="feature_modeling1/index.html">Feature Modeling1</a></li>
-<li><a href="frames/index.html">Frames</a></li>
-<li><a href="glossary/index.html">Glossary</a></li>
-<li><a href="importing_exporting_files/index.html">Importing Exporting Files</a></li>
-<li><a href="managing_documents/index.html">Managing Documents</a></li>
-<li><a href="mbd/index.html">Mbd</a></li>
-<li><a href="mesh_models/index.html">Mesh Models</a></li>
-<li><a href="modify_a_model/index.html">Modify A Model</a></li>
-<li><a href="parts_lists_tables/index.html">Parts Lists Tables</a></li>
-<li><a href="pmi/index.html">Pmi</a></li>
-<li><a href="print/index.html">Print</a></li>
-<li><a href="reverse_engineering/index.html">Reverse Engineering</a></li>
-<li><a href="schematic_diagrams/index.html">Schematic Diagrams</a></li>
-<li><a href="seflow/index.html">Seflow</a></li>
-<li><a href="sesim/index.html">Sesim</a></li>
-<li><a href="share/index.html">Share</a></li>
-<li><a href="simply_motion/index.html">Simply Motion</a></li>
-<li><a href="sketching/index.html">Sketching</a></li>
-<li><a href="styles/index.html">Styles</a></li>
-<li><a href="tech_pubs/index.html">Tech Pubs</a></li>
-<li><a href="testdrive_se_create_part_ordered/index.html">Testdrive Se Create Part Ordered</a></li>
-<li><a href="visualizing_models/index.html">Visualizing Models</a></li>
-<li><a href="weldments/index.html">Weldments</a></li>
-<li><a href="wiring/index.html">Wiring</a></li>
-<li><a href="working_with_2d_geometry/index.html">Working With 2D Geometry</a></li>
-<li><a href="xid1325288/index.html">Xid1325288</a></li>
-<li><a href="xid1327801/index.html">Xid1327801</a></li>
-<li><a href="xid1329526/index.html">Xid1329526</a></li>
-<li><a href="xid1411982/index.html">Xid1411982</a></li>
-<li><a href="xid1931579/index.html">Xid1931579</a></li>
-<li><a href="xid2010300/index.html">Xid2010300</a></li>
-<li><a href="xid2010856/index.html">Xid2010856</a></li>
-<li><a href="xid718565/index.html">Xid718565</a></li>
-</ul>
+<p class="meta">42 documentation sections. Offline/local Solid Edge 2023 help archive.</p>
+<p class="meta">Use the tabs below or search the section titles.</p>
+</header>
+<main>
+<input class="search" id="searchBox" placeholder="Search sections..." oninput="filterCards()">
+<div class="tabs">
+<button class="tabbtn active" onclick="showTab('design', this)">Design (34)</button>
+<button class="tabbtn" onclick="showTab('data-management', this)">Data Management (2)</button>
+<button class="tabbtn" onclick="showTab('manufacturing', this)">Manufacturing (1)</button>
+<button class="tabbtn" onclick="showTab('simulation', this)">Simulation (2)</button>
+<button class="tabbtn" onclick="showTab('apps', this)">Apps (3)</button>
+<button class="tabbtn" onclick="showTab('all-sections', this)">All</button>
+</div>
+<section id="design" class="panel active">
+<div class="grid">
+<div class="card" data-title="add model features feature_modeling">
+<a href="feature_modeling/index.html">Add model features</a>
+<div class="sub">695 topics · folder: <code>feature_modeling</code></div>
+<div class="components">Assembly Modeling, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="annotations annotations">
+<a href="annotations/index.html">Annotations</a>
+<div class="sub">187 topics · folder: <code>annotations</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="assemblies assemble_parts">
+<a href="assemble_parts/index.html">Assemblies</a>
+<div class="sub">539 topics · folder: <code>assemble_parts</code></div>
+<div class="components">Assembly Modeling</div>
+</div>
+<div class="card" data-title="assistants assistants">
+<a href="assistants/index.html">Assistants</a>
+<div class="sub">3 topics · folder: <code>assistants</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="blocks, symbols, and images schematic_diagrams">
+<a href="schematic_diagrams/index.html">Blocks, symbols, and images</a>
+<div class="sub">78 topics · folder: <code>schematic_diagrams</code></div>
+<div class="components">Drawing Creation</div>
+</div>
+<div class="card" data-title="browse solid edge help by product area xid1931579">
+<a href="xid1931579/index.html">Browse Solid Edge help by product area</a>
+<div class="sub">2 topics · folder: <code>xid1931579</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="create a part create_part">
+<a href="create_part/index.html">Create a part</a>
+<div class="sub">190 topics · folder: <code>create_part</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="create a sheet metal part create_sheet_metal_part">
+<a href="create_sheet_metal_part/index.html">Create a sheet metal part</a>
+<div class="sub">200 topics · folder: <code>create_sheet_metal_part</code></div>
+<div class="components">Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="dimensions dimensions">
+<a href="dimensions/index.html">Dimensions</a>
+<div class="sub">124 topics · folder: <code>dimensions</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="drawings drawing_production">
+<a href="drawing_production/index.html">Drawings</a>
+<div class="sub">293 topics · folder: <code>drawing_production</code></div>
+<div class="components">Drawing Creation</div>
+</div>
+<div class="card" data-title="engineering reference xid718565">
+<a href="xid718565/index.html">Engineering Reference</a>
+<div class="sub">122 topics · folder: <code>xid718565</code></div>
+<div class="components">Engineering Reference, Part Modeling</div>
+</div>
+<div class="card" data-title="frames frames">
+<a href="frames/index.html">Frames</a>
+<div class="sub">44 topics · folder: <code>frames</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="generative design xid1329526">
+<a href="xid1329526/index.html">Generative Design</a>
+<div class="sub">37 topics · folder: <code>xid1329526</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="glossary glossary">
+<a href="glossary/index.html">Glossary</a>
+<div class="sub">353 topics · folder: <code>glossary</code></div>
+<div class="components">Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="measurements and calculations engineering_tools">
+<a href="engineering_tools/index.html">Measurements and calculations</a>
+<div class="sub">58 topics · folder: <code>engineering_tools</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="mesh modeling mesh_models">
+<a href="mesh_models/index.html">Mesh modeling</a>
+<div class="sub">5 topics · folder: <code>mesh_models</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="model based definition mbd">
+<a href="mbd/index.html">Model Based Definition</a>
+<div class="sub">7 topics · folder: <code>mbd</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="modify a model modify_a_model">
+<a href="modify_a_model/index.html">Modify a model</a>
+<div class="sub">117 topics · folder: <code>modify_a_model</code></div>
+<div class="components">Assembly Modeling, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="options, properties, and variables customize_solid_edge">
+<a href="customize_solid_edge/index.html">Options, Properties, and Variables</a>
+<div class="sub">176 topics · folder: <code>customize_solid_edge</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="parts lists and tables parts_lists_tables">
+<a href="parts_lists_tables/index.html">Parts lists and tables</a>
+<div class="sub">137 topics · folder: <code>parts_lists_tables</code></div>
+<div class="components">Assembly Modeling, Drawing Creation</div>
+</div>
+<div class="card" data-title="pipe and tube design xid1325288">
+<a href="xid1325288/index.html">Pipe and Tube Design</a>
+<div class="sub">75 topics · folder: <code>xid1325288</code></div>
+<div class="components">Piping, Assembly Modeling</div>
+</div>
+<div class="card" data-title="printing documents and 3d models print">
+<a href="print/index.html">Printing documents and 3D models</a>
+<div class="sub">43 topics · folder: <code>print</code></div>
+<div class="components">3D Printing &amp; Additive Mfg., Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="product manufacturing information (pmi) pmi">
+<a href="pmi/index.html">Product Manufacturing Information (PMI)</a>
+<div class="sub">73 topics · folder: <code>pmi</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="reverse engineering reverse_engineering">
+<a href="reverse_engineering/index.html">Reverse Engineering</a>
+<div class="sub">27 topics · folder: <code>reverse_engineering</code></div>
+<div class="components">Reverse Engineering, Part Modeling</div>
+</div>
+<div class="card" data-title="share your designs share">
+<a href="share/index.html">Share your designs</a>
+<div class="sub">41 topics · folder: <code>share</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="sketching sketching">
+<a href="sketching/index.html">Sketching</a>
+<div class="sub">261 topics · folder: <code>sketching</code></div>
+<div class="components">Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="solid edge motion simulation simply_motion">
+<a href="simply_motion/index.html">Solid Edge Motion Simulation</a>
+<div class="sub">6 topics · folder: <code>simply_motion</code></div>
+<div class="components">Assembly Modeling</div>
+</div>
+<div class="card" data-title="styles styles">
+<a href="styles/index.html">Styles</a>
+<div class="sub">70 topics · folder: <code>styles</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="tutorial: create a part (ordered) testdrive_se_create_part_ordered">
+<a href="testdrive_se_create_part_ordered/index.html">Tutorial: Create a part (ordered)</a>
+<div class="sub">10 topics · folder: <code>testdrive_se_create_part_ordered</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="tutorial: create an assembly (ordered) xid2010300">
+<a href="xid2010300/index.html">Tutorial: Create an assembly (ordered)</a>
+<div class="sub">10 topics · folder: <code>xid2010300</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="tutorial: introduction to detailed drawings (ordered) xid2010856">
+<a href="xid2010856/index.html">Tutorial: Introduction to detailed drawings (ordered)</a>
+<div class="sub">9 topics · folder: <code>xid2010856</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="visualizing solid edge models visualizing_models">
+<a href="visualizing_models/index.html">Visualizing Solid Edge models</a>
+<div class="sub">133 topics · folder: <code>visualizing_models</code></div>
+<div class="components">KeyShot, Assembly Modeling, Part Modeling</div>
+</div>
+<div class="card" data-title="weldments weldments">
+<a href="weldments/index.html">Weldments</a>
+<div class="sub">27 topics · folder: <code>weldments</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="working with 2d geometry working_with_2d_geometry">
+<a href="working_with_2d_geometry/index.html">Working with 2D geometry</a>
+<div class="sub">220 topics · folder: <code>working_with_2d_geometry</code></div>
+<div class="components">Drawing Creation</div>
+</div>
+</div>
+</section>
+<section id="data-management" class="panel">
+<div class="grid">
+<div class="card" data-title="managing documents and data managing_documents">
+<a href="managing_documents/index.html">Managing documents and data</a>
+<div class="sub">630 topics · folder: <code>managing_documents</code></div>
+<div class="components">Built-in, Teamcenter</div>
+</div>
+<div class="card" data-title="solid edge requirements xid1411982">
+<a href="xid1411982/index.html">Solid Edge Requirements</a>
+<div class="sub">13 topics · folder: <code>xid1411982</code></div>
+<div class="components">Teamcenter</div>
+</div>
+</div>
+</section>
+<section id="manufacturing" class="panel">
+<div class="grid">
+<div class="card" data-title="manufacturing tools xid1327801">
+<a href="xid1327801/index.html">Manufacturing tools</a>
+<div class="sub">6 topics · folder: <code>xid1327801</code></div>
+<div class="components">Solid Edge Cam Pro, Mold Tooling &amp; Electrode Design, Standard Parts</div>
+</div>
+</div>
+</section>
+<section id="simulation" class="panel">
+<div class="grid">
+<div class="card" data-title="solid edge flow simulation seflow">
+<a href="seflow/index.html">Solid Edge Flow Simulation</a>
+<div class="sub">3 topics · folder: <code>seflow</code></div>
+<div class="components">FloEFD</div>
+</div>
+<div class="card" data-title="solid edge simulation finite element analysis sesim">
+<a href="sesim/index.html">Solid Edge Simulation Finite Element Analysis</a>
+<div class="sub">272 topics · folder: <code>sesim</code></div>
+<div class="components">Simulation</div>
+</div>
+</div>
+</section>
+<section id="apps" class="panel">
+<div class="grid">
+<div class="card" data-title="electrical routing design wiring">
+<a href="wiring/index.html">Electrical routing design</a>
+<div class="sub">167 topics · folder: <code>wiring</code></div>
+<div class="components">Electrical &amp; Harness Design</div>
+</div>
+<div class="card" data-title="importing and exporting files importing_exporting_files">
+<a href="importing_exporting_files/index.html">Importing and exporting files</a>
+<div class="sub">214 topics · folder: <code>importing_exporting_files</code></div>
+<div class="components">Translators</div>
+</div>
+<div class="card" data-title="solid edge technical publications tech_pubs">
+<a href="tech_pubs/index.html">Solid Edge Technical Publications</a>
+<div class="sub">8 topics · folder: <code>tech_pubs</code></div>
+<div class="components">Technical Publications</div>
+</div>
+</div>
+</section>
+<section id="all-sections" class="panel">
+<div class="grid">
+<div class="card" data-title="add model features feature_modeling">
+<a href="feature_modeling/index.html">Add model features</a>
+<div class="sub">695 topics · folder: <code>feature_modeling</code></div>
+<div class="components">Assembly Modeling, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="annotations annotations">
+<a href="annotations/index.html">Annotations</a>
+<div class="sub">187 topics · folder: <code>annotations</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="assemblies assemble_parts">
+<a href="assemble_parts/index.html">Assemblies</a>
+<div class="sub">539 topics · folder: <code>assemble_parts</code></div>
+<div class="components">Assembly Modeling</div>
+</div>
+<div class="card" data-title="assistants assistants">
+<a href="assistants/index.html">Assistants</a>
+<div class="sub">3 topics · folder: <code>assistants</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="blocks, symbols, and images schematic_diagrams">
+<a href="schematic_diagrams/index.html">Blocks, symbols, and images</a>
+<div class="sub">78 topics · folder: <code>schematic_diagrams</code></div>
+<div class="components">Drawing Creation</div>
+</div>
+<div class="card" data-title="browse solid edge help by product area xid1931579">
+<a href="xid1931579/index.html">Browse Solid Edge help by product area</a>
+<div class="sub">2 topics · folder: <code>xid1931579</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="create a part create_part">
+<a href="create_part/index.html">Create a part</a>
+<div class="sub">190 topics · folder: <code>create_part</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="create a sheet metal part create_sheet_metal_part">
+<a href="create_sheet_metal_part/index.html">Create a sheet metal part</a>
+<div class="sub">200 topics · folder: <code>create_sheet_metal_part</code></div>
+<div class="components">Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="dimensions dimensions">
+<a href="dimensions/index.html">Dimensions</a>
+<div class="sub">124 topics · folder: <code>dimensions</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="drawings drawing_production">
+<a href="drawing_production/index.html">Drawings</a>
+<div class="sub">293 topics · folder: <code>drawing_production</code></div>
+<div class="components">Drawing Creation</div>
+</div>
+<div class="card" data-title="electrical routing design wiring">
+<a href="wiring/index.html">Electrical routing design</a>
+<div class="sub">167 topics · folder: <code>wiring</code></div>
+<div class="components">Electrical &amp; Harness Design</div>
+</div>
+<div class="card" data-title="engineering reference xid718565">
+<a href="xid718565/index.html">Engineering Reference</a>
+<div class="sub">122 topics · folder: <code>xid718565</code></div>
+<div class="components">Engineering Reference, Part Modeling</div>
+</div>
+<div class="card" data-title="frames frames">
+<a href="frames/index.html">Frames</a>
+<div class="sub">44 topics · folder: <code>frames</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="generative design xid1329526">
+<a href="xid1329526/index.html">Generative Design</a>
+<div class="sub">37 topics · folder: <code>xid1329526</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="glossary glossary">
+<a href="glossary/index.html">Glossary</a>
+<div class="sub">353 topics · folder: <code>glossary</code></div>
+<div class="components">Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="importing and exporting files importing_exporting_files">
+<a href="importing_exporting_files/index.html">Importing and exporting files</a>
+<div class="sub">214 topics · folder: <code>importing_exporting_files</code></div>
+<div class="components">Translators</div>
+</div>
+<div class="card" data-title="managing documents and data managing_documents">
+<a href="managing_documents/index.html">Managing documents and data</a>
+<div class="sub">630 topics · folder: <code>managing_documents</code></div>
+<div class="components">Built-in, Teamcenter</div>
+</div>
+<div class="card" data-title="manufacturing tools xid1327801">
+<a href="xid1327801/index.html">Manufacturing tools</a>
+<div class="sub">6 topics · folder: <code>xid1327801</code></div>
+<div class="components">Solid Edge Cam Pro, Mold Tooling &amp; Electrode Design, Standard Parts</div>
+</div>
+<div class="card" data-title="measurements and calculations engineering_tools">
+<a href="engineering_tools/index.html">Measurements and calculations</a>
+<div class="sub">58 topics · folder: <code>engineering_tools</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="mesh modeling mesh_models">
+<a href="mesh_models/index.html">Mesh modeling</a>
+<div class="sub">5 topics · folder: <code>mesh_models</code></div>
+<div class="components">Part Modeling</div>
+</div>
+<div class="card" data-title="model based definition mbd">
+<a href="mbd/index.html">Model Based Definition</a>
+<div class="sub">7 topics · folder: <code>mbd</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="modify a model modify_a_model">
+<a href="modify_a_model/index.html">Modify a model</a>
+<div class="sub">117 topics · folder: <code>modify_a_model</code></div>
+<div class="components">Assembly Modeling, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="options, properties, and variables customize_solid_edge">
+<a href="customize_solid_edge/index.html">Options, Properties, and Variables</a>
+<div class="sub">176 topics · folder: <code>customize_solid_edge</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="parts lists and tables parts_lists_tables">
+<a href="parts_lists_tables/index.html">Parts lists and tables</a>
+<div class="sub">137 topics · folder: <code>parts_lists_tables</code></div>
+<div class="components">Assembly Modeling, Drawing Creation</div>
+</div>
+<div class="card" data-title="pipe and tube design xid1325288">
+<a href="xid1325288/index.html">Pipe and Tube Design</a>
+<div class="sub">75 topics · folder: <code>xid1325288</code></div>
+<div class="components">Piping, Assembly Modeling</div>
+</div>
+<div class="card" data-title="printing documents and 3d models print">
+<a href="print/index.html">Printing documents and 3D models</a>
+<div class="sub">43 topics · folder: <code>print</code></div>
+<div class="components">3D Printing &amp; Additive Mfg., Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="product manufacturing information (pmi) pmi">
+<a href="pmi/index.html">Product Manufacturing Information (PMI)</a>
+<div class="sub">73 topics · folder: <code>pmi</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="reverse engineering reverse_engineering">
+<a href="reverse_engineering/index.html">Reverse Engineering</a>
+<div class="sub">27 topics · folder: <code>reverse_engineering</code></div>
+<div class="components">Reverse Engineering, Part Modeling</div>
+</div>
+<div class="card" data-title="share your designs share">
+<a href="share/index.html">Share your designs</a>
+<div class="sub">41 topics · folder: <code>share</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="sketching sketching">
+<a href="sketching/index.html">Sketching</a>
+<div class="sub">261 topics · folder: <code>sketching</code></div>
+<div class="components">Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="solid edge flow simulation seflow">
+<a href="seflow/index.html">Solid Edge Flow Simulation</a>
+<div class="sub">3 topics · folder: <code>seflow</code></div>
+<div class="components">FloEFD</div>
+</div>
+<div class="card" data-title="solid edge motion simulation simply_motion">
+<a href="simply_motion/index.html">Solid Edge Motion Simulation</a>
+<div class="sub">6 topics · folder: <code>simply_motion</code></div>
+<div class="components">Assembly Modeling</div>
+</div>
+<div class="card" data-title="solid edge requirements xid1411982">
+<a href="xid1411982/index.html">Solid Edge Requirements</a>
+<div class="sub">13 topics · folder: <code>xid1411982</code></div>
+<div class="components">Teamcenter</div>
+</div>
+<div class="card" data-title="solid edge simulation finite element analysis sesim">
+<a href="sesim/index.html">Solid Edge Simulation Finite Element Analysis</a>
+<div class="sub">272 topics · folder: <code>sesim</code></div>
+<div class="components">Simulation</div>
+</div>
+<div class="card" data-title="solid edge technical publications tech_pubs">
+<a href="tech_pubs/index.html">Solid Edge Technical Publications</a>
+<div class="sub">8 topics · folder: <code>tech_pubs</code></div>
+<div class="components">Technical Publications</div>
+</div>
+<div class="card" data-title="styles styles">
+<a href="styles/index.html">Styles</a>
+<div class="sub">70 topics · folder: <code>styles</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling, Sheet Metal modeling</div>
+</div>
+<div class="card" data-title="tutorial: create a part (ordered) testdrive_se_create_part_ordered">
+<a href="testdrive_se_create_part_ordered/index.html">Tutorial: Create a part (ordered)</a>
+<div class="sub">10 topics · folder: <code>testdrive_se_create_part_ordered</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="tutorial: create an assembly (ordered) xid2010300">
+<a href="xid2010300/index.html">Tutorial: Create an assembly (ordered)</a>
+<div class="sub">10 topics · folder: <code>xid2010300</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="tutorial: introduction to detailed drawings (ordered) xid2010856">
+<a href="xid2010856/index.html">Tutorial: Introduction to detailed drawings (ordered)</a>
+<div class="sub">9 topics · folder: <code>xid2010856</code></div>
+<div class="components">Built-in, Design Manager, Insight, Teamcenter +22 more</div>
+</div>
+<div class="card" data-title="visualizing solid edge models visualizing_models">
+<a href="visualizing_models/index.html">Visualizing Solid Edge models</a>
+<div class="sub">133 topics · folder: <code>visualizing_models</code></div>
+<div class="components">KeyShot, Assembly Modeling, Part Modeling</div>
+</div>
+<div class="card" data-title="weldments weldments">
+<a href="weldments/index.html">Weldments</a>
+<div class="sub">27 topics · folder: <code>weldments</code></div>
+<div class="components">Assembly Modeling, Drawing Creation, Part Modeling</div>
+</div>
+<div class="card" data-title="working with 2d geometry working_with_2d_geometry">
+<a href="working_with_2d_geometry/index.html">Working with 2D geometry</a>
+<div class="sub">220 topics · folder: <code>working_with_2d_geometry</code></div>
+<div class="components">Drawing Creation</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+function showTab(id, btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  filterCards();
+}
+function filterCards(){
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = c.dataset.title.includes(q) ? '' : 'none';
+  });
+}
+</script>
 </body>
 </html>
